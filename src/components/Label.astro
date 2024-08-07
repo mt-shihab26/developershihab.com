@@ -1,7 +1,7 @@
 ---
-import { cn } from '@/utils'
+import { cn } from '@/utils';
 
-const { class: className, as: Tag = 'div', title, href, ...props } = Astro.props
+const { class: className, as: Tag = 'div', title, href, ...props } = Astro.props;
 ---
 
 <Tag
@@ -13,6 +13,6 @@ const { class: className, as: Tag = 'div', title, href, ...props } = Astro.props
 	href={href}
 	{...props}
 >
-	<slot name='icon' />
+	<slot name="icon" />
 	<p>{title}</p>
 </Tag>
