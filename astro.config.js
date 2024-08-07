@@ -11,30 +11,41 @@ import icon from 'astro-icon';
 import vercel from '@astrojs/vercel/serverless';
 import solidJs from '@astrojs/solid-js';
 
-
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.me',
-  integrations: [expressiveCode(expressiveCodeOptions), tailwind({
-    applyBaseStyles: false
-  }), sitemap(), mdx(), icon(), solidJs()],
-  markdown: {
-    remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
-    rehypePlugins: [[rehypeExternalLinks, {
-      target: '_blank',
-      rel: ['nofollow, noopener, noreferrer']
-    }]],
-    remarkRehype: {
-      footnoteLabelProperties: {
-        className: ['']
-      }
-    }
-  },
-  prefetch: true,
-  output: 'server',
-  adapter: vercel({
-    webAnalytics: {
-      enabled: true
-    }
-  })
+	site: 'https://example.me',
+	integrations: [
+		expressiveCode(expressiveCodeOptions),
+		tailwind({
+			applyBaseStyles: false
+		}),
+		sitemap(),
+		mdx(),
+		icon(),
+		solidJs({ devtools: true })
+	],
+	markdown: {
+		remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
+		rehypePlugins: [
+			[
+				rehypeExternalLinks,
+				{
+					target: '_blank',
+					rel: ['nofollow, noopener, noreferrer']
+				}
+			]
+		],
+		remarkRehype: {
+			footnoteLabelProperties: {
+				className: ['']
+			}
+		}
+	},
+	prefetch: true,
+	output: 'server',
+	adapter: vercel({
+		webAnalytics: {
+			enabled: true
+		}
+	})
 });

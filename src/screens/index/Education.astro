@@ -1,0 +1,32 @@
+---
+import Section from '@/components/Section.astro';
+import Card from '@/components/Card.astro';
+---
+
+<Section title="Education">
+	<Card
+		heading="Lorem Ipsum"
+		subheading="Sit amet consectetur"
+		date="Dec 2022 - Nov 2023"
+		imagePath="/src/assets/portrait.jpg"
+		altText="Lorem, ipsum dolor sit"
+		imageClass="h-12 w-auto md:-left-16"
+	>
+		<ul class="ml-4 list-disc text-muted-foreground">
+			<li>
+				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis recusandae, ut
+				molestiae laboriosam pariatur!
+
+				<li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, pariatur!</li>
+			</li>
+		</ul>
+	</Card>
+	<Card
+		heading="Lorem Ipsum"
+		subheading="Sit amet consectetur"
+		date="Dec 2022 - Nov 2023"
+		imagePath="/src/assets/portrait.jpg"
+		altText="Lorem, ipsum dolor sit"
+		imageClass="h-12 w-auto md:-left-16"
+	/>
+</Section>
