@@ -21,16 +21,27 @@ const post = defineCollection({
 				.string()
 				.optional()
 				.transform((str) => (str ? new Date(str) : undefined)),
-			coverImage: z
-				.object({
-					src: image(),
-					alt: z.string()
-				})
-				.optional(),
+			coverImage: z.object({ src: image(), alt: z.string() }).optional(),
 			draft: z.boolean().default(false),
 			tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
 			ogImage: z.string().optional()
 		})
 });
 
-export const collections = { post };
+const projects = defineCollection({
+	type: 'content',
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			description: z.string(),
+			technologies: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
+			coverImage: z.object({ src: image(), alt: z.string() }).optional(),
+			links: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
+			draft: z.boolean().default(false),
+			ogImage: z.string().optional(),
+			featured: z.boolean().default(false),
+			priority: z.number().optional()
+		})
+});
+
+export const collections = { post, projects };
