@@ -9,12 +9,14 @@ import Label from '@/components/Label.astro';
 import Button from '@/components/Button.astro';
 import Section from '@/components/Section.astro';
 import ContactEmail from '@/components/ContactEmail.astro';
+import PostPreview from '@/components/blog/PostPreview.astro';
 
-import Posts from '@/screens/index/Posts.astro';
-import Eduction from '@/screens/index/Education.astro';
 import Projects from '@/screens/index/Projects.astro';
 
+import { getAllPosts, sortMDByDate } from '@/utils';
 import { certifications, skills, socials } from '@/site-config';
+
+const posts = sortMDByDate(await getAllPosts()).slice(0, 10);
 ---
 
 <PageLayout meta={{ title: "Shihab Mahamud's Portfolio" }}>
@@ -94,7 +96,21 @@ import { certifications, skills, socials } from '@/site-config';
 			</p>
 		</Section>
 		<!-- About End -->
-		<Posts />
+		<!-- Posts Start -->
+		{
+			posts.length > 0 && (
+				<Section title="Posts">
+					<ul class="flex flex-col gap-y-2">
+						{posts.map((p) => (
+							<li class="flex flex-col gap-x-2 sm:flex-row">
+								<PostPreview post={p} />
+							</li>
+						))}
+					</ul>
+				</Section>
+			)
+		}
+		<!-- Posts End -->
 		<!-- Experience Start -->
 		<Section title="Experience">
 			{

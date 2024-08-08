@@ -8,6 +8,8 @@ import Button from '@/components/Button.astro';
 import Pagination from '@/components/Paginator.astro';
 import PostPreview from '@/components/blog/PostPreview.astro';
 import PageLayout from '@/layouts/BaseLayout.astro';
+import ContactEmail from '@/components/ContactEmail.astro';
+
 import { getAllPosts, getUniqueTags, sortMDByDate } from '@/utils';
 
 export const getStaticPaths = (async ({ paginate }) => {
@@ -115,19 +117,8 @@ const paginationProps = {
 				</div>
 			)
 		}
-
-		<a
-			href="https://github.com/srleom/astro-theme-resume.git"
-			class="mt-16 inline-flex flex-row items-center gap-x-3 rounded-3xl border border-input px-4 py-2 text-sm shadow-sm transition-all hover:shadow-md"
-		>
-			<span class="relative flex items-center justify-center">
-				<span
-					class="absolute inline-flex h-2 w-2 animate-ping rounded-full border border-green-400 bg-green-400 opacity-75"
-				></span>
-				<span class="relative inline-flex h-2 w-2 rounded-full bg-green-400"></span>
-			</span>
-
-			<p class="font-medium">Get free template</p>
-		</a>
+		<div class="mt-16">
+			<ContactEmail />
+		</div>
 	</div>
 </PageLayout>
