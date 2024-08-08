@@ -1,5 +1,6 @@
 ---
 title: 'Student Performance Monitoring System'
+type: 'Open Source Project'
 description: "The Student Performance Monitoring System is a web-based application built with raw PHP. This system helps educators and administrators monitor and track students' academic performance over time."
 technologies: ['PHP', 'MySQL', 'Composer', 'TailwindCSS']
 coverImage: { src: './student-performance-monitoring-system.jpg', alt: '' }

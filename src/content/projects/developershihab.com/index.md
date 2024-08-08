@@ -1,8 +1,10 @@
 ---
 title: 'developershihab.com'
+type: 'Open Source Project'
 description: 'I developer my portfolio website with Modern And cutting edges technologies'
-technologies: ['React.js', 'TypeScript', 'Next.js', 'TailwindCSS', 'Framer Motion']
+technologies: ['Astro', 'TypeScript', 'TailwindCSS']
 coverImage: { src: './developershihab.jpg', alt: '' }
+logoImage: { src: '/src/assets/developershihab.com.svg', alt: '' }
 links:
   [
     { label: 'Source Code', link: 'https://github.com/p-nerd/developershihab.com' },

@@ -1,5 +1,6 @@
 ---
 title: 'X'
+type: 'Open Source Project'
 description: 'This is a command line to automate my software development workflow'
 technologies: ['Go']
 coverImage: { src: './x.jpg', alt: '' }

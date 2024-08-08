@@ -1,7 +1,9 @@
 ---
 title: 'tic-tac-toe'
+type: 'Open Source Project'
 description: 'Tic Tac Toe game implmented With SolidJS & MiniMax Algorithm'
 technologies: ['SolidJS', 'Vite', 'TypeScript', 'TailwindCSS']
+logoImage: { src: '/src/assets/tic-tac-toe.svg', alt: '' }
 coverImage: { src: './tic-tac-toe.jpg', alt: '' }
 links:
   [

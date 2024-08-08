@@ -4,7 +4,9 @@ import { Image } from 'astro:assets';
 
 const { src, alt, loading = 'eager', ...props } = Astro.props;
 
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/**/*.{jpeg,jpg,png,gif}');
+const images = import.meta.glob<{ default: ImageMetadata }>(
+	'/src/assets/**/*.{jpeg,jpg,png,gif,svg}'
+);
 
 if (src && !images[src]) {
 	throw new Error(`"${src}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);

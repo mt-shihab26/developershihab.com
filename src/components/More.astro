@@ -1,0 +1,16 @@
+---
+import { cn } from '@/utils';
+
+const { class: className, href, target } = Astro.props;
+---
+
+<a
+	class={cn(
+		'rounded-2xl border border-border bg-primary-foreground px-3 py-1 transition-all hover:border-foreground/25 hover:shadow-sm',
+		className
+	)}
+	href={href}
+	target={target}
+>
+	<slot />
+</a>

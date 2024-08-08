@@ -1,7 +1,8 @@
 ---
-title: 'PaystubHero'
+title: 'PaystubHero.com'
 description: 'WordPress plugin and React frontend for paystubhero.com. The React app is integrated via shortcode. Also, I built a custom WordPress REST API for backend functionality. I am also maintaining this project for over 1 year.'
 technologies: ['React.js', 'JS', 'PHP', 'Wordpress', 'TailwindCSS', 'mPDF', 'Stripe']
+logoImage: { src: '/src/assets/paystubhero.png', alt: '' }
 coverImage: { src: './paystubhero.jpg', alt: '' }
 links: [{ label: 'Live Link', link: 'https://www.paystubhero.com/generate-pay-stubs' }]
 draft: false

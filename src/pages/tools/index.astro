@@ -1,61 +1,98 @@
 ---
 import PageLayout from '@/layouts/BaseLayout.astro';
-import ToolSection from '@/components/ToolSection.astro';
 import Button from '@/components/Button.astro';
+import { Icon } from 'astro-icon/components';
 
-const DESIGN = [
+const tools = [
 	{
-		name: 'Figma',
-		description: 'Design Tool',
-		href: 'https://www.figma.com/',
-		iconPath: 'figma',
-		iconBgColour: '#000001'
-	}
-];
-
-const PRODUCTIVITY = [
-	{
-		name: 'Arc',
-		description: 'Browser',
-		href: 'https://arc.net/',
-		iconPath: 'arc',
-		iconBgColour: '#414350'
+		label: 'Design',
+		tools: [
+			{
+				name: 'Figma',
+				description: 'Design Tool',
+				href: 'https://www.figma.com/',
+				iconPath: 'figma',
+				iconBgColour: '#000001'
+			}
+		]
 	},
 	{
-		name: 'Notion',
-		description: 'Note Taking',
-		href: 'https://www.notion.so/product',
-		iconPath: 'notion',
-		iconBgColour: '#EFEFEE'
+		label: 'Productivity',
+		tools: [
+			{
+				name: 'Arc',
+				description: 'Browser',
+				href: 'https://arc.net/',
+				iconPath: 'arc',
+				iconBgColour: '#414350'
+			},
+			{
+				name: 'Todoist',
+				description: 'Note Taking',
+				href: 'https://www.notion.so/product',
+				iconPath: 'notion',
+				iconBgColour: '#EFEFEE'
+			},
+			{
+				name: 'Obsidian',
+				description: 'Long-form Writing',
+				href: 'https://obsidian.md/',
+				iconPath: 'obsidian',
+				iconBgColour: '#7A3EE8'
+			}
+		]
 	},
 	{
-		name: 'Obsidian',
-		description: 'Long-form Writing',
-		href: 'https://obsidian.md/',
-		iconPath: 'obsidian',
-		iconBgColour: '#7A3EE8'
-	}
-];
-
-const DEVELOPMENT = [
-	{
-		name: 'VS Code',
-		description: 'IDE',
-		href: 'https://code.visualstudio.com/',
-		iconPath: 'vscode',
-		iconBgColour: '#2C2C32'
-	},
-	{
-		name: 'ChatGPT',
-		description: 'AI',
-		href: 'https://chat.openai.com/',
-		iconPath: 'chatgpt',
-		iconBgColour: '#06A67F'
+		label: 'Development',
+		tools: [
+			{
+				name: 'Linux',
+				description: 'OS',
+				href: 'https://www.kernel.org/',
+				iconPath: 'linux',
+				iconBgColour: '#01a2ce'
+			},
+			{
+				name: 'Warp',
+				description: 'Terminal',
+				href: 'https://www.warp.dev',
+				iconPath: 'warp',
+				iconBgColour: '#01a2ce'
+			},
+			{
+				name: 'Git',
+				description: 'Version Control',
+				href: 'https://git-scm.com',
+				iconPath: 'git',
+				iconBgColour: '#f74e27'
+			},
+			{
+				name: 'Neovim',
+				description: 'IDE',
+				href: 'https://neovim.io',
+				iconPath: 'neovim',
+				iconBgColour: '#03b952'
+			},
+			{
+				name: 'VS Code',
+				description: 'IDE',
+				href: 'https://code.visualstudio.com',
+				iconPath: 'vscode',
+				iconBgColour: '#2C2C32'
+			},
+			{
+				name: 'ChatGPT',
+				description: 'AI',
+				href: 'https://chat.openai.com/',
+				iconPath: 'chatgpt',
+				iconBgColour: '#06A67F'
+			}
+		]
 	}
 ];
 ---
 
-<PageLayout meta={{ title: 'Home' }}>
+<PageLayout meta={{ title: 'Tools' }}>
 	<div class="w-full">
 		<Button title="Back" href="/" style="button">
 			<svg
@@ -78,10 +115,32 @@ const DEVELOPMENT = [
 				<h1 class="mb-1 text-2xl font-bold">Tools</h1>
 				<p>Tools and software I use daily</p>
 			</div>
-
-			<ToolSection title="Design" tools={DESIGN} />
-			<ToolSection title="Productivity" tools={PRODUCTIVITY} />
-			<ToolSection title="Development" tools={DEVELOPMENT} />
+			{
+				tools.map((tool) => (
+					<div class="flex flex-col gap-y-4 rounded-xl border border-border px-3 py-5 sm:gap-y-6">
+						<h2 class="px-2 text-lg font-medium">{tool.label}</h2>
+						<div class="grid grid-cols-1 gap-x-2 gap-y-3 sm:grid-cols-2 sm:gap-y-4">
+							{tool.tools.map((t) => (
+								<a
+									class="group relative hover:bg-transparent "
+									href={t.href}
+									id={t.name}
+									target="_blank"
+								>
+									<div class="relative flex flex-row items-center gap-x-4 px-2 py-0.5 transition-all">
+										<div class="absolute -inset-0 z-10 rounded-lg border border-border bg-muted opacity-0 transition-all group-hover:opacity-50" />
+										<Icon name={t.iconPath} class="z-20 h-10 w-10 rounded-lg bg-muted p-2" />
+										<div class="z-20 flex flex-col">
+											<h3 class="font-medium">{t.name}</h3>
+											<p class="text-muted-foreground">{t.description}</p>
+										</div>
+									</div>
+								</a>
+							))}
+						</div>
+					</div>
+				))
+			}
 		</div>
 	</div>
 </PageLayout>
