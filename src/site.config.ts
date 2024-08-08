@@ -64,20 +64,6 @@ export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
 	}
 };
 
-export const intro = {
-	heading: "Hello, I'm Shihab Mahamud",
-	subheading: 'Programmer | Problem Solver | Full-stack Developer',
-	portrait: {
-		path: '/src/assets/portrait.jpg',
-		alt: 'Shihab Mahamud Profile'
-	},
-	firm: {
-		name: 'Finnext.co',
-		href: 'https://finnext.co'
-	},
-	live: 'Dhaka, Bangladesh'
-} as const;
-
 export const certifications = [
 	{
 		heading: 'Think in a Redux way Course (Learn with Sumit)',

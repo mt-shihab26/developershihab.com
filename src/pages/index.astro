@@ -11,11 +11,10 @@ import Section from '@/components/Section.astro';
 import ContactEmail from '@/components/ContactEmail.astro';
 
 import Posts from '@/screens/index/Posts.astro';
-import Experience from '@/screens/index/Experience.astro';
 import Eduction from '@/screens/index/Education.astro';
 import Projects from '@/screens/index/Projects.astro';
 
-import { intro, certifications, skills, socials } from '@/site-config';
+import { certifications, skills, socials } from '@/site-config';
 ---
 
 <PageLayout meta={{ title: "Shihab Mahamud's Portfolio" }}>
@@ -23,16 +22,16 @@ import { intro, certifications, skills, socials } from '@/site-config';
 		<!-- Intro Start -->
 		<section class="flex flex-col items-center gap-y-7">
 			<Img
-				src={intro.portrait.path}
-				alt={intro.portrait.alt}
+				src="/src/assets/portrait.jpg"
+				alt="Shihab Mahamud Profile"
 				class="h-28 w-auto rounded-full bg-[#FFBE98] p-2"
 			/>
 			<div class="flex flex-col items-center gap-y-4">
-				<h1 class="text-3xl font-bold">{intro.heading}</h1>
-				<p class="text-muted-foreground">{intro.subheading}</p>
+				<h1 class="text-3xl font-bold">Hello, I'm Shihab Mahamud</h1>
+				<p class="text-muted-foreground">Programmer | Problem Solver | Full-stack Developer</p>
 				<ContactEmail />
 				<div class="flex flex-wrap justify-center gap-x-7 gap-y-3">
-					<Label title={intro.firm.name} as="a" href={intro.firm.href} target="_blank">
+					<Label title="Finnext.co" as="a" href="https://finnext.co" target="_blank">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5" slot="icon">
 							<path
 								fill="currentColor"
@@ -41,7 +40,7 @@ import { intro, certifications, skills, socials } from '@/site-config';
 							</path>
 						</svg>
 					</Label>
-					<Label title={intro.live}>
+					<Label title="Dhaka, Bangladesh">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-5 w-5" slot="icon">
 							<path
 								fill="currentColor"
@@ -96,7 +95,68 @@ import { intro, certifications, skills, socials } from '@/site-config';
 		</Section>
 		<!-- About End -->
 		<Posts />
-		<Experience />
+		<!-- Experience Start -->
+		<Section title="Experience">
+			{
+				[
+					{
+						heading: 'Software Engineer - Intern @Systech Digital LTD',
+						subheading: `
+                            As a Laravel Software Engineer intern at Systech Digital LTD,
+                            I gained hands-on experience in developing and optimizing 
+                            web applications. My role involved building and enhancing 
+                            backend systems using Laravel, collaborating with cross-functional
+                            teams to implement new features, and ensuring application 
+                            performance through code optimization and testing. This 
+                            internship strengthened my skills in Laravel development 
+                            and deepened my understanding of modern web technologies.
+                        `,
+						date: 'June 2024 - Present',
+						imagePath: '/src/assets/systech-digital-ltd.png',
+						altText: 'Systech Digital LTD logo'
+					},
+					{
+						heading: 'Full-stack Developer @Finnext.co',
+						subheading: `
+                            I am working with Finnext.co as a Full-stack Developer, 
+                            primarily focusing on their contract-based projects, 
+                            predominantly with American clients. My responsibilities 
+                            include both building and maintaining these applications. 
+                            I have successfully completed several projects and continue 
+                            to oversee their maintenance.
+                        `,
+						date: 'May 2023 - Present',
+						imagePath: '/src/assets/finnext.co.png',
+						altText: 'finnext.co logo',
+						children: (
+							<ul class="ml-4 list-disc text-muted-foreground">
+								<li>
+									Projects did/doing here:{' '}
+									<A href="https://paystubhero.com" target="_blank">
+										PaystubHero.com
+									</A>
+								</li>
+								<li>
+									Technologies used here: JavaScript, TypeScript, React, PHP, WordPress, mPDF,
+									Stripe, TailwindCSS
+								</li>
+							</ul>
+						)
+					}
+				].map((experience) => (
+					<Card
+						heading={experience.heading}
+						subheading={experience.subheading}
+						imagePath={experience.imagePath}
+						altText={experience.altText}
+						imageClass="h-12 w-auto md:-left-16"
+					>
+						{experience?.children || ''}
+					</Card>
+				))
+			}
+		</Section>
+		<!-- Experience End -->
 		<Eduction />
 		<Projects />
 		<!-- Certifications Start -->
