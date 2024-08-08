@@ -63,3 +63,10 @@ export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
 			'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;'
 	}
 };
+
+export const socialLinks = {
+	linkedin: 'https://www.linkedin.com/in/shihab-mahamud',
+	x: 'https://x.com/shihabmahamud13',
+	github: 'https://github.com/p-nerd',
+	devto: 'https://dev.to/p-nerd'
+};

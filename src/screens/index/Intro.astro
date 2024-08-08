@@ -6,8 +6,8 @@ import Label from '@/components/Label.astro';
 import ContactEmail from '@/components/ContactEmail.astro';
 
 import portrait from '@/assets/portrait.jpg';
+import { socialLinks } from '@/site-config';
 
-const linkedin = 'https://www.linkedin.com/in/shihab-mahamud';
 const firm = { name: 'Finnext.co', link: 'https://finnext.co' };
 const live = 'Dhaka, Bangladesh';
 ---
@@ -42,7 +42,7 @@ const live = 'Dhaka, Bangladesh';
 					</path>
 				</svg>
 			</Label>
-			<Label title="Connect on Linkedin" as="a" href={linkedin} target="_blank">
+			<Label title="Connect on Linkedin" as="a" href={socialLinks.linkedin} target="_blank">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 16 16"
