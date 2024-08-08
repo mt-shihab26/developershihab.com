@@ -173,6 +173,44 @@ const posts = sortMDByDate(await getAllPosts()).slice(0, 10);
 			}
 		</Section>
 		<!-- Experience End -->
+		<!-- Projects Start -->
+		<Projects />
+		<!-- Projects End -->
+		<!-- Skills Start -->
+		<Section title="Skills">
+			{
+				skills.map((skill) => (
+					<div class="flex flex-col gap-y-2 md:flex-row md:gap-x-5 md:gap-y-0">
+						<h3 class="w-1/5 font-medium">{skill.title}</h3>
+						<div class="flex w-4/5 flex-row flex-wrap gap-x-4 gap-y-2">
+							{skill.tools.map((skill) => (
+								<Button as="span" title={skill} style="pill" />
+							))}
+						</div>
+					</div>
+				))
+			}
+		</Section>
+		<!-- Skills End -->
+		<!-- Certifications Start -->
+		<Section title="Certifications">
+			{
+				certifications.map((certification) => (
+					<Card
+						as="a"
+						target="_blank"
+						heading={certification.heading}
+						subheading={certification.subheading}
+						date={certification.date}
+						imagePath={certification.imagePath}
+						altText={certification.altText}
+						imageClass="h-11 w-auto md:-left-16"
+						href={certification.href}
+					/>
+				))
+			}
+		</Section>
+		<!-- Certifications End -->
 		<!-- Eduction Start -->
 		<Section title="Education">
 			{
@@ -222,42 +260,6 @@ const posts = sortMDByDate(await getAllPosts()).slice(0, 10);
 			}
 		</Section>
 		<!-- Eduction End -->
-		<Projects />
-		<!-- Certifications Start -->
-		<Section title="Certifications">
-			{
-				certifications.map((certification) => (
-					<Card
-						as="a"
-						target="_blank"
-						heading={certification.heading}
-						subheading={certification.subheading}
-						date={certification.date}
-						imagePath={certification.imagePath}
-						altText={certification.altText}
-						imageClass="h-11 w-auto md:-left-16"
-						href={certification.href}
-					/>
-				))
-			}
-		</Section>
-		<!-- Certifications End -->
-		<!-- Skills Start -->
-		<Section title="Skills">
-			{
-				skills.map((skill) => (
-					<div class="flex flex-col gap-y-2 md:flex-row md:gap-x-5 md:gap-y-0">
-						<h3 class="w-1/5 font-medium">{skill.title}</h3>
-						<div class="flex w-4/5 flex-row flex-wrap gap-x-4 gap-y-2">
-							{skill.tools.map((skill) => (
-								<Button as="span" title={skill} style="pill" />
-							))}
-						</div>
-					</div>
-				))
-			}
-		</Section>
-		<!-- Skills End -->
 	</div>
 	<ContactEmail />
 </PageLayout>
