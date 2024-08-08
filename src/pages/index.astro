@@ -157,7 +157,55 @@ import { certifications, skills, socials } from '@/site-config';
 			}
 		</Section>
 		<!-- Experience End -->
-		<Eduction />
+		<!-- Eduction Start -->
+		<Section title="Education">
+			{
+				[
+					{
+						heading: 'Faridpur Polytechnic Institute',
+						subheading: 'Diploma in Engineering, Computer Science & Technology',
+						date: 'Dec 2021 - Nov 2024',
+						imagePath: '/src/assets/faridpur-polytechnic-institute.png',
+						altText: 'Faridpur Polytechnic Institute logo',
+						children: (
+							<ul class="ml-4 list-disc text-muted-foreground">
+								<li>Specialized in Computer Science & Technology.</li>
+								<li>
+									Gained a strong foundation in software development, networking, and hardware.
+								</li>
+								<li>Developed practical skills to excel in the tech industry.</li>
+							</ul>
+						)
+					},
+					{
+						heading: 'Kashiani G.C. Pilot High School',
+						subheading: 'SSC, Science',
+						date: 'Jan 2018 - Fab 2020',
+						imagePath: '/src/assets/kashiani-g-c-pilot-high-school.png',
+						altText: 'Kashiani G.C. Pilot High School logo',
+						children: (
+							<ul class="ml-4 list-disc text-muted-foreground">
+								<li>Completed Secondary School Certificate (SSC) with a focus on Science.</li>
+								<li>Acquired a solid understanding of core scientific principles.</li>
+								<li>Laid the foundation for further studies in engineering and technology.</li>
+							</ul>
+						)
+					}
+				].map((eduction) => (
+					<Card
+						heading={eduction.heading}
+						subheading={eduction.subheading}
+						date={eduction.date}
+						imagePath={eduction.imagePath}
+						altText={eduction.altText}
+						imageClass="h-12 w-auto md:-left-16"
+					>
+						{eduction.children || ''}
+					</Card>
+				))
+			}
+		</Section>
+		<!-- Eduction End -->
 		<Projects />
 		<!-- Certifications Start -->
 		<Section title="Certifications">
