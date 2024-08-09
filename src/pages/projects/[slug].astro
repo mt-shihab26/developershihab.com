@@ -30,7 +30,7 @@ const {
 	slug
 } = project;
 
-const { Content, headings } = await project.render();
+const { Content, headings, remarkPluginFrontmatter } = await project.render();
 ---
 
 <BaseLayout meta={{ description, ogImage: ogImage ?? `/og-image/${slug}.png`, title }}>
@@ -54,6 +54,12 @@ const { Content, headings } = await project.render();
 						)
 					}
 					{draft ? <span class="text-red-500">(Draft)</span> : null}
+					<div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+						<p class="text-xs">
+							{remarkPluginFrontmatter.minutesRead}
+						</p>
+					</div>
+
 					<div class="flex items-center space-x-2 sm:mb-1">
 						{!!logoImage && <Img src={logoImage?.src} alt={logoImage?.alt} class="h-10 w-10" />}
 						<h1 class="text-3xl font-medium">

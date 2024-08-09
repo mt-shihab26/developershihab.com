@@ -15,7 +15,7 @@ import { allBlogs, getUniqueTags } from '@/utils/blogs';
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const blogs = await allBlogs();
-	const uniqueTags = getUniqueTags(blogs);
+	const uniqueTags = await getUniqueTags();
 	return paginate(blogs, { pageSize: 10, props: { uniqueTags } });
 }) satisfies GetStaticPaths;
 
