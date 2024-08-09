@@ -1,44 +1,21 @@
 {
-    "extends": "astro/tsconfigs/strict",
-    "compilerOptions": {
-        "strictNullChecks": true,
-        "allowJs": true,
-        "baseUrl": "/Users/shihab/Code/developershihab.com",
-        "lib": [
-            "es2022",
-            "dom",
-            "dom.iterable"
-        ],
-        "paths": {
-            "@/assets/*": [
-                "src/assets/*"
-            ],
-            "@/components/*": [
-                "src/components/*"
-            ],
-            "@/screens/*": [
-                "src/screens/*"
-            ],
-            "@/layouts/*": [
-                "src/layouts/*"
-            ],
-            "@/utils/*": [
-                "src/utils/*"
-            ],
-            "@/types": [
-                "src/types.ts"
-            ],
-            "@/site-config": [
-                "src/site.config.ts"
-            ]
-        },
-        "jsx": "preserve",
-        "jsxImportSource": "solid-js"
-    },
-    "exclude": [
-        "node_modules",
-        "**/node_modules/*",
-        ".vscode",
-        "dist"
-    ]
+	"extends": "astro/tsconfigs/strict",
+	"compilerOptions": {
+		"strictNullChecks": true,
+		"allowJs": true,
+		"baseUrl": "/Users/shihab/Code/developershihab.com",
+		"lib": ["es2022", "dom", "dom.iterable"],
+		"paths": {
+			"@/assets/*": ["src/assets/*"],
+			"@/components/*": ["src/components/*"],
+			"@/screens/*": ["src/screens/*"],
+			"@/layouts/*": ["src/layouts/*"],
+			"@/utils/*": ["src/utils/*"],
+			"@/types": ["src/types.ts"],
+			"@/site-config": ["src/site.config.ts"]
+		},
+		"jsx": "preserve",
+		"jsxImportSource": "solid-js"
+	},
+	"exclude": ["node_modules", "**/node_modules/*", ".vscode", "dist"]
 }
