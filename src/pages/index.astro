@@ -12,12 +12,13 @@ import Section from '@/components/Section.astro';
 import PostPreview from '@/components/blog/PostPreview.astro';
 import ContactEmail from '@/components/ContactEmail.astro';
 
-import { getAllPosts, sortMDByDate } from '@/utils';
 import { socials } from '@/site-config';
-import { getProjects, sortProjectByPriority, filterFeaturedProjects } from 'src/utils/projects';
+import { featuredPosts } from '@/utils/posts';
+import { featuredProjects } from '@/utils/projects';
+import ProjectPreview from '@/components/ProjectPreview.astro';
 
-const posts = sortMDByDate(await getAllPosts()).slice(0, 10);
-const projects = sortProjectByPriority(filterFeaturedProjects(await getProjects()));
+const posts = await featuredPosts();
+const projects = await featuredProjects();
 ---
 
 <PageLayout meta={{ title: 'Portfolio' }}>
@@ -180,31 +181,7 @@ const projects = sortProjectByPriority(filterFeaturedProjects(await getProjects(
 		<!-- Projects Start -->
 		<Section title="Projects">
 			<div class="flex flex-col gap-y-3">
-				{
-					projects.map((project) => (
-						<Card
-							as="a"
-							heading={project.data.title}
-							subheading={project.data.description}
-							imagePath={project.data.logoImage?.src}
-							altText={project.data.logoImage?.alt}
-							imageClass="h-11 w-auto md:-left-16"
-							href={`/projects/${project.slug}`}
-						>
-							<div class="flex flex-row flex-wrap items-center gap-x-4 gap-y-2">
-								{project.data.type && project.data.type}
-								{project.data.technologies.map((skill) => (
-									<Button
-										as="span"
-										title={skill}
-										style="pill"
-										class="hover:bg-primary-foreground"
-									/>
-								))}
-							</div>
-						</Card>
-					))
-				}
+				{projects.map((project) => <ProjectPreview project={project} />)}
 			</div>
 			<div class="flex justify-end">
 				<More href="/projects">See all projects</More>

@@ -1,0 +1,70 @@
+---
+export const prerender = true;
+
+import type { GetStaticPaths, Page } from 'astro';
+
+import Back from '@/components/Back.astro';
+import Pagination from '@/components/Paginator.astro';
+import PageLayout from '@/layouts/BaseLayout.astro';
+import ContactEmail from '@/components/ContactEmail.astro';
+
+import { allProjects, type TProject } from 'src/utils/projects';
+import ProjectPreview from '@/components/ProjectPreview.astro';
+
+export const getStaticPaths = (async ({ paginate }) => {
+	return paginate(await allProjects(), { pageSize: 10 });
+}) satisfies GetStaticPaths;
+
+export interface Props {
+	page: Page<TProject>;
+}
+
+const { page } = Astro.props as Props;
+
+const meta = {
+	description: 'All projects',
+	title: 'Projects'
+};
+
+const paginationProps = {
+	...(page.url.prev && {
+		prevUrl: {
+			text: `← Previous Posts`,
+			url: page.url.prev
+		}
+	}),
+	...(page.url.next && {
+		nextUrl: {
+			text: `Next Posts →`,
+			url: page.url.next
+		}
+	})
+};
+---
+
+<PageLayout meta={meta}>
+	<div class="w-full">
+		<Back href="/" />
+		<div class="flex flex-col items-center">
+			<h1 class="mb-6 mt-5 text-2xl font-bold">All Projects</h1>
+			{page.data.length === 0 && <p>No projects yet.</p>}
+			{
+				page.data.length > 0 && (
+					<div class="flex w-3/4 flex-col gap-x-8 gap-y-16">
+						<section aria-label="Blog posts list">
+							<ul class="flex flex-col gap-y-4 text-start">
+								{page.data.map((p) => (
+									<ProjectPreview project={p} />
+								))}
+							</ul>
+							<Pagination {...paginationProps} />
+						</section>
+					</div>
+				)
+			}
+			<div class="mt-16">
+				<ContactEmail />
+			</div>
+		</div>
+	</div>
+</PageLayout>

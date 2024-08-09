@@ -37,3 +37,10 @@ export function getUniqueTagsWithCount(
 		)
 	].sort((a, b) => b[1] - a[1]);
 }
+
+export const featuredPosts = async () => {
+	const posts = await getAllPosts();
+	const sorted = sortMDByDate(posts);
+	const sliced = sorted.slice(0, 10);
+	return sliced;
+};

@@ -10,7 +10,7 @@ import PostPreview from '@/components/blog/PostPreview.astro';
 import PageLayout from '@/layouts/BaseLayout.astro';
 import ContactEmail from '@/components/ContactEmail.astro';
 
-import { getAllPosts, getUniqueTags, sortMDByDate } from '@/utils';
+import { getAllPosts, getUniqueTags, sortMDByDate } from '@/utils/posts';
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const allPosts = await getAllPosts();
@@ -28,7 +28,7 @@ const { page, uniqueTags } = Astro.props;
 
 const meta = {
 	description: 'Posts',
-	title: 'Blog'
+	title: 'Blogs'
 };
 
 const paginationProps = {
@@ -64,10 +64,8 @@ const paginationProps = {
 				</path>
 			</svg>
 		</Button>
-
-		<h1 class="mb-6 mt-5 text-2xl font-bold">Blog</h1>
+		<h1 class="mb-6 mt-5 text-2xl font-bold">Blogs</h1>
 		{page.data.length === 0 && <p>No posts yet.</p>}
-
 		{
 			page.data.length > 0 && (
 				<div class="grid gap-y-16 sm:grid-cols-[3fr_1fr] sm:gap-x-8">
