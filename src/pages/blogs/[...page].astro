@@ -2,29 +2,29 @@
 export const prerender = true;
 
 import type { GetStaticPaths, Page } from 'astro';
-import type { CollectionEntry } from 'astro:content';
+import type { TBlog } from '@/utils/blogs';
 
+import Back from '@/components/Back.astro';
 import Button from '@/components/Button.astro';
 import Pagination from '@/components/Paginator.astro';
-import PostPreview from '@/components/blog/PostPreview.astro';
+import PostPreview from '@/components/PostPreview.astro';
 import PageLayout from '@/layouts/BaseLayout.astro';
 import ContactEmail from '@/components/ContactEmail.astro';
 
-import { getAllPosts, getUniqueTags, sortMDByDate } from '@/utils/posts';
+import { allBlogs, getUniqueTags } from '@/utils/blogs';
 
 export const getStaticPaths = (async ({ paginate }) => {
-	const allPosts = await getAllPosts();
-	const allPostsByDate = sortMDByDate(allPosts);
-	const uniqueTags = getUniqueTags(allPosts);
-	return paginate(allPostsByDate, { pageSize: 10, props: { uniqueTags } });
+	const blogs = await allBlogs();
+	const uniqueTags = getUniqueTags(blogs);
+	return paginate(blogs, { pageSize: 10, props: { uniqueTags } });
 }) satisfies GetStaticPaths;
 
-interface Props {
-	page: Page<CollectionEntry<'post'>>;
+export interface Props {
+	page: Page<TBlog>;
 	uniqueTags: string[];
 }
 
-const { page, uniqueTags } = Astro.props;
+const { page, uniqueTags } = Astro.props as Props;
 
 const meta = {
 	description: 'Posts',
@@ -49,21 +49,7 @@ const paginationProps = {
 
 <PageLayout meta={meta}>
 	<div class="w-full">
-		<Button title="Back" href="/" style="button">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				width="14"
-				height="14"
-				viewBox="0 0 24 24"
-				slot="icon-before"
-			>
-				<path
-					fill="currentColor"
-					d="m6.921 12.5l5.792 5.792L12 19l-7-7l7-7l.713.708L6.921 11.5H19v1z"
-				>
-				</path>
-			</svg>
-		</Button>
+		<Back href="/" />
 		<h1 class="mb-6 mt-5 text-2xl font-bold">Blogs</h1>
 		{page.data.length === 0 && <p>No posts yet.</p>}
 		{

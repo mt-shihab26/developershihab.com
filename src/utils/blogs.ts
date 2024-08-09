@@ -1,6 +1,8 @@
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 
+export type TBlog = CollectionEntry<'post'>;
+
 /** Note: this function filters out draft posts based on the environment */
 export async function getAllPosts() {
 	return await getCollection('post', ({ data }) => {
@@ -22,11 +24,6 @@ export function getAllTags(posts: Array<CollectionEntry<'post'>>) {
 }
 
 /** Note: This function doesn't filter draft posts, pass it the result of getAllPosts above to do so. */
-export function getUniqueTags(posts: Array<CollectionEntry<'post'>>) {
-	return [...new Set(getAllTags(posts))];
-}
-
-/** Note: This function doesn't filter draft posts, pass it the result of getAllPosts above to do so. */
 export function getUniqueTagsWithCount(
 	posts: Array<CollectionEntry<'post'>>
 ): Array<[string, number]> {
@@ -37,6 +34,15 @@ export function getUniqueTagsWithCount(
 		)
 	].sort((a, b) => b[1] - a[1]);
 }
+
+export const allBlogs = async () => {
+	return sortMDByDate(await getAllPosts());
+};
+
+/** Note: This function doesn't filter draft posts, pass it the result of getAllPosts above to do so. */
+export const getUniqueTags = (blogs: TBlog[]) => {
+	return [...new Set(getAllTags(blogs))];
+};
 
 export const featuredPosts = async () => {
 	const posts = await getAllPosts();

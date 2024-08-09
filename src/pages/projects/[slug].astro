@@ -4,7 +4,6 @@ export const prerender = true;
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 
 import { Image } from 'astro:assets';
-import { allProjects } from '@/utils/projects';
 
 import Img from '@/components/Img.astro';
 import Back from '@/components/Back.astro';
@@ -12,6 +11,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import ScrollButton from '@/components/ScrollButton.astro';
 import Technologies from '@/components/Technologies.astro';
 import TableOfContents from '@/components/TableOfContents.astro';
+
+import { allProjects } from '@/utils/projects';
 
 export const getStaticPaths = (async () => {
 	return (await allProjects()).map((entry) => ({

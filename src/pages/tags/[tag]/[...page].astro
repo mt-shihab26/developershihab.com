@@ -8,7 +8,7 @@ import Pagination from '@/components/Paginator.astro';
 import PostPreview from '@/components/blog/PostPreview.astro';
 import PageLayout from '@/layouts/BaseLayout.astro';
 import Button from '@/components/Button.astro';
-import { getAllPosts, getUniqueTags, sortMDByDate } from '@/utils/posts';
+import { getAllPosts, getUniqueTags, sortMDByDate } from '@/utils/blogs';
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
 	const allPosts = await getAllPosts();
