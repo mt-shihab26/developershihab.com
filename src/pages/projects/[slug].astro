@@ -1,8 +1,17 @@
 ---
 export const prerender = true;
 
-import { type GetStaticPaths, type InferGetStaticPropsType } from 'astro';
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+
+import { Image } from 'astro:assets';
 import { allProjects } from '@/utils/projects';
+
+import Img from '@/components/Img.astro';
+import Back from '@/components/Back.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ScrollButton from '@/components/ScrollButton.astro';
+import Technologies from '@/components/Technologies.astro';
+import TableOfContents from '@/components/TableOfContents.astro';
 
 export const getStaticPaths = (async () => {
 	return (await allProjects()).map((entry) => ({
@@ -11,34 +20,25 @@ export const getStaticPaths = (async () => {
 	}));
 }) satisfies GetStaticPaths;
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { entry: project } = Astro.props;
-const { Content } = await project.render();
-
-import { Image } from 'astro:assets';
-import Back from '@/components/Back.astro';
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import TableOfContents from '@/components/TableOfContents.astro';
-import Technologies from '@/components/Technologies.astro';
+const { entry: project } = Astro.props as Props;
 
 const {
-	data: { title, type, ogImage, description, coverImage, draft, technologies },
+	data: { title, type, ogImage, description, logoImage, coverImage, draft, technologies },
 	slug
 } = project;
 
-const socialImage = ogImage ?? `/og-image/${slug}.png`;
-
-const { headings } = await project.render();
+const { Content, headings } = await project.render();
 ---
 
-<BaseLayout meta={{ description, ogImage: socialImage, title }}>
+<BaseLayout meta={{ description, ogImage: ogImage ?? `/og-image/${slug}.png`, title }}>
 	<div class="w-full">
 		<Back href="/projects" />
 		<div class="mt-8 gap-x-10 lg:flex lg:items-start">
 			{!!headings.length && <TableOfContents headings={headings} />}
 			<article class="flex-grow break-words" data-pagefind-body>
-				<div id="project-hero">
+				<div id="project-hero" class="flex flex-col space-y-2">
 					{
 						coverImage && (
 							<div class="aspect-h-9 aspect-w-16 mb-6">
@@ -53,9 +53,12 @@ const { headings } = await project.render();
 						)
 					}
 					{draft ? <span class="text-red-500">(Draft)</span> : null}
-					<h1 class="mt-2 text-3xl font-medium sm:mb-1">
-						{title}
-					</h1>
+					<div class="flex items-center space-x-2 sm:mb-1">
+						{!!logoImage && <Img src={logoImage?.src} alt={logoImage?.alt} class="h-10 w-10" />}
+						<h1 class="text-3xl font-medium">
+							{title}
+						</h1>
+					</div>
 					<Technologies as="a" type={type} technologies={technologies} />
 				</div>
 				<div
@@ -65,42 +68,6 @@ const { headings } = await project.render();
 				</div>
 			</article>
 		</div>
-		<button
-			aria-label="Back to Top"
-			class="z-90 fixed bottom-8 end-4 flex h-8 w-8 translate-y-28 items-center justify-center rounded-full border-2 border-transparent bg-primary-foreground text-3xl opacity-0 transition-all duration-300 hover:border-border/75 data-[show=true]:translate-y-0 data-[show=true]:opacity-100 sm:end-8 sm:h-12 sm:w-12"
-			data-show="false"
-			id="to-top-btn"
-			><svg
-				aria-hidden="true"
-				class="h-4 w-4"
-				fill="none"
-				focusable="false"
-				stroke="currentColor"
-				stroke-width="2"
-				viewBox="0 0 24 24"
-				xmlns="http://www.w3.org/2000/svg"
-			>
-				<path d="M4.5 15.75l7.5-7.5 7.5 7.5" stroke-linecap="round" stroke-linejoin="round"></path>
-			</svg>
-		</button>
+		<ScrollButton target="project-hero" />
 	</div>
 </BaseLayout>
-
-<script>
-	const scrollBtn = document.getElementById('to-top-btn') as HTMLButtonElement;
-	const targetHeader = document.getElementById('project-hero') as HTMLDivElement;
-
-	function callback(entries: IntersectionObserverEntry[]) {
-		entries.forEach((entry) => {
-			// only show the scroll to top button when the heading is out of view
-			scrollBtn.dataset.show = (!entry.isIntersecting).toString();
-		});
-	}
-
-	scrollBtn.addEventListener('click', () => {
-		document.documentElement.scrollTo({ behavior: 'smooth', top: 0 });
-	});
-
-	const observer = new IntersectionObserver(callback);
-	observer.observe(targetHeader);
-</script>
