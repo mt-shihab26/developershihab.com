@@ -1,12 +1,5 @@
 ---
-import type { HTMLTag, Polymorphic } from 'astro/types';
 import FormattedDate from './FormattedDate.astro';
-import type { TBlog } from '@/utils/blogs';
-
-type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
-	blog: TBlog;
-	withDesc?: boolean;
-};
 
 const {
 	as: Tag = 'div',
@@ -24,9 +17,9 @@ const {
 	<Tag>
 		{draft && <span class="text-red-500">(Draft) </span>}
 		<a
-			data-astro-prefetch
 			href={`/blogs/${slug}/`}
 			class="transition-all hover:text-muted-foreground"
+			data-astro-prefetch
 		>
 			{title}
 		</a>

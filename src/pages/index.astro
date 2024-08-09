@@ -103,9 +103,9 @@ const projects = await featuredProjects();
 			blogs.length > 0 && (
 				<Section title="Posts">
 					<ul class="flex flex-col gap-y-2">
-						{blogs.map((p) => (
+						{blogs.map((blog) => (
 							<li class="flex flex-col gap-x-2 sm:flex-row">
-								<PreviewBlog blog={p} />
+								<PreviewBlog blog={blog} />
 							</li>
 						))}
 					</ul>
