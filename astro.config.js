@@ -10,34 +10,27 @@ import { expressiveCodeOptions } from './src/site.config';
 import icon from 'astro-icon';
 import solidJs from '@astrojs/solid-js';
 
+import vercel from "@astrojs/vercel/serverless";
+
 // https://astro.build/config
 export default defineConfig({
-	integrations: [
-		expressiveCode(expressiveCodeOptions),
-		tailwind({
-			applyBaseStyles: false
-		}),
-		sitemap(),
-		mdx(),
-		icon(),
-		solidJs({ devtools: true })
-	],
-	markdown: {
-		remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
-		rehypePlugins: [
-			[
-				rehypeExternalLinks,
-				{
-					target: '_blank',
-					rel: ['nofollow, noopener, noreferrer']
-				}
-			]
-		],
-		remarkRehype: {
-			footnoteLabelProperties: {
-				className: ['']
-			}
-		}
-	},
-	output: 'static'
+  integrations: [expressiveCode(expressiveCodeOptions), tailwind({
+    applyBaseStyles: false
+  }), sitemap(), mdx(), icon(), solidJs({
+    devtools: true
+  })],
+  markdown: {
+    remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
+    rehypePlugins: [[rehypeExternalLinks, {
+      target: '_blank',
+      rel: ['nofollow, noopener, noreferrer']
+    }]],
+    remarkRehype: {
+      footnoteLabelProperties: {
+        className: ['']
+      }
+    }
+  },
+  output: 'static',
+  adapter: vercel()
 });
