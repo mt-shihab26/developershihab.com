@@ -13,6 +13,7 @@ import TableOfContents from '@/components/TableOfContents.astro';
 import { allProjects } from '@/utils/projects';
 import Layout from '@/components/Layout.astro';
 import Scroll from '@/components/Scroll.astro';
+import Links from '@/components/Links.astro';
 
 export const getStaticPaths = (async () => {
 	return (await allProjects()).map((entry) => ({
@@ -26,7 +27,7 @@ export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { entry: project } = Astro.props as Props;
 
 const {
-	data: { title, type, ogImage, description, logoImage, coverImage, draft, technologies },
+	data: { title, type, ogImage, description, logoImage, coverImage, draft, technologies, links },
 	slug
 } = project;
 
@@ -59,8 +60,7 @@ const { Content, headings, remarkPluginFrontmatter } = await project.render();
 							{remarkPluginFrontmatter.minutesRead}
 						</p>
 					</div>
-
-					<div class="flex items-center space-x-2 sm:mb-1">
+					<div class="mb-2 flex items-center space-x-2">
 						{
 							!!logoImage && (
 								<Img src={logoImage?.src} loading="eager" alt={logoImage?.alt} class="h-10 w-10" />
@@ -70,7 +70,8 @@ const { Content, headings, remarkPluginFrontmatter } = await project.render();
 							{title}
 						</h1>
 					</div>
-					<Technologies type={type} technologies={technologies} />
+					<Technologies type={type} technologies={technologies} class="mb-2 mt-2" />
+					<Links links={links} class="gap-4" />
 				</div>
 				<div
 					class="prose prose-base prose-zinc mt-12 text-muted-foreground dark:prose-invert prose-headings:font-medium prose-headings:text-foreground prose-headings:before:absolute prose-headings:before:-ms-4 prose-th:before:content-none"

@@ -1,25 +1,15 @@
 {
-    "extends": "astro/tsconfigs/base",
-    "compilerOptions": {
-        "strictNullChecks": true,
-        "allowJs": true,
-        "lib": [
-            "es2022",
-            "dom",
-            "dom.iterable"
-        ],
-        "baseUrl": "./",
-        "paths": {
-            "@/*": [
-                "src/*"
-            ]
-        },
-        "jsx": "preserve",
-        "jsxImportSource": "solid-js"
-    },
-    "exclude": [
-        "**/node_modules/*",
-        "node_modules",
-        "dist"
-    ]
+	"extends": "astro/tsconfigs/base",
+	"compilerOptions": {
+		"strictNullChecks": true,
+		"allowJs": true,
+		"lib": ["es2022", "dom", "dom.iterable"],
+		"baseUrl": "./",
+		"paths": {
+			"@/*": ["src/*"]
+		},
+		"jsx": "preserve",
+		"jsxImportSource": "solid-js"
+	},
+	"exclude": ["**/node_modules/*", "node_modules", "dist"]
 }

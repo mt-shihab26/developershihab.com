@@ -3,8 +3,8 @@ export const prerender = true;
 
 import Back from '@/components/Back.astro';
 import Layout from '@/components/Layout.astro';
+import Project from '@/components/Project.astro';
 import ContactEmail from '@/components/ContactEmail.astro';
-import PreviewProject from '@/components/PreviewProject.astro';
 
 import { allProjects } from '@/utils/projects';
 
@@ -26,9 +26,9 @@ const meta = {
 				projects.length > 0 && (
 					<div class="flex w-3/4 flex-col gap-x-8 gap-y-16">
 						<section aria-label="Blog posts list">
-							<ul class="flex flex-col gap-y-4 text-start">
+							<ul class="flex flex-col gap-y-6 text-start">
 								{projects.map((p) => (
-									<PreviewProject project={p} loading={'eager'} />
+									<Project project={p} loading={'eager'} />
 								))}
 							</ul>
 						</section>

@@ -4,11 +4,11 @@ export const prerender = true;
 import type { GetStaticPaths, Page } from 'astro';
 
 import Back from '@/components/Back.astro';
+import Blog from '@/components/Blog.astro';
+import Layout from '@/components/Layout.astro';
 import Pagination from '@/components/Paginator.astro';
 
 import { allBlogs, getUniqueTags, type TBlog } from '@/utils/blogs';
-import Layout from '@/components/Layout.astro';
-import PreviewBlog from '@/components/PreviewBlog.astro';
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
 	const blogs = await allBlogs();
@@ -61,7 +61,7 @@ const paginationProps = {
 		</h1>
 		<section aria-label="Blog post list">
 			<ul class="flex flex-col gap-y-3 text-start">
-				{page.data.map((p) => <PreviewBlog as="h2" blog={p} withDesc />)}
+				{page.data.map((p) => <Blog as="h2" blog={p} withDesc />)}
 			</ul>
 			<Pagination {...paginationProps} />
 		</section>

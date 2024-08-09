@@ -3,15 +3,15 @@ import B from '@/components/B.astro';
 import A from '@/components/A.astro';
 import I from '@/components/I.astro';
 import Img from '@/components/Img.astro';
+import Blog from '@/components/Blog.astro';
 import More from '@/components/More.astro';
 import Card from '@/components/Card.astro';
 import Label from '@/components/Label.astro';
 import Layout from '@/components/Layout.astro';
 import Button from '@/components/Button.astro';
+import Project from '@/components/Project.astro';
 import Section from '@/components/Section.astro';
-import PreviewBlog from '@/components/PreviewBlog.astro';
 import ContactEmail from '@/components/ContactEmail.astro';
-import PreviewProject from '@/components/PreviewProject.astro';
 
 import { socials } from '@/site.config';
 import { featuredBlogs } from '@/utils/blogs';
@@ -109,7 +109,7 @@ const projects = await featuredProjects();
 					<ul class="flex flex-col gap-y-2">
 						{blogs.map((blog) => (
 							<li class="flex flex-col gap-x-2 sm:flex-row">
-								<PreviewBlog blog={blog} />
+								<Blog blog={blog} />
 							</li>
 						))}
 					</ul>
@@ -184,8 +184,8 @@ const projects = await featuredProjects();
 		<!-- Experience End -->
 		<!-- Projects Start -->
 		<Section title="Projects">
-			<div class="flex flex-col gap-y-3">
-				{projects.map((project) => <PreviewProject project={project} />)}
+			<div class="flex flex-col gap-y-4">
+				{projects.map((project) => <Project project={project} />)}
 			</div>
 			<div class="flex justify-end">
 				<More href="/projects">See all projects</More>

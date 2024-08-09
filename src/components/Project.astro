@@ -1,0 +1,37 @@
+---
+import type { TProject } from '@/utils/projects';
+import type { TLoading } from './Img.astro';
+
+import Card from './Card.astro';
+import Technologies from './Technologies.astro';
+import Links from './Links.astro';
+
+export interface Props {
+	project: TProject;
+	loading?: TLoading;
+}
+
+const {
+	project: {
+		data: { title, type, description, logoImage, technologies, links },
+		slug
+	},
+	loading
+} = Astro.props as Props;
+---
+
+<div class="flex flex-col space-y-2">
+	<Card
+		as="a"
+		heading={title}
+		subheading={description}
+		imagePath={logoImage?.src}
+		altText={logoImage?.alt}
+		imageClass="h-11 w-auto md:-left-16"
+		href={`/projects/${slug}`}
+		loading={loading}
+	>
+		<Technologies type={type} technologies={technologies} />
+	</Card>
+	<Links links={links} />
+</div>
