@@ -29,9 +29,6 @@ importers:
       '@astrojs/vercel':
         specifier: ^7.7.2
         version: 7.7.2(astro@4.13.2(@types/node@22.1.0)(typescript@5.5.4))
-      '@iconify-json/mdi':
-        specifier: ^1.1.68
-        version: 1.1.68
       '@tailwindcss/aspect-ratio':
         specifier: ^0.4.2
         version: 0.4.2(tailwindcss@3.4.9)
@@ -504,9 +501,6 @@ packages:
   '@humanwhocodes/object-schema@2.0.3':
     resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
     deprecated: Use @eslint/object-schema instead
-
-  '@iconify-json/mdi@1.1.68':
-    resolution: {integrity: sha512-7//TKCiXLU6kNWeOJRTBbisofVO7rF1sD1TZTL4/V9nqlmVNczQ5IOY0GgKOTsitkcTnX9GXgrgbjw3OI5B69w==}
 
   '@iconify/tools@3.0.7':
     resolution: {integrity: sha512-DxfhFLMnooS34dHelpGUnnYrxLZHs0czC1CgrBhAbuL8ddVzBb2VEQm8kh9qGh7A34qeXAB5iSHH3A72rAaFrg==}
@@ -4280,10 +4274,6 @@ snapshots:
   '@humanwhocodes/module-importer@1.0.1': {}
 
   '@humanwhocodes/object-schema@2.0.3': {}
-
-  '@iconify-json/mdi@1.1.68':
-    dependencies:
-      '@iconify/types': 2.0.0
 
   '@iconify/tools@3.0.7':
     dependencies:

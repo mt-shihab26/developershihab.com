@@ -1,5 +1,5 @@
 {
-    "extends": "astro/tsconfigs/strict",
+    "extends": "astro/tsconfigs/base",
     "compilerOptions": {
         "strictNullChecks": true,
         "allowJs": true,
@@ -8,6 +8,7 @@
             "dom",
             "dom.iterable"
         ],
+        "baseUrl": "./",
         "paths": {
             "@/*": [
                 "src/*"
