@@ -1,5 +1,6 @@
 ---
 import type { SiteMeta } from '@/types';
+import SpeedInsights from '@vercel/speed-insights/astro';
 
 import Head from './Head.astro';
 import Footer from './Footer.astro';
@@ -31,5 +32,6 @@ const {
 			<slot />
 			<Footer />
 		</main>
+		<SpeedInsights />
 	</body>
 </html>
