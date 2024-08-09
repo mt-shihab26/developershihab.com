@@ -1,9 +1,20 @@
 ---
 import { cn } from '@/utils/tailwind';
 
-const { class: className, href, ...props } = Astro.props;
+export interface Props {
+	href: string;
+	class?: string;
+	target?: '_blank';
+}
+
+const { class: className, href, target, ...props } = Astro.props as Props;
 ---
 
-<a href={href} class={cn('font-semibold text-foreground', className)} {...props}>
+<a
+	href={href}
+	target={target}
+	class={cn('underline underline-offset-2 font-semibold text-foreground', className)}
+	{...props}
+>
 	<slot />
 </a>
