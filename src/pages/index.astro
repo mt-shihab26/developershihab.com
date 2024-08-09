@@ -9,15 +9,15 @@ import Card from '@/components/Card.astro';
 import Label from '@/components/Label.astro';
 import Button from '@/components/Button.astro';
 import Section from '@/components/Section.astro';
-import PostPreview from '@/components/blog/PostPreview.astro';
+import PostPreview from '@/components/PostPreview.astro';
 import ContactEmail from '@/components/ContactEmail.astro';
 
 import { socials } from '@/site-config';
-import { featuredPosts } from '@/utils/blogs';
+import { featuredBlogs } from '@/utils/blogs';
 import { featuredProjects } from '@/utils/projects';
 import ProjectPreview from '@/components/ProjectPreview.astro';
 
-const posts = await featuredPosts();
+const blogs = await featuredBlogs();
 const projects = await featuredProjects();
 ---
 
@@ -100,10 +100,10 @@ const projects = await featuredProjects();
 		<!-- About End -->
 		<!-- Posts Start -->
 		{
-			posts.length > 0 && (
+			blogs.length > 0 && (
 				<Section title="Posts">
 					<ul class="flex flex-col gap-y-2">
-						{posts.map((p) => (
+						{blogs.map((p) => (
 							<li class="flex flex-col gap-x-2 sm:flex-row">
 								<PostPreview post={p} />
 							</li>
