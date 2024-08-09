@@ -1,10 +1,10 @@
 ---
 import type { SiteMeta } from '@/types';
 
-import BaseHead from '@/components/BaseHead.astro';
-import Footer from '@/components/layout/Footer.astro';
-import Header from '@/components/layout/Header.astro';
-import ThemeProvider from '@/components/ThemeProvider.astro';
+import Head from './Head.astro';
+import Footer from './Footer.astro';
+import Header from './Header.astro';
+import ThemeProvider from './ThemeProvider.astro';
 
 import { siteConfig } from '@/site-config';
 
@@ -19,7 +19,7 @@ const {
 
 <html lang={siteConfig.lang} class="">
 	<head>
-		<BaseHead articleDate={articleDate} description={description} ogImage={ogImage} title={title} />
+		<Head articleDate={articleDate} description={description} ogImage={ogImage} title={title} />
 	</head>
 
 	<body class="flex justify-center bg-background">

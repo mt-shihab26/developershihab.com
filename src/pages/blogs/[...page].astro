@@ -5,10 +5,10 @@ import type { GetStaticPaths, Page } from 'astro';
 import type { TBlog } from '@/utils/blogs';
 
 import Back from '@/components/Back.astro';
+import Layout from '@/components/Layout.astro';
 import Button from '@/components/Button.astro';
 import Pagination from '@/components/Paginator.astro';
-import PostPreview from '@/components/PostPreview.astro';
-import PageLayout from '@/layouts/BaseLayout.astro';
+import PreviewBlog from '@/components/PreviewBlog.astro';
 import ContactEmail from '@/components/ContactEmail.astro';
 
 import { allBlogs, getUniqueTags } from '@/utils/blogs';
@@ -47,7 +47,7 @@ const paginationProps = {
 };
 ---
 
-<PageLayout meta={meta}>
+<Layout meta={meta}>
 	<div class="w-full">
 		<Back href="/" />
 		<h1 class="mb-6 mt-5 text-2xl font-bold">Blogs</h1>
@@ -58,7 +58,7 @@ const paginationProps = {
 					<section aria-label="Blog posts list">
 						<ul class="flex flex-col gap-y-4 text-start">
 							{page.data.map((p) => (
-								<PostPreview post={p} withDesc />
+								<PreviewBlog blog={p} withDesc />
 							))}
 						</ul>
 						<Pagination {...paginationProps} />
@@ -105,4 +105,4 @@ const paginationProps = {
 			<ContactEmail />
 		</div>
 	</div>
-</PageLayout>
+</Layout>

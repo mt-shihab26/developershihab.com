@@ -2,9 +2,9 @@
 export const prerender = true;
 
 import Back from '@/components/Back.astro';
-import PageLayout from '@/layouts/BaseLayout.astro';
+import Layout from '@/components/Layout.astro';
 import ContactEmail from '@/components/ContactEmail.astro';
-import ProjectPreview from '@/components/ProjectPreview.astro';
+import PreviewProject from '@/components/PreviewProject.astro';
 
 import { allProjects } from 'src/utils/projects';
 
@@ -16,7 +16,7 @@ const meta = {
 };
 ---
 
-<PageLayout meta={meta}>
+<Layout meta={meta}>
 	<div class="w-full">
 		<Back href="/" />
 		<div class="flex flex-col items-center">
@@ -28,7 +28,7 @@ const meta = {
 						<section aria-label="Blog posts list">
 							<ul class="flex flex-col gap-y-4 text-start">
 								{projects.map((p) => (
-									<ProjectPreview project={p} />
+									<PreviewProject project={p} />
 								))}
 							</ul>
 						</section>
@@ -40,4 +40,4 @@ const meta = {
 			</div>
 		</div>
 	</div>
-</PageLayout>
+</Layout>

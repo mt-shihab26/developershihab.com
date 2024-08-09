@@ -1,10 +1,10 @@
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 
-export type TBlog = CollectionEntry<'post'>;
+export type TBlog = CollectionEntry<'blogs'>;
 
 const getAllBlogs = async (): Promise<TBlog[]> => {
-	return await getCollection('post', ({ data }) => {
+	return await getCollection('blogs', ({ data }) => {
 		return import.meta.env.PROD ? data.draft !== true : true;
 	});
 };
@@ -18,7 +18,7 @@ const sortMDByDate = (blogs: TBlog[]): TBlog[] => {
 };
 
 const getAllTags = async (): Promise<string[]> => {
-	return (await getAllBlogs()).flatMap((post) => [...post.data.tags]);
+	return (await getAllBlogs()).flatMap((blog) => [...blog.data.tags]);
 };
 
 export const allBlogs = async (): Promise<TBlog[]> => {

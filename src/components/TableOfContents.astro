@@ -7,7 +7,7 @@ interface Props {
 	headings: MarkdownHeading[];
 }
 
-const { headings } = Astro.props;
+const { headings } = Astro.props as Props;
 
 const toc = generateToc(headings);
 ---

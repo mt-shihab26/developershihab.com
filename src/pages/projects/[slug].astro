@@ -7,12 +7,12 @@ import { Image } from 'astro:assets';
 
 import Img from '@/components/Img.astro';
 import Back from '@/components/Back.astro';
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import ScrollButton from '@/components/ScrollButton.astro';
 import Technologies from '@/components/Technologies.astro';
 import TableOfContents from '@/components/TableOfContents.astro';
 
 import { allProjects } from '@/utils/projects';
+import Layout from '@/components/Layout.astro';
+import Scroll from '@/components/Scroll.astro';
 
 export const getStaticPaths = (async () => {
 	return (await allProjects()).map((entry) => ({
@@ -33,7 +33,7 @@ const {
 const { Content, headings, remarkPluginFrontmatter } = await project.render();
 ---
 
-<BaseLayout meta={{ description, ogImage: ogImage ?? `/og-image/${slug}.png`, title }}>
+<Layout meta={{ description, ogImage: ogImage ?? `/og-image/${slug}.png`, title }}>
 	<div class="w-full">
 		<Back href="/projects" />
 		<div class="mt-8 gap-x-10 lg:flex lg:items-start">
@@ -75,6 +75,6 @@ const { Content, headings, remarkPluginFrontmatter } = await project.render();
 				</div>
 			</article>
 		</div>
-		<ScrollButton target="project-hero" />
+		<Scroll target="project-hero" />
 	</div>
-</BaseLayout>
+</Layout>

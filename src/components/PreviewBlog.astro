@@ -1,0 +1,39 @@
+---
+import type { HTMLTag, Polymorphic } from 'astro/types';
+import FormattedDate from './FormattedDate.astro';
+import type { TBlog } from '@/utils/blogs';
+
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
+	blog: TBlog;
+	withDesc?: boolean;
+};
+
+const {
+	as: Tag = 'div',
+	withDesc = false,
+	blog: {
+		data: { title, description, updatedDate, publishDate, draft },
+		slug
+	}
+} = Astro.props;
+---
+
+<li class="flex flex-col gap-2 sm:flex-row sm:gap-x-4 [&_q]:basis-full">
+	<FormattedDate class="min-w-[120px]" date={updatedDate ?? publishDate} />
+
+	<Tag>
+		{draft && <span class="text-red-500">(Draft) </span>}
+		<a
+			data-astro-prefetch
+			href={`/blogs/${slug}/`}
+			class="transition-all hover:text-muted-foreground"
+		>
+			{title}
+		</a>
+		{
+			withDesc && (
+				<p class="line-clamp-3 block text-sm italic text-muted-foreground">{description}</p>
+			)
+		}
+	</Tag>
+</li>

@@ -1,6 +1,6 @@
 ---
 import Back from '@/components/Back.astro';
-import PageLayout from '@/layouts/BaseLayout.astro';
+import Layout from '@/components/Layout.astro';
 
 import { getUniqueTagsWithCount } from '@/utils/blogs';
 
@@ -12,7 +12,7 @@ const meta = {
 };
 ---
 
-<PageLayout meta={meta}>
+<Layout meta={meta}>
 	<div class="w-full">
 		<Back href="/blogs" />
 		<h1 class="mb-6 mt-5 text-2xl font-bold">Tags</h1>
@@ -39,4 +39,4 @@ const meta = {
 			)
 		}
 	</div>
-</PageLayout>
+</Layout>

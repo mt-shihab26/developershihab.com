@@ -5,7 +5,7 @@ technologies: ['React.js', 'JS', 'PHP', 'WordPress', 'TailwindCSS', 'mPDF', 'Str
 logoImage: { src: '/src/assets/paystubhero.png', alt: '' }
 coverImage: { src: './paystubhero.jpg', alt: '' }
 links: [{ label: 'Live Link', link: 'https://www.paystubhero.com/generate-pay-stubs' }]
-draft: true
+draft: false
 featured: true
 priority: 1000
 ---

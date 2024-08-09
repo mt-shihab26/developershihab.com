@@ -1,8 +1,8 @@
 ---
 import { Icon } from 'astro-icon/components';
 
-import PageLayout from '@/layouts/BaseLayout.astro';
 import Button from '@/components/Button.astro';
+import Layout from '@/components/Layout.astro';
 
 const tools = [
 	{
@@ -158,7 +158,7 @@ const tools = [
 ];
 ---
 
-<PageLayout meta={{ title: 'Tools' }}>
+<Layout meta={{ title: 'Tools' }}>
 	<div class="w-full">
 		<Button title="Back" href="/" style="button">
 			<svg
@@ -209,4 +209,4 @@ const tools = [
 			}
 		</div>
 	</div>
-</PageLayout>
+</Layout>

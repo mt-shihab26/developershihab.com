@@ -1,27 +1,26 @@
 ---
-import PageLayout from '@/layouts/BaseLayout.astro';
-
-import B from '@/components/typographies/B.astro';
-import A from '@/components/typographies/A.astro';
+import B from '@/components/B.astro';
+import A from '@/components/A.astro';
 import Img from '@/components/Img.astro';
 import More from '@/components/More.astro';
 import Card from '@/components/Card.astro';
 import Label from '@/components/Label.astro';
+import Layout from '@/components/Layout.astro';
 import Button from '@/components/Button.astro';
 import Section from '@/components/Section.astro';
-import PostPreview from '@/components/PostPreview.astro';
 import ContactEmail from '@/components/ContactEmail.astro';
 
 import { socials } from '@/site-config';
 import { featuredBlogs } from '@/utils/blogs';
 import { featuredProjects } from '@/utils/projects';
-import ProjectPreview from '@/components/ProjectPreview.astro';
+import PreviewBlog from '@/components/PreviewBlog.astro';
+import PreviewProject from '@/components/PreviewProject.astro';
 
 const blogs = await featuredBlogs();
 const projects = await featuredProjects();
 ---
 
-<PageLayout meta={{ title: 'Portfolio' }}>
+<Layout meta={{ title: 'Portfolio' }}>
 	<div class="mb-16 flex w-full flex-col gap-y-10">
 		<!-- Intro Start -->
 		<section class="flex flex-col items-center gap-y-7">
@@ -105,7 +104,7 @@ const projects = await featuredProjects();
 					<ul class="flex flex-col gap-y-2">
 						{blogs.map((p) => (
 							<li class="flex flex-col gap-x-2 sm:flex-row">
-								<PostPreview post={p} />
+								<PreviewBlog blog={p} />
 							</li>
 						))}
 					</ul>
@@ -181,7 +180,7 @@ const projects = await featuredProjects();
 		<!-- Projects Start -->
 		<Section title="Projects">
 			<div class="flex flex-col gap-y-3">
-				{projects.map((project) => <ProjectPreview project={project} />)}
+				{projects.map((project) => <PreviewProject project={project} />)}
 			</div>
 			<div class="flex justify-end">
 				<More href="/projects">See all projects</More>
@@ -309,4 +308,4 @@ const projects = await featuredProjects();
 		<!-- Eduction End -->
 	</div>
 	<ContactEmail />
-</PageLayout>
+</Layout>
