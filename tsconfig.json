@@ -18,9 +18,8 @@
         "jsxImportSource": "solid-js"
     },
     "exclude": [
-        "node_modules",
         "**/node_modules/*",
-        ".vscode",
+        "node_modules",
         "dist"
     ]
 }

@@ -1,14 +1,16 @@
 import { fontFamily } from 'tailwindcss/defaultTheme';
 
+import typography from '@tailwindcss/typography';
+import aspectRatio from '@tailwindcss/aspect-ratio';
+
 /** @type {import('tailwindcss').Config} */
-const config = {
+export default {
 	darkMode: ['class'],
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	safelist: ['dark'],
 	corePlugins: {
 		aspectRatio: false
 	},
-	plugins: [require('@tailwindcss/typography'), require('@tailwindcss/aspect-ratio')],
 	theme: {
 		container: {
 			center: true,
@@ -63,7 +65,6 @@ const config = {
 				satoshi: ['Satoshi', 'sans']
 			}
 		}
-	}
+	},
+	plugins: [typography, aspectRatio]
 };
-
-export default config;

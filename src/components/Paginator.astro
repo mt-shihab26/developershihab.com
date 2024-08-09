@@ -1,9 +1,13 @@
 ---
-import type { PaginationLink } from '@/types';
+type TPaginationLink = {
+	url: string;
+	text?: string;
+	srLabel?: string;
+};
 
 interface Props {
-	nextUrl?: PaginationLink;
-	prevUrl?: PaginationLink;
+	nextUrl?: TPaginationLink;
+	prevUrl?: TPaginationLink;
 }
 
 const { nextUrl, prevUrl } = Astro.props;
