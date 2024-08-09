@@ -1,6 +1,6 @@
 import rss from '@astrojs/rss';
 
-import { siteConfig } from '@/site-config';
+import { siteConfig } from '@/site.config';
 import { allBlogs } from '@/utils/blogs';
 
 export const GET = async () => {

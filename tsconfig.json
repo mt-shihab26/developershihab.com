@@ -1,16 +1,26 @@
 {
-	"extends": "astro/tsconfigs/strict",
-	"compilerOptions": {
-		"strictNullChecks": true,
-		"allowJs": true,
-		"baseUrl": "/Users/shihab/Code/developershihab.com",
-		"lib": ["es2022", "dom", "dom.iterable"],
-		"paths": {
-			"@/site-config": ["src/site.config.ts"],
-			"@/*": ["src/*"]
-		},
-		"jsx": "preserve",
-		"jsxImportSource": "solid-js"
-	},
-	"exclude": ["node_modules", "**/node_modules/*", ".vscode", "dist"]
+    "extends": "astro/tsconfigs/strict",
+    "compilerOptions": {
+        "strictNullChecks": true,
+        "allowJs": true,
+        "baseUrl": "/Users/shihab/Code/developershihab.com",
+        "lib": [
+            "es2022",
+            "dom",
+            "dom.iterable"
+        ],
+        "paths": {
+            "@/*": [
+                "src/*"
+            ]
+        },
+        "jsx": "preserve",
+        "jsxImportSource": "solid-js"
+    },
+    "exclude": [
+        "node_modules",
+        "**/node_modules/*",
+        ".vscode",
+        "dist"
+    ]
 }
