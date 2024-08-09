@@ -3,7 +3,6 @@
     "compilerOptions": {
         "strictNullChecks": true,
         "allowJs": true,
-        "baseUrl": "/Users/shihab/Code/developershihab.com",
         "lib": [
             "es2022",
             "dom",
