@@ -6,13 +6,8 @@
 		"baseUrl": "/Users/shihab/Code/developershihab.com",
 		"lib": ["es2022", "dom", "dom.iterable"],
 		"paths": {
-			"@/assets/*": ["src/assets/*"],
-			"@/components/*": ["src/components/*"],
-			"@/screens/*": ["src/screens/*"],
-			"@/layouts/*": ["src/layouts/*"],
-			"@/utils/*": ["src/utils/*"],
-			"@/types": ["src/types.ts"],
-			"@/site-config": ["src/site.config.ts"]
+			"@/site-config": ["src/site.config.ts"],
+			"@/*": ["src/*"]
 		},
 		"jsx": "preserve",
 		"jsxImportSource": "solid-js"
