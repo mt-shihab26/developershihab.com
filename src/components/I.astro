@@ -1,0 +1,9 @@
+---
+import { cn } from '@/utils/tailwind';
+
+const { class: className, ...props } = Astro.props;
+---
+
+<span class={cn('font-semibold italic text-foreground', className)} {...props}>
+	<slot />
+</span>
