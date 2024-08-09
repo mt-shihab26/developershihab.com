@@ -28,7 +28,7 @@ const meta = {
 						<section aria-label="Blog posts list">
 							<ul class="flex flex-col gap-y-4 text-start">
 								{projects.map((p) => (
-									<PreviewProject project={p} />
+									<PreviewProject project={p} loading={'eager'} />
 								))}
 							</ul>
 						</section>

@@ -22,3 +22,5 @@ export type SiteMeta = {
 	ogImage?: string | undefined;
 	articleDate?: string | undefined;
 };
+
+export type TLoading = 'eager' | 'lazy';

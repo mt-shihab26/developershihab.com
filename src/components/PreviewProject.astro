@@ -3,16 +3,19 @@ import { type TProject } from 'src/utils/projects';
 
 import Card from './Card.astro';
 import Technologies from './Technologies.astro';
+import type { TLoading } from '@/types';
 
 export interface Props {
 	project: TProject;
+	loading?: TLoading;
 }
 
 const {
 	project: {
 		data: { title, type, description, logoImage, technologies },
 		slug
-	}
+	},
+	loading
 } = Astro.props as Props;
 ---
 
@@ -24,6 +27,7 @@ const {
 	altText={logoImage?.alt}
 	imageClass="h-11 w-auto md:-left-16"
 	href={`/projects/${slug}`}
+	loading={loading}
 >
 	<Technologies type={type} technologies={technologies} />
 </Card>

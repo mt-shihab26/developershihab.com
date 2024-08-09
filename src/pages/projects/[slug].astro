@@ -61,12 +61,16 @@ const { Content, headings, remarkPluginFrontmatter } = await project.render();
 					</div>
 
 					<div class="flex items-center space-x-2 sm:mb-1">
-						{!!logoImage && <Img src={logoImage?.src} alt={logoImage?.alt} class="h-10 w-10" />}
+						{
+							!!logoImage && (
+								<Img src={logoImage?.src} loading="eager" alt={logoImage?.alt} class="h-10 w-10" />
+							)
+						}
 						<h1 class="text-3xl font-medium">
 							{title}
 						</h1>
 					</div>
-					<Technologies as="a" type={type} technologies={technologies} />
+					<Technologies type={type} technologies={technologies} />
 				</div>
 				<div
 					class="prose prose-base prose-zinc mt-12 text-muted-foreground dark:prose-invert prose-headings:font-medium prose-headings:text-foreground prose-headings:before:absolute prose-headings:before:-ms-4 prose-th:before:content-none"
