@@ -4,7 +4,6 @@ export const prerender = true;
 import type { GetStaticPaths, Page } from 'astro';
 import type { TBlog } from '@/utils/blogs';
 
-import Feed from '@/components/Feed.astro';
 import Back from '@/components/Back.astro';
 import Blog from '@/components/Blog.astro';
 import Layout from '@/components/Layout.astro';
@@ -102,6 +101,5 @@ const paginationProps = {
 				</div>
 			)
 		}
-		<Feed />
 	</div>
 </Layout>

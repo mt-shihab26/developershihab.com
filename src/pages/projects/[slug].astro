@@ -7,14 +7,13 @@ import { Image } from 'astro:assets';
 
 import Img from '@/components/Img.astro';
 import Back from '@/components/Back.astro';
+import Links from '@/components/Links.astro';
+import Scroll from '@/components/Scroll.astro';
+import Layout from '@/components/Layout.astro';
 import Technologies from '@/components/Technologies.astro';
 import TableOfContents from '@/components/TableOfContents.astro';
 
 import { allProjects } from '@/utils/projects';
-import Layout from '@/components/Layout.astro';
-import Scroll from '@/components/Scroll.astro';
-import Links from '@/components/Links.astro';
-
 import { suffixTitle } from '@/site.config';
 
 export const getStaticPaths = (async () => {

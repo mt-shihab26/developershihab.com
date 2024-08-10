@@ -1,8 +1,32 @@
 ---
+import ContactEmail from './ContactEmail.astro';
+
 import { socials } from '@/site.config';
 ---
 
 <footer class="mx-auto mt-24 w-full">
+	<div class="mb-8 flex items-center justify-between">
+		<ContactEmail />
+		<div class="inline-flex items-center space-x-1">
+			<span class="text-muted-foreground">Subscribe via </span>
+			<a href="/rss.xml" class="group inline-flex items-center gap-1">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					height="16"
+					width="16"
+					fill="currentColor"
+					aria-hidden="true"
+					viewBox="0 0 448 512"
+					class="group-hover:text-muted-foreground"
+				>
+					<path
+						d="M0 64C0 46.3 14.3 32 32 32c229.8 0 416 186.2 416 416c0 17.7-14.3 32-32 32s-32-14.3-32-32C384 253.6 226.4 96 32 96C14.3 96 0 81.7 0 64zM0 416a64 64 0 1 1 128 0A64 64 0 1 1 0 416zM32 160c159.1 0 288 128.9 288 288c0 17.7-14.3 32-32 32s-32-14.3-32-32c0-123.7-100.3-224-224-224c-17.7 0-32-14.3-32-32s14.3-32 32-32z"
+					></path>
+				</svg>
+				<span class="underline underline-offset-2">RSS feed</span>
+			</a>
+		</div>
+	</div>
 	<div class="border-t border-border pt-5">
 		<div
 			class="flex flex-col items-center gap-y-3 sm:flex sm:flex-row sm:items-center sm:justify-between sm:gap-y-0"
@@ -15,7 +39,7 @@ import { socials } from '@/site.config';
 					].map((item) => (
 						<a
 							href={item.h}
-							class="inline-flex gap-x-2 text-gray-600 hover:text-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+							class="inline-flex gap-x-2 text-muted-foreground dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
 						>
 							{item.l}
 						</a>

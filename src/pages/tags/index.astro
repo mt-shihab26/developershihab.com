@@ -1,6 +1,5 @@
 ---
 import Back from '@/components/Back.astro';
-import Feed from '@/components/Feed.astro';
 import Layout from '@/components/Layout.astro';
 
 import { suffixTitle } from '@/site.config';
@@ -40,6 +39,5 @@ const tags = await getUniqueTagsWithCount();
 				</ul>
 			)
 		}
-		<Feed />
 	</div>
 </Layout>

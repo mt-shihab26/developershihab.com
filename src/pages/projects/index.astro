@@ -4,7 +4,6 @@ export const prerender = true;
 import Back from '@/components/Back.astro';
 import Layout from '@/components/Layout.astro';
 import Project from '@/components/Project.astro';
-import ContactEmail from '@/components/ContactEmail.astro';
 
 import { siteConfig } from '@/site.config';
 import { allProjects } from '@/utils/projects';
@@ -36,9 +35,6 @@ const projects = await allProjects();
 					</div>
 				)
 			}
-			<div class="mt-16">
-				<ContactEmail />
-			</div>
 		</div>
 	</div>
 </Layout>
