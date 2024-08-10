@@ -13,7 +13,7 @@ import Project from '@/components/Project.astro';
 import Section from '@/components/Section.astro';
 import ContactEmail from '@/components/ContactEmail.astro';
 
-import { socials } from '@/site.config';
+import { siteConfig, socials } from '@/site.config';
 import { featuredBlogs } from '@/utils/blogs';
 import { featuredProjects } from '@/utils/projects';
 
@@ -21,7 +21,7 @@ const blogs = await featuredBlogs();
 const projects = await featuredProjects();
 ---
 
-<Layout meta={{ title: 'Portfolio' }}>
+<Layout meta={{ title: `${siteConfig.author}'s Portfolio` }}>
 	<div class="mb-16 flex w-full flex-col gap-y-10">
 		<!-- Intro Start -->
 		<section class="flex flex-col items-center gap-y-7">

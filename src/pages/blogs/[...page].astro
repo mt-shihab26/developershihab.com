@@ -12,6 +12,7 @@ import Pagination from '@/components/Paginator.astro';
 import ContactEmail from '@/components/ContactEmail.astro';
 
 import { allBlogs, getUniqueTags } from '@/utils/blogs';
+import { siteConfig } from '@/site.config';
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const blogs = await allBlogs();
@@ -25,11 +26,6 @@ export interface Props {
 }
 
 const { page, uniqueTags } = Astro.props as Props;
-
-const meta = {
-	description: 'Posts',
-	title: 'Blogs'
-};
 
 const paginationProps = {
 	...(page.url.prev && {
@@ -47,7 +43,12 @@ const paginationProps = {
 };
 ---
 
-<Layout meta={meta}>
+<Layout
+	meta={{
+		title: `Blogs written by ${siteConfig.author}`,
+		description: 'List of blogs written by me'
+	}}
+>
 	<div class="w-full">
 		<Back href="/" />
 		<h1 class="mb-6 mt-5 text-2xl font-bold">Blogs</h1>

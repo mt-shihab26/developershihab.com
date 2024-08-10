@@ -12,6 +12,7 @@ import FormattedDate from '@/components/FormattedDate.astro';
 import TableOfContents from '@/components/TableOfContents.astro';
 
 import { allBlogs } from '@/utils/blogs';
+import { siteConfig, suffixTitle } from '@/site.config';
 
 export const getStaticPaths = (async () => {
 	return (await allBlogs()).map((entry) => ({
@@ -38,7 +39,7 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 
 <Layout
 	meta={{
-		title,
+		title: suffixTitle(title),
 		ogImage: ogImage ?? `/og-image/${slug}.png`,
 		description,
 		articleDate: updatedDate?.toISOString() ?? publishDate.toISOString()

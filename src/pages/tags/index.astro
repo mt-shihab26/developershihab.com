@@ -1,18 +1,19 @@
 ---
 import Back from '@/components/Back.astro';
 import Layout from '@/components/Layout.astro';
+import { suffixTitle } from '@/site.config';
 
 import { getUniqueTagsWithCount } from '@/utils/blogs';
 
 const tags = await getUniqueTagsWithCount();
-
-const meta = {
-	description: "A list of all the topics I've written about in my posts",
-	title: 'Tags'
-};
 ---
 
-<Layout meta={meta}>
+<Layout
+	meta={{
+		title: suffixTitle('Tags'),
+		description: "A list of all the topics I've written about in my posts"
+	}}
+>
 	<div class="w-full">
 		<Back href="/blogs" />
 		<h1 class="mb-6 mt-5 text-2xl font-bold">Tags</h1>

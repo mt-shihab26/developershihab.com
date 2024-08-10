@@ -20,12 +20,12 @@ export const siteConfig: TSiteConfig = {
 	// Meta property used as the default description meta property
 	description: 'Full-stack developer with 3 years of experience. My focus is Laravel & React.',
 	// HTML lang property, found in src/components/Head.astro
-	lang: 'en-GB',
+	lang: 'en-US',
 	// Meta property, found in src/components/Head.astro
-	ogLocale: 'en_GB',
+	ogLocale: 'en_US',
 	// Date.prototype.toLocaleDateString() parameters, found in src/utils/date.ts.
 	date: {
-		locale: 'en-GB',
+		locale: 'en-US',
 		options: {
 			day: 'numeric',
 			month: 'short',
@@ -71,3 +71,8 @@ export const socials = {
 	github: 'https://github.com/p-nerd',
 	devto: 'https://dev.to/p-nerd'
 } as const;
+
+export const suffixTitle = (title: string) => {
+	const titleSeparator = '•';
+	return `${title} ${titleSeparator} ${siteConfig.title}`;
+};

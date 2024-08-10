@@ -4,11 +4,7 @@ description: 'WordPress plugin and React frontend for paystubhero.com. The React
 technologies: ['React.js', 'JS', 'PHP', 'WordPress', 'TailwindCSS', 'mPDF', 'Stripe']
 logoImage: { src: '/src/assets/paystubhero.png', alt: '' }
 coverImage: { src: './paystubhero.jpg', alt: '' }
-links:
-  [
-    { label: 'Live Link', link: 'https://www.paystubhero.com/generate-pay-stubs' },
-    { label: 'Live Link', link: 'https://www.paystubhero.com/generate-pay-stubs' }
-  ]
+links: [{ label: 'Live Link', link: 'https://www.paystubhero.com/generate-pay-stubs' }]
 draft: false
 featured: true
 priority: 1000

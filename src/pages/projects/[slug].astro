@@ -15,6 +15,8 @@ import Layout from '@/components/Layout.astro';
 import Scroll from '@/components/Scroll.astro';
 import Links from '@/components/Links.astro';
 
+import { suffixTitle } from '@/site.config';
+
 export const getStaticPaths = (async () => {
 	return (await allProjects()).map((entry) => ({
 		params: { slug: entry.slug },
@@ -34,7 +36,13 @@ const {
 const { Content, headings, remarkPluginFrontmatter } = await project.render();
 ---
 
-<Layout meta={{ description, ogImage: ogImage ?? `/og-image/${slug}.png`, title }}>
+<Layout
+	meta={{
+		title: suffixTitle(title),
+		description,
+		ogImage: ogImage ?? `/og-image/${slug}.png`
+	}}
+>
 	<div class="w-full">
 		<Back href="/projects" />
 		<div class="mt-8 gap-x-10 lg:flex lg:items-start">

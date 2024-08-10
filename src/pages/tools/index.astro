@@ -3,6 +3,7 @@ import { Icon } from 'astro-icon/components';
 
 import Button from '@/components/Button.astro';
 import Layout from '@/components/Layout.astro';
+import { siteConfig } from '@/site.config';
 
 const tools = [
 	{
@@ -158,7 +159,7 @@ const tools = [
 ];
 ---
 
-<Layout meta={{ title: 'Tools' }}>
+<Layout meta={{ title: `Tools & software ${siteConfig.author} use daily` }}>
 	<div class="w-full">
 		<Button title="Back" href="/" style="button">
 			<svg
@@ -179,7 +180,7 @@ const tools = [
 		<div class="mt-5 flex w-full flex-col gap-y-10">
 			<div>
 				<h1 class="mb-1 text-2xl font-bold">Tools</h1>
-				<p>Tools and software I use daily</p>
+				<p>Tools & software I use daily</p>
 			</div>
 			{
 				tools.map((tool) => (
