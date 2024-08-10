@@ -1,9 +1,10 @@
 ---
 import { Icon } from 'astro-icon/components';
 
+import { siteConfig } from '@/site.config';
+
 import Button from '@/components/Button.astro';
 import Layout from '@/components/Layout.astro';
-import { siteConfig } from '@/site.config';
 
 const tools = [
 	{
@@ -13,29 +14,25 @@ const tools = [
 				name: 'C/C++',
 				description: 'DSA, Problem-Solving',
 				href: 'https://en.wikipedia.org/wiki/C%2B%2B',
-				iconPath: 'cpp',
-				iconBgColour: '#00427d'
+				icon: 'cpp'
 			},
 			{
 				name: 'JavaScript/TypeScript',
 				description: 'Web Development, Frontend',
 				href: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript',
-				iconPath: 'javascript',
-				iconBgColour: '#f0d91d'
+				icon: 'javascript'
 			},
 			{
 				name: 'PHP',
 				description: 'Web Development, Backend',
 				href: 'https://www.php.net',
-				iconPath: 'php',
-				iconBgColour: '#4f5b93'
+				icon: 'php'
 			},
 			{
 				name: 'Elixir',
 				description: 'Functional Programming',
 				href: 'https://elixir-lang.org/',
-				iconPath: 'elixir',
-				iconBgColour: '#51345f'
+				icon: 'elixir'
 			}
 		]
 	},
@@ -46,113 +43,101 @@ const tools = [
 				name: 'Laravel',
 				description: 'The PHP Framework',
 				href: 'https://laravel.com',
-				iconPath: 'laravel',
-				iconBgColour: '#f9332b'
+				icon: 'laravel'
 			},
 			{
 				name: 'WordPress',
 				description: 'Plugin Development',
 				href: 'https://wordpress.org',
-				iconPath: 'wordpress',
-				iconBgColour: '#3858e9'
+				icon: 'wordpress'
 			},
 			{
 				name: 'Phoenix',
 				description: 'The Elixir Framework',
 				href: 'https://www.phoenixframework.org/',
-				iconPath: 'phoenix',
-				iconBgColour: '#fe6f61'
+				icon: 'phoenix'
 			},
 			{
-				name: 'React.js',
+				name: 'React',
 				description: 'A JavaScript library for building user interfaces',
 				href: 'https://react.dev',
-				iconPath: 'react',
-				iconBgColour: '#58c4dc'
+				icon: 'react'
 			},
 			{
 				name: 'Vue.js',
 				description: 'The Progressive JavaScript Framework',
 				href: 'https://vuejs.org/',
-				iconPath: 'vue',
-				iconBgColour: '#5aa5cf'
+				icon: 'vue'
 			},
 			{
 				name: 'TailwindCSS',
 				description: 'The utility-first CSS framework',
 				href: 'https://tailwindcss.com',
-				iconPath: 'tailwindcss',
-				iconBgColour: '#0da5e9'
+				icon: 'tailwindcss'
 			}
 		]
 	},
-
 	{
-		label: 'Others',
+		label: 'Environment',
 		tools: [
 			{
 				name: 'Linux',
 				description: 'OS',
-				href: 'https://www.kernel.org/',
-				iconPath: 'linux',
-				iconBgColour: '#f1b90f'
+				href: 'https://www.kernel.org',
+				icon: 'linux'
 			},
 			{
 				name: 'Arc',
 				description: 'Browser',
-				href: 'https://arc.net/',
-				iconPath: 'arc',
-				iconBgColour: '#414350'
+				href: 'https://arc.net',
+				icon: 'arc'
 			},
 			{
 				name: 'Warp',
 				description: 'Terminal',
 				href: 'https://www.warp.dev',
-				iconPath: 'warp',
-				iconBgColour: '#01a2ce'
+				icon: 'warp'
 			},
-			{
-				name: 'Git',
-				description: 'Version Control',
-				href: 'https://git-scm.com',
-				iconPath: 'git',
-				iconBgColour: '#f74e27'
-			},
-			{
-				name: 'Docker',
-				description: 'Containerizer',
-				href: 'https://git-scm.com',
-				iconPath: 'docker',
-				iconBgColour: '#f74e27'
-			},
-
 			{
 				name: 'Neovim',
 				description: 'IDE',
 				href: 'https://neovim.io',
-				iconPath: 'neovim',
-				iconBgColour: '#03b952'
+				icon: 'neovim'
 			},
 			{
 				name: 'VS Code',
 				description: 'IDE',
 				href: 'https://code.visualstudio.com',
-				iconPath: 'vscode',
-				iconBgColour: '#2C2C32'
+				icon: 'vscode'
+			}
+		]
+	},
+	{
+		label: 'Others',
+		tools: [
+			{
+				name: 'Git',
+				description: 'Version Control',
+				href: 'https://git-scm.com',
+				icon: 'git'
+			},
+			{
+				name: 'Docker',
+				description: 'Containerizer',
+				href: 'https://git-scm.com',
+				icon: 'docker'
 			},
 			{
 				name: 'Todoist',
 				description: 'Todo List',
 				href: 'https://www.notion.so/product',
-				iconPath: 'todoist',
-				iconBgColour: '#de483a'
+				icon: 'todoist'
 			},
 			{
 				name: 'ChatGPT',
 				description: 'AI',
 				href: 'https://chat.openai.com/',
-				iconPath: 'chatgpt',
-				iconBgColour: '#06A67F'
+				icon: 'chatgpt'
 			}
 		]
 	}
@@ -196,7 +181,7 @@ const tools = [
 								>
 									<div class="relative flex flex-row items-center gap-x-4 px-2 py-0.5 transition-all">
 										<div class="absolute -inset-0 z-10 rounded-lg border border-border bg-muted opacity-0 transition-all group-hover:opacity-50" />
-										<Icon name={t.iconPath} class="z-20 h-10 w-10 rounded-lg bg-muted p-2" />
+										<Icon name={t.icon} class="z-20 h-10 w-10 rounded-lg bg-muted p-2" style={{}} />
 										<div class="z-20 flex flex-col">
 											<h3 class="font-medium">{t.name}</h3>
 											<p class="text-muted-foreground">{t.description}</p>
