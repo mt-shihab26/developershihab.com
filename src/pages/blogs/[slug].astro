@@ -5,6 +5,7 @@ import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 
 import { Image } from 'astro:assets';
 
+import Feed from '@/components/Feed.astro';
 import Back from '@/components/Back.astro';
 import Layout from '@/components/Layout.astro';
 import Scroll from '@/components/Scroll.astro';
@@ -129,5 +130,6 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 			</article>
 		</div>
 		<Scroll target="blog-hero" />
+		<Feed />
 	</div>
 </Layout>

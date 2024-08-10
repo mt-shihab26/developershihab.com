@@ -4,12 +4,12 @@ export const prerender = true;
 import type { GetStaticPaths, Page } from 'astro';
 import type { TBlog } from '@/utils/blogs';
 
+import Feed from '@/components/Feed.astro';
 import Back from '@/components/Back.astro';
 import Blog from '@/components/Blog.astro';
 import Layout from '@/components/Layout.astro';
 import Button from '@/components/Button.astro';
 import Pagination from '@/components/Paginator.astro';
-import ContactEmail from '@/components/ContactEmail.astro';
 
 import { allBlogs, getUniqueTags } from '@/utils/blogs';
 import { siteConfig } from '@/site.config';
@@ -102,8 +102,6 @@ const paginationProps = {
 				</div>
 			)
 		}
-		<div class="mt-16">
-			<ContactEmail />
-		</div>
+		<Feed />
 	</div>
 </Layout>

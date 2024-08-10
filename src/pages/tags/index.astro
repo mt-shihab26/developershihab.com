@@ -1,8 +1,9 @@
 ---
 import Back from '@/components/Back.astro';
+import Feed from '@/components/Feed.astro';
 import Layout from '@/components/Layout.astro';
-import { suffixTitle } from '@/site.config';
 
+import { suffixTitle } from '@/site.config';
 import { getUniqueTagsWithCount } from '@/utils/blogs';
 
 const tags = await getUniqueTagsWithCount();
@@ -39,5 +40,6 @@ const tags = await getUniqueTagsWithCount();
 				</ul>
 			)
 		}
+		<Feed />
 	</div>
 </Layout>
