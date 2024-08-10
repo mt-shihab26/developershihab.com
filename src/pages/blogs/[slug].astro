@@ -12,7 +12,7 @@ import FormattedDate from '@/components/FormattedDate.astro';
 import TableOfContents from '@/components/TableOfContents.astro';
 
 import { allBlogs } from '@/utils/blogs';
-import { siteConfig, suffixTitle } from '@/site.config';
+import { suffixTitle } from '@/site.config';
 
 export const getStaticPaths = (async () => {
 	return (await allBlogs()).map((entry) => ({

@@ -1,6 +1,6 @@
 import mdx from '@astrojs/mdx';
 import icon from 'astro-icon';
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel/static';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import expressiveCode from 'astro-expressive-code';
@@ -41,7 +41,7 @@ export default defineConfig({
 		}
 	},
 	prefetch: true,
-	output: 'server',
+	output: 'static',
 	adapter: vercel({
 		webAnalytics: { enabled: true }
 	})
