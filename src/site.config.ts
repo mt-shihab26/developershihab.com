@@ -69,7 +69,8 @@ export const socials = {
 	linkedin: 'https://www.linkedin.com/in/shihab-mahamud',
 	x: 'https://x.com/shihabmahamud13',
 	github: 'https://github.com/p-nerd',
-	devto: 'https://dev.to/p-nerd'
+	devto: 'https://dev.to/p-nerd',
+	reddit: 'https://www.reddit.com/user/p-nerd/'
 } as const;
 
 export const suffixTitle = (title: string) => {
