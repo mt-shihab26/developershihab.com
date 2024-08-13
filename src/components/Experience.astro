@@ -1,5 +1,5 @@
 ---
-import type { TExperience } from 'config/experiences';
+import type { TExperience } from '@/types';
 
 import A from './A.astro';
 import M from './M.astro';
@@ -26,22 +26,24 @@ const {
 		projects.length > 0 && (
 			<div class="mt-1 text-muted-foreground">
 				<div class="mb-1">Projects:</div>
-				<ul class="ml-4 list-disc text-muted-foreground">
-					{projects.map(({ name, href, target, items }) => (
-						<li>
-							<A href={href} target={target as any} class="text-muted-foreground">
-								{name}
-							</A>
-							<ul class="ml-4 list-disc text-muted-foreground">
-								{items.map(({ label, value }) => (
-									<li>
-										<M>{label}:</M> {value}
-									</li>
-								))}
-							</ul>
-						</li>
-					))}
-				</ul>
+				<div class="pl-8">
+					<ul class="list-decimal text-muted-foreground">
+						{projects.map(({ name, href, target, items }) => (
+							<li>
+								<A href={href} target={target as any} class="text-muted-foreground">
+									{name}
+								</A>
+								<ul class="ml-4 list-disc text-muted-foreground">
+									{items.map(({ label, value }) => (
+										<li>
+											<M>{label}:</M> {value}
+										</li>
+									))}
+								</ul>
+							</li>
+						))}
+					</ul>
+				</div>
 			</div>
 		)
 	}

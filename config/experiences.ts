@@ -1,23 +1,4 @@
-export type TExperience = {
-	position: string;
-	firm: {
-		name: string;
-		link: string;
-		logo: string;
-		alt: string;
-	};
-	description: string;
-	date: string;
-	projects: {
-		name: string;
-		href: string;
-		target?: '_blank' | '_self' | '_parent' | '_top';
-		items: {
-			label: string;
-			value: string;
-		}[];
-	}[];
-};
+import type { TExperience } from '@/types';
 
 const experiences: TExperience[] = [
 	{
@@ -37,7 +18,45 @@ const experiences: TExperience[] = [
             my skills in Laravel development and deepened my understanding
             of modern web technologies.
         `,
-		projects: []
+		projects: [
+			{
+				name: 'Student Performance Monitoring system',
+				href: '/projects/student-performance-monitoring-system?back=/',
+				items: [
+					{
+						label: 'Technologies',
+						value: 'PHP, PDO, MySQL, Composer, TailwindCSS'
+					},
+					{
+						label: 'Date',
+						value: '23 Jun, 2024 - 6 Jul, 2024'
+					},
+					{
+						label: 'Status',
+						value: 'Eeb application written with Raw PHP and MySQL as part of Internship'
+					}
+				]
+			},
+			{
+				name: 'S-Commerce',
+				href: '/projects/scommerce?back=/',
+				items: [
+					{
+						label: 'Technologies',
+						value: 'Laravel, PHP, TailwindCSS, SQLite'
+					},
+					{
+						label: 'Date',
+						value: '23 Jun, 2024 - 6 Jul, 2024'
+					},
+					{
+						label: 'Status',
+						value:
+							'Ecommerce web application with Laravel to test my development skill in Internship'
+					}
+				]
+			}
+		]
 	},
 	{
 		position: 'Full-stack Developer',
