@@ -15,7 +15,7 @@ const tags = await getUniqueTagsWithCount();
 	}}
 >
 	<div class="w-full">
-		<Back href="/blogs" />
+		<Back href="/blogs" client:load />
 		<h1 class="mb-6 mt-5 text-2xl font-bold">Tags</h1>
 		{tags.length === 0 && <p>No posts yet.</p>}
 		{

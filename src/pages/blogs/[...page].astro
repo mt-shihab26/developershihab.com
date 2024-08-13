@@ -49,7 +49,7 @@ const paginationProps = {
 	}}
 >
 	<div class="w-full">
-		<Back href="/" />
+		<Back href="/" client:load />
 		<h1 class="mb-6 mt-5 text-2xl font-bold">Blogs</h1>
 		{page.data.length === 0 && <p>No posts yet.</p>}
 		{

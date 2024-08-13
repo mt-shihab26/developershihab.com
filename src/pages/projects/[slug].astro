@@ -43,7 +43,7 @@ const { Content, headings, remarkPluginFrontmatter } = await project.render();
 	}}
 >
 	<div class="w-full">
-		<Back href="/projects" />
+		<Back href="/projects" client:load />
 		<div class="mt-8 gap-x-10 lg:flex lg:items-start">
 			{!!headings.length && <TableOfContents headings={headings} />}
 			<article class="flex-grow break-words" data-pagefind-body>

@@ -18,7 +18,9 @@ export default defineConfig({
 	site: 'https://developershihab.com',
 	integrations: [
 		icon(),
-		solid(),
+		solid({
+			devtools: true
+		}),
 		sitemap(),
 		tailwind({
 			applyBaseStyles: false
@@ -64,4 +66,3 @@ export default defineConfig({
 	output: 'static',
 	adapter: vercel({ webAnalytics: { enabled: true } })
 });
-

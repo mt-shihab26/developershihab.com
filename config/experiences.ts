@@ -59,7 +59,7 @@ const experiences: TExperience[] = [
 		projects: [
 			{
 				name: 'PaystubHero.com',
-				href: '/projects/paystubhero?back="/"',
+				href: '/projects/paystubhero?back=/',
 				items: [
 					{
 						label: 'Technologies',
