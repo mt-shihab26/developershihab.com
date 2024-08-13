@@ -1,6 +1,7 @@
 ---
+import experiences from 'config/experiences';
+
 import B from '@/components/B.astro';
-import A from '@/components/A.astro';
 import I from '@/components/I.astro';
 import Img from '@/components/Img.astro';
 import Blog from '@/components/Blog.astro';
@@ -12,6 +13,8 @@ import Button from '@/components/Button.astro';
 import Project from '@/components/Project.astro';
 import Section from '@/components/Section.astro';
 import ContactEmail from '@/components/ContactEmail.astro';
+
+import Experience from '@/components/Experience.astro';
 
 import { siteConfig, socials } from '@/site.config';
 import { featuredBlogs } from '@/utils/blogs';
@@ -120,64 +123,7 @@ const projects = await featuredProjects();
 		<!-- Posts End -->
 		<!-- Experience Start -->
 		<Section title="Experience">
-			{
-				[
-					{
-						heading: 'Software Engineer - Intern @Systech Digital LTD',
-						subheading: `
-                            As a Laravel Software Engineer intern at Systech Digital LTD,
-                            I gained hands-on experience in developing and optimizing 
-                            web applications. My role involved building and enhancing 
-                            backend systems using Laravel, collaborating with cross-functional
-                            teams to implement new features, and ensuring application 
-                            performance through code optimization and testing. This 
-                            internship strengthened my skills in Laravel development 
-                            and deepened my understanding of modern web technologies.
-                        `,
-						date: 'June 2024 - Present',
-						imagePath: '/src/assets/systech-digital-ltd.png',
-						altText: 'Systech Digital LTD logo'
-					},
-					{
-						heading: 'Full-stack Developer @Finnext.co',
-						subheading: `
-                            I am working with Finnext.co as a Full-stack Developer, 
-                            primarily focusing on their contract-based projects, 
-                            predominantly with American clients. My responsibilities 
-                            include both building and maintaining these applications. 
-                            I have successfully completed several projects and continue 
-                            to oversee their maintenance.
-                        `,
-						date: 'May 2023 - Present',
-						imagePath: '/src/assets/finnext.co.png',
-						altText: 'finnext.co logo',
-						children: (
-							<ul class="ml-4 list-disc text-muted-foreground">
-								<li>
-									Projects did/doing here:{' '}
-									<A href="https://paystubhero.com" target="_blank">
-										PaystubHero.com
-									</A>
-								</li>
-								<li>
-									Technologies used here: JavaScript, TypeScript, React, PHP, WordPress, mPDF,
-									Stripe, TailwindCSS
-								</li>
-							</ul>
-						)
-					}
-				].map((experience) => (
-					<Card
-						heading={experience.heading}
-						subheading={experience.subheading}
-						imagePath={experience.imagePath}
-						altText={experience.altText}
-						imageClass="h-12 w-auto md:-left-16"
-					>
-						{experience?.children || ''}
-					</Card>
-				))
-			}
+			{experiences.map((experience) => <Experience experience={experience} />)}
 		</Section>
 		<!-- Experience End -->
 		<!-- Projects Start -->
