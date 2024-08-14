@@ -3,7 +3,7 @@ import type { TExperience } from '@/types';
 
 import A from './A.astro';
 import M from './M.astro';
-import Card from './Card.astro';
+import Img from './Img.astro';
 
 interface Props {
 	experience: TExperience;
@@ -14,37 +14,46 @@ const {
 } = Astro.props as Props;
 ---
 
-<Card
-	heading={`${position} @${firm.name}`}
-	subheading={description}
-	imagePath={firm.logo}
-	altText={firm.alt}
-	date={date}
-	imageClass="h-12 w-auto md:-left-16"
->
+<div class="relative rounded-2xl border border-border bg-primary-foreground px-5 py-3">
 	{
-		projects.length > 0 && (
-			<div class="mt-1 text-muted-foreground">
-				<div class="mb-1">Projects:</div>
-				<div class="pl-8">
-					<ul class="list-decimal text-muted-foreground">
-						{projects.map(({ name, href, target, items }) => (
-							<li>
-								<A href={href} target={target as any} class="text-muted-foreground">
-									{name}
-								</A>
-								<ul class="ml-4 list-disc text-sm text-muted-foreground">
-									{items.map(({ label, value }) => (
-										<li>
-											<M>{label}:</M> {value}
-										</li>
-									))}
-								</ul>
-							</li>
-						))}
-					</ul>
-				</div>
-			</div>
+		!!firm.logo && (
+			<Img
+				src={firm.logo}
+				alt={firm.alt}
+				class="mb-3 h-12 w-auto md:absolute md:-left-16 md:mb-0"
+			/>
 		)
 	}
-</Card>
+	<div class="flex flex-col gap-y-1.5">
+		<div class="flex flex-col gap-y-0.5">
+			<h1 class="text-lg font-medium">{position} <a href={firm.link}>@{firm.name}</a></h1>
+			<h2 class="text-muted-foreground">{description}</h2>
+			<date class="text-muted-foreground">{date}</date>
+		</div>
+		{
+			projects.length > 0 && (
+				<div class="mt-1 text-muted-foreground">
+					<div class="mb-1">Projects:</div>
+					<div class="pl-8">
+						<ul class="list-decimal text-muted-foreground">
+							{projects.map(({ name, href, target, items }) => (
+								<li>
+									<A href={href} target={target as any} class="text-muted-foreground">
+										{name}
+									</A>
+									<ul class="ml-4 list-disc text-sm text-muted-foreground">
+										{items.map(({ label, value }) => (
+											<li>
+												<M>{label}:</M> {value}
+											</li>
+										))}
+									</ul>
+								</li>
+							))}
+						</ul>
+					</div>
+				</div>
+			)
+		}
+	</div>
+</div>
