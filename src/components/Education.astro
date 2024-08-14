@@ -1,0 +1,26 @@
+---
+import type { TEducation } from '@/types';
+
+import Card from './Card.astro';
+
+interface Props {
+	education: TEducation;
+}
+
+const {
+	education: { institute, department, date, logo, alt, points }
+} = Astro.props as Props;
+---
+
+<Card
+	imageClass="h-12 w-auto md:-left-16"
+	heading={institute}
+	subheading={department}
+	date={date}
+	imagePath={logo}
+	altText={alt}
+>
+	<ul class="ml-4 list-disc text-muted-foreground">
+		{points.map((point) => <li>{point}</li>)}
+	</ul>
+</Card>

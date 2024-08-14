@@ -18,3 +18,36 @@ export type TExperience = {
 		}[];
 	}[];
 };
+
+export type TCertification = {
+	title: string;
+	href: string;
+	description: string;
+	date: string;
+	logo: string;
+	alt: string;
+};
+
+export type TSkill = {
+	title: string;
+	tools: string[];
+};
+
+export type TEducation = {
+	institute: string;
+	department: string;
+	date: string;
+	logo: string;
+	alt: string;
+	points: string[];
+};
+
+export type TTool = {
+	label: string;
+	tools: {
+		name: string;
+		description: string;
+		href: string;
+		icon: string;
+	}[];
+};

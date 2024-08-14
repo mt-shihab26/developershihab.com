@@ -1,0 +1,25 @@
+---
+import type { TCertification } from '@/types';
+
+import Card from './Card.astro';
+
+interface Props {
+	certification: TCertification;
+}
+
+const {
+	certification: { title, description, date, logo, alt, href }
+} = Astro.props;
+---
+
+<Card
+	as="a"
+	target="_blank"
+	imageClass="h-11 w-auto md:-left-16"
+	heading={title}
+	subheading={description}
+	date={date}
+	imagePath={logo}
+	altText={alt}
+	href={href}
+/>

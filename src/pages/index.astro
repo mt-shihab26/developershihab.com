@@ -1,20 +1,23 @@
 ---
+import skills from 'config/skills';
+import educations from 'config/educations';
 import experiences from 'config/experiences';
+import certifications from 'config/certifications';
 
 import B from '@/components/B.astro';
 import I from '@/components/I.astro';
 import Img from '@/components/Img.astro';
 import Blog from '@/components/Blog.astro';
 import More from '@/components/More.astro';
-import Card from '@/components/Card.astro';
 import Label from '@/components/Label.astro';
+import Skill from '@/components/Skill.astro';
 import Layout from '@/components/Layout.astro';
-import Button from '@/components/Button.astro';
 import Project from '@/components/Project.astro';
 import Section from '@/components/Section.astro';
-import ContactEmail from '@/components/ContactEmail.astro';
-
+import Education from '@/components/Education.astro';
 import Experience from '@/components/Experience.astro';
+import ContactEmail from '@/components/ContactEmail.astro';
+import Certification from '@/components/Certification.astro';
 
 import { siteConfig, socials } from '@/site.config';
 import { featuredBlogs } from '@/utils/blogs';
@@ -26,7 +29,6 @@ const projects = await featuredProjects();
 
 <Layout meta={{ title: `${siteConfig.author}'s Portfolio` }}>
 	<div class="flex w-full flex-col gap-y-10">
-		<!-- Intro Start -->
 		<section class="flex flex-col items-center gap-y-7">
 			<Img
 				src="/src/assets/portrait.jpg"
@@ -77,8 +79,6 @@ const projects = await featuredProjects();
 				</div>
 			</div>
 		</section>
-		<!-- Intro End -->
-		<!-- About Start -->
 		<Section title="About">
 			<p class="text-muted-foreground">
 				After graduating from high school, I was introduced to programming through the internet. I
@@ -102,8 +102,6 @@ const projects = await featuredProjects();
 				learning new things. I am currently learning about Business & Entrepreneurship.
 			</p>
 		</Section>
-		<!-- About End -->
-		<!-- Posts Start -->
 		{
 			blogs.length > 0 && (
 				<Section title="Posts">
@@ -120,13 +118,9 @@ const projects = await featuredProjects();
 				</Section>
 			)
 		}
-		<!-- Posts End -->
-		<!-- Experience Start -->
 		<Section title="Experience">
 			{experiences.map((experience) => <Experience experience={experience} />)}
 		</Section>
-		<!-- Experience End -->
-		<!-- Projects Start -->
 		<Section title="Projects">
 			<div class="flex flex-col gap-y-4">
 				{projects.map((project) => <Project project={project} />)}
@@ -135,125 +129,14 @@ const projects = await featuredProjects();
 				<More href="/projects">See all projects</More>
 			</div>
 		</Section>
-		<!-- Projects End -->
-		<!-- Skills Start -->
 		<Section title="Skills">
-			{
-				[
-					{
-						title: 'Languages',
-						tools: ['C/C++', 'JavaScript/TypeScript', 'PHP'] // 'Elixir'
-					},
-					{
-						title: 'Backend',
-						tools: ['Laravel', 'WordPress', 'MySQL', 'SQLite'] // 'Phoenix'
-					},
-					{
-						title: 'Frontend',
-						tools: ['React.js', 'Vue.js', 'TailwindCSS', 'shadcn/ui']
-					},
-					{
-						title: 'Others',
-						tools: ['Git', 'Neovim', 'Linux', 'Docker'] // 'Composer'
-					}
-				].map((skill) => (
-					<div class="flex flex-col gap-y-2 md:flex-row md:gap-x-5 md:gap-y-0">
-						<h3 class="w-1/5 font-medium">{skill.title}</h3>
-						<div class="flex w-4/5 flex-row flex-wrap gap-x-4 gap-y-2">
-							{skill.tools.map((skill) => (
-								<Button as="span" title={skill} style="pill" />
-							))}
-						</div>
-					</div>
-				))
-			}
+			{skills.map((skill) => <Skill skill={skill} />)}
 		</Section>
-		<!-- Skills End -->
-		<!-- Certifications Start -->
 		<Section title="Certifications">
-			{
-				[
-					{
-						heading: 'Think in a Redux way Course (Learn with Sumit)',
-						subheading: `
-            Shihab Mahamud participated in Learn with Sumit Platform presents 
-            "Think in a Redux Way" course and performed exceptionally well. 
-            Not only that, he was one of the First Top 10 Students of the course. 
-            He completed all the modules very seriously and participated in all 
-            the quizzes & all the assignments with excellent results. He appeared in
-            the Final Examination of the course and scored 95.33% marks. Learn with 
-            Sumit Platform believes he can be an excellent resource for any web 
-            development company. We wish him continued success in life.
-        `,
-						date: 'Fab 2023 - Apr 2023',
-						imagePath: '/src/assets/learn-with-sumit.png',
-						altText: 'Think in a Redux way Course Certificate',
-						href: 'https://learnwithsumit.com/certificates/verify/LWSCTXN-RUP3O34K'
-					}
-				].map((certification) => (
-					<Card
-						as="a"
-						target="_blank"
-						heading={certification.heading}
-						subheading={certification.subheading}
-						date={certification.date}
-						imagePath={certification.imagePath}
-						altText={certification.altText}
-						imageClass="h-11 w-auto md:-left-16"
-						href={certification.href}
-					/>
-				))
-			}
+			{certifications.map((certification) => <Certification certification={certification} />)}
 		</Section>
-		<!-- Certifications End -->
-		<!-- Eduction Start -->
 		<Section title="Education">
-			{
-				[
-					{
-						heading: 'Faridpur Polytechnic Institute',
-						subheading: 'Diploma in Engineering, Computer Science & Technology',
-						date: 'Dec 2021 - Nov 2024',
-						imagePath: '/src/assets/faridpur-polytechnic-institute.png',
-						altText: 'Faridpur Polytechnic Institute logo',
-						children: (
-							<ul class="ml-4 list-disc text-muted-foreground">
-								<li>Specialized in Computer Science & Technology.</li>
-								<li>
-									Gained a strong foundation in software development, networking, and hardware.
-								</li>
-								<li>Developed practical skills to excel in the tech industry.</li>
-							</ul>
-						)
-					},
-					{
-						heading: 'Kashiani G.C. Pilot High School',
-						subheading: 'SSC, Science',
-						date: 'Jan 2018 - Fab 2020',
-						imagePath: '/src/assets/kashiani-g-c-pilot-high-school.png',
-						altText: 'Kashiani G.C. Pilot High School logo',
-						children: (
-							<ul class="ml-4 list-disc text-muted-foreground">
-								<li>Completed Secondary School Certificate (SSC) with a focus on Science.</li>
-								<li>Acquired a solid understanding of core scientific principles.</li>
-								<li>Laid the foundation for further studies in engineering and technology.</li>
-							</ul>
-						)
-					}
-				].map((eduction) => (
-					<Card
-						heading={eduction.heading}
-						subheading={eduction.subheading}
-						date={eduction.date}
-						imagePath={eduction.imagePath}
-						altText={eduction.altText}
-						imageClass="h-12 w-auto md:-left-16"
-					>
-						{eduction.children || ''}
-					</Card>
-				))
-			}
+			{educations.map((education) => <Education education={education} />)}
 		</Section>
-		<!-- Eduction End -->
 	</div>
 </Layout>
