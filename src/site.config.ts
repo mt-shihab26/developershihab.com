@@ -1,5 +1,3 @@
-import type { AstroExpressiveCodeOptions } from 'astro-expressive-code';
-
 type TSiteConfig = {
 	author: string;
 	title: string;
