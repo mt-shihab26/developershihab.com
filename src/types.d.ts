@@ -11,7 +11,6 @@ export type TExperience = {
 	projects: {
 		name: string;
 		href: string;
-		target?: '_blank' | '_self' | '_parent' | '_top';
 		items: {
 			label?: string;
 			value: string;
