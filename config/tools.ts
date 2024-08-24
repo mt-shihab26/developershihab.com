@@ -21,6 +21,12 @@ const tools: TTool[] = [
 				description: 'Web Development, Backend',
 				href: 'https://www.php.net',
 				icon: 'php'
+			},
+			{
+				name: 'Go',
+				description: 'As A Programming Language',
+				href: 'https://go.dev',
+				icon: 'go'
 			}
 			//{
 			//	name: 'Elixir',
@@ -87,11 +93,17 @@ const tools: TTool[] = [
 				icon: 'arc'
 			},
 			{
-				name: 'Warp',
+				name: 'WezTerm',
 				description: 'Terminal',
-				href: 'https://www.warp.dev',
-				icon: 'warp'
+				href: 'https://wezfurlong.org/wezterm/index.html',
+				icon: 'wezterm'
 			},
+			// {
+			// 	name: 'Warp',
+			// 	description: 'Terminal',
+			// 	href: 'https://www.warp.dev',
+			// 	icon: 'warp'
+			// },
 			{
 				name: 'Neovim',
 				description: 'IDE',
