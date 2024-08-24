@@ -26,11 +26,13 @@ const {
 	}
 	<div class="flex flex-col gap-y-1.5">
 		<div class="flex flex-col gap-y-0.5">
-			<h1 class="flex space-x-0.5 text-lg font-medium text-foreground">
-				<span>{position} @</span>
-				<a href={firm.link} target="_blank" class="hover:underline hover:underline-offset-4">
-					{firm.name}
-				</a>
+			<h1 class="flex flex-col text-lg font-medium text-foreground lg:flex-row lg:space-x-0.5">
+				<span>{position}</span>
+				<span
+					>@<a href={firm.link} target="_blank" class="hover:underline hover:underline-offset-4"
+						>{firm.name}</a
+					></span
+				>
 			</h1>
 			<date>{date}</date>
 			<p>{description}</p>
