@@ -13,7 +13,7 @@ export type TExperience = {
 		href: string;
 		target?: '_blank' | '_self' | '_parent' | '_top';
 		items: {
-			label: string;
+			label?: string;
 			value: string;
 		}[];
 	}[];

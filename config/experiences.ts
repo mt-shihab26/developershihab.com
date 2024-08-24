@@ -11,36 +11,22 @@ const experiences: TExperience[] = [
 		},
 		date: 'June 2024 - Present',
 		description: `
-            As a Software Engineer Intern at Systech Digital LTD, 
-            I gained practical experience in developing and optimizing 
-            web applications. My role involved building and enhancing 
-            backend systems using Laravel. This internship significantly 
-            strengthened my Laravel development skills and broadened my 
-            understanding of modern web technologies.
+            I joined Systech Digital LTD as an Intern Software Engineer 
+            during my Diploma final semester's industrial training program. Initially, 
+            I developed demo projects, and later, I contributed to client 
+            projects. My work mainly involved the Laravel framework. This 
+            internship significantly enhanced my Laravel development skills 
+            and expanded my understanding of modern web technologies. 
+            Below is a list of projects I did here.
         `,
 		projects: [
-			{
-				name: 'Student Performance Monitoring System',
-				href: '/projects/student-performance-monitoring-system?back=/',
-				items: [
-					{
-						label: 'Technologies',
-						value: 'PHP, PDO, MySQL, Composer, TailwindCSS'
-					},
-					{
-						label: 'Date',
-						value: 'June 23, 2024 - July 6, 2024'
-					},
-					{
-						label: 'Status',
-						value: 'Web application developed with raw PHP and MySQL as part of my internship'
-					}
-				]
-			},
 			{
 				name: 'S-Commerce',
 				href: '/projects/scommerce?back=/',
 				items: [
+					{
+						value: 'An e-commerce web application built using the Laravel framework.'
+					},
 					{
 						label: 'Technologies',
 						value: 'Laravel, PHP, TailwindCSS, SQLite'
@@ -48,11 +34,23 @@ const experiences: TExperience[] = [
 					{
 						label: 'Date',
 						value: '30 Jun, 2024 - Present'
+					}
+				]
+			},
+			{
+				name: 'Student Performance Monitoring System',
+				href: '/projects/student-performance-monitoring-system?back=/',
+				items: [
+					{
+						value: 'A web application written in raw PHP with a Laravel-like structure.'
 					},
 					{
-						label: 'Status',
-						value:
-							'E-commerce web application built with Laravel to demonstrate my development skills during the internship'
+						label: 'Technologies',
+						value: 'PHP, PDO, MySQL, Composer, TailwindCSS'
+					},
+					{
+						label: 'Date',
+						value: 'June 23, 2024 - July 6, 2024'
 					}
 				]
 			}
