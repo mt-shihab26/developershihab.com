@@ -77,7 +77,7 @@ const experiences: TExperience[] = [
             platform using the Laravel framework with React. I still continued 
             to maintain this application, fixing bugs and adding new features. 
             I also contributed to other projects. Below is a list of notable 
-            projects I developed or maintained here."
+            projects I developed or maintained here.
         `,
 		projects: [
 			{

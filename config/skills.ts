@@ -3,19 +3,19 @@ import type { TSkill } from '@/types';
 const skills: TSkill[] = [
 	{
 		title: 'Languages',
-		tools: ['C/C++', 'JavaScript/TypeScript', 'PHP'] // 'Elixir'
+		tools: ['C/C++', 'JavaScript/TypeScript', 'PHP']
 	},
 	{
 		title: 'Backend',
-		tools: ['Laravel', 'WordPress', 'MySQL', 'SQLite'] // 'Phoenix'
+		tools: ['Laravel', 'WordPress', 'MySQL', 'SQLite']
 	},
 	{
 		title: 'Frontend',
-		tools: ['React.js', 'Vue.js', 'TailwindCSS', 'shadcn/ui']
+		tools: ['React', 'Vue.js', 'TailwindCSS', 'shadcn/ui']
 	},
 	{
 		title: 'Others',
-		tools: ['Git', 'Neovim', 'Linux', 'Docker'] // 'Composer'
+		tools: ['Git', 'Neovim', 'Linux', 'Docker']
 	}
 ];
 

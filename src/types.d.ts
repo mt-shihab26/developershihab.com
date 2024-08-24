@@ -38,7 +38,8 @@ export type TEducation = {
 	date: string;
 	logo: string;
 	alt: string;
-	points: string[];
+	description?: string;
+	points?: string[];
 };
 
 export type TTool = {
