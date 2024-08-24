@@ -66,11 +66,18 @@ const experiences: TExperience[] = [
 		},
 		date: 'May 2023 - Present',
 		description: `
-            I am working as a Full-stack Developer at Finnext.co, 
-            focusing primarily on contract-based projects for American clients. 
-            My responsibilities include developing, maintaining, and overseeing 
-            various web applications. I have successfully completed several projects 
-            and continue to provide ongoing maintenance and feature enhancements.
+            I worked at Finnext.co, where I provided custom software solutions. 
+            Although primarily a web design agency focused on custom design and 
+            branding, they occasionally encountered clients needing custom 
+            software solutions. I joined as a Full-stack Web Application Developer, 
+            responsible for developing and maintaining these solutions. My main
+            project was PaystubHero.com, a SaaS payroll document generator for 
+            American employees. I initially built this platform using React and
+            a WordPress plugin. After 1.5 years of growth, I rewrote the entire 
+            platform using the Laravel framework with React. I still continued 
+            to maintain this application, fixing bugs and adding new features. 
+            I also contributed to other projects. Below is a list of notable 
+            projects I developed or maintained here."
         `,
 		projects: [
 			{
@@ -78,16 +85,25 @@ const experiences: TExperience[] = [
 				href: '/projects/paystubhero?back=/',
 				items: [
 					{
-						label: 'Technologies',
-						value: 'JavaScript, React, PHP, WordPress, mPDF, Stripe, TailwindCSS'
+						value: 'Maintained the WordPress plugin and React app for 1.5 years'
+					},
+					{
+						value: 'Fixed bugs and added new features to the WordPress based System.'
+					},
+					{
+						value: 'Now, rewriting the entire SaaS into the Laravel framework.'
 					},
 					{
 						label: 'Date',
 						value: 'May 2023 - Present'
 					},
 					{
-						label: 'Status',
-						value: 'Currently maintaining the application, fixing bugs, and adding new features'
+						label: 'WordPress Based',
+						value: 'WordPress, PHP, React, JavaScript, TailwindCSS'
+					},
+					{
+						label: 'Laravel Based',
+						value: 'Laravel, PHP, React, TypeScript, TailwindCSS'
 					}
 				]
 			}
