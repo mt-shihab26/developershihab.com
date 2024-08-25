@@ -10,18 +10,18 @@ import Layout from '@/components/Layout.astro';
 import Button from '@/components/Button.astro';
 import Pagination from '@/components/Paginator.astro';
 
-import { allBlogs, getUniqueTags } from '@/utils/blogs';
+import { allBlogs, getUniqueTagsWithCount } from '@/utils/blogs';
 import { siteConfig } from '@/site.config';
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const blogs = await allBlogs();
-	const uniqueTags = await getUniqueTags();
-	return paginate(blogs, { pageSize: 10, props: { uniqueTags } });
+	const uniqueTags = await getUniqueTagsWithCount();
+	return paginate(blogs, { pageSize: 10, props: { uniqueTags: uniqueTags.slice(0, 20) } });
 }) satisfies GetStaticPaths;
 
 export interface Props {
 	page: Page<TBlog>;
-	uniqueTags: string[];
+	uniqueTags: [string, number][];
 }
 
 const { page, uniqueTags } = Astro.props as Props;
@@ -85,7 +85,7 @@ const paginationProps = {
 								Tags
 							</h2>
 							<ul class="text-bgColor flex flex-wrap gap-2">
-								{uniqueTags.map((tag) => (
+								{uniqueTags.map(([tag]) => (
 									<li>
 										<Button title={tag} href={`/tags/${tag}/`} style="pill" />
 									</li>
