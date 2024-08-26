@@ -5,7 +5,7 @@ const experiences: TExperience[] = [
 		position: 'Software Engineer - Intern',
 		firm: {
 			name: 'Systech Digital LTD',
-			link: 'https://finnext.co',
+			link: 'https://systechdigital.com',
 			logo: '/src/assets/systech-digital-ltd.png',
 			alt: 'Systech Digital LTD logo'
 		},
