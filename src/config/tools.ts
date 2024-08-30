@@ -63,12 +63,12 @@ const tools: TTool[] = [
 				href: 'https://react.dev',
 				icon: 'react'
 			},
-			{
-				name: 'Vue.js',
-				description: 'The Progressive JavaScript Framework',
-				href: 'https://vuejs.org/',
-				icon: 'vue'
-			},
+			// {
+			// 	name: 'Vue.js',
+			// 	description: 'The Progressive JavaScript Framework',
+			// 	href: 'https://vuejs.org/',
+			// 	icon: 'vue'
+			// },
 			{
 				name: 'TailwindCSS',
 				description: 'The utility-first CSS framework',

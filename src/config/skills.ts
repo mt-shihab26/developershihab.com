@@ -11,7 +11,7 @@ const skills: TSkill[] = [
 	},
 	{
 		title: 'Frontend',
-		tools: ['React', 'Vue.js', 'TailwindCSS', 'shadcn/ui']
+		tools: ['React', 'TailwindCSS', 'shadcn/ui']
 	},
 	{
 		title: 'Others',
