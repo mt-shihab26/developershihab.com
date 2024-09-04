@@ -13,7 +13,7 @@ export const GET = async () => {
 		items: blogs.map((blog) => ({
 			title: blog.data.title,
 			description: blog.data.description,
-			pubDate: blog.data.publishDate,
+			pubDate: blog.data.date.publish,
 			link: `/blogs/${blog.slug}`
 		}))
 	});
