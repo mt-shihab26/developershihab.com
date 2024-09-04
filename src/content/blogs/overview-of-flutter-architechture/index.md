@@ -13,7 +13,7 @@ tags:
     - dart
     - flutter
     - cross-platform
-draft: false
+draft: true
 ---
 
 # Overview of Flutter Architecture
