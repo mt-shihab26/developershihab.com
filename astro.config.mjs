@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
 
 import mdx from '@astrojs/mdx';
 import icon from 'astro-icon';
@@ -13,46 +14,33 @@ import rehypeExternalLinks from 'rehype-external-links';
 
 import vercel from '@astrojs/vercel/static';
 
-// https://astro.build/config
 export default defineConfig({
 	site: 'https://developershihab.com',
 	integrations: [
 		icon(),
-		solid({
-			devtools: true
-		}),
+		solid({ devtools: true }),
 		sitemap(),
-		tailwind({
-			applyBaseStyles: false
-		}),
-		// https://expressive-code.com/reference/configuration/
+		tailwind({ applyBaseStyles: false }),
 		expressiveCode({
-			// One dark, one light theme => https://expressive-code.com/guides/themes/#available-themes
-			themes: ['dracula', 'github-light'],
-			themeCssSelector(theme, { styleVariants }) {
-				// If one dark and one light theme are available
-				// generate theme CSS selectors compatible with cactus-theme dark mode switch
+			themes: ['github-dark-default', 'github-light'],
+			themeCssSelector: (theme, { styleVariants }) => {
 				if (styleVariants.length >= 2) {
 					const baseTheme = styleVariants[0]?.theme;
 					const altTheme = styleVariants.find((v) => v.theme.type !== baseTheme?.type)?.theme;
 					if (theme === baseTheme || theme === altTheme) return `[data-theme='${theme.type}']`;
 				}
-				// return default selector
 				return `[data-theme="${theme.name}"]`;
 			},
 			useThemedScrollbars: false,
 			styleOverrides: {
-				frames: {
-					frameBoxShadowCssValue: 'none'
-				},
+				frames: { frameBoxShadowCssValue: 'none' },
 				uiLineHeight: 'inherit',
 				codeFontSize: '0.875rem',
-				codeLineHeight: '1.7142857rem',
+				codeLineHeight: '1.6rem',
 				borderRadius: '4px',
-				codePaddingInline: '1rem',
-				codeFontFamily:
-					'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;'
-			}
+				codePaddingInline: '1rem'
+			},
+			plugins: [pluginLineNumbers()]
 		}),
 		mdx()
 	],
