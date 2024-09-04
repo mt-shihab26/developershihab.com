@@ -13,7 +13,6 @@ tags:
 cover:
     src: ./cover.avif
     alt: ''
-ogimage: ./cover.avif
 draft: false
 ---
 
