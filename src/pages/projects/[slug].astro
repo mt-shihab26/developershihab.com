@@ -28,7 +28,7 @@ export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { entry: project } = Astro.props as Props;
 
 const {
-	data: { title, type, ogImage, description, logoImage, coverImage, draft, technologies, links },
+	data: { title, type, ogimage, description, logo, cover, draft, technologies, links },
 	slug
 } = project;
 
@@ -39,7 +39,7 @@ const { Content, headings, remarkPluginFrontmatter } = await project.render();
 	meta={{
 		title: suffixTitle(title),
 		description,
-		ogImage: ogImage ?? `/og-image/${slug}.png`
+		ogImage: ogimage ?? `/og-image/${slug}.png`
 	}}
 >
 	<div class="w-full">
@@ -49,14 +49,14 @@ const { Content, headings, remarkPluginFrontmatter } = await project.render();
 			<article class="flex-grow break-words" data-pagefind-body>
 				<div id="project-hero" class="flex flex-col space-y-2">
 					{
-						coverImage && (
+						cover && (
 							<div class="aspect-h-9 aspect-w-16 mb-6">
 								<Image
-									alt={coverImage.alt}
+									alt={cover.alt}
 									class="rounded-2xl object-cover"
 									fetchpriority="high"
 									loading="eager"
-									src={coverImage.src}
+									src={cover.src}
 								/>
 							</div>
 						)
@@ -68,11 +68,7 @@ const { Content, headings, remarkPluginFrontmatter } = await project.render();
 						</p>
 					</div>
 					<div class="mb-2 flex items-center space-x-2">
-						{
-							!!logoImage && (
-								<Img src={logoImage?.src} loading="eager" alt={logoImage?.alt} class="h-10 w-10" />
-							)
-						}
+						{!!logo && <Img src={logo?.src} loading="eager" alt={logo?.alt} class="h-10 w-10" />}
 						<h1 class="text-3xl font-medium">
 							{title}
 						</h1>

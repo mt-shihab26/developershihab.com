@@ -1,7 +1,8 @@
 ---
 title: developershihab.com
 type: Open Source Project
-description: I developer my portfolio website with Modern And cutting edges technologies
+description: >-
+    I developer my portfolio website with Modern And cutting edges technologies
 technologies:
     - Astro
     - TypeScript

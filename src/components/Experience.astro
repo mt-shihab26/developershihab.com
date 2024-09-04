@@ -3,6 +3,8 @@ import type { TExperience } from '@/types';
 
 import Img from './Img.astro';
 
+import { allProjects } from '@/utils/projects';
+
 interface Props {
 	experience: TExperience;
 }
@@ -10,6 +12,8 @@ interface Props {
 const {
 	experience: { position, firm, description, date, projects }
 } = Astro.props as Props;
+
+const allProjectsMds = await allProjects();
 ---
 
 <div
@@ -39,23 +43,47 @@ const {
 			{
 				projects.length > 0 && (
 					<ul class="mt-1 space-y-2">
-						{projects.map((project) => (
-							<li class="rounded-2xl border p-3">
-								<a
-									href={project.href}
-									class="text-md font-semibold hover:underline hover:underline-offset-2"
-								>
-									{project.name}
-								</a>
-								<ul class="ml-6 list-disc text-sm text-muted-foreground">
-									{project.items.map((item) => (
-										<li>
-											{item.label && <span class="font-medium">{item.label}:</span>} {item.value}
-										</li>
-									))}
-								</ul>
-							</li>
-						))}
+						{projects.map((projectSlug) => {
+							const project = allProjectsMds.find((p) => p.slug === projectSlug);
+							if (!project) {
+								return '';
+							}
+							return (
+								<li class="rounded-2xl border p-3">
+									<a
+										href={`/projects/${project.slug}?back=/`}
+										class="text-md font-semibold hover:underline hover:underline-offset-2"
+									>
+										{project.data.title}
+									</a>
+									<ul class="ml-6 list-disc text-sm text-muted-foreground">
+										{project.data.highlights?.map((highlight) => (
+											<li>{highlight}</li>
+										))}
+										{project.data.date && (
+											<li>
+												<span class="font-medium">Date:</span>{' '}
+												<span>
+													{project.data.date.start} - {project.data.date.end}
+												</span>
+											</li>
+										)}
+										{project.data.technologies && project.data.technologies.length > 0 && (
+											<li>
+												<span class="font-medium">Technologies:</span>{' '}
+												{project.data.technologies.map((technology, index) => (
+													<span>
+														{index + 1 === project.data.technologies?.length
+															? `${technology}`
+															: `${technology},`}
+													</span>
+												))}
+											</li>
+										)}
+									</ul>
+								</li>
+							);
+						})}
 					</ul>
 				)
 			}

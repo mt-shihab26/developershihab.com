@@ -13,7 +13,7 @@ export interface Props {
 
 const {
 	project: {
-		data: { title, type, description, logoImage, technologies, links },
+		data: { title, type, description, logo, technologies, links },
 		slug
 	},
 	loading
@@ -25,13 +25,13 @@ const {
 		as="a"
 		heading={title}
 		subheading={description}
-		imagePath={logoImage?.src}
-		altText={logoImage?.alt}
+		imagePath={logo?.src}
+		altText={logo?.alt}
 		imageClass="h-11 w-auto md:-left-16"
 		href={`/projects/${slug}`}
 		loading={loading}
 	>
 		<Technologies type={type} technologies={technologies} />
 	</Card>
-	<Links links={links} />
+	<Links links={links || []} />
 </div>

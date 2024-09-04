@@ -40,6 +40,7 @@ const projects = defineCollection({
 			technologies: z.array(z.string()).optional(),
 			logo: z.object({ src: z.string(), alt: z.string() }).optional(),
 			cover: z.object({ src: image(), alt: z.string() }).optional(),
+			ogimage: z.string().optional(),
 			links: z.array(z.object({ label: z.string(), link: z.string() })).optional(),
 			draft: z.boolean().default(false),
 			featured: z.boolean().default(false),

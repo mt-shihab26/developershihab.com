@@ -1,7 +1,8 @@
 ---
 title: tic-tac-toe
 type: Open Source Project
-description: Tic Tac Toe game implemented With SolidJS & MiniMax Algorithm
+description: >-
+    Tic Tac Toe game implemented With SolidJS & MiniMax Algorithm
 technologies:
     - SolidJS
     - Vite
