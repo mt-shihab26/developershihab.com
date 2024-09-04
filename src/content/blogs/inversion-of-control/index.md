@@ -1,10 +1,17 @@
 ---
 title: ইনভার্শন অব কন্ট্রোল নীতি
-description: 'এই ব্লগে আমি জাভা ওয়েব প্রোগ্রামিং এবং ইনভার্শন অব কন্ট্রোল ও ডিপেন্ডেন্সি ইনজেকশনের বিষয়ে আলোচনা করতে চলেছি।'
-publishDate: '11 October 2022'
-updatedDate: '11 October 2021'
-tags: ['java', 'oop', 'programming']
-coverImage: { src: './ioc.png', alt: '' }
+description: >-
+    এই ব্লগে আমি জাভা ওয়েব প্রোগ্রামিং এবং ইনভার্শন অব কন্ট্রোল ও ডিপেন্ডেন্সি ইনজেকশনের বিষয়ে আলোচনা করতে চলেছি।
+date:
+    publish: 11 October 2022
+    updated: 11 October 2021
+tags:
+    - java
+    - oop
+    - programming
+cover:
+    src: ./cover.png
+    alt: ''
 draft: false
 ---
 

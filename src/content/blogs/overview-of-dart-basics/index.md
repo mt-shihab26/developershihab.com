@@ -1,10 +1,18 @@
 ---
 title: Overview of Dart Basics
-description: Dart একটি open-source, general-purpose প্রোগ্রামিং ভাষা, যা ডিজাইন করা হয়েছে Client সাইট অ্যাপলিকেশন ডেভলপমেন্টের জন্য
-publishDate: '02 March 2022'
-updatedDate: '02 March 2022'
-tags: ['dart', 'oop', 'client']
-coverImage: { src: './overview-of-dart-basics.jpg', alt: '' }
+description: >-
+    Dart একটি open-source, general-purpose প্রোগ্রামিং ভাষা, যা ডিজাইন করা হয়েছে Client সাইট
+    অ্যাপলিকেশন ডেভলপমেন্টের জন্য
+date:
+    publish: 02 March 2022
+    updated: 02 March 2022
+tags:
+    - dart
+    - oop
+    - client
+cover:
+    src: ./cover.jpg
+    alt: ''
 draft: false
 ---
 

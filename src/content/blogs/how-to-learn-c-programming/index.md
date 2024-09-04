@@ -1,10 +1,17 @@
 ---
-title: কিভাবে সি প্রোগ্রমিং শিখবো?
-description: 'সি প্রোগ্রামিং বা কম্পিউটার প্রোগ্রামিং শেখার ভালো ও কার্যকরী কিছু রিসোর্স এবং রোডম্যপ'
-publishDate: '14 January 2021'
-updatedDate: '14 January 2021'
-tags: ['c', 'beginners', 'programming']
-coverImage: { src: './c-image.png', alt: '' }
+title: কিভাবে সি প্রোগ্রামিং শিখবো?
+description: >-
+    সি প্রোগ্রামিং বা কম্পিউটার প্রোগ্রামিং শেখার ভালো ও কার্যকরী কিছু রিসোর্স এবং রোডম্যপ
+date:
+    publish: 14 January 2021
+    updated: 14 January 2021
+tags:
+    - c
+    - beginners
+    - programming
+cover:
+    src: ./cover.png
+    alt: ''
 draft: false
 ---
 

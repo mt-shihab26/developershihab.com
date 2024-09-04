@@ -1,10 +1,18 @@
 ---
 title: নতুনদের জন্য সমস্যা সমাধান
-description: 'Problem এর বাংলা হলো সমস্যা আর Solving হলো সেই সমস্যা সমাধান করা। কিন্তু আমার কাছে Problem বা সমস্যা মানে হলো কোন unknown situation বা অজানা পরিস্থিতি'
-publishDate: '25 January 2022'
-updatedDate: '25 January 2022'
-coverImage: { src: './psfb.jpg', alt: '' }
-tags: ['cpp', 'problem-solving', 'programming']
+description: >-
+    Problem এর বাংলা হলো সমস্যা আর Solving হলো সেই সমস্যা সমাধান করা। কিন্তু আমার কাছে Problem
+    বা সমস্যা মানে হলো কোন unknown situation বা অজানা পরিস্থিতি
+date:
+    publish: 25 January 2022
+    updated: 25 January 2022
+cover:
+    src: ./cover.jpg
+    alt: ''
+tags:
+    - cpp
+    - problem-solving
+    - programming
 draft: false
 ---
 

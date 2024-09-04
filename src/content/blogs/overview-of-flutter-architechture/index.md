@@ -1,10 +1,18 @@
 ---
 title: Overview of Flutter Architecture
-description: Flutter হলো Google এর তৈরি cross-platform UI toolkit যা একই কোডকে বিভিন্ন operating systems যেমন iOS এবং Android এ ব্যবহারের সুযোগ দেয়।
-publishDate: '05 March 2022'
-updatedDate: '05 March 2022'
-coverImage: { src: './overview-of-flutter-architechture.jpg', alt: '' }
-tags: ['dart', 'flutter', 'cross-platform']
+description: >-
+    Flutter হলো Google এর তৈরি cross-platform UI toolkit যা একই কোডকে বিভিন্ন operating systems
+    যেমন iOS এবং Android এ ব্যবহারের সুযোগ দেয়।
+date:
+    publish: 05 March 2022
+    updated: 05 March 2022
+cover:
+    src: ./cover.jpg
+    alt: ''
+tags:
+    - dart
+    - flutter
+    - cross-platform
 draft: false
 ---
 

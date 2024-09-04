@@ -1,10 +1,17 @@
 ---
-title: 'বইটি নিয়ে আমার কথা!'
-description: 'ফুলস্ট্যাক ডেভেলপমেন্ট কানেকটিং দ্য ডটস (HM Nayem) বইটি নিয়ে আমার কথা।'
-publishDate: '14 April 2021'
-updatedDate: '14 April 2021'
-tags: ['javascript', 'full-stack', 'development']
-coverImage: { src: './f-images.png', alt: '' }
+title: বইটি নিয়ে আমার কথা!
+description: >-
+    ফুলস্ট্যাক ডেভেলপমেন্ট কানেকটিং দ্য ডটস (HM Nayem) বইটি নিয়ে আমার কথা।
+date:
+    publish: 14 April 2021
+    updated: 14 April 2021
+tags:
+    - javascript
+    - full-stack
+    - development
+cover:
+    src: ./cover.png
+    alt: ''
 draft: false
 ---
 

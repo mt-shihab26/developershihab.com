@@ -1,10 +1,17 @@
 ---
-title: 'Competitive Programming'
-description: 'Competitive Programming (CP) হলো মানসিক খেলা যা ইন্টারনেট এবং স্থানীয় ভাবে অনুষ্ঠিত হয়। এখানে অংশ গ্রহন কারিদেরকে নির্দিষ্ট সংখ্যক সমস্যা দেওয়া হয়, নির্দিষ্ট সময়ে সমাধান করার জন্য।'
-publishDate: '03 February 2022'
-updatedDate: '03 February 2022'
-tags: ['problem-solving', 'dsa', 'cpp']
-coverImage: { src: './competitive-programming.jpg', alt: '' }
+title: Competitive Programming
+description: >-
+    Competitive Programming (CP) হলো মানসিক খেলা যা ইন্টারনেট এবং স্থানীয় ভাবে অনুষ্ঠিত হয়। এখানে অংশ গ্রহন কারিদেরকে নির্দিষ্ট সংখ্যক সমস্যা দেওয়া হয়, নির্দিষ্ট সময়ে সমাধান করার জন্য।
+date:
+    publish: 03 February 2022
+    updated: 03 February 2022
+tags:
+    - problem-solving
+    - dsa
+    - cpp
+cover:
+    src: ./cover.jpg
+    alt: ''
 draft: false
 ---
 

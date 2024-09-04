@@ -1,18 +1,24 @@
 ---
 import FormattedDate from './FormattedDate.astro';
 
+// interface Props {
+// 	as: any;
+// 	withDesc?: boolean;
+// 	blog: TBlog;
+// }
+
 const {
 	as: Tag = 'div',
 	withDesc = false,
 	blog: {
-		data: { title, description, updatedDate, publishDate, draft },
+		data: { title, description, date, draft },
 		slug
 	}
 } = Astro.props;
 ---
 
 <li class="flex flex-col gap-2 sm:flex-row sm:gap-x-4 [&_q]:basis-full">
-	<FormattedDate class="min-w-[120px]" date={updatedDate ?? publishDate} />
+	<FormattedDate class="min-w-[120px]" date={date.updated ?? date.publish} />
 
 	<Tag>
 		{draft && <span class="text-red-500">(Draft) </span>}

@@ -11,8 +11,8 @@ const getAllBlogs = async (): Promise<TBlog[]> => {
 
 const sortMDByDate = (blogs: TBlog[]): TBlog[] => {
 	return blogs.sort((a, b) => {
-		const aDate = new Date(a.data.updatedDate ?? a.data.publishDate).valueOf();
-		const bDate = new Date(b.data.updatedDate ?? b.data.publishDate).valueOf();
+		const aDate = new Date(a.data.date.updated ?? a.data.date.publish).valueOf();
+		const bDate = new Date(b.data.date.updated ?? b.data.date.publish).valueOf();
 		return bDate - aDate;
 	});
 };

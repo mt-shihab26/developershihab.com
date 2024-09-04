@@ -1,10 +1,16 @@
 ---
-title: প্রোগ্রামিংয়ের আশ্চর্য জগৎ বই রিভিউ
-description: 'ভুল ভাবে প্রোগ্রামিং শেখার মাধ্যমে তাদের ভবিষ্যৎ হুমকি মুখে পড়তে পারে।'
-publishDate: '25 January 2020'
-updatedDate: '25 January 2020'
-coverImage: { src: './b-images.png', alt: '' }
-tags: ['guideline', 'beginners', 'programming']
+title: প্রোগ্রামিংয়ের আশ্চর্য জগৎ বই রিভিউ
+description: ভুল ভাবে প্রোগ্রামিং শেখার মাধ্যমে তাদের ভবিষ্যৎ হুমকি মুখে পড়তে পারে।
+date:
+    publish: 25 January 2020
+    updated: 25 January 2020
+cover:
+    src: ./cover.png
+    alt: ''
+tags:
+    - guideline
+    - beginners
+    - programming
 draft: false
 ---
 

@@ -26,7 +26,7 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { entry: blog } = Astro.props;
 
 const {
-	data: { description, ogImage, publishDate, title, updatedDate, coverImage, draft, tags },
+	data: { description, ogimage, date, title, cover, draft, tags },
 	slug
 } = blog;
 
@@ -40,9 +40,9 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 <Layout
 	meta={{
 		title: suffixTitle(title),
-		ogImage: ogImage ?? `/og-image/${slug}.png`,
+		ogImage: ogimage ?? `/og-image/${slug}.png`,
 		description,
-		articleDate: updatedDate?.toISOString() ?? publishDate.toISOString()
+		articleDate: date.updated?.toISOString() ?? date.publish.toISOString()
 	}}
 >
 	<div class="w-full">
@@ -52,14 +52,14 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 			<article class="flex-grow break-words" data-pagefind-body>
 				<div id="blog-hero">
 					{
-						coverImage && (
+						cover && (
 							<div class="aspect-h-9 aspect-w-16 mb-6">
 								<Image
-									alt={coverImage.alt}
+									alt={cover.alt}
 									class="rounded-2xl object-cover"
 									fetchpriority="high"
 									loading="eager"
-									src={coverImage.src}
+									src={cover.src}
 								/>
 							</div>
 						)
@@ -67,7 +67,7 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 					{draft ? <span class="text-red-500">(Draft)</span> : null}
 					<div class="flex flex-wrap items-center gap-x-3 gap-y-2">
 						<p class="text-xs">
-							<FormattedDate date={publishDate} dateTimeOptions={dateTimeOptions} /> /{' '}
+							<FormattedDate date={date.publish} dateTimeOptions={dateTimeOptions} /> /{' '}
 							{remarkPluginFrontmatter.minutesRead}
 						</p>
 					</div>
@@ -113,10 +113,10 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 					}
 
 					{
-						updatedDate && (
+						date.updated && (
 							<p class="mt-6 text-base">
 								Last Updated:
-								<FormattedDate class="ms-1" date={updatedDate} dateTimeOptions={dateTimeOptions} />
+								<FormattedDate class="ms-1" date={date.updated} dateTimeOptions={dateTimeOptions} />
 							</p>
 						)
 					}
