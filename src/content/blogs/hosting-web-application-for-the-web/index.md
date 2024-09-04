@@ -36,9 +36,9 @@ This is entirely true.
 At the end of the day, it actually does run on a computer.
 However, it's not a normal computer. It's a special kind of one.
 
-This computer has to run 24/7, always.
-It has to be connected to the internet 24/7.
-It must have a static IP. We need a static IP.
+-   This computer has to run 24/7, always.
+-   It has to be connected to the internet 24/7.
+-   It must have a static IP. We need a static IP.
 
 Normally, when we connect any device to the internet, the router assigns a dynamic IP to the device to uniquely identify it.
 But typically, this IP is dynamic and automatically assigned by the router.
@@ -67,9 +67,9 @@ So, we've seen the self-hosting approach, right?
 It's expensive and a lot of work.
 To save money and reduce work, we can use something called a cloud platform.
 
-What is a cloud platform? A cloud platform is Infrastructure as a Service (LaaS),
+What is a cloud platform? A cloud platform is Infrastructure as a Service (IaaS),
 where we basically rent computers from a cloud provider.
-In a nutshell, we're going to rent a server that has a static IP from a cloud provider.
+In a nutshell, we have to rent a server that has a static IP from a cloud provider.
 This computer will run 24/7 and also will be connected 24/7 if everything is okay.
 
 Now, we can do whatever we want with this computer.
