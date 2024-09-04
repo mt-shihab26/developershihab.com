@@ -14,7 +14,7 @@ const tools: TTool[] = [
 				name: 'JavaScript/TypeScript',
 				description: 'Web Development, Frontend',
 				href: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript',
-				icon: 'javascript'
+				icon: 'typescript'
 			},
 			{
 				name: 'PHP',
