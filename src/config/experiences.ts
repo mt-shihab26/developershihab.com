@@ -19,42 +19,7 @@ const experiences: TExperience[] = [
             and expanded my understanding of modern web technologies. 
             Below is a list of projects I did here.
         `,
-		projects: [
-			{
-				name: 'S-Commerce',
-				href: '/projects/scommerce?back=/',
-				items: [
-					{
-						value: 'An e-commerce web application built using the Laravel framework.'
-					},
-					{
-						label: 'Technologies',
-						value: 'Laravel, PHP, TailwindCSS, SQLite'
-					},
-					{
-						label: 'Date',
-						value: '30 Jun, 2024 - Present'
-					}
-				]
-			},
-			{
-				name: 'Student Performance Monitoring System',
-				href: '/projects/student-performance-monitoring-system?back=/',
-				items: [
-					{
-						value: 'A web application written in raw PHP with a Laravel-like structure.'
-					},
-					{
-						label: 'Technologies',
-						value: 'PHP, PDO, MySQL, Composer, TailwindCSS'
-					},
-					{
-						label: 'Date',
-						value: 'June 23, 2024 - July 6, 2024'
-					}
-				]
-			}
-		]
+		projects: ['s-commerce', 'student-performance-monitoring-system']
 	},
 	{
 		position: 'Full-stack Developer',
@@ -79,35 +44,7 @@ const experiences: TExperience[] = [
             I also contributed to other projects. Below is a list of notable 
             projects I developed or maintained here.
         `,
-		projects: [
-			{
-				name: 'PaystubHero.com',
-				href: '/projects/paystubhero?back=/',
-				items: [
-					{
-						value: 'Maintained the WordPress plugin and React app for 1.5 years'
-					},
-					{
-						value: 'Fixed bugs and added new features to the WordPress based System.'
-					},
-					{
-						value: 'Now, rewriting the entire SaaS into the Laravel framework.'
-					},
-					{
-						label: 'Date',
-						value: 'May 2023 - Present'
-					},
-					{
-						label: 'WordPress Based',
-						value: 'WordPress, PHP, React, JavaScript, TailwindCSS'
-					},
-					{
-						label: 'Laravel Based',
-						value: 'Laravel, PHP, React, TypeScript, TailwindCSS'
-					}
-				]
-			}
-		]
+		projects: ['paystubhero-wordpress-plugin']
 	}
 ];
 

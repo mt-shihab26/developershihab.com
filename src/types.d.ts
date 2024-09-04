@@ -8,14 +8,7 @@ export type TExperience = {
 	};
 	description: string;
 	date: string;
-	projects: {
-		name: string;
-		href: string;
-		items: {
-			label?: string;
-			value: string;
-		}[];
-	}[];
+	projects: string[];
 };
 
 export type TCertification = {

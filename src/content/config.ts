@@ -35,12 +35,13 @@ const projects = defineCollection({
 			title: z.string(),
 			type: z.string().optional(),
 			description: z.string(),
-			technologies: z.array(z.string()).default([]),
-			logoImage: z.object({ src: z.string(), alt: z.string() }).optional(),
-			coverImage: z.object({ src: image(), alt: z.string() }).optional(),
-			links: z.array(z.object({ label: z.string(), link: z.string() })).default([]),
+			date: z.object({ start: z.string(), end: z.string() }).optional(),
+			highlights: z.array(z.string()).optional(),
+			technologies: z.array(z.string()).optional(),
+			logo: z.object({ src: z.string(), alt: z.string() }).optional(),
+			cover: z.object({ src: image(), alt: z.string() }).optional(),
+			links: z.array(z.object({ label: z.string(), link: z.string() })).optional(),
 			draft: z.boolean().default(false),
-			ogImage: z.string().optional(),
 			featured: z.boolean().default(false),
 			priority: z.number().optional()
 		})

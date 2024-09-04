@@ -40,26 +40,26 @@ Competitive Programming শুরু করার জন্য পূর্ব�
 
 ## কিছু গুরুত্বপূর্ন Data Structure and Algorithm:
 
-- Binary Search
-- Sorting (Merge Sort, Quick Sort, etc)
-- Graph Theory (BFS/DFS, Shortest Part, Articulation Point, Max/Min Flow, etc)
-- Strings (KMP, Z Algorithm, Finite Automata, etc)
-- Greedy
-- Constructive Algorithm (Merge Sort logic, Two pointers, Backtracking, etc)
-- Dynamic Programming
-- Bit Manipulation
-- Game Theory
-- Number Theory
-- Stack, Queue, Link list
-- Tree, Segment Tree,
-- Heap and maps
-- Disjoint Set Union, Trie, etc
+-   Binary Search
+-   Sorting (Merge Sort, Quick Sort, etc)
+-   Graph Theory (BFS/DFS, Shortest Part, Articulation Point, Max/Min Flow, etc)
+-   Strings (KMP, Z Algorithm, Finite Automata, etc)
+-   Greedy
+-   Constructive Algorithm (Merge Sort logic, Two pointers, Backtracking, etc)
+-   Dynamic Programming
+-   Bit Manipulation
+-   Game Theory
+-   Number Theory
+-   Stack, Queue, Link list
+-   Tree, Segment Tree,
+-   Heap and maps
+-   Disjoint Set Union, Trie, etc
 
 ## Learning Resources
 
-- # [কম্পিউটার প্রোগ্রামিং-প্রথম খণ্ড (তামিম শাহরিয়ার সুবিন)](https://www.rokomari.com/book/166987/computer-programming--1st-part)
+-   # [কম্পিউটার প্রোগ্রামিং-প্রথম খণ্ড (তামিম শাহরিয়ার সুবিন)](https://www.rokomari.com/book/166987/computer-programming--1st-part)
 
-- [প্রোগ্রামিং কনটেস্ট ডেটা স্ট্রাকচার ও অ্যালগরিদম (মো: মাহবুবুল হাসান)](http://dimik.pub/book/77/programming-contest-data-structure-and-algorithm)
-- [Competitive Programmer’s Handbook (Antti Laaksonen)](https://cses.fi/book/book.pdf)
-- [Competitive Programming 3 (Felix Halim and Steven Halim)](https://cpbook.net/)
-- [cp-algorithms.com ](https://cp-algorithms.com/)
+-   [প্রোগ্রামিং কনটেস্ট ডেটা স্ট্রাকচার ও অ্যালগরিদম (মো: মাহবুবুল হাসান)](http://dimik.pub/book/77/programming-contest-data-structure-and-algorithm)
+-   [Competitive Programmer’s Handbook (Antti Laaksonen)](https://cses.fi/book/book.pdf)
+-   [Competitive Programming 3 (Felix Halim and Steven Halim)](https://cpbook.net/)
+-   [cp-algorithms.com ](https://cp-algorithms.com/)
