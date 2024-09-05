@@ -5,7 +5,7 @@ description: >-
     and drawbacks of self-hosting, managed, and unmanaged cloud platforms.
 date:
     publish: 04 September 2024
-    updated: 04 September 2024
+    updated: 05 September 2024
 tags:
     - web-hosting
     - cloud-platforms
@@ -24,7 +24,8 @@ To me, the web is a kind of open platform where we can share anything we want.
 We can share content, images, documents, videos, and any digital assets.
 
 We can also share web applications.
-A web application is a type of software that runs on a computer over the internet, responding to requests from a user's browser or their clients.
+A web application is a type of software that runs on a computer over the internet,
+responding to requests from a user's browser or their clients devices.
 If I define a web application, it's a software system directly used by users who are connected to the internet.
 
 If we want to share a web application, the first thing we need to do is decide what kind of web hosting we're going to use.
