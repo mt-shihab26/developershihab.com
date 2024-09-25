@@ -20,8 +20,8 @@ links:
     - label: Live Link
       link: https://tic-tac-toe.developershihab.com
 draft: false
-featured: true
-priority: 800
+featured: false
+priority: 2
 ---
 
 **Overview:**

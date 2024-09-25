@@ -18,9 +18,9 @@ links:
       link: https://github.com/p-nerd/developershihab.com
     - label: Live Link
       link: https://developershihab.com
-draft: false
-featured: true
-priority: 700
+draft: true
+featured: false
+priority: -150
 ---
 
 **Title**: Building My Portfolio Website with Modern Technologies

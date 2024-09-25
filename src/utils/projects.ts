@@ -13,7 +13,7 @@ const sortProjectByPriority = (projects: TProject[]): TProject[] => {
 };
 
 const filterFeaturedProjects = (projects: TProject[]): TProject[] => {
-	return projects.sort((a, b) => (b.data.priority || 0) - (a.data.priority || 0));
+	return projects.filter((p) => p.data.featured);
 };
 
 export const allProjects = async (): Promise<TProject[]> => {

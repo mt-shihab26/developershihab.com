@@ -2,26 +2,6 @@ import type { TExperience } from '@/types';
 
 const experiences: TExperience[] = [
 	{
-		position: 'Software Engineer - Intern',
-		firm: {
-			name: 'Systech Digital LTD',
-			link: 'https://systechdigital.com',
-			logo: '/src/assets/systech-digital-ltd.png',
-			alt: 'Systech Digital LTD logo'
-		},
-		date: 'June 2024 - Present',
-		description: `
-            I joined Systech Digital LTD as an Intern Software Engineer 
-            during my Diploma final semester's industrial training program. Initially, 
-            I developed demo projects, and later, I contributed to client 
-            projects. My work mainly involved the Laravel framework. This 
-            internship significantly enhanced my Laravel development skills 
-            and expanded my understanding of modern web technologies. 
-            Below is a list of projects I did here.
-        `,
-		projects: ['s-commerce', 'student-performance-monitoring-system']
-	},
-	{
 		position: 'Full-stack Developer',
 		firm: {
 			name: 'Finnext.co',
@@ -45,6 +25,26 @@ const experiences: TExperience[] = [
             projects I developed or maintained here.
         `,
 		projects: ['paystubhero-wordpress-plugin']
+	},
+	{
+		position: 'Software Engineer - Intern',
+		firm: {
+			name: 'Systech Digital LTD',
+			link: 'https://systechdigital.com',
+			logo: '/src/assets/systech-digital-ltd.png',
+			alt: 'Systech Digital LTD logo'
+		},
+		date: 'June 2024 - September 2024',
+		description: `
+            I joined Systech Digital LTD as an Intern Software Engineer 
+            during my Diploma final semester's industrial training program. Initially, 
+            I developed demo projects, and later, I contributed to client 
+            projects. My work mainly involved the Laravel framework. This 
+            internship significantly enhanced my Laravel development skills 
+            and expanded my understanding of modern web technologies. 
+            Below is a list of projects I did here.
+        `,
+		projects: ['s-commerce', 'student-performance-monitoring-system']
 	}
 ];
 

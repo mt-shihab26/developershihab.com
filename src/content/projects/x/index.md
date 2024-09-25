@@ -12,7 +12,7 @@ links:
       link: https://github.com/p-nerd/x
 draft: false
 featured: false
-priority: 600
+priority: 1
 ---
 
 **Title:** Streamlining Software Development Workflow with X

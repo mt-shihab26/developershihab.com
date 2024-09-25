@@ -22,8 +22,8 @@ date:
     start: June 23, 2024
     end: July 6, 2024
 draft: false
-featured: true
-priority: 900
+featured: false
+priority: 3
 ---
 
 ## Overview
