@@ -40,7 +40,15 @@ export default defineConfig({
 				borderRadius: '4px',
 				codePaddingInline: '1rem'
 			},
-			plugins: [pluginLineNumbers()]
+			plugins: [pluginLineNumbers()],
+			defaultProps: {
+				showLineNumbers: false,
+				overridesByLang: {
+					'html,css,js,ts,jsx,tsx,java,python,php,c,cpp': {
+						showLineNumbers: true
+					}
+				}
+			}
 		}),
 		mdx()
 	],

@@ -71,10 +71,12 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 							{remarkPluginFrontmatter.minutesRead}
 						</p>
 					</div>
-					<h1 class="mt-2 text-3xl font-medium sm:mb-1">
+					<h1 class="mt-2 text-3xl font-medium">
 						{title}
 					</h1>
-
+					<p class="mt-2 italic text-muted-foreground">
+						{description}
+					</p>
 					{
 						!!tags?.length && (
 							<div class="mt-3 flex flex-row items-center gap-x-1 text-sm lg:text-base">
@@ -95,7 +97,7 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 									<path d="M17.573 18.407l2.834 -2.834a2.025 2.025 0 0 0 0 -2.864l-7.117 -7.116" />
 									<path d="M6 9h-.01" />
 								</svg>
-								{tags.map((tag, i) => (
+								{tags.map((tag: any, i: any) => (
 									<div>
 										<a
 											aria-label={`View more blogs with the tag ${tag}`}
