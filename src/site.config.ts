@@ -34,10 +34,10 @@ export const siteConfig: TSiteConfig = {
 
 export const socials = {
 	email: 'shihab4t@gmail.com',
-	linkedin: 'https://www.linkedin.com/in/shihab-mahamud',
-	x: 'https://x.com/shihabmahamud13',
 	github: 'https://github.com/p-nerd',
 	devto: 'https://dev.to/p-nerd',
+	linkedin: 'https://www.linkedin.com/in/shihab-mahamud',
+	x: 'https://x.com/shihabxdev',
 	reddit: 'https://www.reddit.com/user/p-nerd/'
 } as const;
 
