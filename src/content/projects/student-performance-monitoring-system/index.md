@@ -10,6 +10,9 @@ technologies:
     - MySQL
     - Composer
     - TailwindCSS
+logo:
+    src: /src/assets/systech-digital-ltd.png
+    alt: 'Systech Digital Logo'
 cover:
     src: ./student-performance-monitoring-system.jpg
     alt: ''
