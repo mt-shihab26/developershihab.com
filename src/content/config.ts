@@ -34,7 +34,6 @@ const projects = defineCollection({
 			type: z.string().optional(),
 			description: z.string(),
 			date: z.object({ start: z.string(), end: z.string() }).optional(),
-			highlights: z.array(z.string()).optional(),
 			technologies: z.array(z.string()).optional(),
 			logo: z.object({ src: z.string(), alt: z.string() }).optional(),
 			cover: z.object({ src: image(), alt: z.string() }).optional(),

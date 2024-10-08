@@ -53,9 +53,6 @@ const allProjectsMds = await allProjects();
 										{project.data.title}
 									</a>
 									<ul class="ml-6 list-disc text-sm text-muted-foreground">
-										{project.data.highlights?.map((highlight) => (
-											<li>{highlight}</li>
-										))}
 										{project.data.date && (
 											<li>
 												<span class="font-medium">Date:</span>{' '}

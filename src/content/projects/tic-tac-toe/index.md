@@ -19,7 +19,7 @@ links:
       link: https://github.com/p-nerd/tic-tac-toe
     - label: Live Link
       link: https://tic-tac-toe.developershihab.com
-draft: false
+draft: true
 featured: false
 priority: 2
 ---

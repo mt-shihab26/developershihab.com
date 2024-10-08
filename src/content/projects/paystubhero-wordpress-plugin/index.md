@@ -1,14 +1,10 @@
 ---
 title: PaystubHero WordPress Plugin
+type: Finnext Project
 description: >-
     WordPress plugin and React frontend for paystubhero.com. The React app is integrated via shortcode.
     Also, I built a custom WordPress REST API for backend functionality. I am also maintaining this
     project for over 1.5 years.
-highlights:
-    - Created the SaaS application of paystubhero.com as WordPress Plugin
-    - Builded the Frontend in React.js exposed via WordPress shortcode
-    - Maintaining the WordPress plugin and React app for 1.5 years
-    - Fixed bugs and added new features on this maintenance time
 technologies:
     - React
     - JavaScript
@@ -16,7 +12,6 @@ technologies:
     - WordPress
     - TailwindCSS
     - mPDF
-    - Stripe
 logo:
     src: /src/assets/paystubhero.png
     alt: ''
