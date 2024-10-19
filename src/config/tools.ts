@@ -93,11 +93,17 @@ const tools: TTool[] = [
 				icon: 'arc'
 			},
 			{
-				name: 'WezTerm',
+				name: 'Alacritty',
 				description: 'Terminal',
-				href: 'https://wezfurlong.org/wezterm/index.html',
-				icon: 'wezterm'
+				href: 'https://alacritty.org',
+				icon: 'alacritty'
 			},
+			// {
+			// 	name: 'WezTerm',
+			// 	description: 'Terminal',
+			// 	href: 'https://wezfurlong.org/wezterm/index.html',
+			// 	icon: 'wezterm'
+			// },
 			// {
 			// 	name: 'Warp',
 			// 	description: 'Terminal',
@@ -109,13 +115,13 @@ const tools: TTool[] = [
 				description: 'IDE',
 				href: 'https://neovim.io',
 				icon: 'neovim'
-			},
-			{
-				name: 'VS Code',
-				description: 'IDE',
-				href: 'https://code.visualstudio.com',
-				icon: 'vscode'
 			}
+			// {
+			// 	name: 'VS Code',
+			// 	description: 'IDE',
+			// 	href: 'https://code.visualstudio.com',
+			// 	icon: 'vscode'
+			// }
 		]
 	},
 	{
