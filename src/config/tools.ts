@@ -87,17 +87,36 @@ const tools: TTool[] = [
 				icon: 'linux'
 			},
 			{
-				name: 'Arc',
-				description: 'Browser',
-				href: 'https://arc.net',
-				icon: 'arc'
+				name: 'Kitty',
+				description: 'Terminal',
+				href: 'https://github.com/kovidgoyal/kitty',
+				icon: 'kitty'
 			},
 			{
-				name: 'Alacritty',
-				description: 'Terminal',
-				href: 'https://alacritty.org',
-				icon: 'alacritty'
+				name: 'Tmux',
+				description: 'Terminal Multiplexer',
+				href: 'https://github.com/tmux/tmux',
+				icon: 'tmux'
 			},
+			{
+				name: 'Neovim',
+				description: 'IDE',
+				href: 'https://neovim.io',
+				icon: 'neovim'
+			}
+			// {
+			// 	name: 'Arc',
+			// 	description: 'Browser',
+			// 	href: 'https://arc.net',
+			// 	icon: 'arc'
+			// },
+
+			// {
+			// 	name: 'Alacritty',
+			// 	description: 'Terminal',
+			// 	href: 'https://alacritty.org',
+			// 	icon: 'alacritty'
+			// },
 			// {
 			// 	name: 'WezTerm',
 			// 	description: 'Terminal',
@@ -110,12 +129,7 @@ const tools: TTool[] = [
 			// 	href: 'https://www.warp.dev',
 			// 	icon: 'warp'
 			// },
-			{
-				name: 'Neovim',
-				description: 'IDE',
-				href: 'https://neovim.io',
-				icon: 'neovim'
-			}
+
 			// {
 			// 	name: 'VS Code',
 			// 	description: 'IDE',
@@ -146,11 +160,17 @@ const tools: TTool[] = [
 				icon: 'todoist'
 			},
 			{
-				name: 'ChatGPT',
+				name: 'Claude',
 				description: 'AI',
-				href: 'https://chat.openai.com/',
-				icon: 'chatgpt'
+				href: 'https://claude.ai',
+				icon: 'claude'
 			}
+			// {
+			// 	name: 'ChatGPT',
+			// 	description: 'AI',
+			// 	href: 'https://chat.openai.com/',
+			// 	icon: 'chatgpt'
+			// }
 		]
 	}
 ];
