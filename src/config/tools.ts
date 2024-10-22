@@ -150,13 +150,13 @@ const tools: TTool[] = [
 			{
 				name: 'Docker',
 				description: 'Containerizer',
-				href: 'https://git-scm.com',
+				href: 'https://www.docker.com',
 				icon: 'docker'
 			},
 			{
 				name: 'Todoist',
 				description: 'Todo List',
-				href: 'https://www.notion.so/product',
+				href: 'https://todoist.com',
 				icon: 'todoist'
 			},
 			{
