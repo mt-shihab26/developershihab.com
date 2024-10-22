@@ -3,6 +3,7 @@ import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
 
 import mdx from '@astrojs/mdx';
 import icon from 'astro-icon';
+import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import expressiveCode from 'astro-expressive-code';
@@ -48,7 +49,8 @@ export default defineConfig({
 				}
 			}
 		}),
-		mdx()
+		mdx(),
+		react()
 	],
 	markdown: {
 		remarkPlugins: [remarkUnwrapImages, remarkReadingTime],

@@ -1,23 +1,24 @@
 import { cn } from '@/utils/tailwind';
-import { createSignal, onMount } from 'solid-js';
+import { useEffect, useState } from 'react';
 
 const Back = (p: { href?: string; class?: string }) => {
-	const [href, setHref] = createSignal(p.href || '/');
+	const [href, setHref] = useState(p.href || '/');
 
-	onMount(() => {
+	useEffect(() => {
 		const params = new URLSearchParams(location.search);
+		console.log(params.get('back'));
 		setHref((prev) => params.get('back') || prev);
-	});
+	}, []);
 
 	return (
 		<a
-			class={cn(
+			className={cn(
 				'inline-flex items-center gap-x-1 rounded-lg',
 				'border border-border bg-primary-foreground',
 				'px-2 py-1 text-sm transition-all hover:bg-input',
 				p.class
 			)}
-			href={href()}
+			href={href}
 		>
 			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24">
 				<path
