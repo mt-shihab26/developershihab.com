@@ -3,7 +3,6 @@ import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
 
 import mdx from '@astrojs/mdx';
 import icon from 'astro-icon';
-import solid from '@astrojs/solid-js';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import expressiveCode from 'astro-expressive-code';
@@ -18,7 +17,6 @@ export default defineConfig({
 	site: 'https://developershihab.com',
 	integrations: [
 		icon(),
-		solid({ devtools: true }),
 		sitemap(),
 		tailwind({ applyBaseStyles: false }),
 		expressiveCode({
