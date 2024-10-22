@@ -154,17 +154,17 @@ const tools: TTool[] = [
 				icon: 'docker'
 			},
 			{
-				name: 'Todoist',
-				description: 'Todo List',
-				href: 'https://todoist.com',
-				icon: 'todoist'
-			},
-			{
 				name: 'Claude',
 				description: 'AI',
 				href: 'https://claude.ai',
 				icon: 'claude'
 			}
+			// {
+			// 	name: 'Todoist',
+			// 	description: 'Todo List',
+			// 	href: 'https://todoist.com',
+			// 	icon: 'todoist'
+			// },
 			// {
 			// 	name: 'ChatGPT',
 			// 	description: 'AI',
