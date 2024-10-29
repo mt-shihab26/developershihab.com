@@ -20,7 +20,7 @@ const projects = await allProjects();
 	<div class="w-full">
 		<Back href="/" client:load />
 		<div class="flex flex-col items-center">
-			<h1 class="mb-6 mt-5 text-2xl font-bold">All Projects</h1>
+			<h1 class="mb-6 mt-5 text-2xl font-bold">Client's Projects</h1>
 			{projects.length === 0 && <p>No projects yet.</p>}
 			{
 				projects.length > 0 && (

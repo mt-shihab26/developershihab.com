@@ -1,6 +1,6 @@
 ---
 title: S-Commerce
-type: Open Source Project
+type: demo
 description: >-
     An e-commerce web application built using the Laravel framework. 
     Build when doing internship in Systech Digital.

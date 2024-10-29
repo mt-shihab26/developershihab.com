@@ -1,6 +1,6 @@
 ---
 title: X
-type: Open Source Project
+type: tool
 description: This is a command line to automate my software development workflow
 technologies:
     - Go

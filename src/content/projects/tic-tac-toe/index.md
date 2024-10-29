@@ -1,6 +1,6 @@
 ---
 title: tic-tac-toe
-type: Open Source Project
+type: demo
 description: >-
     Tic Tac Toe game implemented With SolidJS & MiniMax Algorithm
 technologies:
@@ -19,7 +19,7 @@ links:
       link: https://github.com/p-nerd/tic-tac-toe
     - label: Live Link
       link: https://tic-tac-toe.developershihab.com
-draft: true
+draft: false
 featured: false
 priority: 2
 ---

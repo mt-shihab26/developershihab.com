@@ -1,12 +1,22 @@
-import { getCollection, type CollectionEntry } from 'astro:content';
+import type { TProject } from '@/content/config';
 
-export type TProject = CollectionEntry<'projects'>;
+import { getCollection } from 'astro:content';
 
-const getProjects = async (): Promise<TProject[]> => {
+const projects = async (): Promise<TProject[]> => {
 	return await getCollection('projects', ({ data }) => {
 		return import.meta.env.PROD ? data.draft !== true : true;
 	});
 };
+
+const filterByType = async () => {
+	return (await projects()).filter((p) => p.data.type === 'client');
+};
+
+export const clientsProjects = async (): Promise<TProject[]> => {
+	return sortProjectByPriority((await projects()).filter((p) => p.data.type === 'client'));
+};
+
+// old
 
 const sortProjectByPriority = (projects: TProject[]): TProject[] => {
 	return projects.sort((a, b) => (b.data.priority || 0) - (a.data.priority || 0));
@@ -17,7 +27,7 @@ const filterFeaturedProjects = (projects: TProject[]): TProject[] => {
 };
 
 export const allProjects = async (): Promise<TProject[]> => {
-	return sortProjectByPriority(await getProjects());
+	return sortProjectByPriority(await projects());
 };
 
 export const featuredProjects = async (): Promise<TProject[]> => {

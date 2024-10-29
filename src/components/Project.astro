@@ -15,7 +15,7 @@ interface Props {
 
 const {
 	project: {
-		data: { title, description, logo, technologies, links, date, draft },
+		data: { title, description, logo, technologies, links, draft },
 		slug
 	},
 	loading
@@ -45,16 +45,6 @@ const {
 				{draft && <span class="text-red-500">(Draft) </span>}
 				{title}
 			</h1>
-			<div class="flex space-x-2 text-muted-foreground">
-				<!-- {!!type && <div>{type}: </div>} -->
-				{
-					!!date && (
-						<div>
-							{date.start} - {date.end}
-						</div>
-					)
-				}
-			</div>
 			<div class="text-muted-foreground">{description}</div>
 			<Technologies technologies={technologies} />
 		</div>

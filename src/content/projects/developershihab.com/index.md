@@ -1,6 +1,6 @@
 ---
 title: developershihab.com
-type: Open Source Project
+type: demo
 description: >-
     I developer my portfolio website with Modern And cutting edges technologies
 technologies:
@@ -18,7 +18,7 @@ links:
       link: https://github.com/p-nerd/developershihab.com
     - label: Live Link
       link: https://developershihab.com
-draft: true
+draft: false
 featured: false
 priority: -150
 ---

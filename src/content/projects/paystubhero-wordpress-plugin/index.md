@@ -1,6 +1,6 @@
 ---
 title: PaystubHero WordPress Plugin
-type: Finnext Project
+type: client
 description: >-
     WordPress plugin and React frontend for paystubhero.com. The React app is integrated via shortcode.
     Also, I built a custom WordPress REST API for backend functionality. I am also maintaining this
