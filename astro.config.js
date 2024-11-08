@@ -1,16 +1,16 @@
-import { defineConfig } from 'astro/config';
 import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
+import { defineConfig } from 'astro/config';
 
 import mdx from '@astrojs/mdx';
-import icon from 'astro-icon';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import expressiveCode from 'astro-expressive-code';
+import icon from 'astro-icon';
 
-import remarkReadingTime from './src/utils/remarkReadingTime';
-import remarkUnwrapImages from 'remark-unwrap-images';
 import rehypeExternalLinks from 'rehype-external-links';
+import remarkUnwrapImages from 'remark-unwrap-images';
+import remarkReadingTime from './src/utils/remarkReadingTime';
 
 import vercel from '@astrojs/vercel/static';
 
