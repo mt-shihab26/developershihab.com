@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { ReactNode, SVGProps } from 'react';
 
 export type TExperience = {
 	position: string;
@@ -48,3 +48,5 @@ export type TTool = {
 };
 
 export type TNode = ReactNode;
+
+export type TIcon = (props: SVGProps<SVGSVGElement>) => TNode;
