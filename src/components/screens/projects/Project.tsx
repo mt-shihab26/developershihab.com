@@ -9,9 +9,10 @@ import {
 
 import type { TProject } from '@/content/config';
 
-import { ExternalLinkIcon, GithubIcon, InfoIcon } from '@/components/composite/icons';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
+import DetailsButton from './DetailsButton';
+import GithubButton from './GithubButton';
+import LiveLinkButton from './LiveLinkButton';
+import Technologies from './Technologies';
 
 const Project = ({ project }: { project: TProject }) => {
 	return (
@@ -24,41 +25,14 @@ const Project = ({ project }: { project: TProject }) => {
 				<CardDescription>{project.data.description}</CardDescription>
 			</CardHeader>
 			<CardContent className="flex-grow">
-				{project.data.technologies && (
-					<div className="mb-4 flex flex-wrap gap-2">
-						{project.data.technologies.map((tag) => (
-							<Badge key={tag} variant="secondary">
-								{tag}
-							</Badge>
-						))}
-					</div>
-				)}
+				{project.data.technologies && <Technologies technologies={project.data.technologies} />}
 			</CardContent>
 			<CardFooter className="flex justify-between">
 				<div className="flex space-x-2">
-					{project.data.links.live_link && (
-						<Button variant="outline" size="sm" asChild>
-							<a href={project.data.links.live_link} target="_blank" rel="noopener noreferrer">
-								<ExternalLinkIcon className="mr-2 h-4 w-4" />
-								Live
-							</a>
-						</Button>
-					)}
-					{project.data.links.source_code && (
-						<Button variant="outline" size="sm" asChild>
-							<a href={project.data.links.source_code} target="_blank" rel="noopener noreferrer">
-								<GithubIcon className="mr-2 h-4 w-4" />
-								Source
-							</a>
-						</Button>
-					)}
+					{project.data.links.live_link && <LiveLinkButton href={project.data.links.live_link} />}
+					{project.data.links.source_code && <GithubButton href={project.data.links.source_code} />}
 				</div>
-				<Button variant="default" size="sm" asChild>
-					<a href={`/projects/${project.slug}`}>
-						<InfoIcon className="mr-2 h-4 w-4" />
-						Details
-					</a>
-				</Button>
+				<DetailsButton href={`/projects/${project.slug}`} />
 			</CardFooter>
 		</Card>
 	);

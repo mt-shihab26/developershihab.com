@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 export type TExperience = {
 	position: string;
 	firm: {
@@ -45,4 +47,4 @@ export type TTool = {
 	}[];
 };
 
-export type TProject = any;
+export type TNode = ReactNode;
