@@ -110,24 +110,21 @@ const Projects = () => {
 		activeTab === 'all' ? projects : projects.filter((project) => project.type === activeTab);
 
 	return (
-		<div>
-			<h1 className="mb-8 text-3xl font-bold">My Projects</h1>
-			<Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as typeof activeTab)}>
-				<TabsList className="mb-8">
-					<TabsTrigger value="all">All Projects</TabsTrigger>
-					<TabsTrigger value="client">Client Projects</TabsTrigger>
-					<TabsTrigger value="demo">Demo Projects</TabsTrigger>
-					<TabsTrigger value="tool">Tools</TabsTrigger>
-				</TabsList>
-				<TabsContent value={activeTab}>
-					<div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-						{filteredProjects.map((project) => (
-							<ProjectCard key={project.id} project={project} />
-						))}
-					</div>
-				</TabsContent>
-			</Tabs>
-		</div>
+		<Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as typeof activeTab)}>
+			<TabsList className="mb-8">
+				<TabsTrigger value="all">All Projects</TabsTrigger>
+				<TabsTrigger value="client">Client Projects</TabsTrigger>
+				<TabsTrigger value="demo">Demo Projects</TabsTrigger>
+				<TabsTrigger value="tool">Tools</TabsTrigger>
+			</TabsList>
+			<TabsContent value={activeTab}>
+				<div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+					{filteredProjects.map((project) => (
+						<ProjectCard key={project.id} project={project} />
+					))}
+				</div>
+			</TabsContent>
+		</Tabs>
 	);
 };
 
