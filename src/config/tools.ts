@@ -110,7 +110,6 @@ const tools: TTool[] = [
 			// 	href: 'https://arc.net',
 			// 	icon: 'arc'
 			// },
-
 			// {
 			// 	name: 'Alacritty',
 			// 	description: 'Terminal',
@@ -129,7 +128,6 @@ const tools: TTool[] = [
 			// 	href: 'https://www.warp.dev',
 			// 	icon: 'warp'
 			// },
-
 			// {
 			// 	name: 'VS Code',
 			// 	description: 'IDE',
