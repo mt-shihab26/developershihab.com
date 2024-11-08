@@ -7,7 +7,6 @@ import { Image } from 'astro:assets';
 
 import Img from '@/components/Img.astro';
 import Back from '@/components/Back';
-import Links from '@/components/Links.astro';
 import Scroll from '@/components/Scroll.astro';
 import Layout from '@/components/Layout.astro';
 import Technologies from '@/components/Technologies.astro';
@@ -28,7 +27,7 @@ export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { entry: project } = Astro.props as Props;
 
 const {
-	data: { title, type, ogimage, description, logo, cover, draft, technologies, links },
+	data: { title, type, ogimage, description, logo, cover, draft, technologies },
 	slug
 } = project;
 

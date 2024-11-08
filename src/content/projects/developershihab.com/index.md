@@ -16,7 +16,7 @@ cover:
 logo:
     src: /src/assets/developershihab.com.svg
     alt: ''
-draft: false
+draft: true
 featured: false
 priority: -150
 ---

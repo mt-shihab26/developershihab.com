@@ -17,7 +17,10 @@ const Project = ({ project }: { project: TProject }) => {
 	return (
 		<Card className="flex h-full flex-col">
 			<CardHeader>
-				<CardTitle>{project.data.title}</CardTitle>
+				<CardTitle>
+					{project.data.draft && <span className="mr-1 text-red-500">(Draft)</span>}{' '}
+					{project.data.title}
+				</CardTitle>
 				<CardDescription>{project.data.description}</CardDescription>
 			</CardHeader>
 			<CardContent className="flex-grow">

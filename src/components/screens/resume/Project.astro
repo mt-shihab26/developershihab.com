@@ -1,12 +1,11 @@
 ---
-import type { TLoading } from './Img.astro';
 import type { TProject } from '@/content/config';
 
 import { cn } from '@/lib/utils';
 
-import Technologies from './Technologies.astro';
-import Links from './Links.astro';
-import Img from './Img.astro';
+import type { TLoading } from '@/components/Img.astro';
+import Img from '@/components/Img.astro';
+import Technologies from '@/components/Technologies.astro';
 
 interface Props {
 	project: TProject;
@@ -15,7 +14,7 @@ interface Props {
 
 const {
 	project: {
-		data: { title, description, logo, technologies, links, draft },
+		data: { title, description, logo, technologies, draft },
 		slug
 	},
 	loading
