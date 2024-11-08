@@ -1,8 +1,8 @@
 import type { TIcon } from '@/types';
 
-const VueIcon: TIcon = () => {
+const VueIcon: TIcon = (props) => {
 	return (
-		<svg className="logo" viewBox="0 0 128 128" width={24} height={24} data-v-3fd5be35>
+		<svg className="logo" viewBox="0 0 128 128" width={24} height={24} {...props}>
 			<path
 				fill="#42b883"
 				d="M78.8,10L64,35.4L49.2,10H0l64,110l64-110C128,10,78.8,10,78.8,10z"

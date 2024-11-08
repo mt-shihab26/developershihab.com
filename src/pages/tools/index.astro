@@ -1,49 +1,11 @@
 ---
-import tools from '@/config/tools';
-
-import { Icon } from 'astro-icon/components';
-
 import { siteConfig } from '@/config/site';
 
 import Layout from '@/components/Layout.astro';
 
-import Back from '@/components/Back';
+import List from '@/components/screens/tools/List';
 ---
 
 <Layout meta={{ title: `Tools & Softwares - ${siteConfig.author}` }}>
-	<div class="w-full">
-		<Back href="/" />
-		<div class="mt-5 flex w-full flex-col gap-y-10">
-			<div>
-				<h1 class="mb-1 text-2xl font-bold">Tools</h1>
-				<p>Tools & software I use daily</p>
-			</div>
-			{
-				tools.map((tool) => (
-					<div class="flex flex-col gap-y-4 rounded-xl border border-border px-3 py-5 sm:gap-y-6">
-						<h2 class="px-2 text-lg font-medium">{tool.label}</h2>
-						<div class="grid grid-cols-1 gap-x-2 gap-y-3 sm:grid-cols-2 sm:gap-y-4">
-							{tool.tools.map((t) => (
-								<a
-									class="group relative hover:bg-transparent"
-									href={t.href}
-									id={t.name}
-									target="_blank"
-								>
-									<div class="relative flex flex-row items-center gap-x-4 px-2 py-0.5 transition-all">
-										<div class="absolute -inset-0 z-10 rounded-lg border border-border bg-muted opacity-0 transition-all group-hover:opacity-50" />
-										<Icon name={t.icon} class="z-20 h-10 w-10 rounded-lg bg-muted p-2" style={{}} />
-										<div class="z-20 flex flex-col">
-											<h3 class="font-medium">{t.name}</h3>
-											<p class="text-muted-foreground">{t.description}</p>
-										</div>
-									</div>
-								</a>
-							))}
-						</div>
-					</div>
-				))
-			}
-		</div>
-	</div>
+	<List />
 </Layout>

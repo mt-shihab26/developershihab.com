@@ -1,8 +1,14 @@
 import type { TIcon } from '@/types';
 
-const WordpressIcon: TIcon = () => {
+const WordpressIcon: TIcon = (props) => {
 	return (
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 48 48"
+			width="48px"
+			height="48px"
+			{...props}
+		>
 			<path
 				fill="#fff"
 				d="M24 4.050000000000001A19.95 19.95 0 1 0 24 43.95A19.95 19.95 0 1 0 24 4.050000000000001Z"

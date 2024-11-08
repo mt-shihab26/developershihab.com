@@ -1,3 +1,24 @@
+import {
+	ChatgptIcon,
+	ClaudeIcon,
+	CppIcon,
+	DockerIcon,
+	GitIcon,
+	GoIcon,
+	KittyIcon,
+	LaravelIcon,
+	LinuxIcon,
+	NeovimIcon,
+	PHPIcon,
+	ReactIcon,
+	TailwindcssIcon,
+	TmuxIcon,
+	TodoistIcon,
+	TypescriptIcon,
+	VueIcon,
+	WordpressIcon
+} from '@/components/composite/icons';
+
 import type { TTool } from '@/types';
 
 const tools: TTool[] = [
@@ -8,32 +29,26 @@ const tools: TTool[] = [
 				name: 'C/C++',
 				description: 'DSA, Problem-Solving',
 				href: 'https://en.wikipedia.org/wiki/C%2B%2B',
-				icon: 'cpp'
+				icon: CppIcon
 			},
 			{
 				name: 'JavaScript/TypeScript',
 				description: 'Web Development, Frontend',
 				href: 'https://developer.mozilla.org/en-US/docs/Learn/JavaScript',
-				icon: 'typescript'
+				icon: TypescriptIcon
 			},
 			{
 				name: 'PHP',
 				description: 'Web Development, Backend',
 				href: 'https://www.php.net',
-				icon: 'php'
+				icon: PHPIcon
 			},
 			{
 				name: 'Go',
 				description: 'As A Programming Language',
 				href: 'https://go.dev',
-				icon: 'go'
+				icon: GoIcon
 			}
-			//{
-			//	name: 'Elixir',
-			//	description: 'Functional Programming',
-			//	href: 'https://elixir-lang.org/',
-			//	icon: 'elixir'
-			//}
 		]
 	},
 	{
@@ -43,37 +58,31 @@ const tools: TTool[] = [
 				name: 'Laravel',
 				description: 'The PHP Framework',
 				href: 'https://laravel.com',
-				icon: 'laravel'
+				icon: LaravelIcon
 			},
 			{
 				name: 'WordPress',
 				description: 'Plugin Development',
 				href: 'https://wordpress.org',
-				icon: 'wordpress'
+				icon: WordpressIcon
 			},
-			//{
-			//	name: 'Phoenix',
-			//	description: 'The Elixir Framework',
-			//	href: 'https://www.phoenixframework.org/',
-			//	icon: 'phoenix'
-			//},
 			{
 				name: 'React',
 				description: 'A JavaScript library for building user interfaces',
 				href: 'https://react.dev',
-				icon: 'react'
+				icon: ReactIcon
 			},
-			// {
-			// 	name: 'Vue.js',
-			// 	description: 'The Progressive JavaScript Framework',
-			// 	href: 'https://vuejs.org/',
-			// 	icon: 'vue'
-			// },
+			{
+				name: 'Vue',
+				description: 'The Progressive JavaScript Framework',
+				href: 'https://vuejs.org/',
+				icon: VueIcon
+			},
 			{
 				name: 'TailwindCSS',
 				description: 'The utility-first CSS framework',
 				href: 'https://tailwindcss.com',
-				icon: 'tailwindcss'
+				icon: TailwindcssIcon
 			}
 		]
 	},
@@ -84,56 +93,26 @@ const tools: TTool[] = [
 				name: 'Linux',
 				description: 'OS',
 				href: 'https://www.kernel.org',
-				icon: 'linux'
+				icon: LinuxIcon
 			},
 			{
 				name: 'Kitty',
 				description: 'Terminal',
 				href: 'https://github.com/kovidgoyal/kitty',
-				icon: 'kitty'
+				icon: KittyIcon
 			},
 			{
 				name: 'Tmux',
 				description: 'Terminal Multiplexer',
 				href: 'https://github.com/tmux/tmux',
-				icon: 'tmux'
+				icon: TmuxIcon
 			},
 			{
 				name: 'Neovim',
 				description: 'IDE',
 				href: 'https://neovim.io',
-				icon: 'neovim'
+				icon: NeovimIcon
 			}
-			// {
-			// 	name: 'Arc',
-			// 	description: 'Browser',
-			// 	href: 'https://arc.net',
-			// 	icon: 'arc'
-			// },
-			// {
-			// 	name: 'Alacritty',
-			// 	description: 'Terminal',
-			// 	href: 'https://alacritty.org',
-			// 	icon: 'alacritty'
-			// },
-			// {
-			// 	name: 'WezTerm',
-			// 	description: 'Terminal',
-			// 	href: 'https://wezfurlong.org/wezterm/index.html',
-			// 	icon: 'wezterm'
-			// },
-			// {
-			// 	name: 'Warp',
-			// 	description: 'Terminal',
-			// 	href: 'https://www.warp.dev',
-			// 	icon: 'warp'
-			// },
-			// {
-			// 	name: 'VS Code',
-			// 	description: 'IDE',
-			// 	href: 'https://code.visualstudio.com',
-			// 	icon: 'vscode'
-			// }
 		]
 	},
 	{
@@ -143,32 +122,32 @@ const tools: TTool[] = [
 				name: 'Git',
 				description: 'Version Control',
 				href: 'https://git-scm.com',
-				icon: 'git'
+				icon: GitIcon
 			},
 			{
 				name: 'Docker',
 				description: 'Containerizer',
 				href: 'https://www.docker.com',
-				icon: 'docker'
+				icon: DockerIcon
 			},
 			{
 				name: 'Claude',
 				description: 'AI',
 				href: 'https://claude.ai',
-				icon: 'claude'
+				icon: ClaudeIcon
+			},
+			{
+				name: 'ChatGPT',
+				description: 'AI',
+				href: 'https://chat.openai.com/',
+				icon: ChatgptIcon
+			},
+			{
+				name: 'Todoist',
+				description: 'Todo List',
+				href: 'https://todoist.com',
+				icon: TodoistIcon
 			}
-			// {
-			// 	name: 'Todoist',
-			// 	description: 'Todo List',
-			// 	href: 'https://todoist.com',
-			// 	icon: 'todoist'
-			// },
-			// {
-			// 	name: 'ChatGPT',
-			// 	description: 'AI',
-			// 	href: 'https://chat.openai.com/',
-			// 	icon: 'chatgpt'
-			// }
 		]
 	}
 ];

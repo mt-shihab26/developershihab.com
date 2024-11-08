@@ -1,5 +1,9 @@
 import type { ReactNode, SVGProps } from 'react';
 
+export type TNode = ReactNode;
+
+export type TIcon = (props: SVGProps<SVGSVGElement>) => TNode;
+
 export type TExperience = {
 	position: string;
 	firm: {
@@ -43,10 +47,6 @@ export type TTool = {
 		name: string;
 		description: string;
 		href: string;
-		icon: string;
+		icon: TIcon;
 	}[];
 };
-
-export type TNode = ReactNode;
-
-export type TIcon = (props: SVGProps<SVGSVGElement>) => TNode;
