@@ -1,29 +1,24 @@
 ---
-title: PaystubHero WordPress Plugin
 type: client
+title: PaystubHero WordPress Plugin
 description: >-
     WordPress plugin and React frontend for paystubhero.com. The React app is integrated via shortcode.
-    Also, I built a custom WordPress REST API for backend functionality. I am also maintaining this
-    project for over 1.5 years.
 technologies:
     - React
     - JavaScript
     - PHP
-    - WordPress
     - TailwindCSS
-    - mPDF
+links:
+    live_link: https://www.paystubhero.com/generate-pay-stubs
+date:
+    start: May 2023
+    end: Present
 logo:
     src: /src/assets/paystubhero.png
     alt: ''
 cover:
     src: ./paystubhero.jpg
     alt: ''
-links:
-    - label: Live Link
-      link: https://www.paystubhero.com/generate-pay-stubs
-date:
-    start: May 2023
-    end: Present
 draft: false
 featured: true
 priority: 5

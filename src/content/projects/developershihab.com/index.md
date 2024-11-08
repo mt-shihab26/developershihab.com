@@ -1,23 +1,21 @@
 ---
-title: developershihab.com
 type: demo
+title: developershihab.com
 description: >-
     I developer my portfolio website with Modern And cutting edges technologies
 technologies:
     - Astro
     - TypeScript
     - TailwindCSS
+links:
+    source_code: https://github.com/p-nerd/developershihab.com
+    live_link: https://developershihab.com
 cover:
     src: ./developershihab.jpg
     alt: ''
 logo:
     src: /src/assets/developershihab.com.svg
     alt: ''
-links:
-    - label: Source Code
-      link: https://github.com/p-nerd/developershihab.com
-    - label: Live Link
-      link: https://developershihab.com
 draft: false
 featured: false
 priority: -150

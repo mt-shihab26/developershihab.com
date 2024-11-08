@@ -1,15 +1,14 @@
 ---
-title: X
 type: tool
+title: X
 description: This is a command line to automate my software development workflow
 technologies:
     - Go
+links:
+    source_code: https://github.com/p-nerd/x
 cover:
     src: ./x.jpg
     alt: ''
-links:
-    - label: Source Code
-      link: https://github.com/p-nerd/x
 draft: true
 featured: false
 priority: 1

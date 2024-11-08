@@ -8,16 +8,6 @@ const projects = async (): Promise<TProject[]> => {
 	});
 };
 
-const filterByType = async () => {
-	return (await projects()).filter((p) => p.data.type === 'client');
-};
-
-export const clientsProjects = async (): Promise<TProject[]> => {
-	return sortProjectByPriority((await projects()).filter((p) => p.data.type === 'client'));
-};
-
-// old
-
 const sortProjectByPriority = (projects: TProject[]): TProject[] => {
 	return projects.sort((a, b) => (b.data.priority || 0) - (a.data.priority || 0));
 };

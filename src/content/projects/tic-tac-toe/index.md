@@ -1,24 +1,21 @@
 ---
-title: tic-tac-toe
 type: demo
+title: tic-tac-toe
 description: >-
     Tic Tac Toe game implemented With SolidJS & MiniMax Algorithm
 technologies:
     - SolidJS
-    - Vite
     - TypeScript
     - TailwindCSS
+links:
+    source_code: https://github.com/p-nerd/tic-tac-toe
+    live_link: https://tic-tac-toe.developershihab.com
 logo:
     src: /src/assets/tic-tac-toe.svg
     alt: ''
 cover:
     src: ./tic-tac-toe.jpg
     alt: ''
-links:
-    - label: Source Code
-      link: https://github.com/p-nerd/tic-tac-toe
-    - label: Live Link
-      link: https://tic-tac-toe.developershihab.com
 draft: false
 featured: false
 priority: 2

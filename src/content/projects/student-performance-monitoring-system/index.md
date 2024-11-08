@@ -1,27 +1,23 @@
 ---
-title: Student Performance Monitoring System
 type: demo
+title: Student Performance Monitoring System
 description: >-
     The Student Performance Monitoring System is a web-based application built with raw PHP.
-    This system helps educators and administrators monitor and track students' academic
-    performance over time.
 technologies:
     - PHP
     - MySQL
-    - Composer
     - TailwindCSS
+links:
+    source_code: https://github.com/p-nerd/student-performance-monitoring-system
+date:
+    start: June 23, 2024
+    end: July 6, 2024
 logo:
     src: /src/assets/systech-digital-ltd.png
     alt: 'Systech Digital Logo'
 cover:
     src: ./student-performance-monitoring-system.jpg
     alt: ''
-links:
-    - label: Source Code
-      link: https://github.com/p-nerd/student-performance-monitoring-system
-date:
-    start: June 23, 2024
-    end: July 6, 2024
 draft: false
 featured: false
 priority: 3
