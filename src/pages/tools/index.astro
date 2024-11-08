@@ -3,7 +3,7 @@ import tools from '@/config/tools';
 
 import { Icon } from 'astro-icon/components';
 
-import { siteConfig } from '@/site.config';
+import { siteConfig } from '@/config/site';
 
 import Button from '@/components/Button.astro';
 import Layout from '@/components/Layout.astro';
@@ -39,7 +39,7 @@ import Layout from '@/components/Layout.astro';
 						<div class="grid grid-cols-1 gap-x-2 gap-y-3 sm:grid-cols-2 sm:gap-y-4">
 							{tool.tools.map((t) => (
 								<a
-									class="group relative hover:bg-transparent "
+									class="group relative hover:bg-transparent"
 									href={t.href}
 									id={t.name}
 									target="_blank"

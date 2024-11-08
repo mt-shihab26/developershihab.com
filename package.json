@@ -5,9 +5,9 @@
 		"start": "astro dev",
 		"build": "astro check && astro build",
 		"preview": "astro preview",
-		"astro": "astro",
 		"format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,mdx,svelte,astro,json,svg}\"",
 		"lint": "astro check && eslint --fix \"src/**/*.{js,ts,jsx,tsx,svelte,astro}\"",
+		"astro": "astro",
 		"shadcn": "shadcn"
 	},
 	"dependencies": {

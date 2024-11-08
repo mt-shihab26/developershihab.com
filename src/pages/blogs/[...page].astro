@@ -11,7 +11,7 @@ import Button from '@/components/Button.astro';
 import Pagination from '@/components/Paginator.astro';
 
 import { allBlogs, getUniqueTagsWithCount } from '@/utils/blogs';
-import { siteConfig } from '@/site.config';
+import { siteConfig } from '@/config/site';
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const blogs = await allBlogs();

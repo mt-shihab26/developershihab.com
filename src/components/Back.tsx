@@ -1,4 +1,4 @@
-import { cn } from '@/utils/tailwind';
+import { cn } from '@/lib/utils';
 import { useEffect, useState } from 'react';
 
 const Back = (p: { href?: string; class?: string }) => {

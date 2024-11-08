@@ -44,3 +44,5 @@ export type TTool = {
 		icon: string;
 	}[];
 };
+
+export type TProject = any;

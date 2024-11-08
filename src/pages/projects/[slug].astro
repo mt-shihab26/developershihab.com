@@ -14,7 +14,7 @@ import Technologies from '@/components/Technologies.astro';
 import TableOfContents from '@/components/TableOfContents.astro';
 
 import { allProjects } from '@/utils/projects';
-import { suffixTitle } from '@/site.config';
+import { suffixTitle } from '@/config/site';
 
 export const getStaticPaths = (async () => {
 	return (await allProjects()).map((entry) => ({

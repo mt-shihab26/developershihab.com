@@ -9,7 +9,7 @@ links:
 cover:
     src: ./x.jpg
     alt: ''
-draft: true
+draft: false
 featured: false
 priority: 1
 ---
