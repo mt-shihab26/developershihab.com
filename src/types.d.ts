@@ -42,11 +42,8 @@ export type TEducation = {
 };
 
 export type TTool = {
-	label: string;
-	tools: {
-		name: string;
-		description: string;
-		href: string;
-		icon: TIcon;
-	}[];
+	name: string;
+	description: string;
+	href: string;
+	icon: TIcon;
 };

@@ -21,7 +21,7 @@ import {
 
 import type { TTool } from '@/types';
 
-const tools: TTool[] = [
+const tools: { label: string; tools: TTool[] }[] = [
 	{
 		label: 'Languages',
 		tools: [
