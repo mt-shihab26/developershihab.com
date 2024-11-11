@@ -1,5 +1,7 @@
 ---
-import Head, { type TSiteMeta } from './Head.astro';
+import type { TSiteMeta } from './Head.astro';
+
+import Head from './Head.astro';
 import Footer from './Footer.astro';
 import Header from './Header.astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
@@ -7,6 +9,8 @@ import ThemeProvider from './ThemeProvider.astro';
 
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
+
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
 	meta: TSiteMeta;
@@ -20,6 +24,7 @@ const {
 <html lang={siteConfig.lang}>
 	<head>
 		<Head articleDate={articleDate} description={description} ogImage={ogImage} title={title} />
+		<ViewTransitions />
 	</head>
 
 	<body class="flex justify-center bg-background">
