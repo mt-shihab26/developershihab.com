@@ -51,5 +51,5 @@ export const collections = {
 	})
 };
 
-export type TType = z.infer<typeof type>;
+export type TProjectType = z.infer<typeof type>;
 export type TProject = CollectionEntry<'projects'>;

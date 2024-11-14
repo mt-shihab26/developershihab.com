@@ -1,6 +1,9 @@
 import { Badge } from '@/components/ui/badge';
 
-const Technologies = ({ technologies }: { technologies: string[] }) => {
+const Technologies = ({ technologies }: { technologies: string[] | undefined }) => {
+	if (!technologies) {
+		return <></>;
+	}
 	return (
 		<div className="mb-4 flex flex-wrap gap-2">
 			{technologies.map((technology) => (
