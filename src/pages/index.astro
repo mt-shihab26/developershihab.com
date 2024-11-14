@@ -13,10 +13,10 @@ import I from '@/components/screens/resume/I.astro';
 import More from '@/components/screens/resume/More.astro';
 import Label from '@/components/screens/resume/Label.astro';
 import Skill from '@/components/screens/resume/Skill.astro';
-import Project from '@/components/screens/resume/Project.astro';
 import Section from '@/components/screens/resume/Section.astro';
 import Education from '@/components/screens/resume/Education.astro';
 import Experience from '@/components/screens/resume/Experience.astro';
+import ProjectCard from '@/components/screens/projects/ProjectCard';
 import ContactEmail from '@/components/screens/resume/ContactEmail.astro';
 import Certification from '@/components/screens/resume/Certification.astro';
 
@@ -126,7 +126,7 @@ const projects = await featuredProjects();
 		</Section>
 		<Section title="Projects">
 			<div class="flex flex-col gap-y-4">
-				{projects.map((project) => <Project project={project} />)}
+				{projects.map((project) => <ProjectCard project={project} />)}
 			</div>
 			<div class="flex justify-end">
 				<More href="/projects">See all projects</More>
