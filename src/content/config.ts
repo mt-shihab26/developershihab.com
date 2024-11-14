@@ -54,8 +54,8 @@ export type TImage = {
 		src: string;
 		width: number;
 		height: number;
-		format: 'jpg';
-		fsPath: string;
+		format: any;
+		fsPath?: string;
 	};
 	alt: string;
 };

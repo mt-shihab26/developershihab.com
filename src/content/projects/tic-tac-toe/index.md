@@ -16,16 +16,6 @@ links:
 images:
     - src: ./tic-tac-toe.jpg
       alt: ''
-    - src: ./tic-tac-toe.jpg
-      alt: ''
-    - src: ./tic-tac-toe.jpg
-      alt: ''
-    - src: ./tic-tac-toe.jpg
-      alt: ''
-    - src: ./tic-tac-toe.jpg
-      alt: ''
-    - src: ./tic-tac-toe.jpg
-      alt: ''
 ---
 
 **Overview:**

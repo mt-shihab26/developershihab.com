@@ -17,10 +17,10 @@ date:
 links:
     live_link: https://www.paystubhero.com/generate-pay-stubs
 images:
-    - src: ./paystubhero.jpg
-      alt: 'PayStub Hero application interface'
-    - src: ./paystubhero.jpg
-      alt: 'PayStub Hero features overview'
+    - src: ./image-1.jpg
+      alt: ''
+    - src: ./image-2.jpg
+      alt: ''
 ---
 
 # **Title:** Revolutionizing Payroll Management with PaystubHero

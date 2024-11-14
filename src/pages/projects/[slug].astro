@@ -2,10 +2,14 @@
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 
 import Layout from '@/components/Layout.astro';
-import Project from '@/components/screens/projects/Project';
+import Scroll from '@/components/Scroll';
+import Back from '@/components/Back';
 
 import { allProjects } from '@/utils/projects';
 import { suffixTitle } from '@/config/site';
+import Technologies from '@/components/screens/projects/Technologies';
+import Links from '@/components/screens/projects/Links';
+import Gallery from '@/components/screens/projects/Gallery';
 
 export const getStaticPaths = (async () => {
 	return (await allProjects()).map((entry) => ({
@@ -19,8 +23,6 @@ export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { entry: project } = Astro.props as Props;
 
 const { Content } = await project.render();
-
-console.log(project.data.images);
 ---
 
 <Layout
@@ -30,7 +32,32 @@ console.log(project.data.images);
 		ogImage: project.data.ogimage ?? `/og-image/${project.slug}.png`
 	}}
 >
-	<Project project={project}>
-		<Content />
-	</Project>
+	<div class="w-full space-y-8">
+		<Back href="/projects" />
+		<article class="flex-grow space-y-12 break-words">
+			<div id="project-hero" class="flex flex-col space-y-4">
+				<div class="flex items-center space-x-2">
+					{project.data.draft && <span class="text-red-500">(Draft)</span>}
+					<h1 class="text-3xl font-medium">{project.data.title}</h1>
+				</div>
+				<div class="flex flex-col justify-between space-y-2 lg:flex-row lg:items-center">
+					<Technologies technologies={project.data.technologies} />
+					<Links links={project.data.links} />
+				</div>
+			</div>
+			<div>
+				{
+					project.data.images && project.data.images.length >= 1 && (
+						<Gallery images={project.data.images} client:load />
+					)
+				}
+			</div>
+			<div
+				class="prose prose-base prose-zinc max-w-full text-muted-foreground dark:prose-invert prose-headings:font-medium prose-headings:text-foreground prose-headings:before:absolute prose-th:before:content-none"
+			>
+				<Content />
+			</div>
+		</article>
+	</div>
+	<Scroll target="project-hero" client:load />
 </Layout>
