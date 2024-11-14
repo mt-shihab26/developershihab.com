@@ -19,6 +19,8 @@ export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { entry: project } = Astro.props as Props;
 
 const { Content } = await project.render();
+
+console.log(project.data.images);
 ---
 
 <Layout

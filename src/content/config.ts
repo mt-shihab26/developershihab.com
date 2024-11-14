@@ -49,5 +49,16 @@ export const collections = {
 	})
 };
 
+export type TImage = {
+	src: {
+		src: string;
+		width: number;
+		height: number;
+		format: 'jpg';
+		fsPath: string;
+	};
+	alt: string;
+};
+
 export type TProjectType = z.infer<typeof type>;
 export type TProject = CollectionEntry<'projects'>;

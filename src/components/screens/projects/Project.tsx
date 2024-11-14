@@ -3,6 +3,7 @@ import type { TNode } from '@/types';
 
 import Back from '@/components/Back';
 import Scroll from '@/components/Scroll';
+import Gallery from './Gallery';
 import Links from './Links';
 import Technologies from './Technologies';
 
@@ -21,6 +22,9 @@ const Project = ({ project, children }: { project: TProject; children: TNode }) 
 						<Links links={project.data.links} />
 					</div>
 				</div>
+				{project.data.images && project.data.images.length >= 1 && (
+					<Gallery images={project.data.images} />
+				)}
 				<div className="prose prose-base prose-zinc text-muted-foreground dark:prose-invert prose-headings:font-medium prose-headings:text-foreground prose-headings:before:absolute prose-headings:before:-ms-4 prose-th:before:content-none">
 					{children}
 				</div>
