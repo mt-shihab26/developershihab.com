@@ -36,7 +36,7 @@ const ProjectCard = ({ project }: { project: TProject }) => {
 				</CardTitle>
 				<CardDescription>{project.data.description}</CardDescription>
 			</CardHeader>
-			<CardContent className="flex-grow">
+			<CardContent className="mb-4 flex-grow">
 				{project.data.technologies && <Technologies technologies={project.data.technologies} />}
 			</CardContent>
 			<CardFooter className="flex justify-between">
