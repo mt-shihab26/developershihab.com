@@ -39,10 +39,8 @@ export const collections = {
 				description: z.string(),
 				technologies: z.array(z.string()).optional(),
 				links: z.object({ source_code: z.string().optional(), live_link: z.string().optional() }),
-
 				date: z.object({ start: z.string(), end: z.string() }).optional(),
-				logo: z.object({ src: z.string(), alt: z.string() }).optional(),
-				cover: z.object({ src: image(), alt: z.string() }).optional(),
+				images: z.array(z.object({ src: image(), alt: z.string() })).optional(),
 				ogimage: z.string().optional(),
 				draft: z.boolean().default(false),
 				featured: z.boolean().default(false),

@@ -1,4 +1,7 @@
 ---
+draft: true
+featured: false
+priority: -150
 type: demo
 title: developershihab.com
 description: >-
@@ -10,15 +13,9 @@ technologies:
 links:
     source_code: https://github.com/p-nerd/developershihab.com
     live_link: https://developershihab.com
-cover:
-    src: ./developershihab.jpg
-    alt: ''
-logo:
-    src: /src/assets/developershihab.com.svg
-    alt: ''
-draft: true
-featured: false
-priority: -150
+images:
+    - src: ./developershihab.jpg
+      alt: 'developer shihab website cover'
 ---
 
 **Title**: Building My Portfolio Website with Modern Technologies

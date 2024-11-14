@@ -1,4 +1,7 @@
 ---
+draft: false
+featured: false
+priority: 1
 type: tool
 title: X
 description: This is a command line to automate my software development workflow
@@ -6,12 +9,9 @@ technologies:
     - Go
 links:
     source_code: https://github.com/p-nerd/x
-cover:
-    src: ./x.jpg
-    alt: ''
-draft: false
-featured: false
-priority: 1
+images:
+    - src: ./x.jpg
+      alt: ''
 ---
 
 **Title:** Streamlining Software Development Workflow with X

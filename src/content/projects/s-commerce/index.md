@@ -1,4 +1,7 @@
 ---
+draft: false
+featured: true
+priority: 4
 type: demo
 title: S-Commerce
 description: >-
@@ -13,10 +16,4 @@ links:
 date:
     start: 30 Jun, 2024
     end: 26 Sep, 2024
-logo:
-    src: /src/assets/systech-digital-ltd.png
-    alt: 'Systech Digital Logo'
-draft: false
-featured: true
-priority: 4
 ---

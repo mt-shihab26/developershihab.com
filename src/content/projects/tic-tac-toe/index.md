@@ -1,4 +1,7 @@
 ---
+draft: false
+featured: false
+priority: 2
 type: demo
 title: tic-tac-toe
 description: >-
@@ -10,15 +13,9 @@ technologies:
 links:
     source_code: https://github.com/p-nerd/tic-tac-toe
     live_link: https://tic-tac-toe.developershihab.com
-logo:
-    src: /src/assets/tic-tac-toe.svg
-    alt: ''
-cover:
-    src: ./tic-tac-toe.jpg
-    alt: ''
-draft: false
-featured: false
-priority: 2
+images:
+    - src: ./tic-tac-toe.jpg
+      alt: ''
 ---
 
 **Overview:**

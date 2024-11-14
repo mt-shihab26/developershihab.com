@@ -1,4 +1,7 @@
 ---
+draft: false
+featured: false
+priority: 3
 type: demo
 title: Student Performance Monitoring System
 description: >-
@@ -12,15 +15,9 @@ links:
 date:
     start: June 23, 2024
     end: July 6, 2024
-logo:
-    src: /src/assets/systech-digital-ltd.png
-    alt: 'Systech Digital Logo'
-cover:
-    src: ./student-performance-monitoring-system.jpg
-    alt: ''
-draft: false
-featured: false
-priority: 3
+images:
+    - src: ./student-performance-monitoring-system.jpg
+      alt: ''
 ---
 
 ## Overview

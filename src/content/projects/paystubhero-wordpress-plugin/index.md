@@ -1,4 +1,7 @@
 ---
+draft: false
+featured: true
+priority: 5
 type: client
 title: PaystubHero WordPress Plugin
 description: >-
@@ -8,20 +11,16 @@ technologies:
     - JavaScript
     - PHP
     - TailwindCSS
-links:
-    live_link: https://www.paystubhero.com/generate-pay-stubs
 date:
     start: May 2023
     end: Present
-logo:
-    src: /src/assets/paystubhero.png
-    alt: ''
-cover:
-    src: ./paystubhero.jpg
-    alt: ''
-draft: false
-featured: true
-priority: 5
+links:
+    live_link: https://www.paystubhero.com/generate-pay-stubs
+images:
+    - src: ./paystubhero.jpg
+      alt: 'PayStub Hero application interface'
+    - src: ./paystubhero.jpg
+      alt: 'PayStub Hero features overview'
 ---
 
 # **Title:** Revolutionizing Payroll Management with PaystubHero
