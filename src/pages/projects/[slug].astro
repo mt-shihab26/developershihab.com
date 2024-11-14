@@ -10,7 +10,6 @@ import Back from '@/components/Back';
 import Scroll from '@/components/Scroll.astro';
 import Layout from '@/components/Layout.astro';
 import Technologies from '@/components/Technologies.astro';
-import TableOfContents from '@/components/TableOfContents.astro';
 
 import { allProjects } from '@/utils/projects';
 import { suffixTitle } from '@/config/site';
@@ -31,7 +30,7 @@ const {
 	slug
 } = project;
 
-const { Content, headings, remarkPluginFrontmatter } = await project.render();
+const { Content, remarkPluginFrontmatter } = await project.render();
 ---
 
 <Layout
@@ -44,7 +43,6 @@ const { Content, headings, remarkPluginFrontmatter } = await project.render();
 	<div class="w-full">
 		<Back href="/projects" client:load />
 		<div class="mt-8 gap-x-10 lg:flex lg:items-start">
-			{!!headings.length && <TableOfContents headings={headings} />}
 			<article class="flex-grow break-words" data-pagefind-body>
 				<div id="project-hero" class="flex flex-col space-y-2">
 					{
