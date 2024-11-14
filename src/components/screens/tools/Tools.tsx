@@ -1,6 +1,6 @@
 import tools from '@/config/tools';
 
-import Back from '@/components/Back';
+import Back from '@/components/elements/Back';
 import Tool from './Tool';
 
 const Tools = () => {

@@ -3,7 +3,7 @@ import type { TNode } from '@/types';
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
-import Back from '@/components/Back';
+import Back from '@/components/elements/Back';
 import ProjectCard from './ProjectCard';
 
 type TTypeTabsValue = TProjectType | 'all';
