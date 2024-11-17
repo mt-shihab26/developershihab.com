@@ -10,7 +10,7 @@ tags:
     - cloud-platforms
     - web-application
 cover:
-    src: ./cover.png
+    src: ./cover.jpg
     alt: 'Most productive way of building web application cover image'
 draft: true
 ---

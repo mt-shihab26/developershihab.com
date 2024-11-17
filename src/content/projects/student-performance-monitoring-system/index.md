@@ -63,9 +63,3 @@ To see the source code or installation instructions, check out the GitHub reposi
 ## Conclusion
 
 The development of the Student Performance Monitoring System demonstrates my ability to create effective and user-centric web applications with raw PHP. By addressing the specific needs of educational institutions, this project showcases my skills in PHP development, database design, and user interface design. This case study highlights my commitment to delivering solutions that make a tangible difference in real-world scenarios.
-
-For more information about this project and my other work, please visit my [portfolio website](https://developershihab.com).
-
----
-
-Feel free to contact me at [shihab4t@gmail.com](mailto:shihab4t@gmail.com) for any inquiries or collaboration opportunities.

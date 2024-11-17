@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 featured: false
 priority: -150
 type: demo
