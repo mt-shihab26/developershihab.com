@@ -15,7 +15,6 @@ import {
 	TmuxIcon,
 	TodoistIcon,
 	TypescriptIcon,
-	VueIcon,
 	WordpressIcon
 } from '@/components/composite/icons';
 
@@ -72,12 +71,12 @@ const tools: { label: string; tools: TTool[] }[] = [
 				href: 'https://react.dev',
 				icon: ReactIcon
 			},
-			{
-				name: 'Vue',
-				description: 'The Progressive JavaScript Framework',
-				href: 'https://vuejs.org/',
-				icon: VueIcon
-			},
+			// {
+			// 	name: 'Vue',
+			// 	description: 'The Progressive JavaScript Framework',
+			// 	href: 'https://vuejs.org/',
+			// 	icon: VueIcon
+			// },
 			{
 				name: 'TailwindCSS',
 				description: 'The utility-first CSS framework',
