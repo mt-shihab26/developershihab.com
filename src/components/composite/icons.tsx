@@ -12,6 +12,7 @@ import GoIcon from '@/components/icons/GoIcon';
 import KittyIcon from '@/components/icons/KittyIcon';
 import LaravelIcon from '@/components/icons/LaravelIcon';
 import LinuxIcon from '@/components/icons/LinuxIcon';
+import LuaIcon from '@/components/icons/LuaIcon';
 import NeovimIcon from '@/components/icons/NeovimIcon';
 import PhoenixIcon from '@/components/icons/PhoenixIcon';
 import PHPIcon from '@/components/icons/PHPIcon';
@@ -34,6 +35,7 @@ export {
 	KittyIcon,
 	LaravelIcon,
 	LinuxIcon,
+	LuaIcon,
 	NeovimIcon,
 	PhoenixIcon,
 	PHPIcon,

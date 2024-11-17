@@ -3,7 +3,7 @@ import type { TSkill } from '@/types';
 const skills: TSkill[] = [
 	{
 		title: 'Languages',
-		tools: ['C/C++', 'JavaScript/TypeScript', 'PHP']
+		tools: ['C/C++', 'JavaScript/TypeScript', 'PHP', 'Go', 'Lua']
 	},
 	{
 		title: 'Backend',

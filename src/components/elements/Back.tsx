@@ -1,22 +1,13 @@
 import { cn } from '@/lib/utils';
-import { useEffect, useState } from 'react';
 
-const Back = (p: { href?: string; class?: string }) => {
-	const [href, setHref] = useState(p.href || '/');
-
-	useEffect(() => {
-		const params = new URLSearchParams(location.search);
-		console.log(params.get('back'));
-		setHref((prev) => params.get('back') || prev);
-	}, []);
-
+const Back = ({ href, className }: { href?: string; className?: string }) => {
 	return (
 		<a
 			className={cn(
 				'inline-flex items-center gap-x-1 rounded-lg',
 				'border border-border bg-primary-foreground',
 				'px-2 py-1 text-sm transition-all hover:bg-input',
-				p.class
+				className
 			)}
 			href={href}
 		>

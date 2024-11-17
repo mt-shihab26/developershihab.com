@@ -8,6 +8,7 @@ import {
 	KittyIcon,
 	LaravelIcon,
 	LinuxIcon,
+	LuaIcon,
 	NeovimIcon,
 	PHPIcon,
 	ReactIcon,
@@ -44,9 +45,15 @@ const tools: { label: string; tools: TTool[] }[] = [
 			},
 			{
 				name: 'Go',
-				description: 'As A Programming Language',
+				description: 'The General-purpose Language',
 				href: 'https://go.dev',
 				icon: GoIcon
+			},
+			{
+				name: 'Lua',
+				description: 'Configuring neovim, Embedded',
+				href: 'https://www.lua.org',
+				icon: LuaIcon
 			}
 		]
 	},
