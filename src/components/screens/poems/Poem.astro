@@ -1,0 +1,27 @@
+---
+import type { TPoem } from '@/content/config';
+
+interface Props {
+	poem: TPoem;
+	id: string;
+}
+
+const { poem, id } = Astro.props;
+const { Content } = await poem.render();
+---
+
+<article
+	id={id}
+	class="scroll-mt-8 rounded-lg bg-white p-6 shadow-sm transition-shadow duration-200 hover:shadow-md dark:bg-gray-800"
+>
+	<div class="mx-auto max-w-prose">
+		<h2 class="mb-4 font-serif text-2xl font-semibold text-gray-800 dark:text-white">
+			{poem.data.name}
+		</h2>
+		<div
+			class="prose prose-lg dark:prose-invert prose-headings:font-serif prose-p:leading-relaxed prose-p:text-gray-600 dark:prose-p:text-gray-300"
+		>
+			<Content />
+		</div>
+	</div>
+</article>

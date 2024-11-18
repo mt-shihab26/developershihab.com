@@ -17,6 +17,16 @@ const dateSchema = z
 const type = z.enum(['client', 'demo', 'tool']);
 
 export const collections = {
+	poems: defineCollection({
+		type: 'content',
+		schema: () =>
+			z.object({
+				name: z.string(),
+				draft: z.boolean().default(false),
+				priority: z.number().optional()
+			})
+	}),
+
 	blogs: defineCollection({
 		type: 'content',
 		schema: ({ image }) =>
@@ -62,3 +72,5 @@ export type TImage = {
 
 export type TProjectType = z.infer<typeof type>;
 export type TProject = CollectionEntry<'projects'>;
+
+export type TPoem = CollectionEntry<'poems'>;
