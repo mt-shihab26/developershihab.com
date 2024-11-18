@@ -33,31 +33,32 @@ const createPoemId = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, 
 				<p>Back</p>
 			</a>
 
-			<div class="flex flex-col">
-				<h1 class="mb-8 mt-5 text-2xl font-bold">Poetry Collection</h1>
+			<div class="mt-5">
+				<h1 class="mb-8 text-2xl font-bold">Poetry Collection</h1>
 
-				<!-- Content Grid -->
-				<div class="grid grid-cols-1 gap-6">
-					<!-- Sidebar -->
-					<aside class="rounded-xl border bg-card text-card-foreground shadow">
-						<div class="p-4">
-							<nav class="space-y-1">
-								{
-									poemsValue.map((poem) => (
-										<a
-											href={`#${createPoemId(poem.data.name)}`}
-											class="block rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-										>
-											{poem.data.name}
-										</a>
-									))
-								}
-							</nav>
+				<div class="relative flex gap-6">
+					<!-- Fixed Sidebar -->
+					<div class="sticky top-4 h-[calc(100vh-8rem)] w-64 overflow-hidden">
+						<div class="h-full rounded-xl border bg-card text-card-foreground shadow">
+							<div class="h-full overflow-y-auto p-4">
+								<nav class="space-y-1">
+									{
+										poemsValue.map((poem) => (
+											<a
+												href={`#${createPoemId(poem.data.name)}`}
+												class="block rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+											>
+												{poem.data.name}
+											</a>
+										))
+									}
+								</nav>
+							</div>
 						</div>
-					</aside>
+					</div>
 
-					<!-- Poems -->
-					<div class="space-y-6">
+					<!-- Scrollable Poems -->
+					<div class="flex-1 space-y-6">
 						{poemsValue.map((poem) => <Poem poem={poem} id={createPoemId(poem.data.name)} />)}
 					</div>
 				</div>
@@ -67,33 +68,11 @@ const createPoemId = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, 
 </Layout>
 
 <script>
-	// Smooth scroll behavior for anchor links
-	document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-		anchor.addEventListener('click', function (e) {
-			e.preventDefault();
-			const targetId = this.getAttribute('href');
-			if (targetId) {
-				const targetElement = document.querySelector(targetId);
-				if (targetElement) {
-					targetElement.scrollIntoView({
-						behavior: 'smooth',
-						block: 'start'
-					});
-					// Update active link
-					document.querySelectorAll('nav a').forEach((link) => {
-						link.classList.remove('bg-accent', 'text-accent-foreground', 'font-medium');
-					});
-					this.classList.add('bg-accent', 'text-accent-foreground', 'font-medium');
-				}
-			}
-		});
-	});
-
-	// Scroll spy
+	// Active link tracking with IntersectionObserver
 	const observerOptions = {
 		root: null,
-		rootMargin: '0px',
-		threshold: 0.5
+		rootMargin: '-20% 0px -80% 0px', // Adjusted for better accuracy
+		threshold: 0
 	};
 
 	const observer = new IntersectionObserver((entries) => {
@@ -101,16 +80,35 @@ const createPoemId = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, 
 			if (entry.isIntersecting) {
 				const id = entry.target.id;
 				document.querySelectorAll('nav a').forEach((link) => {
-					link.classList.remove('bg-accent', 'text-accent-foreground', 'font-medium');
 					if (link.getAttribute('href') === `#${id}`) {
 						link.classList.add('bg-accent', 'text-accent-foreground', 'font-medium');
+					} else {
+						link.classList.remove('bg-accent', 'text-accent-foreground', 'font-medium');
 					}
 				});
 			}
 		});
 	}, observerOptions);
 
+	// Observe all poem sections
 	document.querySelectorAll('article[id]').forEach((section) => {
 		observer.observe(section);
+	});
+
+	// Smooth scroll behavior
+	document.querySelectorAll('nav a').forEach((link) => {
+		link.addEventListener('click', (e) => {
+			e.preventDefault();
+			const href = link.getAttribute('href');
+			if (!href) return;
+
+			const target = document.querySelector(href);
+			if (!target) return;
+
+			target.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start'
+			});
+		});
 	});
 </script>
