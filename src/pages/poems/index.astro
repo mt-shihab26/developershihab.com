@@ -17,37 +17,41 @@ const createPoemId = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, 
 		description: 'Welcome to my collection of poems and verses.'
 	}}
 >
-	<div class="flex min-h-screen bg-gray-50 transition-colors duration-200 dark:bg-gray-900">
-		<!-- Sidebar -->
-		<aside class="w-64 border-r border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
-			<div class="sticky top-0 h-screen overflow-y-auto p-4">
-				<h2 class="mb-4 font-serif text-xl font-semibold text-gray-900 dark:text-white">Poems</h2>
-				<nav class="space-y-1">
-					{
-						poemsValue.map((poem) => (
-							<a
-								href={`#${createPoemId(poem.data.name)}`}
-								class="block rounded-md px-3 py-2 text-sm text-gray-600 transition-colors duration-200 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white"
-							>
-								{poem.data.name}
-							</a>
-						))
-					}
-				</nav>
-			</div>
-		</aside>
-
-		<!-- Main content -->
-		<main class="flex-1 px-4 py-12 sm:px-6 lg:px-8">
-			<div class="mx-auto max-w-3xl">
-				<h1 class="mb-12 text-center font-serif text-4xl font-bold text-gray-900 dark:text-white">
-					Poetry Collection
-				</h1>
-				<div class="space-y-16">
-					{poemsValue.map((poem) => <Poem poem={poem} id={createPoemId(poem.data.name)} />)}
+	<div
+		class="flex min-h-screen w-screen max-w-[60rem] flex-col items-center px-6 pb-10 pt-7 font-satoshi text-[0.92rem] leading-relaxed selection:bg-red-500 selection:text-white sm:px-10 lg:px-10"
+	>
+		<div class="flex min-h-screen bg-gray-50 transition-colors duration-200 dark:bg-gray-900">
+			<!-- Sidebar -->
+			<aside class="w-64 border-r border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">
+				<div class="sticky top-0 h-screen overflow-y-auto p-4">
+					<h2 class="mb-4 font-serif text-xl font-semibold text-gray-900 dark:text-white">Poems</h2>
+					<nav class="space-y-1">
+						{
+							poemsValue.map((poem) => (
+								<a
+									href={`#${createPoemId(poem.data.name)}`}
+									class="block rounded-md px-3 py-2 text-sm text-gray-600 transition-colors duration-200 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white"
+								>
+									{poem.data.name}
+								</a>
+							))
+						}
+					</nav>
 				</div>
-			</div>
-		</main>
+			</aside>
+
+			<!-- Main content -->
+			<main class="flex-1 px-4 py-12 sm:px-6 lg:px-8">
+				<div class="mx-auto max-w-3xl">
+					<h1 class="mb-12 text-center font-serif text-4xl font-bold text-gray-900 dark:text-white">
+						Poetry Collection
+					</h1>
+					<div class="space-y-16">
+						{poemsValue.map((poem) => <Poem poem={poem} id={createPoemId(poem.data.name)} />)}
+					</div>
+				</div>
+			</main>
+		</div>
 	</div>
 </Layout>
 
@@ -64,7 +68,7 @@ const createPoemId = (name: string) => name.toLowerCase().replace(/[^a-z0-9]/g, 
 						behavior: 'smooth',
 						block: 'start'
 					});
-					// Highlight active link
+					// Update active link
 					document.querySelectorAll('nav a').forEach((link) => {
 						link.classList.remove(
 							'bg-gray-100',
