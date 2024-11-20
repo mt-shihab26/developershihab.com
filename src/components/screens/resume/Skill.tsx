@@ -1,8 +1,6 @@
-import type { TSkill } from '@/types';
-
 import { Badge } from '@/components/ui/badge';
 
-import skills from '@/config/skills';
+import skills, { type TSkill } from '@/config/skills';
 
 import Section from './Section';
 

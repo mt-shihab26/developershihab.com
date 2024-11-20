@@ -1,7 +1,15 @@
-import type { TEducation } from '@/types';
-
 import fpi from '@/assets/faridpur-polytechnic-institute.png';
 import gcpilot from '@/assets/kashiani-g-c-pilot-high-school.png';
+
+export type TEducation = {
+	institute: string;
+	department: string;
+	date: string;
+	logo: ImageMetadata;
+	alt: string;
+	description?: string;
+	points?: string[];
+};
 
 const educations: TEducation[] = [
 	{

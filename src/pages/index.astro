@@ -1,6 +1,4 @@
 ---
-import experiences from '@/config/experiences';
-
 import Layout from '@/components/Layout.astro';
 import Img from '@/components/Img.astro';
 import Blog from '@/components/Blog.astro';
@@ -12,17 +10,18 @@ import Label from '@/components/screens/resume/Label.astro';
 import Skill from '@/components/screens/resume/Skill';
 import Section from '@/components/screens/resume/Section.astro';
 import Education from '@/components/screens/resume/Education';
-import Experience from '@/components/screens/resume/Experience.astro';
+import Experience from '@/components/screens/resume/Experience';
 import Projects from '@/components/screens/resume/Projects';
 import ContactEmail from '@/components/screens/resume/ContactEmail.astro';
 import Certification from '@/components/screens/resume/Certification';
 
 import { siteConfig, socials } from '@/config/site';
 import { featuredBlogs } from '@/utils/blogs';
-import { featuredProjects } from '@/utils/projects';
+import { allProjects, featuredProjects } from '@/utils/projects';
 
 const blogs = await featuredBlogs();
 const projects = await featuredProjects();
+const allProjectsValue = await allProjects();
 ---
 
 <Layout meta={{ title: `${siteConfig.author}'s Portfolio` }}>
@@ -118,9 +117,7 @@ const projects = await featuredProjects();
 				</Section>
 			)
 		}
-		<Section title="Experience">
-			{experiences.map((experience) => <Experience experience={experience} />)}
-		</Section>
+		<Experience projects={allProjectsValue} />
 		<Projects projects={projects} />
 		<Skill />
 		<Certification />

@@ -1,8 +1,6 @@
-import type { TEducation } from '@/types';
-
 import { Card, CardContent } from '@/components/ui/card';
 
-import educations from '@/config/educations';
+import educations, { type TEducation } from '@/config/educations';
 
 import Section from './Section';
 
@@ -10,7 +8,7 @@ const Item = ({ education }: { education: TEducation }) => {
 	const { institute, department, date, logo, alt, description, points } = education;
 
 	return (
-		<Card className="relative bg-primary-foreground">
+		<Card className="relative">
 			<CardContent className="p-5">
 				{logo && (
 					<img

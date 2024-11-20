@@ -1,8 +1,6 @@
-import type { TCertification } from '@/types';
-
 import { Card, CardContent } from '@/components/ui/card';
 
-import certifications from '@/config/certifications';
+import certifications, { type TCertification } from '@/config/certifications';
 
 import Section from './Section';
 
@@ -11,11 +9,11 @@ const Item = ({ certification }: { certification: TCertification }) => {
 
 	return (
 		<a href={href} target="_blank" rel="noopener noreferrer">
-			<Card className="relative bg-primary-foreground transition-all hover:border-foreground/25 hover:shadow-sm">
+			<Card className="relative transition-all hover:border-foreground/25 hover:shadow-sm">
 				<CardContent className="p-5">
 					{logo && (
 						<img
-							src={logo}
+							src={logo.src}
 							alt={alt || ''}
 							className="mb-3 h-11 w-auto lg:absolute lg:-left-16 lg:mb-0"
 						/>

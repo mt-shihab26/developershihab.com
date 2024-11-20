@@ -1,4 +1,7 @@
-import type { TSkill } from '@/types';
+export type TSkill = {
+	title: string;
+	tools: string[];
+};
 
 const skills: TSkill[] = [
 	{
