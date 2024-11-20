@@ -20,12 +20,14 @@ const allProjectsValue = await allProjects();
 ---
 
 <Layout meta={{ title: `${siteConfig.author}'s Portfolio` }}>
-	<Hero />
-	<About />
-	<Blogs blogs={blogs} />
-	<Experience projects={allProjectsValue} />
-	<Projects projects={projects} />
-	<Skill />
-	<Certification />
-	<Education />
+	<div class="flex w-full flex-col gap-y-10">
+		<Hero />
+		<About />
+		<Blogs blogs={blogs} />
+		<Experience projects={allProjectsValue} />
+		<Projects projects={projects} />
+		<Skill />
+		<Certification />
+		<Education />
+	</div>
 </Layout>
