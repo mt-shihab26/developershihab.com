@@ -1,11 +1,32 @@
-import type { TProject } from '@/content/config';
-
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
 import experiences, { type TExperience } from '@/config/experiences';
-
+import type { TProject } from '@/content/config';
 import Section from './Section';
 
-import { Card, CardContent } from '@/components/ui/card';
-
+const ProjectItem = ({ project }: { project: TProject }) => (
+	<li>
+		<a
+			href={`/projects/${project.slug}`}
+			className="group block rounded-lg border border-border p-4 transition-all duration-200 hover:border-foreground/25 hover:shadow-sm"
+		>
+			<div className="flex items-center justify-between gap-4">
+				<div className="space-y-1.5">
+					<h3 className="font-medium group-hover:text-foreground">{project.data.title}</h3>
+					{project.data.technologies && (
+						<p className="text-sm text-muted-foreground">{project.data.technologies.join(', ')}</p>
+					)}
+				</div>
+				<Badge
+					variant="secondary"
+					className="shrink-0 text-xs transition-colors group-hover:bg-background"
+				>
+					View Project →
+				</Badge>
+			</div>
+		</a>
+	</li>
+);
 const Item = ({
 	experience,
 	allProjects
@@ -14,6 +35,10 @@ const Item = ({
 	allProjects: TProject[];
 }) => {
 	const { position, firm, description, date, projects } = experience;
+
+	const relevantProjects = projects
+		.map((slug) => allProjects.find((p) => p.slug === slug))
+		.filter((project): project is TProject => Boolean(project));
 
 	return (
 		<Card className="relative">
@@ -43,45 +68,11 @@ const Item = ({
 						</h1>
 						<time>{date}</time>
 						<p className="text-muted-foreground">{description}</p>
-						{projects.length > 0 && (
-							<ul className="mt-1 space-y-2">
-								{projects.map((projectSlug) => {
-									const project = allProjects.find((p) => p.slug === projectSlug);
-									if (!project) return null;
-
-									return (
-										<li key={project.slug} className="rounded-2xl border p-3">
-											<a
-												href={`/projects/${project.slug}?back=/`}
-												className="text-md font-semibold hover:underline hover:underline-offset-2"
-											>
-												{project.data.title}
-											</a>
-											<ul className="ml-6 list-disc text-sm text-muted-foreground">
-												{project.data.date && (
-													<li>
-														<span className="font-medium">Date:</span>{' '}
-														<span>
-															{project.data.date.start} - {project.data.date.end}
-														</span>
-													</li>
-												)}
-												{project.data.technologies && project.data.technologies.length > 0 && (
-													<li>
-														<span className="font-medium">Technologies:</span>{' '}
-														{project.data.technologies.map((technology, index) => (
-															<span key={technology}>
-																{index + 1 === project.data.technologies?.length
-																	? technology
-																	: `${technology}, `}
-															</span>
-														))}
-													</li>
-												)}
-											</ul>
-										</li>
-									);
-								})}
+						{relevantProjects.length > 0 && (
+							<ul className="mt-3 space-y-2">
+								{relevantProjects.map((project) => (
+									<ProjectItem key={project.slug} project={project} />
+								))}
 							</ul>
 						)}
 					</div>
@@ -94,9 +85,15 @@ const Item = ({
 const Experience = ({ projects }: { projects: TProject[] }) => {
 	return (
 		<Section title="Experience">
-			{experiences.map((experience) => (
-				<Item experience={experience} allProjects={projects} />
-			))}
+			<div className="space-y-6">
+				{experiences.map((experience) => (
+					<Item
+						key={`${experience.firm.name}-${experience.position}`}
+						experience={experience}
+						allProjects={projects}
+					/>
+				))}
+			</div>
 		</Section>
 	);
 };
