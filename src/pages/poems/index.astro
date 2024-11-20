@@ -36,6 +36,7 @@ const id = (index: number) => `poem-${index + 1}`;
 											<a
 												href={`#${id(index)}`}
 												class="block rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+												data-nav-link
 											>
 												{poem.data.name}
 											</a>
@@ -53,3 +54,67 @@ const id = (index: number) => `poem-${index + 1}`;
 		</div>
 	</div>
 </Layout>
+
+<script>
+	function updateActiveLink() {
+		const sections = document.querySelectorAll('article[id]');
+		const navLinks = document.querySelectorAll('[data-nav-link]');
+		const offset = window.innerHeight * 0.2;
+
+		let currentSectionId = '';
+		sections.forEach((section) => {
+			const rect = section.getBoundingClientRect();
+			if (rect.top <= offset && rect.bottom > offset) {
+				currentSectionId = section.id;
+			}
+		});
+
+		navLinks.forEach((link) => {
+			const href = link.getAttribute('href')?.substring(1);
+			if (href === currentSectionId) {
+				link.classList.add('bg-accent', 'text-accent-foreground', 'font-medium');
+			} else {
+				link.classList.remove('bg-accent', 'text-accent-foreground', 'font-medium');
+			}
+		});
+	}
+
+	// Handle click events
+	document.querySelectorAll('[data-nav-link]').forEach((link) => {
+		link.addEventListener('click', (e) => {
+			e.preventDefault();
+			const href = link.getAttribute('href');
+			if (!href) return;
+
+			const targetId = href.substring(1);
+			const target = document.getElementById(targetId);
+			if (!target) return;
+
+			target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			history.pushState(null, '', href);
+
+			// Update active state
+			document.querySelectorAll('[data-nav-link]').forEach((l) => {
+				if (l.getAttribute('href') === href) {
+					l.classList.add('bg-accent', 'text-accent-foreground', 'font-medium');
+				} else {
+					l.classList.remove('bg-accent', 'text-accent-foreground', 'font-medium');
+				}
+			});
+		});
+	});
+
+	// Handle scroll events
+	window.addEventListener('scroll', updateActiveLink, { passive: true });
+
+	// Initial state
+	window.addEventListener('load', () => {
+		updateActiveLink();
+		if (window.location.hash) {
+			const target = document.querySelector(window.location.hash);
+			if (target) {
+				target.scrollIntoView({ block: 'start' });
+			}
+		}
+	});
+</script>
