@@ -1,13 +1,12 @@
 ---
 import Layout from '@/components/Layout.astro';
 import Img from '@/components/Img.astro';
-import Blog from '@/components/Blog.astro';
 
 import B from '@/components/screens/resume/B.astro';
 import I from '@/components/screens/resume/I.astro';
-import More from '@/components/screens/resume/More.astro';
 import Label from '@/components/screens/resume/Label.astro';
 import Skill from '@/components/screens/resume/Skill';
+import Blogs from '@/components/screens/resume/Blogs';
 import Section from '@/components/screens/resume/Section.astro';
 import Education from '@/components/screens/resume/Education';
 import Experience from '@/components/screens/resume/Experience';
@@ -101,22 +100,7 @@ const allProjectsValue = await allProjects();
 				learning new things. I am currently learning about Business & Entrepreneurship.
 			</p>
 		</Section>
-		{
-			blogs.length > 0 && (
-				<Section title="Posts">
-					<ul class="flex flex-col gap-y-2">
-						{blogs.map((blog) => (
-							<li class="flex flex-col gap-x-2 sm:flex-row">
-								<Blog blog={blog} />
-							</li>
-						))}
-					</ul>
-					<div class="flex justify-end">
-						<More href="/blogs">See all blogs</More>
-					</div>
-				</Section>
-			)
-		}
+		<Blogs blogs={blogs} />
 		<Experience projects={allProjectsValue} />
 		<Projects projects={projects} />
 		<Skill />

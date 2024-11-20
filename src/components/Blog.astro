@@ -8,7 +8,6 @@ import FormattedDate from './FormattedDate.astro';
 // }
 
 const {
-	as: Tag = 'div',
 	withDesc = false,
 	blog: {
 		data: { title, description, date, draft },
@@ -19,8 +18,7 @@ const {
 
 <li class="flex flex-col gap-2 sm:flex-row sm:gap-x-4 [&_q]:basis-full">
 	<FormattedDate class="min-w-[120px]" date={date.updated ?? date.publish} />
-
-	<Tag>
+	<div>
 		{draft && <span class="text-red-500">(Draft) </span>}
 		<a
 			href={`/blogs/${slug}?back=/`}
@@ -34,5 +32,5 @@ const {
 				<p class="line-clamp-3 block text-sm italic text-muted-foreground">{description}</p>
 			)
 		}
-	</Tag>
+	</div>
 </li>
