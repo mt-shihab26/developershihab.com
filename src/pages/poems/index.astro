@@ -60,14 +60,28 @@ const id = (index: number) => `poem-${index + 1}`;
 		const sections = document.querySelectorAll('article[id]');
 		const navLinks = document.querySelectorAll('[data-nav-link]');
 		const offset = window.innerHeight * 0.2;
+		const scrollPosition = window.scrollY + offset;
 
 		let currentSectionId = '';
-		sections.forEach((section) => {
-			const rect = section.getBoundingClientRect();
-			if (rect.top <= offset && rect.bottom > offset) {
-				currentSectionId = section.id;
-			}
-		});
+
+		// Check if we're at the bottom of the page
+		const isAtBottom =
+			window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 10;
+
+		if (isAtBottom) {
+			// If at bottom, select the last section
+			currentSectionId = sections[sections.length - 1].id;
+		} else {
+			// Otherwise, find the current section based on scroll position
+			sections.forEach((section: any) => {
+				const sectionTop = section.offsetTop;
+				const sectionHeight = section.offsetHeight;
+
+				if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+					currentSectionId = section.id;
+				}
+			});
+		}
 
 		navLinks.forEach((link) => {
 			const href = link.getAttribute('href')?.substring(1);
@@ -92,22 +106,21 @@ const id = (index: number) => `poem-${index + 1}`;
 
 			target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 			history.pushState(null, '', href);
-
-			// Update active state
-			document.querySelectorAll('[data-nav-link]').forEach((l) => {
-				if (l.getAttribute('href') === href) {
-					l.classList.add('bg-accent', 'text-accent-foreground', 'font-medium');
-				} else {
-					l.classList.remove('bg-accent', 'text-accent-foreground', 'font-medium');
-				}
-			});
 		});
 	});
 
-	// Handle scroll events
-	window.addEventListener('scroll', updateActiveLink, { passive: true });
+	// Handle scroll events with debounce
+	let scrollTimeout: any;
+	window.addEventListener(
+		'scroll',
+		() => {
+			clearTimeout(scrollTimeout);
+			scrollTimeout = setTimeout(updateActiveLink, 100);
+		},
+		{ passive: true }
+	);
 
-	// Initial state
+	// Initial state and handle hash changes
 	window.addEventListener('load', () => {
 		updateActiveLink();
 		if (window.location.hash) {
@@ -117,4 +130,7 @@ const id = (index: number) => `poem-${index + 1}`;
 			}
 		}
 	});
+
+	// Update on hash change
+	window.addEventListener('hashchange', updateActiveLink);
 </script>
