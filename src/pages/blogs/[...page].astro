@@ -8,7 +8,7 @@ import Paginator from '@/components/elements/Paginator.astro';
 import Blog from '@/components/screens/blogs/Blog.astro';
 import Button from '@/components/elements/Button.astro';
 
-import { getBlogs, getUniqueTagsWithCount } from '@/utils/blogs';
+import { getBlogs, getUniqueTagsWithCount } from '@/lib/blogs';
 import { siteConfig } from '@/config/site';
 
 export const getStaticPaths = (async ({ paginate }) => {

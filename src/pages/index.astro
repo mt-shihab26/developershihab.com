@@ -8,8 +8,8 @@ import Experience from '@/components/screens/resume/Experience';
 import Projects from '@/components/screens/resume/Projects';
 import Certification from '@/components/screens/resume/Certification';
 
-import { getFeaturedBlogs } from '@/utils/blogs';
-import { getProjects, getFeaturedProjects } from '@/utils/projects';
+import { getFeaturedBlogs } from '@/lib/blogs';
+import { getProjects, getFeaturedProjects } from '@/lib/projects';
 import Layout from '@/components/screens/layout/Layout.astro';
 
 const blogs = await getFeaturedBlogs();

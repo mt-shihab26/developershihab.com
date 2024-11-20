@@ -3,7 +3,7 @@ import Back from '@/components/elements/Back';
 import Layout from '@/components/screens/layout/Layout.astro';
 
 import { suffixTitle } from '@/config/site';
-import { getUniqueTagsWithCount } from '@/utils/blogs';
+import { getUniqueTagsWithCount } from '@/lib/blogs';
 
 const tags = await getUniqueTagsWithCount();
 ---
