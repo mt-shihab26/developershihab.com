@@ -1,19 +1,17 @@
 ---
-export const prerender = true;
-
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 
 import Back from '@/components/elements/Back';
-import Layout from '@/components/Layout.astro';
 import Scroll from '@/components/Scroll.astro';
 import FormattedDate from '@/components/FormattedDate.astro';
 import TableOfContents from '@/components/TableOfContents.astro';
+import Layout from '@/components/screens/layout/Layout.astro';
 
-import { allBlogs } from '@/utils/blogs';
+import { getBlogs } from '@/utils/blogs';
 import { suffixTitle } from '@/config/site';
 
 export const getStaticPaths = (async () => {
-	return (await allBlogs()).map((entry) => ({
+	return (await getBlogs()).map((entry) => ({
 		params: { slug: entry.slug },
 		props: { entry }
 	}));
@@ -36,12 +34,10 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 ---
 
 <Layout
-	meta={{
-		title: suffixTitle(title),
-		ogImage: ogimage ?? `/og-image/${slug}.png`,
-		description,
-		articleDate: date.updated?.toISOString() ?? date.publish.toISOString()
-	}}
+	title={suffixTitle(title)}
+	ogImage={ogimage || `/og-image/${slug}.png`}
+	description={description}
+	articleDate={date.updated?.toISOString() ?? date.publish.toISOString()}
 >
 	<div class="w-full">
 		<Back href="/blogs" client:load />

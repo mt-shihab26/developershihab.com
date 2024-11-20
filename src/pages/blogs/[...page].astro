@@ -1,20 +1,18 @@
 ---
-export const prerender = true;
-
 import type { GetStaticPaths, Page } from 'astro';
-import type { TBlog } from '@/utils/blogs';
+import type { TBlog } from '@/content/config';
 
 import Back from '@/components/elements/Back';
 import Blog from '@/components/Blog.astro';
-import Layout from '@/components/Layout.astro';
 import Button from '@/components/Button.astro';
 import Pagination from '@/components/Paginator.astro';
+import Layout from '@/components/screens/layout/Layout.astro';
 
-import { allBlogs, getUniqueTagsWithCount } from '@/utils/blogs';
+import { getBlogs, getUniqueTagsWithCount } from '@/utils/blogs';
 import { siteConfig } from '@/config/site';
 
 export const getStaticPaths = (async ({ paginate }) => {
-	const blogs = await allBlogs();
+	const blogs = await getBlogs();
 	const uniqueTags = await getUniqueTagsWithCount();
 	return paginate(blogs, { pageSize: 10, props: { uniqueTags: uniqueTags.slice(0, 20) } });
 }) satisfies GetStaticPaths;
@@ -42,12 +40,7 @@ const paginationProps = {
 };
 ---
 
-<Layout
-	meta={{
-		title: `Blogs written by ${siteConfig.author}`,
-		description: 'List of blogs written by me'
-	}}
->
+<Layout title={`Blogs written by ${siteConfig.author}`} description="List of blogs written by me">
 	<div class="w-full">
 		<Back href="/" client:load />
 		<h1 class="mb-6 mt-5 text-2xl font-bold">My Writing</h1>

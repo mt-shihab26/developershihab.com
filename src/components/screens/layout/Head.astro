@@ -1,0 +1,92 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+
+import '@/styles/app.css';
+
+import { siteConfig } from '@/config/site';
+
+interface Props {
+	title: string;
+	description?: string;
+	ogImage?: string | undefined;
+	articleDate?: string | undefined;
+}
+
+const { articleDate, description, ogImage, title } = Astro.props as Props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImageURL = new URL(ogImage ? ogImage : '/social-card.png', Astro.url).href;
+---
+
+<head>
+	<meta charset="utf-8" />
+	<meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
+	<meta content="IE=edge" http-equiv="X-UA-Compatible" />
+
+	<title>{title}</title>
+
+	{/* Icons / Favicon */}
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+	<link rel="manifest" href="/site.webmanifest" />
+	{/* <link href="/favicon.svg" rel="icon" sizes="any" /> */}
+
+	{/* Font preloads */}
+	{
+		/*
+    <link rel='preload' href='/fonts/Satoshi-Variable.ttf' as='font' type='font/ttf' crossorigin />
+    <link rel='preload' href='/fonts/Satoshi-VariableItalic.ttf' as='font' type='font/ttf' crossorigin />
+    <link rel='preload' href='/fonts/ClashDisplay-Variable.ttf' as='font' type='font/ttf' crossorigin />
+*/
+	}
+
+	{/* Canonical URL */}
+	<link rel="canonical" href={canonicalURL} />
+
+	{/* Primary Meta Tags */}
+	<meta content={title} name="title" />
+	<meta content={description} name="description" />
+	<meta content={siteConfig.author} name="author" />
+	<meta content={Astro.generator} name="generator" />
+
+	{/* Theme Colour */}
+	<meta content="" name="theme-color" />
+
+	{/* Open Graph / Facebook */}
+	<meta content={articleDate ? 'article' : 'website'} property="og:type" />
+	<meta content={title} property="og:title" />
+	<meta content={description} property="og:description" />
+	<meta content={canonicalURL} property="og:url" />
+	<meta content={siteConfig.title} property="og:site_name" />
+	<meta content={siteConfig.ogLocale} property="og:locale" />
+	<meta content={socialImageURL} property="og:image" />
+	<meta content="1200" property="og:image:width" />
+	<meta content="630" property="og:image:height" />
+	{
+		articleDate && (
+			<>
+				<meta content={siteConfig.author} property="article:author" />
+				<meta content={articleDate} property="article:published_time" />
+			</>
+		)
+	}
+
+	{/* Twitter */}
+	<meta content="summary_large_image" property="twitter:card" />
+	<meta content={canonicalURL} property="twitter:url" />
+	<meta content={title} property="twitter:title" />
+	<meta content={description} property="twitter:description" />
+	<meta content={socialImageURL} property="twitter:image" />
+
+	{/* Sitemap */}
+	<link href="/sitemap-index.xml" rel="sitemap" />
+
+	{/* RSS auto-discovery */}
+	<link href="/rss.xml" rel="alternate" title={siteConfig.title} type="application/rss+xml" />
+
+	{/* Google */}
+	<meta name="google-site-verification" content="x6tNCOJsEuMEafBY4hbb4296-Bg8_K3ACO4K6xL6S4Q" />
+
+	<ViewTransitions />
+</head>

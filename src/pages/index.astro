@@ -1,5 +1,4 @@
 ---
-import Layout from '@/components/Layout.astro';
 import Hero from '@/components/screens/resume/Hero';
 import Skill from '@/components/screens/resume/Skill';
 import Blogs from '@/components/screens/resume/Blogs';
@@ -11,13 +10,14 @@ import Certification from '@/components/screens/resume/Certification';
 
 import { getFeaturedBlogs } from '@/utils/blogs';
 import { getProjects, getFeaturedProjects } from '@/utils/projects';
+import Layout from '@/components/screens/layout/Layout.astro';
 
 const blogs = await getFeaturedBlogs();
 const projects = await getProjects();
 const featuredProjects = await getFeaturedProjects();
 ---
 
-<Layout meta={{ title: 'Shihab Mahamud' }}>
+<Layout title="Shihab Mahamud">
 	<div class="flex w-full flex-col gap-y-10">
 		<Hero />
 		<About />

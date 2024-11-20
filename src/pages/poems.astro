@@ -3,9 +3,9 @@ import { siteConfig } from '@/config/site';
 
 import poems from '@/lib/poems';
 
-import Layout from '@/components/Layout.astro';
 import Poem from '@/components/screens/poems/Poem.astro';
 import Back from '@/components/elements/Back';
+import Layout from '@/components/screens/layout/Layout.astro';
 
 const poemsValue = await poems();
 
@@ -13,10 +13,8 @@ const id = (index: number) => `poem-${index + 1}`;
 ---
 
 <Layout
-	meta={{
-		title: `Poetry - ${siteConfig.author}`,
-		description: 'Welcome to my collection of poems and verses.'
-	}}
+	title={`Poetry - ${siteConfig.author}`}
+	description="Welcome to my collection of poems and verses."
 >
 	<div
 		class="flex min-h-screen w-screen max-w-[60rem] flex-col items-center px-6 pb-10 pt-7 font-satoshi text-[0.92rem] leading-relaxed selection:bg-red-500 selection:text-white sm:px-10 lg:px-10"

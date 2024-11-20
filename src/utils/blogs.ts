@@ -1,14 +1,14 @@
-import type { TBlog } from '@/content/config';
+import type { TBlogEntry } from '@/content/config';
 
 import { getCollection } from 'astro:content';
 
-const blogs = async (): Promise<TBlog[]> => {
+const blogs = async (): Promise<TBlogEntry[]> => {
 	return await getCollection('blogs', ({ data }) => {
 		return import.meta.env.PROD ? data.draft !== true : true;
 	});
 };
 
-const sortBlogsByDate = (blogs: TBlog[]): TBlog[] => {
+const sortBlogsByDate = (blogs: TBlogEntry[]): TBlogEntry[] => {
 	return blogs.sort((a, b) => {
 		const aDate = new Date(a.data.date.updated ?? a.data.date.publish).valueOf();
 		const bDate = new Date(b.data.date.updated ?? b.data.date.publish).valueOf();
@@ -20,11 +20,11 @@ const tags = async (): Promise<string[]> => {
 	return (await blogs()).flatMap((blog) => [...blog.data.tags]);
 };
 
-export const getBlogs = async (): Promise<TBlog[]> => {
+export const getBlogs = async (): Promise<TBlogEntry[]> => {
 	return sortBlogsByDate(await blogs());
 };
 
-export const getFeaturedBlogs = async (): Promise<TBlog[]> => {
+export const getFeaturedBlogs = async (): Promise<TBlogEntry[]> => {
 	const posts = await getBlogs();
 	const sliced = posts.slice(0, 10);
 	return sliced;

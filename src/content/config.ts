@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z, type CollectionEntry } from 'astro:content';
 
 type TRender = () => Promise<{ Content: any }>;
 
@@ -61,7 +61,7 @@ export type TBlog = {
 	render: TRender;
 };
 
-// export type TBlogEntry = CollectionEntry<'blogs'>;
+export type TBlogEntry = CollectionEntry<'blogs'>;
 
 // projects
 

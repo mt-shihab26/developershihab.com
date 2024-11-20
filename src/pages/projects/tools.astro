@@ -1,18 +1,16 @@
 ---
 import { siteConfig } from '@/config/site';
-import { allProjects } from '@/utils/projects';
+import { getProjects } from '@/utils/projects';
 
-import Layout from '@/components/Layout.astro';
 import Projects from '@/components/screens/projects/Projects';
+import Layout from '@/components/screens/layout/Layout.astro';
 
-const projects = await allProjects();
+const projects = await getProjects();
 ---
 
 <Layout
-	meta={{
-		title: `Projects by ${siteConfig.author}`,
-		description: "List of all projects I've did or doing"
-	}}
+	title={`Projects by ${siteConfig.author}`}
+	description={"List of all projects I've did or doing"}
 >
 	<Projects projects={projects} activeTab="tool" />
 </Layout>
