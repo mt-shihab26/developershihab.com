@@ -6,10 +6,10 @@ import Back from "@/components/elements/Back";
 import Layout from "@/components/screens/layout/Layout.astro";
 import Paginator from "@/components/elements/Paginator";
 import Blog from "@/components/screens/blogs/Blog.astro";
-import Button from "@/components/elements/Button.astro";
 
 import { getBlogs, getUniqueTagsWithCount } from "@/lib/blogs";
 import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
 
 export const getStaticPaths = (async ({ paginate }) => {
     const blogs = await getBlogs();
@@ -80,11 +80,16 @@ const paginationProps = {
                             <ul class="text-bgColor flex flex-wrap gap-2">
                                 {uniqueTags.map(([tag, count]) => (
                                     <li>
-                                        <Button
-                                            title={`${tag} (${count})`}
+                                        <a
+                                            class={cn(
+                                                "inline-flex items-center gap-x-1 rounded-xl border",
+                                                "border-border bg-primary-foreground px-2 py-1 text-sm",
+                                                "transition-all hover:bg-input"
+                                            )}
                                             href={`/tags/${tag}/`}
-                                            style="pill"
-                                        />
+                                        >
+                                            <p>{`${tag} (${count})`}</p>
+                                        </a>
                                     </li>
                                 ))}
                             </ul>
