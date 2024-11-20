@@ -1,15 +1,14 @@
-import { ExternalLinkIcon, GithubIcon, InfoIcon } from "lucide-react";
-
-export { ExternalLinkIcon, GithubIcon, InfoIcon };
-
 import ChatgptIcon from "@/components/icons/ChatgptIcon";
 import ClaudeIcon from "@/components/icons/ClaudeIcon";
 import CompanyIcon from "@/components/icons/CompanyIcon";
 import CppIcon from "@/components/icons/CppIcon";
 import DockerIcon from "@/components/icons/DockerIcon";
 import ElixirIcon from "@/components/icons/ElixirIcon";
+import ExternalLinkIcon from "@/components/icons/ExternalLinkIcon";
+import GithubIcon from "@/components/icons/GithubIcon";
 import GitIcon from "@/components/icons/GitIcon";
 import GoIcon from "@/components/icons/GoIcon";
+import InfoIcon from "@/components/icons/InfoIcon";
 import KittyIcon from "@/components/icons/KittyIcon";
 import LaravelIcon from "@/components/icons/LaravelIcon";
 import LinkedinIcon from "@/components/icons/LinkedinIcon";
@@ -34,8 +33,11 @@ export {
     CppIcon,
     DockerIcon,
     ElixirIcon,
+    ExternalLinkIcon,
     GitIcon,
+    GithubIcon,
     GoIcon,
+    InfoIcon,
     KittyIcon,
     LaravelIcon,
     LinkedinIcon,
@@ -43,8 +45,8 @@ export {
     LocationIcon,
     LuaIcon,
     NeovimIcon,
-    PhoenixIcon,
     PHPIcon,
+    PhoenixIcon,
     ReactIcon,
     TailwindcssIcon,
     TmuxIcon,
