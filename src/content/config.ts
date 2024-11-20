@@ -1,6 +1,6 @@
-import type { CollectionEntry } from 'astro:content';
-
 import { defineCollection, z } from 'astro:content';
+
+type TRender = () => Promise<{ Content: any }>;
 
 export type TImage = {
 	src: {
@@ -58,9 +58,10 @@ export type TBlog = {
 		tags: string[];
 		ogimage?: string;
 	};
+	render: TRender;
 };
 
-export type TBlogEntry = CollectionEntry<'blogs'>;
+// export type TBlogEntry = CollectionEntry<'blogs'>;
 
 // projects
 
@@ -110,8 +111,10 @@ export type TProject = {
 		featured: boolean;
 		priority?: number;
 	};
+	render: TRender;
 };
-export type TProjectEntry = CollectionEntry<'projects'>;
+
+// export type TProjectEntry = CollectionEntry<'projects'>;
 
 // poems
 
@@ -135,9 +138,10 @@ export type TPoem = {
 		draft: boolean;
 		priority?: number;
 	};
+	render: TRender;
 };
 
-export type TPoemEntry = CollectionEntry<'poems'>;
+// export type TPoemEntry = CollectionEntry<'poems'>;
 
 // collections
 
