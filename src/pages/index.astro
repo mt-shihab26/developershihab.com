@@ -7,10 +7,10 @@ import Education from "@/components/screens/resume/Education";
 import Experience from "@/components/screens/resume/Experience";
 import Projects from "@/components/screens/resume/Projects";
 import Certification from "@/components/screens/resume/Certification";
+import Layout from "@/components/screens/layout/Layout.astro";
 
 import { getFeaturedBlogs } from "@/lib/blogs";
 import { getProjects, getFeaturedProjects } from "@/lib/projects";
-import Layout from "@/components/screens/layout/Layout.astro";
 
 const blogs = await getFeaturedBlogs();
 const projects = await getProjects();
