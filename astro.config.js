@@ -6,7 +6,6 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import expressiveCode from "astro-expressive-code";
-import icon from "astro-icon";
 
 import rehypeExternalLinks from "rehype-external-links";
 import remarkUnwrapImages from "remark-unwrap-images";
@@ -17,7 +16,6 @@ import vercel from "@astrojs/vercel/static";
 export default defineConfig({
     site: "https://developershihab.com",
     integrations: [
-        icon(),
         sitemap(),
         tailwind({ applyBaseStyles: false }),
         expressiveCode({

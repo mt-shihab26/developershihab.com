@@ -7,7 +7,7 @@ const poems = async (): Promise<TPoem[]> => {
         await getCollection("poems", ({ data }) => {
             return import.meta.env.PROD ? data.draft !== true : true;
         })
-    ).sort((a, b) => (b.data.priority || 0) - (a.data.priority || 0));
+    ).sort((a: TPoem, b: TPoem) => (b.data.priority || 0) - (a.data.priority || 0));
 };
 
 export default poems;
