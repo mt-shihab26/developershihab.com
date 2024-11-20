@@ -45,7 +45,7 @@ const Item = ({
 			<CardContent className="p-5">
 				{firm.logo && (
 					<img
-						src={firm.logo}
+						src={firm.logo.src}
 						alt={firm.alt || ''}
 						className="mb-3 h-12 w-auto lg:absolute lg:-left-16 lg:mb-0"
 					/>

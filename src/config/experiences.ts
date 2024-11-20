@@ -1,9 +1,12 @@
+import finnext from '@/assets/finnext.co.png';
+import systech from '@/assets/systech-digital-ltd.png';
+
 export type TExperience = {
 	position: string;
 	firm: {
 		name: string;
 		link: string;
-		logo: string;
+		logo: ImageMetadata;
 		alt: string;
 	};
 	description: string;
@@ -17,7 +20,7 @@ const experiences: TExperience[] = [
 		firm: {
 			name: 'Finnext.co',
 			link: 'https://finnext.co',
-			logo: '/src/assets/finnext.co.png',
+			logo: finnext,
 			alt: 'Finnext.co logo'
 		},
 		date: 'May 2023 - Present',
@@ -42,7 +45,7 @@ const experiences: TExperience[] = [
 		firm: {
 			name: 'Systech Digital LTD',
 			link: 'https://systechdigital.com',
-			logo: '/src/assets/systech-digital-ltd.png',
+			logo: systech,
 			alt: 'Systech Digital LTD logo'
 		},
 		date: 'June 2024 - September 2024',
