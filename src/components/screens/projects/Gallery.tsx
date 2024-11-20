@@ -1,48 +1,49 @@
-import type { TImage } from '@/content/config';
+import type { TImage } from "@/content/config";
 
-import { cn } from '@/lib/utils';
-import { useState } from 'react';
+import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 const Gallery = ({ images }: { images: TImage[] }) => {
-	const [selectedIndex, setSelectedIndex] = useState(0);
+    const [selectedIndex, setSelectedIndex] = useState(0);
 
-	const selectedImage = images[selectedIndex];
+    const selectedImage = images[selectedIndex];
 
-	return (
-		<div className="flex h-full w-full flex-col gap-2 lg:flex-row lg:gap-4">
-			<div className="w-full">
-				<img
-					src={selectedImage.src.src}
-					alt={selectedImage.alt}
-					className="h-auto w-full rounded-md object-contain"
-				/>
-			</div>
-			{images.length > 1 && (
-				<div className="relative w-full lg:w-[200px]">
-					<div className="scrollbar-hide flex overflow-x-auto lg:h-full lg:flex-col lg:overflow-y-auto">
-						<div className="flex gap-2 p-1 lg:flex-col">
-							{images.map((image, index) => (
-								<div key={index} className="flex-shrink-0">
-									<img
-										src={image.src.src}
-										alt={image.alt}
-										className={cn(
-											'w-20 cursor-pointer rounded-md object-cover lg:w-full',
-											'transition-opacity hover:opacity-90',
-											{
-												'ring-2 ring-green-500 ring-offset-2': index === selectedIndex
-											}
-										)}
-										onClick={() => setSelectedIndex(index)}
-									/>
-								</div>
-							))}
-						</div>
-					</div>
-				</div>
-			)}
-		</div>
-	);
+    return (
+        <div className="flex h-full w-full flex-col gap-2 lg:flex-row lg:gap-4">
+            <div className="w-full">
+                <img
+                    src={selectedImage.src.src}
+                    alt={selectedImage.alt}
+                    className="h-auto w-full rounded-md object-contain"
+                />
+            </div>
+            {images.length > 1 && (
+                <div className="relative w-full lg:w-[200px]">
+                    <div className="scrollbar-hide flex overflow-x-auto lg:h-full lg:flex-col lg:overflow-y-auto">
+                        <div className="flex gap-2 p-1 lg:flex-col">
+                            {images.map((image, index) => (
+                                <div key={index} className="flex-shrink-0">
+                                    <img
+                                        src={image.src.src}
+                                        alt={image.alt}
+                                        className={cn(
+                                            "w-20 cursor-pointer rounded-md object-cover lg:w-full",
+                                            "transition-opacity hover:opacity-90",
+                                            {
+                                                "ring-2 ring-green-500 ring-offset-2":
+                                                    index === selectedIndex
+                                            }
+                                        )}
+                                        onClick={() => setSelectedIndex(index)}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
 };
 
 export default Gallery;

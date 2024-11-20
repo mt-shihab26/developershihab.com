@@ -1,9 +1,9 @@
 ---
-import type { TPoem } from '@/content/config';
+import type { TPoem } from "@/content/config";
 
 interface Props {
-	poem: TPoem;
-	id: string;
+    poem: TPoem;
+    id: string;
 }
 
 const { poem, id } = Astro.props;
@@ -12,12 +12,12 @@ const { Content } = await poem.render();
 ---
 
 <article id={id} class="flex flex-col rounded-xl border bg-card text-card-foreground shadow">
-	<div class="flex flex-col space-y-1.5 p-6">
-		<h2 class="font-semibold leading-none tracking-tight">
-			{poem.data.name}
-		</h2>
-		<div class="prose-foreground prose-lg [&_p]:leading-relaxed [&_p]:text-muted-foreground">
-			<Content />
-		</div>
-	</div>
+    <div class="flex flex-col space-y-1.5 p-6">
+        <h2 class="font-semibold leading-none tracking-tight">
+            {poem.data.name}
+        </h2>
+        <div class="prose-foreground prose-lg [&_p]:leading-relaxed [&_p]:text-muted-foreground">
+            <Content />
+        </div>
+    </div>
 </article>

@@ -15,7 +15,7 @@ links:
     live_link: https://developershihab.com
 images:
     - src: ./developershihab.jpg
-      alt: 'developer shihab website cover'
+      alt: "developer shihab website cover"
 ---
 
 **Title**: Building My Portfolio Website with Modern Technologies

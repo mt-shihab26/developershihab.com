@@ -11,7 +11,7 @@ tags:
     - programming
 cover:
     src: ./cover.png
-    alt: ''
+    alt: ""
 draft: false
 ---
 

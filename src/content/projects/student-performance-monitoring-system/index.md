@@ -17,7 +17,7 @@ date:
     end: July 6, 2024
 images:
     - src: ./student-performance-monitoring-system.jpg
-      alt: ''
+      alt: ""
 ---
 
 ## Overview

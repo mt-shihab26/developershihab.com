@@ -8,7 +8,7 @@ date:
     updated: 25 January 2022
 cover:
     src: ./cover.jpg
-    alt: ''
+    alt: ""
 tags:
     - cpp
     - problem-solving

@@ -7,7 +7,7 @@ date:
     updated: 25 January 2020
 cover:
     src: ./cover.png
-    alt: ''
+    alt: ""
 tags:
     - guideline
     - beginners

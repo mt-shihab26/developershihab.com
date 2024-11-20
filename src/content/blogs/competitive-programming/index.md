@@ -11,7 +11,7 @@ tags:
     - cpp
 cover:
     src: ./cover.jpg
-    alt: ''
+    alt: ""
 draft: false
 ---
 

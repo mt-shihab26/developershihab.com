@@ -12,7 +12,7 @@ tags:
     - client
 cover:
     src: ./cover.jpg
-    alt: ''
+    alt: ""
 draft: true
 ---
 

@@ -1,21 +1,21 @@
 ---
-import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
 
-import Scroll from '@/components/elements/Scroll';
-import Back from '@/components/elements/Back';
-import Technologies from '@/components/screens/projects/Technologies';
-import Links from '@/components/screens/projects/Links';
-import Gallery from '@/components/screens/projects/Gallery';
-import Layout from '@/components/screens/layout/Layout.astro';
+import Scroll from "@/components/elements/Scroll";
+import Back from "@/components/elements/Back";
+import Technologies from "@/components/screens/projects/Technologies";
+import Links from "@/components/screens/projects/Links";
+import Gallery from "@/components/screens/projects/Gallery";
+import Layout from "@/components/screens/layout/Layout.astro";
 
-import { getProjects } from '@/lib/projects';
-import { suffixTitle } from '@/config/site';
+import { getProjects } from "@/lib/projects";
+import { suffixTitle } from "@/config/site";
 
 export const getStaticPaths = (async () => {
-	return (await getProjects()).map((entry) => ({
-		params: { slug: entry.slug },
-		props: { entry }
-	}));
+    return (await getProjects()).map((entry) => ({
+        params: { slug: entry.slug },
+        props: { entry }
+    }));
 }) satisfies GetStaticPaths;
 
 export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
@@ -26,49 +26,49 @@ const { Content } = await project.render();
 ---
 
 <Layout
-	title={suffixTitle(project.data.title)}
-	description={project.data.description}
-	ogImage={project.data.ogimage ?? `/og-image/${project.slug}.png`}
+    title={suffixTitle(project.data.title)}
+    description={project.data.description}
+    ogImage={project.data.ogimage ?? `/og-image/${project.slug}.png`}
 >
-	<div class="w-full space-y-8">
-		<Back href="/projects" />
-		<article class="flex-grow space-y-12 break-words">
-			<div id="project-hero" class="flex flex-col space-y-4">
-				{
-					project.data.date && (
-						<div class="flex items-center space-x-1">
-							<div class="text-xs">{project.data.date.start}</div>
-							{project.data.date.end && (
-								<>
-									<div>- </div>
-									<div>{project.data.date.end}</div>
-								</>
-							)}
-						</div>
-					)
-				}
-				<div class="flex items-center space-x-2">
-					{project.data.draft && <span class="text-red-500">(Draft)</span>}
-					<h1 class="text-3xl font-medium">{project.data.title}</h1>
-				</div>
-				<div class="flex flex-col justify-between space-y-2 lg:flex-row lg:items-center">
-					<Technologies technologies={project.data.technologies} />
-					<Links links={project.data.links} />
-				</div>
-			</div>
-			<div>
-				{
-					project.data.images && project.data.images.length >= 1 && (
-						<Gallery images={project.data.images} client:load />
-					)
-				}
-			</div>
-			<div
-				class="prose prose-base prose-zinc max-w-full text-muted-foreground dark:prose-invert prose-headings:font-medium prose-headings:text-foreground prose-headings:before:absolute prose-th:before:content-none"
-			>
-				<Content />
-			</div>
-		</article>
-	</div>
-	<Scroll target="project-hero" client:load />
+    <div class="w-full space-y-8">
+        <Back href="/projects" />
+        <article class="flex-grow space-y-12 break-words">
+            <div id="project-hero" class="flex flex-col space-y-4">
+                {
+                    project.data.date && (
+                        <div class="flex items-center space-x-1">
+                            <div class="text-xs">{project.data.date.start}</div>
+                            {project.data.date.end && (
+                                <>
+                                    <div>- </div>
+                                    <div>{project.data.date.end}</div>
+                                </>
+                            )}
+                        </div>
+                    )
+                }
+                <div class="flex items-center space-x-2">
+                    {project.data.draft && <span class="text-red-500">(Draft)</span>}
+                    <h1 class="text-3xl font-medium">{project.data.title}</h1>
+                </div>
+                <div class="flex flex-col justify-between space-y-2 lg:flex-row lg:items-center">
+                    <Technologies technologies={project.data.technologies} />
+                    <Links links={project.data.links} />
+                </div>
+            </div>
+            <div>
+                {
+                    project.data.images && project.data.images.length >= 1 && (
+                        <Gallery images={project.data.images} client:load />
+                    )
+                }
+            </div>
+            <div
+                class="prose prose-base prose-zinc max-w-full text-muted-foreground dark:prose-invert prose-headings:font-medium prose-headings:text-foreground prose-headings:before:absolute prose-th:before:content-none"
+            >
+                <Content />
+            </div>
+        </article>
+    </div>
+    <Scroll target="project-hero" client:load />
 </Layout>

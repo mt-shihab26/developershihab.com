@@ -1,5 +1,5 @@
 ---
-title: 'Hosting Web Application For The Web'
+title: "Hosting Web Application For The Web"
 description: >-
     A look at different web hosting options, comparing the benefits
     and drawbacks of self-hosting, managed, and unmanaged cloud platforms.
@@ -12,7 +12,7 @@ tags:
     - web-application
 cover:
     src: ./cover.avif
-    alt: ''
+    alt: ""
 draft: false
 ---
 

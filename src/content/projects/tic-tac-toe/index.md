@@ -15,7 +15,7 @@ links:
     live_link: https://tic-tac-toe.developershihab.com
 images:
     - src: ./tic-tac-toe.jpg
-      alt: ''
+      alt: ""
 ---
 
 **Overview:**

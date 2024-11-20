@@ -11,7 +11,7 @@ tags:
     - development
 cover:
     src: ./cover.png
-    alt: ''
+    alt: ""
 draft: false
 slug: boiti-niye-amar-kotha
 ---

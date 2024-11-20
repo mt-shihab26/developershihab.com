@@ -1,11 +1,11 @@
 ---
-import { siteConfig } from '@/config/site';
+import { siteConfig } from "@/config/site";
 
-import poems from '@/lib/poems';
+import poems from "@/lib/poems";
 
-import Poem from '@/components/screens/poems/Poem.astro';
-import Back from '@/components/elements/Back';
-import Layout from '@/components/screens/layout/Layout.astro';
+import Poem from "@/components/screens/poems/Poem.astro";
+import Back from "@/components/elements/Back";
+import Layout from "@/components/screens/layout/Layout.astro";
 
 const poemsValue = await poems();
 
@@ -13,122 +13,122 @@ const id = (index: number) => `poem-${index + 1}`;
 ---
 
 <Layout
-	title={`Poetry - ${siteConfig.author}`}
-	description="Welcome to my collection of poems and verses."
+    title={`Poetry - ${siteConfig.author}`}
+    description="Welcome to my collection of poems and verses."
 >
-	<div
-		class="flex min-h-screen w-screen max-w-[60rem] flex-col items-center px-6 pb-10 pt-7 font-satoshi text-[0.92rem] leading-relaxed selection:bg-red-500 selection:text-white sm:px-10 lg:px-10"
-	>
-		<div class="w-full">
-			<Back />
+    <div
+        class="flex min-h-screen w-screen max-w-[60rem] flex-col items-center px-6 pb-10 pt-7 font-satoshi text-[0.92rem] leading-relaxed selection:bg-red-500 selection:text-white sm:px-10 lg:px-10"
+    >
+        <div class="w-full">
+            <Back />
 
-			<div class="mt-5">
-				<h1 class="mb-8 text-2xl font-bold">Written Poetry</h1>
-				<div class="relative flex gap-6">
-					<div class="sticky top-4 h-[calc(100vh-10rem)] w-64 overflow-hidden">
-						<div class="h-full">
-							<div class="h-full overflow-y-auto p-4">
-								<nav class="space-y-1">
-									{
-										poemsValue.map((poem, index) => (
-											<a
-												href={`#${id(index)}`}
-												class="block rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-												data-nav-link
-											>
-												{poem.data.name}
-											</a>
-										))
-									}
-								</nav>
-							</div>
-						</div>
-					</div>
-					<div class="flex-1 space-y-6">
-						{poemsValue.map((poem, index) => <Poem poem={poem} id={id(index)} />)}
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+            <div class="mt-5">
+                <h1 class="mb-8 text-2xl font-bold">Written Poetry</h1>
+                <div class="relative flex gap-6">
+                    <div class="sticky top-4 h-[calc(100vh-10rem)] w-64 overflow-hidden">
+                        <div class="h-full">
+                            <div class="h-full overflow-y-auto p-4">
+                                <nav class="space-y-1">
+                                    {
+                                        poemsValue.map((poem, index) => (
+                                            <a
+                                                href={`#${id(index)}`}
+                                                class="block rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                                                data-nav-link
+                                            >
+                                                {poem.data.name}
+                                            </a>
+                                        ))
+                                    }
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1 space-y-6">
+                        {poemsValue.map((poem, index) => <Poem poem={poem} id={id(index)} />)}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </Layout>
 
 <script>
-	function updateActiveLink() {
-		const sections = document.querySelectorAll('article[id]');
-		const navLinks = document.querySelectorAll('[data-nav-link]');
-		const offset = window.innerHeight * 0.2;
-		const scrollPosition = window.scrollY + offset;
+    function updateActiveLink() {
+        const sections = document.querySelectorAll("article[id]");
+        const navLinks = document.querySelectorAll("[data-nav-link]");
+        const offset = window.innerHeight * 0.2;
+        const scrollPosition = window.scrollY + offset;
 
-		let currentSectionId = '';
+        let currentSectionId = "";
 
-		// Check if we're at the bottom of the page
-		const isAtBottom =
-			window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 10;
+        // Check if we're at the bottom of the page
+        const isAtBottom =
+            window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 10;
 
-		if (isAtBottom) {
-			// If at bottom, select the last section
-			currentSectionId = sections[sections.length - 1].id;
-		} else {
-			// Otherwise, find the current section based on scroll position
-			sections.forEach((section: any) => {
-				const sectionTop = section.offsetTop;
-				const sectionHeight = section.offsetHeight;
+        if (isAtBottom) {
+            // If at bottom, select the last section
+            currentSectionId = sections[sections.length - 1].id;
+        } else {
+            // Otherwise, find the current section based on scroll position
+            sections.forEach((section: any) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
 
-				if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-					currentSectionId = section.id;
-				}
-			});
-		}
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    currentSectionId = section.id;
+                }
+            });
+        }
 
-		navLinks.forEach((link) => {
-			const href = link.getAttribute('href')?.substring(1);
-			if (href === currentSectionId) {
-				link.classList.add('bg-accent', 'text-accent-foreground', 'font-medium');
-			} else {
-				link.classList.remove('bg-accent', 'text-accent-foreground', 'font-medium');
-			}
-		});
-	}
+        navLinks.forEach((link) => {
+            const href = link.getAttribute("href")?.substring(1);
+            if (href === currentSectionId) {
+                link.classList.add("bg-accent", "text-accent-foreground", "font-medium");
+            } else {
+                link.classList.remove("bg-accent", "text-accent-foreground", "font-medium");
+            }
+        });
+    }
 
-	// Handle click events
-	document.querySelectorAll('[data-nav-link]').forEach((link) => {
-		link.addEventListener('click', (e) => {
-			e.preventDefault();
-			const href = link.getAttribute('href');
-			if (!href) return;
+    // Handle click events
+    document.querySelectorAll("[data-nav-link]").forEach((link) => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const href = link.getAttribute("href");
+            if (!href) return;
 
-			const targetId = href.substring(1);
-			const target = document.getElementById(targetId);
-			if (!target) return;
+            const targetId = href.substring(1);
+            const target = document.getElementById(targetId);
+            if (!target) return;
 
-			target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-			history.pushState(null, '', href);
-		});
-	});
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+            history.pushState(null, "", href);
+        });
+    });
 
-	// Handle scroll events with debounce
-	let scrollTimeout: any;
-	window.addEventListener(
-		'scroll',
-		() => {
-			clearTimeout(scrollTimeout);
-			scrollTimeout = setTimeout(updateActiveLink, 100);
-		},
-		{ passive: true }
-	);
+    // Handle scroll events with debounce
+    let scrollTimeout: any;
+    window.addEventListener(
+        "scroll",
+        () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(updateActiveLink, 100);
+        },
+        { passive: true }
+    );
 
-	// Initial state and handle hash changes
-	window.addEventListener('load', () => {
-		updateActiveLink();
-		if (window.location.hash) {
-			const target = document.querySelector(window.location.hash);
-			if (target) {
-				target.scrollIntoView({ block: 'start' });
-			}
-		}
-	});
+    // Initial state and handle hash changes
+    window.addEventListener("load", () => {
+        updateActiveLink();
+        if (window.location.hash) {
+            const target = document.querySelector(window.location.hash);
+            if (target) {
+                target.scrollIntoView({ block: "start" });
+            }
+        }
+    });
 
-	// Update on hash change
-	window.addEventListener('hashchange', updateActiveLink);
+    // Update on hash change
+    window.addEventListener("hashchange", updateActiveLink);
 </script>

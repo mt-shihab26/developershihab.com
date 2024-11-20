@@ -11,6 +11,6 @@ tags:
     - web-application
 cover:
     src: ./cover.jpg
-    alt: 'Most productive way of building web application cover image'
+    alt: "Most productive way of building web application cover image"
 draft: true
 ---

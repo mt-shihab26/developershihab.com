@@ -1,5 +1,5 @@
 ---
-title: 'WordPress Local Development Environment with Laravel Herd'
+title: "WordPress Local Development Environment with Laravel Herd"
 description: >-
     This guide shows how to create a fast, easy-to-use wordpress local development environment
     for plugin development.

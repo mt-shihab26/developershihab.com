@@ -8,7 +8,7 @@ date:
     updated: 05 March 2022
 cover:
     src: ./cover.jpg
-    alt: ''
+    alt: ""
 tags:
     - dart
     - flutter

@@ -11,7 +11,7 @@ links:
     source_code: https://github.com/p-nerd/x
 images:
     - src: ./x.jpg
-      alt: ''
+      alt: ""
 ---
 
 **Title:** Streamlining Software Development Workflow with X

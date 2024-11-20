@@ -1,16 +1,16 @@
 ---
-import { siteConfig } from '@/config/site';
-import { getProjects } from '@/lib/projects';
+import { siteConfig } from "@/config/site";
+import { getProjects } from "@/lib/projects";
 
-import Projects from '@/components/screens/projects/Projects';
-import Layout from '@/components/screens/layout/Layout.astro';
+import Projects from "@/components/screens/projects/Projects";
+import Layout from "@/components/screens/layout/Layout.astro";
 
 const projects = await getProjects();
 ---
 
 <Layout
-	title={`Projects by ${siteConfig.author}`}
-	description={"List of all projects I've did or doing"}
+    title={`Projects by ${siteConfig.author}`}
+    description={"List of all projects I've did or doing"}
 >
-	<Projects projects={projects} activeTab="demo" />
+    <Projects projects={projects} activeTab="demo" />
 </Layout>

@@ -1,30 +1,30 @@
-import finnext from '@/assets/finnext.co.png';
-import systech from '@/assets/systech-digital-ltd.png';
+import finnext from "@/assets/finnext.co.png";
+import systech from "@/assets/systech-digital-ltd.png";
 
 export type TExperience = {
-	position: string;
-	firm: {
-		name: string;
-		link: string;
-		logo: ImageMetadata;
-		alt: string;
-	};
-	description: string;
-	date: string;
-	projects: string[];
+    position: string;
+    firm: {
+        name: string;
+        link: string;
+        logo: ImageMetadata;
+        alt: string;
+    };
+    description: string;
+    date: string;
+    projects: string[];
 };
 
 const experiences: TExperience[] = [
-	{
-		position: 'Full-stack Developer',
-		firm: {
-			name: 'Finnext.co',
-			link: 'https://finnext.co',
-			logo: finnext,
-			alt: 'Finnext.co logo'
-		},
-		date: 'May 2023 - Present',
-		description: `
+    {
+        position: "Full-stack Developer",
+        firm: {
+            name: "Finnext.co",
+            link: "https://finnext.co",
+            logo: finnext,
+            alt: "Finnext.co logo"
+        },
+        date: "May 2023 - Present",
+        description: `
             I worked at Finnext.co, where I provided custom software solutions.
             Although primarily a web design agency focused on custom design and
             branding, they occasionally encountered clients needing custom
@@ -38,18 +38,18 @@ const experiences: TExperience[] = [
             I also contributed to other projects. Below is a list of notable
             projects I developed or maintained here.
         `,
-		projects: ['paystubhero-wordpress-plugin']
-	},
-	{
-		position: 'Software Engineer - Intern',
-		firm: {
-			name: 'Systech Digital LTD',
-			link: 'https://systechdigital.com',
-			logo: systech,
-			alt: 'Systech Digital LTD logo'
-		},
-		date: 'June 2024 - September 2024',
-		description: `
+        projects: ["paystubhero-wordpress-plugin"]
+    },
+    {
+        position: "Software Engineer - Intern",
+        firm: {
+            name: "Systech Digital LTD",
+            link: "https://systechdigital.com",
+            logo: systech,
+            alt: "Systech Digital LTD logo"
+        },
+        date: "June 2024 - September 2024",
+        description: `
             I joined Systech Digital LTD as an Intern Software Engineer
             during my Diploma final semester's industrial training program. Initially,
             I developed demo projects, and later, I contributed to client
@@ -58,8 +58,8 @@ const experiences: TExperience[] = [
             and expanded my understanding of modern web technologies.
             Below is a list of projects I did here.
         `,
-		projects: ['s-commerce', 'student-performance-monitoring-system']
-	}
+        projects: ["s-commerce", "student-performance-monitoring-system"]
+    }
 ];
 
 export default experiences;

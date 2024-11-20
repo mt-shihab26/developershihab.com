@@ -18,9 +18,9 @@ links:
     live_link: https://www.paystubhero.com/generate-pay-stubs
 images:
     - src: ./image-1.jpg
-      alt: ''
+      alt: ""
     - src: ./image-2.jpg
-      alt: ''
+      alt: ""
 ---
 
 # **Title:** Revolutionizing Payroll Management with PaystubHero
