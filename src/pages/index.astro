@@ -1,6 +1,5 @@
 ---
 import Layout from '@/components/Layout.astro';
-
 import Hero from '@/components/screens/resume/Hero';
 import Skill from '@/components/screens/resume/Skill';
 import Blogs from '@/components/screens/resume/Blogs';
@@ -10,22 +9,21 @@ import Experience from '@/components/screens/resume/Experience';
 import Projects from '@/components/screens/resume/Projects';
 import Certification from '@/components/screens/resume/Certification';
 
-import { siteConfig } from '@/config/site';
-import { featuredBlogs } from '@/utils/blogs';
-import { allProjects, featuredProjects } from '@/utils/projects';
+import { getFeaturedBlogs } from '@/utils/blogs';
+import { getProjects, getFeaturedProjects } from '@/utils/projects';
 
-const blogs = await featuredBlogs();
-const projects = await featuredProjects();
-const allProjectsValue = await allProjects();
+const blogs = await getFeaturedBlogs();
+const projects = await getProjects();
+const featuredProjects = await getFeaturedProjects();
 ---
 
-<Layout meta={{ title: `${siteConfig.author}'s Portfolio` }}>
+<Layout meta={{ title: 'Shihab Mahamud' }}>
 	<div class="flex w-full flex-col gap-y-10">
 		<Hero />
 		<About />
 		<Blogs blogs={blogs} />
-		<Experience projects={allProjectsValue} />
-		<Projects projects={projects} />
+		<Experience projects={projects} />
+		<Projects projects={featuredProjects} />
 		<Skill />
 		<Certification />
 		<Education />

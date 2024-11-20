@@ -16,10 +16,10 @@ const filterFeaturedProjects = (projects: TProject[]): TProject[] => {
 	return projects.filter((p) => p.data.featured);
 };
 
-export const allProjects = async (): Promise<TProject[]> => {
+export const getProjects = async (): Promise<TProject[]> => {
 	return sortProjectByPriority(await projects());
 };
 
-export const featuredProjects = async (): Promise<TProject[]> => {
-	return filterFeaturedProjects(await allProjects());
+export const getFeaturedProjects = async (): Promise<TProject[]> => {
+	return filterFeaturedProjects(await getProjects());
 };

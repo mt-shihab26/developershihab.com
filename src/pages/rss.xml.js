@@ -1,10 +1,10 @@
 import rss from '@astrojs/rss';
 
 import { siteConfig } from './../config/site';
-import { allBlogs } from './../utils/blogs';
+import { getBlogs } from './../utils/blogs';
 
 export const GET = async () => {
-	const blogs = await allBlogs();
+	const blogs = await getBlogs();
 
 	return rss({
 		title: siteConfig.title,
