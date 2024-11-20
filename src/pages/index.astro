@@ -14,7 +14,7 @@ import More from '@/components/screens/resume/More.astro';
 import Label from '@/components/screens/resume/Label.astro';
 import Skill from '@/components/screens/resume/Skill.astro';
 import Section from '@/components/screens/resume/Section.astro';
-import Education from '@/components/screens/resume/Education.astro';
+import Education from '@/components/screens/resume/Education';
 import Experience from '@/components/screens/resume/Experience.astro';
 import ProjectCard from '@/components/screens/projects/ProjectCard';
 import ContactEmail from '@/components/screens/resume/ContactEmail.astro';
@@ -138,8 +138,6 @@ const projects = await featuredProjects();
 		<Section title="Certifications">
 			{certifications.map((certification) => <Certification certification={certification} />)}
 		</Section>
-		<Section title="Education">
-			{educations.map((education) => <Education education={education} />)}
-		</Section>
+		<Education />
 	</div>
 </Layout>
