@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@astrojs/check':
-        specifier: ^0.9.4
-        version: 0.9.4(prettier-plugin-astro@0.13.0)(prettier@3.3.3)(typescript@5.6.3)
       '@astrojs/mdx':
         specifier: ^3.1.9
         version: 3.1.9(astro@4.16.13(rollup@4.27.3)(typescript@5.6.3))
@@ -36,26 +33,11 @@ importers:
         specifier: ^1.2.1
         version: 1.2.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-slot':
-        specifier: ^1.1.0
+        specifier: ^1.0.0
         version: 1.1.0(@types/react@18.3.12)(react@18.3.1)
       '@radix-ui/react-tabs':
         specifier: ^1.1.1
         version: 1.1.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tailwindcss/aspect-ratio':
-        specifier: ^0.4.2
-        version: 0.4.2(tailwindcss@3.4.15)
-      '@tailwindcss/typography':
-        specifier: ^0.5.15
-        version: 0.5.15(tailwindcss@3.4.15)
-      '@types/react':
-        specifier: ^18.3.12
-        version: 18.3.12
-      '@types/react-dom':
-        specifier: ^18.3.1
-        version: 18.3.1
-      '@typescript-eslint/parser':
-        specifier: ^7.18.0
-        version: 7.18.0(eslint@8.57.1)(typescript@5.6.3)
       '@vercel/analytics':
         specifier: ^1.4.1
         version: 1.4.1(react@18.3.1)
@@ -92,9 +74,6 @@ importers:
       remark-unwrap-images:
         specifier: ^4.0.1
         version: 4.0.1
-      shadcn:
-        specifier: ^2.1.6
-        version: 2.1.6(typescript@5.6.3)
       sharp:
         specifier: ^0.33.5
         version: 0.33.5
@@ -107,10 +86,25 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.15)
-      typescript:
-        specifier: ^5.6.3
-        version: 5.6.3
     devDependencies:
+      '@astrojs/check':
+        specifier: ^0.9.4
+        version: 0.9.4(prettier-plugin-astro@0.13.0)(prettier@3.3.3)(typescript@5.6.3)
+      '@tailwindcss/aspect-ratio':
+        specifier: ^0.4.2
+        version: 0.4.2(tailwindcss@3.4.15)
+      '@tailwindcss/typography':
+        specifier: ^0.5.15
+        version: 0.5.15(tailwindcss@3.4.15)
+      '@types/react':
+        specifier: ^18.3.12
+        version: 18.3.12
+      '@types/react-dom':
+        specifier: ^18.3.1
+        version: 18.3.1
+      '@typescript-eslint/parser':
+        specifier: ^7.18.0
+        version: 7.18.0(eslint@8.57.1)(typescript@5.6.3)
       eslint:
         specifier: ^8.57.1
         version: 8.57.1
@@ -132,6 +126,12 @@ importers:
       prettier-plugin-tailwindcss:
         specifier: ^0.6.9
         version: 0.6.9(prettier-plugin-astro@0.13.0)(prettier-plugin-organize-imports@4.1.0(prettier@3.3.3)(typescript@5.6.3))(prettier@3.3.3)
+      shadcn:
+        specifier: ^2.1.6
+        version: 2.1.6(typescript@5.6.3)
+      typescript:
+        specifier: ^5.6.3
+        version: 5.6.3
 
 packages:
 
