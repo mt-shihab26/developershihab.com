@@ -1,8 +1,5 @@
 ---
-import skills from '@/config/skills';
-import educations from '@/config/educations';
 import experiences from '@/config/experiences';
-import certifications from '@/config/certifications';
 
 import Layout from '@/components/Layout.astro';
 import Img from '@/components/Img.astro';
@@ -12,13 +9,13 @@ import B from '@/components/screens/resume/B.astro';
 import I from '@/components/screens/resume/I.astro';
 import More from '@/components/screens/resume/More.astro';
 import Label from '@/components/screens/resume/Label.astro';
-import Skill from '@/components/screens/resume/Skill.astro';
+import Skill from '@/components/screens/resume/Skill';
 import Section from '@/components/screens/resume/Section.astro';
 import Education from '@/components/screens/resume/Education';
 import Experience from '@/components/screens/resume/Experience.astro';
-import ProjectCard from '@/components/screens/projects/ProjectCard';
+import Projects from '@/components/screens/resume/Projects';
 import ContactEmail from '@/components/screens/resume/ContactEmail.astro';
-import Certification from '@/components/screens/resume/Certification.astro';
+import Certification from '@/components/screens/resume/Certification';
 
 import { siteConfig, socials } from '@/config/site';
 import { featuredBlogs } from '@/utils/blogs';
@@ -124,20 +121,9 @@ const projects = await featuredProjects();
 		<Section title="Experience">
 			{experiences.map((experience) => <Experience experience={experience} />)}
 		</Section>
-		<Section title="Projects">
-			<div class="flex flex-col gap-y-4">
-				{projects.map((project) => <ProjectCard project={project} />)}
-			</div>
-			<div class="flex justify-end">
-				<More href="/projects">See all projects</More>
-			</div>
-		</Section>
-		<Section title="Skills">
-			{skills.map((skill) => <Skill skill={skill} />)}
-		</Section>
-		<Section title="Certifications">
-			{certifications.map((certification) => <Certification certification={certification} />)}
-		</Section>
+		<Projects projects={projects} />
+		<Skill />
+		<Certification />
 		<Education />
 	</div>
 </Layout>
