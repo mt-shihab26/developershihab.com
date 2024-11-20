@@ -1,6 +1,6 @@
 import type { TBlog } from '@/content/config';
 
-import FormattedDate from '@/components/FormattedDate';
+import FormattedDate from '@/components/elements/FormattedDate';
 import More from './More';
 import Section from './Section';
 

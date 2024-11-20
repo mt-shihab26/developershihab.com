@@ -2,10 +2,10 @@
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 
 import Back from '@/components/elements/Back';
-import Scroll from '@/components/Scroll.astro';
-import FormattedDate from '@/components/FormattedDate.astro';
-import TableOfContents from '@/components/TableOfContents.astro';
 import Layout from '@/components/screens/layout/Layout.astro';
+import Scroll from '@/components/elements/Scroll';
+import TableOfContents from '@/components/screens/blogs/TableOfContents.astro';
+import FormattedDate from '@/components/elements/FormattedDate';
 
 import { getBlogs } from '@/utils/blogs';
 import { suffixTitle } from '@/config/site';
@@ -111,7 +111,11 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 						date.updated && (
 							<p class="mt-6 text-base">
 								Last Updated:
-								<FormattedDate class="ms-1" date={date.updated} dateTimeOptions={dateTimeOptions} />
+								<FormattedDate
+									className="ms-1"
+									date={date.updated}
+									dateTimeOptions={dateTimeOptions}
+								/>
 							</p>
 						)
 					}
