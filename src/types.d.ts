@@ -35,7 +35,7 @@ export type TEducation = {
 	institute: string;
 	department: string;
 	date: string;
-	logo: string;
+	logo: ImageMetadata;
 	alt: string;
 	description?: string;
 	points?: string[];

@@ -14,7 +14,7 @@ const Item = ({ education }: { education: TEducation }) => {
 			<CardContent className="p-5">
 				{logo && (
 					<img
-						src={logo}
+						src={logo.src}
 						alt={alt || ''}
 						className="mb-3 h-12 w-auto lg:absolute lg:-left-16 lg:mb-0"
 					/>
