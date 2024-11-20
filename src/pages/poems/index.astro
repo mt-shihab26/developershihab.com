@@ -50,33 +50,33 @@ const poemsValue = await poems();
 			</div>
 		</div>
 	</div>
-
 	<script>
-		const observerOptions = {
-			root: null,
-			rootMargin: '-20% 0px -80% 0px', // Adjusted for better accuracy
-			threshold: 0
-		};
+		function updateActiveLink() {
+			const sections = document.querySelectorAll('article[id]');
+			const navLinks = document.querySelectorAll('nav a');
 
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					const id = entry.target.id;
-					document.querySelectorAll('nav a').forEach((link) => {
-						if (link.getAttribute('href') === `#${id}`) {
-							link.classList.add('bg-accent', 'text-accent-foreground', 'font-medium');
-						} else {
-							link.classList.remove('bg-accent', 'text-accent-foreground', 'font-medium');
-						}
-					});
+			let currentSectionId = '';
+			const offset = window.innerHeight * 0.2;
+
+			sections.forEach((section) => {
+				const rect = section.getBoundingClientRect();
+				if (rect.top <= offset && rect.bottom > offset) {
+					currentSectionId = section.id;
 				}
 			});
-		}, observerOptions);
 
-		// Observe all poem sections
-		document.querySelectorAll('article[id]').forEach((section) => {
-			observer.observe(section);
-		});
+			navLinks.forEach((link) => {
+				const href = link.getAttribute('href');
+				if (href === `#${currentSectionId}`) {
+					link.classList.add('bg-accent', 'text-accent-foreground', 'font-medium');
+				} else {
+					link.classList.remove('bg-accent', 'text-accent-foreground', 'font-medium');
+				}
+			});
+		}
+
+		// Add scroll event listener with passive flag for better performance
+		window.addEventListener('scroll', updateActiveLink, { passive: true });
 
 		// Smooth scroll behavior
 		document.querySelectorAll('nav a').forEach((link) => {
@@ -84,15 +84,16 @@ const poemsValue = await poems();
 				e.preventDefault();
 				const href = link.getAttribute('href');
 				if (!href) return;
-
 				const target = document.querySelector(href);
 				if (!target) return;
-
 				target.scrollIntoView({
 					behavior: 'smooth',
 					block: 'start'
 				});
 			});
 		});
+
+		// Initial check for active link
+		updateActiveLink();
 	</script>
 </Layout>
