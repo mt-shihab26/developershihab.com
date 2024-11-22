@@ -1,7 +1,7 @@
 ---
 import Head from "./Head.astro";
 import Footer from "./Footer.astro";
-import Header from "./Header.astro";
+import Header from "./Header";
 import ThemeProvider from "./ThemeProvider.astro";
 
 import SpeedInsights from "@vercel/speed-insights/astro";
@@ -24,7 +24,7 @@ const { title, articleDate, description = siteConfig.description, ogImage } = As
         class="mx-auto w-screen max-w-[60rem] bg-background px-6 pb-10 font-satoshi text-[0.92rem] leading-relaxed selection:bg-red-500 selection:text-white sm:px-10 lg:px-10"
     >
         <ThemeProvider />
-        <Header />
+        <Header client:load />
         <main class="min-h-[calc(100vh-40px-96px-96px-114.91px)]">
             <slot />
         </main>
