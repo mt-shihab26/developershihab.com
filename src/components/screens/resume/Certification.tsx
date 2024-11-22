@@ -32,8 +32,8 @@ const Item = ({ certification }: { certification: TCertification }) => {
 const Certification = () => {
     return (
         <Section title="Certifications">
-            {certifications.map((certification) => (
-                <Item certification={certification} />
+            {certifications.map((certification, index) => (
+                <Item key={index} certification={certification} />
             ))}
         </Section>
     );

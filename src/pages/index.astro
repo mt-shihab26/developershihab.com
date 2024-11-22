@@ -1,13 +1,6 @@
 ---
-import Hero from "@/components/screens/resume/Hero";
-import Skill from "@/components/screens/resume/Skill";
-import Blogs from "@/components/screens/resume/Blogs";
-import About from "@/components/screens/resume/About";
-import Education from "@/components/screens/resume/Education";
-import Experience from "@/components/screens/resume/Experience";
-import Projects from "@/components/screens/resume/Projects";
-import Certification from "@/components/screens/resume/Certification";
 import Layout from "@/components/screens/layout/Layout.astro";
+import Resume from "@/components/screens/resume/Resume";
 
 import { getFeaturedBlogs } from "@/lib/blogs";
 import { getProjects, getFeaturedProjects } from "@/lib/projects";
@@ -18,14 +11,5 @@ const featuredProjects = await getFeaturedProjects();
 ---
 
 <Layout title="Shihab Mahamud">
-    <div class="flex w-full flex-col gap-y-10">
-        <Hero />
-        <About />
-        <Blogs blogs={blogs} />
-        <Experience projects={projects} />
-        <Projects projects={featuredProjects} />
-        <Skill />
-        <Certification />
-        <Education />
-    </div>
+    <Resume blogs={blogs} projects={projects} featuredProjects={featuredProjects} />
 </Layout>

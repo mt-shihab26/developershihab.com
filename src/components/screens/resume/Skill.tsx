@@ -24,8 +24,8 @@ const Item = ({ skill }: { skill: TSkill }) => {
 const Skill = () => {
     return (
         <Section title="Skills">
-            {skills.map((skill) => (
-                <Item skill={skill} />
+            {skills.map((skill, index) => (
+                <Item key={index} skill={skill} />
             ))}
         </Section>
     );

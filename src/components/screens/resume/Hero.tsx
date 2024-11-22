@@ -21,7 +21,7 @@ const Hero = () => {
             />
             <div className="flex flex-col items-center gap-y-4">
                 <p className="text-[10px] text-muted-foreground lg:text-base">
-                    Programmer | Problem Solver | Full-stack Developer
+                    Programmer | Problem Solver | Software Engineer
                 </p>
                 <p className="mb-5 px-2 text-center text-xl lg:w-3/4 lg:px-0 lg:text-3xl">
                     <B>Hello, I'm Shihab.</B> I'm a <B>full-stack developer</B> with <B>3 years</B>{" "}

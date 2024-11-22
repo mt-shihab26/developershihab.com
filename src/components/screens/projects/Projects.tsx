@@ -50,8 +50,8 @@ const Projects = ({ projects, activeTab }: { projects: TProject[]; activeTab: TT
                 <TypeTabs value={activeTab}>
                     <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
                         {filteredProjects.length === 0 && <p>No projects yet.</p>}
-                        {filteredProjects.map((project) => (
-                            <ProjectCard key={project.id} project={project} />
+                        {filteredProjects.map((project, index) => (
+                            <ProjectCard key={index} project={project} />
                         ))}
                     </div>
                 </TypeTabs>

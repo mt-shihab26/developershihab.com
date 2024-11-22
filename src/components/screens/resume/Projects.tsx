@@ -8,8 +8,8 @@ const Projects = ({ projects }: { projects: TProject[] }) => {
     return (
         <Section title="Projects">
             <div className="flex flex-col gap-y-4">
-                {projects.map((project) => (
-                    <ProjectCard project={project} />
+                {projects.map((project, index) => (
+                    <ProjectCard key={index} project={project} />
                 ))}
             </div>
             <div className="flex justify-end">

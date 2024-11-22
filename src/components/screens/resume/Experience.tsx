@@ -74,8 +74,8 @@ const Item = ({
                         <p className="text-muted-foreground">{description}</p>
                         {relevantProjects.length > 0 && (
                             <ul className="mt-3 space-y-2">
-                                {relevantProjects.map((project) => (
-                                    <ProjectItem key={project.slug} project={project} />
+                                {relevantProjects.map((project, index) => (
+                                    <ProjectItem key={index} project={project} />
                                 ))}
                             </ul>
                         )}
@@ -90,12 +90,8 @@ const Experience = ({ projects }: { projects: TProject[] }) => {
     return (
         <Section title="Experience">
             <div className="space-y-6">
-                {experiences.map((experience) => (
-                    <Item
-                        key={`${experience.firm.name}-${experience.position}`}
-                        experience={experience}
-                        allProjects={projects}
-                    />
+                {experiences.map((experience, index) => (
+                    <Item key={index} experience={experience} allProjects={projects} />
                 ))}
             </div>
         </Section>

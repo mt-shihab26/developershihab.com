@@ -6,8 +6,8 @@ const Technologies = ({ technologies }: { technologies: string[] | undefined }) 
     }
     return (
         <div className="flex flex-wrap gap-2">
-            {technologies.map((technology) => (
-                <Badge key={technology} variant="secondary">
+            {technologies.map((technology, index) => (
+                <Badge key={index} variant="secondary">
                     {technology}
                 </Badge>
             ))}

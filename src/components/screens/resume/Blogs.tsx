@@ -39,8 +39,8 @@ const Blogs = ({ blogs }: { blogs: TBlog[] }) => {
             {blogs.length > 0 && (
                 <Section title="Posts">
                     <ul className="flex flex-col gap-y-2">
-                        {blogs.map((blog) => (
-                            <li className="flex flex-col gap-x-2 sm:flex-row">
+                        {blogs.map((blog, index) => (
+                            <li key={index} className="flex flex-col gap-x-2 sm:flex-row">
                                 <Item blog={blog} />
                             </li>
                         ))}
