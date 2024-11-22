@@ -1,10 +1,7 @@
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
-import { Menu, X } from "lucide-react";
-
-import MoonIcon from "@/components/icons/MoonIcon";
-import SunIcon from "@/components/icons/SunIcon";
+import { CloseIcon, MenuIcon, MoonIcon, SunIcon } from "@/components/composite/icons";
 
 type TLink = {
     label: string;
@@ -91,7 +88,11 @@ const Header = () => {
                         aria-expanded={isMenuOpen}
                         aria-label="Toggle navigation"
                     >
-                        {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                        {isMenuOpen ? (
+                            <CloseIcon className="h-6 w-6" />
+                        ) : (
+                            <MenuIcon className="h-6 w-6" />
+                        )}
                     </button>
                     <div className="hidden items-center space-x-7 sm:flex">
                         <NavLinks />
