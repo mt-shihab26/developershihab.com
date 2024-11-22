@@ -1,6 +1,8 @@
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
+import { Menu, X } from "lucide-react";
+
 import MoonIcon from "@/components/icons/MoonIcon";
 import SunIcon from "@/components/icons/SunIcon";
 
@@ -15,13 +17,13 @@ const links: TLink[] = [
     { label: "tools", href: "/tools" }
 ];
 
-const NavLinks = () => (
+const NavLinks = ({ className = "" }: { className?: string }) => (
     <>
         {links.map((link) => (
             <a
                 key={link.label}
                 href={link.href}
-                className="flex-none text-[1.05rem] font-medium hover:text-foreground/75"
+                className={cn("flex-none text-lg font-medium hover:text-foreground/75", className)}
                 aria-label="Nav Menu Item"
             >
                 {link.label}
@@ -55,13 +57,13 @@ const ThemeToggle = () => {
             <span className="sr-only">Dark Theme</span>
             <SunIcon
                 className={cn(
-                    "h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all",
+                    "h-5 w-5 rotate-0 scale-100 transition-all",
                     "dark:hidden dark:-rotate-90 dark:scale-0"
                 )}
             />
             <MoonIcon
                 className={cn(
-                    "hidden h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all",
+                    "hidden h-5 w-5 rotate-90 scale-0 transition-all",
                     "dark:block dark:rotate-0 dark:scale-100"
                 )}
             />
@@ -70,18 +72,41 @@ const ThemeToggle = () => {
 };
 
 const Header = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     return (
-        <header className="flex h-24 w-full flex-wrap text-sm sm:flex-nowrap sm:justify-start">
+        <header className="relative flex h-24 w-full flex-wrap text-sm sm:flex-nowrap sm:justify-start">
             <nav
-                className="relative mx-auto flex w-full items-center justify-between sm:flex sm:items-center"
+                className="mx-auto flex w-full items-center justify-between px-4"
                 aria-label="global"
             >
                 <a className="flex-none text-xl font-semibold" href="/" aria-label="Brand">
                     resume
                 </a>
-                <div className="flex flex-row items-center justify-center gap-x-5 sm:gap-x-7">
-                    <NavLinks />
+                <div className="flex space-x-2 lg:space-x-7">
+                    <button
+                        type="button"
+                        className="inline-flex items-center justify-center rounded-md p-2 sm:hidden"
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        aria-expanded={isMenuOpen}
+                        aria-label="Toggle navigation"
+                    >
+                        {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                    </button>
+                    <div className="hidden items-center space-x-7 sm:flex">
+                        <NavLinks />
+                    </div>
                     <ThemeToggle />
+                </div>
+                <div
+                    className={cn(
+                        "absolute left-0 right-0 top-full z-50 bg-background p-4 shadow-lg sm:hidden",
+                        isMenuOpen ? "block" : "hidden"
+                    )}
+                >
+                    <div className="flex flex-col space-y-4">
+                        <NavLinks className="block w-full py-2" />
+                    </div>
                 </div>
             </nav>
         </header>
