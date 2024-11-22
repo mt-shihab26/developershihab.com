@@ -101,11 +101,11 @@ const Header = () => {
                 </div>
                 <div
                     className={cn(
-                        "absolute left-0 right-0 top-full z-50 bg-background p-4 shadow-lg sm:hidden",
+                        "absolute left-0 right-0 top-20 z-50 bg-background p-4 shadow-2xl sm:hidden",
                         isMenuOpen ? "block" : "hidden"
                     )}
                 >
-                    <div className="flex flex-col space-y-4">
+                    <div className="flex flex-col">
                         <NavLinks className="block w-full py-2" />
                     </div>
                 </div>
