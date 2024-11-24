@@ -4,10 +4,10 @@ import { CompanyIcon, LinkedinIcon, LocationIcon } from "@/components/composite/
 
 import portrait from "@/assets/portrait.jpg";
 
-import B from "@/components/elements/B";
 import ContactEmail from "@/components/elements/ContactEmail";
-import I from "@/components/elements/I";
 
+import B from "@/components/elements/B";
+import I from "@/components/elements/I";
 import Label from "./Label";
 
 const Hero = () => {
@@ -25,9 +25,9 @@ const Hero = () => {
                 </h2>
             </div>
             <p className="mb-5 px-2 text-center text-xl lg:px-16 lg:text-3xl">
-                <B>Hello, I'm Shihab.</B> I'm a <B>full-stack developer</B> with <B>3 years</B> of
-                experience, and I enjoy building for <I>the web</I>. My stacks is <I>Laravel</I> &{" "}
-                <I>React</I>
+                Hello, I'm Shihab. I'm a <B>full-stack developer</B> with{" "}
+                <I>3 years of experience</I>, passionate about building{" "}
+                <B>impactful web applications</B>. My stack is <I>Laravel</I> and <I>React</I>.
             </p>
             <ContactEmail />
             <div className="flex flex-wrap justify-center gap-x-7 gap-y-3">

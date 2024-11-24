@@ -16,7 +16,7 @@ const ProjectItem = ({ project }: { project: TProject }) => (
             className="group block rounded-lg border border-border p-4 transition-all duration-200 hover:border-foreground/25 hover:shadow-sm"
         >
             <div className="flex items-center justify-between gap-4">
-                <div className="space-y-1.5">
+                <div>
                     <h3 className="font-medium group-hover:text-foreground">
                         {project.data.title}
                     </h3>
