@@ -1,7 +1,12 @@
+import type { TExperience } from "@/config/experiences";
+import type { TProject } from "@/content/config";
+
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import experiences, { type TExperience } from "@/config/experiences";
-import type { TProject } from "@/content/config";
+import { Separator } from "@/components/ui/separator";
+
+import experiences from "@/config/experiences";
+
 import Section from "./Section";
 
 const ProjectItem = ({ project }: { project: TProject }) => (
@@ -38,49 +43,55 @@ const Item = ({
     experience: TExperience;
     allProjects: TProject[];
 }) => {
-    const { position, firm, description, date, projects } = experience;
-
-    const relevantProjects = projects
-        .map((slug) => allProjects.find((p) => p.slug === slug))
-        .filter((project): project is TProject => Boolean(project));
+    const { firm, roles } = experience;
 
     return (
-        <Card className="relative">
-            <CardContent className="p-5">
-                {firm.logo && (
-                    <img
-                        src={firm.logo.src}
-                        alt={firm.alt || ""}
-                        className="mb-3 h-12 w-auto lg:absolute lg:-left-16 lg:mb-0"
-                    />
-                )}
-                <div className="flex flex-col gap-y-1.5">
-                    <div className="flex flex-col gap-y-0.5">
-                        <h1 className="flex flex-col text-lg font-medium text-foreground lg:flex-row lg:space-x-0.5">
-                            <span>{position}</span>
-                            <span>
-                                @
-                                <a
-                                    href={firm.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="hover:underline"
-                                >
-                                    {firm.name}
-                                </a>
-                            </span>
-                        </h1>
-                        <time>{date}</time>
-                        <p className="text-muted-foreground">{description}</p>
-                        {relevantProjects.length > 0 && (
-                            <ul className="mt-3 space-y-2">
-                                {relevantProjects.map((project, index) => (
-                                    <ProjectItem key={index} project={project} />
-                                ))}
-                            </ul>
-                        )}
-                    </div>
-                </div>
+        <Card>
+            <CardContent className="space-y-2 p-0">
+                {roles.map((role, index) => {
+                    const relevantProjects = role.projects
+                        .map((slug) => allProjects.find((p) => p.slug === slug))
+                        .filter((project): project is TProject => Boolean(project));
+                    return (
+                        <div className="relative">
+                            {firm.logo && (
+                                <img
+                                    src={firm.logo.src}
+                                    alt={firm.alt || ""}
+                                    className="mb-3 h-12 w-auto lg:absolute lg:-left-16 lg:top-3.5 lg:mb-0"
+                                />
+                            )}
+                            {index !== 0 && <Separator />}
+                            <div key={index} className="flex flex-col gap-y-1.5 p-5">
+                                <div className="flex flex-col gap-y-0.5">
+                                    <h1 className="flex flex-col text-lg font-medium text-foreground lg:flex-row lg:space-x-0.5">
+                                        <span>{role.position}</span>
+                                        <span>
+                                            @
+                                            <a
+                                                href={firm.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="hover:underline"
+                                            >
+                                                {firm.name}
+                                            </a>
+                                        </span>
+                                    </h1>
+                                    <time>{role.date}</time>
+                                    <p className="text-muted-foreground">{role.description}</p>
+                                    {relevantProjects.length > 0 && (
+                                        <ul className="mt-3 space-y-2">
+                                            {relevantProjects.map((project, index) => (
+                                                <ProjectItem key={index} project={project} />
+                                            ))}
+                                        </ul>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    );
+                })}
             </CardContent>
         </Card>
     );
