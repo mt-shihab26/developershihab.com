@@ -53,7 +53,7 @@ const Item = ({
                         .map((slug) => allProjects.find((p) => p.slug === slug))
                         .filter((project): project is TProject => Boolean(project));
                     return (
-                        <div className="relative">
+                        <div className="relative" key={index}>
                             {firm.logo && (
                                 <img
                                     src={firm.logo.src}

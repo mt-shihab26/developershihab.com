@@ -26,7 +26,7 @@ const About = () => {
                 <B>Faridpur Polytechnic Institute</B> 🎓. Outside of coding, I enjoy <B>walking</B>{" "}
                 🚶‍♂️, <B>movies</B> 🎬, <B>socializing</B> 👥, and{" "}
                 <B>learning about business and entrepreneurship</B> 📚. I'm actively seeking a{" "}
-                <I>full-time software developer role</I> 🚀.
+                <I>full-time software developer role</I>.
             </p>
         </Section>
     );

@@ -51,7 +51,9 @@ export default defineConfig({
             }
         }),
         mdx(),
-        react()
+        react({
+            include: ["**/react/*", "**/react-dom/*"]
+        })
     ],
     markdown: {
         remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
@@ -61,5 +63,32 @@ export default defineConfig({
         remarkRehype: { footnoteLabelProperties: { className: [""] } }
     },
     output: "static",
-    adapter: vercel({ webAnalytics: { enabled: true } })
+    adapter: vercel({ webAnalytics: { enabled: true } }),
+    vite: {
+        optimizeDeps: {
+            include: ["clsx", "tailwind-merge"],
+            force: true
+        },
+        server: {
+            headers: {
+                "Content-Security-Policy":
+                    "script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' chrome-extension:; style-src 'self' 'unsafe-inline';"
+            },
+            watch: {
+                usePolling: true
+            }
+        },
+        resolve: {
+            dedupe: ["react", "react-dom"]
+        },
+        build: {
+            rollupOptions: {
+                output: {
+                    manualChunks: {
+                        "react-vendor": ["react", "react-dom"]
+                    }
+                }
+            }
+        }
+    }
 });

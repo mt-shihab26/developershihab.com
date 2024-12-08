@@ -73,14 +73,15 @@ const Header = () => {
 
     return (
         <header className="relative flex h-24 w-full flex-wrap text-sm sm:flex-nowrap sm:justify-start">
-            <nav
-                className="mx-auto flex w-full items-center justify-between px-4"
-                aria-label="global"
-            >
+            <nav className="mx-auto flex w-full items-center justify-between" aria-label="global">
                 <a className="flex-none text-xl font-semibold" href="/" aria-label="Brand">
                     resume
                 </a>
                 <div className="flex space-x-2 lg:space-x-7">
+                    <div className="hidden items-center space-x-7 sm:flex">
+                        <NavLinks />
+                    </div>
+                    <ThemeToggle />
                     <button
                         type="button"
                         className="inline-flex items-center justify-center rounded-md p-2 sm:hidden"
@@ -94,10 +95,6 @@ const Header = () => {
                             <MenuIcon className="h-6 w-6" />
                         )}
                     </button>
-                    <div className="hidden items-center space-x-7 sm:flex">
-                        <NavLinks />
-                    </div>
-                    <ThemeToggle />
                 </div>
                 <div
                     className={cn(
