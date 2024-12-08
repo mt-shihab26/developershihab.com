@@ -39,11 +39,11 @@ slug: boiti-niye-amar-kotha
 
 এই অংশে আলোচনা করা হয়েছে Computer Science এর বেসিক বিষয়গুলো নিয়ে:
 
--   Programming
--   Data Structure and Algorithm
--   Problem Solving
--   Object Oriented Programming
--   Discrete Mathematics
+- Programming
+- Data Structure and Algorithm
+- Problem Solving
+- Object Oriented Programming
+- Discrete Mathematics
 
 এছাড়াও অধ্যায় চৌদ্দোর শেষে সবকিছু শেখার রির্সোস শেয়ার করার ব্যাপারটি ভালো লেগেছে।
 
@@ -60,10 +60,10 @@ slug: boiti-niye-amar-kotha
 
 ### মূল বিষয়বস্তু
 
--   ওয়েব অ্যপলিকেশন তৈরির আইডিয়া
--   প্রয়োজনীয় থিওরি
--   ব্যবহৃত টুলস
--   ডেপলয়মেন্ট প্রক্রিয়া
+- ওয়েব অ্যপলিকেশন তৈরির আইডিয়া
+- প্রয়োজনীয় থিওরি
+- ব্যবহৃত টুলস
+- ডেপলয়মেন্ট প্রক্রিয়া
 
 এক কথাই বললে ওয়েব ডেভেলপমেন্টে পুরো প্রোসেসটা বর্ননা করা হয়েছে।
 

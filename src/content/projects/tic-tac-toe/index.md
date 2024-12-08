@@ -23,17 +23,17 @@ This project introduces a Tic Tac Toe game developed using [SolidJS](https://www
 
 **Project Details:**
 
--   **Objective:**
-    The primary goal was to create a fully functional Tic Tac Toe game with a responsive UI using [SolidJS](https://www.solidjs.com). Additionally, integrating an AI opponent via the MiniMax algorithm aimed to provide players with challenging gameplay at different difficulty levels.
+- **Objective:**
+  The primary goal was to create a fully functional Tic Tac Toe game with a responsive UI using [SolidJS](https://www.solidjs.com). Additionally, integrating an AI opponent via the MiniMax algorithm aimed to provide players with challenging gameplay at different difficulty levels.
 
--   **Technologies Used:**
+- **Technologies Used:**
 
-    -   [SolidJS](https://www.solidjs.com): A reactive UI library tailored for crafting web applications, offering an alternative to React.js.
-    -   [Vite](https://vitejs.dev): A build tool that aims to provide a fast and reliable development experience.
-    -   [TypeScript](https://www.typescriptlang.org): A statically typed superset of JavaScript that enhances code quality.
-    -   [TailwindCSS](https://tailwindcss.com): A utility-first CSS framework for quickly building custom designs.
+    - [SolidJS](https://www.solidjs.com): A reactive UI library tailored for crafting web applications, offering an alternative to React.js.
+    - [Vite](https://vitejs.dev): A build tool that aims to provide a fast and reliable development experience.
+    - [TypeScript](https://www.typescriptlang.org): A statically typed superset of JavaScript that enhances code quality.
+    - [TailwindCSS](https://tailwindcss.com): A utility-first CSS framework for quickly building custom designs.
 
--   **Features:**
+- **Features:**
 
     1. **Responsive UI:** Ensures optimal playing experience across devices.
     2. **MiniMax Algorithm:** AI Bot makes strategic moves based on current game state, maximizing its chances of winning or minimizing player's.
@@ -43,15 +43,15 @@ This project introduces a Tic Tac Toe game developed using [SolidJS](https://www
         - Hard: Full MiniMax power for experienced players.
     4. **Source Code & Live Link:** GitHub [repository](https://github.com/p-nerd/tic-tac-toe) for exploration and contribution. [Live demo](https://tic-tac-toe.developershihab.com) available for gameplay.
 
--   **Implementation Challenges:**
-    Integrating the MiniMax algorithm seamlessly into the game posed a significant challenge. Adjusting algorithm parameters for balanced gameplay across difficulty levels required thorough testing and iteration.
+- **Implementation Challenges:**
+  Integrating the MiniMax algorithm seamlessly into the game posed a significant challenge. Adjusting algorithm parameters for balanced gameplay across difficulty levels required thorough testing and iteration.
 
--   **Results & Impact:**
-    Successfully created a fully functional Tic Tac Toe game with AI opponent. Three difficulty modes provide players with customizable gaming experience, appealing to both casual and competitive players.
+- **Results & Impact:**
+  Successfully created a fully functional Tic Tac Toe game with AI opponent. Three difficulty modes provide players with customizable gaming experience, appealing to both casual and competitive players.
 
--   **Future Enhancements:**
-    -   Enhanced UI/UX: Continuously improving design for better engagement.
-    -   Additional Features: Introducing multiplayer mode, customizable settings, and advanced AI strategies for enhanced gameplay.
+- **Future Enhancements:**
+    - Enhanced UI/UX: Continuously improving design for better engagement.
+    - Additional Features: Introducing multiplayer mode, customizable settings, and advanced AI strategies for enhanced gameplay.
 
 **Conclusion:**
 The Tic Tac Toe game, developed with SolidJS and MiniMax algorithm, demonstrates the capabilities of modern web technologies in creating interactive gaming experiences. With three difficulty modes and AI opponent integration, the project aims to entertain and challenge players of all levels while showcasing innovative web development techniques.

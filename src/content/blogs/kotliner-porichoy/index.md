@@ -19,12 +19,12 @@ draft: false
 
 ## কোটলিনের মূল বৈশিষ্ট্য
 
--   জাভা ভার্চুয়াল মেশিনে চালিত বাইটকোডগুলিতে কম্পাইল করে
--   আধুনিক ডেভেলপারদের পছন্দের সংক্ষিপ্ত সিনট্যাক্স
--   উন্নত ল্যাঙ্গুয়েজ ফিচার:
-    -   টাইপ ইনফারেন্স
-    -   ফাংশনাল প্যার্টান
-    -   নাল সেফটি
+- জাভা ভার্চুয়াল মেশিনে চালিত বাইটকোডগুলিতে কম্পাইল করে
+- আধুনিক ডেভেলপারদের পছন্দের সংক্ষিপ্ত সিনট্যাক্স
+- উন্নত ল্যাঙ্গুয়েজ ফিচার:
+    - টাইপ ইনফারেন্স
+    - ফাংশনাল প্যার্টান
+    - নাল সেফটি
 
 > 2011 সালে Jetbrains দ্বারা ঘোষণা করা হয়েছিল এবং 2016 সালে এর প্রথম স্ট্যাবল ভার্শন প্রকাশ করা হয়।
 
@@ -90,15 +90,15 @@ val {name, age} = person;
 
 ## কোটলিনের প্রধান ফিচার
 
--   Concise Syntax (Write less)
--   Null Safety
--   First-class-function expression
--   Interoperable with Java
--   Multiplatform support:
-    -   Android
-    -   Server-side with JVM
-    -   Web frontend
-    -   Cross platform mobile applications
+- Concise Syntax (Write less)
+- Null Safety
+- First-class-function expression
+- Interoperable with Java
+- Multiplatform support:
+    - Android
+    - Server-side with JVM
+    - Web frontend
+    - Cross platform mobile applications
 
 ## কোটলিন কম্পাইল করা
 

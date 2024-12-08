@@ -37,9 +37,9 @@ This is entirely true.
 At the end of the day, it actually does run on a computer.
 However, it's not a normal computer. It's a special kind of one.
 
--   This computer has to run 24/7, always.
--   It has to be connected to the internet 24/7.
--   It must have a static IP. We need a static IP.
+- This computer has to run 24/7, always.
+- It has to be connected to the internet 24/7.
+- It must have a static IP. We need a static IP.
 
 Normally, when we connect any device to the internet, the router assigns a dynamic IP to the device to uniquely identify it.
 But typically, this IP is dynamic and automatically assigned by the router.
@@ -98,9 +98,9 @@ Some examples of managed cloud platforms are Vercel, Netlify, Heroku, Hostinger,
 
 This kind of platform is good for easily deploying specific kinds of applications:
 
--   Vercel and Netlify are good for hosting Node.js based serverless application and Frontend applications.
--   Heroku is good for hosting backend applications of certain types of programming platforms.
--   Hostinger and Namehero are good for hosting WordPress and all kinds of website hosting.
+- Vercel and Netlify are good for hosting Node.js based serverless application and Frontend applications.
+- Heroku is good for hosting backend applications of certain types of programming platforms.
+- Hostinger and Namehero are good for hosting WordPress and all kinds of website hosting.
 
 Ultimately, this kind of server is managed.
 So, we don't have full access to the computer that is running our application.
@@ -121,10 +121,10 @@ If someone requests this domain, the request will come to the server.
 
 Now that we have a real computer from a cloud provider:
 
--   We can install an OS on it.
--   Most people use Linux-based OS for running web applications because it's lightweight, easy to configure, free, open-source, and has great reliability.
--   After installing Linux, we can install web server software to handle web requests.
--   There are two choices: Apache HTTP Server and Nginx. Nginx is more modern, lightweight, and easy to configure, so we can use it confidently.
+- We can install an OS on it.
+- Most people use Linux-based OS for running web applications because it's lightweight, easy to configure, free, open-source, and has great reliability.
+- After installing Linux, we can install web server software to handle web requests.
+- There are two choices: Apache HTTP Server and Nginx. Nginx is more modern, lightweight, and easy to configure, so we can use it confidently.
 
 Now we're ready to host web applications. Here, we have full control over our server and can do whatever we want.
 
@@ -132,18 +132,18 @@ For pricing, unmanaged servers are also more cost-efficient than managed ones be
 
 Some examples of these cloud platforms are AWS, Microsoft Azure, Google Cloud Platform, DigitalOcean, Linode, etc.
 
--   AWS, Azure, and GCP are full-featured with many features, good for big teams and big applications.
--   However, they're overkill for small teams and applications and have hidden pricing models that can be hard to predict.
--   DigitalOcean and Linode are good in terms of pricing and easy maintenance of servers.
--   These clouds have easy-to-use dashboards and the most famous features of the big three.
-    -   For example, DigitalOcean has Droplets (equivalent to AWS EC2), Spaces (equivalent to AWS S3), and VPC (equivalent to AWS VPCs).
+- AWS, Azure, and GCP are full-featured with many features, good for big teams and big applications.
+- However, they're overkill for small teams and applications and have hidden pricing models that can be hard to predict.
+- DigitalOcean and Linode are good in terms of pricing and easy maintenance of servers.
+- These clouds have easy-to-use dashboards and the most famous features of the big three.
+    - For example, DigitalOcean has Droplets (equivalent to AWS EC2), Spaces (equivalent to AWS S3), and VPC (equivalent to AWS VPCs).
 
 ## Conclusion
 
 In conclusion:
 
--   If we need full control over the server, we should use unmanaged cloud.
--   For small teams, we can use DigitalOcean or Linode-like clouds.
--   If we lack technical knowledge about configuring servers, we can use managed hosting, but we'll lose some control.
+- If we need full control over the server, we should use unmanaged cloud.
+- For small teams, we can use DigitalOcean or Linode-like clouds.
+- If we lack technical knowledge about configuring servers, we can use managed hosting, but we'll lose some control.
 
 Ultimately, everything has pros and cons. We have to consider our requirements when choosing a hosting platform.

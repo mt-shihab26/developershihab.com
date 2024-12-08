@@ -37,22 +37,22 @@ The primary goal of PaystubHero was to streamline pay stub generation by integra
 
 ### **Technologies Used:**
 
--   React.js: Frontend framework for dynamic interfaces.
--   JavaScript (JS): Language for frontend and backend development.
--   PHP: Backend scripting for WordPress plugin development.
--   WordPress: Foundation for the platform.
--   Tailwind CSS: Framework for responsive UI components.
--   mPDF: Library for generating PDF documents.
--   Stripe: Payment processing integration for secure transactions.
+- React.js: Frontend framework for dynamic interfaces.
+- JavaScript (JS): Language for frontend and backend development.
+- PHP: Backend scripting for WordPress plugin development.
+- WordPress: Foundation for the platform.
+- Tailwind CSS: Framework for responsive UI components.
+- mPDF: Library for generating PDF documents.
+- Stripe: Payment processing integration for secure transactions.
 
 ### **Documents:**
 
--   **Paystub:** Document providing detailed breakdowns of employee earnings and deductions.
--   **W2:** Form summarizing employee's annual wages and taxes withheld for tax filing purposes.
--   **1099 MISC:** Form used to report miscellaneous income, such as payments to independent contractors.
--   **1099 NEC:** Form used to report nonemployee compensation, such as payments to freelancers or subcontractors.
--   **Invoice:** Document requesting payment for goods or services provided.
--   **Offer Letter:** Formal document outlining terms of employment offered to a potential hire.
+- **Paystub:** Document providing detailed breakdowns of employee earnings and deductions.
+- **W2:** Form summarizing employee's annual wages and taxes withheld for tax filing purposes.
+- **1099 MISC:** Form used to report miscellaneous income, such as payments to independent contractors.
+- **1099 NEC:** Form used to report nonemployee compensation, such as payments to freelancers or subcontractors.
+- **Invoice:** Document requesting payment for goods or services provided.
+- **Offer Letter:** Formal document outlining terms of employment offered to a potential hire.
 
 ### **Features:**
 
@@ -71,9 +71,9 @@ PaystubHero has revolutionized payroll management, offering a user-friendly solu
 
 ## **Future Enhancements:**
 
--   Expansion of Features: Adding new functionalities such as additional payment options and customization features.
--   Performance Optimization: Improving loading times and user interactions.
--   Enhanced Security Measures: Strengthening data security to protect against vulnerabilities.
+- Expansion of Features: Adding new functionalities such as additional payment options and customization features.
+- Performance Optimization: Improving loading times and user interactions.
+- Enhanced Security Measures: Strengthening data security to protect against vulnerabilities.
 
 ## **Conclusion:**
 

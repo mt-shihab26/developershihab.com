@@ -25,8 +25,8 @@ Competitive Programming (CP) হলো মানসিক খেলা যা �
 
 আনেকেই CP এবং Problem Solving কে একই জিনিস মনে করে। চিন্তাটা অনেকটা সত্য হলেও পুরোপুরি সত্য নয়। এই বিষয়টা একটি উদাহরনের মাধ্যেমে বুঝা যাক:
 
--   **Problem Solving**: বাইক চালানো শেখা এবং নিয়মিত বাইক চালানো
--   **Competitive Programming**: সেই বাইক নিয়ে রেসিং প্রতিযোগিতায় অংশ নেওয়া
+- **Problem Solving**: বাইক চালানো শেখা এবং নিয়মিত বাইক চালানো
+- **Competitive Programming**: সেই বাইক নিয়ে রেসিং প্রতিযোগিতায় অংশ নেওয়া
 
 ## উল্লেখযোগ্য Programming Contests:
 
@@ -55,20 +55,20 @@ Competitive Programming (CP) হলো মানসিক খেলা যা �
 
 ## কিছু গুরুত্বপূর্ন Data Structure and Algorithm:
 
--   Binary Search
--   Sorting (Merge Sort, Quick Sort, etc)
--   Graph Theory
--   Strings
--   Greedy
--   Constructive Algorithm
--   Dynamic Programming
--   Bit Manipulation
--   Game Theory
--   Number Theory
--   Stack, Queue, Link list
--   Tree, Segment Tree
--   Heap and maps
--   Disjoint Set Union, Trie, etc
+- Binary Search
+- Sorting (Merge Sort, Quick Sort, etc)
+- Graph Theory
+- Strings
+- Greedy
+- Constructive Algorithm
+- Dynamic Programming
+- Bit Manipulation
+- Game Theory
+- Number Theory
+- Stack, Queue, Link list
+- Tree, Segment Tree
+- Heap and maps
+- Disjoint Set Union, Trie, etc
 
 ## Learning Resources
 

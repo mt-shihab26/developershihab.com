@@ -53,10 +53,10 @@ The primary goal of this project was to create an intuitive platform for educati
 
 The system was developed using raw PHP. I aimed to build a structured system by following a [Laravel](https://laravel.com) framework-like folder structure. Key technologies and tools used include:
 
--   [**PDO**](https://www.php.net/manual/en/book.pdo.php): To connect with the MySQL database.
--   [**Composer**](https://getcomposer.org): To manage dependencies and install packages.
--   [**spatie/browsershot**](https://github.com/spatie/browsershot): To generate PDFs.
--   [**Tailwind CSS**](https://tailwindcss.com): To style the application.
+- [**PDO**](https://www.php.net/manual/en/book.pdo.php): To connect with the MySQL database.
+- [**Composer**](https://getcomposer.org): To manage dependencies and install packages.
+- [**spatie/browsershot**](https://github.com/spatie/browsershot): To generate PDFs.
+- [**Tailwind CSS**](https://tailwindcss.com): To style the application.
 
 To see the source code or installation instructions, check out the GitHub repository: [p-nerd/systech-student-performance-monitoring-system](https://github.com/p-nerd/systech-student-performance-monitoring-system).
 
