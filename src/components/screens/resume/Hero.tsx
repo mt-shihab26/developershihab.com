@@ -21,7 +21,7 @@ const Hero = () => {
                     loading="eager"
                 />
                 <h2 className="text-[10px] text-muted-foreground lg:text-base">
-                    Programmer | Problem Solver | Software Engineer
+                    Programmer | Full-stack Developer | Software Engineer
                 </h2>
             </div>
             <p className="mb-5 px-2 text-center text-xl lg:px-16 lg:text-3xl">
