@@ -6,7 +6,7 @@ export type TSkill = {
 const skills: TSkill[] = [
     {
         title: "Languages",
-        tools: ["C/C++", "JavaScript/TypeScript", "PHP", "Go", "Lua"]
+        tools: ["C/C++", "JavaScript/TypeScript", "PHP", "Lua"]
     },
     {
         title: "Backend",
