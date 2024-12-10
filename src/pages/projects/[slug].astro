@@ -34,19 +34,9 @@ const { Content } = await project.render();
         <Back href="/projects" />
         <article class="flex-grow space-y-12 break-words">
             <div id="project-hero" class="flex flex-col space-y-4">
-                {
-                    project.data.date && (
-                        <div class="flex items-center space-x-1">
-                            <div class="text-xs">{project.data.date.start}</div>
-                            {project.data.date.end && (
-                                <>
-                                    <div>- </div>
-                                    <div>{project.data.date.end}</div>
-                                </>
-                            )}
-                        </div>
-                    )
-                }
+                <div class="text-sm">
+                    {project.data.date.start} - {project.data.date.end}
+                </div>
                 <div class="flex items-center space-x-2">
                     {project.data.draft && <span class="text-red-500">(Draft)</span>}
                     <h1 class="text-3xl font-medium">{project.data.title}</h1>
