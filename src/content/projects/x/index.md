@@ -14,4 +14,6 @@ images:
       alt: ""
 ---
 
-X is a command-line tool designed to automate software development workflows. This case study explores the development journey of X, highlighting its features, commands, and impact on the development process.
+X is a command-line tool designed to automate software development workflows.
+This case study explores the development journey of X, highlighting its features,
+commands, and impact on the development process.
