@@ -9,11 +9,11 @@ import {
 
 import type { TProject } from "@/content/config";
 
+import { CalendarIcon, InfoIcon } from "@/components/composite/icons";
+import { Button } from "@/components/ui/button";
+
 import Links from "./Links";
 import Technologies from "./Technologies";
-
-import { InfoIcon } from "@/components/composite/icons";
-import { Button } from "@/components/ui/button";
 
 const DetailsButton = ({ href }: { href: string }) => {
     return (
@@ -26,14 +26,30 @@ const DetailsButton = ({ href }: { href: string }) => {
     );
 };
 
+const DateRange = ({ start, end }: { start: string; end: string }) => {
+    return (
+        <div className="flex items-center text-sm text-muted-foreground">
+            <CalendarIcon className="mr-2 h-4 w-4" />
+            <span>
+                {start} - {end}
+            </span>
+        </div>
+    );
+};
+
 const ProjectCard = ({ project }: { project: TProject }) => {
     return (
         <Card className="flex h-full flex-col">
             <CardHeader>
-                <CardTitle>
-                    {project.data.draft && <span className="mr-1 text-red-500">(Draft)</span>}{" "}
-                    {project.data.title}
-                </CardTitle>
+                <div className="flex items-start justify-between">
+                    <CardTitle>
+                        {project.data.draft && <span className="mr-1 text-red-500">(Draft)</span>}{" "}
+                        {project.data.title}
+                    </CardTitle>
+                    {project.data.date && (
+                        <DateRange start={project.data.date.start} end={project.data.date.end} />
+                    )}
+                </div>
                 <CardDescription>{project.data.description}</CardDescription>
             </CardHeader>
             <CardContent className="mb-4 flex-grow">

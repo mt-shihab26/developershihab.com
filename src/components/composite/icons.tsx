@@ -1,3 +1,4 @@
+import CalendarIcon from "@/components/icons/CalendarIcon";
 import ChatgptIcon from "@/components/icons/ChatgptIcon";
 import ClaudeIcon from "@/components/icons/ClaudeIcon";
 import CloseIcon from "@/components/icons/CloseIcon";
@@ -31,6 +32,7 @@ import VueIcon from "@/components/icons/VueIcon";
 import WordpressIcon from "@/components/icons/WordpressIcon";
 
 export {
+    CalendarIcon,
     ChatgptIcon,
     ClaudeIcon,
     CloseIcon,
