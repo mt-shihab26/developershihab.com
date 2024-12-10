@@ -13,13 +13,10 @@ technologies:
     - TailwindCSS
 date:
     start: 7 Aug, 2024
-    end: Present
+    end: Dec 9, 2024
 links:
     source_code: https://github.com/p-nerd/developershihab.com
     live_link: https://developershihab.com
-images:
-    - src: ./developershihab.jpg
-      alt: "developer shihab website cover"
 ---
 
 A modern and responsive portfolio website crafted with Astro, React, and TailwindCSS.
