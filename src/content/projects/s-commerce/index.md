@@ -11,11 +11,11 @@ technologies:
     - PHP
     - JavaScript
     - TailwindCSS
-links:
-    source_code: https://github.com/p-nerd/s-commerce
 date:
     start: 30 Jun, 2024
     end: 26 Sep, 2024
+links:
+    source_code: https://github.com/p-nerd/s-commerce
 ---
 
 A feature-rich single-vendor eCommerce platform developed with [Laravel](https://laravel.com)

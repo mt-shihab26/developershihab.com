@@ -10,6 +10,9 @@ technologies:
     - SolidJS
     - TypeScript
     - TailwindCSS
+date:
+    start: Apr 28, 2024
+    end: May 24, 2024
 links:
     source_code: https://github.com/p-nerd/tic-tac-toe
     live_link: https://tic-tac-toe.developershihab.com

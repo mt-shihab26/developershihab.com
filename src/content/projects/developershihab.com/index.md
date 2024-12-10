@@ -11,6 +11,9 @@ technologies:
     - React
     - TypeScript
     - TailwindCSS
+date:
+    start: 7 Aug, 2024
+    end: Present
 links:
     source_code: https://github.com/p-nerd/developershihab.com
     live_link: https://developershihab.com

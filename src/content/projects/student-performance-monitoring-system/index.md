@@ -10,11 +10,11 @@ technologies:
     - PHP
     - MySQL
     - TailwindCSS
-links:
-    source_code: https://github.com/p-nerd/student-performance-monitoring-system
 date:
     start: June 23, 2024
     end: July 6, 2024
+links:
+    source_code: https://github.com/p-nerd/student-performance-monitoring-system
 images:
     - src: ./student-performance-monitoring-system.jpg
       alt: ""

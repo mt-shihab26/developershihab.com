@@ -7,6 +7,9 @@ title: X
 description: A command line to automate my software development workflow
 technologies:
     - Go
+date:
+    start: Dec 25, 2023
+    end: Oct 27, 2024
 links:
     source_code: https://github.com/p-nerd/x
 images:

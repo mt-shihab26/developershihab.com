@@ -13,7 +13,7 @@ technologies:
     - TailwindCSS
 date:
     start: May 2023
-    end: Present
+    end: Nov 2024
 links:
     live_link: https://www.paystubhero.com/generate-pay-stubs
 images:
