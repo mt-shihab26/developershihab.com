@@ -104,7 +104,7 @@ export type TProject = {
             source_code?: string;
             live_link?: string;
         };
-        date?: {
+        date: {
             start: string;
             end: string;
         };
