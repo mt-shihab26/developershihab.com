@@ -21,6 +21,8 @@ images:
       alt: ""
     - src: ./image-2.jpg
       alt: ""
+    - src: ./image-3.jpg
+      alt: ""
 ---
 
 WordPress plugin developed for [PaystubHero.com](https://www.paystubhero.com)

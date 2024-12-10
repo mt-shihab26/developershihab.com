@@ -18,7 +18,7 @@ const Gallery = ({ images }: { images: TImage[] }) => {
                 />
             </div>
             {images.length > 1 && (
-                <div className="relative w-full lg:w-[200px]">
+                <div className="relative w-full lg:w-[120px]">
                     <div className="scrollbar-hide flex overflow-x-auto lg:h-full lg:flex-col lg:overflow-y-auto">
                         <div className="flex gap-2 p-1 lg:flex-col">
                             {images.map((image, index) => (
