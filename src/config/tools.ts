@@ -19,9 +19,16 @@ import {
     WordpressIcon
 } from "@/components/composite/icons";
 
-import type { TTool } from "@/types";
+import type { TIcon } from "@/types";
 
-const tools: { label: string; tools: TTool[] }[] = [
+export type TTool2 = {
+    name: string;
+    description: string;
+    href: string;
+    icon: TIcon;
+};
+
+const tools: { label: string; tools: TTool2[] }[] = [
     {
         label: "Languages",
         tools: [

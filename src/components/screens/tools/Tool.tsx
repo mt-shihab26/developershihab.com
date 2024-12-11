@@ -1,6 +1,6 @@
-import type { TTool } from "@/types";
+import type { TTool2 } from "@/config/tools";
 
-const Tool = ({ tool }: { tool: TTool }) => {
+const Tool = ({ tool }: { tool: TTool2 }) => {
     return (
         <a
             className="group relative hover:bg-transparent"
