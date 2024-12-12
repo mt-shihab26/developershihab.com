@@ -4,7 +4,6 @@ import {
     CppIcon,
     DockerIcon,
     GitIcon,
-    GoIcon,
     KittyIcon,
     LaravelIcon,
     LinuxIcon,
@@ -50,12 +49,12 @@ const tools: { label: string; tools: TTool2[] }[] = [
                 href: "https://www.php.net",
                 icon: PHPIcon
             },
-            {
-                name: "Go",
-                description: "The General-purpose Language",
-                href: "https://go.dev",
-                icon: GoIcon
-            },
+            // {
+            //     name: "Go",
+            //     description: "The General-purpose Language",
+            //     href: "https://go.dev",
+            //     icon: GoIcon
+            // },
             {
                 name: "Lua",
                 description: "Configuring neovim, Embedded",
