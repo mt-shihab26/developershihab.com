@@ -18,9 +18,9 @@ const Gallery = ({ images }: { images: TImage[] }) => {
                 />
             </div>
             {images.length > 1 && (
-                <div className="relative w-full lg:w-[120px]">
+                <div className="relative w-full lg:w-[150px]">
                     <div className="scrollbar-hide flex overflow-x-auto lg:h-full lg:flex-col lg:overflow-y-auto">
-                        <div className="flex gap-2 p-1 lg:flex-col">
+                        <div className="flex gap-4 p-1 lg:flex-col">
                             {images.map((image, index) => (
                                 <div key={index} className="flex-shrink-0">
                                     <img
@@ -28,10 +28,9 @@ const Gallery = ({ images }: { images: TImage[] }) => {
                                         alt={image.alt}
                                         className={cn(
                                             "w-20 cursor-pointer rounded-md object-cover lg:w-full",
-                                            "transition-opacity hover:opacity-90",
+                                            "ring-2 ring-white ring-offset-2 transition-opacity hover:opacity-90",
                                             {
-                                                "ring-2 ring-green-500 ring-offset-2":
-                                                    index === selectedIndex
+                                                "ring-green-500": index === selectedIndex
                                             }
                                         )}
                                         onClick={() => setSelectedIndex(index)}
