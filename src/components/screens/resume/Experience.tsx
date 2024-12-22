@@ -54,7 +54,7 @@ const Item = ({
                         .filter((project): project is TProject => Boolean(project));
                     return (
                         <div className="relative" key={index}>
-                            {firm.logo && (
+                            {firm.logo && index === 0 && (
                                 <img
                                     src={firm.logo.src}
                                     alt={firm.alt || ""}

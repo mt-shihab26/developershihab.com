@@ -10,7 +10,7 @@ const TmuxIcon: TIcon = (props) => {
             viewBox="0 0 160 160"
             {...props}
         >
-            <g clip-rule="evenodd" fill-rule="evenodd">
+            <g clipRule="evenodd" fillRule="evenodd">
                 <path
                     d="M0 116h160v28.996c0 8.287-6.722 15.004-14.998 15.004H14.998C6.716 160 0 153.293 0 144.996zm0 0h160v30H0z"
                     fill="#1bb91f"
