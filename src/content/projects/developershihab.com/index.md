@@ -1,6 +1,6 @@
 ---
 draft: false
-featured: false
+featured: true
 priority: -150
 type: demo
 title: developershihab.com

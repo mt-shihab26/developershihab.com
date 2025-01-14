@@ -1,6 +1,6 @@
 ---
 draft: false
-featured: false
+featured: true
 priority: 3
 type: demo
 title: Student Performance Monitoring System
