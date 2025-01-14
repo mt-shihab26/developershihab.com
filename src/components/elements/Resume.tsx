@@ -84,9 +84,43 @@ const Resume = () => {
                 </h2>
 
                 <div className="mb-6">
-                    <h3 className="mb-2 text-xl font-semibold text-gray-800">
-                        E-commerce Analytics Dashboard
-                    </h3>
+                    <div className="mb-2 flex items-center justify-between">
+                        <h3 className="text-xl font-semibold text-gray-800">
+                            E-commerce Analytics Dashboard
+                        </h3>
+                        <div className="flex gap-4">
+                            <a
+                                href="https://demo-analytics.example.com"
+                                className="flex items-center gap-1 text-blue-600 hover:text-blue-800"
+                            >
+                                <span className="text-sm">Live Demo</span>
+                            </a>
+                            <a
+                                href="https://github.com/johndoe/analytics-dashboard"
+                                className="flex items-center gap-1 text-blue-600 hover:text-blue-800"
+                            >
+                                <GithubIcon className="h-4 w-4" />
+                                <span className="text-sm">Source</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div className="mb-3 text-xs">
+                        <span className="mr-2 rounded-md bg-gray-100 px-2 py-1 text-sm text-gray-700">
+                            React
+                        </span>
+                        <span className="mr-2 rounded-md bg-gray-100 px-2 py-1 text-sm text-gray-700">
+                            D3.js
+                        </span>
+                        <span className="mr-2 rounded-md bg-gray-100 px-2 py-1 text-sm text-gray-700">
+                            Redux
+                        </span>
+                        <span className="mr-2 rounded-md bg-gray-100 px-2 py-1 text-sm text-gray-700">
+                            WebSocket
+                        </span>
+                        <span className="mr-2 rounded-md bg-gray-100 px-2 py-1 text-sm text-gray-700">
+                            Node.js
+                        </span>
+                    </div>
                     <ul className="list-disc space-y-2 pl-6 text-gray-700">
                         <li>
                             Built a real-time analytics dashboard using React and D3.js for
@@ -104,9 +138,46 @@ const Resume = () => {
                 </div>
 
                 <div className="mb-6">
-                    <h3 className="mb-2 text-xl font-semibold text-gray-800">
-                        Open Source Contribution Management System
-                    </h3>
+                    <div className="mb-2 flex items-center justify-between">
+                        <h3 className="text-xl font-semibold text-gray-800">
+                            Open Source Contribution Management System
+                        </h3>
+                        <div className="flex gap-4">
+                            <a
+                                href="https://contrib-manager.example.com"
+                                className="flex items-center gap-1 text-blue-600 hover:text-blue-800"
+                            >
+                                <span className="text-sm">Live Demo</span>
+                            </a>
+                            <a
+                                href="https://github.com/johndoe/contribution-manager"
+                                className="flex items-center gap-1 text-blue-600 hover:text-blue-800"
+                            >
+                                <GithubIcon className="h-4 w-4" />
+                                <span className="text-sm">Source</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div className="mb-3 text-xs">
+                        <span className="mr-2 rounded-md bg-gray-100 px-2 py-1 text-sm text-gray-700">
+                            MongoDB
+                        </span>
+                        <span className="mr-2 rounded-md bg-gray-100 px-2 py-1 text-sm text-gray-700">
+                            Express.js
+                        </span>
+                        <span className="mr-2 rounded-md bg-gray-100 px-2 py-1 text-sm text-gray-700">
+                            React
+                        </span>
+                        <span className="mr-2 rounded-md bg-gray-100 px-2 py-1 text-sm text-gray-700">
+                            Node.js
+                        </span>
+                        <span className="mr-2 rounded-md bg-gray-100 px-2 py-1 text-sm text-gray-700">
+                            OAuth2.0
+                        </span>
+                        <span className="mr-2 rounded-md bg-gray-100 px-2 py-1 text-sm text-gray-700">
+                            GitHub Actions
+                        </span>
+                    </div>
                     <ul className="list-disc space-y-2 pl-6 text-gray-700">
                         <li>
                             Developed a full-stack application using MERN stack to track open source
@@ -123,29 +194,25 @@ const Resume = () => {
                 <h2 className="mb-4 border-b-2 border-gray-200 pb-2 text-2xl font-bold text-gray-800">
                     SKILLS
                 </h2>
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                    <div>
-                        <h3 className="mb-2 font-semibold text-gray-800">Languages</h3>
+                <div className="">
+                    <div className="flex space-x-2">
+                        <h3 className="mb-2 w-[80px] font-semibold text-gray-800">Languages: </h3>
                         <p className="text-gray-700">JavaScript (ES6+), Python, TypeScript, Java</p>
                     </div>
-                    <div>
-                        <h3 className="mb-2 font-semibold text-gray-800">Frontend</h3>
+                    <div className="flex space-x-2">
+                        <h3 className="mb-2 w-[80px] font-semibold text-gray-800">Frontend: </h3>
                         <p className="text-gray-700">React, Vue.js, HTML5, CSS3, Sass</p>
                     </div>
-                    <div>
-                        <h3 className="mb-2 font-semibold text-gray-800">Backend</h3>
+                    <div className="flex space-x-2">
+                        <h3 className="mb-2 w-[80px] font-semibold text-gray-800">Backend: </h3>
                         <p className="text-gray-700">Node.js, Express, Django, Spring Boot</p>
                     </div>
-                    <div>
-                        <h3 className="mb-2 font-semibold text-gray-800">Databases</h3>
+                    <div className="flex space-x-2">
+                        <h3 className="mb-2 w-[80px] font-semibold text-gray-800">Databases: </h3>
                         <p className="text-gray-700">PostgreSQL, MongoDB, Redis</p>
                     </div>
-                    <div>
-                        <h3 className="mb-2 font-semibold text-gray-800">Cloud/DevOps</h3>
-                        <p className="text-gray-700">AWS, Docker, Kubernetes, CI/CD</p>
-                    </div>
-                    <div>
-                        <h3 className="mb-2 font-semibold text-gray-800">Testing</h3>
+                    <div className="flex space-x-2">
+                        <h3 className="mb-2 w-[80px] font-semibold text-gray-800">Tools: </h3>
                         <p className="text-gray-700">Jest, Pytest, JUnit, Selenium</p>
                     </div>
                 </div>
