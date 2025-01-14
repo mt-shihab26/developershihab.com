@@ -17,11 +17,11 @@ date:
 links:
     live_link: https://www.paystubhero.com/generate-pay-stubs
 images:
-    - src: ./image-1.jpg
+    - src: ./demo-1.webp
       alt: ""
-    - src: ./image-2.jpg
+    - src: ./demo-2.webp
       alt: ""
-    - src: ./image-3.jpg
+    - src: ./demo-3.webp
       alt: ""
 ---
 
