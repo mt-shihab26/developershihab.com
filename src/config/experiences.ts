@@ -48,9 +48,18 @@ const experiences: TExperience[] = [
                     high performance and maintainability across platforms.
                 `,
                 points: [
-                    "Developed and integrated a WordPress plugin for PayStubHero.com that increased monthly sales from $5,000 to $25,000.",
-                    "Built a robust WordPress plugin with over 63,570 lines of code and 689 commits over 1.5 years of development.",
-                    "Provided continuous maintenance and support to ensure optimal plugin performance and reliability."
+                    `
+                        Developed and integrated a WordPress plugin for PayStubHero.com
+                        that increased monthly sales from $5,000 to $25,000.
+                    `,
+                    `
+                        Built a robust WordPress plugin with over 63,570 lines of code
+                        and 689 commits over 1.5 years of development.
+                    `,
+                    `
+                        Provided continuous maintenance and support to ensure
+                        optimal plugin performance and reliability.
+                    `
                 ],
                 projects: ["paystubhero-wordpress-plugin"]
             }
@@ -71,6 +80,16 @@ const experiences: TExperience[] = [
                     Contributed to demo and client projects using Laravel, enhancing
                     my technical skills and understanding of web development.
                 `,
+                points: [
+                    `
+                        Developed a project using raw PHP to gain fundamental knowledge
+                        of the language’s core concepts and functionality.
+                    `,
+                    `
+                        A feature-rich single-vendor eCommerce platform developed with Laravel,
+                        TailwindCSS, and AlpineJS, SSLCommerz payment integration.
+                    `
+                ],
                 projects: ["s-commerce", "student-performance-monitoring-system"]
             }
         ]
