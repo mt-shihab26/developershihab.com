@@ -4,9 +4,9 @@ import { CompanyIcon, LinkedinIcon, LocationIcon } from "@/components/composite/
 
 import portrait from "@/assets/portrait.jpg";
 
-import ContactEmail from "@/components/elements/ContactEmail";
-
 import B from "@/components/elements/B";
+import ContactEmail from "@/components/elements/ContactEmail";
+import DownloadResume from "@/components/elements/DownloadResume";
 import I from "@/components/elements/I";
 import Label from "./Label";
 
@@ -29,7 +29,10 @@ const Hero = () => {
                 <I>3 years of experience</I>, passionate about building{" "}
                 <B>impactful web applications</B>. My stack is <I>Laravel</I> and <I>React</I>.
             </p>
-            <ContactEmail />
+            <div className="flex justify-center gap-x-5">
+                <ContactEmail />
+                <DownloadResume />
+            </div>
             <div className="flex flex-wrap justify-center gap-x-7 gap-y-3">
                 <Label title="Finnext" href="https://finnext.co" target="_blank">
                     <CompanyIcon className="h-5 w-5" />
