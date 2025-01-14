@@ -53,12 +53,13 @@ const Resume = () => {
 
                 <div className="mb-6">
                     <div className="mb-2 flex justify-between">
-                        <h3 className="text-xl font-semibold text-gray-800">
-                            Senior Software Engineer
-                        </h3>
+                        <h3 className="text-xl font-semibold text-gray-800">Tech Solutions Inc.</h3>
+                        <span className="text-gray-600">Dhaka, Bangladesh</span>
+                    </div>
+                    <div className="mb-2 flex justify-between">
+                        <h4 className="text-lg text-gray-600">Senior Software Engineer</h4>
                         <span className="text-gray-600">Jan 2022 - Present</span>
                     </div>
-                    <h4 className="mb-2 text-lg text-gray-600">Tech Solutions Inc.</h4>
                     <ul className="list-disc space-y-2 pl-6 text-gray-700">
                         <li>
                             Led a team of 5 engineers in developing and maintaining a cloud-native
@@ -71,28 +72,6 @@ const Resume = () => {
                         <li>
                             Optimized database queries and implemented caching strategies, reducing
                             response time by 60%
-                        </li>
-                    </ul>
-                </div>
-
-                <div className="mb-6">
-                    <div className="mb-2 flex justify-between">
-                        <h3 className="text-xl font-semibold text-gray-800">Software Engineer</h3>
-                        <span className="text-gray-600">Mar 2019 - Dec 2021</span>
-                    </div>
-                    <h4 className="mb-2 text-lg text-gray-600">Digital Innovations Corp</h4>
-                    <ul className="list-disc space-y-2 pl-6 text-gray-700">
-                        <li>
-                            Developed and maintained RESTful APIs using Python/Django, serving
-                            mobile and web applications
-                        </li>
-                        <li>
-                            Created automated testing framework that increased code coverage from
-                            65% to 95%
-                        </li>
-                        <li>
-                            Collaborated with product managers and designers to implement new
-                            features and improve user experience
                         </li>
                     </ul>
                 </div>
