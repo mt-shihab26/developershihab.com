@@ -9,6 +9,7 @@ import B from "@/components/elements/B";
 import ContactEmail from "@/components/elements/ContactEmail";
 import I from "@/components/elements/I";
 import Label from "./Label";
+import DownloadResume from "@/components/elements/DownloadResume";
 ---
 
 <section class="flex flex-col items-center space-y-5">
@@ -30,7 +31,7 @@ import Label from "./Label";
     </p>
     <div class="flex justify-center gap-x-5">
         <ContactEmail />
-        {/* <DownloadResume /> */}
+        <DownloadResume client:load />
     </div>
     <div class="flex flex-wrap justify-center gap-x-7 gap-y-3">
         <Label title="Finnext" href="https://finnext.co" target="_blank">
