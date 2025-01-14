@@ -52,3 +52,6 @@ This project stands as a testament to creating enterprise-grade WordPress plugin
 modern JavaScript frameworks while maintaining WordPress's core functionality. The live implementation
 can be experienced at [PaystubHero.com](https://www.paystubhero.com/generate-pay-stubs), where users can
 access the full range of payroll document generation features.
+
+![Line of code written](./codes.webp)
+![Github Repository](./repository.webp)
