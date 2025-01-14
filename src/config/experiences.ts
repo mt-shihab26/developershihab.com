@@ -34,10 +34,20 @@ const experiences: TExperience[] = [
                     team, and delivering scalable software solutions.
                 `,
                 points: [
-                    "Rewrote WordPress Plugin into a Laravel application for PayStubHero.com, resulting in a codebase with 80k+ lines of code and 1,400+ commits.",
-                    "Currently providing ongoing maintenance, feature updates, and bug fixes to ensure optimal system performance and reliability.",
-                    "I developed several Elementor widgets for website design team as well.",
-                    "Collaborated with the SEO team to optimize WordPress-based system."
+                    `
+                        Rewrote WordPress Plugin into a Laravel application for PayStubHero.com,
+                        resulting in a codebase with 80k+ lines of code and 1,400+ commits.
+                    `,
+                    `
+                        Currently providing ongoing maintenance, feature updates, and
+                        bug fixes to ensure optimal system performance and reliability.
+                    `,
+                    `
+                        I developed several Elementor widgets for website design team as well.
+                    `,
+                    `
+                        Collaborated with the SEO team to optimize WordPress-based system.
+                    `
                 ]
             },
             {
