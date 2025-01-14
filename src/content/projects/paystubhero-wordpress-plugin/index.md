@@ -5,12 +5,15 @@ priority: 5
 type: client
 title: PaystubHero WordPress Plugin
 description: >-
-    WordPress plugin and React frontend for paystubhero.com. The React app is integrated via shortcode.
+    WordPress plugin with React frontend for PaystubHero.com, seamlessly integrated via shortcode.
 technologies:
-    - React
-    - JavaScript
     - PHP
+    - WordPress
+    - JavaScript
+    - React
     - TailwindCSS
+    - Stripe
+    - mPDF
 date:
     start: May 2023
     end: Nov 2024
