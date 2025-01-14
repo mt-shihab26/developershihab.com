@@ -1,6 +1,6 @@
 import type { TIcon } from "@/types";
 
-const DownloadIcon: TIcon = (props) => {
+const MailIcon: TIcon = (props) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -14,11 +14,10 @@ const DownloadIcon: TIcon = (props) => {
             strokeLinejoin="round"
             {...props}
         >
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-            <polyline points="7 10 12 15 17 10" />
-            <line x1={12} x2={12} y1={15} y2={3} />
+            <rect width={20} height={16} x={2} y={4} rx={2} />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
         </svg>
     );
 };
 
-export default DownloadIcon;
+export default MailIcon;

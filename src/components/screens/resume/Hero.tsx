@@ -6,7 +6,6 @@ import portrait from "@/assets/portrait.jpg";
 
 import B from "@/components/elements/B";
 import ContactEmail from "@/components/elements/ContactEmail";
-import DownloadResume from "@/components/elements/DownloadResume";
 import I from "@/components/elements/I";
 import Label from "./Label";
 
@@ -31,7 +30,7 @@ const Hero = () => {
             </p>
             <div className="flex justify-center gap-x-5">
                 <ContactEmail />
-                <DownloadResume />
+                {/* <DownloadResume /> */}
             </div>
             <div className="flex flex-wrap justify-center gap-x-7 gap-y-3">
                 <Label title="Finnext" href="https://finnext.co" target="_blank">
