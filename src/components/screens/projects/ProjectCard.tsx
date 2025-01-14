@@ -20,11 +20,13 @@ const ProjectCard = ({ project }: { project: TProject }) => {
                     {project.data.date.start} - {project.data.date.end}
                 </div>
             </CardHeader>
-            <CardContent className="space-y-4">
-                <CardDescription>{project.data.description}</CardDescription>
-                {project.data.technologies && (
-                    <Technologies technologies={project.data.technologies} />
-                )}
+            <CardContent className="flex flex-1 flex-col justify-between space-y-4">
+                <div className="space-y-4">
+                    <CardDescription>{project.data.description}</CardDescription>
+                    {project.data.technologies && (
+                        <Technologies technologies={project.data.technologies} />
+                    )}
+                </div>
                 <div className="flex justify-between">
                     <Links links={project.data.links} />
                     <a
