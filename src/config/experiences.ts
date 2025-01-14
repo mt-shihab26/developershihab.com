@@ -11,8 +11,9 @@ export type TExperience = {
     roles: {
         position: string;
         description: string;
+        points?: string[];
         date: string;
-        projects: string[];
+        projects?: string[];
     }[];
 };
 
@@ -32,7 +33,12 @@ const experiences: TExperience[] = [
                     Responsible for defining technical strategy, managing the development
                     team, and delivering scalable software solutions.
                 `,
-                projects: []
+                points: [
+                    "Rewrote WordPress Plugin into a Laravel application for PayStubHero.com, resulting in a codebase with 80k+ lines of code and 1,400+ commits.",
+                    "Currently providing ongoing maintenance, feature updates, and bug fixes to ensure optimal system performance and reliability.",
+                    "I developed several Elementor widgets for website design team as well.",
+                    "Collaborated with the SEO team to optimize WordPress-based system."
+                ]
             },
             {
                 position: "Full-stack Developer",
@@ -41,6 +47,11 @@ const experiences: TExperience[] = [
                     Designed and developed full-stack applications, ensuring
                     high performance and maintainability across platforms.
                 `,
+                points: [
+                    "Developed and integrated a WordPress plugin for PayStubHero.com that increased monthly sales from $5,000 to $25,000.",
+                    "Built a robust WordPress plugin with over 63,570 lines of code and 689 commits over 1.5 years of development.",
+                    "Provided continuous maintenance and support to ensure optimal plugin performance and reliability."
+                ],
                 projects: ["paystubhero-wordpress-plugin"]
             }
         ]

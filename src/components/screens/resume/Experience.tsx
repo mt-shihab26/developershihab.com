@@ -49,7 +49,7 @@ const Item = ({
         <Card>
             <CardContent className="space-y-2 p-0">
                 {roles.map((role, index) => {
-                    const relevantProjects = role.projects
+                    const relevantProjects = (role.projects || [])
                         .map((slug) => allProjects.find((p) => p.slug === slug))
                         .filter((project): project is TProject => Boolean(project));
                     return (
@@ -80,6 +80,15 @@ const Item = ({
                                     </h1>
                                     <time>{role.date}</time>
                                     <p className="text-muted-foreground">{role.description}</p>
+                                    {role.points && (
+                                        <ul className="list-disc pl-6 text-muted-foreground">
+                                            {role.points.map((point, index) => (
+                                                <li key={index} className="leading-relaxed">
+                                                    {point}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
                                     {relevantProjects.length > 0 && (
                                         <ul className="mt-3 space-y-2">
                                             {relevantProjects.map((project, index) => (
