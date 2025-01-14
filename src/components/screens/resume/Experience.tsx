@@ -22,7 +22,7 @@ const ProjectItem = ({ project }: { project: TProject }) => (
                     </h3>
                     {project.data.technologies && (
                         <p className="text-sm text-muted-foreground">
-                            {project.data.technologies.join(", ")}
+                            {project.data.technologies.slice(0, 6).join(", ")}
                         </p>
                     )}
                 </div>

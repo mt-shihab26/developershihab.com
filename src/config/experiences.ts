@@ -48,7 +48,8 @@ const experiences: TExperience[] = [
                     `
                         Collaborated with the SEO team to optimize WordPress-based system.
                     `
-                ]
+                ],
+                projects: ["paystubhero-laravel-application"]
             },
             {
                 position: "Full-stack Developer",
