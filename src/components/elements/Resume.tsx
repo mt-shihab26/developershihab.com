@@ -1,3 +1,5 @@
+import experiences from "@/config/experiences";
+
 import GithubIcon from "../icons/GithubIcon";
 import LinkedinIcon from "../icons/LinkedinIcon";
 import MailIcon from "../icons/MailIcon";
@@ -5,33 +7,31 @@ import MapPinIcon from "../icons/MapPinIcon";
 
 const Resume = () => {
     return (
-        <div className="mx-auto max-w-4xl bg-white p-8">
-            {/* Header Section */}
+        <div className="mx-auto max-w-4xl bg-white p-8 text-sm">
             <header className="mb-8">
                 <h1 className="mb-2 text-center text-5xl font-bold text-gray-800">
-                    <span className="font-normal text-gray-600">JOHN</span> DOE
+                    <span className="font-normal text-gray-600">Shihab</span> Mahamud
                 </h1>
                 <div className="flex flex-wrap justify-center gap-4 text-gray-600">
                     <a href="mailto:email@example.com" className="flex items-center gap-1">
                         <MailIcon className="h-4 w-4" />
-                        email@example.com
+                        shihab4t@gmail.com
                     </a>
                     <a href="https://linkedin.com/in/johndoe" className="flex items-center gap-1">
                         <LinkedinIcon className="h-4 w-4" />
-                        linkedin.com/in/johndoe
+                        linkedin.com/in/shihab-mahamud
                     </a>
                     <a href="https://github.com/johndoe" className="flex items-center gap-1">
                         <GithubIcon className="h-4 w-4" />
-                        github.com/johndoe
+                        github.com/p-nerd
                     </a>
                     <span className="flex items-center gap-1">
                         <MapPinIcon className="h-4 w-4" />
-                        San Francisco, CA
+                        Faridpur, Bangladesh
                     </span>
                 </div>
             </header>
 
-            {/* Summary Section */}
             <section className="mb-8">
                 <h2 className="mb-4 border-b-2 border-gray-200 pb-2 text-2xl font-bold text-gray-800">
                     SUMMARY
@@ -45,36 +45,39 @@ const Resume = () => {
                 </p>
             </section>
 
-            {/* Experience Section */}
             <section className="mb-8">
                 <h2 className="mb-4 border-b-2 border-gray-200 pb-2 text-2xl font-bold text-gray-800">
                     EXPERIENCE
                 </h2>
 
-                <div className="mb-6">
-                    <div className="mb-2 flex justify-between">
-                        <h3 className="text-xl font-semibold text-gray-800">Tech Solutions Inc.</h3>
-                        <span className="text-gray-600">Dhaka, Bangladesh</span>
+                {experiences.map((experience, index) => (
+                    <div className="mb-6" key={index}>
+                        <div className="mb-2 flex justify-between">
+                            <h3 className="text-xl font-semibold text-gray-800">
+                                {experience.firm.name}
+                            </h3>
+                            <span className="text-gray-600">{experience.firm.location}</span>
+                        </div>
+                        <div className="mb-2 flex justify-between">
+                            <h4 className="text-lg text-gray-600">Senior Software Engineer</h4>
+                            <span className="text-gray-600">Jan 2022 - Present</span>
+                        </div>
+                        <ul className="list-disc space-y-2 pl-6 text-gray-700">
+                            <li>
+                                Led a team of 5 engineers in developing and maintaining a
+                                cloud-native e-commerce platform serving 100K+ daily users
+                            </li>
+                            <li>
+                                Implemented microservices architecture using Node.js and Docker,
+                                resulting in 40% improvement in system scalability
+                            </li>
+                            <li>
+                                Optimized database queries and implemented caching strategies,
+                                reducing response time by 60%
+                            </li>
+                        </ul>
                     </div>
-                    <div className="mb-2 flex justify-between">
-                        <h4 className="text-lg text-gray-600">Senior Software Engineer</h4>
-                        <span className="text-gray-600">Jan 2022 - Present</span>
-                    </div>
-                    <ul className="list-disc space-y-2 pl-6 text-gray-700">
-                        <li>
-                            Led a team of 5 engineers in developing and maintaining a cloud-native
-                            e-commerce platform serving 100K+ daily users
-                        </li>
-                        <li>
-                            Implemented microservices architecture using Node.js and Docker,
-                            resulting in 40% improvement in system scalability
-                        </li>
-                        <li>
-                            Optimized database queries and implemented caching strategies, reducing
-                            response time by 60%
-                        </li>
-                    </ul>
-                </div>
+                ))}
             </section>
 
             {/* Projects Section */}
