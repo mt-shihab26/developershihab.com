@@ -7,6 +7,7 @@ export type TExperience = {
         link: string;
         logo: ImageMetadata;
         alt: string;
+        location: string;
     };
     roles: {
         position: string;
@@ -23,7 +24,8 @@ const experiences: TExperience[] = [
             name: "Finnext",
             link: "https://finnext.co",
             logo: finnext,
-            alt: "Finnext logo"
+            alt: "Finnext logo",
+            location: "Dhaka, Bangladesh"
         },
         roles: [
             {
@@ -81,7 +83,8 @@ const experiences: TExperience[] = [
             name: "Systech Digital LTD",
             link: "https://systechdigital.com",
             logo: systech,
-            alt: "Systech Digital LTD logo"
+            alt: "Systech Digital LTD logo",
+            location: "Dhaka, Bangladesh"
         },
         roles: [
             {

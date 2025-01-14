@@ -30,14 +30,7 @@ async function generatePDF(Component: ComponentType, outputPath: string, props: 
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>Generated PDF</title>
-                    <style>
-                        /* Add any global styles needed for the PDF */
-                        body {
-                            margin: 0;
-                            padding: 20px;
-                            font-family: Arial, sans-serif;
-                        }
-                    </style>
+                    <script src="https://cdn.tailwindcss.com"></script>
                 </head>
                 <body>
                     ${html}
@@ -77,4 +70,4 @@ async function generatePDF(Component: ComponentType, outputPath: string, props: 
     }
 }
 
-generatePDF(Resume, "./public/shihab-mahamud-resume.pdf");
+generatePDF(Resume, "./public/shihab-mahamud-resume-tmp.pdf");
