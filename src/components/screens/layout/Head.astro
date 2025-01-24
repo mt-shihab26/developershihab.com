@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 import "@/styles/app.css";
 
@@ -85,5 +85,5 @@ const socialImageURL = new URL(ogImage ? ogImage : "/social-card.png", Astro.url
     {/* RSS auto-discovery */}
     <link href="/rss.xml" rel="alternate" title={siteConfig.title} type="application/rss+xml" />
 
-    <ViewTransitions />
+    <ClientRouter />
 </head>
