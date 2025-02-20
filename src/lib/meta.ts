@@ -6,13 +6,10 @@ const meta = {
     author: {
         name: "Shihab Mahamud",
         email: "shihab4t@gmail.com",
-        twitter: "https://twitter.com/bketelsen",
-        mastodon: "https://tty0.social/@bketelsen",
-        instagram: "https://instagram.com/bketelsen",
-        github: "https://github.com/bketelsen",
-        linkedin: "https://linkedin.com/in/brianketelsen",
-        twitch: "https://twitch.tv/bketelsen",
-        youtube: "https://youtube.com/@bketelsen"
+        twitter: "https://twitter.com/mt_shihab26",
+        instagram: "https://instagram.com/shihab.mahamud.2002",
+        github: "https://github.com/p-nerd",
+        linkedin: "https://linkedin.com/in/shihab-mahamud"
     }
 };
 
