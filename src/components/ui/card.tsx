@@ -1,24 +1,11 @@
-import type { Component, JSX } from "solid-js";
+import type { JSX } from "solid-js";
+import type { TAs } from "~/types/utils";
 
 import { mergeProps, splitProps } from "solid-js";
 import { cn } from "~/lib/utils";
 
 import { Dynamic } from "solid-js/web";
-
-type TAs = keyof JSX.IntrinsicElements | Component;
-
-const ChevronRightIcon = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => {
-    return (
-        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
-            <path
-                d="M6.75 5.75 9.25 8l-2.5 2.25"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-            />
-        </svg>
-    );
-};
+import { ChevronRightIcon } from "~/components/icons/chevron-right-icon";
 
 const Card = (props: { as?: TAs; class?: string; children?: JSX.Element }) => {
     const Component = props.as || "div";

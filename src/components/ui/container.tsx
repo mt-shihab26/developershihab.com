@@ -1,29 +1,54 @@
-import clsx from "clsx";
-import { forwardRef } from "react";
+import type { JSX } from "solid-js";
 
-const OuterContainer = forwardRef(function OuterContainer({ className, children, ...props }, ref) {
+import { splitProps } from "solid-js";
+import { cn } from "~/lib/utils";
+
+const ContainerOuter = (
+    props: {
+        ref?: HTMLDivElement;
+        class?: string;
+        children?: JSX.Element;
+    } & JSX.HTMLAttributes<HTMLDivElement>
+) => {
+    const [local, other] = splitProps(props, ["class", "children", "ref"]);
+
     return (
-        <div ref={ref} className={clsx("sm:px-8", className)} {...props}>
-            <div className="mx-auto max-w-7xl lg:px-8">{children}</div>
+        <div ref={local.ref} class={cn("sm:px-8", local.class)} {...other}>
+            <div class="mx-auto max-w-7xl lg:px-8">{local.children}</div>
         </div>
     );
-});
+};
 
-const InnerContainer = forwardRef(function InnerContainer({ className, children, ...props }, ref) {
+const ContainerInner = (
+    props: {
+        ref?: HTMLDivElement;
+        class?: string;
+        children?: JSX.Element;
+    } & JSX.HTMLAttributes<HTMLDivElement>
+) => {
+    const [local, others] = splitProps(props, ["class", "children", "ref"]);
+
     return (
-        <div ref={ref} className={clsx("relative px-4 sm:px-8 lg:px-12", className)} {...props}>
-            <div className="mx-auto max-w-2xl lg:max-w-5xl">{children}</div>
+        <div ref={local.ref} class={cn("relative px-4 sm:px-8 lg:px-12", local.class)} {...others}>
+            <div class="mx-auto max-w-2xl lg:max-w-5xl">{local.children}</div>
         </div>
     );
-});
+};
 
-export const Container = forwardRef(function Container({ children, ...props }, ref) {
+const Container = (
+    props: {
+        ref?: HTMLDivElement;
+        class?: string;
+        children?: JSX.Element;
+    } & JSX.HTMLAttributes<HTMLDivElement>
+) => {
+    const [local, others] = splitProps(props, ["children", "ref"]);
+
     return (
-        <OuterContainer ref={ref} {...props}>
-            <InnerContainer>{children}</InnerContainer>
-        </OuterContainer>
+        <ContainerOuter ref={local.ref} {...others}>
+            <ContainerInner>{local.children}</ContainerInner>
+        </ContainerOuter>
     );
-});
+};
 
-Container.Outer = OuterContainer;
-Container.Inner = InnerContainer;
+export { Container, ContainerInner, ContainerOuter };
