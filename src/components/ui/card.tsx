@@ -1,0 +1,105 @@
+import type { Component, JSX } from "solid-js";
+
+import { mergeProps, splitProps } from "solid-js";
+import { cn } from "~/lib/utils";
+
+import { Dynamic } from "solid-js/web";
+
+type TAs = keyof JSX.IntrinsicElements | Component;
+
+const ChevronRightIcon = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => {
+    return (
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
+            <path
+                d="M6.75 5.75 9.25 8l-2.5 2.25"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+        </svg>
+    );
+};
+
+const Card = (props: { as?: TAs; class?: string; children?: JSX.Element }) => {
+    const Component = props.as || "div";
+
+    return (
+        <Component class={cn(props.class, "group relative flex flex-col items-start")}>
+            {props.children}
+        </Component>
+    );
+};
+
+const CardLink = (props: { children: JSX.Element; href: string }) => {
+    return (
+        <>
+            <div class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl dark:bg-zinc-800/50" />
+            <a href={props.href}>
+                <span class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
+                <span class="relative z-10">{props.children}</span>
+            </a>
+        </>
+    );
+};
+
+const CardTitle = (props: { as?: TAs; href?: string; children: JSX.Element }) => {
+    const Component = props.as || "h2";
+
+    return (
+        <Component class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+            {props.href ? <CardLink href={props.href}>{props.children}</CardLink> : props.children}
+        </Component>
+    );
+};
+
+const CardDescription = (props: { children: JSX.Element }) => {
+    return (
+        <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">{props.children}</p>
+    );
+};
+
+const CardCta = (props: { children: JSX.Element }) => {
+    return (
+        <div
+            aria-hidden="true"
+            class="relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500"
+        >
+            {props.children}
+            <ChevronRightIcon class="ml-1 h-4 w-4 stroke-current" />
+        </div>
+    );
+};
+
+const CardEyebrow = (
+    p: {
+        as?: TAs;
+        decorate?: boolean;
+        class?: string;
+        children?: JSX.Element;
+    } & JSX.HTMLAttributes<HTMLElement>
+) => {
+    const props = mergeProps({ as: "p", decorate: false }, p);
+
+    const [localProps, otherProps] = splitProps(props, ["as", "decorate", "class", "children"]);
+
+    return (
+        <Dynamic
+            component={localProps.as}
+            class={cn(
+                localProps.class,
+                "relative z-10 order-first mb-3 flex items-center text-sm text-zinc-500 dark:text-zinc-500",
+                localProps.decorate && "pl-3.5"
+            )}
+            {...otherProps}
+        >
+            {localProps.decorate && (
+                <span class="absolute inset-y-0 left-0 flex items-center" aria-hidden="true">
+                    <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
+                </span>
+            )}
+            {localProps.children}
+        </Dynamic>
+    );
+};
+
+export { Card, CardCta, CardDescription, CardEyebrow, CardLink, CardTitle };
