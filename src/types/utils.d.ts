@@ -1,7 +1,9 @@
 import type { JSX } from "solid-js";
 
-type TAs = keyof JSX.IntrinsicElements | Component;
+type TAsProps = keyof JSX.IntrinsicElements | Component;
+type TAProps = JSX.AnchorHTMLAttributes<HTMLAnchorElement>;
+type TSvgProps = JSX.SvgSVGAttributes<SVGSVGElement>;
 
-type TIcon = (props: JSX.SvgSVGAttributes<SVGSVGElement>) => JSX.Element;
+type TIcon = (props: TSvgProps) => JSX.Element;
 
-export { TAs, TIcon };
+export { TAProps, TAsProps, TIcon };

@@ -1,5 +1,5 @@
 import type { JSX } from "solid-js";
-import type { TAs } from "~/types/utils";
+import type { TAsProps } from "~/types/utils";
 
 import { mergeProps, splitProps } from "solid-js";
 import { cn } from "~/lib/utils";
@@ -7,7 +7,7 @@ import { cn } from "~/lib/utils";
 import { Dynamic } from "solid-js/web";
 import { ChevronRightIcon } from "~/components/icons/chevron-right-icon";
 
-const Card = (props: { as?: TAs; class?: string; children?: JSX.Element }) => {
+const Card = (props: { as?: TAsProps; class?: string; children?: JSX.Element }) => {
     const Component = props.as || "div";
 
     return (
@@ -29,7 +29,7 @@ const CardLink = (props: { children: JSX.Element; href: string }) => {
     );
 };
 
-const CardTitle = (props: { as?: TAs; href?: string; children: JSX.Element }) => {
+const CardTitle = (props: { as?: TAsProps; href?: string; children: JSX.Element }) => {
     const Component = props.as || "h2";
 
     return (
@@ -59,7 +59,7 @@ const CardCta = (props: { children: JSX.Element }) => {
 
 const CardEyebrow = (
     p: {
-        as?: TAs;
+        as?: TAsProps;
         decorate?: boolean;
         class?: string;
         children?: JSX.Element;
