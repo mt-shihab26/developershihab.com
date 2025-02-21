@@ -1,9 +1,10 @@
 import { createEffect, createSignal, onCleanup } from "solid-js";
 
 import { Container } from "~/components/ui/container";
+
 import { Avatar, AvatarContainer } from "./avatar";
-import { Desktop } from "./desktop";
-import { MobileNavigation } from "./mobile";
+import { DesktopNavigation } from "./desktop-navigation";
+import { MobileNavigation } from "./mobile-navigation";
 import { ThemeToggle } from "./theme-toggle";
 
 const clamp = (num: number, a: number, b: number) => {
@@ -172,8 +173,11 @@ const Header = (props: { pathname: string }) => {
                                 )}
                             </div>
                             <div class="flex flex-1 justify-end md:justify-center">
-                                <MobileNavigation class="pointer-events-auto md:hidden" />
-                                <Desktop
+                                <MobileNavigation
+                                    class="pointer-events-auto md:hidden"
+                                    pathname={props.pathname}
+                                />
+                                <DesktopNavigation
                                     class="pointer-events-auto hidden md:block"
                                     pathname={props.pathname}
                                 />

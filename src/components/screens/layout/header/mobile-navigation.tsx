@@ -14,7 +14,7 @@ const Item = (props: { href: string; children: JSXElement }) => {
     );
 };
 
-const MobileNavigation = (props: { class?: string }) => {
+const MobileNavigation = (props: { pathname: string; class?: string }) => {
     return (
         <Popover defaultOpen class={props.class}>
             {() => (
