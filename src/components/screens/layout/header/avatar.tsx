@@ -3,7 +3,7 @@ import type { TAProps, TDivProps } from "~/types/utils";
 import { splitProps } from "solid-js";
 import { cn } from "~/lib/utils";
 
-import shihabImage from "~/assets/images/shihab.jpg";
+import shihab from "~/assets/images/shihab.jpg";
 
 const AvatarContainer = (props: { class?: string } & TDivProps) => {
     const [local, others] = splitProps(props, ["class"]);
@@ -26,9 +26,9 @@ const Avatar = (props: { large?: boolean; class?: string } & TAProps) => {
     const large = () => local.large ?? false;
 
     return (
-        <a href="/" aria-label="Home" class={cn(local.class, "pointer-events-auto")} {...others}>
+        <a href="/" aria-label="Home" class={cn("pointer-events-auto", local.class)} {...others}>
             <img
-                src={shihabImage.src}
+                src={shihab.src}
                 alt=""
                 sizes={large() ? "4rem" : "2.25rem"}
                 class={cn(
