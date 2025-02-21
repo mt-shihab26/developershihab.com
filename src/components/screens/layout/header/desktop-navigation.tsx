@@ -1,7 +1,9 @@
-import { For, type JSXElement } from "solid-js";
+import type { JSXElement } from "solid-js";
 
 import { cn } from "~/lib/utils";
 import { links } from "./links";
+
+import { For } from "solid-js";
 
 const Item = (props: { pathname: string; href: string; children: JSXElement }) => {
     const isActive = () => props.pathname === props.href;
