@@ -19,7 +19,7 @@ const MobileNavigation = (props: { class?: string }) => {
         <Popover defaultOpen class={props.class}>
             {() => (
                 <>
-                    <PopoverButton class="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
+                    <PopoverButton class="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 ring-1 shadow-lg shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
                         Menu
                         <ChevronDownIcon class="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400" />
                     </PopoverButton>
@@ -32,7 +32,7 @@ const MobileNavigation = (props: { class?: string }) => {
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                        <PopoverOverlay class="fixed inset-0 z-50 bg-zinc-800/40 backdrop-blur-sm dark:bg-black/80" />
+                        <PopoverOverlay class="fixed inset-0 z-50 bg-zinc-800/40 backdrop-blur-xs dark:bg-black/80" />
                     </Transition>
                     <Transition
                         show={false}

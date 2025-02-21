@@ -1,1 +1,28 @@
+---
+import { meta } from "~/lib/meta";
 
+import { SiteLayout } from "~/components/layouts/site-layout";
+
+import BaseLayout from "~/layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+    title={meta.title}
+    description={meta.description}
+    canonical={meta.url}
+    openGraph={{
+        url: meta.url,
+        siteName: "Shihab Mahamud",
+        images: [
+            {
+                url: `https://og.brian.dev/api/og?title=${meta.title}&desc=${meta.description}`,
+                width: 1200,
+                height: 600,
+                alt: "Og Image Alt",
+                type: "image/jpeg"
+            }
+        ]
+    }}
+>
+    <SiteLayout>Hello</SiteLayout>
+</BaseLayout>

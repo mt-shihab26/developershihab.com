@@ -126,14 +126,14 @@ const Header: Component = () => {
                     <>
                         <div
                             ref={avatarRef}
-                            class="order-last mt-[calc(theme(spacing.16)-theme(spacing.3))]"
+                            class="order-last mt-[calc(--spacing(16)-(--spacing(3)))]"
                         />
                         <Container
                             class="top-0 order-last -mb-3 pt-3"
                             style="position: 'var(--header-position)'"
                         >
                             <div
-                                class="top-[var(--avatar-top,theme(spacing.3))] w-full"
+                                class="top-(--avatar-top,--spacing(3)) w-full"
                                 style="position: 'var(--header-inner-position)'"
                             >
                                 <div class="relative">
@@ -160,7 +160,7 @@ const Header: Component = () => {
                     style="position: 'var(--header-position)'"
                 >
                     <Container
-                        class="top-[var(--header-top,theme(spacing.6))] w-full"
+                        class="top-(--header-top,--spacing(6)) w-full"
                         style="position: 'var(--header-inner-position)'"
                     >
                         <div class="relative flex gap-4">
