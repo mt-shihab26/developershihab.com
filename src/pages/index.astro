@@ -1,12 +1,10 @@
 ---
 import { meta } from "~/lib/meta";
 
-import { SiteLayout } from "~/components/layouts/site-layout";
-
-import BaseLayout from "~/layouts/BaseLayout.astro";
+import Layout from "~/components/layouts/Layout.astro";
 ---
 
-<BaseLayout
+<Layout
     title={meta.title}
     description={meta.description}
     canonical={meta.url}
@@ -24,5 +22,5 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
         ]
     }}
 >
-    <SiteLayout>Hello</SiteLayout>
-</BaseLayout>
+    Hello
+</Layout>

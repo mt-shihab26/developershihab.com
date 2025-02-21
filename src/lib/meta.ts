@@ -2,7 +2,6 @@ const meta = {
     url: "https://developershihab.com",
     title: "Shihab Mahamud",
     description: "Full-stack developer with 3 years of experience. My focus is Laravel & React.",
-    copyright: "Shihab Mahamud, CC-BY-SA",
     author: {
         name: "Shihab Mahamud",
         email: "shihab4t@gmail.com",

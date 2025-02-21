@@ -1,8 +1,8 @@
-import { type Component, createEffect, createSignal, onCleanup } from "solid-js";
+import { createEffect, createSignal, onCleanup } from "solid-js";
 
 import { Container } from "~/components/ui/container";
 import { Avatar, AvatarContainer } from "./avatar";
-import { DesktopNavigation } from "./desktop";
+import { Desktop } from "./desktop";
 import { MobileNavigation } from "./mobile";
 import { ThemeToggle } from "./theme-toggle";
 
@@ -12,8 +12,8 @@ const clamp = (num: number, a: number, b: number) => {
     return Math.min(Math.max(num, min), max);
 };
 
-const Header: Component = () => {
-    const isHomePage = true;
+const Header = (props: { pathname: string }) => {
+    const isHomePage = () => props.pathname === "/";
 
     let headerRef!: HTMLDivElement;
     let avatarRef!: HTMLDivElement;
@@ -70,7 +70,7 @@ const Header: Component = () => {
         }
 
         function updateAvatarStyles() {
-            if (!isHomePage) {
+            if (!isHomePage()) {
                 return;
             }
 
@@ -122,7 +122,7 @@ const Header: Component = () => {
                     "margin-bottom": "var(--header-mb)"
                 }}
             >
-                {isHomePage && (
+                {isHomePage() && (
                     <>
                         <div
                             ref={avatarRef}
@@ -165,7 +165,7 @@ const Header: Component = () => {
                     >
                         <div class="relative flex gap-4">
                             <div class="flex flex-1">
-                                {!isHomePage && (
+                                {!isHomePage() && (
                                     <AvatarContainer>
                                         <Avatar />
                                     </AvatarContainer>
@@ -173,7 +173,10 @@ const Header: Component = () => {
                             </div>
                             <div class="flex flex-1 justify-end md:justify-center">
                                 <MobileNavigation class="pointer-events-auto md:hidden" />
-                                <DesktopNavigation class="pointer-events-auto hidden md:block" />
+                                <Desktop
+                                    class="pointer-events-auto hidden md:block"
+                                    pathname={props.pathname}
+                                />
                             </div>
                             <div class="flex justify-end md:flex-1">
                                 <div class="pointer-events-auto">
@@ -184,7 +187,7 @@ const Header: Component = () => {
                     </Container>
                 </div>
             </header>
-            {isHomePage && <div style={{ height: "var(--content-offset)" }} />}
+            {isHomePage() && <div style={{ height: "var(--content-offset)" }} />}
         </>
     );
 };
