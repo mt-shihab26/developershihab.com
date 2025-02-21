@@ -34,3 +34,13 @@ const { name, pathname, description } = Astro.props as Props;
         </div>
     </body>
 </html>
+
+<script is:inline>
+    const theme = (() => {
+        if (typeof localStorage !== "undefined" && localStorage.getItem("is-dark-mode")) {
+            return localStorage.getItem("is-dark-mode") === "true" ? "dark" : "light";
+        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    })();
+    if (theme === "dark") document.documentElement.classList.add("dark");
+</script>

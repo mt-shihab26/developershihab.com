@@ -1,24 +1,55 @@
+import { onMount } from "solid-js";
+
 import { MoonIcon } from "~/components/icons/moon-icon";
 import { SunIcon } from "~/components/icons/sun-icon";
 
+const DARK_MODE_KEY = "is-dark-mode";
+
 const ThemeToggle = () => {
+    onMount(() => {
+        // Initial theme setup
+        const isDarkMode = localStorage.getItem(DARK_MODE_KEY);
+        const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+        if (isDarkMode === null) {
+            // No preference stored, use system preference
+            document.documentElement.classList.toggle("dark", darkModeMediaQuery.matches);
+        } else {
+            // Use stored preference
+            document.documentElement.classList.toggle("dark", isDarkMode === "true");
+        }
+
+        // Handle view transitions
+        document.addEventListener("astro:after-swap", () => {
+            // Re-apply theme after page transition
+            const currentTheme = localStorage.getItem(DARK_MODE_KEY);
+            if (currentTheme !== null) {
+                document.documentElement.classList.toggle("dark", currentTheme === "true");
+            } else {
+                // Use system preference if no stored preference
+                document.documentElement.classList.toggle("dark", darkModeMediaQuery.matches);
+            }
+        });
+    });
+
     const disableTransitionsTemporarily = () => {
-        document.documentElement.classList.add("**:transition-none!");
+        document.documentElement.classList.add("[&_*]:!transition-none");
         window.setTimeout(() => {
-            document.documentElement.classList.remove("**:transition-none!");
+            document.documentElement.classList.remove("[&_*]:!transition-none");
         }, 0);
     };
 
     const toggleMode = () => {
         disableTransitionsTemporarily();
+
         const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
         const isSystemDarkMode = darkModeMediaQuery.matches;
         const isDarkMode = document.documentElement.classList.toggle("dark");
 
         if (isDarkMode === isSystemDarkMode) {
-            localStorage.removeItem("isDarkMode");
+            localStorage.removeItem(DARK_MODE_KEY);
         } else {
-            localStorage.setItem("isDarkMode", isDarkMode.toString());
+            localStorage.setItem(DARK_MODE_KEY, isDarkMode.toString());
         }
     };
 
