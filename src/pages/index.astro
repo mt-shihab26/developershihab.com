@@ -1,7 +1,7 @@
 ---
 import { meta } from "~/lib/meta";
 
-import { Home } from "~/components/screens/home";
+import { SiteLayout } from "~/components/layouts/site-layout";
 
 import BaseLayout from "~/layouts/BaseLayout.astro";
 ---
@@ -24,5 +24,5 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
         ]
     }}
 >
-    <Home articles={[]} />
+    <SiteLayout>Hello</SiteLayout>
 </BaseLayout>

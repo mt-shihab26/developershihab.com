@@ -1,43 +1,56 @@
-function clamp(number, a, b) {
-    let min = Math.min(a, b);
-    let max = Math.max(a, b);
-    return Math.min(Math.max(number, min), max);
-}
+import { type Component, createEffect, createSignal, onCleanup } from "solid-js";
 
-function Header() {
-    let isHomePage = useRouter().pathname === "/";
+import { Container } from "~/components/ui/container";
+import { Avatar, AvatarContainer } from "./avatar";
+import { DesktopNavigation } from "./desktop";
+import { MobileNavigation } from "./mobile";
+import { ThemeToggle } from "./theme-toggle";
 
-    let headerRef = useRef();
-    let avatarRef = useRef();
-    let isInitial = useRef(true);
+const clamp = (num: number, a: number, b: number) => {
+    const min = Math.min(a, b);
+    const max = Math.max(a, b);
+    return Math.min(Math.max(num, min), max);
+};
 
-    useEffect(() => {
-        let downDelay = avatarRef.current?.offsetTop ?? 0;
-        let upDelay = 64;
+const Header: Component = () => {
+    const isHomePage = true;
 
-        function setProperty(property, value) {
+    let headerRef!: HTMLDivElement;
+    let avatarRef!: HTMLDivElement;
+
+    const [isInitial, setIsInitial] = createSignal(true);
+
+    createEffect(() => {
+        const downDelay = avatarRef?.offsetTop ?? 0;
+        const upDelay = 64;
+
+        function setProperty(property: string, value: string) {
             document.documentElement.style.setProperty(property, value);
         }
 
-        function removeProperty(property) {
+        function removeProperty(property: string) {
             document.documentElement.style.removeProperty(property);
         }
 
         function updateHeaderStyles() {
-            let { top, height } = headerRef.current.getBoundingClientRect();
-            let scrollY = clamp(window.scrollY, 0, document.body.scrollHeight - window.innerHeight);
+            const { top, height } = headerRef.getBoundingClientRect();
+            const scrollY = clamp(
+                window.scrollY,
+                0,
+                document.body.scrollHeight - window.innerHeight
+            );
 
-            if (isInitial.current) {
+            if (isInitial()) {
                 setProperty("--header-position", "sticky");
             }
 
             setProperty("--content-offset", `${downDelay}px`);
 
-            if (isInitial.current || scrollY < downDelay) {
+            if (isInitial() || scrollY < downDelay) {
                 setProperty("--header-height", `${downDelay + height}px`);
                 setProperty("--header-mb", `${-downDelay}px`);
             } else if (top + height < -upDelay) {
-                let offset = Math.max(height, scrollY - upDelay);
+                const offset = Math.max(height, scrollY - upDelay);
                 setProperty("--header-height", `${offset}px`);
                 setProperty("--header-mb", `${height - offset}px`);
             } else if (top === 0) {
@@ -61,12 +74,12 @@ function Header() {
                 return;
             }
 
-            let fromScale = 1;
-            let toScale = 36 / 64;
-            let fromX = 0;
-            let toX = 2 / 16;
+            const fromScale = 1;
+            const toScale = 36 / 64;
+            const fromX = 0;
+            const toX = 2 / 16;
 
-            let scrollY = downDelay - window.scrollY;
+            const scrollY = downDelay - window.scrollY;
 
             let scale = (scrollY * (fromScale - toScale)) / downDelay + toScale;
             scale = clamp(scale, fromScale, toScale);
@@ -76,29 +89,29 @@ function Header() {
 
             setProperty("--avatar-image-transform", `translate3d(${x}rem, 0, 0) scale(${scale})`);
 
-            let borderScale = 1 / (toScale / scale);
-            let borderX = (-toX + x) * borderScale;
-            let borderTransform = `translate3d(${borderX}rem, 0, 0) scale(${borderScale})`;
+            const borderScale = 1 / (toScale / scale);
+            const borderX = (-toX + x) * borderScale;
+            const borderTransform = `translate3d(${borderX}rem, 0, 0) scale(${borderScale})`;
 
             setProperty("--avatar-border-transform", borderTransform);
-            setProperty("--avatar-border-opacity", scale === toScale ? 1 : 0);
+            setProperty("--avatar-border-opacity", scale === toScale ? "1" : "0");
         }
 
         function updateStyles() {
             updateHeaderStyles();
             updateAvatarStyles();
-            isInitial.current = false;
+            setIsInitial(false);
         }
 
         updateStyles();
         window.addEventListener("scroll", updateStyles, { passive: true });
         window.addEventListener("resize", updateStyles);
 
-        return () => {
-            window.removeEventListener("scroll", updateStyles, { passive: true });
+        onCleanup(() => {
+            window.removeEventListener("scroll", updateStyles);
             window.removeEventListener("resize", updateStyles);
-        };
-    }, [isHomePage]);
+        });
+    });
 
     return (
         <>
@@ -117,11 +130,11 @@ function Header() {
                         />
                         <Container
                             class="top-0 order-last -mb-3 pt-3"
-                            style={{ position: "var(--header-position)" }}
+                            style="position: 'var(--header-position)'"
                         >
                             <div
                                 class="top-[var(--avatar-top,theme(spacing.3))] w-full"
-                                style={{ position: "var(--header-inner-position)" }}
+                                style="position: 'var(--header-inner-position)'"
                             >
                                 <div class="relative">
                                     <AvatarContainer
@@ -144,11 +157,11 @@ function Header() {
                 <div
                     ref={headerRef}
                     class="top-0 z-10 h-16 pt-6"
-                    style={{ position: "var(--header-position)" }}
+                    style="position: 'var(--header-position)'"
                 >
                     <Container
                         class="top-[var(--header-top,theme(spacing.6))] w-full"
-                        style={{ position: "var(--header-inner-position)" }}
+                        style="position: 'var(--header-inner-position)'"
                     >
                         <div class="relative flex gap-4">
                             <div class="flex flex-1">
@@ -164,7 +177,7 @@ function Header() {
                             </div>
                             <div class="flex justify-end md:flex-1">
                                 <div class="pointer-events-auto">
-                                    <ModeToggle />
+                                    <ThemeToggle />
                                 </div>
                             </div>
                         </div>
@@ -174,6 +187,6 @@ function Header() {
             {isHomePage && <div style={{ height: "var(--content-offset)" }} />}
         </>
     );
-}
+};
 
 export { Header };
