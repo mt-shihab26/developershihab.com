@@ -1,9 +1,11 @@
 ---
 import { meta } from "~/lib/meta";
 
+import { Container } from "~/components/ui/container";
+
 import Layout from "~/components/layouts/Layout.astro";
 ---
 
 <Layout name="About" pathname="/about" description={meta.description}>
-    <div>Hello</div>
+    <Container>Hello</Container>
 </Layout>
