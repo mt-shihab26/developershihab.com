@@ -13,7 +13,7 @@ import { Article } from "./article";
 import { Newsletter } from "./news-letter";
 import { Photos } from "./photos";
 import { Resume } from "./resume";
-import { SocialLink } from "./social-ink";
+import { SocialLink } from "./social-link";
 
 const Home = ({ articles }: { articles: TArticle[] }) => {
     return (

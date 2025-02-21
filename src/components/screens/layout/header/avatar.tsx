@@ -1,9 +1,8 @@
 import type { TAProps, TDivProps } from "~/types/utils";
 
 import { splitProps } from "solid-js";
+import { shihab } from "~/lib/images";
 import { cn } from "~/lib/utils";
-
-import shihab from "~/assets/images/shihab.jpg";
 
 const AvatarContainer = (props: { class?: string } & TDivProps) => {
     const [local, others] = splitProps(props, ["class"]);

@@ -1,11 +1,83 @@
 ---
 import { meta } from "~/lib/meta";
+import { shihab } from "~/lib/images";
 
 import { Container } from "~/components/ui/container";
+import { SocialLinks } from "~/components/screens/about/social-links";
 
 import Layout from "~/components/layouts/Layout.astro";
 ---
 
 <Layout name="About" pathname="/about" description={meta.description}>
-    <Container>Hello</Container>
+    <Container class="mt-16 sm:mt-32">
+        <div class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
+            <div class="lg:pl-20">
+                <div class="max-w-xs px-2.5 lg:max-w-none">
+                    <img
+                        src={shihab.src}
+                        alt=""
+                        sizes="(min-width: 1024px) 32rem, 20rem"
+                        class="aspect-square rotate-3 rounded-2xl bg-zinc-100 object-cover dark:bg-zinc-800"
+                    />
+                </div>
+            </div>
+            <div class="lg:order-first lg:row-span-2">
+                <h1
+                    class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
+                >
+                    I’m Brian Ketelsen. I live in Florida, where I help people across the world
+                    learn the Cloud.
+                </h1>
+                <div
+                    class="prose dark:prose-invert mt-6 space-y-7 text-lg text-zinc-600 dark:text-zinc-400"
+                >
+                    <p>
+                        Howdy! Thanks for stopping by. I’m Brian and I’ve been doing technology
+                        things since{" "}
+                        <a href="https://en.wikipedia.org/wiki/Acoustic_coupler">
+                            acoustic modem couplers
+                        </a>{" "}
+                        were a thing. I love Open Source and exploring different programming languages.
+                        Some highlights about me and my activities:
+                    </p>
+                    <p>
+                        <b>Army Veteran:</b> Bradley Fighting Vehicle Gunner, Infantry, 1st Armored Division
+                    </p>
+                    <p>
+                        <b>
+                            Father of <s>four</s> five
+                        </b>{" "}
+                        with <s>19</s> 21 years difference between oldest and youngest child
+                    </p>
+                    <p>
+                        <b>Co-founded GopherCon</b>{" "}
+                        <a href="https://gophercon.com">
+                            the largest conference for Go developers
+                        </a>
+                        .
+                    </p>
+                    <p>
+                        <b>Co-authored</b>{" "}
+                        <a href="https://www.amazon.com/Go-Action-William-Kennedy/dp/1617291781">
+                            Go In Action
+                        </a>{" "}
+                        for Manning Publishing.
+                    </p>
+                    <p>
+                        <b>Co-wrote</b> Skynet and SkyDNS with Erik St. Martin, which was eventually
+                        morphed into the DNS service discovery that powers Kubernetes.
+                    </p>
+                    <p>
+                        <b>Contributed</b> to the largest projects that power the Internet. Go, Kubernetes,
+                        Etcd, and so many more.
+                    </p>
+                    <p>
+                        I love Open Source, learning in public, and sharing what I learn with
+                        others.
+                    </p>
+                </div>
+            </div>
+            <SocialLinks />
+        </div>
+    </Container>
 </Layout>
