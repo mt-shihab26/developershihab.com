@@ -4,23 +4,6 @@ import { meta } from "~/lib/meta";
 import Layout from "~/components/layouts/Layout.astro";
 ---
 
-<Layout
-    title={meta.title}
-    description={meta.description}
-    canonical={meta.url}
-    openGraph={{
-        url: meta.url,
-        siteName: "Shihab Mahamud",
-        images: [
-            {
-                url: `https://og.brian.dev/api/og?title=${meta.title}&desc=${meta.description}`,
-                width: 1200,
-                height: 600,
-                alt: "Og Image Alt",
-                type: "image/jpeg"
-            }
-        ]
-    }}
->
-    Hello
+<Layout name="About" pathname="/about" description={meta.description}>
+    <div>Hello</div>
 </Layout>

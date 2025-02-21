@@ -2,12 +2,14 @@
     "type": "module",
     "scripts": {
         "dev": "astro dev",
-        "build": "astro build",
+        "build": "astro check && astro build",
         "preview": "astro preview",
         "astro": "astro",
-        "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,mdx,svelte,astro,json,svg}\""
+        "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,mdx,svelte,astro,json,svg}\"",
+        "lint": "astro check"
     },
     "dependencies": {
+        "@astrojs/check": "^0.9.4",
         "@astrojs/solid-js": "^5.0.4",
         "@astrojs/vercel": "^8.0.7",
         "@tailwindcss/typography": "^0.5.16",
@@ -17,7 +19,8 @@
         "solid-js": "^1.9.4",
         "tailwind-merge": "^3.0.1",
         "tailwindcss": "^4.0.7",
-        "terracotta": "^1.0.6"
+        "terracotta": "^1.0.6",
+        "typescript": "^5.7.3"
     },
     "devDependencies": {
         "prettier": "^3.5.1",

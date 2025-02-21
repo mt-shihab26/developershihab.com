@@ -6,7 +6,6 @@ import { For } from "solid-js";
 import { GithubIcon } from "~/components/icons/github-icon";
 import { InstagramIcon } from "~/components/icons/instagram-icon";
 import { LinkedinIcon } from "~/components/icons/linkedin-icon";
-import { MastodonIcon } from "~/components/icons/mastodon-icon";
 import { TwitterIcon } from "~/components/icons/twitter-icon";
 import { Container } from "~/components/ui/container";
 
@@ -45,12 +44,6 @@ const Home = ({ articles }: { articles: TArticle[] }) => {
                             href={meta.author.twitter}
                             aria-label="Follow on Twitter"
                             icon={TwitterIcon}
-                        />
-                        <SocialLink
-                            href={meta.author.mastodon}
-                            aria-label="Follow on Mastodon"
-                            icon={MastodonIcon}
-                            rel="me"
                         />
                         <SocialLink
                             href={meta.author.instagram}

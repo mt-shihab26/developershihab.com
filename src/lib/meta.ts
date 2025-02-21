@@ -1,6 +1,6 @@
 const meta = {
     url: "https://developershihab.com",
-    title: "Shihab Mahamud",
+    name: "Shihab Mahamud",
     description: "Full-stack developer with 3 years of experience. My focus is Laravel & React.",
     author: {
         name: "Shihab Mahamud",
