@@ -1,3 +1,5 @@
+import type { ImageMetadata } from "astro";
+
 import finnext from "~/assets/images/finnext.webp";
 import systech from "~/assets/images/systech.webp";
 
@@ -20,3 +22,11 @@ export {
     shihab_r15,
     shihab_sea
 };
+
+import paystubhero from "~/assets/svgs/paystubhero.svg";
+
+const svgs: Record<string, ImageMetadata> = {
+    "svgs/paystubhero.svg": paystubhero
+};
+
+export { svgs };

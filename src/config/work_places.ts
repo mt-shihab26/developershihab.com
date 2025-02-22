@@ -1,4 +1,4 @@
-import { finnext, systech } from "~/lib/images";
+import { finnext, systech } from "~/lib/assets";
 
 const work_places = [
     {

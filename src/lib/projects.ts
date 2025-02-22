@@ -1,11 +1,10 @@
-import paystubhero from "~/assets/svgs/paystubhero.svg";
+import type { CollectionEntry } from "astro:content";
 
-export const projects = [
-    {
-        name: "PaystubHero",
-        description:
-            "SaaS application featuring a dynamic step by step document generators, admin dashboard, and customer profile.",
-        link: { href: "/projects/paystubhero", label: "Case Study" },
-        logo: paystubhero
-    }
-];
+import { getCollection } from "astro:content";
+
+export type TProject = CollectionEntry<"projects">;
+
+export const getProjects = async (): Promise<TProject[]> => {
+    const projects: TProject[] = await getCollection("projects");
+    return projects;
+};

@@ -1,13 +1,14 @@
 ---
-import { Image } from "astro:assets";
+import { getProjects } from "~/lib/projects";
+import { svgs } from "~/lib/assets";
 
 import { Card, CardDescription, CardLink } from "~/components/ui/card";
 import { LinkIcon } from "~/components/icons/link-icon";
 import { Container } from "~/components/ui/container";
 
-import { projects } from "~/lib/projects";
-
 import Layout from "~/components/layouts/Layout.astro";
+
+const projects = await getProjects();
 
 const headline = "Things I’ve made trying to put my mark on the universe.";
 ---
@@ -36,20 +37,25 @@ const headline = "Things I’ve made trying to put my mark on the universe.";
                     projects.map((project) => (
                         <Card as="li">
                             <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white ring-1 shadow-md shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-                                <Image src={project.logo} alt="" class="h-8 w-8" loading="lazy" />
+                                <img
+                                    src={svgs[project.data.logo].src}
+                                    alt=""
+                                    class="h-8 w-8"
+                                    loading="lazy"
+                                />
                             </div>
                             <h2 class="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
                                 <CardLink
-                                    href={project.link.href}
-                                    target={project.link?.external ? "_blank" : undefined}
+                                    href={project.data.link_href}
+                                    target={project.data.link_external ? "_blank" : undefined}
                                 >
-                                    {project.name}
+                                    {project.data.name}
                                 </CardLink>
                             </h2>
-                            <CardDescription>{project.description}</CardDescription>
+                            <CardDescription>{project.data.description}</CardDescription>
                             <p class="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
                                 <LinkIcon class="h-6 w-6 flex-none" />
-                                <span class="ml-2">{project.link.label}</span>
+                                <span class="ml-2">{project.data.link_label}</span>
                             </p>
                         </Card>
                     ))
