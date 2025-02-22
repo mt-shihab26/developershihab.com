@@ -3,11 +3,11 @@ import type { TArticle } from "~/lib/articles";
 import { time } from "~/lib/time";
 
 import { For } from "solid-js";
-import { Card2, CardCta, CardDescription, CardEyebrow, CardTitle } from "~/components/ui/card";
+import { Card, CardCta, CardDescription, CardEyebrow, CardTitle } from "~/components/ui/card";
 
 const Article = (props: { article: TArticle }) => {
     return (
-        <Card2 as="article">
+        <Card as="article">
             <CardTitle href={`/articles/${props.article.slug}`}>
                 {props.article.data.title}
             </CardTitle>
@@ -16,7 +16,7 @@ const Article = (props: { article: TArticle }) => {
             </CardEyebrow>
             <CardDescription>{props.article.data.description}</CardDescription>
             <CardCta>Read article</CardCta>
-        </Card2>
+        </Card>
     );
 };
 

@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 
 export type TArticle = CollectionEntry<"articles">;
 
-const getArticles = async (): Promise<TArticle[]> => {
+export const getArticles = async (): Promise<TArticle[]> => {
     const articles: TArticle[] = await getCollection("articles");
     return articles.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 };

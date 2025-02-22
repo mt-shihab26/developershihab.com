@@ -91,4 +91,4 @@ const CardEyebrow = (
     );
 };
 
-export { Card as Card2, CardCta, CardDescription, CardEyebrow, CardLink, CardTitle };
+export { Card, CardCta, CardDescription, CardEyebrow, CardLink, CardTitle };
