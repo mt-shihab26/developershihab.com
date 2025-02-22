@@ -15,8 +15,8 @@ const Item = (props: { pathname: string; href: string; children: JSXElement }) =
                 class={cn(
                     "relative block px-3 py-2 transition",
                     isActive()
-                        ? "text-teal-700 dark:text-teal-400"
-                        : "hover:text-teal-700 dark:hover:text-teal-400"
+                        ? "text-teal-500 dark:text-teal-400"
+                        : "hover:text-teal-500 dark:hover:text-teal-400"
                 )}
             >
                 {props.children}

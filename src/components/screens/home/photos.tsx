@@ -15,8 +15,9 @@ const Photos = () => {
                         )}
                     >
                         <img
-                            src={image}
+                            src={image.src}
                             alt=""
+                            loading="lazy"
                             sizes="(min-width: 640px) 18rem, 11rem"
                             class="absolute inset-0 h-full w-full object-cover"
                         />
