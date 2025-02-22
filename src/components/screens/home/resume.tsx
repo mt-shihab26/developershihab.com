@@ -1,8 +1,25 @@
-import { resume } from "~/lib/resume";
+import { finnext, systech } from "~/lib/images";
 
 import { ArrowDownIcon } from "~/components/icons/arrow-down-icon";
 import { BriefcaseIcon } from "~/components/icons/briefcase-icon";
 import { Button } from "~/components/ui/button";
+
+const resume = [
+    {
+        company: "Finnext",
+        title: "Full-stack Developer",
+        logo: finnext,
+        start: "May 2023",
+        end: "Present"
+    },
+    {
+        company: "Systech Digital LTD",
+        title: "Software Engineer - Intern",
+        logo: systech,
+        start: "June 2024",
+        end: "September 2024"
+    }
+];
 
 const Resume = () => {
     return (
