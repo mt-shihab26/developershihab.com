@@ -31,7 +31,7 @@ const Avatar = (props: { large?: boolean; class?: string } & TAProps) => {
                 alt=""
                 sizes={large() ? "4rem" : "2.25rem"}
                 class={cn(
-                    "rounded-full bg-zinc-100 object-cover dark:bg-zinc-800",
+                    "rounded-full bg-zinc-100 object-contain dark:bg-zinc-800",
                     large() ? "h-16 w-16" : "h-9 w-9"
                 )}
             />
