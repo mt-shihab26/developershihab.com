@@ -13,6 +13,19 @@ const time = {
         var year = dt.toLocaleString("default", { year: "numeric" });
 
         return month + " " + year;
+    },
+    formatToLongDate: (date: Date | string): string => {
+        const dateObject: Date = date instanceof Date ? date : new Date(date);
+
+        if (isNaN(dateObject.getTime())) {
+            throw new Error("Invalid date provided");
+        }
+
+        return dateObject.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+        });
     }
 };
 

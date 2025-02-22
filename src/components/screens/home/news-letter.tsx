@@ -1,5 +1,6 @@
-import { MailIcon } from "~/components/icons/mail-icon";
 import { cn } from "~/lib/utils";
+
+import { MailIcon } from "~/components/icons/mail-icon";
 
 const Newsletter = () => {
     return (
