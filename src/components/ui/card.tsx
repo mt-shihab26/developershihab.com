@@ -8,12 +8,13 @@ import { Dynamic } from "solid-js/web";
 import { ChevronRightIcon } from "~/components/icons/chevron-right-icon";
 
 const Card = (props: { as?: TAsProps; class?: string; children?: JSX.Element }) => {
-    const Component = props.as || "div";
-
     return (
-        <Component class={cn(props.class, "group relative flex flex-col items-start")}>
+        <Dynamic
+            component={props.as || "div"}
+            class={cn(props.class, "group relative flex flex-col items-start")}
+        >
             {props.children}
-        </Component>
+        </Dynamic>
     );
 };
 
@@ -30,12 +31,13 @@ const CardLink = (props: { children: JSX.Element; href: string }) => {
 };
 
 const CardTitle = (props: { as?: TAsProps; href?: string; children: JSX.Element }) => {
-    const Component = props.as || "h2";
-
     return (
-        <Component class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+        <Dynamic
+            component={props.as || "h2"}
+            class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100"
+        >
             {props.href ? <CardLink href={props.href}>{props.children}</CardLink> : props.children}
-        </Component>
+        </Dynamic>
     );
 };
 
@@ -89,4 +91,4 @@ const CardEyebrow = (
     );
 };
 
-export { Card, CardCta, CardDescription, CardEyebrow, CardLink, CardTitle };
+export { Card as Card2, CardCta, CardDescription, CardEyebrow, CardLink, CardTitle };

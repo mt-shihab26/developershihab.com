@@ -1,13 +1,13 @@
 ---
 import { meta } from "~/lib/meta";
 
-import { For } from "solid-js";
+// import { For } from "solid-js";
 import { Container } from "~/components/ui/container";
 import { Photos } from "~/components/screens/home/photos";
 import { Newsletter } from "~/components/screens/home/news-letter";
-import { Resume } from "~/components/screens/home/resume";
-import { Article } from "~/components/screens/home/article";
-import { SocialLinks } from "~/components/screens/about/social-links";
+import { WorkPlaces } from "~/components/screens/home/work-places";
+// import { Article } from "~/components/screens/home/article";
+import { SocialLinks } from "~/components/screens/home/social-links";
 
 import Layout from "~/components/layouts/Layout.astro";
 ---
@@ -40,11 +40,11 @@ import Layout from "~/components/layouts/Layout.astro";
     <Container class="mt-24 md:mt-28">
         <div class="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
             <div class="flex flex-col gap-16">
-                <For each={[]}>{(article) => <Article article={article} />}</For>
+                <!-- <For each={[]}>{(article) => <Article article={article} />}</For> -->
             </div>
             <div class="space-y-10 lg:pl-16 xl:pl-24">
                 <Newsletter />
-                <Resume />
+                <WorkPlaces />
             </div>
         </div>
     </Container>
