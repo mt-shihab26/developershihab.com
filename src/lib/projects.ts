@@ -8,7 +8,7 @@ export const projects = [
     {
         name: "Fleek",
         description: "Install and manage all the tools you need to be productive.",
-        link: { href: "https://getfleek.dev", label: "getfleek.dev" },
+        link: { href: "https://getfleek.dev", label: "getfleek.dev", external: true },
         logo: fleek
     },
     {
