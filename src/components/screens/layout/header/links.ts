@@ -12,9 +12,13 @@ const links = [
         href: "/projects"
     },
     {
-        label: "Speaking",
-        href: "/speaking"
+        label: "Experience",
+        href: "/experience"
     },
+    // {
+    //     label: "Speaking",
+    //     href: "/speaking"
+    // },
     {
         label: "Uses",
         href: "/uses"
