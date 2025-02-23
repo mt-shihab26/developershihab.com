@@ -1,4 +1,5 @@
 import { finnext, systech } from "~/lib/assets";
+import { frameworks, languages, tools } from "./tools_uses";
 
 const experiences = [
     {
@@ -41,19 +42,6 @@ const educations = [
     }
 ];
 
-const skills = [
-    {
-        category: "Frontend",
-        technologies: ["React", "JavaScript", "TypeScript", "Tailwind CSS", "HTML5", "CSS3"]
-    },
-    {
-        category: "Backend",
-        technologies: ["Laravel", "PHP", "Node.js", "MySQL", "PostgreSQL", "REST APIs"]
-    },
-    {
-        category: "Tools & Others",
-        technologies: ["Git", "Docker", "AWS", "Linux", "Agile/Scrum", "CI/CD"]
-    }
-];
+const skills = [languages, frameworks, tools];
 
 export { educations, experiences, skills };
