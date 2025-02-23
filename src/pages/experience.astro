@@ -1,0 +1,132 @@
+---
+import { educations, experiences, skills } from "~/config/experiences";
+
+import { BadgeCheckIcon, Building2Icon, GraduationCapIcon } from "lucide-solid";
+import { Container } from "~/components/ui/container";
+
+import Layout from "~/components/layouts/Layout.astro";
+
+const headline = "Professional Experience";
+---
+
+<Layout name="Experience" pathname="/experience" description={headline}>
+    <Container class="mt-16 sm:mt-32">
+        <header class="max-w-2xl">
+            <h1
+                class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
+            >
+                {headline}
+            </h1>
+            <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+                I've worked with various companies, building software solutions and gaining valuable
+                experience in full-stack development.
+            </p>
+        </header>
+
+        <div class="mt-16 space-y-20">
+            <section>
+                <h2
+                    class="mb-10 flex items-center gap-3 text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100"
+                >
+                    <Building2Icon class="h-6 w-6" />
+                    Work Experience
+                </h2>
+                <div class="space-y-8">
+                    {
+                        experiences.map((exp) => (
+                            <div class="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
+                                <div class="flex items-center gap-4">
+                                    <div class="relative flex h-10 w-10 flex-none items-center justify-center rounded-full ring-1 shadow-md shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+                                        <img src={exp.logo} alt={exp.company} class="h-7 w-7" />
+                                    </div>
+                                    <div class="flex-auto">
+                                        <h3 class="text-lg font-semibold text-zinc-800 dark:text-zinc-100">
+                                            {exp.company}
+                                        </h3>
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-sm text-zinc-600 dark:text-zinc-400">
+                                                {exp.role}
+                                            </span>
+                                            <span class="text-zinc-400 dark:text-zinc-500">•</span>
+                                            <span class="text-sm text-zinc-500 dark:text-zinc-500">
+                                                {exp.period}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-4 text-sm text-zinc-600 dark:text-zinc-400">
+                                    {exp.description}
+                                </p>
+                                <ul class="mt-4 space-y-2">
+                                    {exp.highlights.map((highlight) => (
+                                        <li class="flex items-start gap-2 text-sm text-zinc-600 dark:text-zinc-400">
+                                            <BadgeCheckIcon class="h-5 w-5 flex-none text-teal-500" />
+                                            <span>{highlight}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))
+                    }
+                </div>
+            </section>
+            <section>
+                <h2
+                    class="mb-10 flex items-center gap-3 text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100"
+                >
+                    <GraduationCapIcon class="h-6 w-6" />
+                    Education
+                </h2>
+                <div class="space-y-8">
+                    {
+                        educations.map((edu) => (
+                            <div class="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
+                                <h3 class="text-lg font-semibold text-zinc-800 dark:text-zinc-100">
+                                    {edu.institution}
+                                </h3>
+                                <div class="mt-2 flex items-center gap-2">
+                                    <span class="text-sm text-zinc-600 dark:text-zinc-400">
+                                        {edu.degree}
+                                    </span>
+                                    <span class="text-zinc-400 dark:text-zinc-500">•</span>
+                                    <span class="text-sm text-zinc-500 dark:text-zinc-500">
+                                        {edu.period}
+                                    </span>
+                                </div>
+                                <p class="mt-4 text-sm text-zinc-600 dark:text-zinc-400">
+                                    {edu.description}
+                                </p>
+                            </div>
+                        ))
+                    }
+                </div>
+            </section>
+
+            <section>
+                <h2
+                    class="mb-10 text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100"
+                >
+                    Technical Skills
+                </h2>
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                    {
+                        skills.map((skillGroup) => (
+                            <div class="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
+                                <h3 class="mb-4 text-lg font-semibold text-zinc-800 dark:text-zinc-100">
+                                    {skillGroup.category}
+                                </h3>
+                                <div class="flex flex-wrap gap-2">
+                                    {skillGroup.technologies.map((tech) => (
+                                        <span class="inline-flex items-center rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200">
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </section>
+        </div>
+    </Container>
+</Layout>
