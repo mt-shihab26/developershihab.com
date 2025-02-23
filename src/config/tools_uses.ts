@@ -3,29 +3,9 @@ const tools_uses = [
         title: "Workstation",
         items: [
             {
-                name: '16" MacBook Pro, M1 Max, 64GB RAM (2021)',
+                name: "13-inch, MacBook Pro, M2, 8GB RAM (2022 )",
                 description:
-                    "I was using an Intel-based 16\" MacBook Pro prior to this and the difference is night and day. I've never heard the fans turn on a single time, even under the incredibly heavy loads I put it through with our various launch simulations."
-            },
-            {
-                name: "Apple Pro Display XDR (Standard Glass)",
-                description:
-                    "The only display on the market if you want something HiDPI and bigger than 27\". When you're working at planetary scale, every pixel you can get counts."
-            },
-            {
-                name: "IBM Model M SSK Industrial Keyboard",
-                description:
-                    "They don't make keyboards the way they used to. I buy these any time I see them go up for sale and keep them in storage in case I need parts or need to retire my main."
-            },
-            {
-                name: "Apple Magic Trackpad",
-                description:
-                    "Something about all the gestures makes me feel like a wizard with special powers. I really like feeling like a wizard with special powers."
-            },
-            {
-                name: "Herman Miller Aeron Chair",
-                description:
-                    "If I'm going to slouch in the worst ergonomic position imaginable all day, I might as well do it in an expensive chair."
+                    "Coming from an Avita laptop running Ubuntu-based Linux, switching to the M2 MacBook has been quite a change. While I enjoyed the customization of Linux, the M2's performance and integration with macOS makes development incredibly smooth. The battery life and build quality are also major upgrades."
             }
         ]
     },
@@ -33,14 +13,29 @@ const tools_uses = [
         title: "Development tools",
         items: [
             {
-                name: "Sublime Text 4",
+                name: "Ghostty",
                 description:
-                    "I don't care if it's missing all of the fancy IDE features everyone else relies on, Sublime Text is still the best text editor ever made."
+                    "A modern, fast terminal emulator that offers excellent performance and GPU acceleration. Its clean interface and smooth scrolling make it a pleasure to use for daily development tasks. The seamless integration with tmux and support for ligatures are particularly noteworthy features."
             },
             {
-                name: "iTerm2",
+                name: "Tmux",
                 description:
-                    "I'm honestly not even sure what features I get with this that aren't just part of the macOS Terminal but it's what I use."
+                    "A terminal multiplexer that's become an essential part of my workflow. It allows me to maintain multiple terminal sessions, split panes, and create workspaces for different projects. The ability to detach and reattach sessions means I never lose my development context, even if I need to disconnect."
+            },
+            {
+                name: "Neovim",
+                description:
+                    "My primary text editor that I've extensively customized with Lua configurations. The modal editing, plugin ecosystem, and ability to execute commands without leaving the home row make it incredibly efficient for coding. The LSP integration provides IDE-like features while maintaining the lightweight nature of a terminal editor. I have my own written neovim configuration in my dotfiles repo"
+            },
+            {
+                name: "Git",
+                description:
+                    "The version control system that powers all my projects. Beyond basic version control, I extensively use features like interactive rebasing, cherry-picking, and branch management to maintain clean commit histories and collaborate effectively with teams."
+            },
+            {
+                name: "Lazygit",
+                description:
+                    "A terminal UI for Git that simplifies complex operations. It provides an intuitive interface for managing branches, staging changes, and resolving conflicts. The visual representation of the Git tree and keyboard shortcuts make Git operations much more efficient. Also I have intergrate lazygit on my neovim, I can use it inside neovim"
             },
             {
                 name: "TablePlus",
@@ -50,37 +45,12 @@ const tools_uses = [
         ]
     },
     {
-        title: "Design",
-        items: [
-            {
-                name: "Figma",
-                description:
-                    "We started using Figma as just a design tool but now it's become our virtual whiteboard for the entire company. Never would have expected the collaboration features to be the real hook."
-            }
-        ]
-    },
-    {
         title: "Productivity",
         items: [
             {
-                name: "Alfred",
+                name: "Be Focused",
                 description:
-                    "It's not the newest kid on the block but it's still the fastest. The Sublime Text of the application launcher world."
-            },
-            {
-                name: "Reflect",
-                description:
-                    "Using a daily notes system instead of trying to keep things organized by topics has been super powerful for me. And with Reflect, it's still easy for me to keep all of that stuff discoverable by topic even though all of my writing happens in the daily note."
-            },
-            {
-                name: "SavvyCal",
-                description:
-                    "Great tool for scheduling meetings while protecting my calendar and making sure I still have lots of time for deep work during the week."
-            },
-            {
-                name: "Focus",
-                description:
-                    "Simple tool for blocking distracting websites when I need to just do the work and get some momentum going."
+                    "A Pomodoro timer app that helps maintain productivity through structured work intervals. It tracks work sessions, provides customizable break periods, and maintains statistics of daily progress. The minimal interface and quick controls make it easy to stay focused without getting distracted by the tool itself."
             }
         ]
     }
