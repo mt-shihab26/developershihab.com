@@ -29,7 +29,7 @@ const { name, pathname, description } = Astro.props as Props;
         </div>
         <div class="relative">
             <Header pathname={Astro.url?.pathname} client:load />
-            <main><slot /></main>
+            <main class="flex-auto"><slot /></main>
             <Footer />
         </div>
     </body>
