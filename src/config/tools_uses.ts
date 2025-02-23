@@ -1,6 +1,51 @@
 const tools_uses = [
     {
-        title: "Workstation",
+        title: "Languages",
+        items: [
+            {
+                name: "JavaScript/TypeScript",
+                description:
+                    "My go-to languages for web development, with TypeScript adding type safety and improved developer experience that makes large-scale applications more maintainable and robust."
+            },
+            {
+                name: "PHP",
+                description:
+                    "A versatile server-side language I frequently use with Laravel for building robust web applications, appreciating its mature ecosystem and excellent documentation."
+            },
+            {
+                name: "C/C++",
+                description:
+                    "Systems programming languages I use for performance-critical applications, with C++ being particularly useful for its powerful abstraction capabilities while maintaining close-to-hardware control."
+            }
+        ]
+    },
+    {
+        title: "Frameworks",
+        items: [
+            {
+                name: "Laravel",
+                description:
+                    "My preferred PHP framework for its elegant syntax, robust features, and excellent developer experience, making it ideal for rapid application development while maintaining clean code."
+            },
+            {
+                name: "React",
+                description:
+                    "A JavaScript library I use extensively for building interactive user interfaces, particularly appreciating its component-based architecture and vast ecosystem."
+            },
+            {
+                name: "WordPress",
+                description:
+                    "The CMS I rely on for content-driven websites, leveraging its extensive plugin ecosystem and customization capabilities to create tailored solutions."
+            },
+            {
+                name: "TailwindCSS",
+                description:
+                    "My favorite utility-first CSS framework that speeds up UI development with its intuitive class naming and highly customizable design system."
+            }
+        ]
+    },
+    {
+        title: "Devices",
         items: [
             {
                 name: "13-inch, MacBook Pro, M2, 8GB RAM (2022 )",
@@ -10,7 +55,7 @@ const tools_uses = [
         ]
     },
     {
-        title: "Development tools",
+        title: "Tools",
         items: [
             {
                 name: "Ghostty",
