@@ -1,0 +1,25 @@
+---
+import { cn } from "~/lib/utils";
+
+import { DownloadIcon } from "~/components/icons/download-icon";
+---
+
+<a
+    href="/shihab-mahamud-resume.pdf"
+    download
+    class={cn(
+        "inline-flex items-center space-x-2 group justify-center rounded-md py-2 px-3 text-sm",
+        "outline-offset-2 transition active:transition-none font-medium mt-6 w-full",
+        "bg-zinc-50 text-zinc-900 hover:bg-zinc-100 active:bg-zinc-100 active:text-zinc-900/60",
+        "dark:bg-zinc-800/50 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50",
+        "dark:active:bg-zinc-800/50 cursor-pointer dark:active:text-zinc-50/70"
+    )}
+>
+    Download Resume
+    <DownloadIcon
+        class={cn(
+            "h-5 w-5 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50",
+            "dark:group-active:stroke-zinc-50"
+        )}
+    />
+</a>
