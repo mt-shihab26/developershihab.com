@@ -3,7 +3,7 @@ import { meta } from "~/lib/meta";
 import { getFeaturedArticles } from "~/lib/articles";
 
 import { Container } from "~/components/ui/container";
-import { WorkPlaces } from "~/components/screens/home/work-places";
+import { Experience } from "~/components/screens/home/experience";
 import { Articles } from "~/components/screens/home/articles";
 
 import Bio from "~/components/screens/home/bio.astro";
@@ -27,7 +27,7 @@ const articles = await getFeaturedArticles();
         <div class="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
             <Articles articles={articles} />
             <div class="space-y-10 lg:pl-16 xl:pl-24">
-                <WorkPlaces />
+                <Experience />
             </div>
         </div>
     </Container>

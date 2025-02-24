@@ -5,7 +5,8 @@ const experiences = [
     {
         company: "Finnext",
         role: "Full-stack Developer",
-        period: "May 2023 - Present",
+        start: "May 2023",
+        end: "Present",
         logo: finnext.src,
         description:
             "Working as a full-stack developer handling development of applications, plugins development, and deployment. Responsible for ongoing maintenance, bug fixes, and implementing new features.",
@@ -19,7 +20,8 @@ const experiences = [
     {
         company: "Systech Digital LTD",
         role: "Software Engineer - Intern",
-        period: "Jun 2024 - Sep 2024",
+        start: "Jun 2024",
+        end: "Sep 2024",
         logo: systech.src,
         description:
             "Gained hands-on experience in software development working with modern technologies and best practices.",

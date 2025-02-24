@@ -1,18 +1,20 @@
-import { work_places } from "~/config/work_places";
+import { experiences } from "~/config/experiences";
 import { cn } from "~/lib/utils";
 
 import { BriefcaseIcon } from "~/components/icons/briefcase-icon";
 import { DownloadIcon } from "~/components/icons/download-icon";
 
-const WorkPlaces = () => {
+const Experience = () => {
     return (
         <div class="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
             <h2 class="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
                 <BriefcaseIcon class="h-6 w-6 flex-none" />
-                <span class="ml-3">Work</span>
+                <a href="/experience" class="ml-3 underline">
+                    Experience
+                </a>
             </h2>
             <ol class="mt-6 space-y-4">
-                {work_places.map((role) => (
+                {experiences.map((experience) => (
                     <li class="flex gap-4">
                         <div
                             class={cn(
@@ -21,23 +23,25 @@ const WorkPlaces = () => {
                                 "dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
                             )}
                         >
-                            <img src={role.logo.src} alt="" class="h-7 w-7" />
+                            <img src={experience.logo} alt="" class="h-7 w-7" />
                         </div>
                         <dl class="flex flex-auto flex-wrap gap-x-2">
                             <dt class="sr-only">Company</dt>
                             <dd class="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                                {role.company}
+                                {experience.company}
                             </dd>
                             <dt class="sr-only">Role</dt>
-                            <dd class="text-xs text-zinc-500 dark:text-zinc-400">{role.title}</dd>
+                            <dd class="text-xs text-zinc-500 dark:text-zinc-400">
+                                {experience.role}
+                            </dd>
                             <dt class="sr-only">Date</dt>
                             <dd
                                 class="ml-auto text-xs text-zinc-500 dark:text-zinc-500"
-                                aria-label={`${role.start} until ${role.end}`}
+                                aria-label={`${experience.start} until ${experience.end}`}
                             >
-                                <time dateTime={role.start}>{role.start}</time>{" "}
+                                <time dateTime={experience.start}>{experience.start}</time>{" "}
                                 <span aria-hidden="true">—</span>{" "}
-                                <time dateTime={role.end}>{role.end}</time>
+                                <time dateTime={experience.end}>{experience.end}</time>
                             </dd>
                         </dl>
                     </li>
@@ -64,4 +68,4 @@ const WorkPlaces = () => {
     );
 };
 
-export { WorkPlaces };
+export { Experience };
