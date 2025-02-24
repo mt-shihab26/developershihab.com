@@ -3,13 +3,12 @@ import { meta } from "~/lib/meta";
 import { getFeaturedArticles } from "~/lib/articles";
 
 import { Container } from "~/components/ui/container";
-import { Photos } from "~/components/screens/home/photos";
-import { Newsletter } from "~/components/screens/home/news-letter";
 import { WorkPlaces } from "~/components/screens/home/work-places";
 import { Articles } from "~/components/screens/home/articles";
 
 import Bio from "~/components/screens/home/bio.astro";
 import SocialLinks from "~/components/screens/home/social-links.astro";
+import Photos from "~/components/screens/home/photos.astro";
 
 import Layout from "~/components/layouts/Layout.astro";
 
@@ -28,7 +27,6 @@ const articles = await getFeaturedArticles();
         <div class="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
             <Articles articles={articles} />
             <div class="space-y-10 lg:pl-16 xl:pl-24">
-                <Newsletter />
                 <WorkPlaces />
             </div>
         </div>
