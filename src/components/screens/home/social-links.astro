@@ -1,0 +1,16 @@
+---
+import { social_links } from "~/config/social_links";
+---
+
+<div class="mt-6 flex gap-6">
+    {
+        social_links.map((l) => {
+            const Icon = l.icon;
+            return (
+                <a class="group -m-1 p-1" href={l.href} aria-label={l.label} target="_blank">
+                    <Icon class="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
+                </a>
+            );
+        })
+    }
+</div>

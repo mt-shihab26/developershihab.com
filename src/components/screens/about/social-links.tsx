@@ -30,7 +30,7 @@ const SocialLinks = () => {
     return (
         <div class="lg:pl-20">
             <ul role="list">
-                <SocialLink href={meta.twitter} icon={TwitterIcon}>
+                <SocialLink href={meta.x} icon={TwitterIcon}>
                     Follow on Twitter
                 </SocialLink>
                 <SocialLink href={meta.instagram} icon={InstagramIcon} class="mt-4">
