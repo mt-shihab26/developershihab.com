@@ -2,10 +2,10 @@ import { createEffect, createSignal, onCleanup } from "solid-js";
 
 import { Container } from "~/components/ui/container";
 
-import { Avatar, AvatarContainer } from "./avatar";
-import { DesktopNavigation } from "./desktop-navigation";
-import { MobileNavigation } from "./mobile-navigation";
-import { ThemeToggle } from "./theme-toggle";
+import { Avatar, AvatarContainer } from "./header-avatar";
+import { DesktopNavigation } from "./header-desktop-navigation";
+import { MobileNavigation } from "./header-mobile-navigation";
+import { ThemeToggle } from "./header-theme-toggle";
 
 const clamp = (num: number, a: number, b: number) => {
     const min = Math.min(a, b);

@@ -5,7 +5,7 @@ import { time } from "~/lib/time";
 import { Container } from "~/components/ui/container";
 import { Back } from "~/components/elements/back";
 
-import Layout from "~/components/layouts/Layout.astro";
+import Layout from "~/components/layouts/layout/index.astro";
 
 export async function getStaticPaths() {
     const articles = await getArticles();
