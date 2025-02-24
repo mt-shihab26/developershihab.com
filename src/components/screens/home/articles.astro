@@ -4,6 +4,7 @@ import type { TArticle } from "~/lib/articles";
 import { time } from "~/lib/time";
 
 import { Card, CardCta, CardDescription, CardEyebrow, CardTitle } from "~/components/ui/card";
+import { Paragraph } from "~/components/elements/paragraph";
 
 interface Props {
     articles: TArticle[];
@@ -13,16 +14,21 @@ const props = Astro.props;
 ---
 
 <div class="flex flex-col gap-16">
-    {
-        props.articles.map((article) => (
-            <Card as="article">
-                <CardTitle href={`/articles/${article.slug}`}>{article.data.title}</CardTitle>
-                <CardEyebrow as="time" decorate>
-                    {time.formatToLongDate(article.data.date)}
-                </CardEyebrow>
-                <CardDescription>{article.data.description}</CardDescription>
-                <CardCta>Read article</CardCta>
-            </Card>
-        ))
-    }
+    <div class="flex flex-col gap-16">
+        {
+            props.articles.map((article) => (
+                <Card as="article">
+                    <CardTitle href={`/articles/${article.slug}`}>{article.data.title}</CardTitle>
+                    <CardEyebrow as="time" decorate>
+                        {time.formatToLongDate(article.data.date)}
+                    </CardEyebrow>
+                    <CardDescription>{article.data.description}</CardDescription>
+                    <CardCta>Read article</CardCta>
+                </Card>
+            ))
+        }
+    </div>
+    <Paragraph>
+        <a href="/articles">Read more articles</a>
+    </Paragraph>
 </div>
