@@ -1,7 +1,8 @@
 const meta = {
     url: "https://developershihab.com",
     name: "Shihab Mahamud",
-    description: "A full-stack developer, laravel developer, react developer, wordpress developer",
+    description:
+        "I'm Shihab. I am a software developer from bangladesh. I mainly work with Laravel, React & WordPress.",
     email: "shihab4t@gmail.com",
     x: "https://x.com/mt_shihab26",
     instagram: "https://instagram.com/shihab.mahamud.2002",
