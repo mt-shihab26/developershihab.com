@@ -7,17 +7,18 @@ import { Footer } from "~/components/screens/layout/footer";
 import Head from "~/components/screens/layout/head.astro";
 
 interface Props {
-    name: string;
-    pathname: string;
-    description: string;
+    title?: string;
+    name?: string;
+    pathname?: string;
+    description?: string;
 }
 
-const { name, pathname, description } = Astro.props as Props;
+const { title, name, pathname, description } = Astro.props as Props;
 ---
 
 <!doctype html>
 <html lang="en">
-    <Head name={name} pathname={pathname} description={description} />
+    <Head title={title} name={name} pathname={pathname} description={description} />
     <body class="h-full w-full bg-zinc-50 dark:bg-black">
         <div class="fixed inset-0 flex justify-center sm:px-8">
             <div class="flex w-full max-w-7xl lg:px-8">

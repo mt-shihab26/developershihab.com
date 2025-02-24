@@ -4,14 +4,18 @@ import { meta } from "~/lib/meta";
 import { ClientRouter } from "astro:transitions";
 
 interface Props {
-    name: string;
-    pathname: string;
-    description: string;
+    title?: string;
+    name?: string;
+    pathname?: string;
+    description?: string;
 }
 
-const { name, pathname, description } = Astro.props as Props;
+const props = Astro.props as Props;
 
-const title = name ? `${name} - ${meta.name}` : meta.name;
+const title = props.title ? props.title : props.name ? `${props.name} - ${meta.name}` : meta.name;
+const description = props.description;
+const pathname = props.pathname || "";
+
 const canonical = meta.url + pathname;
 
 const openGraph = {
