@@ -1,3 +1,4 @@
+import { External } from "~/components/elements/external";
 import { Paragraph } from "~/components/elements/paragraph";
 
 const Bio = () => {
@@ -7,13 +8,16 @@ const Bio = () => {
                 Full-stack developer
             </h1>
             <Paragraph>
-                I'm Shihab, and I am a full stack Laravel Developer. I build frontends with React. I
-                also work on WordPress plugin development sometimes.
+                I'm Shihab, and I am a full stack{" "}
+                <External href="https://laravel.com">Laravel</External> Developer. I build frontends
+                with <External href="https://react.dev">React</External>. I also work on{" "}
+                <External href="https://wordpress.org">WordPress</External> plugin development
+                sometimes.
             </Paragraph>
             <Paragraph>
-                I lead software development at Finnext, where I manage application and plugin
-                development with our team. I handle ongoing maintenance, bug fixes, and
-                implementation of new features.
+                I lead software development team at Finnext, where I build & manage applications and
+                plugins development, deployment with our team. I handle ongoing maintenance, bug
+                fixes, and implementation of new features.
             </Paragraph>
             <Paragraph>
                 Interested in Transforming Your ideas into impactful software solutions. I am open
