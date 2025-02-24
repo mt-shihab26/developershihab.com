@@ -1,14 +1,11 @@
 import type { JSXElement } from "solid-js";
 import type { TIcon } from "~/types/utils";
 
+import { social_links } from "~/config/social_links";
 import { meta } from "~/lib/meta";
 import { cn } from "~/lib/utils";
 
-import { GithubIcon } from "~/components/icons/github-icon";
-import { InstagramIcon } from "~/components/icons/instagram-icon";
-import { LinkedinIcon } from "~/components/icons/linkedin-icon";
 import { Mail2Icon } from "~/components/icons/mail2-icon";
-import { TwitterIcon } from "~/components/icons/twitter-icon";
 
 const SocialLink = (props: { class?: string; href: string; children: JSXElement; icon: TIcon }) => {
     const Icon = props.icon;
@@ -29,19 +26,12 @@ const SocialLink = (props: { class?: string; href: string; children: JSXElement;
 const SocialLinks = () => {
     return (
         <div class="lg:pl-20">
-            <ul role="list">
-                <SocialLink href={meta.x} icon={TwitterIcon}>
-                    Follow on Twitter
-                </SocialLink>
-                <SocialLink href={meta.instagram} icon={InstagramIcon} class="mt-4">
-                    Follow on Instagram
-                </SocialLink>
-                <SocialLink href={meta.github} icon={GithubIcon} class="mt-4">
-                    Follow on GitHub
-                </SocialLink>
-                <SocialLink href={meta.linkedin} icon={LinkedinIcon} class="mt-4">
-                    Follow on LinkedIn
-                </SocialLink>
+            <ul role="list" class="space-y-4">
+                {social_links.map((l) => (
+                    <SocialLink href={l.href} icon={l.icon}>
+                        {l.label}
+                    </SocialLink>
+                ))}
                 <SocialLink
                     href={`mailto:${meta.email}`}
                     icon={Mail2Icon}
