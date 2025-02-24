@@ -11,7 +11,7 @@ interface Props {
 const props = Astro.props as Props;
 
 const title = props.title ? props.title : props.name ? `${props.name} - ${meta.name}` : meta.name;
-const description = props.description;
+const description = props.description || meta.description;
 const pathname = props.pathname || "";
 
 const canonical = meta.url + pathname;

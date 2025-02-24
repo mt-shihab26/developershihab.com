@@ -1,6 +1,4 @@
 ---
-import { meta } from "~/lib/meta";
-
 import { Container } from "~/components/ui/container";
 import { Heading } from "~/components/elements/heading";
 
@@ -11,7 +9,7 @@ import SocialLinks from "~/components/screens/about/social-links.astro";
 import Layout from "~/components/layouts/Layout.astro";
 ---
 
-<Layout name="About" pathname="/about" description={meta.description}>
+<Layout name="About" pathname="/about">
     <Container class="mt-16 sm:mt-32">
         <div class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
             <SideImage />
