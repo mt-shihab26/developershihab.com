@@ -9,6 +9,6 @@ interface Props {
 const props = Astro.props;
 ---
 
-<a href={props.href} class={cn("text-zinc-600 dark:text-zinc-400", props.class)} target="_blank">
-    <slot />
-</a>
+<a href={props.href} class={cn("text-zinc-600 dark:text-zinc-400", props.class)} target="_blank"
+    ><slot /></a
+>
