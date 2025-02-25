@@ -13,4 +13,4 @@ const Back = () => {
     );
 };
 
-export { Back };
+export default Back;
