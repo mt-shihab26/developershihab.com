@@ -4,7 +4,7 @@ import { time } from "~/lib/time";
 
 import { Container } from "~/components/ui/container";
 
-import Back from "~/components/screens/articles/back";
+import Back from "~/components/elements/back";
 import Layout from "~/components/layouts/layout/index.astro";
 
 export async function getStaticPaths() {
@@ -32,20 +32,23 @@ const { Content } = await article.render();
             <div class="mx-auto max-w-2xl">
                 <Back client:load />
                 <article>
-                    <header class="flex flex-col">
-                        <h1
-                            class="mt-6 text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
-                        >
-                            {article.data.title}
-                        </h1>
+                    <header class="flex flex-col space-y-6">
                         <time
                             datetime={article.data.date.toISOString()}
-                            class="order-first flex items-center text-base text-zinc-400 dark:text-zinc-500"
+                            class="flex items-center text-base text-zinc-400 dark:text-zinc-500"
                         >
                             <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"
                             ></span>
                             <span class="ml-3">{time.formatToLongDate(article.data.date)}</span>
                         </time>
+                        <h1
+                            class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
+                        >
+                            {article.data.title}
+                        </h1>
+                        <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                            {article.data.description}
+                        </p>
                     </header>
                     <div
                         class="dark:prose-hr:border-zinc-800 prose prose-lg dark:prose-invert mt-8 max-w-none pt-6 text-xl"

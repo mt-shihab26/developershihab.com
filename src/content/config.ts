@@ -14,16 +14,29 @@ const articles = defineCollection({
 
 const projects = defineCollection({
     type: "content",
-    schema: z.object({
-        logo: z.string(),
-        name: z.string(),
-        description: z.string(),
-        date_start: z.string(),
-        date_end: z.string(),
-        link_href: z.string(),
-        link_label: z.string(),
-        link_external: z.boolean().default(false)
-    })
+    schema: ({ image }) =>
+        z.object({
+            logo: image(),
+            name: z.string(),
+            description: z.string(),
+            date: z.object({
+                start: z.string().transform((str) => new Date(str)),
+                end: z
+                    .string()
+                    .optional()
+                    .transform((str) => str && new Date(str))
+            }),
+            link: z.object({
+                href: z.string(),
+                label: z.string().optional()
+            }),
+            live: z
+                .object({
+                    href: z.string(),
+                    label: z.string().optional()
+                })
+                .optional()
+        })
 });
 
 export const collections = {

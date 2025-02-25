@@ -1,0 +1,100 @@
+---
+import { getProjects } from "~/lib/projects";
+import { time } from "~/lib/time";
+import { internal } from "~/lib/utils";
+
+import { Container } from "~/components/ui/container";
+import { Image } from "astro:assets";
+import { RadioIcon } from "~/components/icons/radio-icon";
+
+import Back from "~/components/elements/back";
+import Layout from "~/components/layouts/layout/index.astro";
+
+export async function getStaticPaths() {
+    const projects = await getProjects();
+
+    return projects.map((project) => ({
+        params: { slug: project.slug },
+        props: { project: project }
+    }));
+}
+
+const { project } = Astro.props;
+
+const { Content } = await project.render();
+---
+
+<Layout name={project.data.name} pathname={project.slug} description={project.data.description}>
+    <Container class="mt-16 lg:mt-32">
+        <div class="xl:relative">
+            <div class="mx-auto max-w-2xl">
+                <Back client:load />
+                <article>
+                    <header class="flex flex-col space-y-6">
+                        <div
+                            class="flex items-center space-x-2 text-base text-zinc-400 dark:text-zinc-500"
+                        >
+                            <time datetime={project.data.date.start.toISOString()}>
+                                {time.formatToLongDate(project.data.date.start)}
+                            </time>
+                            <div>-</div>
+                            {
+                                project.data.date.end ? (
+                                    <time datetime={project.data.date.end.toISOString()}>
+                                        {time.formatToLongDate(project.data.date.end)}
+                                    </time>
+                                ) : (
+                                    <span>Present</span>
+                                )
+                            }
+                        </div>
+                        <div
+                            class="flex flex-col space-y-6 lg:flex-row lg:items-center lg:justify-between lg:space-y-0"
+                        >
+                            <h1
+                                class="flex items-center space-x-2 text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
+                            >
+                                <Image
+                                    src={project.data.logo}
+                                    alt=""
+                                    class="h-14 w-14"
+                                    loading="lazy"
+                                />
+                                <span>{project.data.name}</span>
+                            </h1>
+                            <div>
+                                {
+                                    project.data.live && (
+                                        <a
+                                            href={project.data.live.href}
+                                            class="relative z-10 flex text-sm font-medium text-zinc-400 underline transition group-hover:text-teal-500 dark:text-zinc-200"
+                                            target={
+                                                !internal(project.data.live.href)
+                                                    ? "_blank"
+                                                    : undefined
+                                            }
+                                        >
+                                            <RadioIcon class="h-5 w-5 flex-none" />
+                                            <span class="ml-2">
+                                                {project.data.live.label || "Live"}
+                                            </span>
+                                        </a>
+                                    )
+                                }
+                            </div>
+                        </div>
+
+                        <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                            {project.data.description}
+                        </p>
+                    </header>
+                    <div
+                        class="dark:prose-hr:border-zinc-800 prose prose-lg dark:prose-invert mt-8 max-w-none pt-6 text-xl"
+                    >
+                        <Content />
+                    </div>
+                </article>
+            </div>
+        </div>
+    </Container>
+</Layout>
