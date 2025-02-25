@@ -6,6 +6,7 @@ interface Props {
     name?: string;
     pathname?: string;
     description?: string;
+    tags?: string[];
 }
 
 const props = Astro.props as Props;
@@ -40,7 +41,14 @@ const openGraph = {
     <title>{title}</title>
 
     {description && <meta name="description" content={description} />}
+
     {canonical && <link rel="canonical" href={canonical} />}
+
+    {
+        props.tags && props.tags.length > 0 && (
+            <meta name="keywords" content={props.tags.join(", ")} />
+        )
+    }
 
     {
         openGraph && (

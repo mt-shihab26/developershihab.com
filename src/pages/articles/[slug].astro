@@ -21,7 +21,12 @@ const { article } = Astro.props;
 const { Content } = await article.render();
 ---
 
-<Layout name={article.data.title} pathname={article.slug} description={article.data.description}>
+<Layout
+    name={article.data.title}
+    pathname={article.slug}
+    description={article.data.description}
+    tags={article.data.tags}
+>
     <Container class="mt-16 lg:mt-32">
         <div class="xl:relative">
             <div class="mx-auto max-w-2xl">

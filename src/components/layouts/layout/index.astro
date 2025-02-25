@@ -11,14 +11,15 @@ interface Props {
     name?: string;
     pathname?: string;
     description?: string;
+    tags?: string[];
 }
 
-const { title, name, pathname, description } = Astro.props as Props;
+const { title, name, pathname, description, tags } = Astro.props as Props;
 ---
 
 <!doctype html>
 <html lang="en">
-    <Head title={title} name={name} pathname={pathname} description={description} />
+    <Head title={title} name={name} pathname={pathname} description={description} tags={tags} />
     <body class="h-full w-full bg-zinc-50 dark:bg-black">
         <div class="fixed inset-0 flex justify-center sm:px-8">
             <div class="flex w-full max-w-7xl lg:px-8">

@@ -6,6 +6,7 @@ const articles = defineCollection({
         title: z.string(),
         description: z.string(),
         date: z.string().transform((str) => new Date(str)),
+        tags: z.array(z.string()),
         featured: z.boolean().default(false),
         published: z.boolean().default(false)
     })
