@@ -7,7 +7,7 @@ import { Card, CardCta, CardDescription, CardEyebrow, CardTitle } from "~/compon
 
 import Layout from "~/components/layouts/layout/index.astro";
 
-const headline = "I write about things I’m learning and things I’m building.";
+const headline = "I write about things I’m learning & building";
 
 const articles = await getArticles();
 ---
@@ -32,6 +32,9 @@ const articles = await getArticles();
                             <article class="md:grid md:grid-cols-4 md:items-baseline">
                                 <Card class="md:col-span-3">
                                     <CardTitle href={`/articles/${article.slug}`}>
+                                        {!article.data.published && (
+                                            <span class="mr-2 text-yellow-500">(Draft)</span>
+                                        )}
                                         {article.data.title}
                                     </CardTitle>
                                     <CardEyebrow
