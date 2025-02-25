@@ -9,7 +9,7 @@ const experiences = [
         end: "Present",
         logo: finnext.src,
         description:
-            "Working as a lead developer handling development of applications, plugins development, and deployment with team. Responsible for ongoing maintenance, bug fixes, and implementing new features.",
+            "Working as a lead developer handling development of applications, plugins development, and deployment with the team. Responsible for ongoing maintenance, bug fixes, and implementing new features.",
         highlights: [
             "Developed and maintained multiple Laravel-based web applications",
             "Built responsive front-end interfaces using React and Tailwind CSS",
