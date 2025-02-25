@@ -19,6 +19,7 @@ const projects = defineCollection({
             logo: image(),
             name: z.string(),
             description: z.string(),
+            technologies: z.array(z.string()),
             date: z.object({
                 start: z.string().transform((str) => new Date(str)),
                 end: z
@@ -26,16 +27,21 @@ const projects = defineCollection({
                     .optional()
                     .transform((str) => str && new Date(str))
             }),
-            link: z.object({
-                href: z.string(),
-                label: z.string().optional()
-            }),
+            link: z
+                .object({
+                    href: z.string(),
+                    label: z.string().optional()
+                })
+                .optional(),
             live: z
                 .object({
                     href: z.string(),
                     label: z.string().optional()
                 })
-                .optional()
+                .optional(),
+            case_study: z.boolean().default(false),
+            featured: z.boolean().default(false),
+            published: z.boolean().default(false)
         })
 });
 
