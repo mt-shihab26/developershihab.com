@@ -9,6 +9,7 @@ import { RadioIcon } from "~/components/icons/radio-icon";
 
 import Back from "~/components/elements/back";
 import Layout from "~/components/layouts/layout/index.astro";
+import Technologies from "~/components/elements/technologies.astro";
 
 export async function getStaticPaths() {
     let projects = await getProjects();
@@ -89,10 +90,10 @@ const { Content } = await project.render();
                                 }
                             </div>
                         </div>
-
-                        <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                        <p class="relative z-10 text-sm text-zinc-600 dark:text-zinc-400">
                             {project.data.description}
                         </p>
+                        <Technologies technologies={project.data.technologies} />
                     </header>
                     <div
                         class="dark:prose-hr:border-zinc-800 prose prose-lg dark:prose-invert mt-8 max-w-none pt-6 text-xl"
