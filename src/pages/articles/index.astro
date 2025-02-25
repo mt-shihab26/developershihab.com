@@ -7,6 +7,7 @@ import { Card, CardCta, CardDescription, CardEyebrow, CardTitle } from "~/compon
 
 import Layout from "~/components/layouts/layout/index.astro";
 import NewsLetter from "~/components/elements/news-letter.astro";
+import Heading from "~/components/elements/heading.astro";
 
 const headline = "I write about things I’m learning & building";
 
@@ -16,11 +17,9 @@ const articles = await getArticles();
 <Layout name="Articles" pathname="/articles" description={headline}>
     <Container class="mt-16 sm:mt-32">
         <header class="max-w-2xl">
-            <h1
-                class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
-            >
+            <Heading>
                 {headline}
-            </h1>
+            </Heading>
             <p class="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
                 All of my long-form thoughts on programming, leadership, infrastructure, and more.
             </p>

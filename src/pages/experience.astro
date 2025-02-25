@@ -7,6 +7,7 @@ import { BadgeCheckIcon } from "~/components/icons/badge-check-icon";
 import { Building2Icon } from "~/components/icons/building-2-icon";
 
 import Layout from "~/components/layouts/layout/index.astro";
+import Heading from "~/components/elements/heading.astro";
 
 const headline = "Professional Experience";
 ---
@@ -14,12 +15,10 @@ const headline = "Professional Experience";
 <Layout name="Experience" pathname="/experience" description={headline}>
     <Container class="mt-16 sm:mt-32">
         <header class="max-w-2xl">
-            <h1
-                class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
-            >
+            <Heading>
                 {headline}
-            </h1>
-            <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+            </Heading>
+            <p class="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
                 I've worked with various companies, building software solutions and gaining valuable
                 experience in full-stack development.
             </p>

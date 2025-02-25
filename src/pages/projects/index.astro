@@ -8,6 +8,7 @@ import { Container } from "~/components/ui/container";
 
 import Layout from "~/components/layouts/layout/index.astro";
 import Technologies from "~/components/elements/technologies.astro";
+import Heading from "~/components/elements/heading.astro";
 
 const projects = await getProjects();
 
@@ -17,11 +18,9 @@ const headline = "Things I’ve made trying to put my mark on the universe.";
 <Layout name="Projects" pathname="/projects" description={headline}>
     <Container class="mt-16 sm:mt-32">
         <header class="max-w-2xl">
-            <h1
-                class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
-            >
+            <Heading>
                 {headline}
-            </h1>
+            </Heading>
             <p class="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
                 I’ve worked on tons of little projects over the years, but these are some of the
                 ones that I’m most proud of. If you see something that piques your interest, check
