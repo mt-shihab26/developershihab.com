@@ -18,6 +18,7 @@ const Item = (props: { pathname: string; href: string; children: JSXElement }) =
                         ? "text-teal-500 dark:text-teal-400"
                         : "hover:text-teal-500 dark:hover:text-teal-400"
                 )}
+                data-astro-prefetch
             >
                 {props.children}
                 {isActive() && (

@@ -55,7 +55,7 @@ const MobileNavigation = (props: { pathname: string; class?: string }) => {
                             <For each={links}>
                                 {(link) => (
                                     <li>
-                                        <a href={link.href} class="block py-2">
+                                        <a href={link.href} class="block py-2" data-astro-prefetch>
                                             {link.label}
                                         </a>
                                     </li>
