@@ -1,5 +1,6 @@
 import { meta } from "~/lib/meta";
 
+import { FacebookIcon } from "~/components/icons/facebook-icon";
 import { GithubIcon } from "~/components/icons/github-icon";
 import { InstagramIcon } from "~/components/icons/instagram-icon";
 import { LinkedinIcon } from "~/components/icons/linkedin-icon";
@@ -25,6 +26,11 @@ const social_links = [
         label: "Follow on Instagram",
         href: meta.instagram,
         icon: InstagramIcon
+    },
+    {
+        label: "Follow on Facebook",
+        href: meta.facebook,
+        icon: FacebookIcon
     }
 ];
 
