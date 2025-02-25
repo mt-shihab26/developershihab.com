@@ -1,18 +1,10 @@
 ---
 title: বইটি নিয়ে আমার কথা!
-description: >-
-    ফুলস্ট্যাক ডেভেলপমেন্ট কানেকটিং দ্য ডটস (HM Nayem) বইটি নিয়ে আমার কথা।
+description: ফুলস্ট্যাক ডেভেলপমেন্ট কানেকটিং দ্য ডটস (HM Nayem) বইটি নিয়ে আমার কথা।
 date: 14 April 2021
+tags: ["javascript", "full-stack", "development"]
 featured: false
 published: true
-
-tags:
-    - javascript
-    - full-stack
-    - development
-cover:
-    src: ./cover.png
-    alt: ""
 ---
 
 ## ভূমিকা

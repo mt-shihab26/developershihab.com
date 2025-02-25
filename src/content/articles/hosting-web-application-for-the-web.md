@@ -4,16 +4,9 @@ description: >-
     A look at different web hosting options, comparing the benefits
     and drawbacks of self-hosting, managed, and unmanaged cloud platforms.
 date: 04 September 2024
+tags: ["web-hosting", "cloud-platforms", "web-application"]
 featured: true
 published: true
-
-tags:
-    - web-hosting
-    - cloud-platforms
-    - web-application
-cover:
-    src: ./cover.avif
-    alt: ""
 ---
 
 Hosting a web application is a process where we make software accessible via the web over the internet.

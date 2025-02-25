@@ -1,19 +1,10 @@
 ---
 title: কোটলিনের পরিচয়
-description: >-
-    Java Virtual Machines-এর জন্য একটি আধুনিক প্রোগ্রামিং ভাষা | Better Java
+description: Java Virtual Machines-এর জন্য একটি আধুনিক প্রোগ্রামিং ভাষা | Better Java
 date: 15 October 2022
+tags: ["jvm", "kotlin", "programming"]
 featured: false
 published: true
-
-tags:
-    - jvm
-    - kotlin
-    - programming
-cover:
-    src: ./cover.png
-    alt: ""
-draft: false
 ---
 
 কটলিন (Kotlin) একটি স্ট্যাটিকালি টাইপ করা মাল্টি-প্যারাডাইম প্রোগ্রামিং ল্যাঙ্গুয়েজ যা জাভা-এর একটি ভাল বিকল্প হিসাবে ডিজাইন করা হয়েছে।
