@@ -2,7 +2,6 @@
 import { meta } from "~/lib/meta";
 
 import SpeedInsights from "@vercel/speed-insights/astro";
-import Analytics from "@vercel/analytics/astro";
 
 interface Props {
     title?: string;
@@ -73,5 +72,4 @@ const openGraph = {
     }
 
     <SpeedInsights />
-    <Analytics />
 </head>
