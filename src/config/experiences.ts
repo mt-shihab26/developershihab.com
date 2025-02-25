@@ -37,11 +37,10 @@ const experiences = [
 
 const educations = [
     {
-        institution: "Daffodil International University",
-        degree: "BSc in Computer Science and Engineering",
+        institution: "Faridpur Polytechnic Institute",
+        degree: "Diploma in Engineering, Computer Science",
         period: "2020 - 2024",
-        description:
-            "Focused on software engineering, web development, and database management systems."
+        description: "Focused on computer science foundamentals, programming, problem solving."
     }
 ];
 
