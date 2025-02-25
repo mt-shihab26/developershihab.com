@@ -2,6 +2,8 @@
 import { rotated_photos } from "~/config/rotated_photos";
 import { cn } from "~/lib/utils";
 
+import { Image } from "astro:assets";
+
 const rotations = ["rotate-2", "-rotate-2", "rotate-2", "rotate-2", "-rotate-2"];
 ---
 
@@ -15,9 +17,9 @@ const rotations = ["rotate-2", "-rotate-2", "rotate-2", "rotate-2", "-rotate-2"]
                         rotations[imageIndex % rotations.length]
                     )}
                 >
-                    <img
-                        src={image.src}
-                        alt=""
+                    <Image
+                        src={image}
+                        alt={`Shihab Mahamud Photo ${imageIndex}`}
                         loading="lazy"
                         sizes="(min-width: 640px) 18rem, 11rem"
                         class="absolute inset-0 h-full w-full object-cover"
