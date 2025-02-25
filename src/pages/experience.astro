@@ -24,7 +24,6 @@ const headline = "Professional Experience";
                 experience in full-stack development.
             </p>
         </header>
-
         <div class="mt-16 space-y-20">
             <section>
                 <h2
@@ -74,6 +73,31 @@ const headline = "Professional Experience";
             </section>
             <section>
                 <h2
+                    class="mb-10 text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100"
+                >
+                    Technical Skills
+                </h2>
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                    {
+                        skills.map((skillGroup) => (
+                            <div class="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
+                                <h3 class="mb-4 text-lg font-semibold text-zinc-800 dark:text-zinc-100">
+                                    {skillGroup.title}
+                                </h3>
+                                <div class="flex flex-wrap gap-2">
+                                    {skillGroup.items.map((tech) => (
+                                        <span class="inline-flex items-center rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200">
+                                            {tech.name}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </section>
+            <section>
+                <h2
                     class="mb-10 flex items-center gap-3 text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100"
                 >
                     <GraduationCapIcon class="h-6 w-6" />
@@ -98,32 +122,6 @@ const headline = "Professional Experience";
                                 <p class="mt-4 text-sm text-zinc-600 dark:text-zinc-400">
                                     {edu.description}
                                 </p>
-                            </div>
-                        ))
-                    }
-                </div>
-            </section>
-
-            <section>
-                <h2
-                    class="mb-10 text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100"
-                >
-                    Technical Skills
-                </h2>
-                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                    {
-                        skills.map((skillGroup) => (
-                            <div class="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
-                                <h3 class="mb-4 text-lg font-semibold text-zinc-800 dark:text-zinc-100">
-                                    {skillGroup.title}
-                                </h3>
-                                <div class="flex flex-wrap gap-2">
-                                    {skillGroup.items.map((tech) => (
-                                        <span class="inline-flex items-center rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200">
-                                            {tech.name}
-                                        </span>
-                                    ))}
-                                </div>
                             </div>
                         ))
                     }
