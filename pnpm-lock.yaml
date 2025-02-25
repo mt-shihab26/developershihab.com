@@ -23,12 +23,6 @@ importers:
       '@astrojs/vercel':
         specifier: ^8.0.7
         version: 8.0.7(astro@5.3.0(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.8)(typescript@5.7.3)(yaml@2.7.0))(rollup@4.34.8)
-      '@tailwindcss/typography':
-        specifier: ^0.5.16
-        version: 0.5.16(tailwindcss@4.0.7)
-      '@tailwindcss/vite':
-        specifier: ^4.0.7
-        version: 4.0.7(vite@6.1.1(jiti@2.4.2)(lightningcss@1.29.1)(yaml@2.7.0))
       astro:
         specifier: ^5.3.0
         version: 5.3.0(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.8)(typescript@5.7.3)(yaml@2.7.0)
@@ -44,16 +38,16 @@ importers:
       tailwind-merge:
         specifier: ^3.0.1
         version: 3.0.1
-      tailwindcss:
-        specifier: ^4.0.7
-        version: 4.0.7
       terracotta:
         specifier: ^1.0.6
         version: 1.0.6(solid-js@1.9.4)
-      typescript:
-        specifier: ^5.7.3
-        version: 5.7.3
     devDependencies:
+      '@tailwindcss/typography':
+        specifier: ^0.5.16
+        version: 0.5.16(tailwindcss@4.0.7)
+      '@tailwindcss/vite':
+        specifier: ^4.0.7
+        version: 4.0.7(vite@6.1.1(jiti@2.4.2)(lightningcss@1.29.1)(yaml@2.7.0))
       prettier:
         specifier: ^3.5.1
         version: 3.5.1
@@ -66,6 +60,12 @@ importers:
       prettier-plugin-tailwindcss:
         specifier: ^0.6.11
         version: 0.6.11(prettier-plugin-astro@0.14.1)(prettier-plugin-organize-imports@4.1.0(prettier@3.5.1)(typescript@5.7.3))(prettier@3.5.1)
+      tailwindcss:
+        specifier: ^4.0.7
+        version: 4.0.7
+      typescript:
+        specifier: ^5.7.3
+        version: 5.7.3
 
 packages:
 
