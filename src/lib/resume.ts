@@ -1,9 +1,15 @@
+import ejs from "ejs";
+import fs from "fs/promises";
 import puppeteer from "puppeteer";
 
+const read = async () => {
+    const filePath = "src/components/screens/resume/index.ejs";
+    return await fs.readFile(filePath, "utf-8");
+};
+
 const render = async () => {
-    return `
-        <div>Hello</div>
-    `;
+    const content = await read();
+    return ejs.render(content, { foo: "bar" });
 };
 
 const generate = async (html: string, path: string) => {
@@ -15,7 +21,12 @@ const generate = async (html: string, path: string) => {
     return path;
 };
 
-const html = await render();
-const path = await generate(html, "dist/html-example.pdf");
-
-console.log(`PDF generated: ${path}`);
+(async () => {
+    try {
+        const html = await render();
+        const outputPath = await generate(html, "dist/html-example.pdf");
+        console.log(`PDF generated: ${outputPath}`);
+    } catch (error) {
+        console.error("Failed to generate PDF:", error);
+    }
+})();
