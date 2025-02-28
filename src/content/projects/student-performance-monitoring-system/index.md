@@ -1,11 +1,8 @@
 ---
 logo: ./logo.svg
 name: Student Performance Monitoring System
-description: The Student Performance Monitoring System is a web-based application built with raw PHP.
-technologies:
-    - PHP
-    - MySQL
-    - TailwindCSS
+description: A web-based application built with raw PHP that streamlines academic performance tracking in educational institutions. Features a Laravel-like architecture with PDO for MySQL database.
+technologies: ["PHP", "MySQL", "TailwindCSS"]
 date:
     start: June 23, 2024
     end: July 6, 2024
