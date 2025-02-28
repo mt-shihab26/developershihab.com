@@ -1,5 +1,5 @@
 ---
-logo: ../../../assets/images/systech.webp
+logo: ./logo.svg
 name: Student Performance Monitoring System
 description: The Student Performance Monitoring System is a web-based application built with raw PHP.
 technologies:
