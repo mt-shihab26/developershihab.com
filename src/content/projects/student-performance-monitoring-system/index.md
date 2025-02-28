@@ -1,5 +1,5 @@
 ---
-logo: ./logo.svg
+logo: ./logo.png
 name: Student Performance Monitoring System
 description: A web-based application built with raw PHP that streamlines academic performance tracking in educational institutions. Features a Laravel-like architecture with PDO for MySQL database.
 technologies: ["PHP", "MySQL", "TailwindCSS"]
