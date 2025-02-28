@@ -13,6 +13,7 @@ live:
 case_study: true
 published: true
 featured: true
+order: 1
 ---
 
 ![Line of code written](./codes.webp)
