@@ -15,4 +15,5 @@ link:
 case_study: false
 published: true
 featured: true
+order: 3
 ---
