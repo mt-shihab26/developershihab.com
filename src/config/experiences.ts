@@ -4,7 +4,7 @@ import { frameworks, languages, tools } from "./tools_uses";
 const experiences = [
     {
         company: "Finnext",
-        role: "Lead Developer",
+        role: "Lead Software Developer",
         start: "May 2023",
         end: "Present",
         logo: finnext.src,
