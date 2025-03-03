@@ -1,10 +1,16 @@
-import type { JSX } from "solid-js";
+import type {
+    AnchorHTMLAttributes,
+    ComponentType,
+    HTMLAttributes,
+    ReactElement,
+    SVGProps
+} from "react";
 
-type TAsProps = keyof JSX.IntrinsicElements | Component;
-type TAProps = JSX.AnchorHTMLAttributes<HTMLAnchorElement>;
-type TSvgProps = JSX.SvgSVGAttributes<SVGSVGElement>;
-type TDivProps = JSX.HTMLAttributes<HTMLDivElement>;
+type TAsProps = keyof JSX.IntrinsicElements | ComponentType<any>;
+type TAProps = AnchorHTMLAttributes<HTMLAnchorElement>;
+type TSvgProps = SVGProps<SVGSVGElement>;
+type TDivProps = HTMLAttributes<HTMLDivElement>;
 
-type TIcon = (props: TSvgProps) => JSX.Element;
+type TIcon = (props: TSvgProps) => ReactElement;
 
 export { TAProps, TAsProps, TDivProps, TIcon };
