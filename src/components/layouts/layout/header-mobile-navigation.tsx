@@ -1,16 +1,12 @@
-import { Transition } from "@headlessui/react"; // Equivalent to terracotta in React ecosystem
 import { useState } from "react";
-import { ChevronDownIcon } from "~/components/icons/chevron-down-icon";
-import { CloseIcon } from "~/components/icons/close-icon";
 import { cn } from "~/lib/utils";
 import { links } from "./links";
 
-interface MobileNavigationProps {
-    pathname: string;
-    className?: string;
-}
+import { Transition } from "@headlessui/react";
+import { ChevronDownIcon } from "~/components/icons/chevron-down-icon";
+import { CloseIcon } from "~/components/icons/close-icon";
 
-const MobileNavigation = ({ pathname, className }: MobileNavigationProps) => {
+const MobileNavigation = ({ className }: { pathname: string; className?: string }) => {
     const [open, setOpen] = useState<boolean>(false);
 
     return (

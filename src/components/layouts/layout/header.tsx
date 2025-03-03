@@ -1,4 +1,4 @@
-import { createEffect, createSignal, onCleanup } from "solid-js";
+import { useEffect, useRef, useState } from "react";
 
 import { Container } from "~/components/ui/container";
 
@@ -13,16 +13,16 @@ const clamp = (num: number, a: number, b: number) => {
     return Math.min(Math.max(num, min), max);
 };
 
-const Header = (props: { pathname: string }) => {
-    const isHomePage = () => props.pathname === "/";
+export const Header = ({ pathname }: { pathname: string }) => {
+    const isHomePage = pathname === "/";
 
-    let headerRef!: HTMLDivElement;
-    let avatarRef!: HTMLDivElement;
+    const headerRef = useRef<HTMLDivElement>(null);
+    const avatarRef = useRef<HTMLDivElement>(null);
 
-    const [isInitial, setIsInitial] = createSignal(true);
+    const [isInitial, setIsInitial] = useState(true);
 
-    createEffect(() => {
-        const downDelay = avatarRef?.offsetTop ?? 0;
+    useEffect(() => {
+        const downDelay = avatarRef.current?.offsetTop ?? 0;
         const upDelay = 64;
 
         function setProperty(property: string, value: string) {
@@ -34,20 +34,22 @@ const Header = (props: { pathname: string }) => {
         }
 
         function updateHeaderStyles() {
-            const { top, height } = headerRef.getBoundingClientRect();
+            if (!headerRef.current) return;
+
+            const { top, height } = headerRef.current.getBoundingClientRect();
             const scrollY = clamp(
                 window.scrollY,
                 0,
                 document.body.scrollHeight - window.innerHeight
             );
 
-            if (isInitial()) {
+            if (isInitial) {
                 setProperty("--header-position", "sticky");
             }
 
             setProperty("--content-offset", `${downDelay}px`);
 
-            if (isInitial() || scrollY < downDelay) {
+            if (isInitial || scrollY < downDelay) {
                 setProperty("--header-height", `${downDelay + height}px`);
                 setProperty("--header-mb", `${-downDelay}px`);
             } else if (top + height < -upDelay) {
@@ -71,7 +73,7 @@ const Header = (props: { pathname: string }) => {
         }
 
         function updateAvatarStyles() {
-            if (!isHomePage()) {
+            if (!isHomePage) {
                 return;
             }
 
@@ -108,38 +110,38 @@ const Header = (props: { pathname: string }) => {
         window.addEventListener("scroll", updateStyles, { passive: true });
         window.addEventListener("resize", updateStyles);
 
-        onCleanup(() => {
+        return () => {
             window.removeEventListener("scroll", updateStyles);
             window.removeEventListener("resize", updateStyles);
-        });
-    });
+        };
+    }, [isHomePage, isInitial]);
 
     return (
         <>
             <header
-                class="pointer-events-none relative z-50 flex flex-col"
+                className="pointer-events-none relative z-50 flex flex-col"
                 style={{
                     height: "var(--header-height)",
-                    "margin-bottom": "var(--header-mb)"
+                    marginBottom: "var(--header-mb)"
                 }}
             >
-                {isHomePage() && (
+                {isHomePage && (
                     <>
                         <div
                             ref={avatarRef}
-                            class="order-last mt-[calc(--spacing(16)-(--spacing(3)))]"
+                            className="order-last mt-[calc(--spacing(16)-(--spacing(3)))]"
                         />
                         <Container
-                            class="top-0 order-last -mb-3 pt-3"
-                            style="position: 'var(--header-position)'"
+                            className="top-0 order-last -mb-3 pt-3"
+                            style={{ position: "var(--header-position)" as any }}
                         >
                             <div
-                                class="top-(--avatar-top,--spacing(3)) w-full"
-                                style="position: 'var(--header-inner-position)'"
+                                className="top-(--avatar-top,--spacing(3)) w-full"
+                                style={{ position: "var(--header-inner-position)" as any }}
                             >
-                                <div class="relative">
+                                <div className="relative">
                                     <AvatarContainer
-                                        class="absolute top-3 left-0 origin-left transition-opacity"
+                                        className="absolute top-3 left-0 origin-left transition-opacity"
                                         style={{
                                             opacity: "var(--avatar-border-opacity, 0)",
                                             transform: "var(--avatar-border-transform)"
@@ -147,7 +149,7 @@ const Header = (props: { pathname: string }) => {
                                     />
                                     <Avatar
                                         large
-                                        class="block h-16 w-16 origin-left"
+                                        className="block h-16 w-16 origin-left"
                                         style={{ transform: "var(--avatar-image-transform)" }}
                                     />
                                 </div>
@@ -157,33 +159,33 @@ const Header = (props: { pathname: string }) => {
                 )}
                 <div
                     ref={headerRef}
-                    class="top-0 z-10 h-16 pt-6"
-                    style="position: 'var(--header-position)'"
+                    className="top-0 z-10 h-16 pt-6"
+                    style={{ position: "var(--header-position)" as any }}
                 >
                     <Container
-                        class="top-(--header-top,--spacing(6)) w-full"
-                        style="position: 'var(--header-inner-position)'"
+                        className="top-(--header-top,--spacing(6)) w-full"
+                        style={{ position: "var(--header-inner-position)" as any }}
                     >
-                        <div class="relative flex gap-4">
-                            <div class="flex flex-1">
-                                {!isHomePage() && (
+                        <div className="relative flex gap-4">
+                            <div className="flex flex-1">
+                                {!isHomePage && (
                                     <AvatarContainer>
                                         <Avatar />
                                     </AvatarContainer>
                                 )}
                             </div>
-                            <div class="flex flex-1 justify-end md:justify-center">
+                            <div className="flex flex-1 justify-end md:justify-center">
                                 <MobileNavigation
-                                    class="pointer-events-auto md:hidden"
-                                    pathname={props.pathname}
+                                    className="pointer-events-auto md:hidden"
+                                    pathname={pathname}
                                 />
                                 <DesktopNavigation
-                                    class="pointer-events-auto hidden md:block"
-                                    pathname={props.pathname}
+                                    className="pointer-events-auto hidden md:block"
+                                    pathname={pathname}
                                 />
                             </div>
-                            <div class="flex justify-end md:flex-1">
-                                <div class="pointer-events-auto">
+                            <div className="flex justify-end md:flex-1">
+                                <div className="pointer-events-auto">
                                     <ThemeToggle />
                                 </div>
                             </div>
@@ -191,9 +193,7 @@ const Header = (props: { pathname: string }) => {
                     </Container>
                 </div>
             </header>
-            {isHomePage() && <div style={{ height: "var(--content-offset)" }} />}
+            {isHomePage && <div style={{ height: "var(--content-offset)" }} />}
         </>
     );
 };
-
-export { Header };
