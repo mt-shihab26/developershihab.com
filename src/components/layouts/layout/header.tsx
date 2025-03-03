@@ -17,7 +17,7 @@ export const Header = ({ pathname }: { pathname: string }) => {
     const isHomePage = pathname === "/";
 
     const headerRef = useRef<HTMLDivElement>(null);
-    const avatarRef = useRef<HTMLDivElement>(null);
+    const avatarRef = useRef<HTMLAnchorElement>(null);
 
     const [isInitial, setIsInitial] = useState(true);
 
@@ -127,10 +127,7 @@ export const Header = ({ pathname }: { pathname: string }) => {
             >
                 {isHomePage && (
                     <>
-                        <div
-                            ref={avatarRef}
-                            className="order-last mt-[calc(--spacing(16)-(--spacing(3)))]"
-                        />
+                        <div className="order-last mt-[calc(--spacing(16)-(--spacing(3)))]" />
                         <Container
                             className="top-0 order-last -mb-3 pt-3"
                             style={{ position: "var(--header-position)" as any }}
@@ -151,6 +148,7 @@ export const Header = ({ pathname }: { pathname: string }) => {
                                         large
                                         className="block h-16 w-16 origin-left"
                                         style={{ transform: "var(--avatar-image-transform)" }}
+                                        ref={avatarRef}
                                     />
                                 </div>
                             </div>

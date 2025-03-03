@@ -1,4 +1,4 @@
-import type { AnchorHTMLAttributes, HTMLAttributes } from "react";
+import type { AnchorHTMLAttributes, HTMLAttributes, RefObject } from "react";
 
 import { splitProps } from "solid-js";
 import { shihab } from "~/lib/assets";
@@ -20,7 +20,11 @@ const AvatarContainer = (props: { class?: string } & HTMLAttributes<HTMLDivEleme
 };
 
 const Avatar = (
-    props: { large?: boolean; class?: string } & AnchorHTMLAttributes<HTMLAnchorElement>
+    props: {
+        ref?: RefObject<HTMLAnchorElement | null>;
+        large?: boolean;
+        class?: string;
+    } & AnchorHTMLAttributes<HTMLAnchorElement>
 ) => {
     const [local, others] = splitProps(props, ["large", "class"]);
 
