@@ -12,5 +12,5 @@ link:
 case_study: false
 published: true
 featured: true
-order: 4
+order: 6
 ---
