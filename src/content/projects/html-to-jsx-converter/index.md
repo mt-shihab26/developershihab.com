@@ -1,7 +1,7 @@
 ---
 logo: ./logo.svg
 name: html-to-jsx-converter
-description: Convert your HTML code to React JSX quickly and easily. Paste your HTML in the below and get JSX.
+description: Convert your HTML code to React JSX quickly and easily. Paste your HTML in the website and get JSX.
 technologies: ["Astro", "React", "TailwindCSS"]
 date:
     start: Mar 3, 2025
