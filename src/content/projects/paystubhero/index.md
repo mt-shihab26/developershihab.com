@@ -7,7 +7,7 @@ technologies:
     - React
     - TailwindCSS
 date:
-    start: "Oct 2024"
+    start: May 2023
 live:
     href: "https://paystubhero.com"
 case_study: true
