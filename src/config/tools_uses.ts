@@ -11,16 +11,16 @@ const languages = {
             description:
                 "A versatile server-side language I frequently use with Laravel for building robust web applications, appreciating its mature ecosystem and excellent documentation."
         },
-        {
-            name: "Python",
-            description:
-                "A highly readable and versatile language I use for data analysis, machine learning, and automation tasks, valuing its extensive library ecosystem and rapid development capabilities."
-        },
-        {
-            name: "Zig",
-            description:
-                "A modern systems programming language I explore for its focus on simplicity, performance, and memory safety without garbage collection, offering an interesting alternative to traditional systems languages."
-        },
+        // {
+        //     name: "Python",
+        //     description:
+        //         "A highly readable and versatile language I use for data analysis, machine learning, and automation tasks, valuing its extensive library ecosystem and rapid development capabilities."
+        // },
+        // {
+        //     name: "Zig",
+        //     description:
+        //         "A modern systems programming language I explore for its focus on simplicity, performance, and memory safety without garbage collection, offering an interesting alternative to traditional systems languages."
+        // },
         {
             name: "C/C++",
             description:
@@ -92,8 +92,6 @@ const tools = {
 };
 
 const tools_uses = [
-    languages,
-    frameworks,
     {
         title: "Devices",
         items: [
@@ -104,6 +102,8 @@ const tools_uses = [
             }
         ]
     },
+    languages,
+    frameworks,
     tools,
     {
         title: "Productivity",
