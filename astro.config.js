@@ -2,7 +2,6 @@
 import { defineConfig } from "astro/config";
 
 import sitemap from "@astrojs/sitemap";
-import solid from "@astrojs/solid-js";
 import vercel from "@astrojs/vercel";
 
 import tailwindcss from "@tailwindcss/vite";
@@ -11,7 +10,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
     site: "https://developershihab.com",
     prefetch: true,
-    integrations: [solid(), sitemap()],
+    integrations: [sitemap()],
     adapter: vercel({ webAnalytics: { enabled: true } }),
     vite: { plugins: [tailwindcss()] }
 });
