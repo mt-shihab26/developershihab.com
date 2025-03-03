@@ -1,5 +1,6 @@
 ---
 import { getProjects } from "~/lib/projects";
+import { time } from "~/lib/time";
 
 import { Image } from "astro:assets";
 import { Card, CardDescription, CardLink } from "~/components/ui/card";
@@ -35,8 +36,8 @@ const headline = "Things I’ve made trying to put my mark on the universe.";
             >
                 {
                     projects.map((project) => (
-                        <Card as="li" class="space-y-4">
-                            <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white ring-1 shadow-md shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+                        <Card as="li" class="space-y-2">
+                            <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
                                 <Image
                                     src={project.data.logo}
                                     alt=""
@@ -52,8 +53,21 @@ const headline = "Things I’ve made trying to put my mark on the universe.";
                                     {project.data.name}
                                 </CardLink>
                             </h2>
+                            <div class="relative flex items-center space-x-2 text-xs text-zinc-400 dark:text-zinc-500">
+                                <time datetime={project.data.date.start.toISOString()}>
+                                    {time.formatToShortDate(project.data.date.start)}
+                                </time>
+                                <div>-</div>
+                                {project.data.date.end ? (
+                                    <time datetime={project.data.date.end.toISOString()}>
+                                        {time.formatToShortDate(project.data.date.end)}
+                                    </time>
+                                ) : (
+                                    <span>Present</span>
+                                )}
+                            </div>
                             <CardDescription>{project.data.description}</CardDescription>
-                            <Technologies technologies={project.data.technologies} />
+                            <Technologies class="py-2" technologies={project.data.technologies} />
                             <p class="relative z-10 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
                                 <LinkIcon class="h-6 w-6 flex-none" />
                                 <span class="ml-2">{project.data.link?.label || "Case Study"}</span>
