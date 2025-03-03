@@ -12,10 +12,7 @@ const Item = ({
     href: string;
     children: ReactNode;
 }) => {
-    console.log("Pathname:", pathname);
-    console.log("Href:", href);
-
-    const isActive = pathname === href;
+    const isActive = pathname.includes(href);
 
     return (
         <li>
