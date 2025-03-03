@@ -14,11 +14,7 @@ import Technologies from "~/components/elements/technologies.astro";
 export async function getStaticPaths() {
     let projects = await getProjects();
 
-    console.log(projects);
-
     projects = projects.filter((project) => project.data.case_study);
-
-    console.log("After: ", projects);
 
     return projects.map((project) => ({
         params: { slug: project.slug },
