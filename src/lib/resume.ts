@@ -1,5 +1,5 @@
 import { render } from "~/components/screens/resume";
+import { pdf } from "./pdf";
 
 const html = render();
-
-console.log(html);
+await pdf(html, "public/shihab-mahamud-resume.pdf");
