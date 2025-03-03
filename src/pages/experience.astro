@@ -13,7 +13,7 @@ const headline = "Professional Experience";
 ---
 
 <Layout name="Experience" pathname="/experience" description={headline}>
-    <Container class="mt-16 sm:mt-32">
+    <Container className="mt-16 sm:mt-32">
         <header class="max-w-2xl">
             <Heading>
                 {headline}
@@ -28,7 +28,7 @@ const headline = "Professional Experience";
                 <h2
                     class="mb-10 flex items-center gap-3 text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100"
                 >
-                    <Building2Icon class="h-6 w-6" />
+                    <Building2Icon className="h-6 w-6" />
                     Work Experience
                 </h2>
                 <div class="space-y-8">
@@ -60,7 +60,7 @@ const headline = "Professional Experience";
                                 <ul class="mt-4 space-y-2">
                                     {exp.highlights.map((highlight) => (
                                         <li class="flex items-start gap-2 text-sm text-zinc-600 dark:text-zinc-400">
-                                            <BadgeCheckIcon class="h-5 w-5 flex-none text-teal-500" />
+                                            <BadgeCheckIcon className="h-5 w-5 flex-none text-teal-500" />
                                             <span>{highlight}</span>
                                         </li>
                                     ))}
@@ -99,7 +99,7 @@ const headline = "Professional Experience";
                 <h2
                     class="mb-10 flex items-center gap-3 text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100"
                 >
-                    <GraduationCapIcon class="h-6 w-6" />
+                    <GraduationCapIcon className="h-6 w-6" />
                     Education
                 </h2>
                 <div class="space-y-8">

@@ -17,14 +17,14 @@ const articles = await getFeaturedArticles();
 ---
 
 <Layout title={`${meta.name} - Passionate Software Developer`}>
-    <Container class="mt-9">
+    <Container className="mt-9">
         <div class="max-w-2xl text-lg">
             <Bio />
             <SocialLinks />
         </div>
     </Container>
     <Photos />
-    <Container class="mt-24 md:mt-28">
+    <Container className="mt-24 md:mt-28">
         <div class="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
             <Articles articles={articles} />
             <div class="space-y-10 lg:pl-16 xl:pl-24">

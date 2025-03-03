@@ -28,7 +28,7 @@ const { Content } = await project.render();
 ---
 
 <Layout name={project.data.name} pathname={project.slug} description={project.data.description}>
-    <Container class="mt-16 lg:mt-32">
+    <Container className="mt-16 lg:mt-32">
         <div class="xl:relative">
             <div class="mx-auto max-w-2xl">
                 <Back client:load />
@@ -77,7 +77,7 @@ const { Content } = await project.render();
                                                     : undefined
                                             }
                                         >
-                                            <RadioIcon class="h-5 w-5 flex-none" />
+                                            <RadioIcon className="h-5 w-5 flex-none" />
                                             <span class="ml-2">
                                                 {project.data.live.label || "Live"}
                                             </span>
