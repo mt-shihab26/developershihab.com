@@ -1,5 +1,5 @@
 import { render } from "~/components/screens/resume";
 
-const htmlString = render();
+const html = render();
 
-console.log(htmlString);
+console.log(html);

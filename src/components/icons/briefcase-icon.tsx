@@ -5,9 +5,9 @@ const BriefcaseIcon: TIcon = (props) => {
         <svg
             viewBox="0 0 24 24"
             fill="none"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             aria-hidden="true"
             {...props}
         >
