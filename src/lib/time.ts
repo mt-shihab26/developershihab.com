@@ -26,6 +26,18 @@ const time = {
             month: "long",
             day: "numeric"
         });
+    },
+    formatToShortDate: (date: Date | string): string => {
+        const dateObject: Date = date instanceof Date ? date : new Date(`${date}T00:00:00Z`);
+        if (isNaN(dateObject.getTime())) {
+            throw new Error("Invalid date provided");
+        }
+        return dateObject.toLocaleDateString("en-US", {
+            day: "numeric",
+            month: "short",
+            year: "numeric",
+            timeZone: "UTC"
+        });
     }
 };
 
