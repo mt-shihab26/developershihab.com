@@ -23,17 +23,16 @@ const experiences = [
     {
         company: "Systech Digital LTD",
         location: "Dhaka, Bangladesh",
-        role: "Intern Software Engineer",
+        role: "Software Engineer - Intern",
         start: "Jun 2024",
         end: "Sep 2024",
         logo: systech.src,
         description:
-            "Gained hands-on experience in software development working with modern technologies and best practices.",
+            "Completed internship as part of last semester diploma program in Systech Digital LTD's Software Developer (Laravel) Team",
         highlights: [
-            "Collaborated with senior developers on various projects",
-            "Assisted in developing Laravel applications",
-            "Participated in code reviews and technical discussions",
-            "Learned industry-standard development workflows"
+            "Built a web application with raw PHP by following Laravel-like software structure.",
+            "Built a full-featured Laravel E-commerce web application with admin panel and store website.",
+            "Worked on projects with senior developers. Learned industry best practices."
         ]
     }
 ];
