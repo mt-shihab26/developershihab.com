@@ -1,4 +1,4 @@
-import type { TProject } from "~/components/screens/resume/projects";
+import type { TProject } from "~/resume/components/projects";
 
 import { read } from "./read";
 

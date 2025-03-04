@@ -1,11 +1,13 @@
 ---
 import "~/styles/global.css";
 
-import type { TProject } from "~/components/screens/resume/projects";
+import type { TProject } from "~/resume/components/projects";
 
 import { getResumeProjects } from "~/lib/projects";
 
-import { Resume as ResumeComponent } from "~/components/screens/resume";
+import { Resume as ResumeComponent } from "~/resume/components";
+import { BackButton } from "~/components/screens/resume/back-button";
+import { DownloadButton } from "~/components/screens/resume/download-button";
 
 const projects: TProject[] = (await getResumeProjects()).map(
     (p) =>
@@ -29,46 +31,8 @@ const projects: TProject[] = (await getResumeProjects()).map(
     </head>
     <body class="mx-auto max-w-[956px]">
         <div class="flex justify-between px-8 pt-8">
-            <a
-                href="/"
-                class="flex items-center gap-2 rounded-md bg-gray-500 px-4 py-2 text-white shadow transition-colors hover:bg-gray-600 dark:bg-gray-600 dark:hover:bg-gray-700"
-            >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-                </svg>
-                Back
-            </a>
-            <a
-                href="/resume.pdf"
-                download
-                class="flex items-center gap-2 rounded-md bg-teal-500 px-4 py-2 text-white shadow transition-colors hover:bg-teal-600 dark:bg-teal-400 dark:hover:bg-teal-500"
-            >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                    ></path>
-                </svg>
-                Download Resume
-            </a>
+            <BackButton client:load />
+            <DownloadButton />
         </div>
         <ResumeComponent projects={projects} />
     </body>

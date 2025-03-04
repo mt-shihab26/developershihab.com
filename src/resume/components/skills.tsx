@@ -1,5 +1,6 @@
 import { frameworks, languages, others } from "~/config/tools_uses";
 import { cn } from "~/lib/utils";
+
 import { Heading } from "./heading";
 
 const Items = ({
@@ -41,7 +42,7 @@ const Skills = () => {
                 label="Other Technologies"
                 // className="flex space-x-1 grow"
                 skills={others.items.map(
-                    (l, i) => `${l.name}` // ${i !== others.items.length - 1 ? "," : ""}
+                    (l) => `${l.name}` // ${i !== others.items.length - 1 ? "," : ""}
                 )}
             />
         </section>
