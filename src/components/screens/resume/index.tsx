@@ -4,6 +4,7 @@ import { Experience } from "./experience";
 import { Header } from "./header";
 import { Projects, type TProject } from "./projects";
 import { Skills } from "./skills";
+import { Summery } from "./summery";
 
 const Resume = ({ projects }: { projects: TProject[] }) => {
     return (
@@ -11,6 +12,7 @@ const Resume = ({ projects }: { projects: TProject[] }) => {
             <Header />
             <div className="flex space-x-6">
                 <div className="w-[70%] space-y-6">
+                    <Summery />
                     <Experience />
                     <Projects projects={projects} />
                 </div>
