@@ -1,8 +1,8 @@
-import type { TProject } from "~/lib/projects";
+import type { TProject } from "~/components/screens/resume/projects";
 
 const getResumeProjects = async (): Promise<TProject[]> => {
     const projects: TProject[] = [];
-    return projects.filter((p) => p.data.resume);
+    return projects.filter((p) => p);
 };
 
 export { getResumeProjects };
