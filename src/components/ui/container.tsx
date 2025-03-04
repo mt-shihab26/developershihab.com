@@ -37,7 +37,6 @@ const ContainerInner = ({
 };
 
 const Container = ({
-    className,
     children,
     ref,
     ...props

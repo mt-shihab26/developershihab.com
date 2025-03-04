@@ -6,7 +6,7 @@ import { Container } from "~/components/ui/container";
 
 import Bio from "~/components/screens/home/bio.astro";
 import SocialLinks from "~/components/screens/home/social-links.astro";
-import Photos from "~/components/screens/home/photos.astro";
+// import Photos from "~/components/screens/home/photos.astro";
 import Articles from "~/components/screens/home/articles.astro";
 import Experience from "~/components/screens/home/experience.astro";
 
@@ -16,14 +16,14 @@ import NewsLetter from "~/components/elements/news-letter.astro";
 const articles = await getFeaturedArticles();
 ---
 
-<Layout title={`${meta.name} - Passionate Software Developer`}>
+<Layout title={`${meta.name} - Full-stack developer`}>
     <Container className="mt-9">
         <div class="max-w-2xl text-lg">
             <Bio />
             <SocialLinks />
         </div>
     </Container>
-    <Photos />
+    <!-- <Photos /> -->
     <Container className="mt-24 md:mt-28">
         <div class="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
             <Articles articles={articles} />
