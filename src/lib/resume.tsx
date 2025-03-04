@@ -1,5 +1,6 @@
 import { renderToString } from "react-dom/server";
 import { pdf } from "./pdf";
+import { getResumeProjects } from "./projects";
 
 import { Resume } from "~/components/screens/resume";
 
@@ -18,11 +19,14 @@ const base = (resume: string) => {
     `;
 };
 
-const render = () => {
-    const resume = renderToString(<Resume />);
+const render = async () => {
+    const projects = await getResumeProjects();
+
+    const resume = renderToString(<Resume projects={projects} />);
     return base(resume);
 };
 
+const html = await render();
 const path = "public/shihab-mahamud-resume.pdf";
 
-await pdf(render(), path);
+await pdf(html, path);

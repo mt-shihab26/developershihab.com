@@ -13,6 +13,7 @@ live:
 case_study: true
 published: true
 featured: true
+resume: true
 order: 1
 ---
 

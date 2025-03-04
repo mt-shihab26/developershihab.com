@@ -42,6 +42,7 @@ const projects = defineCollection({
             case_study: z.boolean().default(false),
             featured: z.boolean().default(false),
             published: z.boolean().default(false),
+            resume: z.boolean().default(false),
             order: z.number()
         })
 });

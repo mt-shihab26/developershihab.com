@@ -1,7 +1,11 @@
 ---
 import "~/styles/global.css";
 
+import { getResumeProjects } from "~/lib/projects";
+
 import { Resume as ResumeComponent } from "~/components/screens/resume";
+
+const projects = await getResumeProjects();
 ---
 
 <!doctype html>
@@ -11,5 +15,5 @@ import { Resume as ResumeComponent } from "~/components/screens/resume";
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>shihab-mahamud-resume.pdf</title>
     </head>
-    <body class="mx-auto max-w-[928px]"><ResumeComponent /></body>
+    <body class="mx-auto max-w-[928px]"><ResumeComponent projects={projects} /></body>
 </html>
