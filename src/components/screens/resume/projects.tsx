@@ -1,10 +1,10 @@
 import { meta } from "~/lib/meta";
 
 export type TProject = {
+    slug?: string;
     name: string;
     technologies: string[];
     description: string;
-    slug: string;
     link: { href: string; label?: string } | undefined;
 };
 
@@ -20,7 +20,7 @@ const Projects = ({ projects }: { projects: TProject[] }) => {
                             <div className="text-gray-600 flex space-x-1">
                                 (
                                 {project.technologies.map((t, i) => (
-                                    <div>
+                                    <div key={i}>
                                         {t}
                                         {i !== project.technologies.length - 1 && ", "}
                                     </div>
