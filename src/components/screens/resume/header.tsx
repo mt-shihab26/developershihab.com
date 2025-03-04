@@ -2,7 +2,7 @@ import { meta } from "~/lib/meta";
 
 const Header = () => {
     return (
-        <header className="pb-2 flex h-full items-center">
+        <header className="flex h-full items-center">
             <div className="w-[70%] h-full space-y-1 flex flex-col justify-center">
                 <h1 className="text-4xl font-bold">{meta.name}</h1>
                 <p>Full-stack developer having 3+ years of experience</p>

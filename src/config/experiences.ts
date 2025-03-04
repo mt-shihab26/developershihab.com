@@ -13,11 +13,11 @@ const experiences = [
             "Working as a lead developer handling development of applications, plugins, and deployment with the team. I am also responsible for ongoing maintenance, bug fixes, and implementing new features.",
         highlights: [
             "Built WordPress plugin for paystubhero.com that handled 20k+ paystub document PDF generation.",
-            "Rewrote paystubhero.com WordPress plugin into a full-featured Laravel SaaS application with React frontend, including document generators, customer profile page, and admin dashboard.",
+            "Rewrote paystubhero.com WordPress plugin into a full-featured Laravel SaaS application with React frontend, including document generators with step-by-step forms, customer profile page, and admin dashboard.",
             "Built Laravel SaaS application with React frontend for quickdoctorsnote.com that generates customized doctor's notes.",
             "Also handled those application's deployment and CI/CD pipelines with DigitalOcean servers.",
-            "Maintaining paystubhero.com with bug fixes and new features for 2+ years",
-            "Led development team and made technical decisions for client projects"
+            "Continued to work on paystubhero.com maintenance with bug fixes and new feature development for over 2+ years.",
+            "Lead software development team at Finnext. Took technical decisions for Finnext's clients."
         ]
     },
     {
@@ -28,11 +28,11 @@ const experiences = [
         end: "Sep 2024",
         logo: systech.src,
         description:
-            "Completed internship with Laravel Development Team as part of diploma program",
+            "Completed internship as part of last semester diploma program in Systech Digital LTD's Software Developer Team (Laravel)",
         highlights: [
-            "Built web application using raw PHP with Laravel-like structure",
-            "Developed full-featured Laravel E-commerce application with admin panel",
-            "Collaborated with senior developers and learned industry best practices"
+            "Built a web application with raw PHP by following Laravel-like software structure.",
+            "Built a full-featured Laravel E-commerce web application with admin panel and store website.",
+            "Worked on projects with senior developers. Learned industry best practices."
         ]
     }
 ];
