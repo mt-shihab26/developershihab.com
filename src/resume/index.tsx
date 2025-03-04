@@ -1,9 +1,10 @@
 import { renderToString } from "react-dom/server";
-import { base } from "./base";
-import { pdf } from "./pdf";
-import { getResumeProjects } from "./projects";
 
-import { Resume } from "~/components/screens/resume";
+import { base } from "./lib/base";
+import { pdf } from "./lib/pdf";
+import { getResumeProjects } from "./lib/projects";
+
+import { Resume } from "./components";
 
 const render = async () => {
     const projects = await getResumeProjects();
