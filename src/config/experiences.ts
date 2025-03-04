@@ -10,13 +10,13 @@ const experiences = [
         end: "Present",
         logo: finnext.src,
         description:
-            "Lead developer working on application, plugins development, deployment, maintenance, bug fixes, and new feature implementation.",
+            "Working as a lead developer handling development of applications, plugins, and deployment with the team. I am also responsible for ongoing maintenance, bug fixes, and implementing new features.",
         highlights: [
-            "Built WordPress plugin for paystubhero.com handled 20k+ paystub PDF generations",
+            "Built WordPress plugin for paystubhero.com that handled 20k+ paystub document PDF generation.",
             "Rewrote paystubhero.com WordPress plugin into a full-featured Laravel SaaS application with React frontend, including document generators, customer profile page, and admin dashboard.",
             "Built Laravel SaaS application with React frontend for quickdoctorsnote.com that generates customized doctor's notes.",
-            "Managed deployment and CI/CD pipelines on DigitalOcean servers",
-            "Maintained paystubhero.com with bug fixes and new features for 2+ years",
+            "Also handled those application's deployment and CI/CD pipelines with DigitalOcean servers.",
+            "Maintaining paystubhero.com with bug fixes and new features for 2+ years",
             "Led development team and made technical decisions for client projects"
         ]
     },
