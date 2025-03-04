@@ -1,25 +1,29 @@
-import { renderToString } from "react-dom/server";
+import { Certification } from "./certification";
+import { Education } from "./education";
+import { Experience } from "./experience";
+import { Header } from "./header";
+import { OpenSource } from "./open-source";
+import { Profiles } from "./profiles";
+import { Skills } from "./skills";
 
-import { Resume } from "./resume";
-
-const base = (resume: string) => {
-    return `
-        <!doctype html>
-        <html lang="en">
-            <head>
-                <meta charset="UTF-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>shihab-mahamud-resume.pdf</title>
-                <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-            </head>
-            <body>${resume}</body>
-        </html>
-    `;
+const Resume = () => {
+    return (
+        <div className="max-w-4xl text-sm space-y-6 mx-auto p-6 bg-white">
+            <Header />
+            <div className="flex space-x-6">
+                <div className="w-[70%] space-y-6">
+                    <Experience />
+                </div>
+                <div className="w-[30%] space-y-6">
+                    <Skills />
+                    <Profiles />
+                    <OpenSource />
+                    <Certification />
+                    <Education />
+                </div>
+            </div>
+        </div>
+    );
 };
 
-const render = () => {
-    const resume = renderToString(<Resume />);
-    return base(resume);
-};
-
-export { render };
+export { Resume };
