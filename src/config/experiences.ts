@@ -12,8 +12,11 @@ const experiences = [
         description:
             "Working as a lead developer handling development of applications, plugins, and deployment with the team. I am also responsible for ongoing maintenance, bug fixes, and implementing new features.",
         highlights: [
-            "Build wordpress plugin for paystubhero.com that handed 20k+ paystub document pdf generated",
-            "Rewrote paystubhero.com SaaS application part into full-featured laravel application with react frontend with documents generators step by step form, customer profile page, admin dashboard"
+            "Built WordPress plugin for paystubhero.com that handled 20k+ paystub document PDF generation.",
+            "Rewrote paystubhero.com wordpress plugin into a full-featured Laravel SaaS application with React frontend, including document generators with step-by-step forms, customer profile page, and admin dashboard.",
+            "Build Laravel SaaS application with React frontend for quickdoctorsnote.com that used to generate customization doctor's note.",
+            "Also handle those application deployment and ci/cd pipelines with DigitalOcean servers.",
+            "Continue to work on paystubhero.com maintenance with bug fixes, new features development over 2+ years"
         ]
     },
     {
