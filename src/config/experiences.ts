@@ -13,10 +13,11 @@ const experiences = [
             "Working as a lead developer handling development of applications, plugins, and deployment with the team. I am also responsible for ongoing maintenance, bug fixes, and implementing new features.",
         highlights: [
             "Built WordPress plugin for paystubhero.com that handled 20k+ paystub document PDF generation.",
-            "Rewrote paystubhero.com wordpress plugin into a full-featured Laravel SaaS application with React frontend, including document generators with step-by-step forms, customer profile page, and admin dashboard.",
-            "Build Laravel SaaS application with React frontend for quickdoctorsnote.com that used to generate customization doctor's note.",
-            "Also handle those application deployment and ci/cd pipelines with DigitalOcean servers.",
-            "Continue to work on paystubhero.com maintenance with bug fixes, new features development over 2+ years"
+            "Rewrote paystubhero.com WordPress plugin into a full-featured Laravel SaaS application with React frontend, including document generators with step-by-step forms, customer profile page, and admin dashboard.",
+            "Built Laravel SaaS application with React frontend for quickdoctorsnote.com that generates customized doctor's notes.",
+            "Also handled those application's deployment and CI/CD pipelines with DigitalOcean servers.",
+            "Continued to work on paystubhero.com maintenance with bug fixes and new feature development for over 2+ years.",
+            "Lead software development team at Finnext. Took technical decisions for Finnext's clients."
         ]
     },
     {
