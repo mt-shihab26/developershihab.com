@@ -1,7 +1,9 @@
+import { Heading } from "./heading";
+
 const Summery = () => {
     return (
         <section className="space-y-4">
-            <h2 className="font-bold text-blue-600 uppercase border-b">Summery</h2>
+            <Heading>SUMMERY</Heading>
             <div className="text-xs space-y-2">
                 Full-stack developer with expertise in Laravel, React, and WordPress, complemented
                 by a strong foundation in data structures and algorithms from competitive

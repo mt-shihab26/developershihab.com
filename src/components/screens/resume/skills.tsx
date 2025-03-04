@@ -1,5 +1,6 @@
 import { frameworks, languages, others } from "~/config/tools_uses";
 import { cn } from "~/lib/utils";
+import { Heading } from "./heading";
 
 const Items = ({
     label,
@@ -27,7 +28,7 @@ const Items = ({
 const Skills = () => {
     return (
         <section className="space-y-4">
-            <h2 className="font-bold text-blue-600 uppercase border-b pb-1">SKILLS</h2>
+            <Heading>SKILLS</Heading>
             <Items
                 label="Language"
                 skills={languages.items.map((l) => `${l.name} (${l.duration})`)}

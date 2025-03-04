@@ -1,3 +1,5 @@
+import { Heading } from "./heading";
+
 const Certification = () => {
     const certifications = [
         {
@@ -9,7 +11,7 @@ const Certification = () => {
 
     return (
         <section className="space-y-4">
-            <h2 className="font-bold text-blue-600 uppercase border-b pb-1">Certification</h2>
+            <Heading>Certification</Heading>
             <ul className="text-xs">
                 {certifications.map((cert, index) => (
                     <li key={index} className="mb-1">

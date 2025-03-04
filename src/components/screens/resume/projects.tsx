@@ -1,5 +1,7 @@
 import { meta } from "~/lib/meta";
 
+import { Heading } from "./heading";
+
 export type TProject = {
     slug?: string;
     name: string;
@@ -11,7 +13,7 @@ export type TProject = {
 const Projects = ({ projects }: { projects: TProject[] }) => {
     return (
         <section className="space-y-4">
-            <h2 className="font-bold text-blue-600 uppercase border-b pb-1">Projects</h2>
+            <Heading>Projects</Heading>
             <ul className="space-y-2 text-xs">
                 {projects.map((project, index) => (
                     <li key={index}>
