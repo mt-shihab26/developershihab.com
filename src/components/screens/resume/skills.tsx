@@ -12,7 +12,7 @@ const Items = ({
 }) => {
     return (
         <div className="space-y-1">
-            <h3 className="text-lg font-semibold">{label}</h3>
+            <h3 className="font-medium">{label}</h3>
             <ul className={cn("text-xs text-gray-600", className)}>
                 {skills.map((skill, index) => (
                     <li key={index} className="">

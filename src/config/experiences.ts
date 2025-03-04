@@ -1,5 +1,5 @@
 import { finnext, systech } from "~/lib/assets";
-import { frameworks, languages, tools } from "./tools_uses";
+import { frameworks, languages, others } from "./tools_uses";
 
 const experiences = [
     {
@@ -46,6 +46,6 @@ const educations = [
     }
 ];
 
-const skills = [languages, frameworks, tools];
+const skills = [languages, frameworks, others];
 
 export { educations, experiences, skills };
