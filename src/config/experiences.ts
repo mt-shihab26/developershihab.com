@@ -40,9 +40,10 @@ const experiences = [
 const educations = [
     {
         institution: "Faridpur Polytechnic Institute",
+        description: "Focused on computer science foundamentals, programming, problem solving.",
+        location: "Faridpur, Bangladesh",
         degree: "Diploma in Engineering, Computer Science",
-        period: "2020 - 2024",
-        description: "Focused on computer science foundamentals, programming, problem solving."
+        period: "2020 - 2024"
     }
 ];
 

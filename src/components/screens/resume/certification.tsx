@@ -8,11 +8,9 @@ const Certification = () => {
     ];
 
     return (
-        <section className="mb-6">
-            <h2 className="text-2xl font-bold text-blue-600 uppercase mb-4 border-b pb-2">
-                Certification
-            </h2>
-            <ul>
+        <section className="space-y-4">
+            <h2 className="font-bold text-blue-600 uppercase border-b pb-1">Certification</h2>
+            <ul className="text-xs">
                 {certifications.map((cert, index) => (
                     <li key={index} className="mb-1">
                         {cert.name} on {cert.date}

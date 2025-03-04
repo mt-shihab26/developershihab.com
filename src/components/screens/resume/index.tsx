@@ -18,8 +18,8 @@ const Resume = ({ projects }: { projects: TProject[] }) => {
                 </div>
                 <div className="w-[30%] space-y-6">
                     <Skills />
-                    <Certification />
                     <Education />
+                    <Certification />
                 </div>
             </div>
         </div>
