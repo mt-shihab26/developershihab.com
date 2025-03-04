@@ -4,6 +4,7 @@ import { frameworks, languages, tools } from "./tools_uses";
 const experiences = [
     {
         company: "Finnext",
+        location: "Dhaka, Bangladesh",
         role: "Lead Software Developer",
         start: "May 2023",
         end: "Present",
@@ -20,7 +21,8 @@ const experiences = [
     },
     {
         company: "Systech Digital LTD",
-        role: "Software Engineer - Intern",
+        location: "Dhaka, Bangladesh",
+        role: "Intern Software Engineer",
         start: "Jun 2024",
         end: "Sep 2024",
         logo: systech.src,
