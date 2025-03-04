@@ -38,9 +38,9 @@ const Skills = () => {
             />
             <Items
                 label="Other Technologies"
-                className="flex space-x-1 grow"
+                // className="flex space-x-1 grow"
                 skills={others.items.map(
-                    (l, i) => `${l.name}${i !== others.items.length - 1 ? "," : ""}`
+                    (l, i) => `${l.name}` // ${i !== others.items.length - 1 ? "," : ""}
                 )}
             />
         </section>
