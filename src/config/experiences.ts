@@ -47,6 +47,14 @@ const educations = [
     }
 ];
 
+const certifications = [
+    {
+        name: "Think in a Redux way Course (Learn with Sumit)",
+        date: "Fab 2023 - Apr 2023",
+        link: "https://learnwithsumit.com/certificates/verify/LWSCTXN-RUP3O34K"
+    }
+];
+
 const skills = [languages, frameworks, others];
 
-export { educations, experiences, skills };
+export { certifications, educations, experiences, skills };

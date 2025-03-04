@@ -1,14 +1,8 @@
+import { certifications } from "~/config/experiences";
+
 import { Heading } from "./heading";
 
 const Certification = () => {
-    const certifications = [
-        {
-            name: "Azure Developer Associate certification",
-            date: "1 August 2020",
-            link: "#"
-        }
-    ];
-
     return (
         <section className="space-y-4">
             <Heading>Certification</Heading>
@@ -17,7 +11,11 @@ const Certification = () => {
                     <li key={index} className="mb-1">
                         {cert.name} on {cert.date}
                         {cert.link && (
-                            <a href={cert.link} className="text-blue-600 hover:underline ml-1">
+                            <a
+                                target="_blank"
+                                href={cert.link}
+                                className="text-blue-600 hover:underline ml-1"
+                            >
                                 [Link]
                             </a>
                         )}
