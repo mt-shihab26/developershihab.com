@@ -3,7 +3,6 @@ import { Education } from "./education";
 import { Experience } from "./experience";
 import { Header } from "./header";
 import { OpenSource } from "./open-source";
-import { Profiles } from "./profiles";
 import { Skills } from "./skills";
 
 const Resume = () => {
@@ -16,7 +15,6 @@ const Resume = () => {
                 </div>
                 <div className="w-[30%] space-y-6">
                     <Skills />
-                    <Profiles />
                     <OpenSource />
                     <Certification />
                     <Education />
