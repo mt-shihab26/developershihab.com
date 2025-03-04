@@ -8,15 +8,15 @@ import { Summery } from "./summery";
 
 const Resume = ({ projects }: { projects: TProject[] }) => {
     return (
-        <div className="leading-5 text-sm space-y-6 w-full mx-auto p-10 bg-white">
+        <div className="leading-5 text-sm space-y-4 w-full mx-auto p-10 bg-white">
             <Header />
-            <div className="flex space-x-6">
-                <div className="w-[70%] space-y-6">
+            <div className="flex">
+                <div className="w-[70%] pr-6 space-y-4">
                     <Summery />
                     <Experience />
                     <Projects projects={projects} />
                 </div>
-                <div className="w-[30%] space-y-6">
+                <div className="w-[30%] space-y-4">
                     <Skills />
                     <Education />
                     <Certification />
