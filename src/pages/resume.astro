@@ -30,9 +30,13 @@ const projects: TProject[] = (await getResumeProjects()).map(
         <title>shihab-mahamud-resume.pdf</title>
     </head>
     <body class="mx-auto max-w-[956px]">
-        <div class="flex justify-between px-8 pt-8">
-            <BackButton client:load />
-            <DownloadButton />
+        <div class="flex px-8 pt-8">
+            <div class="w-[70%]">
+                <BackButton client:load />
+            </div>
+            <div class="flex w-[30%]">
+                <DownloadButton />
+            </div>
         </div>
         <ResumeComponent projects={projects} />
     </body>
