@@ -3,7 +3,7 @@
     "scripts": {
         "dev": "astro dev",
         "build": "astro check && astro build",
-        "build:resume": "bun run ./src/lib/resume.tsx",
+        "build:resume": "bun run ./src/resume/index.tsx",
         "preview": "astro preview",
         "astro": "astro",
         "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,mdx,svelte,astro,json,svg}\"",
