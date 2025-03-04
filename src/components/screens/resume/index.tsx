@@ -8,7 +8,7 @@ import { Skills } from "./skills";
 
 const Resume = () => {
     return (
-        <div className="max-w-4xl leading-5 text-sm space-y-6 mx-auto p-6 bg-white">
+        <div className="leading-5 text-sm space-y-6 w-full mx-auto p-10 bg-white">
             <Header />
             <div className="flex space-x-6">
                 <div className="w-[70%] space-y-6">
