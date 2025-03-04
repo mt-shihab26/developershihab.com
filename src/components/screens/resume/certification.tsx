@@ -4,7 +4,7 @@ import { Heading } from "./heading";
 
 const Certification = () => {
     return (
-        <section className="space-y-4">
+        <section className="space-y-3">
             <Heading>Certification</Heading>
             <ul className="text-xs">
                 {certifications.map((cert, index) => (

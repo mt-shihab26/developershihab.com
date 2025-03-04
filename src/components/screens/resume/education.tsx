@@ -1,9 +1,10 @@
 import { educations } from "~/config/experiences";
+
 import { Heading } from "./heading";
 
 const Education = () => {
     return (
-        <section className="space-y-4">
+        <section className="space-y-3">
             <Heading>Education</Heading>
             {educations.map((edu, index) => (
                 <div key={index} className="text-xs">

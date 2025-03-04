@@ -4,7 +4,7 @@ import { Heading } from "./heading";
 
 const Experience = () => {
     return (
-        <section className="space-y-4">
+        <section className="space-y-3">
             <Heading>Work Experience</Heading>
             {experiences.map((e, index) => (
                 <div key={index} className="space-y-2">

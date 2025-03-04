@@ -27,7 +27,7 @@ const Items = ({
 
 const Skills = () => {
     return (
-        <section className="space-y-4">
+        <section className="space-y-3">
             <Heading>SKILLS</Heading>
             <Items
                 label="Language"
