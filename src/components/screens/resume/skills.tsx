@@ -1,56 +1,48 @@
-const Skills = () => {
-    const skills = {
-        language: ["JavaScript (10+ years)", "TypeScript (4+ years)", "C# (10+ years)"],
-        framework: ["Node.js (4+ years)", "React.js (3+ years)", "ASP.NET Core (4+ years)"],
-        cloud: ["Microsoft Azure (4+ years)", "AWS (1+ years)"],
-        other: [
-            "GraphQL, Docker, SharePoint, Kubernetes, SQL Server, MongoDB, ElasticSearch, Redis, RabbitMQ"
-        ]
-    };
+import { frameworks, languages, others } from "~/config/tools_uses";
+import { cn } from "~/lib/utils";
 
+const Items = ({
+    label,
+    skills,
+    className
+}: {
+    label: string;
+    skills: string[];
+    className?: string;
+}) => {
     return (
-        <section className="mb-6">
-            <h2 className="text-2xl font-bold text-blue-600 uppercase mb-4 border-b pb-2">
-                Skills
-            </h2>
+        <div className="space-y-1">
+            <h3 className="text-lg font-semibold">{label}</h3>
+            <ul className={cn("text-xs text-gray-600", className)}>
+                {skills.map((skill, index) => (
+                    <li key={index} className="">
+                        {skill}
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+};
 
-            <div className="mb-4">
-                <h3 className="text-lg font-semibold text-gray-700">Language</h3>
-                <ul className="mt-1">
-                    {skills.language.map((skill, index) => (
-                        <li key={index} className="text-gray-600 mb-1">
-                            {skill}
-                        </li>
-                    ))}
-                </ul>
-            </div>
-
-            <div className="mb-4">
-                <h3 className="text-lg font-semibold text-gray-700">Framework</h3>
-                <ul className="mt-1">
-                    {skills.framework.map((skill, index) => (
-                        <li key={index} className="text-gray-600 mb-1">
-                            {skill}
-                        </li>
-                    ))}
-                </ul>
-            </div>
-
-            <div className="mb-4">
-                <h3 className="text-lg font-semibold text-gray-700">Cloud</h3>
-                <ul className="mt-1">
-                    {skills.cloud.map((skill, index) => (
-                        <li key={index} className="text-gray-600 mb-1">
-                            {skill}
-                        </li>
-                    ))}
-                </ul>
-            </div>
-
-            <div className="mb-4">
-                <h3 className="text-lg font-semibold text-gray-700">Other Technologies</h3>
-                <p className="text-gray-600 mt-1">{skills.other}</p>
-            </div>
+const Skills = () => {
+    return (
+        <section className="space-y-4">
+            <h2 className="font-bold text-blue-600 uppercase border-b pb-1">SKILLS</h2>
+            <Items
+                label="Language"
+                skills={languages.items.map((l) => `${l.name} (${l.duration})`)}
+            />
+            <Items
+                label="Framework"
+                skills={frameworks.items.map((l) => `${l.name} (${l.duration})`)}
+            />
+            <Items
+                label="Other Technologies"
+                className="flex space-x-1 grow"
+                skills={others.items.map(
+                    (l, i) => `${l.name}${i !== others.items.length - 1 ? "," : ""}`
+                )}
+            />
         </section>
     );
 };
