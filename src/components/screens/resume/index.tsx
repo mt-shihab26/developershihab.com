@@ -1,10 +1,8 @@
-import type { TProject } from "~/lib/projects";
-
 import { Certification } from "./certification";
 import { Education } from "./education";
 import { Experience } from "./experience";
 import { Header } from "./header";
-import { Projects } from "./projects";
+import { Projects, type TProject } from "./projects";
 import { Skills } from "./skills";
 
 const Resume = ({ projects }: { projects: TProject[] }) => {

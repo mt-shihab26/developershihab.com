@@ -1,11 +1,22 @@
 ---
 import "~/styles/global.css";
 
+import type { TProject } from "~/components/screens/resume/projects";
+
 import { getResumeProjects } from "~/lib/projects";
 
 import { Resume as ResumeComponent } from "~/components/screens/resume";
 
-const projects = await getResumeProjects();
+const projects: TProject[] = (await getResumeProjects()).map(
+    (p) =>
+        ({
+            name: p.data.name,
+            technologies: p.data.technologies,
+            description: p.data.description,
+            slug: p.slug,
+            link: p.data.link
+        }) as TProject
+);
 ---
 
 <!doctype html>

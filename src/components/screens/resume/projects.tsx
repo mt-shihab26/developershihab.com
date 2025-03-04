@@ -1,6 +1,12 @@
-import type { TProject } from "~/lib/projects";
-
 import { meta } from "~/lib/meta";
+
+export type TProject = {
+    name: string;
+    technologies: string[];
+    description: string;
+    slug: string;
+    link: { href: string; label?: string } | undefined;
+};
 
 const Projects = ({ projects }: { projects: TProject[] }) => {
     return (
@@ -10,23 +16,23 @@ const Projects = ({ projects }: { projects: TProject[] }) => {
                 {projects.map((project, index) => (
                     <li key={index}>
                         <div className="flex space-x-2 items-center">
-                            <div className="font-semibold text-base">{project.data.name}</div>
+                            <div className="font-semibold text-base">{project.name}</div>
                             <div className="text-gray-600 flex space-x-1">
                                 (
-                                {project.data.technologies.map((t, i) => (
+                                {project.technologies.map((t, i) => (
                                     <div>
                                         {t}
-                                        {i !== project.data.technologies.length - 1 && ", "}
+                                        {i !== project.technologies.length - 1 && ", "}
                                     </div>
                                 ))}
                                 ):
                             </div>
                         </div>
                         <div>
-                            {project.data.description}
+                            {project.description}
                             <a
                                 href={
-                                    project.data.link?.href ||
+                                    project.link?.href ||
                                     `${meta.url}/projects/${project.slug || "/"}`
                                 }
                                 className="text-blue-600 hover:underline ml-1"
