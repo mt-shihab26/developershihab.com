@@ -1,6 +1,6 @@
 import type { AnchorHTMLAttributes, HTMLAttributes, RefObject } from "react";
 
-import { shihab } from "~/lib/assets";
+import { shihab_3 } from "~/lib/assets";
 import { cn } from "~/lib/utils";
 
 const AvatarContainer = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => {
@@ -28,7 +28,7 @@ const Avatar = ({
     return (
         <a href="/" aria-label="Home" className={cn("pointer-events-auto", className)} {...props}>
             <img
-                src={shihab.src}
+                src={shihab_3.src}
                 alt="avatar"
                 sizes={large ? "4rem" : "2.25rem"}
                 className={cn(

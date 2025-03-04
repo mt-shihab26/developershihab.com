@@ -45,8 +45,7 @@ export const Header = ({ pathname }: { pathname: string }) => {
                 {isHomePage && (
                     <Container>
                         <div className="w-full relative pt-16">
-                            <AvatarContainer className="absolute top-3 left-0 origin-left transition-opacity" />
-                            <Avatar large className="block h-16 w-16 origin-left" />
+                            <Avatar large={true} className="block h-16 w-16 origin-left" />
                         </div>
                     </Container>
                 )}
