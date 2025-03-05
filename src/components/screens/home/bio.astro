@@ -1,22 +1,14 @@
 ---
-import { links } from "~/lib/links";
+import { SummaryParagraph } from "~/config/summary";
 
-import A from "./a.astro";
 import Paragraph from "./paragraph.astro";
 import Heading from "~/components/elements/heading.astro";
 ---
 
 <div class="space-y-6">
-    <Heading>Full-stack developer</Heading>
+    <Heading>Software Engineer, Programmer</Heading>
     <Paragraph>
-        I'm Shihab, and I am a full stack <A href={links.laravel}>Laravel</A> Developer. I build frontends
-        with <A href={links.react}>React</A>. I also work on <A href={links.wordpress}>WordPress</A>
-        plugin development sometimes.
-    </Paragraph>
-    <Paragraph>
-        I lead software development team at <A href={links.finnext}>Finnext</A>, where I build &
-        manage applications and plugins development, deployment with our team. I handle ongoing
-        maintenance, bug fixes, and implementation of new features.
+        <SummaryParagraph />
     </Paragraph>
     <Paragraph>
         Interested in Transforming Your ideas into impactful software solutions. I am open for work.
