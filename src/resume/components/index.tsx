@@ -2,6 +2,7 @@ import { Certification } from "./certification";
 import { Education } from "./education";
 import { Experience } from "./experience";
 import { Header } from "./header";
+import { OpenSourceContribution } from "./open-source-contribution";
 import { Projects, type TProject } from "./projects";
 import { Skills } from "./skills";
 import { Summary } from "./summary";
@@ -18,6 +19,7 @@ const Resume = ({ projects }: { projects: TProject[] }) => {
                 </div>
                 <div className="w-[30%] space-y-4">
                     <Skills />
+                    <OpenSourceContribution />
                     <Education />
                     <Certification />
                 </div>

@@ -8,9 +8,10 @@ const Education = () => {
             <Heading>Education</Heading>
             {educations.map((edu, index) => (
                 <div key={index} className="text-xs">
-                    <span className="font-semibold">{edu.institution}, </span>{" "}
-                    <span>{edu.location}</span> <span> - </span>
-                    <span>{edu.degree}</span> <span> - </span> <span>{edu.period}</span>
+                    <div className="font-semibold">{edu.institution}</div>
+                    <div>{edu.location}</div>
+                    <div>{edu.degree}</div>
+                    <div>{edu.period}</div>
                 </div>
             ))}
         </section>
