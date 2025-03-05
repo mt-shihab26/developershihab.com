@@ -1,19 +1,17 @@
 ---
 import { getProjects } from "~/lib/projects";
-import { time } from "~/lib/time";
 
-import { Image } from "astro:assets";
-import { Card, CardDescription, CardLink } from "~/components/ui/card";
-import { LinkIcon } from "~/components/icons/link-icon";
 import { Container } from "~/components/ui/container";
 
 import Layout from "~/components/layouts/layout/index.astro";
-import Technologies from "~/components/elements/technologies.astro";
 import Heading from "~/components/elements/heading.astro";
+
+import OpenSourceWorks from "~/components/screens/projects/open-source-works.astro";
+import WorkProjects from "~/components/screens/projects/work-projects.astro";
 
 const projects = await getProjects();
 
-const headline = "Things I’ve made trying to put my mark on the universe.";
+const headline = "Things I've made trying to put my mark on the universe.";
 ---
 
 <Layout name="Projects" pathname="/projects" description={headline}>
@@ -23,59 +21,13 @@ const headline = "Things I’ve made trying to put my mark on the universe.";
                 {headline}
             </Heading>
             <p class="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
-                I’ve worked on tons of little projects over the years, but these are some of the
-                ones that I’m most proud of. If you see something that piques your interest, check
+                I've worked on tons of little projects over the years, but these are some of the
+                ones that I'm most proud of. If you see something that piques your interest, check
                 it out via the link below. While you're there, feel free to contribute any ideas
                 that would make it better. Remember: Open source!
             </p>
         </header>
-        <div class="mt-16 sm:mt-20">
-            <ul
-                role="list"
-                class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
-            >
-                {
-                    projects.map((project) => (
-                        <Card as="li" className="space-y-2">
-                            <div class="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-                                <Image
-                                    src={project.data.logo}
-                                    alt=""
-                                    class="h-8 w-8"
-                                    loading="lazy"
-                                />
-                            </div>
-                            <h2 class="text-base font-semibold text-zinc-800 dark:text-zinc-100">
-                                <CardLink
-                                    href={project.data.link?.href || `/projects/${project.slug}`}
-                                    target={project.data.link?.href ? "_blank" : undefined}
-                                >
-                                    {project.data.name}
-                                </CardLink>
-                            </h2>
-                            <div class="relative flex items-center space-x-2 text-xs text-zinc-400 dark:text-zinc-500">
-                                <time datetime={project.data.date.start.toISOString()}>
-                                    {time.formatToShortDate(project.data.date.start)}
-                                </time>
-                                <div>-</div>
-                                {project.data.date.end ? (
-                                    <time datetime={project.data.date.end.toISOString()}>
-                                        {time.formatToShortDate(project.data.date.end)}
-                                    </time>
-                                ) : (
-                                    <span>Present</span>
-                                )}
-                            </div>
-                            <CardDescription>{project.data.description}</CardDescription>
-                            <Technologies class="py-2" technologies={project.data.technologies} />
-                            <p class="relative z-10 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
-                                <LinkIcon className="h-6 w-6 flex-none" />
-                                <span class="ml-2">{project.data.link?.label || "Case Study"}</span>
-                            </p>
-                        </Card>
-                    ))
-                }
-            </ul>
-        </div>
+        <WorkProjects projects={projects} />
+        <OpenSourceWorks />
     </Container>
 </Layout>

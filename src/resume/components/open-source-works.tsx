@@ -2,7 +2,7 @@ import { open_source_contribution } from "~/config/open_source_contribution";
 
 import { Heading } from "./heading";
 
-const OpenSourceContribution = () => {
+const OpenSourceWorks = () => {
     return (
         <section className="space-y-3">
             <Heading>Open Source Works</Heading>
@@ -27,4 +27,4 @@ const OpenSourceContribution = () => {
     );
 };
 
-export { OpenSourceContribution };
+export { OpenSourceWorks };
