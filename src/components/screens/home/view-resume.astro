@@ -1,12 +1,11 @@
 ---
 import { cn } from "~/lib/utils";
 
-import { DownloadIcon } from "~/components/icons/download-icon";
+import { ExternalLink } from "~/components/icons/external-link";
 ---
 
 <a
-    href="/shihab-mahamud-resume.pdf"
-    download={true}
+    href="/resume"
     class={cn(
         "inline-flex items-center space-x-2 group justify-center rounded-md py-2 px-3 text-sm",
         "outline-offset-2 transition active:transition-none font-medium w-full",
@@ -15,10 +14,10 @@ import { DownloadIcon } from "~/components/icons/download-icon";
         "dark:active:bg-zinc-800/50 cursor-pointer dark:active:text-zinc-50/70"
     )}
 >
-    Download Resume
-    <DownloadIcon
+    <span>View Resume</span>
+    <ExternalLink
         className={cn(
-            "h-5 w-5 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50",
+            "h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50",
             "dark:group-active:stroke-zinc-50"
         )}
     />

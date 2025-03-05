@@ -5,6 +5,7 @@ import { cn } from "~/lib/utils";
 import { BriefcaseIcon } from "~/components/icons/briefcase-icon";
 
 import DownloadResume from "./download-resume.astro";
+import ViewResume from "./view-resume.astro";
 ---
 
 <div class="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
@@ -47,5 +48,8 @@ import DownloadResume from "./download-resume.astro";
             ))
         }
     </ol>
-    <DownloadResume />
+    <div class="mt-6 flex space-x-2">
+        <ViewResume />
+        <DownloadResume />
+    </div>
 </div>

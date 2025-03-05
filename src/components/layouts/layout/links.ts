@@ -15,13 +15,13 @@ const links = [
         label: "Experience",
         href: "/experience"
     },
-    // {
-    //     label: "Speaking",
-    //     href: "/speaking"
-    // },
     {
         label: "Uses",
         href: "/uses"
+    },
+    {
+        label: "Resume",
+        href: "/resume"
     }
 ];
 
