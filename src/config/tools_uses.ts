@@ -86,9 +86,8 @@ const others = {
                 "Cloud platform utilized for deploying and scaling applications, with expertise in Droplets configuration, load balancing, managed databases, and infrastructure automation through their API and CLI tools."
         },
         {
-            name: "DigitalOcean",
-            description:
-                "Cloud platform utilized for deploying and scaling applications, with expertise in Droplets configuration, load balancing, managed databases, and infrastructure automation through their API and CLI tools."
+            name: "Laravel Forge",
+            description: ""
         },
         {
             name: "Git",
