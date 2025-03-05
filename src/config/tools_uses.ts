@@ -48,6 +48,11 @@ const frameworks = {
                 "A JavaScript library I use extensively for building interactive user interfaces, particularly appreciating its component-based architecture and vast ecosystem."
         },
         {
+            name: "Inertia.js",
+            duration: "8+ months",
+            description: ""
+        },
+        {
             name: "WordPress",
             duration: "2+ years",
             description:
