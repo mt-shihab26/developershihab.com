@@ -15,9 +15,9 @@ const experiences = [
             "Built WordPress plugin for paystubhero.com that handled 20k+ paystub document PDF generation.",
             "Rewrote paystubhero.com WordPress plugin into a full-featured Laravel SaaS application with React frontend, including document generators with step-by-step forms, customer profile page, and admin dashboard.",
             "Built Laravel SaaS application with React frontend for quickdoctorsnote.com that generates customized doctor's notes.",
-            "Also handled those application's deployment and CI/CD pipelines with DigitalOcean servers.",
+            "Also handled these applications' deployment and CI/CD pipelines with DigitalOcean servers.",
             "Continued to work on paystubhero.com maintenance with bug fixes and new feature development for over 2+ years.",
-            "Lead software development team at Finnext. Took technical decisions for Finnext's clients."
+            "Led software development team at Finnext. Made technical decisions for Finnext's clients."
         ]
     },
     {
@@ -28,7 +28,7 @@ const experiences = [
         end: "Sep 2024",
         logo: systech.src,
         description:
-            "Completed internship as part of last semester diploma program in Systech Digital LTD's Software Developer Team (Laravel)",
+            "Completed internship as part of last semester diploma program in Systech Digital LTD's Software Developer Team (Laravel).",
         highlights: [
             "Built a web application with raw PHP by following Laravel-like software structure.",
             "Built a full-featured Laravel E-commerce web application with admin panel and store website.",
