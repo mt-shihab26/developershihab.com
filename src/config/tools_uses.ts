@@ -86,6 +86,11 @@ const others = {
                 "Cloud platform utilized for deploying and scaling applications, with expertise in Droplets configuration, load balancing, managed databases, and infrastructure automation through their API and CLI tools."
         },
         {
+            name: "DigitalOcean",
+            description:
+                "Cloud platform utilized for deploying and scaling applications, with expertise in Droplets configuration, load balancing, managed databases, and infrastructure automation through their API and CLI tools."
+        },
+        {
             name: "Git",
             description:
                 "Version control system powering all projects, featuring advanced usage of interactive rebasing, cherry-picking, and branch management for clean commit histories and team collaboration."
