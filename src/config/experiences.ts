@@ -5,7 +5,7 @@ const experiences = [
     {
         company: "Finnext",
         location: "Dhaka, Bangladesh",
-        role: "Lead Software Developer",
+        role: "Full-stack Developer",
         start: "May 2023",
         end: "Present",
         logo: finnext.src,
