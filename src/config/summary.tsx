@@ -3,16 +3,16 @@ import { Fragment } from "react";
 export const SummaryParagraph = ({ seperated }: { seperated?: boolean }) => {
     const content = [
         <>
-            Full-stack developer specializing in React, Laravel, and WordPress applications with
-            proven expertise in building and scaling SaaS products.
+            Full-stack developer with 3+ years of experience. Specializing in React, Laravel, and
+            WordPress applications with proven expertise in building and scaling SaaS products.
         </>,
         <>
-            Has strong foundation in data structures and algorithms (1100+ competitive programming
-            problems solved).
+            Strong foundation in data structures and algorithms (1100+ competitive programming
+            problems solved)
         </>,
         <>
             Passionate about creating clean, maintainable code that delivers meaningful business
-            outcomes.
+            outcomes. Open to learning new technologies.
         </>
     ];
 
