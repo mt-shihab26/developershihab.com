@@ -2,7 +2,6 @@ import { Certification } from "./certification";
 import { Education } from "./education";
 import { Experience } from "./experience";
 import { Header } from "./header";
-import { OpenSourceWorks } from "./open-source-works";
 import { Projects, type TProject } from "./projects";
 import { Skills } from "./skills";
 import { Summary } from "./summary";
@@ -19,7 +18,6 @@ const Resume = ({ projects, image }: { projects: TProject[]; image?: boolean }) 
                 </div>
                 <div className="w-[30%] space-y-4">
                     <Skills />
-                    <OpenSourceWorks />
                     <Education />
                     <Certification />
                 </div>

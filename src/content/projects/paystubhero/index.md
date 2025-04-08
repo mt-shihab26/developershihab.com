@@ -14,7 +14,7 @@ live:
 case_study: true
 published: true
 featured: true
-resume: true
+resume: false
 order: 1
 ---
 

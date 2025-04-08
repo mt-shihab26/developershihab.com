@@ -1,5 +1,6 @@
 import { meta } from "~/lib/meta";
 
+import { open_source_contribution } from "~/config/open_source_contribution";
 import { Heading } from "./heading";
 
 export type TProject = {
@@ -13,7 +14,7 @@ export type TProject = {
 const Projects = ({ projects }: { projects: TProject[] }) => {
     return (
         <section className="space-y-3">
-            <Heading>Projects</Heading>
+            <Heading>Open Source Projects/Contribution</Heading>
             <ul className="space-y-2 text-xs">
                 {projects.map((project, index) => (
                     <li key={index}>
@@ -47,6 +48,23 @@ const Projects = ({ projects }: { projects: TProject[] }) => {
                     </li>
                 ))}
             </ul>
+            <div className="space-y-3">
+                {open_source_contribution.map((item, index) => (
+                    <div key={index} className="text-xs">
+                        <div className="font-semibold">{item.name}</div>
+                        <div>
+                            {item.description}{" "}
+                            <a
+                                href={item.link}
+                                className="text-blue-600 hover:underline"
+                                target="_blank"
+                            >
+                                [Link]
+                            </a>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </section>
     );
 };
