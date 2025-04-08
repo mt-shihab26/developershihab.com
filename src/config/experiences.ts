@@ -24,7 +24,8 @@ export const experiences = [
         end: "Sep 2024",
         logo: systech.src,
         highlights: [
-            "Built custom web application using PHP following Laravel-inspired architecture"
+            "Developed a Laravel E-commerce platform with admin panel",
+            "Collaborated with senior developers to implement industry best practices"
         ]
     }
 ];

@@ -1,4 +1,3 @@
-import { Certification } from "./certification";
 import { Education } from "./education";
 import { Experience } from "./experience";
 import { Header } from "./header";
@@ -16,7 +15,7 @@ const Resume = ({ projects, image }: { projects: TProject[]; image?: boolean }) 
                 <OpenSource projects={projects} />
                 <Skills />
                 <Education />
-                <Certification />
+                {/* <Certification /> */}
             </div>
         </div>
     );
