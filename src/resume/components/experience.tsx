@@ -17,7 +17,6 @@ const Experience = () => {
                             <span>{e.location}</span>, {e.start} - {e.end}
                         </div>
                     </div>
-                    <p className="text-xs">{e.description}</p>
                     <div className="text-xs">
                         <ul className="list-disc ml-6">
                             {e.highlights.map((r, i) => (
