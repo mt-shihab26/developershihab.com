@@ -1,7 +1,12 @@
 import { frameworks, languages, others } from "~/config/tools_uses";
 import { cn } from "~/lib/utils";
 
+import { Fragment } from "react";
 import { Heading } from "./heading";
+
+const Seperator = () => {
+    return <span className="mx-1 text-black">•</span>;
+};
 
 const Items = ({
     label,
@@ -15,11 +20,12 @@ const Items = ({
     return (
         <div className="space-y-1">
             <h3 className="font-medium">{label}</h3>
-            <ul className={cn("text-xs text-gray-600", className)}>
+            <ul className={cn("text-xs flex text-gray-600", className)}>
                 {skills.map((skill, index) => (
-                    <li key={index} className="">
-                        {skill}
-                    </li>
+                    <Fragment key={index}>
+                        <Seperator />
+                        <li>{skill}</li>
+                    </Fragment>
                 ))}
             </ul>
         </div>
@@ -28,18 +34,12 @@ const Items = ({
 
 const Skills = () => {
     return (
-        <section className="space-y-3">
+        <section className="text-sm space-y-3">
             <Heading>SKILLS</Heading>
+            <Items label="Language" skills={languages.items.map((l) => `${l.name}`)} />
+            <Items label="Framework" skills={frameworks.items.map((l) => `${l.name}`)} />
             <Items
-                label="Language"
-                skills={languages.items.map((l) => `${l.name} (${l.duration})`)}
-            />
-            <Items
-                label="Framework"
-                skills={frameworks.items.map((l) => `${l.name} (${l.duration})`)}
-            />
-            <Items
-                label="Other Technologies"
+                label="Misc"
                 // className="flex space-x-1 grow"
                 skills={others.items.map(
                     (l) => `${l.name}` // ${i !== others.items.length - 1 ? "," : ""}

@@ -36,21 +36,16 @@ const frameworks = {
     title: "Frameworks",
     items: [
         {
-            name: "Laravel",
-            duration: "1.5+ years",
-            description:
-                "My preferred PHP framework for its elegant syntax, robust features, and excellent developer experience, making it ideal for rapid application development while maintaining clean code."
-        },
-        {
             name: "React",
             duration: "2.5+ years",
             description:
                 "A JavaScript library I use extensively for building interactive user interfaces, particularly appreciating its component-based architecture and vast ecosystem."
         },
         {
-            name: "Inertia.js",
-            duration: "8+ months",
-            description: ""
+            name: "Laravel",
+            duration: "1.5+ years",
+            description:
+                "My preferred PHP framework for its elegant syntax, robust features, and excellent developer experience, making it ideal for rapid application development while maintaining clean code."
         },
         {
             name: "WordPress",
@@ -63,6 +58,11 @@ const frameworks = {
             duration: "2+ years",
             description:
                 "My favorite utility-first CSS framework that speeds up UI development with its intuitive class naming and highly customizable design system."
+        },
+        {
+            name: "Inertia.js",
+            duration: "8+ months",
+            description: ""
         }
     ]
 };
@@ -75,20 +75,20 @@ const others = {
             description:
                 "Relational database management system used for designing efficient schemas, writing optimized queries, and managing data persistence layers across various applications, with experience in performance tuning, replication, and data migration strategies."
         },
-        {
-            name: "Linux",
-            description:
-                "Extensive experience with Linux systems administration, shell scripting, and command-line tools for development environments, server management, and workflow automation across multiple distributions."
-        },
-        {
-            name: "DigitalOcean",
-            description:
-                "Cloud platform utilized for deploying and scaling applications, with expertise in Droplets configuration, load balancing, managed databases, and infrastructure automation through their API and CLI tools."
-        },
-        {
-            name: "Laravel Forge",
-            description: ""
-        },
+        // {
+        //     name: "Linux",
+        //     description:
+        //         "Extensive experience with Linux systems administration, shell scripting, and command-line tools for development environments, server management, and workflow automation across multiple distributions."
+        // },
+        // {
+        //     name: "DigitalOcean",
+        //     description:
+        //         "Cloud platform utilized for deploying and scaling applications, with expertise in Droplets configuration, load balancing, managed databases, and infrastructure automation through their API and CLI tools."
+        // },
+        // {
+        //     name: "Laravel Forge",
+        //     description: ""
+        // },
         {
             name: "Git",
             description:
