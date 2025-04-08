@@ -10,17 +10,13 @@ const Resume = ({ projects, image }: { projects: TProject[]; image?: boolean }) 
     return (
         <div className="leading-5 text-sm space-y-4 w-full mx-auto p-8 bg-white">
             <Header image={image} />
-            <div className="flex">
-                <div className="w-[70%] pr-6 space-y-4">
-                    <Summary />
-                    <Experience />
-                    <Projects projects={projects} />
-                </div>
-                <div className="w-[30%] space-y-4">
-                    <Skills />
-                    <Education />
-                    <Certification />
-                </div>
+            <div className="pr-6 space-y-4">
+                <Summary />
+                <Experience />
+                <Projects projects={projects} />
+                <Skills />
+                <Education />
+                <Certification />
             </div>
         </div>
     );
