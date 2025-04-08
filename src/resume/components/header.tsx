@@ -11,9 +11,9 @@ const Header = ({ image }: { image?: boolean }) => {
                     />
                 </div>
             )}
-            <div className="space-y-1">
-                <h1 className="text-4xl font-bold">{meta.name}</h1>
-                <div>
+            <div className="space-y-1 w-full items-center">
+                <h1 className="text-4xl text-center font-bold">{meta.name}</h1>
+                <div className="text-center">
                     <span>Dhaka, Bangladesh</span>
                     <span> </span>
                     <span>{meta.phone}</span>
