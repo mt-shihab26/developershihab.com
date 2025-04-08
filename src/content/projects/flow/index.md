@@ -14,5 +14,5 @@ case_study: false
 published: true
 featured: true
 resume: true
-order: 3
+order: 1
 ---
