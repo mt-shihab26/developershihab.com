@@ -3,21 +3,16 @@ import { Fragment } from "react";
 export const SummaryParagraph = ({ seperated }: { seperated?: boolean }) => {
     const content = [
         <>
-            Full-stack developer with expertise in React, Laravel, and WordPress, complemented by a
-            strong foundation in data structures and algorithms from competitive programming
-            experience (1100+ problems).
+            Results-driven full-stack developer specializing in React, Laravel, and WordPress
+            applications with proven expertise in building and scaling SaaS products.
         </>,
         <>
-            Specialized in building dynamic applications using JavaScript/TypeScript, PHP, and
-            modern development workflows.
+            Has strong foundation in data structures and algorithms (1100+ competitive programming
+            problems solved).
         </>,
         <>
-            Currently working with Finnext on various projects (including paystubhero.com,
-            quickdoctorsnote.com, etc.).
-        </>,
-        <>
-            Committed to clean, maintainable code and best practices while seeking opportunities to
-            contribute to meaningful projects that simplify lives through technology.
+            Passionate about creating clean, maintainable code that delivers meaningful business
+            outcomes.
         </>
     ];
 
