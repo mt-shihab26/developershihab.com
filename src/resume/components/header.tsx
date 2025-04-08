@@ -27,7 +27,7 @@ const Header = ({ image }: { image?: boolean }) => {
             </div>
             <div className="text-center">
                 <a href={meta.url} target="_blank">
-                    developershihab.com
+                    website
                 </a>
                 <Seperator />
                 <a href={meta.github} target="_blank">
