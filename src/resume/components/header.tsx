@@ -22,7 +22,7 @@ const Header = ({ image }: { image?: boolean }) => {
                         {meta.email}
                     </a>
                 </div>
-                <div className="flex justify-center space-x-2">
+                <div className="text-center">
                     <a href={meta.url} target="_blank">
                         developershihab.com
                     </a>
