@@ -4,13 +4,13 @@ import { Heading } from "./heading";
 
 const Experience = () => {
     return (
-        <section className="space-y-3">
+        <section className="text-sm space-y-3">
             <Heading>Work Experience</Heading>
             {experiences.map((e, index) => (
                 <div key={index} className="space-y-2">
                     <div>
                         <h3>
-                            <span className="text-lg font-bold">{e.company}</span> —{" "}
+                            <span className="text-base font-bold">{e.company}</span> —{" "}
                             <em>{e.role}</em>
                         </h3>
                         <div className="text-gray-600">
