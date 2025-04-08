@@ -13,8 +13,7 @@ export const experiences = [
             "Architected and developed a Laravel/React SaaS application that generates 3000+ financial documents monthly (PaystubHero.com), increasing revenue by supporting multiple document types (Paystubs, W-2 Forms, 1099 MISC/NEC)",
             "Built comprehensive Laravel/React application for QuickDoctorsNote.com, expanding the company's SaaS portfolio with a new revenue stream",
             "Established robust CI/CD pipelines on DigitalOcean servers, improved deployment efficiency",
-            "Led technical decision-making for client projects and mentored junior developers",
-            "Transformed WordPress plugin into IPO SaaS application with improved UX and scalability"
+            "Led technical decision-making for client projects and mentored junior developers"
         ]
     },
     {
@@ -25,9 +24,7 @@ export const experiences = [
         end: "Sep 2024",
         logo: systech.src,
         highlights: [
-            "Developed a Laravel E-commerce platform with admin panel",
-            "Built custom web application using PHP following Laravel-inspired architecture",
-            "Collaborated with senior developers to implement industry best practices"
+            "Built custom web application using PHP following Laravel-inspired architecture"
         ]
     }
 ];
