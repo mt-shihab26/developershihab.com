@@ -11,10 +11,10 @@ export type TProject = {
     link: { href: string; label?: string } | undefined;
 };
 
-const Projects = ({ projects }: { projects: TProject[] }) => {
+const OpenSource = ({ projects }: { projects: TProject[] }) => {
     return (
         <section className="space-y-3">
-            <Heading>Open Source Projects/Contribution</Heading>
+            <Heading>Open Source</Heading>
             <ul className="space-y-2 text-xs">
                 {projects.map((project, index) => (
                     <li key={index}>
@@ -69,4 +69,4 @@ const Projects = ({ projects }: { projects: TProject[] }) => {
     );
 };
 
-export { Projects };
+export { OpenSource };
