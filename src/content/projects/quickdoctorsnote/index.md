@@ -1,4 +1,5 @@
 ---
+type: "client"
 logo: logo.png
 name: Quick Doctor's Note
 description: A SaaS application that generates customizable medical notes by following step by step process. It has user profile management and a comprehensive admin dashboard for handing administrative tasks.
@@ -15,6 +16,5 @@ link:
 case_study: false
 published: true
 featured: true
-resume: false
 order: 2
 ---

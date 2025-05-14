@@ -1,4 +1,5 @@
 ---
+type: oss
 logo: ./logo.svg
 name: sr.nvim
 description: Telescope-powered multi-file search & replace plugin for Neovim.

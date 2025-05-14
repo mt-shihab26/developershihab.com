@@ -16,6 +16,7 @@ const projects = defineCollection({
     type: "content",
     schema: ({ image }) =>
         z.object({
+            type: z.enum(["client", "demo", "oss"]),
             logo: image(),
             name: z.string(),
             description: z.string(),

@@ -1,4 +1,5 @@
 ---
+type: demo
 logo: ./logo.svg
 name: Flow
 description: A powerful yet intuitive personal finance management platform that puts you in control of your money with Laravel & React

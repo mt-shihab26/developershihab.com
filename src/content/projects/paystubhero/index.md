@@ -1,4 +1,5 @@
 ---
+type: client
 slug: paystubhero
 logo: ../../../assets/svgs/paystubhero.svg
 name: PaystubHero

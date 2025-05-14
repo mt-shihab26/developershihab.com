@@ -1,5 +1,5 @@
 ---
-import { getProjects } from "~/lib/projects";
+import { getClientProjects, getDemoProjects, getOssProjects } from "~/lib/projects";
 
 import { Container } from "~/components/ui/container";
 
@@ -9,7 +9,9 @@ import Heading from "~/components/elements/heading.astro";
 import OpenSourceWorks from "~/components/screens/projects/open-source-works.astro";
 import WorkProjects from "~/components/screens/projects/work-projects.astro";
 
-const projects = await getProjects();
+const clientProjects = await getClientProjects();
+const demoProjects = await getDemoProjects();
+const ossProjects = await getOssProjects();
 
 const headline = "Things I've made trying to put my mark on the universe.";
 ---
@@ -27,7 +29,9 @@ const headline = "Things I've made trying to put my mark on the universe.";
                 that would make it better. Remember: Open source!
             </p>
         </header>
-        <WorkProjects projects={projects} />
+        <WorkProjects title="Client's Works" projects={clientProjects} />
+        <WorkProjects title="Demo Projects" projects={demoProjects} />
         <OpenSourceWorks />
+        <WorkProjects projects={ossProjects} />
     </Container>
 </Layout>

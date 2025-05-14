@@ -1,4 +1,5 @@
 ---
+type: demo
 logo: ./logo.svg
 name: tic-tac-toe
 description: Tic Tac Toe game implemented With SolidJS & MiniMax Algorithm

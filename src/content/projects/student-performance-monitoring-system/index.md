@@ -1,4 +1,5 @@
 ---
+type: demo
 logo: ./logo.png
 name: Student Performance Analytics
 description: A web-based application built with raw PHP that streamlines academic performance tracking in educational institutions. Laravel-like code structure for maintainability.
