@@ -1,5 +1,4 @@
-import type { TProject } from "~/resume/components/projects";
-
+import type { TProject } from "../components/open-source";
 import { read } from "./read";
 
 const getResumeProjects = async (): Promise<TProject[]> => {

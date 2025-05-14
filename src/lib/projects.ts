@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 
 export type TProject = CollectionEntry<"projects">;
 
-const getProjects = async (): Promise<TProject[]> => {
+export const getProjects = async (): Promise<TProject[]> => {
     const projects = await getCollection("projects");
     return projects.toSorted((a, b) => a.data.order - b.data.order);
 };
