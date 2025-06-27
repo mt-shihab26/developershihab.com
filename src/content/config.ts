@@ -8,7 +8,8 @@ const articles = defineCollection({
         date: z.string().transform((str) => new Date(str)),
         tags: z.array(z.string()),
         featured: z.boolean().default(false),
-        published: z.boolean().default(false)
+        published: z.boolean().default(false),
+        dev_to: z.string().optional()
     })
 });
 

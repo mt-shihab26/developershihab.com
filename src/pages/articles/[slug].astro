@@ -1,6 +1,7 @@
 ---
 import { getArticles } from "~/lib/articles";
 import { time } from "~/lib/time";
+import { meta } from "~/lib/meta";
 
 import { Container } from "~/components/ui/container";
 
@@ -33,14 +34,30 @@ const { Content } = await article.render();
                 <Back client:load />
                 <article>
                     <header class="flex flex-col space-y-6">
-                        <time
-                            datetime={article.data.date.toISOString()}
-                            class="flex items-center text-base text-zinc-400 dark:text-zinc-500"
-                        >
-                            <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"
-                            ></span>
-                            <span class="ml-3">{time.formatToLongDate(article.data.date)}</span>
-                        </time>
+                        <div class="flex items-center justify-between">
+                            <time
+                                datetime={article.data.date.toISOString()}
+                                class="flex items-center text-base text-zinc-400 dark:text-zinc-500"
+                            >
+                                <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"
+                                ></span>
+                                <span class="ml-3">{time.formatToLongDate(article.data.date)}</span>
+                            </time>
+                            {
+                                article.data.dev_to && (
+                                    <div class="flex items-center text-base text-zinc-400 dark:text-zinc-500">
+                                        also published at{" "}
+                                        <a
+                                            target="_blank"
+                                            href={meta.dev_to + article.data.dev_to}
+                                            class="ml-2 underline"
+                                        >
+                                            dev.to
+                                        </a>
+                                    </div>
+                                )
+                            }
+                        </div>
                         <h1
                             class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
                         >

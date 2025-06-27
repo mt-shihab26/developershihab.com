@@ -7,6 +7,7 @@ date: 04 September 2024
 tags: ["web-hosting", "cloud-platforms", "web-application"]
 featured: true
 published: true
+dev_to: /hosting-web-application-for-the-web-1ejg
 ---
 
 Hosting a web application is a process where we make software accessible via the web over the internet.
