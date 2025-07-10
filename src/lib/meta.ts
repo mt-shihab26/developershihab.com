@@ -3,7 +3,7 @@ const meta = {
     name: "Shihab Mahamud",
     description:
         "I'm Shihab. I am a software developer from bangladesh. I mainly work with Laravel, React & WordPress.",
-    email: "shihab4t@gmail.com",
+    email: "mt.shihab26@gmail.com",
     phone: "+880 1758-776344",
     github: "https://github.com/mt-shihab26",
     linkedin: "https://linkedin.com/in/mt-shihab26",
