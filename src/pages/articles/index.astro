@@ -10,12 +10,13 @@ const articles = (await getArticles()).slice(0, 10);
 <SiteLayout
     title="Articles - Shihab Mahamud"
     description="A collection of articles written by Shihab Mahamud, covering various topics in software development, design, and technology."
+    class="max-w-2xl"
 >
     <h1 class="mb-4 text-2xl font-extrabold text-black">Articles</h1>
-    <p class="space-y-6 text-lg leading-normal">
-        <div>Over the years I’ve published a few dozen articles — some more noteworthy than others.</div>
-        <div>Here are some of my personal favorites.</div>
-    </p>
+    <div class="space-y-6 text-lg leading-normal">
+        <p>Over the years I’ve published a few dozen articles — some more noteworthy than others.</p>
+        <p>Here are some of my personal favorites.</p>
+    </div>
     <ul class="mt-12 space-y-10">
         {
             articles.map((article) => (

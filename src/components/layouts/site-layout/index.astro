@@ -1,12 +1,16 @@
 ---
 import "~/styles/global.css";
 
+import { cn } from "~/lib/utils";
+
 import Head, { type THead } from "./head.astro";
 import Header from "./header.astro";
 
-type Props = THead;
+type Props = THead & {
+    class?: string;
+};
 
-const { title, description, keywords } = Astro.props as Props;
+const { title, description, keywords, class: className } = Astro.props as Props;
 ---
 
 <!doctype html>
@@ -15,10 +19,8 @@ const { title, description, keywords } = Astro.props as Props;
     <body class="font-sans leading-tight text-gray-700 antialiased selection:bg-red-500 selection:text-white">
         <div id="app" class="px-6 py-8 md:px-16 lg:px-24 lg:py-16">
             <Header />
-            <div class="mt-12 lg:pl-32">
-                <div class="max-w-2xl">
-                    <slot />
-                </div>
+            <div class={cn("mt-12 lg:pl-32", className)}>
+                <slot />
             </div>
         </div>
     </body>

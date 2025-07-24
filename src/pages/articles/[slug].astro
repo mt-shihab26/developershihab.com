@@ -6,7 +6,7 @@ import { meta } from "~/lib/meta";
 import { Container } from "~/components/ui/container";
 
 import Back from "~/components/elements/back";
-import Layout from "~/components/layouts/layout/index.astro";
+import SiteLayout from "~/components/layouts/site-layout/index.astro";
 
 export async function getStaticPaths() {
     const articles = await getArticles();
@@ -22,11 +22,9 @@ const { article } = Astro.props;
 const { Content } = await article.render();
 ---
 
-<Layout
-    name={article.data.title}
-    pathname={article.slug}
-    description={article.data.description}
-    tags={article.data.tags}
+<SiteLayout
+    title="Archives - Shihab Mahamud"
+    description="Explore the archives of Shihab Mahamud's articles, showcasing a collection of insights and knowledge shared over time."
 >
     <Container className="mt-16 lg:mt-32">
         <div class="xl:relative">
@@ -39,8 +37,7 @@ const { Content } = await article.render();
                                 datetime={article.data.date.toISOString()}
                                 class="flex items-center text-base text-zinc-400 dark:text-zinc-500"
                             >
-                                <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"
-                                ></span>
+                                <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
                                 <span class="ml-3">{time.formatToLongDate(article.data.date)}</span>
                             </time>
                             {
@@ -58,9 +55,7 @@ const { Content } = await article.render();
                                 )
                             }
                         </div>
-                        <h1
-                            class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
-                        >
+                        <h1 class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
                             {article.data.title}
                         </h1>
                         <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
@@ -76,4 +71,4 @@ const { Content } = await article.render();
             </div>
         </div>
     </Container>
-</Layout>
+</SiteLayout>
