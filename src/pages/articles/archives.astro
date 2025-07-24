@@ -1,5 +1,9 @@
 ---
+import { getArticles } from "~/lib/articles";
+
 import SiteLayout from "~/components/layouts/site-layout/index.astro";
+
+const articles = await getArticles();
 ---
 
 <SiteLayout
@@ -7,21 +11,22 @@ import SiteLayout from "~/components/layouts/site-layout/index.astro";
     description="Software developer from bangladesh. I mainly work with Laravel, React & WordPress."
 >
     <h1 class="mb-4 text-2xl font-extrabold text-black">Archives</h1>
-    <div class="text-grey-darkest spaced-y-6 text-lg leading-normal">
-        <p>Everything I've ever published on my site, in reverse chronological order.</p>
-    </div>
-
-    <ul class="list-reset spaced-y-6 mt-8">
-        <li>
-            <span class="text-grey-dark mb-1 block text-xs font-semibold tracking-wide uppercase"
-                >September 18, 2020</span
-            >
-            <a
-                class="font-bold text-black no-underline hover:underline"
-                href="/composing-the-uncomposable-with-css-variables"
-            >
-                Composing the Uncomposable with CSS Variables
-            </a>
-        </li>
+    <p class="space-y-6 text-lg leading-normal">
+        Everything I've ever published on my site, in reverse chronological order.
+    </p>
+    <ul class="mt-8 space-y-6">
+        {
+            articles.map((article) => (
+                <li>
+                    <span class="mb-1 block text-xs font-semibold tracking-wide uppercase">September 18, 2020</span>
+                    <a
+                        class="font-bold text-black no-underline hover:underline"
+                        href="/composing-the-uncomposable-with-css-variables"
+                    >
+                        Composing the Uncomposable with CSS Variables
+                    </a>
+                </li>
+            ))
+        }
     </ul>
 </SiteLayout>

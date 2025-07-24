@@ -9,21 +9,21 @@ import SiteLayout from "~/components/layouts/site-layout/index.astro";
     description="Software developer from bangladesh. I mainly work with Laravel, React & WordPress."
 >
     <h1 class="mb-4 text-2xl font-extrabold text-black">Who the hell am I?</h1>
-    <div class="space-y-6 text-lg leading-normal">
-        <p>
+    <p class="space-y-6 text-lg leading-normal">
+        <div>
             Full-stack developer with 3+ years of experience. Specializing in React, Laravel, and WordPress applications
             with proven expertise in building and scaling SaaS products.
-        </p>
-        <p>Strong foundation in data structures and algorithms (1100+ competitive programming problems solved)</p>
-        <p>
+        </div>
+        <div>Strong foundation in data structures and algorithms (1100+ competitive programming problems solved)</div>
+        <div>
             Passionate about creating clean, maintainable code that delivers meaningful business outcomes. Open to
             learning new technologies.
-        </p>
-        <p>
+        </div>
+        <div>
             Interested in Transforming Your ideas into impactful software solutions. I am open for work. Lets build
             together.
-        </p>
-        <p class="flex gap-6">
+        </div>
+        <div class="flex gap-6">
             {
                 socialLinks.map((l) => {
                     const Icon = l.icon;
@@ -34,6 +34,6 @@ import SiteLayout from "~/components/layouts/site-layout/index.astro";
                     );
                 })
             }
-        </p>
-    </div>
+        </div>
+    </p>
 </SiteLayout>

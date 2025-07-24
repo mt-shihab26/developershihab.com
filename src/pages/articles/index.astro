@@ -11,14 +11,14 @@ const articles = (await getArticles()).slice(0, 2);
     description="Software developer from bangladesh. I mainly work with Laravel, React & WordPress."
 >
     <h1 class="mb-4 text-2xl font-extrabold text-black">Articles</h1>
-    <div class="space-y-6 text-lg leading-normal">
-        <p>Over the years I’ve published a few dozen articles — some more noteworthy than others.</p>
-        <p>Here are some of my personal favorites.</p>
-    </div>
-    <div class="mt-12 space-y-10">
+    <p class="space-y-6 text-lg leading-normal">
+        <div>Over the years I’ve published a few dozen articles — some more noteworthy than others.</div>
+        <div>Here are some of my personal favorites.</div>
+    </p>
+    <ul class="mt-12 space-y-10">
         {
             articles.map((article) => (
-                <div>
+                <li>
                     <div>
                         <a href={article.slug} class="text-lg font-bold text-black no-underline hover:underline">
                             {article.data.title}
@@ -30,13 +30,11 @@ const articles = (await getArticles()).slice(0, 2);
                             Read this article &rarr;
                         </a>
                     </div>
-                </div>
+                </li>
             ))
         }
-    </div>
-    <div class="mt-12 space-y-6 text-lg leading-normal">
-        <p>
-            Read the rest of my articles in the <a href="/articles/archives" class="text-black underline">archives</a>.
-        </p>
-    </div>
+    </ul>
+    <p class="mt-12 space-y-6 text-lg leading-normal">
+        Read the rest of my articles in the <a href="/articles/archives" class="text-black underline">archives</a>.
+    </p>
 </SiteLayout>
