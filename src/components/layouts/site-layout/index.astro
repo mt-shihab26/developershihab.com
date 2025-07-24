@@ -1,0 +1,26 @@
+---
+import "~/styles/global.css";
+
+import Head, { type THead } from "./head.astro";
+import Header from "./header.astro";
+
+interface Props {
+    head: THead;
+}
+
+const { head } = Astro.props as Props;
+---
+
+<!doctype html>
+<html lang="en">
+    <Head title={head.title} description={head.description} keywords={head.keywords} />
+
+    <body class="font-sans leading-tight text-black antialiased">
+        <div id="app" class="px-6 py-8 md:px-16 lg:px-24 lg:py-16">
+            <Header />
+            <div class="mt-12 lg:pl-32">
+                <slot />
+            </div>
+        </div>
+    </body>
+</html>

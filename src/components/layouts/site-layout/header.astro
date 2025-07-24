@@ -1,0 +1,86 @@
+---
+import { cn } from "~/lib/utils";
+
+const links = [
+    { href: "/articles2", label: "Articles" },
+    { href: "/projects", label: "Projects" },
+    { href: "/experience", label: "Experience" },
+    { href: "/uses", label: "Uses" },
+    { href: "/resume", label: "Resume" }
+];
+---
+
+<div class="relative z-20 flex items-center justify-between">
+    <div class="flex max-w-full items-center md:block lg:flex">
+        <div class="flex-no-shrink mb-0 flex pr-4 md:mb-4 md:pr-6 lg:mb-0 lg:pr-12">
+            <a href="/" class="flex items-center no-underline">
+                <img
+                    class="h-10 w-10 rounded-full md:h-12 md:w-12 lg:h-20 lg:w-20"
+                    src="https://avatars.githubusercontent.com/u/67628903"
+                    alt=""
+                />
+            </a>
+        </div>
+        <div>
+            <a
+                href="/"
+                class="block text-xl leading-none font-extrabold text-black no-underline lg:text-3xl lg:leading-tight"
+            >
+                Shihab Mahamud
+            </a>
+            <div class="mt-3 hidden space-x-6 text-xs tracking-wide uppercase md:flex lg:mt-4">
+                {
+                    links.map((link) => (
+                        <a
+                            href={link.href}
+                            class={cn("font-semibold text-gray-500 no-underline hover:text-black", {
+                                "text-black": Astro.url.pathname === link.href
+                            })}
+                        >
+                            {link.label}
+                        </a>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+    <div class="block md:hidden">
+        <button class="block" @click="toggleMenu">
+            <svg
+                style="display: block;"
+                :class="menuOpen ? 'hidden' : 'block'"
+                class="block h-6 w-6 text-black"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+            >
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+            </svg>
+            <svg
+                style="display: none;"
+                :class="menuOpen ? 'block' : 'hidden'"
+                class="h-6 w-6 text-black"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+            >
+                <path
+                    d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"
+                >
+                </path>
+            </svg>
+        </button>
+    </div>
+</div>
+
+<div style="display: none;" :class="menuOpen ? 'block' : 'hidden'" class="pin fixed z-10 bg-white pt-24 md:hidden">
+    <div class="spaced-y-8 max-h-full overflow-y-auto px-12 pt-6 pb-8">
+        {
+            links.map((link) => (
+                <a href={link.href} class="block font-bold text-black no-underline">
+                    {link.label}
+                </a>
+            ))
+        }
+    </div>
+</div>
