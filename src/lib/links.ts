@@ -1,4 +1,4 @@
-const links = {
+export const links = {
     cpbook: "http://cpbook.subeen.com",
     online_judges: "https://github.com/p-nerd/online_judges",
     dsa_library: "https://github.com/p-nerd/dsa_library",
@@ -15,4 +15,10 @@ const links = {
     tmux: "https://github.com/tmux/tmux"
 };
 
-export { links };
+export const headerLinks = [
+    { href: "/articles2", label: "Articles" },
+    { href: "/projects", label: "Projects" },
+    { href: "/experience", label: "Experience" },
+    { href: "/uses", label: "Uses" },
+    { href: "/resume", label: "Resume" }
+];

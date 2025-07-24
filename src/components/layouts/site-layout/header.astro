@@ -1,16 +1,10 @@
 ---
 import { cn } from "~/lib/utils";
+import { headerLinks } from "~/lib/links";
 
 const name = "Shihab Mahamud";
 const avatar = "https://avatars.githubusercontent.com/u/67628903";
-
-const links = [
-    { href: "/articles2", label: "Articles" },
-    { href: "/projects", label: "Projects" },
-    { href: "/experience", label: "Experience" },
-    { href: "/uses", label: "Uses" },
-    { href: "/resume", label: "Resume" }
-];
+const pathname = Astro.url.pathname;
 ---
 
 <div class="relative z-20 flex items-center justify-between">
@@ -29,11 +23,11 @@ const links = [
             </a>
             <div class="mt-3 hidden space-x-6 text-xs tracking-wide uppercase md:flex lg:mt-4">
                 {
-                    links.map((link) => (
+                    headerLinks.map((link) => (
                         <a
                             href={link.href}
                             class={cn("font-semibold text-gray-500 no-underline hover:text-black", {
-                                "text-black": Astro.url.pathname === link.href
+                                "text-black": pathname === link.href
                             })}
                         >
                             {link.label}
@@ -43,26 +37,14 @@ const links = [
             </div>
         </div>
     </div>
+
+    <!-- Mobile Toggle Button -->
     <div class="block md:hidden">
-        <button class="block" @click="toggleMenu">
-            <svg
-                style="display: block;"
-                :class="menuOpen ? 'hidden' : 'block'"
-                class="block h-6 w-6 text-black"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-            >
+        <button id="menu-toggle" class="block">
+            <svg id="icon-open" class="block h-6 w-6 text-black" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
             </svg>
-            <svg
-                style="display: none;"
-                :class="menuOpen ? 'block' : 'hidden'"
-                class="h-6 w-6 text-black"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-            >
+            <svg id="icon-close" class="hidden h-6 w-6 text-black" fill="currentColor" viewBox="0 0 20 20">
                 <path
                     d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"
                 >
@@ -72,14 +54,45 @@ const links = [
     </div>
 </div>
 
-<div style="display: none;" :class="menuOpen ? 'block' : 'hidden'" class="pin fixed z-10 bg-white pt-24 md:hidden">
-    <div class="spaced-y-8 max-h-full overflow-y-auto px-12 pt-6 pb-8">
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="fixed z-10 hidden h-full w-full bg-white pt-24 md:hidden">
+    <div class="max-h-full space-y-8 overflow-y-auto px-12 pt-6 pb-8">
         {
-            links.map((link) => (
-                <a href={link.href} class="block font-bold text-black no-underline">
+            headerLinks.map((link) => (
+                <a
+                    href={link.href}
+                    class={cn("block font-bold text-gray-500 no-underline hover:text-black", {
+                        "text-black": pathname === link.href
+                    })}
+                >
                     {link.label}
                 </a>
             ))
         }
     </div>
 </div>
+
+<!-- JavaScript Toggle Logic -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.getElementById("menu-toggle");
+        const menu = document.getElementById("mobile-menu");
+        const iconOpen = document.getElementById("icon-open");
+        const iconClose = document.getElementById("icon-close");
+
+        if (!toggle || !menu || !iconOpen || !iconClose) {
+            console.error("Menu toggle elements not found.");
+            return;
+        }
+
+        toggle.addEventListener("click", () => {
+            const isOpen = menu.classList.contains("block");
+
+            menu.classList.toggle("hidden", isOpen);
+            menu.classList.toggle("block", !isOpen);
+
+            iconOpen.classList.toggle("hidden", !isOpen);
+            iconClose.classList.toggle("hidden", isOpen);
+        });
+    });
+</script>
