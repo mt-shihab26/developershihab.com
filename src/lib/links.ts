@@ -22,7 +22,7 @@ export const links = {
     tmux: "https://github.com/tmux/tmux"
 };
 
-export const headerLinks = [
+export const navigationLinks = [
     { href: "/articles", label: "Articles" },
     { href: "/projects", label: "Projects" },
     { href: "/experience", label: "Experience" },

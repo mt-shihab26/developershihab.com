@@ -1,13 +1,12 @@
 ---
 import { cn } from "~/lib/utils";
-import { headerLinks } from "~/lib/links";
+import { navigationLinks } from "~/lib/links";
+import { avatar, name } from "~/lib/info";
 
-const name = "Shihab Mahamud";
-const avatar = "https://avatars.githubusercontent.com/u/67628903";
 const pathname = Astro.url.pathname;
 ---
 
-<div class="relative z-20 flex items-center justify-between">
+<header class="relative z-20 flex items-center justify-between">
     <div class="flex max-w-full items-center md:block lg:flex">
         <div class="flex-no-shrink mb-0 flex pr-4 md:mb-4 md:pr-6 lg:mb-0 lg:pr-12">
             <a href="/" class="flex items-center no-underline">
@@ -23,7 +22,7 @@ const pathname = Astro.url.pathname;
             </a>
             <div class="mt-3 hidden space-x-6 text-xs tracking-wide uppercase md:flex lg:mt-4">
                 {
-                    headerLinks.map((link) => (
+                    navigationLinks.map((link) => (
                         <a
                             href={link.href}
                             class={cn("font-semibold text-gray-500 no-underline hover:text-black", {
@@ -52,13 +51,13 @@ const pathname = Astro.url.pathname;
             </svg>
         </button>
     </div>
-</div>
+</header>
 
 <!-- Mobile Menu -->
 <div id="mobile-menu" class="fixed z-10 hidden h-full w-full bg-white pt-24 md:hidden">
     <div class="max-h-full space-y-8 overflow-y-auto px-12 pt-6 pb-8">
         {
-            headerLinks.map((link) => (
+            navigationLinks.map((link) => (
                 <a
                     href={link.href}
                     class={cn("block font-bold text-gray-500 no-underline hover:text-black", {

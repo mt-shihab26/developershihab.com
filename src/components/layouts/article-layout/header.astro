@@ -1,0 +1,27 @@
+---
+import { avatar, name, bio } from "~/lib/info";
+import { formatDate } from "~/lib/utils";
+
+interface Props {
+    date: Date | string;
+}
+
+const { date } = Astro.props as Props;
+---
+
+<header class="flex items-center">
+    <div>
+        <a href="/">
+            <img class="inline-block h-15 w-15 rounded-full" src={avatar} alt="" />
+        </a>
+    </div>
+    <div class="pl-4 text-sm leading-snug">
+        <p class="text-base">
+            <a href="/" class="font-semibold text-black">{name}</a>
+        </p>
+        <div class="text-gray-500">
+            <p class="">{bio}</p>
+            <p>{formatDate(date)}</p>
+        </div>
+    </div>
+</header>

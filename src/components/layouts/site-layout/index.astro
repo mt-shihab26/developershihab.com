@@ -1,10 +1,10 @@
 ---
-import "~/styles/global.css";
+import type { THead } from "~/types/utils";
 
 import { cn } from "~/lib/utils";
 
-import Head, { type THead } from "./head.astro";
 import Header from "./header.astro";
+import BaseLayout from "~/components/layouts/base-layout/index.astro";
 
 type Props = THead & {
     class?: string;
@@ -13,15 +13,11 @@ type Props = THead & {
 const { title, description, keywords, class: className } = Astro.props as Props;
 ---
 
-<!doctype html>
-<html lang="en">
-    <Head title={title} description={description} keywords={keywords} />
-    <body class="font-sans leading-tight text-gray-700 antialiased selection:bg-red-500 selection:text-white">
-        <div id="app" class="px-6 py-8 md:px-16 lg:px-24 lg:py-16">
-            <Header />
-            <div class={cn("mt-12 lg:pl-32", className)}>
-                <slot />
-            </div>
-        </div>
-    </body>
-</html>
+<BaseLayout title={title} description={description} keywords={keywords}>
+    <div class="px-6 py-8 md:px-16 lg:px-24 lg:py-16">
+        <Header client:load />
+        <main class={cn("mt-12 lg:pl-32", className)}>
+            <slot />
+        </main>
+    </div>
+</BaseLayout>

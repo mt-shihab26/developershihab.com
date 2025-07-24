@@ -1,16 +1,11 @@
 ---
 import { getArticles } from "~/lib/articles";
-import { time } from "~/lib/time";
-import { meta } from "~/lib/meta";
+import { socialHrefs } from "~/lib/links";
 
-import { Container } from "~/components/ui/container";
-
-import Back from "~/components/elements/back";
 import ArticleLayout from "~/components/layouts/article-layout/index.astro";
 
 export async function getStaticPaths() {
     const articles = await getArticles();
-
     return articles.map((article) => ({
         params: { slug: article.slug },
         props: { article }
@@ -22,4 +17,24 @@ const { article } = Astro.props;
 const { Content } = await article.render();
 ---
 
-<ArticleLayout title="" description="" />
+<ArticleLayout title="" description="" date={article.data.date}>
+    <h1 class="text-4xl leading-tight font-extrabold tracking-tight">
+        {article.data.title}
+    </h1>
+    <p class="relative z-10">
+        {article.data.description}
+    </p>
+    {
+        article.data.dev_to && (
+            <div class="flex items-center text-base text-zinc-400">
+                Also published at{" "}
+                <a target="_blank" href={socialHrefs.devTo + article.data.dev_to} class="ml-2 underline">
+                    dev.to
+                </a>
+            </div>
+        )
+    }
+    <div class="prose prose-lg max-w-none text-xl">
+        <Content />
+    </div>
+</ArticleLayout>

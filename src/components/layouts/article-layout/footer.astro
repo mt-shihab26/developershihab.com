@@ -1,0 +1,15 @@
+---
+import { navigationLinks } from "~/lib/links";
+---
+
+<footer class="px-4 sm:px-6">
+    <nav class="mx-auto max-w-3xl space-x-4 text-center text-sm">
+        {
+            navigationLinks.map((link) => (
+                <a href={link.href} class="text-gray-500 hover:text-black">
+                    {link.label}
+                </a>
+            ))
+        }
+    </nav>
+</footer>

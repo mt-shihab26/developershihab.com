@@ -1,11 +1,7 @@
 ---
-import SpeedInsights from "@vercel/speed-insights/astro";
+import type { THead } from "~/types/utils";
 
-export type THead = {
-    title: string;
-    description: string;
-    keywords?: string[];
-};
+import SpeedInsights from "@vercel/speed-insights/astro";
 
 type Props = THead;
 
