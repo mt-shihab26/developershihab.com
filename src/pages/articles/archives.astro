@@ -22,7 +22,7 @@ const articles = await getArticles();
                     <span class="mb-1 block text-xs font-semibold tracking-wide uppercase">
                         {formatDate(article.data.date)}
                     </span>
-                    <a class="font-bold text-black no-underline hover:underline" href={article.slug}>
+                    <a class="font-bold text-black no-underline hover:underline" href={`/articles/${article.slug}`}>
                         {article.data.title}
                     </a>
                 </li>

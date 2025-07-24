@@ -23,12 +23,18 @@ const articles = (await getArticles()).slice(0, 10);
                     <span class="mb-1 block text-xs font-semibold tracking-wide uppercase">
                         {formatDate(article.data.date)}
                     </span>
-                    <a href={article.slug} class="text-lg font-bold text-black no-underline hover:underline">
+                    <a
+                        href={`/articles/${article.slug}`}
+                        class="text-lg font-bold text-black no-underline hover:underline"
+                    >
                         {article.data.title}
                     </a>
                     <p class="mt-1 text-base leading-normal">{article.data.description}</p>
                     <div class="mt-2 text-base leading-normal">
-                        <a href={article.slug} class="text-sm no-underline hover:text-black hover:underline">
+                        <a
+                            href={`/articles/${article.slug}`}
+                            class="text-sm no-underline hover:text-black hover:underline"
+                        >
                             Read this article &rarr;
                         </a>
                     </div>
