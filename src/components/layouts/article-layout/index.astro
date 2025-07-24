@@ -1,0 +1,67 @@
+---
+import "~/styles/global.css";
+
+import Head, { type THead } from "../site-layout/head.astro";
+
+type Props = THead & {
+    class?: string;
+};
+
+const { title, description, keywords, class: className } = Astro.props as Props;
+---
+
+<!doctype html>
+<html lang="en">
+    <Head title={title} description={description} keywords={keywords} />
+    <body class="constrain constrain-lg">
+        <header>
+            <aside class="flex-y-center m-xs-b-6">
+                <div>
+                    <a href="/"
+                        ><img
+                            class="img-circle img-3-75 inline-block"
+                            src="https://avatars.githubusercontent.com/u/4323180"
+                            alt=""
+                        /></a
+                    >
+                </div>
+                <div class="p-xs-l-4 no-line-height text-sm">
+                    <p class="m-xs-b-2 text-base">
+                        <a href="/">Adam Wathan</a>
+                    </p>
+                    <div class="text-dark-muted">
+                        <p class="m-xs-b-2">Software developer, author, and host of Full Stack Radio.</p>
+                        <p class="">August 7, 2017</p>
+                    </div>
+                </div>
+            </aside>
+            <h1 class="text-jumbo wt-bold m-xs-b-6 no-line-height tight-letters">
+                CSS Utility Classes and &quot;Separation of Concerns&quot;
+            </h1>
+        </header>
+        <div>
+            <div class="p-xs-x-5">
+                <div class="constrain constrain-lg">
+                    <div class="p-xs-t-5 p-xs-b-10 text-center text-sm">
+                        <nav class="m-xs-b-6">
+                            <a href="/" class="link-dim m-xs-r-5 inline-block">Home</a>
+                            <a href="/articles" class="link-dim m-xs-r-5 inline-block">Articles</a>
+                            <a href="/talks" class="link-dim m-xs-r-5 inline-block">Talks</a>
+                            <a href="/screencasts" class="link-dim m-xs-r-5 inline-block">Talks</a>
+                            <a href="/podcast" class="link-dim m-xs-r-5 inline-block">Podcast</a>
+                            <a href="/courses" class="link-dim m-xs-r-5 inline-block">Courses</a>
+                            <a href="/projects" class="link-dim m-xs-r-5 inline-block">Projects</a>
+                            <a href="/journal" class="link-dim inline-block">Journal</a>
+                        </nav>
+                        <p class="text-dark-dim text-xs">
+                            Proudly hosted with <a
+                                class="link-soft"
+                                href="https://www.digitalocean.com/?refcode=f15ee9810a92">DigitalOcean</a
+                            >.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
