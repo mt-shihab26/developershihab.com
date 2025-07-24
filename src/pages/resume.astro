@@ -1,6 +1,8 @@
 ---
 import "~/styles/global.css";
 
+import BaseLayout from "~/components/layouts/base-layout/index.astro";
+
 import type { TProject } from "~/resume/components/open-source";
 
 import { getResumeProjects } from "~/lib/projects";
@@ -21,15 +23,8 @@ const projects: TProject[] = (await getResumeProjects()).map(
 );
 ---
 
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <title>shihab-mahamud-resume.pdf</title>
-    </head>
-    <body class="mx-auto max-w-[956px] space-y-8 py-8">
+<BaseLayout title="shihab-mahamud-resume.pdf" description="">
+    <div class="mx-auto max-w-[956px] space-y-8 py-8">
         <div class="flex justify-between px-8">
             <BackButton client:load />
             <DownloadButton />
@@ -37,5 +32,5 @@ const projects: TProject[] = (await getResumeProjects()).map(
         <div class="border border-blue-600">
             <ResumeComponent projects={projects} />
         </div>
-    </body>
-</html>
+    </div>
+</BaseLayout>
