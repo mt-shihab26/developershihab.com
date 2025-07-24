@@ -128,31 +128,4 @@ const tools = {
     ]
 };
 
-const tools_uses = [
-    {
-        title: "Devices",
-        items: [
-            {
-                name: "13-inch, MacBook Pro, M2, 8GB RAM (2022)",
-                description:
-                    "Coming from an Avita laptop running Ubuntu-based Linux, the M2 MacBook provides better performance, seamless macOS integration, excellent battery life, and superior build quality."
-            }
-        ]
-    },
-    languages,
-    frameworks,
-    others,
-    tools,
-    {
-        title: "Productivity",
-        items: [
-            {
-                name: "Be Focused",
-                description:
-                    "A minimal Pomodoro timer app that enhances productivity through structured work intervals, break periods, and progress tracking with an unobtrusive interface."
-            }
-        ]
-    }
-];
-
-export { frameworks, languages, others, tools, tools_uses };
+export { frameworks, languages, others, tools };
