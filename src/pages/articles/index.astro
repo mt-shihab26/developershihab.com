@@ -1,68 +1,42 @@
 ---
 import { getArticles } from "~/lib/articles";
-import { time } from "~/lib/time";
 
-import { Container } from "~/components/ui/container";
-import { Card, CardCta, CardDescription, CardEyebrow, CardTitle } from "~/components/ui/card";
+import SiteLayout from "~/components/layouts/site-layout/index.astro";
 
-import Layout from "~/components/layouts/layout/index.astro";
-import NewsLetter from "~/components/elements/news-letter.astro";
-import Heading from "~/components/elements/heading.astro";
-
-const headline = "I write about things I’m learning & building";
-
-const articles = await getArticles();
+const articles = (await getArticles()).slice(0, 2);
 ---
 
-<Layout name="Articles" pathname="/articles" description={headline}>
-    <Container className="mt-16 sm:mt-32">
-        <header class="max-w-2xl">
-            <Heading>
-                {headline}
-            </Heading>
-            <p class="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
-                All of my long-form thoughts on programming, leadership, infrastructure, and more.
-            </p>
-        </header>
-        <div class="mt-16 sm:mt-20">
-            <div class="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
-                <div class="flex max-w-3xl flex-col space-y-16">
-                    {
-                        articles.map((article) => (
-                            <article class="md:grid md:grid-cols-4 md:items-baseline">
-                                <Card className="md:col-span-3">
-                                    <CardTitle href={`/articles/${article.slug}`}>
-                                        {!article.data.published && (
-                                            <span class="mr-2 text-yellow-500">(Draft)</span>
-                                        )}
-                                        {article.data.title}
-                                    </CardTitle>
-                                    <CardEyebrow
-                                        as="time"
-                                        date-time={article.data.date}
-                                        className="md:hidden"
-                                        decorate
-                                    >
-                                        {time.formatToLongDate(article.data.date)}
-                                    </CardEyebrow>
-                                    <CardDescription>{article.data.description}</CardDescription>
-                                    <CardCta>Read article</CardCta>
-                                </Card>
-                                <CardEyebrow
-                                    as="time"
-                                    date-time={article.data.date}
-                                    className="mt-1 hidden md:block"
-                                >
-                                    {time.formatToLongDate(article.data.date)}
-                                </CardEyebrow>
-                            </article>
-                        ))
-                    }
+<SiteLayout
+    title="Shihab Mahamud - Full-stack developer"
+    description="Software developer from bangladesh. I mainly work with Laravel, React & WordPress."
+>
+    <h1 class="mb-4 text-2xl font-extrabold text-black">Articles</h1>
+    <div class="space-y-6 text-lg leading-normal">
+        <p>Over the years I’ve published a few dozen articles — some more noteworthy than others.</p>
+        <p>Here are some of my personal favorites.</p>
+    </div>
+    <div class="mt-12 space-y-10">
+        {
+            articles.map((article) => (
+                <div>
+                    <div>
+                        <a href={article.slug} class="text-lg font-bold text-black no-underline hover:underline">
+                            {article.data.title}
+                        </a>
+                    </div>
+                    <p class="mt-1 text-base leading-normal">{article.data.description}</p>
+                    <div class="mt-2 text-base leading-normal">
+                        <a href={article.slug} class="text-sm no-underline hover:text-black hover:underline">
+                            Read this article &rarr;
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="mt-10 sm:mt-14">
-            <NewsLetter />
-        </div>
-    </Container>
-</Layout>
+            ))
+        }
+    </div>
+    <div class="mt-12 space-y-6 text-lg leading-normal">
+        <p>
+            Read the rest of my articles in the <a href="/articles/archives" class="text-black underline">archives</a>.
+        </p>
+    </div>
+</SiteLayout>
