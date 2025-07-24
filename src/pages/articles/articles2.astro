@@ -1,0 +1,39 @@
+---
+import SiteLayout from "~/components/layouts/site-layout/index.astro";
+---
+
+<SiteLayout
+    title="Shihab Mahamud - Full-stack developer"
+    description="Software developer from bangladesh. I mainly work with Laravel, React & WordPress."
+>
+    <h1 class="mb-4 text-2xl font-extrabold text-black">Articles</h1>
+    <div class="text-grey-darkest spaced-y-6 text-lg leading-normal">
+        <p>Over the years I’ve published a few dozen articles — some more noteworthy than others.</p>
+        <p>Here are some of my personal favorites.</p>
+    </div>
+    <div class="spaced-y-10 mt-12">
+        <div>
+            <div>
+                <a
+                    href="/css-utility-classes-and-separation-of-concerns"
+                    class="text-lg font-bold text-black no-underline hover:underline"
+                    >CSS Utility Classes and &quot;Separation of Concerns&quot;</a
+                >
+            </div>
+            <p class="text-grey-darkest mt-1 text-base leading-normal">
+                Why “separation of concerns” is the wrong way to think about CSS and why presentational classes scale
+                better than semantic classes.
+            </p>
+            <div class="text-grey-darkest mt-2 text-base leading-normal">
+                <a
+                    href="/css-utility-classes-and-separation-of-concerns"
+                    class="text-grey-darker text-sm no-underline hover:text-black hover:underline"
+                    >Read this article &rarr;</a
+                >
+            </div>
+        </div>
+    </div>
+    <div class="text-grey-darkest spaced-y-6 mt-12 text-lg leading-normal">
+        <p>Read the rest of my articles in the <a href="/archives" class="text-black underline">archives</a>.</p>
+    </div>
+</SiteLayout>

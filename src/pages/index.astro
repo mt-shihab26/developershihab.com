@@ -8,34 +8,32 @@ import SiteLayout from "~/components/layouts/site-layout/index.astro";
     title="Shihab Mahamud - Full-stack developer"
     description="Software developer from bangladesh. I mainly work with Laravel, React & WordPress."
 >
-    <div class="max-w-2xl">
-        <h1 class="mb-4 text-2xl font-extrabold text-black">Who the hell am I?</h1>
-        <div class="space-y-6 text-lg leading-normal">
-            <p>
-                Full-stack developer with 3+ years of experience. Specializing in React, Laravel, and WordPress
-                applications with proven expertise in building and scaling SaaS products.
-            </p>
-            <p>Strong foundation in data structures and algorithms (1100+ competitive programming problems solved)</p>
-            <p>
-                Passionate about creating clean, maintainable code that delivers meaningful business outcomes. Open to
-                learning new technologies.
-            </p>
-            <p>
-                Interested in Transforming Your ideas into impactful software solutions. I am open for work. Lets build
-                together.
-            </p>
-            <p class="flex gap-6">
-                {
-                    socialLinks.map((l) => {
-                        const Icon = l.icon;
-                        return (
-                            <a class="group -m-1 p-1" href={l.href} aria-label={l.label} target="_blank">
-                                <Icon className="h-6 w-6 fill-gray-500 transition group-hover:fill-black" />
-                            </a>
-                        );
-                    })
-                }
-            </p>
-        </div>
+    <h1 class="mb-4 text-2xl font-extrabold text-black">Who the hell am I?</h1>
+    <div class="space-y-6 text-lg leading-normal">
+        <p>
+            Full-stack developer with 3+ years of experience. Specializing in React, Laravel, and WordPress applications
+            with proven expertise in building and scaling SaaS products.
+        </p>
+        <p>Strong foundation in data structures and algorithms (1100+ competitive programming problems solved)</p>
+        <p>
+            Passionate about creating clean, maintainable code that delivers meaningful business outcomes. Open to
+            learning new technologies.
+        </p>
+        <p>
+            Interested in Transforming Your ideas into impactful software solutions. I am open for work. Lets build
+            together.
+        </p>
+        <p class="flex gap-6">
+            {
+                socialLinks.map((l) => {
+                    const Icon = l.icon;
+                    return (
+                        <a class="group -m-1 p-1" href={l.href} aria-label={l.label} target="_blank">
+                            <Icon className="h-6 w-6 fill-gray-500 transition group-hover:fill-black" />
+                        </a>
+                    );
+                })
+            }
+        </p>
     </div>
 </SiteLayout>
