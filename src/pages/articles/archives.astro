@@ -1,5 +1,6 @@
 ---
 import { getArticles } from "~/lib/articles";
+import { formatDate } from "~/lib/utils";
 
 import SiteLayout from "~/components/layouts/site-layout/index.astro";
 
@@ -7,8 +8,8 @@ const articles = await getArticles();
 ---
 
 <SiteLayout
-    title="Shihab Mahamud - Full-stack developer"
-    description="Software developer from bangladesh. I mainly work with Laravel, React & WordPress."
+    title="Archives - Shihab Mahamud"
+    description="Explore the archives of Shihab Mahamud's articles, showcasing a collection of insights and knowledge shared over time."
 >
     <h1 class="mb-4 text-2xl font-extrabold text-black">Archives</h1>
     <p class="space-y-6 text-lg leading-normal">
@@ -18,12 +19,11 @@ const articles = await getArticles();
         {
             articles.map((article) => (
                 <li>
-                    <span class="mb-1 block text-xs font-semibold tracking-wide uppercase">September 18, 2020</span>
-                    <a
-                        class="font-bold text-black no-underline hover:underline"
-                        href="/composing-the-uncomposable-with-css-variables"
-                    >
-                        Composing the Uncomposable with CSS Variables
+                    <span class="mb-1 block text-xs font-semibold tracking-wide uppercase">
+                        {formatDate(article.data.date)}
+                    </span>
+                    <a class="font-bold text-black no-underline hover:underline" href={article.slug}>
+                        {article.data.title}
                     </a>
                 </li>
             ))

@@ -1,14 +1,15 @@
 ---
 import { getArticles } from "~/lib/articles";
+import { formatDate } from "~/lib/utils";
 
 import SiteLayout from "~/components/layouts/site-layout/index.astro";
 
-const articles = (await getArticles()).slice(0, 2);
+const articles = (await getArticles()).slice(0, 10);
 ---
 
 <SiteLayout
-    title="Shihab Mahamud - Full-stack developer"
-    description="Software developer from bangladesh. I mainly work with Laravel, React & WordPress."
+    title="Articles - Shihab Mahamud"
+    description="A collection of articles written by Shihab Mahamud, covering various topics in software development, design, and technology."
 >
     <h1 class="mb-4 text-2xl font-extrabold text-black">Articles</h1>
     <p class="space-y-6 text-lg leading-normal">
@@ -19,11 +20,12 @@ const articles = (await getArticles()).slice(0, 2);
         {
             articles.map((article) => (
                 <li>
-                    <div>
-                        <a href={article.slug} class="text-lg font-bold text-black no-underline hover:underline">
-                            {article.data.title}
-                        </a>
-                    </div>
+                    <span class="mb-1 block text-xs font-semibold tracking-wide uppercase">
+                        {formatDate(article.data.date)}
+                    </span>
+                    <a href={article.slug} class="text-lg font-bold text-black no-underline hover:underline">
+                        {article.data.title}
+                    </a>
                     <p class="mt-1 text-base leading-normal">{article.data.description}</p>
                     <div class="mt-2 text-base leading-normal">
                         <a href={article.slug} class="text-sm no-underline hover:text-black hover:underline">
