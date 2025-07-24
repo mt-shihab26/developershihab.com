@@ -23,7 +23,7 @@ export const links = {
 };
 
 export const headerLinks = [
-    { href: "/articles2", label: "Articles" },
+    { href: "/articles", label: "Articles" },
     { href: "/projects", label: "Projects" },
     { href: "/experience", label: "Experience" },
     { href: "/uses", label: "Uses" },
