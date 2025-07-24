@@ -1,8 +1,12 @@
 ---
 import { getArticles } from "~/lib/articles";
 import { socialHrefs } from "~/lib/links";
+import { name } from "~/lib/info";
 
-import ArticleLayout from "~/components/layouts/article-layout/index.astro";
+import BaseLayout from "~/components/layouts/base-layout/index.astro";
+import Back from "~/components/elements/back.astro";
+import Header from "~/components/screens/article/header.astro";
+import Footer from "~/components/screens/article/footer.astro";
 
 export async function getStaticPaths() {
     const articles = await getArticles();
@@ -17,24 +21,36 @@ const { article } = Astro.props;
 const { Content } = await article.render();
 ---
 
-<ArticleLayout title="" description="" date={article.data.date}>
-    <h1 class="text-4xl leading-tight font-extrabold tracking-tight">
-        {article.data.title}
-    </h1>
-    <p class="relative z-10">
-        {article.data.description}
-    </p>
-    {
-        article.data.dev_to && (
-            <div class="flex items-center text-base text-zinc-400">
-                Also published at{" "}
-                <a target="_blank" href={socialHrefs.devTo + article.data.dev_to} class="ml-2 underline">
-                    dev.to
-                </a>
+<BaseLayout
+    title={`${article.data.title} - ${name}`}
+    description={article.data.description}
+    keywords={article.data.tags}
+>
+    <div class="relative mx-auto max-w-3xl space-y-10 px-4 py-14 sm:px-6 lg:px-8">
+        <Back />
+        <Header date={article.data.date} />
+        <main class="space-y-6">
+            <h1 class="text-4xl leading-tight font-extrabold tracking-tight">
+                {article.data.title}
+            </h1>
+            <p class="relative z-10">
+                {article.data.description}
+            </p>
+            {
+                article.data.dev_to && (
+                    <div class="flex items-center text-base text-zinc-400">
+                        Also published at{" "}
+                        <a target="_blank" href={socialHrefs.devTo + article.data.dev_to} class="ml-2 underline">
+                            dev.to
+                        </a>
+                    </div>
+                )
+            }
+            <div class="prose prose-lg max-w-none text-xl">
+                <Content />
             </div>
-        )
-    }
-    <div class="prose prose-lg max-w-none text-xl">
-        <Content />
+        </main>
+        <Footer />
+        <Back />
     </div>
-</ArticleLayout>
+</BaseLayout>

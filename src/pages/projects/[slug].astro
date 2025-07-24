@@ -7,7 +7,7 @@ import { Container } from "~/components/ui/container";
 import { Image } from "astro:assets";
 import { RadioIcon } from "~/components/icons/radio-icon";
 
-import Back from "~/components/elements/back";
+import Back from "~/components/elements/back.astro";
 import Layout from "~/components/layouts/layout/index.astro";
 import Technologies from "~/components/elements/technologies.astro";
 
@@ -34,9 +34,7 @@ const { Content } = await project.render();
                 <Back client:load />
                 <article>
                     <header class="flex flex-col space-y-6">
-                        <div
-                            class="flex items-center space-x-2 text-base text-zinc-400 dark:text-zinc-500"
-                        >
+                        <div class="flex items-center space-x-2 text-base text-zinc-400 dark:text-zinc-500">
                             <time datetime={project.data.date.start.toISOString()}>
                                 {time.formatToLongDate(project.data.date.start)}
                             </time>
@@ -57,12 +55,7 @@ const { Content } = await project.render();
                             <h1
                                 class="flex items-center space-x-2 text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
                             >
-                                <Image
-                                    src={project.data.logo}
-                                    alt=""
-                                    class="h-14 w-14"
-                                    loading="lazy"
-                                />
+                                <Image src={project.data.logo} alt="" class="h-14 w-14" loading="lazy" />
                                 <span>{project.data.name}</span>
                             </h1>
                             <div>
@@ -71,16 +64,10 @@ const { Content } = await project.render();
                                         <a
                                             href={project.data.live.href}
                                             class="relative z-10 flex text-sm font-medium text-zinc-400 underline transition group-hover:text-teal-500 dark:text-zinc-200"
-                                            target={
-                                                !internal(project.data.live.href)
-                                                    ? "_blank"
-                                                    : undefined
-                                            }
+                                            target={!internal(project.data.live.href) ? "_blank" : undefined}
                                         >
                                             <RadioIcon className="h-5 w-5 flex-none" />
-                                            <span class="ml-2">
-                                                {project.data.live.label || "Live"}
-                                            </span>
+                                            <span class="ml-2">{project.data.live.label || "Live"}</span>
                                         </a>
                                     )
                                 }
