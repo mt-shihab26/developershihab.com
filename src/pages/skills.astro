@@ -1,71 +1,63 @@
 ---
 import { name } from "~/lib/info";
+import { certifications, skills } from "~/lib/skills";
 
 import SiteLayout from "~/components/layouts/site-layout/index.astro";
-
-import { experiences } from "~/lib/experiences";
-
-import { BadgeCheckIcon } from "~/components/icons/badge-check-icon";
-import { Building2Icon } from "~/components/icons/building-2-icon";
-
-import Certifications from "~/components/screens/experience/certifications.astro";
-import Skills2 from "~/components/screens/experience/skills.astro";
 ---
 
 <SiteLayout
-    title={`Experience - ${name}`}
-    description="I've worked with various companies, building software solutions and gaining valuable experience in full-stack development."
-    class="max-w-2xl"
+    title={`Skills - ${name}`}
+    description="A collection of my technical proficiencies and professional certifications."
 >
-    <h1 class="mb-4 text-2xl font-extrabold text-black">Professional Experience</h1>
-    <p class="space-y-6 text-lg leading-normal">
-        I've worked with various companies, building software solutions and gaining valuable experience in full-stack
-        development.
+    <h1 class="mb-4 text-2xl font-extrabold text-black">Skills</h1>
+    <p class="text-lg leading-relaxed">
+        I’ve worked across a range of technologies and platforms. Here are the tools and areas I’m most comfortable
+        with.
     </p>
-    <div class="mt-12 space-y-10">
+
+    <div class="mt-12 space-y-16">
         <section>
-            <h2
-                class="mb-10 flex items-center gap-3 text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100"
-            >
-                <Building2Icon className="h-6 w-6" />
-                Work Experience
-            </h2>
-            <div class="space-y-8">
+            <h2 class="mb-6 text-xl font-bold tracking-tight">Technical Skills</h2>
+            <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {
-                    experiences.map((exp) => (
-                        <div class="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
-                            <div class="flex items-center gap-4">
-                                <div class="relative flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-                                    <img src={exp.logo} alt={exp.company} class="h-7 w-7" />
-                                </div>
-                                <div class="flex-auto">
-                                    <h3 class="text-lg font-semibold text-zinc-800 dark:text-zinc-100">
-                                        {exp.company}
-                                    </h3>
-                                    <div class="flex items-center gap-2">
-                                        <span class="text-sm text-zinc-600 dark:text-zinc-400">{exp.role}</span>
-                                        <span class="text-zinc-400 dark:text-zinc-500">•</span>
-                                        <span class="text-sm text-zinc-500 dark:text-zinc-500">
-                                            {exp.start} - {exp.end}
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            {/*<!-- <p class="mt-4 text-sm text-zinc-600 dark:text-zinc-400">{exp.description}</p> --> */}
-                            <ul class="mt-4 space-y-2">
-                                {exp.highlights.map((highlight) => (
-                                    <li class="flex items-start gap-2 text-sm text-zinc-600 dark:text-zinc-400">
-                                        <BadgeCheckIcon className="h-5 w-5 flex-none text-teal-500" />
-                                        <span>{highlight}</span>
-                                    </li>
+                    skills.map((group) => (
+                        <li class="rounded-xl border border-gray-200 p-5">
+                            <h3 class="mb-3 text-base font-semibold text-gray-800">{group.title}</h3>
+                            <ul class="flex flex-wrap gap-2">
+                                {group.items.map((tech) => (
+                                    <li class="rounded border border-gray-200 px-2 py-0.5 text-xs">{tech.name}</li>
                                 ))}
                             </ul>
-                        </div>
+                        </li>
                     ))
                 }
-            </div>
+            </ul>
         </section>
-        <Skills2 />
-        <Certifications />
+
+        <section>
+            <h2 class="mb-6 text-xl font-bold tracking-tight">Certifications</h2>
+            <ul class="space-y-6">
+                {
+                    certifications.map((cert) => (
+                        <li class="rounded-xl border border-gray-200 p-5">
+                            <h3 class="text-base font-semibold">{cert.name}</h3>
+                            <p class="mt-1 text-sm">{cert.date}</p>
+                            {cert.link && (
+                                <div class="mt-2 text-base leading-normal">
+                                    <a
+                                        target="_blank"
+                                        href={cert.link}
+                                        rel="noopener noreferrer"
+                                        class="text-sm no-underline hover:text-black hover:underline"
+                                    >
+                                        View Certificate &rarr;
+                                    </a>
+                                </div>
+                            )}
+                        </li>
+                    ))
+                }
+            </ul>
+        </section>
     </div>
 </SiteLayout>
