@@ -1,5 +1,6 @@
 ---
 import { name } from "~/lib/info";
+
 import { experiences, educations } from "~/lib/experiences";
 
 import SiteLayout from "~/components/layouts/site-layout/index.astro";
@@ -8,7 +9,6 @@ import SiteLayout from "~/components/layouts/site-layout/index.astro";
 <SiteLayout
     title={`Experience - ${name}`}
     description="I've worked with various companies, building software solutions and gaining valuable experience in full-stack development."
-    class="max-w-2xl"
 >
     <h1 class="mb-4 text-2xl font-extrabold text-black">Professional Experience</h1>
     <p class="space-y-6 text-lg leading-normal">
@@ -27,9 +27,6 @@ import SiteLayout from "~/components/layouts/site-layout/index.astro";
                     experiences.map((exp) => (
                         <div class="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
                             <div class="flex items-center gap-4">
-                                <div class="relative flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-                                    <img src={exp.logo} alt={exp.company} class="h-7 w-7" />
-                                </div>
                                 <div class="flex-auto">
                                     <h3 class="text-lg font-semibold text-zinc-800 dark:text-zinc-100">
                                         {exp.company}

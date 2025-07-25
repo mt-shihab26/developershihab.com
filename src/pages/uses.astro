@@ -1,25 +1,11 @@
 ---
-const toolsUses = [
-    {
-        title: "Devices",
-        items: [
-            {
-                name: "13-inch, MacBook Pro, M2, 8GB RAM (2022)",
-                description:
-                    "Coming from an Avita laptop running Ubuntu-based Linux, the M2 MacBook provides better performance, seamless macOS integration, excellent battery life, and superior build quality."
-            }
-        ]
-    }
-];
+import { name } from "~/lib/info";
+import { toolsUses } from "~/lib/uses";
 
 import SiteLayout from "~/components/layouts/site-layout/index.astro";
 ---
 
-<SiteLayout
-    title="Uses - Shihab Mahamud"
-    description="Things I use to build software, stay productive, and procrastinate"
-    class="max-w-2xl"
->
+<SiteLayout title={`Uses - ${name}`} description="Things I use to build software, stay productive, and procrastinate">
     <h1 class="mb-6 text-2xl font-extrabold text-black">Uses</h1>
     <p class="text-lg leading-normal">Things I use to build software, stay productive, and procrastinate.</p>
     <ul class="mt-12 space-y-10">

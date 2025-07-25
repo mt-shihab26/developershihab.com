@@ -1,5 +1,3 @@
-import { finnext, systech } from "~/lib/assets";
-
 export const experiences = [
     {
         company: "Finnext",
@@ -7,7 +5,6 @@ export const experiences = [
         role: "Full-stack Developer",
         start: "May 2023",
         end: "Present",
-        logo: finnext.src,
         highlights: [
             "Architected and developed a Laravel/React SaaS application that generates 3000+ financial documents monthly (PaystubHero.com), increasing revenue by supporting multiple document types (Paystubs, W-2 Forms, 1099 MISC/NEC)",
             "Built comprehensive Laravel/React application for QuickDoctorsNote.com, expanding the company's SaaS portfolio with a new revenue stream",
@@ -22,7 +19,6 @@ export const experiences = [
         role: "Software Engineer Intern",
         start: "Jun 2024",
         end: "Sep 2024",
-        logo: systech.src,
         highlights: [
             "Developed a Laravel E-commerce platform with admin panel",
             "Built custom web application using PHP following Laravel-inspired architecture",
