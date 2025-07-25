@@ -3,12 +3,16 @@ import { name } from "~/lib/info";
 import { uses } from "~/lib/uses";
 
 import SiteLayout from "~/components/layouts/site-layout/index.astro";
+import Heading2 from "~/components/elements/heading2.astro";
+import Subheading from "~/components/elements/subheading.astro";
 ---
 
 <SiteLayout title={`Uses - ${name}`} description="Things I use to build software, stay productive, and procrastinate">
-    <h1 class="mb-6 text-2xl font-extrabold text-black">Uses</h1>
-    <p class="text-lg leading-normal">Things I use to build software, stay productive, and procrastinate.</p>
-    <ul class="mt-12 space-y-10">
+    <Heading2>Uses</Heading2>
+
+    <Subheading>Things I use to build software, stay productive, and procrastinate. </Subheading>
+
+    <ul class="mb-16 space-y-10">
         {
             uses.map((section) => (
                 <li class="md:border-l md:border-zinc-100 md:dark:border-zinc-700/40">

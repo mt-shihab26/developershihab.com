@@ -6,6 +6,7 @@ Personal Portfolio Website
 
 - [x] /skills
 - [x] /uses
+- [x] /experience
 
 ## Content
 

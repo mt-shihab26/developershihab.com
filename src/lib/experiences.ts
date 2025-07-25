@@ -1,6 +1,7 @@
 export const experiences = [
     {
         company: "Finnext",
+        link: "https://finnext.co",
         location: "Dhaka, Bangladesh",
         role: "Full-stack Developer",
         start: "May 2023",
@@ -15,6 +16,7 @@ export const experiences = [
     },
     {
         company: "Systech Digital LTD",
+        link: "https://systechdigital.com",
         location: "Dhaka, Bangladesh",
         role: "Software Engineer Intern",
         start: "Jun 2024",
