@@ -14,16 +14,6 @@ export const skills = [
                 description:
                     "A versatile server-side language I frequently use with Laravel for building robust web applications, appreciating its mature ecosystem and excellent documentation."
             },
-            // {
-            //     name: "Python",
-            //     description:
-            //         "A highly readable and versatile language I use for data analysis, machine learning, and automation tasks, valuing its extensive library ecosystem and rapid development capabilities."
-            // },
-            // {
-            //     name: "Zig",
-            //     description:
-            //         "A modern systems programming language I explore for its focus on simplicity, performance, and memory safety without garbage collection, offering an interesting alternative to traditional systems languages."
-            // },
             {
                 name: "C/C++",
                 duration: "2+ years",
@@ -67,27 +57,23 @@ export const skills = [
         ]
     },
     {
-        title: "Others Technologies",
+        title: "Others",
         items: [
             {
                 name: "MySQL",
                 description:
                     "Relational database management system used for designing efficient schemas, writing optimized queries, and managing data persistence layers across various applications, with experience in performance tuning, replication, and data migration strategies."
             },
-            // {
-            //     name: "Linux",
-            //     description:
-            //         "Extensive experience with Linux systems administration, shell scripting, and command-line tools for development environments, server management, and workflow automation across multiple distributions."
-            // },
-            // {
-            //     name: "DigitalOcean",
-            //     description:
-            //         "Cloud platform utilized for deploying and scaling applications, with expertise in Droplets configuration, load balancing, managed databases, and infrastructure automation through their API and CLI tools."
-            // },
-            // {
-            //     name: "Laravel Forge",
-            //     description: ""
-            // },
+            {
+                name: "Linux",
+                description:
+                    "Extensive experience with Linux systems administration, shell scripting, and command-line tools for development environments, server management, and workflow automation across multiple distributions."
+            },
+            {
+                name: "DigitalOcean",
+                description:
+                    "Cloud platform utilized for deploying and scaling applications, with expertise in Droplets configuration, load balancing, managed databases, and infrastructure automation through their API and CLI tools."
+            },
             {
                 name: "Git",
                 description:
