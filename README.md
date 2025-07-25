@@ -4,4 +4,9 @@ Personal Portfolio Website
 
 ## Done
 
-- [x] Skills
+- [x] /skills
+- [x] /uses
+
+## Content
+
+- Write some content for /uses page

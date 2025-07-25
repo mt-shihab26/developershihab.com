@@ -1,4 +1,4 @@
-export const toolsUses = [
+export const uses = [
     {
         title: "Devices",
         items: [
