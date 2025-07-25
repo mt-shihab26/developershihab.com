@@ -1,4 +1,4 @@
-const languages = {
+export const languages = {
     title: "Languages",
     items: [
         {
@@ -32,7 +32,7 @@ const languages = {
     ]
 };
 
-const frameworks = {
+export const frameworks = {
     title: "Frameworks",
     items: [
         {
@@ -67,7 +67,7 @@ const frameworks = {
     ]
 };
 
-const others = {
+export const others = {
     title: "Others Technologies",
     items: [
         {
@@ -102,7 +102,7 @@ const others = {
     ]
 };
 
-const tools = {
+export const tools = {
     title: "Tools",
     items: [
         {
@@ -128,4 +128,12 @@ const tools = {
     ]
 };
 
-export { frameworks, languages, others, tools };
+export const certifications = [
+    {
+        name: "Think in a Redux way Course (Learn with Sumit)",
+        date: "Fab 2023 - Apr 2023",
+        link: "https://learnwithsumit.com/certificates/verify/LWSCTXN-RUP3O34K"
+    }
+];
+
+export const skills = [languages, frameworks, others];

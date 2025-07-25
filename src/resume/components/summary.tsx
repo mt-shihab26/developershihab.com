@@ -1,4 +1,4 @@
-import { SummaryParagraph } from "~/config/summary";
+import { SummaryParagraph } from "~/lib/summary";
 
 import { Heading } from "./heading";
 

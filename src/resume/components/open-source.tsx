@@ -1,5 +1,5 @@
-import { open_source_contribution } from "~/config/open_source_contribution";
 import { meta } from "~/lib/meta";
+import { open_source_contribution } from "~/lib/open_source_contribution";
 
 import { Heading } from "./heading";
 
@@ -32,10 +32,7 @@ const OpenSource = ({ projects }: { projects: TProject[] }) => {
                                     )
                                 </div>
                                 <a
-                                    href={
-                                        project.link?.href ||
-                                        `${meta.url}/projects/${project.slug || "/"}`
-                                    }
+                                    href={project.link?.href || `${meta.url}/projects/${project.slug || "/"}`}
                                     className="text-blue-600 hover:underline"
                                     target="_blank"
                                 >
@@ -57,11 +54,7 @@ const OpenSource = ({ projects }: { projects: TProject[] }) => {
                         </div>
                         <div className="text-xs">
                             {item.description}{" "}
-                            <a
-                                href={item.link}
-                                className="text-blue-600 hover:underline"
-                                target="_blank"
-                            >
+                            <a href={item.link} className="text-blue-600 hover:underline" target="_blank">
                                 [Link]
                             </a>
                         </div>

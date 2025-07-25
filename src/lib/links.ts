@@ -26,6 +26,7 @@ export const navigationLinks = [
     { href: "/articles", label: "Articles" },
     { href: "/projects", label: "Projects" },
     { href: "/experience", label: "Experience" },
+    { href: "/skills", label: "Skills" },
     { href: "/uses", label: "Uses" },
     { href: "/resume", label: "Resume" }
 ];

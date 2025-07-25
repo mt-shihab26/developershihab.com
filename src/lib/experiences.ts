@@ -1,5 +1,4 @@
 import { finnext, systech } from "~/lib/assets";
-import { frameworks, languages, others } from "./tools_uses";
 
 export const experiences = [
     {
@@ -32,7 +31,7 @@ export const experiences = [
     }
 ];
 
-const educations = [
+export const educations = [
     {
         institution: "Faridpur Polytechnic Institute",
         description: "Focused on computer science foundamentals, programming, problem solving.",
@@ -41,15 +40,3 @@ const educations = [
         period: "2020 - 2024"
     }
 ];
-
-const certifications = [
-    {
-        name: "Think in a Redux way Course (Learn with Sumit)",
-        date: "Fab 2023 - Apr 2023",
-        link: "https://learnwithsumit.com/certificates/verify/LWSCTXN-RUP3O34K"
-    }
-];
-
-const skills = [languages, frameworks, others];
-
-export { certifications, educations, skills };

@@ -1,8 +1,15 @@
 ---
 import { name } from "~/lib/info";
-import { experiences, educations } from "~/lib/experiences";
 
 import SiteLayout from "~/components/layouts/site-layout/index.astro";
+
+import { experiences } from "~/lib/experiences";
+
+import { BadgeCheckIcon } from "~/components/icons/badge-check-icon";
+import { Building2Icon } from "~/components/icons/building-2-icon";
+
+import Certifications from "~/components/screens/experience/certifications.astro";
+import Skills2 from "~/components/screens/experience/skills.astro";
 ---
 
 <SiteLayout
@@ -20,6 +27,7 @@ import SiteLayout from "~/components/layouts/site-layout/index.astro";
             <h2
                 class="mb-10 flex items-center gap-3 text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100"
             >
+                <Building2Icon className="h-6 w-6" />
                 Work Experience
             </h2>
             <div class="space-y-8">
@@ -43,10 +51,11 @@ import SiteLayout from "~/components/layouts/site-layout/index.astro";
                                     </div>
                                 </div>
                             </div>
-                            {/*<!-- <p class="mt-4 text-sm text-zinc-600 dark:text-zinc-400">{exp.description}</p> -->*/}
+                            {/*<!-- <p class="mt-4 text-sm text-zinc-600 dark:text-zinc-400">{exp.description}</p> --> */}
                             <ul class="mt-4 space-y-2">
                                 {exp.highlights.map((highlight) => (
                                     <li class="flex items-start gap-2 text-sm text-zinc-600 dark:text-zinc-400">
+                                        <BadgeCheckIcon className="h-5 w-5 flex-none text-teal-500" />
                                         <span>{highlight}</span>
                                     </li>
                                 ))}
@@ -56,27 +65,7 @@ import SiteLayout from "~/components/layouts/site-layout/index.astro";
                 }
             </div>
         </section>
-        <section>
-            <h2
-                class="mb-10 flex items-center gap-3 text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100"
-            >
-                Education
-            </h2>
-            <div class="space-y-8">
-                {
-                    educations.map((edu) => (
-                        <div class="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
-                            <h3 class="text-lg font-semibold text-zinc-800 dark:text-zinc-100">{edu.institution}</h3>
-                            <div class="mt-2 flex items-center gap-2">
-                                <span class="text-sm text-zinc-600 dark:text-zinc-400">{edu.degree}</span>
-                                <span class="text-zinc-400 dark:text-zinc-500">•</span>
-                                <span class="text-sm text-zinc-500 dark:text-zinc-500">{edu.period}</span>
-                            </div>
-                            <p class="mt-4 text-sm text-zinc-600 dark:text-zinc-400">{edu.description}</p>
-                        </div>
-                    ))
-                }
-            </div>
-        </section>
+        <Skills2 />
+        <Certifications />
     </div>
 </SiteLayout>

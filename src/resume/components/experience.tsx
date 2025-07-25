@@ -1,4 +1,4 @@
-import { experiences } from "~/config/experiences";
+import { experiences } from "~/lib/experiences";
 
 import { Heading } from "./heading";
 
@@ -10,8 +10,7 @@ const Experience = () => {
                 <div key={index} className="space-y-2">
                     <div>
                         <h3>
-                            <span className="text-base font-bold">{e.company}</span> —{" "}
-                            <em>{e.role}</em>
+                            <span className="text-base font-bold">{e.company}</span> — <em>{e.role}</em>
                         </h3>
                         <div className="text-gray-600">
                             <span>{e.location}</span>, {e.start} - {e.end}

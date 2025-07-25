@@ -1,4 +1,4 @@
-import { frameworks, languages, others } from "~/config/tools_uses";
+import { frameworks, languages, others } from "~/lib/skills";
 import { cn } from "~/lib/utils";
 
 import { Fragment } from "react";
@@ -8,15 +8,7 @@ const Seperator = () => {
     return <span className="mx-1 text-black">•</span>;
 };
 
-const Items = ({
-    label,
-    skills,
-    className
-}: {
-    label: string;
-    skills: string[];
-    className?: string;
-}) => {
+const Items = ({ label, skills, className }: { label: string; skills: string[]; className?: string }) => {
     return (
         <div className="flex items-center space-x-1">
             <h3 className="font-medium">{label}: </h3>

@@ -24,9 +24,5 @@
             }
         }
     ],
-    "plugins": [
-        "prettier-plugin-astro",
-        "prettier-plugin-tailwindcss",
-        "prettier-plugin-organize-imports"
-    ]
+    "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss", "prettier-plugin-organize-imports"]
 }

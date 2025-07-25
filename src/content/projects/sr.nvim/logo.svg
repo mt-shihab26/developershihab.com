@@ -41,27 +41,9 @@
         />
 
         <!-- Speed lines -->
-        <path
-            d="M140,130 L155,130"
-            stroke="#00a0d2"
-            stroke-width="6"
-            stroke-linecap="round"
-            opacity="0.8"
-        />
-        <path
-            d="M130,150 L150,150"
-            stroke="#00a0d2"
-            stroke-width="6"
-            stroke-linecap="round"
-            opacity="0.7"
-        />
-        <path
-            d="M140,170 L155,170"
-            stroke="#00a0d2"
-            stroke-width="6"
-            stroke-linecap="round"
-            opacity="0.6"
-        />
+        <path d="M140,130 L155,130" stroke="#00a0d2" stroke-width="6" stroke-linecap="round" opacity="0.8" />
+        <path d="M130,150 L150,150" stroke="#00a0d2" stroke-width="6" stroke-linecap="round" opacity="0.7" />
+        <path d="M140,170 L155,170" stroke="#00a0d2" stroke-width="6" stroke-linecap="round" opacity="0.6" />
     </g>
 
     <!-- Quick lightning bolt symbol -->

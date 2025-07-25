@@ -41,26 +41,16 @@ const MobileNavigation = ({ className }: { pathname: string; className?: string 
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="flex flex-row-reverse items-center justify-between">
-                            <button
-                                onClick={() => setOpen(false)}
-                                aria-label="Close menu"
-                                className="-m-1 p-1"
-                            >
+                            <button onClick={() => setOpen(false)} aria-label="Close menu" className="-m-1 p-1">
                                 <CloseIcon className="h-6 w-6 text-zinc-500 dark:text-zinc-400" />
                             </button>
-                            <h2 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
-                                Navigation
-                            </h2>
+                            <h2 className="text-sm font-medium text-zinc-600 dark:text-zinc-400">Navigation</h2>
                         </div>
                         <nav className="mt-6">
                             <ul className="-my-2 divide-y divide-zinc-100 text-base text-zinc-800 dark:divide-zinc-100/5 dark:text-zinc-300">
                                 {links.map((link) => (
                                     <li key={link.href}>
-                                        <a
-                                            href={link.href}
-                                            className="block py-2"
-                                            data-astro-prefetch
-                                        >
+                                        <a href={link.href} className="block py-2" data-astro-prefetch>
                                             {link.label}
                                         </a>
                                     </li>

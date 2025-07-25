@@ -47,11 +47,7 @@ const openGraph = {
 
     {canonical && <link rel="canonical" href={canonical} />}
 
-    {
-        props.tags && props.tags.length > 0 && (
-            <meta name="keywords" content={props.tags.join(", ")} />
-        )
-    }
+    {props.tags && props.tags.length > 0 && <meta name="keywords" content={props.tags.join(", ")} />}
 
     {
         openGraph && (

@@ -1,4 +1,4 @@
-import { certifications } from "~/config/experiences";
+import { certifications } from "~/lib/skills";
 
 import { Heading } from "./heading";
 
@@ -11,11 +11,7 @@ const Certification = () => {
                     <li key={index} className="mb-1">
                         {cert.name} on {cert.date}
                         {cert.link && (
-                            <a
-                                target="_blank"
-                                href={cert.link}
-                                className="text-blue-600 hover:underline ml-1"
-                            >
+                            <a target="_blank" href={cert.link} className="text-blue-600 hover:underline ml-1">
                                 [Link]
                             </a>
                         )}

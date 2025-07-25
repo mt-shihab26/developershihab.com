@@ -1,4 +1,4 @@
-import { educations } from "~/config/experiences";
+import { educations } from "~/lib/experiences";
 
 import { Heading } from "./heading";
 

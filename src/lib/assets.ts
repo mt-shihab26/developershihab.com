@@ -12,16 +12,7 @@ import shihab_r15 from "~/assets/images/shihab-r15.webp";
 import shihab_sea from "~/assets/images/shihab-sea.webp";
 import shihab from "~/assets/images/shihab.webp";
 
-export {
-    shihab,
-    shihab_2,
-    shihab_3,
-    shihab_infinity_pool,
-    shihab_laptop,
-    shihab_office,
-    shihab_r15,
-    shihab_sea
-};
+export { shihab, shihab_2, shihab_3, shihab_infinity_pool, shihab_laptop, shihab_office, shihab_r15, shihab_sea };
 
 import paystubhero from "~/assets/svgs/paystubhero.svg";
 

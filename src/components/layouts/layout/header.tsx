@@ -25,10 +25,7 @@ export const Header = ({ pathname }: { pathname: string }) => {
                                 )}
                             </div>
                             <div className="flex flex-1 justify-end md:justify-center">
-                                <MobileNavigation
-                                    className="pointer-events-auto md:hidden"
-                                    pathname={pathname}
-                                />
+                                <MobileNavigation className="pointer-events-auto md:hidden" pathname={pathname} />
                                 <DesktopNavigation
                                     className="pointer-events-auto hidden md:block"
                                     pathname={pathname}

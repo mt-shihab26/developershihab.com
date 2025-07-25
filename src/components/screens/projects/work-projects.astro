@@ -18,13 +18,7 @@ const { title, projects } = Astro.props as Props;
 ---
 
 <div class={title && "mt-24 sm:mt-32"}>
-    {
-        title && (
-            <h2 class="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
-                {title}
-            </h2>
-        )
-    }
+    {title && <h2 class="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">{title}</h2>}
     <div class="mt-8 sm:mt-12">
         <ul role="list" class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
             {

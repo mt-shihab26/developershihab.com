@@ -8,11 +8,6 @@ interface Props {
 const props = Astro.props as Props;
 ---
 
-<h1
-    class={cn(
-        "text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100",
-        props.class
-    )}
->
+<h1 class={cn("text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100", props.class)}>
     <slot />
 </h1>
