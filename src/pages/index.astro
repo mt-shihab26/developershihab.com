@@ -1,12 +1,13 @@
 ---
+import { bio, name } from "~/lib/info";
 import { socialLinks } from "~/lib/links";
 
 import SiteLayout from "~/components/layouts/site-layout/index.astro";
 ---
 
 <SiteLayout
-    title="Shihab Mahamud - Full-stack developer"
-    description="Software developer from Bangladesh. I mainly work with Laravel, React & WordPress."
+    title={`${name} - ${bio}`}
+    description="Experienced full-stack developer specializing in React, Laravel, and WordPress. Passionate about clean code, solving problems, and building scalable SaaS solutions."
 >
     <h1 class="mb-4 text-2xl font-extrabold text-black">Who the hell am I?</h1>
 

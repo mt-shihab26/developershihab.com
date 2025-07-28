@@ -1,6 +1,7 @@
 ---
 import { getArticles } from "~/lib/articles";
 import { formatDate } from "~/lib/utils";
+import { name } from "~/lib/info";
 
 import SiteLayout from "~/components/layouts/site-layout/index.astro";
 
@@ -8,8 +9,8 @@ const articles = (await getArticles()).slice(0, 10);
 ---
 
 <SiteLayout
-    title="Articles - Shihab Mahamud"
-    description="A collection of articles written by Shihab Mahamud, covering various topics in software development, design, and technology."
+    title={`Articles - ${name}`}
+    description="A collection of my favorite technical articles, covering web development, full-stack engineering, and software insights."
     class="max-w-2xl"
 >
     <h1 class="mb-4 text-2xl font-extrabold text-black">Articles</h1>
