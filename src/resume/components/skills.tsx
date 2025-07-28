@@ -1,4 +1,4 @@
-import { frameworks, languages, others } from "~/lib/skills";
+import { skills } from "~/lib/skills";
 import { cn } from "~/lib/utils";
 
 import { Fragment } from "react";
@@ -28,13 +28,17 @@ const Skills = () => {
     return (
         <section className="text-sm space-y-1">
             <Heading>SKILLS</Heading>
-            <Items label="Languages" skills={languages.items.map((l) => `${l.name}`)} />
-            <Items label="Frameworks" skills={frameworks.items.map((l) => `${l.name}`)} />
+            <Items
+                label="Languages"
+                skills={skills.find((x) => x.title === "Languages")?.items.map((l) => `${l.name}`) || []}
+            />
+            <Items
+                label="Frameworks"
+                skills={skills.find((x) => x.title === "Frameworks")?.items.map((l) => `${l.name}`) || []}
+            />
             <Items
                 label="Others"
-                skills={others.items.map(
-                    (l) => `${l.name}` // ${i !== others.items.length - 1 ? "," : ""}
-                )}
+                skills={skills.find((x) => x.title === "Others")?.items.map((l) => `${l.name}`) || []}
             />
         </section>
     );
