@@ -13,11 +13,13 @@ const articles = (await getArticles()).slice(0, 10);
     class="max-w-2xl"
 >
     <h1 class="mb-4 text-2xl font-extrabold text-black">Articles</h1>
+
     <div class="space-y-6 text-lg leading-normal">
         <p>Over the years I’ve published a few dozen articles — some more noteworthy than others.</p>
         <p>Here are some of my personal favorites.</p>
     </div>
-    <ul class="mt-12 space-y-10">
+
+    <ul class="mt-12 space-y-6">
         {
             articles.map((article) => (
                 <li>
@@ -43,6 +45,7 @@ const articles = (await getArticles()).slice(0, 10);
             ))
         }
     </ul>
+
     <p class="mt-12 space-y-6 text-lg leading-normal">
         Read the rest of my articles in the <a href="/articles/archives" class="text-black underline">archives</a>.
     </p>
