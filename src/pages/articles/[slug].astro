@@ -32,33 +32,39 @@ const { Content } = await article.render();
             </div>
             <div class="pl-4 text-sm leading-snug">
                 <p class="text-base">
-                    <a href="/" class="font-semibold text-black">{name}</a>
+                    <a href="/" class="font-semibold text-black dark:text-white">
+                        {name}
+                    </a>
                 </p>
-                <div class="text-gray-500">
-                    <p class="">{bio}</p>
+                <div class="text-gray-500 dark:text-gray-400">
+                    <p>{bio}</p>
                     <p>{formatDate(article.data.date)}</p>
                 </div>
             </div>
         </header>
 
         <main class="space-y-6">
-            <h1 class="text-4xl leading-tight font-extrabold tracking-tight">
+            <h1 class="text-4xl leading-tight font-extrabold tracking-tight text-black dark:text-white">
                 {article.data.title}
             </h1>
-            <p class="relative z-10">
+            <p class="relative z-10 text-gray-800 dark:text-gray-300">
                 {article.data.description}
             </p>
             {
                 article.data.dev_to && (
-                    <div class="flex items-center text-base text-zinc-400">
+                    <div class="flex items-center text-base text-zinc-400 dark:text-zinc-500">
                         Also published at{" "}
-                        <a target="_blank" href={links.devTo + article.data.dev_to} class="ml-2 underline">
+                        <a
+                            target="_blank"
+                            href={links.devTo + article.data.dev_to}
+                            class="ml-2 text-zinc-600 underline hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                        >
                             dev.to
                         </a>
                     </div>
                 )
             }
-            <div class="prose prose-lg max-w-none text-xl">
+            <div class="prose prose-lg dark:prose-invert max-w-none text-xl">
                 <Content />
             </div>
         </main>
@@ -67,7 +73,10 @@ const { Content } = await article.render();
             <nav class="mx-auto max-w-3xl space-x-4 text-center text-sm">
                 {
                     navigationLinks.map((link) => (
-                        <a href={link.href} class="text-gray-500 hover:text-black">
+                        <a
+                            href={link.href}
+                            class="text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white"
+                        >
                             {link.label}
                         </a>
                     ))
