@@ -1,185 +1,203 @@
 import type { ReactNode } from "react";
 
 import { educations, experiences } from "~/config/experiences";
-import { links, name } from "~/config/personal";
+import { avatar, bio, links, location, name } from "~/config/personal";
 import { projects } from "~/config/projects";
 import { certifications, skills } from "~/config/skills";
 
+import { Github, Globe, Linkedin } from "lucide-react";
 import { Fragment } from "react";
+import { cn } from "~/lib/utils";
 
-const Seperator = () => {
-    return <span className="mx-2">•</span>;
-};
+const Seperator = () => <span className="mx-2">•</span>;
 
-const Seperator2 = () => {
-    return <span className="mx-1 text-black">•</span>;
-};
-
-const Heading = ({ children }: { children: ReactNode }) => {
-    return <h2 className="border-b pb-1 font-bold text-blue-600 uppercase">{children}</h2>;
-};
+const Heading = ({ children }: { children: ReactNode }) => (
+    <h2 className="border-b pb-1 font-bold text-blue-600 uppercase">{children}</h2>
+);
 
 const resumeProjects = projects.filter((p) => p.resume);
 
 export const Resume = ({ image }: { image?: boolean }) => {
     return (
-        <div className="mx-auto w-full space-y-4 bg-white p-8 text-sm leading-5">
-            <header className="w-full items-center space-y-1 text-sm">
+        <div className="mx-auto w-full max-w-4xl space-y-6 bg-white p-8 text-sm leading-6 text-gray-600">
+            <header
+                className={cn("flex gap-4", {
+                    "flex-col items-center text-center": !image,
+                    "items-center": image
+                })}
+            >
                 {image && (
-                    <div className="flex flex-col items-center justify-center">
-                        <img src="https://avatars.githubusercontent.com/u/67628903?v=4" className="h-40" />
+                    <div className="size-26 overflow-hidden rounded-full">
+                        <img src={avatar} alt="Profile" className="h-full w-full object-cover" />
                     </div>
                 )}
-                <h1 className="text-center text-4xl font-bold">{name}</h1>
-                <div className="text-center">
-                    <span>Dhaka, Bangladesh</span>
-                    <Seperator />
-                    <span>{links.phone}</span>
-                    <Seperator />
-                    <a href={`mailto:${links.email}`} target="_blank">
-                        {links.email}
-                    </a>
-                </div>
-                <div className="text-center">
-                    <a href={links.website} target="_blank">
-                        website
-                    </a>
-                    <Seperator />
-                    <a href={links.github} target="_blank">
-                        github
-                    </a>
-                    <Seperator />
-                    <a href={links.linkedin} target="_blank">
-                        linkedin
-                    </a>
+
+                <div className={cn("space-y-2", { "text-center": !image })}>
+                    <h1 className="text-3xl font-bold text-black uppercase">{name}</h1>
+
+                    <div
+                        className={cn("flex flex-wrap items-center gap-2 text-sm text-gray-700", {
+                            "justify-center": !image
+                        })}
+                    >
+                        <span>{bio}</span>
+                        <span className="mx-1">•</span>
+                        <span>{location}</span>
+                        <span className="mx-1">•</span>
+                        <span>{links.phone}</span>
+                    </div>
+
+                    <div
+                        className={cn("flex flex-wrap items-center gap-4 text-blue-600", {
+                            "justify-center": !image
+                        })}
+                    >
+                        <a
+                            href={`mailto:${links.email}`}
+                            className="hover:underline"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            {links.email}
+                        </a>
+
+                        <a
+                            href={links.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1 hover:text-blue-800"
+                        >
+                            <Globe className="h-4 w-4" />
+                            <span>{links.website.replace(/^https?:\/\//, "")}</span>
+                        </a>
+
+                        <a
+                            href={links.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1 hover:text-blue-800"
+                        >
+                            <Github className="h-4 w-4" />
+                            <span>{links.github.split("github.com/")[1]}</span>
+                        </a>
+
+                        <a
+                            href={links.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1 hover:text-blue-800"
+                        >
+                            <Linkedin className="h-4 w-4" />
+                            <span>{links.linkedin.split("linkedin.com/in/")[1]}</span>
+                        </a>
+                    </div>
                 </div>
             </header>
 
-            <div className="space-y-4">
-                <section className="space-y-3 text-sm">
-                    <Heading>SUMMARY</Heading>
-                    <div className="space-y-2">
-                        {[
-                            <>
-                                Full-stack developer with 3+ years of experience. Specializing in React, Laravel, and
-                                WordPress applications with proven expertise in building and scaling SaaS products.
-                            </>,
-                            <>
-                                Strong foundation in data structures and algorithms (1100+ competitive programming
-                                problems solved)
-                            </>,
-                            <>
-                                Passionate about creating clean, maintainable code that delivers meaningful business
-                                outcomes. Open to learning new technologies.
-                            </>
-                        ].map((paragraph, index) => (
-                            <Fragment key={index}>{paragraph} </Fragment>
-                        ))}
+            {/* Summary */}
+            <section className="space-y-3">
+                <Heading>Summary</Heading>
+                <ul className="ml-5 list-disc space-y-1 text-gray-700">
+                    <li>
+                        Full-stack developer with 3+ years' experience specializing in React, Laravel, and WordPress.
+                    </li>
+                    <li>Strong foundation in data structures and algorithms (1100+ problems solved).</li>
+                    <li>Focused on writing clean, maintainable code. Always eager to learn new tech.</li>
+                </ul>
+            </section>
+
+            {/* Experience */}
+            <section className="space-y-3">
+                <Heading>Work Experience</Heading>
+                {experiences.map((e, index) => (
+                    <div key={index} className="space-y-1">
+                        <h3 className="text-base font-semibold">
+                            {e.company} — <span className="font-normal italic">{e.role}</span>
+                        </h3>
+                        <div className="text-sm text-gray-600">
+                            {e.location}, {e.start} - {e.end}
+                        </div>
+                        <ul className="ml-5 list-disc space-y-1 text-xs text-gray-700">
+                            {e.highlights.map((r, i) => (
+                                <li key={i}>{r}</li>
+                            ))}
+                        </ul>
                     </div>
-                </section>
+                ))}
+            </section>
 
-                <section className="space-y-3 text-sm">
-                    <Heading>Work Experience</Heading>
-                    {experiences.map((e, index) => (
-                        <div key={index} className="space-y-2">
-                            <div>
-                                <h3>
-                                    <span className="text-base font-bold">{e.company}</span> — <em>{e.role}</em>
-                                </h3>
-                                <div className="text-gray-600">
-                                    <span>{e.location}</span>, {e.start} - {e.end}
-                                </div>
-                            </div>
-                            <div className="text-xs">
-                                <ul className="ml-6 list-disc">
-                                    {e.highlights.map((r, i) => (
-                                        <li key={i}>{r}</li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-                    ))}
-                </section>
-
-                <section className="space-y-3 text-sm">
-                    <Heading>Key Projects</Heading>
-                    <ul className="space-y-2">
-                        {resumeProjects.map((project, index) => (
-                            <li key={index}>
-                                <div className="flex items-center space-x-2">
-                                    <div className="text-base font-semibold">{project.name}</div>
-                                    <div className="flex space-x-1 text-gray-600">
-                                        <div className="flex space-x-1">
-                                            (
-                                            {project.technologies.map((t, i) => (
-                                                <div key={i}>
-                                                    {t}
-                                                    {i !== project.technologies.length - 1 && ", "}
-                                                </div>
-                                            ))}
-                                            )
-                                        </div>
-                                        <a
-                                            href={project.liveLink}
-                                            className="text-blue-600 hover:underline"
-                                            target="_blank"
-                                        >
-                                            [Link]
-                                        </a>{" "}
-                                        :{" "}
-                                    </div>
-                                </div>
-                                <div className="text-xs">{project.description}</div>
-                            </li>
-                        ))}
-                    </ul>
-                </section>
-
-                <section className="space-y-1 text-sm">
-                    <Heading>SKILLS</Heading>
-                    {skills.map((skill) => (
-                        <div className="flex items-center space-x-1">
-                            <h3 className="font-medium">{skill.title}: </h3>
-                            <ul className="flex items-center text-xs text-gray-600">
-                                {skill.items.map((item, index) => (
-                                    <Fragment key={index}>
-                                        {index !== 0 && <Seperator2 />}
-                                        <li>{item.name}</li>
-                                    </Fragment>
-                                ))}
-                            </ul>
-                        </div>
-                    ))}
-                </section>
-
-                <section className="space-y-3 text-sm">
-                    <Heading>Education</Heading>
-                    {educations.map((edu, index) => (
-                        <div key={index} className="flex items-center space-x-2 text-xs">
-                            <div className="text-sm font-semibold">{edu.institution} | </div>
-                            <div>{edu.location} | </div>
-                            <div>{edu.degree} | </div>
-                            <div>{edu.period}</div>
-                        </div>
-                    ))}
-                </section>
-
-                <section className="space-y-3">
-                    <Heading>Certification</Heading>
-                    <ul className="text-xs">
-                        {certifications.map((cert, index) => (
-                            <li key={index} className="mb-1">
-                                {cert.name} on {cert.date}
-                                {cert.link && (
-                                    <a target="_blank" href={cert.link} className="ml-1 text-blue-600 hover:underline">
+            {/* Projects */}
+            <section className="space-y-3">
+                <Heading>Key Projects</Heading>
+                <ul className="space-y-3">
+                    {resumeProjects.map((project, index) => (
+                        <li key={index}>
+                            <div className="flex items-center space-x-2">
+                                <span className="font-semibold">{project.name}</span>
+                                <span className="text-sm text-gray-500">({project.technologies.join(", ")})</span>
+                                {project.liveLink && (
+                                    <a
+                                        href={project.liveLink}
+                                        className="text-sm text-blue-600 hover:underline"
+                                        target="_blank"
+                                    >
                                         [Link]
                                     </a>
                                 )}
-                            </li>
-                        ))}
-                    </ul>
-                </section>
-            </div>
+                            </div>
+                            <p className="mt-1 text-xs text-gray-700">{project.description}</p>
+                        </li>
+                    ))}
+                </ul>
+            </section>
+
+            {/* Skills */}
+            <section className="space-y-3">
+                <Heading>Skills</Heading>
+                <ul className="space-y-2">
+                    {skills.map((skill, i) => (
+                        <li key={i} className="flex flex-wrap text-xs text-gray-700">
+                            <span className="mr-2 font-medium">{skill.title}:</span>
+                            {skill.items.map((item, index) => (
+                                <Fragment key={index}>
+                                    {index !== 0 && <Seperator />}
+                                    <span>{item.name}</span>
+                                </Fragment>
+                            ))}
+                        </li>
+                    ))}
+                </ul>
+            </section>
+
+            {/* Education */}
+            <section className="space-y-3">
+                <Heading>Education</Heading>
+                {educations.map((edu, index) => (
+                    <div key={index} className="text-sm text-gray-700">
+                        <div className="font-semibold">{edu.institution}</div>
+                        <div className="text-xs">
+                            {edu.location} — {edu.degree} ({edu.period})
+                        </div>
+                    </div>
+                ))}
+            </section>
+
+            {/* Certifications */}
+            <section className="space-y-3">
+                <Heading>Certifications</Heading>
+                <ul className="ml-5 list-disc space-y-1 text-xs text-gray-700">
+                    {certifications.map((cert, index) => (
+                        <li key={index}>
+                            {cert.name} on {cert.date}
+                            {cert.link && (
+                                <a href={cert.link} className="ml-1 text-blue-600 hover:underline" target="_blank">
+                                    [Link]
+                                </a>
+                            )}
+                        </li>
+                    ))}
+                </ul>
+            </section>
         </div>
     );
 };
