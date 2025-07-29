@@ -1,4 +1,5 @@
-import { meta } from "~/lib/meta";
+import { name } from "~/lib/info";
+import { socialHrefs } from "~/lib/links";
 
 const Seperator = () => {
     return <span className="mx-2">•</span>;
@@ -12,26 +13,26 @@ const Header = ({ image }: { image?: boolean }) => {
                     <img src="https://avatars.githubusercontent.com/u/67628903?v=4" className="h-40" />
                 </div>
             )}
-            <h1 className="text-center text-4xl font-bold">{meta.name}</h1>
+            <h1 className="text-center text-4xl font-bold">{name}</h1>
             <div className="text-center">
                 <span>Dhaka, Bangladesh</span>
                 <Seperator />
-                <span>{meta.phone}</span>
+                <span>{socialHrefs.phone}</span>
                 <Seperator />
-                <a href={`mailto:${meta.email}`} target="_blank">
-                    {meta.email}
+                <a href={`mailto:${socialHrefs.email}`} target="_blank">
+                    {socialHrefs.email}
                 </a>
             </div>
             <div className="text-center">
-                <a href={meta.url} target="_blank">
+                <a href={socialHrefs.website} target="_blank">
                     website
                 </a>
                 <Seperator />
-                <a href={meta.github} target="_blank">
+                <a href={socialHrefs.github} target="_blank">
                     github
                 </a>
                 <Seperator />
-                <a href={meta.linkedin} target="_blank">
+                <a href={socialHrefs.linkedin} target="_blank">
                     linkedin
                 </a>
             </div>

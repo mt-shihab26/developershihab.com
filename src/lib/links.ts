@@ -14,6 +14,7 @@ export const navigationLinks = [
 ];
 
 export const socialHrefs = {
+    website: "https://developershihab.com",
     x: "https://x.com/mt_shihab26",
     github: "https://github.com/mt-shihab26",
     devTo: "https://dev.to/mt-shihab26",

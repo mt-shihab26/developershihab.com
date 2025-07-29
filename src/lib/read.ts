@@ -1,3 +1,5 @@
+import type { TProject } from "./projects";
+
 import { readFileSync } from "fs";
 import * as yaml from "yaml";
 
@@ -78,30 +80,11 @@ const findMarkdownFiles = async (directory: string): Promise<string[]> => {
     return markdownFiles;
 };
 
-type TProjectMetadata = {
-    slug?: string;
-    logo: string;
-    name: string;
-    description: string;
-    technologies: string[];
-    date: {
-        start: string;
-        end?: string;
-    };
-    link: { href: string; label?: string } | undefined;
-    live: { href: string; label: string } | undefined;
-    case_study: boolean;
-    published: boolean;
-    featured: boolean;
-    resume: boolean;
-    order: number;
-};
-
-export const read = async (): Promise<TProjectMetadata[]> => {
+export const read = async (): Promise<TProject[]> => {
     const files = await findMarkdownFiles("./src/content/projects");
-    const projects: TProjectMetadata[] = [];
+    const projects: TProject[] = [];
     for (let i = 0; i < files.length; i++) {
-        const metadata = readMetadata(files[i]) as TProjectMetadata;
+        const metadata = readMetadata(files[i]) as TProject;
         projects.push(metadata);
     }
     return projects;
