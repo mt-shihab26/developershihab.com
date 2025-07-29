@@ -10,7 +10,7 @@ import SiteLayout from "~/components/layouts/site-layout/index.astro";
     description="I've worked with various companies, building software solutions and gaining valuable experience in full-stack development."
 >
     <section class="space-y-10">
-        <h2 class="mb-4 text-2xl font-extrabold text-black">Work Experience</h2>
+        <h2 class="mb-4 text-2xl font-extrabold text-black dark:text-white">Work Experience</h2>
 
         <p class="text-lg leading-normal">
             I've worked with various companies, building software solutions and gaining valuable experience in
@@ -21,7 +21,7 @@ import SiteLayout from "~/components/layouts/site-layout/index.astro";
             {
                 experiences.map((exp) => (
                     <div class="space-y-2">
-                        <h3 class="text-lg font-bold text-black">
+                        <h3 class="text-lg font-bold text-black dark:text-white">
                             {exp.role} at{" "}
                             <a
                                 href={exp.link}
@@ -47,7 +47,7 @@ import SiteLayout from "~/components/layouts/site-layout/index.astro";
     </section>
 
     <section class="mt-16 space-y-10">
-        <h2 class="mb-6 text-2xl font-extrabold text-black">Education</h2>
+        <h2 class="mb-6 text-2xl font-extrabold text-black dark:text-white">Education</h2>
 
         <p class="space-y-6 text-lg leading-normal">
             My academic journey laid the foundation for my problem-solving skills and technical expertise, especially in
@@ -68,7 +68,7 @@ import SiteLayout from "~/components/layouts/site-layout/index.astro";
                                     href={edu.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    class="text-sm no-underline hover:text-black hover:underline"
+                                    class="text-sm no-underline hover:text-black hover:underline hover:dark:text-white"
                                 >
                                     Visit the website &rarr;
                                 </a>

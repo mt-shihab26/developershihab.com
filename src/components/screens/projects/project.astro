@@ -10,15 +10,19 @@ const { project } = Astro.props;
 
 <div>
     <div>
-        <a href={project.liveLink} class="text-lg font-bold text-black no-underline hover:underline">
+        <a href={project.liveLink} class="text-lg font-bold text-black no-underline hover:underline dark:text-white">
             {project.name}
         </a>
     </div>
-    <div class="prose mt-1 text-base leading-normal">
+    <div class="mt-1 text-base leading-normal">
         {project.description}
     </div>
     <div class="mt-2 text-base leading-normal">
-        <a href={project.liveLink} target="_blank" class="text-sm no-underline hover:text-black hover:underline">
+        <a
+            href={project.liveLink}
+            target="_blank"
+            class="text-sm no-underline hover:text-black hover:underline dark:hover:text-white"
+        >
             Visit the website &rarr;
         </a>
     </div>

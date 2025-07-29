@@ -1,6 +1,6 @@
 ---
 import { name } from "~/config/personal";
-import { certifications, skills } from "~/config/skills";
+import { certifications } from "~/config/skills";
 
 import SiteLayout from "~/components/layouts/site-layout/index.astro";
 import { SkillsItems } from "~/components/screens/skills/skills-items";
@@ -11,33 +11,35 @@ import { SkillsItems } from "~/components/screens/skills/skills-items";
     description="A collection of my technical proficiencies and professional certifications."
     class="max-w-full"
 >
-    <h2 class="mb-4 text-2xl font-extrabold text-black">Skills</h2>
+    <h2 class="mb-4 text-2xl font-extrabold text-black dark:text-white">Skills</h2>
 
-    <p class="max-w-3xl text-lg leading-normal">
+    <p class="max-w-3xl text-lg leading-normal text-gray-800 dark:text-gray-300">
         I’ve worked across a range of technologies and platforms. Here are the tools and areas I’m most comfortable with
     </p>
 
     <section class="mt-16">
-        <h2 class="mb-6 text-xl font-bold tracking-tight">Technical Skills</h2>
+        <h2 class="mb-6 text-xl font-bold tracking-tight text-black dark:text-white">Technical Skills</h2>
 
         <SkillsItems />
     </section>
 
     <section class="mt-16">
-        <h2 class="mb-6 text-xl font-bold tracking-tight">Certifications</h2>
+        <h2 class="mb-6 text-xl font-bold tracking-tight text-black dark:text-white">Certifications</h2>
 
         <ul class="space-y-6">
             {
                 certifications.map((cert) => (
                     <li class="flex items-center space-x-2">
-                        <h3 class="text-base font-semibold whitespace-nowrap">{cert.name}</h3>
-                        <p class="text-sm whitespace-nowrap text-gray-600">{cert.date}</p>
+                        <h3 class="text-base font-semibold whitespace-nowrap text-black dark:text-white">
+                            {cert.name}
+                        </h3>
+                        <p class="text-sm whitespace-nowrap">{cert.date}</p>
                         {cert.link && (
                             <a
                                 target="_blank"
                                 href={cert.link}
                                 rel="noopener noreferrer"
-                                class="text-sm whitespace-nowrap no-underline hover:text-black hover:underline"
+                                class="text-sm whitespace-nowrap no-underline hover:text-black hover:underline dark:hover:text-white"
                             >
                                 View Certificate &rarr;
                             </a>
