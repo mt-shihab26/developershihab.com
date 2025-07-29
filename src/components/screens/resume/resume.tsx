@@ -4,22 +4,17 @@ import { educations, experiences } from "~/config/experiences";
 import { avatar, bio, links, location, name } from "~/config/personal";
 import { projects } from "~/config/projects";
 import { certifications, skills } from "~/config/skills";
-
-import { Github, Globe, Linkedin } from "lucide-react";
-import { Fragment } from "react";
 import { cn } from "~/lib/utils";
 
-const Seperator = () => <span className="mx-2">•</span>;
+import { Github, Globe, Linkedin } from "lucide-react";
 
 const Heading = ({ children }: { children: ReactNode }) => (
     <h2 className="border-b pb-1 font-bold text-blue-600 uppercase">{children}</h2>
 );
 
-const resumeProjects = projects.filter((p) => p.resume);
-
 export const Resume = ({ image }: { image?: boolean }) => {
     return (
-        <div className="mx-auto w-full max-w-4xl space-y-6 bg-white p-8 text-sm leading-6 text-gray-600">
+        <div className="mx-auto w-full max-w-4xl space-y-6 bg-white p-8 text-sm leading-6 text-gray-700">
             <header
                 className={cn("flex gap-4", {
                     "flex-col items-center text-center": !image,
@@ -31,10 +26,8 @@ export const Resume = ({ image }: { image?: boolean }) => {
                         <img src={avatar} alt="Profile" className="h-full w-full object-cover" />
                     </div>
                 )}
-
                 <div className={cn("space-y-2", { "text-center": !image })}>
                     <h1 className="text-3xl font-bold text-black uppercase">{name}</h1>
-
                     <div
                         className={cn("flex flex-wrap items-center gap-2 text-sm text-gray-700", {
                             "justify-center": !image
@@ -46,7 +39,6 @@ export const Resume = ({ image }: { image?: boolean }) => {
                         <span className="mx-1">•</span>
                         <span>{links.phone}</span>
                     </div>
-
                     <div
                         className={cn("flex flex-wrap items-center gap-4 text-blue-600", {
                             "justify-center": !image
@@ -60,7 +52,6 @@ export const Resume = ({ image }: { image?: boolean }) => {
                         >
                             {links.email}
                         </a>
-
                         <a
                             href={links.website}
                             target="_blank"
@@ -70,7 +61,6 @@ export const Resume = ({ image }: { image?: boolean }) => {
                             <Globe className="h-4 w-4" />
                             <span>{links.website.replace(/^https?:\/\//, "")}</span>
                         </a>
-
                         <a
                             href={links.github}
                             target="_blank"
@@ -80,7 +70,6 @@ export const Resume = ({ image }: { image?: boolean }) => {
                             <Github className="h-4 w-4" />
                             <span>{links.github.split("github.com/")[1]}</span>
                         </a>
-
                         <a
                             href={links.linkedin}
                             target="_blank"
@@ -94,75 +83,78 @@ export const Resume = ({ image }: { image?: boolean }) => {
                 </div>
             </header>
 
-            {/* Summary */}
             <section className="space-y-3">
                 <Heading>Summary</Heading>
-                <ul className="ml-5 list-disc space-y-1 text-gray-700">
-                    <li>
-                        Full-stack developer with 3+ years' experience specializing in React, Laravel, and WordPress.
-                    </li>
-                    <li>Strong foundation in data structures and algorithms (1100+ problems solved).</li>
-                    <li>Focused on writing clean, maintainable code. Always eager to learn new tech.</li>
-                </ul>
+                <p className="leading-relaxed">
+                    Full-stack developer with over 3 years of hands-on experience building scalable web applications
+                    using React, Laravel, and WordPress. I have a solid foundation in data structures and algorithms,
+                    having solved more than 1100 problems across various platforms. I am passionate about writing clean,
+                    efficient code and following modern development practices. Always eager to learn and adapt, I
+                    continuously explore new technologies to deliver meaningful and maintainable solutions.
+                </p>
             </section>
 
-            {/* Experience */}
             <section className="space-y-3">
                 <Heading>Work Experience</Heading>
                 {experiences.map((e, index) => (
                     <div key={index} className="space-y-1">
                         <h3 className="text-base font-semibold">
-                            {e.company} — <span className="font-normal italic">{e.role}</span>
+                            <a
+                                href={e.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-black hover:underline"
+                            >
+                                {e.company}
+                            </a>{" "}
+                            — <span className="font-normal text-gray-900 italic">{e.role}</span>
                         </h3>
-                        <div className="text-sm text-gray-600">
-                            {e.location}, {e.start} - {e.end}
+                        <div className="text-sm text-gray-800">
+                            {e.location} | {e.start} - {e.end}
                         </div>
-                        <ul className="ml-5 list-disc space-y-1 text-xs text-gray-700">
-                            {e.highlights.map((r, i) => (
-                                <li key={i}>{r}</li>
+                        <ul className="ml-5 list-disc space-y-1 text-xs">
+                            {e.highlights.map((highlight, i) => (
+                                <li key={i}>{highlight}</li>
                             ))}
                         </ul>
                     </div>
                 ))}
             </section>
 
-            {/* Projects */}
             <section className="space-y-3">
                 <Heading>Key Projects</Heading>
-                <ul className="space-y-3">
-                    {resumeProjects.map((project, index) => (
-                        <li key={index}>
-                            <div className="flex items-center space-x-2">
-                                <span className="font-semibold">{project.name}</span>
-                                <span className="text-sm text-gray-500">({project.technologies.join(", ")})</span>
-                                {project.liveLink && (
+                <ul className="space-y-2">
+                    {projects
+                        .filter((p) => p.resume)
+                        .map((project, index) => (
+                            <li key={index} className="space-y-1">
+                                <div className="flex items-center space-x-2">
                                     <a
                                         href={project.liveLink}
-                                        className="text-sm text-blue-600 hover:underline"
                                         target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="font-semibold text-black hover:underline"
                                     >
-                                        [Link]
+                                        {project.name}
                                     </a>
-                                )}
-                            </div>
-                            <p className="mt-1 text-xs text-gray-700">{project.description}</p>
-                        </li>
-                    ))}
+                                    <span className="text-sm text-gray-800">({project.technologies.join(", ")})</span>
+                                </div>
+                                <p className="text-xs">{project.description}</p>
+                            </li>
+                        ))}
                 </ul>
             </section>
 
-            {/* Skills */}
             <section className="space-y-3">
                 <Heading>Skills</Heading>
                 <ul className="space-y-2">
                     {skills.map((skill, i) => (
-                        <li key={i} className="flex flex-wrap text-xs text-gray-700">
-                            <span className="mr-2 font-medium">{skill.title}:</span>
+                        <li key={i} className="flex flex-wrap text-xs">
+                            <span className="pr-2 font-semibold text-black">{skill.title}:</span>
                             {skill.items.map((item, index) => (
-                                <Fragment key={index}>
-                                    {index !== 0 && <Seperator />}
-                                    <span>{item.name}</span>
-                                </Fragment>
+                                <span key={index}>
+                                    {index !== 0 && ","} {item.name}
+                                </span>
                             ))}
                         </li>
                     ))}

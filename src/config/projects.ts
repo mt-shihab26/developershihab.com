@@ -20,7 +20,7 @@ export const projects: TProject[] = [
         startDate: "Apr 2025",
         liveLink: "https://github.com/mt-shihab26/flow",
         published: false,
-        resume: true
+        resume: false
     },
     {
         type: "oss",
@@ -109,6 +109,6 @@ export const projects: TProject[] = [
         endDate: "May 24, 2024",
         liveLink: "https://github.com/mt-shihab26/tic-tac-toe",
         published: true,
-        resume: false
+        resume: true
     }
 ];
