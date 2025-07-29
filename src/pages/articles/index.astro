@@ -14,7 +14,7 @@ const articles = (await getArticles()).slice(0, 10);
     description="A collection of my favorite technical articles, covering web development, full-stack engineering, and software insights."
     class="max-w-2xl"
 >
-    <h1 class="mb-4 text-2xl font-extrabold text-black">Articles</h1>
+    <h1 class="mb-4 text-2xl font-extrabold text-black dark:text-white">Articles</h1>
 
     <div class="space-y-6 text-lg leading-normal">
         <p>Over the years I’ve published a few dozen articles — some more noteworthy than others.</p>
@@ -30,7 +30,7 @@ const articles = (await getArticles()).slice(0, 10);
                     </span>
                     <a
                         href={`/articles/${article.slug}`}
-                        class="text-lg font-bold text-black no-underline hover:underline"
+                        class="text-lg font-bold text-black no-underline hover:underline dark:text-white"
                     >
                         {article.data.title}
                     </a>
@@ -38,7 +38,7 @@ const articles = (await getArticles()).slice(0, 10);
                     <div class="mt-2 text-base leading-normal">
                         <a
                             href={`/articles/${article.slug}`}
-                            class="text-sm no-underline hover:text-black hover:underline"
+                            class="text-sm no-underline hover:text-black hover:underline dark:hover:text-white"
                         >
                             Read this article &rarr;
                         </a>
@@ -49,6 +49,8 @@ const articles = (await getArticles()).slice(0, 10);
     </ul>
 
     <p class="mt-12 space-y-6 text-lg leading-normal">
-        Read the rest of my articles in the <a href="/articles/archives" class="text-black underline">archives</a>.
+        Read the rest of my articles in the <a href="/articles/archives" class="text-black underline dark:text-white"
+            >archives</a
+        >.
     </p>
 </SiteLayout>
