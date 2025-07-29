@@ -1,30 +1,17 @@
-import type { CollectionEntry } from "astro:content";
+import { projects, type TProject } from "~/config/projects";
 
-import { getCollection } from "astro:content";
-
-export type TProject = CollectionEntry<"projects">;
-
-export const getProjects = async (): Promise<TProject[]> => {
-    const projects = await getCollection("projects");
-    return projects.toSorted((a, b) => a.data.order - b.data.order);
+export const getClientProjects = (): TProject[] => {
+    return projects.filter((p) => p.type === "client");
 };
 
-export const getClientProjects = async (): Promise<TProject[]> => {
-    const projects = await getProjects();
-    return projects.filter((p) => p.data.type === "client");
+export const getDemoProjects = (): TProject[] => {
+    return projects.filter((p) => p.type === "demo");
 };
 
-export const getDemoProjects = async (): Promise<TProject[]> => {
-    const projects = await getProjects();
-    return projects.filter((p) => p.data.type === "demo");
+export const getOSSProjects = (): TProject[] => {
+    return projects.filter((p) => p.type === "oss");
 };
 
-export const getOSSProjects = async (): Promise<TProject[]> => {
-    const projects = await getProjects();
-    return projects.filter((p) => p.data.type === "oss");
-};
-
-export const getResumeProjects = async (): Promise<TProject[]> => {
-    const projects = await getProjects();
-    return projects.filter((p) => p.data.resume);
+export const getResumeProjects = (): TProject[] => {
+    return projects.filter((p) => p.resume);
 };

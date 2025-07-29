@@ -1,6 +1,5 @@
 import { renderToString } from "react-dom/server";
 import { pdf } from "./pdf";
-import { getResumeProjects } from "./projects";
 
 import { Resume } from "~/components/screens/resume";
 
@@ -26,10 +25,9 @@ const base = (resume: string) => {
 };
 
 const render = async () => {
-    const projects = await getResumeProjects();
     const image = flags().image;
 
-    const resume = renderToString(<Resume projects={projects} image={image} />);
+    const resume = renderToString(<Resume image={image} />);
     return base(resume);
 };
 

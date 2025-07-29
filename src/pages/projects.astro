@@ -5,9 +5,9 @@ import { getClientProjects, getDemoProjects, getOSSProjects } from "~/lib/projec
 import SiteLayout from "~/components/layouts/site-layout/index.astro";
 import Section from "~/components/screens/projects/section.astro";
 
-const clientProjects = await getClientProjects();
-const demoProjects = await getDemoProjects();
-const ossProjects = await getOSSProjects();
+const clientProjects = getClientProjects();
+const demoProjects = getDemoProjects();
+const ossProjects = getOSSProjects();
 ---
 
 <SiteLayout title={`Projects - ${name}`} description="" class="max-w-2xl">

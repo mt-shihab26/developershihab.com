@@ -13,25 +13,6 @@ const articles = defineCollection({
     })
 });
 
-const projects = defineCollection({
-    type: "content",
-    schema: z.object({
-        type: z.enum(["client", "demo", "oss"]),
-        name: z.string(),
-        technologies: z.array(z.string()),
-        startDate: z.string().transform((s) => new Date(s)),
-        endDate: z
-            .string()
-            .optional()
-            .transform((s) => s && new Date(s)),
-        liveLink: z.string(),
-        published: z.boolean().default(false),
-        resume: z.boolean().default(false),
-        order: z.number()
-    })
-});
-
 export const collections = {
-    articles,
-    projects
+    articles
 };

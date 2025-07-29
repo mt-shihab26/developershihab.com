@@ -4,12 +4,8 @@ import "~/styles/global.css";
 import BaseLayout from "~/components/layouts/base-layout/index.astro";
 import Back from "~/components/elements/back.astro";
 
-import { getResumeProjects, type TProject } from "~/lib/projects";
-
 import { Resume as ResumeComponent } from "~/components/screens/resume";
 import { DownloadButton } from "~/components/screens/resume/download-button";
-
-const projects: TProject[] = await getResumeProjects();
 ---
 
 <BaseLayout title="shihab-mahamud-resume.pdf" description="">
@@ -19,7 +15,7 @@ const projects: TProject[] = await getResumeProjects();
             <DownloadButton />
         </div>
         <div class="border border-blue-600">
-            <ResumeComponent projects={projects} />
+            <ResumeComponent />
         </div>
     </div>
 </BaseLayout>
