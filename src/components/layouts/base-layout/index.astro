@@ -4,6 +4,7 @@ import "~/styles/global.css";
 import type { THead } from "~/types/utils";
 
 import Head from "./head.astro";
+import { ThemeSwitcher } from "~/components/elements/theme-switcher";
 
 type Props = THead;
 
@@ -11,11 +12,26 @@ const { title, description, keywords } = Astro.props as Props;
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
     <Head title={title} description={description} keywords={keywords} />
     <body
         class="bg-white font-sans leading-tight text-gray-700 antialiased selection:bg-red-600 selection:text-white dark:bg-black dark:text-gray-300"
     >
         <slot />
+        <ThemeSwitcher client:load />
     </body>
 </html>
+
+<script is:inline>
+    const initTheme = () => {
+        const theme = (() => {
+            if (typeof localStorage !== "undefined" && localStorage.getItem("is-dark-mode")) {
+                return localStorage.getItem("is-dark-mode") === "true" ? "dark" : "light";
+            }
+            return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        })();
+        if (theme === "dark") document.documentElement.classList.add("dark");
+    };
+    initTheme();
+    document.addEventListener("astro:after-swap", initTheme);
+</script>

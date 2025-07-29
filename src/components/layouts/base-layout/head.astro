@@ -1,6 +1,8 @@
 ---
 import type { THead } from "~/types/utils";
 
+import { ClientRouter } from "astro:transitions";
+
 import SpeedInsights from "@vercel/speed-insights/astro";
 
 type Props = THead;
@@ -24,4 +26,5 @@ const { title, description, keywords } = Astro.props as Props;
     <title>{title}</title>
 
     <SpeedInsights />
+    <ClientRouter />
 </head>
