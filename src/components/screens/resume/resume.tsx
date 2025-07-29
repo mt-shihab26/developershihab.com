@@ -98,16 +98,19 @@ export const Resume = ({ image }: { image?: boolean }) => {
                 <Heading>Work Experience</Heading>
                 {experiences.map((e, index) => (
                     <div key={index} className="space-y-1">
-                        <h3 className="text-base font-semibold">
-                            <a
-                                href={e.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-black hover:underline"
-                            >
-                                {e.company}
-                            </a>{" "}
-                            — <span className="font-normal text-gray-900 italic">{e.role}</span>
+                        <h3 className="text-base">
+                            <span className="font-semibold text-black">{e.company}</span> —{" "}
+                            <span className="font-normal text-gray-900 italic">{e.role}</span>
+                            {e.link && (
+                                <a
+                                    href={e.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="ml-1 text-xs text-blue-600 hover:underline"
+                                >
+                                    [Link]
+                                </a>
+                            )}
                         </h3>
                         <div className="text-sm text-gray-800">
                             {e.location} | {e.start} - {e.end}
@@ -129,15 +132,18 @@ export const Resume = ({ image }: { image?: boolean }) => {
                         .map((project, index) => (
                             <li key={index} className="space-y-1">
                                 <div className="flex items-center space-x-2">
-                                    <a
-                                        href={project.liveLink}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="font-semibold text-black hover:underline"
-                                    >
-                                        {project.name}
-                                    </a>
+                                    <span className="font-semibold text-black">{project.name}</span>
                                     <span className="text-sm text-gray-800">({project.technologies.join(", ")})</span>
+                                    {project.liveLink && (
+                                        <a
+                                            href={project.liveLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="ml-1 text-xs text-blue-600 hover:underline"
+                                        >
+                                            [Link]
+                                        </a>
+                                    )}
                                 </div>
                                 <p className="text-xs">{project.description}</p>
                             </li>
