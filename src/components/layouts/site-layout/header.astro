@@ -17,7 +17,7 @@ const pathname = Astro.url.pathname;
         <div>
             <a
                 href="/"
-                class="block text-xl leading-none font-extrabold text-black no-underline lg:text-3xl lg:leading-tight"
+                class="block text-xl leading-none font-extrabold text-black no-underline lg:text-3xl lg:leading-tight dark:text-gray-200"
             >
                 {name}
             </a>
@@ -26,9 +26,10 @@ const pathname = Astro.url.pathname;
                     navigationLinks.map((link) => (
                         <a
                             href={link.href}
-                            class={cn("font-semibold text-gray-500 no-underline hover:text-black", {
-                                "text-black": pathname === link.href
-                            })}
+                            class={cn(
+                                "font-semibold text-gray-500 no-underline hover:text-black dark:text-gray-400 dark:hover:text-gray-100",
+                                { "text-black dark:text-gray-200": pathname === link.href }
+                            )}
                         >
                             {link.label}
                         </a>
@@ -41,29 +42,39 @@ const pathname = Astro.url.pathname;
     <!-- Mobile Toggle Button -->
     <div class="block md:hidden">
         <button id="menu-toggle" class="block">
-            <svg id="icon-open" class="block h-6 w-6 text-black" fill="currentColor" viewBox="0 0 20 20">
+            <svg
+                id="icon-open"
+                class="block h-6 w-6 text-black dark:text-gray-200"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+            >
                 <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
             </svg>
-            <svg id="icon-close" class="hidden h-6 w-6 text-black" fill="currentColor" viewBox="0 0 20 20">
+            <svg
+                id="icon-close"
+                class="hidden h-6 w-6 text-black dark:text-gray-200"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+            >
                 <path
                     d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"
-                >
-                </path>
+                ></path>
             </svg>
         </button>
     </div>
 </header>
 
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="fixed z-10 hidden h-full w-full bg-white pt-24 md:hidden">
+<div id="mobile-menu" class="fixed z-10 hidden h-full w-full bg-white pt-24 md:hidden dark:bg-black">
     <div class="max-h-full space-y-8 overflow-y-auto px-12 pt-6 pb-8">
         {
             navigationLinks.map((link) => (
                 <a
                     href={link.href}
-                    class={cn("block font-bold text-gray-500 no-underline hover:text-black", {
-                        "text-black": pathname === link.href
-                    })}
+                    class={cn(
+                        "block font-bold text-gray-500 no-underline hover:text-black dark:text-gray-400 dark:hover:text-gray-100",
+                        { "text-black dark:text-gray-200": pathname === link.href }
+                    )}
                 >
                     {link.label}
                 </a>
