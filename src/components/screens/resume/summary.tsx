@@ -33,7 +33,7 @@ const SummaryParagraph2 = ({ seperated }: { seperated?: boolean }) => {
     );
 };
 
-const Summary = () => {
+export const Summary = () => {
     return (
         <section className="space-y-3 text-sm">
             <Heading>SUMMARY</Heading>
@@ -43,5 +43,3 @@ const Summary = () => {
         </section>
     );
 };
-
-export { Summary };

@@ -1,4 +1,4 @@
-import { links } from "~/config/about";
+import { links } from "~/config/personal";
 
 import { DevToIcon } from "~/components/icons/dev-to-icon";
 import { FacebookIcon } from "~/components/icons/facebook-icon";

@@ -1,4 +1,4 @@
-import { links, name } from "~/config/about";
+import { links, name } from "~/config/personal";
 
 const Seperator = () => {
     return <span className="mx-2">•</span>;
