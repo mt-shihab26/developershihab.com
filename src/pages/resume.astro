@@ -1,41 +1,21 @@
 ---
 import "~/styles/global.css";
 
-import type { TProject } from "~/resume/components/open-source";
+import BaseLayout from "~/components/layouts/base-layout/index.astro";
+import Back from "~/components/elements/back.astro";
+import DownloadButton from "~/components/elements/download-button.astro";
 
-import { getResumeProjects } from "~/lib/projects";
-
-import { Resume as ResumeComponent } from "~/resume/components";
-import { BackButton } from "~/components/screens/resume/back-button";
-import { DownloadButton } from "~/components/screens/resume/download-button";
-
-const projects: TProject[] = (await getResumeProjects()).map(
-    (p) =>
-        ({
-            name: p.data.name,
-            technologies: p.data.technologies,
-            description: p.data.description,
-            slug: p.slug,
-            link: p.data.link
-        }) as TProject
-);
+import { Resume as ResumeComponent } from "~/components/screens/resume";
 ---
 
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <title>shihab-mahamud-resume.pdf</title>
-    </head>
-    <body class="mx-auto max-w-[956px] space-y-8 py-8">
+<BaseLayout title="shihab-mahamud-resume.pdf" description="">
+    <div class="mx-auto max-w-[800px] space-y-8 py-10">
         <div class="flex justify-between px-8">
-            <BackButton client:load />
+            <Back />
             <DownloadButton />
         </div>
-        <div class="border border-blue-600">
-            <ResumeComponent projects={projects} />
+        <div class="overflow-hidden rounded border border-blue-500">
+            <ResumeComponent />
         </div>
-    </body>
-</html>
+    </div>
+</BaseLayout>

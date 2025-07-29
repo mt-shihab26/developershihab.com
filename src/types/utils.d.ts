@@ -1,10 +1,10 @@
-import type {
-    AnchorHTMLAttributes,
-    ComponentType,
-    HTMLAttributes,
-    ReactElement,
-    SVGProps
-} from "react";
+export type THead = {
+    title: string;
+    description: string;
+    keywords?: string[];
+};
+
+import type { AnchorHTMLAttributes, ComponentType, HTMLAttributes, ReactElement, SVGProps } from "react";
 
 type TAsProps = keyof JSX.IntrinsicElements | ComponentType<any>;
 type TAProps = AnchorHTMLAttributes<HTMLAnchorElement>;

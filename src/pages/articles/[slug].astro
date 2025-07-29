@@ -1,79 +1,89 @@
 ---
+import { avatar, name, bio, links } from "~/config/personal";
+
 import { getArticles } from "~/lib/articles";
-import { time } from "~/lib/time";
-import { meta } from "~/lib/meta";
+import { formatDate } from "~/lib/utils";
+import { navigationLinks } from "~/lib/links";
 
-import { Container } from "~/components/ui/container";
+import BaseLayout from "~/components/layouts/base-layout/index.astro";
+import Back from "~/components/elements/back.astro";
 
-import Back from "~/components/elements/back";
-import Layout from "~/components/layouts/layout/index.astro";
-
-export async function getStaticPaths() {
-    const articles = await getArticles();
-
-    return articles.map((article) => ({
-        params: { slug: article.slug },
-        props: { article }
-    }));
-}
+export const getStaticPaths = async () => {
+    return (await getArticles()).map((a) => ({ params: { slug: a.slug }, props: { article: a } }));
+};
 
 const { article } = Astro.props;
-
 const { Content } = await article.render();
 ---
 
-<Layout
-    name={article.data.title}
-    pathname={article.slug}
+<BaseLayout
+    title={`${article.data.title} - ${name}`}
     description={article.data.description}
-    tags={article.data.tags}
+    keywords={article.data.tags}
 >
-    <Container className="mt-16 lg:mt-32">
-        <div class="xl:relative">
-            <div class="mx-auto max-w-2xl">
-                <Back client:load />
-                <article>
-                    <header class="flex flex-col space-y-6">
-                        <div class="flex items-center justify-between">
-                            <time
-                                datetime={article.data.date.toISOString()}
-                                class="flex items-center text-base text-zinc-400 dark:text-zinc-500"
-                            >
-                                <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"
-                                ></span>
-                                <span class="ml-3">{time.formatToLongDate(article.data.date)}</span>
-                            </time>
-                            {
-                                article.data.dev_to && (
-                                    <div class="flex items-center text-base text-zinc-400 dark:text-zinc-500">
-                                        also published at{" "}
-                                        <a
-                                            target="_blank"
-                                            href={meta.dev_to + article.data.dev_to}
-                                            class="ml-2 underline"
-                                        >
-                                            dev.to
-                                        </a>
-                                    </div>
-                                )
-                            }
-                        </div>
-                        <h1
-                            class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
-                        >
-                            {article.data.title}
-                        </h1>
-                        <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-                            {article.data.description}
-                        </p>
-                    </header>
-                    <div
-                        class="dark:prose-hr:border-zinc-800 prose prose-lg dark:prose-invert mt-8 max-w-none pt-6 text-xl"
-                    >
-                        <Content />
-                    </div>
-                </article>
+    <div class="relative mx-auto max-w-3xl space-y-10 px-4 py-14 sm:px-6 lg:px-8">
+        <Back />
+
+        <header class="flex items-center">
+            <div>
+                <a href="/">
+                    <img class="inline-block h-15 w-15 rounded-full" src={avatar} alt="" />
+                </a>
             </div>
-        </div>
-    </Container>
-</Layout>
+            <div class="pl-4 text-sm leading-snug">
+                <p class="text-base">
+                    <a href="/" class="font-semibold text-black dark:text-white">
+                        {name}
+                    </a>
+                </p>
+                <div class="text-gray-500 dark:text-gray-400">
+                    <p>{bio}</p>
+                    <p>{formatDate(article.data.date)}</p>
+                </div>
+            </div>
+        </header>
+
+        <main class="space-y-6">
+            <h1 class="text-4xl leading-tight font-extrabold tracking-tight text-black dark:text-white">
+                {article.data.title}
+            </h1>
+            <p class="relative z-10 text-gray-800 dark:text-gray-300">
+                {article.data.description}
+            </p>
+            {
+                article.data.dev_to && (
+                    <div class="flex items-center text-base text-zinc-400 dark:text-zinc-500">
+                        Also published at{" "}
+                        <a
+                            target="_blank"
+                            href={links.devTo + article.data.dev_to}
+                            class="ml-2 text-zinc-600 underline hover:text-black dark:text-zinc-400 dark:hover:text-white"
+                        >
+                            dev.to
+                        </a>
+                    </div>
+                )
+            }
+            <div class="prose prose-lg dark:prose-invert max-w-none text-xl">
+                <Content />
+            </div>
+        </main>
+
+        <footer class="px-4 sm:px-6">
+            <nav class="mx-auto max-w-3xl space-x-4 text-center text-sm">
+                {
+                    navigationLinks.map((link) => (
+                        <a
+                            href={link.href}
+                            class="text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white"
+                        >
+                            {link.label}
+                        </a>
+                    ))
+                }
+            </nav>
+        </footer>
+
+        <Back />
+    </div>
+</BaseLayout>

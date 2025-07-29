@@ -1,18 +1,49 @@
-const links = {
-    cpbook: "http://cpbook.subeen.com",
-    online_judges: "https://github.com/p-nerd/online_judges",
-    dsa_library: "https://github.com/p-nerd/dsa_library",
-    laravel: "https://laravel.com",
-    wordpress: "https://wordpress.org",
-    react: "https://react.dev",
-    finnext: "https://finnext.co",
-    typescript: "https://www.typescriptlang.org",
-    php: "https://php.net",
-    tailwindcss: "https://tailwindcss.com",
-    git: "https://git-scm.com",
-    ubuntu: "https://ubuntu.com",
-    neovim: "https://neovim.io",
-    tmux: "https://github.com/tmux/tmux"
-};
+import { links } from "~/config/personal";
 
-export { links };
+import { DevToIcon } from "~/components/icons/dev-to-icon";
+import { FacebookIcon } from "~/components/icons/facebook-icon";
+import { GithubIcon } from "~/components/icons/github-icon";
+import { InstagramIcon } from "~/components/icons/instagram-icon";
+import { LinkedinIcon } from "~/components/icons/linkedin-icon";
+import { TwitterIcon } from "~/components/icons/twitter-icon";
+
+export const navigationLinks = [
+    { href: "/articles", label: "Articles" },
+    { href: "/projects", label: "Projects" },
+    { href: "/experience", label: "Experience" },
+    { href: "/skills", label: "Skills" },
+    { href: "/resume", label: "Resume" }
+];
+
+export const socialLinks = [
+    {
+        label: "Follow on X",
+        href: links.x,
+        icon: TwitterIcon
+    },
+    {
+        label: "Follow on GitHub",
+        href: links.github,
+        icon: GithubIcon
+    },
+    {
+        label: "Follow on Dev.to",
+        href: links.devTo,
+        icon: DevToIcon
+    },
+    {
+        label: "Follow on LinkedIn",
+        href: links.linkedin,
+        icon: LinkedinIcon
+    },
+    {
+        label: "Follow on Instagram",
+        href: links.instagram,
+        icon: InstagramIcon
+    },
+    {
+        label: "Follow on Facebook",
+        href: links.facebook,
+        icon: FacebookIcon
+    }
+];

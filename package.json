@@ -3,7 +3,7 @@
     "scripts": {
         "dev": "astro dev",
         "build": "astro check && astro build",
-        "build:resume": "bun run ./src/resume/index.tsx",
+        "build:resume": "bun run ./src/lib/resume.tsx",
         "preview": "astro preview",
         "astro": "astro",
         "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,mdx,svelte,astro,json,svg}\"",
@@ -21,6 +21,7 @@
         "@vercel/speed-insights": "^1.2.0",
         "astro": "^5.3.1",
         "clsx": "^2.1.1",
+        "lucide-react": "^0.534.0",
         "puppeteer": "^24.3.0",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
