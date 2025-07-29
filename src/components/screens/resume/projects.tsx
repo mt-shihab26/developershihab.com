@@ -1,15 +1,15 @@
+import { projects } from "~/config/projects";
+
 import { Heading } from "./heading";
 
-import { getResumeProjects } from "~/lib/projects";
-
-const projects = getResumeProjects();
+const resumeProjects = projects.filter((p) => p.resume);
 
 export const Projects = () => {
     return (
         <section className="space-y-3 text-sm">
             <Heading>Open Source Work</Heading>
             <ul className="space-y-2">
-                {projects.map((project, index) => (
+                {resumeProjects.map((project, index) => (
                     <li key={index}>
                         <div className="flex items-center space-x-2">
                             <div className="text-base font-semibold">{project.name}</div>

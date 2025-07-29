@@ -1,4 +1,4 @@
-import { name } from "~/lib/info";
+import { name } from "~/config/about";
 import { socialHrefs } from "~/lib/links";
 
 const Seperator = () => {

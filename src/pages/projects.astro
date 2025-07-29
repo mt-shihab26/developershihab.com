@@ -1,13 +1,13 @@
 ---
 import { name } from "~/lib/info";
-import { getClientProjects, getDemoProjects, getOSSProjects } from "~/lib/projects";
+import { projects } from "~/config/projects";
 
 import SiteLayout from "~/components/layouts/site-layout/index.astro";
 import Section from "~/components/screens/projects/section.astro";
 
-const clientProjects = getClientProjects();
-const demoProjects = getDemoProjects();
-const ossProjects = getOSSProjects();
+const clientProjects = projects.filter((p) => p.type === "client");
+const demoProjects = projects.filter((p) => p.type === "demo");
+const ossProjects = projects.filter((p) => p.type === "oss");
 ---
 
 <SiteLayout title={`Projects - ${name}`} description="" class="max-w-2xl">

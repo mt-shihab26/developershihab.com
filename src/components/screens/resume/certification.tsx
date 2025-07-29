@@ -1,4 +1,4 @@
-import { certifications } from "~/lib/skills";
+import { certifications } from "~/config/skills";
 
 import { Heading } from "./heading";
 

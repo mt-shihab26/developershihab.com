@@ -1,3 +1,5 @@
+import { links } from "~/config/about";
+
 import { DevToIcon } from "~/components/icons/dev-to-icon";
 import { FacebookIcon } from "~/components/icons/facebook-icon";
 import { GithubIcon } from "~/components/icons/github-icon";
@@ -13,47 +15,35 @@ export const navigationLinks = [
     { href: "/resume", label: "Resume" }
 ];
 
-export const socialHrefs = {
-    website: "https://developershihab.com",
-    x: "https://x.com/mt_shihab26",
-    github: "https://github.com/mt-shihab26",
-    devTo: "https://dev.to/mt-shihab26",
-    linkedin: "https://linkedin.com/in/mt-shihab26",
-    instagram: "https://instagram.com/mt.shihab26",
-    facebook: "https://web.facebook.com/mt.shihab26",
-    email: "mt.shihab26@gmail.com",
-    phone: "+880 1758-776344"
-};
-
 export const socialLinks = [
     {
         label: "Follow on X",
-        href: socialHrefs.x,
+        href: links.x,
         icon: TwitterIcon
     },
     {
         label: "Follow on GitHub",
-        href: socialHrefs.github,
+        href: links.github,
         icon: GithubIcon
     },
     {
         label: "Follow on Dev.to",
-        href: socialHrefs.devTo,
+        href: links.devTo,
         icon: DevToIcon
     },
     {
         label: "Follow on LinkedIn",
-        href: socialHrefs.linkedin,
+        href: links.linkedin,
         icon: LinkedinIcon
     },
     {
         label: "Follow on Instagram",
-        href: socialHrefs.instagram,
+        href: links.instagram,
         icon: InstagramIcon
     },
     {
         label: "Follow on Facebook",
-        href: socialHrefs.facebook,
+        href: links.facebook,
         icon: FacebookIcon
     }
 ];

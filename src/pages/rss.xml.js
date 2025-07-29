@@ -1,5 +1,5 @@
 import { getCollection } from "astro:content";
-import { description, name } from "~/lib/info";
+import { description, name } from "~/config/about";
 
 import rss from "@astrojs/rss";
 

@@ -1,4 +1,4 @@
-import { skills } from "~/lib/skills";
+import { skills } from "~/config/skills";
 import { cn } from "~/lib/utils";
 
 import { Fragment } from "react";
