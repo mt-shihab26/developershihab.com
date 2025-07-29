@@ -160,7 +160,8 @@ export const Resume = ({ image }: { image?: boolean }) => {
                             <span className="pr-2 font-semibold text-black">{skill.title}:</span>
                             {skill.items.map((item, index) => (
                                 <span key={index}>
-                                    {index !== 0 && ","} {item.name}
+                                    {index !== 0 && ","} <span className="font-medium text-black">{item.name}</span>{" "}
+                                    {item.duration && <span className="font-normal">({item?.duration})</span>}
                                 </span>
                             ))}
                         </li>
