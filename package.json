@@ -1,13 +1,13 @@
 {
     "type": "module",
     "scripts": {
-        "dev": "astro dev",
+        "dev": "bun --bun astro dev",
         "build": "bun --bun astro check && bun --bun astro build",
-        "build:resume": "bun run ./src/lib/resume.tsx",
-        "preview": "astro preview",
-        "astro": "astro",
-        "format": "prettier --write \"**/*.{js,jsx,ts,tsx,md,mdx,svelte,astro,json,svg}\"",
-        "lint": "astro check"
+        "build:resume": "bun --bun run ./src/lib/resume.tsx",
+        "preview": "bun --bun astro preview",
+        "astro": "bun --bun astro",
+        "format": "bun --bun prettier --write \"**/*.{js,jsx,ts,tsx,md,mdx,svelte,astro,json,svg}\"",
+        "lint": "bun --bun astro check"
     },
     "dependencies": {
         "@astrojs/check": "^0.9.4",
