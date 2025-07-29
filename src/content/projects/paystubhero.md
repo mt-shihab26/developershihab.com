@@ -5,7 +5,7 @@ technologies: ["Laravel", "React", "TailwindCSS"]
 startDate: May 2023
 liveLink: "https://paystubhero.com"
 published: true
-resume: false
+resume: true
 order: 1
 ---
 

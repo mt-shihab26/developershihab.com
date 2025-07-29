@@ -4,23 +4,12 @@ import "~/styles/global.css";
 import BaseLayout from "~/components/layouts/base-layout/index.astro";
 import Back from "~/components/elements/back.astro";
 
-import type { TProject } from "~/resume/components/open-source";
+import { getResumeProjects, type TProject } from "~/lib/projects";
 
-import { getResumeProjects } from "~/lib/projects";
-
-import { Resume as ResumeComponent } from "~/resume/components";
+import { Resume as ResumeComponent } from "~/components/screens/resume";
 import { DownloadButton } from "~/components/screens/resume/download-button";
 
-const projects: TProject[] = (await getResumeProjects()).map(
-    (p) =>
-        ({
-            name: p.data.name,
-            technologies: p.data.technologies,
-            description: p.data.description,
-            slug: p.slug,
-            link: p.data.link
-        }) as TProject
-);
+const projects: TProject[] = await getResumeProjects();
 ---
 
 <BaseLayout title="shihab-mahamud-resume.pdf" description="">

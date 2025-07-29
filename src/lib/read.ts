@@ -97,7 +97,7 @@ type TProjectMetadata = {
     order: number;
 };
 
-const read = async (): Promise<TProjectMetadata[]> => {
+export const read = async (): Promise<TProjectMetadata[]> => {
     const files = await findMarkdownFiles("./src/content/projects");
     const projects: TProjectMetadata[] = [];
     for (let i = 0; i < files.length; i++) {
@@ -106,5 +106,3 @@ const read = async (): Promise<TProjectMetadata[]> => {
     }
     return projects;
 };
-
-export { read };
