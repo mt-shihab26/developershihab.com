@@ -1,7 +1,7 @@
 ---
+import { avatar, name, bio, links } from "~/config/about";
+
 import { getArticles } from "~/lib/articles";
-import { socialHrefs } from "~/lib/links";
-import { avatar, name, bio } from "~/lib/info";
 import { formatDate } from "~/lib/utils";
 import { navigationLinks } from "~/lib/links";
 
@@ -52,7 +52,7 @@ const { Content } = await article.render();
                 article.data.dev_to && (
                     <div class="flex items-center text-base text-zinc-400">
                         Also published at{" "}
-                        <a target="_blank" href={socialHrefs.devTo + article.data.dev_to} class="ml-2 underline">
+                        <a target="_blank" href={links.devTo + article.data.dev_to} class="ml-2 underline">
                             dev.to
                         </a>
                     </div>

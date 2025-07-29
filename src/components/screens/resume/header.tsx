@@ -1,5 +1,4 @@
-import { name } from "~/config/about";
-import { socialHrefs } from "~/lib/links";
+import { links, name } from "~/config/about";
 
 const Seperator = () => {
     return <span className="mx-2">•</span>;
@@ -17,22 +16,22 @@ const Header = ({ image }: { image?: boolean }) => {
             <div className="text-center">
                 <span>Dhaka, Bangladesh</span>
                 <Seperator />
-                <span>{socialHrefs.phone}</span>
+                <span>{links.phone}</span>
                 <Seperator />
-                <a href={`mailto:${socialHrefs.email}`} target="_blank">
-                    {socialHrefs.email}
+                <a href={`mailto:${links.email}`} target="_blank">
+                    {links.email}
                 </a>
             </div>
             <div className="text-center">
-                <a href={socialHrefs.website} target="_blank">
+                <a href={links.website} target="_blank">
                     website
                 </a>
                 <Seperator />
-                <a href={socialHrefs.github} target="_blank">
+                <a href={links.github} target="_blank">
                     github
                 </a>
                 <Seperator />
-                <a href={socialHrefs.linkedin} target="_blank">
+                <a href={links.linkedin} target="_blank">
                     linkedin
                 </a>
             </div>
