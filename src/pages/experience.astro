@@ -41,20 +41,22 @@ import SiteLayout from "~/components/layouts/site-layout/index.astro";
         </div>
     </section>
 
-    <section class="mt-12 space-y-10">
-        <h2 class="mb-4 text-2xl font-extrabold text-black">Education</h2>
+    <section class="mt-16 space-y-10">
+        <h2 class="mb-6 text-2xl font-extrabold text-black">Education</h2>
 
-        <p class="space-y-6 text-lg leading-normal"></p>
+        <p class="space-y-6 text-lg leading-normal">
+            My academic journey laid the foundation for my problem-solving skills and technical expertise, especially in
+            software engineering and computer science fundamentals.
+        </p>
 
         <div class="mt-10 space-y-10">
             {
                 educations.map((edu) => (
-                    <div class="space-y-3">
-                        <h3 class="text-lg font-bold text-black">
-                            {edu.degree} – {edu.institution}
-                        </h3>
-                        <p class="text-sm">{edu.period}</p>
-                        <p class="text-sm">{edu.description}</p>
+                    <div class="border-l-2 pl-4">
+                        <h3 class="text-base font-semibold">{edu.degree}</h3>
+                        <p class="text-sm">{edu.institution}</p>
+                        <p class="text-sm italic">{edu.period}</p>
+                        {edu.description && <p class="mt-1 text-sm">{edu.description}</p>}
                     </div>
                 ))
             }
