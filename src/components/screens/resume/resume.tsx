@@ -1,191 +1,185 @@
+import type { ReactNode } from "react";
+
 import { educations, experiences } from "~/config/experiences";
-import { bio, description, links, name } from "~/config/personal";
+import { links, name } from "~/config/personal";
 import { projects } from "~/config/projects";
 import { certifications, skills } from "~/config/skills";
 
-import { GithubIcon, GlobeIcon, LinkedinIcon, MailIcon, PhoneIcon } from "lucide-react";
+import { Fragment } from "react";
 
-export const Resume = () => {
+const Seperator = () => {
+    return <span className="mx-2">•</span>;
+};
+
+const Seperator2 = () => {
+    return <span className="mx-1 text-black">•</span>;
+};
+
+const Heading = ({ children }: { children: ReactNode }) => {
+    return <h2 className="border-b pb-1 font-bold text-blue-600 uppercase">{children}</h2>;
+};
+
+const resumeProjects = projects.filter((p) => p.resume);
+
+export const Resume = ({ image }: { image?: boolean }) => {
     return (
-        <div className="mx-auto max-w-4xl bg-white p-8 font-sans text-gray-800">
-            {/* Header */}
-            <div className="mb-8 border-b-2 border-gray-800 pb-6">
-                <h1 className="mb-2 text-4xl font-bold text-gray-900">{name}</h1>
-                <p className="mb-4 text-xl text-gray-600">{bio}</p>
-                <p className="mb-4 leading-relaxed text-gray-700">{description}</p>
-
-                <div className="flex flex-wrap gap-4 text-sm">
-                    <div className="flex items-center gap-2">
-                        <MailIcon className="h-4 w-4" />
-                        <span>{links.email}</span>
+        <div className="mx-auto w-full space-y-4 bg-white p-8 text-sm leading-5">
+            <header className="w-full items-center space-y-1 text-sm">
+                {image && (
+                    <div className="flex flex-col items-center justify-center">
+                        <img src="https://avatars.githubusercontent.com/u/67628903?v=4" className="h-40" />
                     </div>
-                    <div className="flex items-center gap-2">
-                        <PhoneIcon className="h-4 w-4" />
-                        <span>{links.phone}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <GlobeIcon className="h-4 w-4" />
-                        <span>{links.website}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <GithubIcon className="h-4 w-4" />
-                        <span>{links.github}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <LinkedinIcon className="h-4 w-4" />
-                        <span>{links.linkedin}</span>
-                    </div>
+                )}
+                <h1 className="text-center text-4xl font-bold">{name}</h1>
+                <div className="text-center">
+                    <span>Dhaka, Bangladesh</span>
+                    <Seperator />
+                    <span>{links.phone}</span>
+                    <Seperator />
+                    <a href={`mailto:${links.email}`} target="_blank">
+                        {links.email}
+                    </a>
                 </div>
-            </div>
-
-            {/* Summary */}
-            <section className="mb-8">
-                <h2 className="mb-6 border-b border-gray-300 pb-2 text-2xl font-bold text-gray-900">
-                    Professional Summary
-                </h2>
-                <div className="rounded-lg bg-gray-50 p-6">
-                    <p className="text-base leading-relaxed text-gray-700">
-                        Experienced full-stack developer with <strong>3+ years</strong> of expertise in building
-                        scalable web applications and SaaS solutions. Specialized in{" "}
-                        <strong>React, Laravel, and WordPress</strong> development with a proven track record of
-                        architecting applications that serve <strong>3000+ users monthly</strong>. Led technical
-                        decision-making for client projects, mentored junior developers, and successfully delivered
-                        revenue-generating SaaS platforms. Passionate about clean code architecture, problem-solving,
-                        and implementing modern development practices including CI/CD pipelines and cloud deployment
-                        strategies.
-                    </p>
+                <div className="text-center">
+                    <a href={links.website} target="_blank">
+                        website
+                    </a>
+                    <Seperator />
+                    <a href={links.github} target="_blank">
+                        github
+                    </a>
+                    <Seperator />
+                    <a href={links.linkedin} target="_blank">
+                        linkedin
+                    </a>
                 </div>
-            </section>
+            </header>
 
-            {/* Experience */}
-            <section className="mb-8">
-                <h2 className="mb-6 border-b border-gray-300 pb-2 text-2xl font-bold text-gray-900">Experience</h2>
-                <div className="space-y-6">
-                    {experiences.map((exp, index) => (
-                        <div key={index} className="border-l-4 border-blue-500 pl-6">
-                            <div className="mb-2 flex items-start justify-between">
-                                <div>
-                                    <h3 className="text-lg font-semibold text-gray-900">{exp.role}</h3>
-                                    <p className="font-medium text-blue-600">{exp.company}</p>
-                                </div>
-                                <div className="text-right text-sm text-gray-600">
-                                    <p>
-                                        {exp.start} - {exp.end}
-                                    </p>
-                                    <p>{exp.location}</p>
+            <div className="space-y-4">
+                <section className="space-y-3 text-sm">
+                    <Heading>SUMMARY</Heading>
+                    <div className="space-y-2">
+                        {[
+                            <>
+                                Full-stack developer with 3+ years of experience. Specializing in React, Laravel, and
+                                WordPress applications with proven expertise in building and scaling SaaS products.
+                            </>,
+                            <>
+                                Strong foundation in data structures and algorithms (1100+ competitive programming
+                                problems solved)
+                            </>,
+                            <>
+                                Passionate about creating clean, maintainable code that delivers meaningful business
+                                outcomes. Open to learning new technologies.
+                            </>
+                        ].map((paragraph, index) => (
+                            <Fragment key={index}>{paragraph} </Fragment>
+                        ))}
+                    </div>
+                </section>
+
+                <section className="space-y-3 text-sm">
+                    <Heading>Work Experience</Heading>
+                    {experiences.map((e, index) => (
+                        <div key={index} className="space-y-2">
+                            <div>
+                                <h3>
+                                    <span className="text-base font-bold">{e.company}</span> — <em>{e.role}</em>
+                                </h3>
+                                <div className="text-gray-600">
+                                    <span>{e.location}</span>, {e.start} - {e.end}
                                 </div>
                             </div>
-                            <ul className="space-y-2 text-gray-700">
-                                {exp.highlights.map((highlight, idx) => (
-                                    <li key={idx} className="flex items-start">
-                                        <span className="mt-2 mr-2 text-blue-500">•</span>
-                                        <span className="leading-relaxed">{highlight}</span>
-                                    </li>
+                            <div className="text-xs">
+                                <ul className="ml-6 list-disc">
+                                    {e.highlights.map((r, i) => (
+                                        <li key={i}>{r}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    ))}
+                </section>
+
+                <section className="space-y-3 text-sm">
+                    <Heading>Key Projects</Heading>
+                    <ul className="space-y-2">
+                        {resumeProjects.map((project, index) => (
+                            <li key={index}>
+                                <div className="flex items-center space-x-2">
+                                    <div className="text-base font-semibold">{project.name}</div>
+                                    <div className="flex space-x-1 text-gray-600">
+                                        <div className="flex space-x-1">
+                                            (
+                                            {project.technologies.map((t, i) => (
+                                                <div key={i}>
+                                                    {t}
+                                                    {i !== project.technologies.length - 1 && ", "}
+                                                </div>
+                                            ))}
+                                            )
+                                        </div>
+                                        <a
+                                            href={project.liveLink}
+                                            className="text-blue-600 hover:underline"
+                                            target="_blank"
+                                        >
+                                            [Link]
+                                        </a>{" "}
+                                        :{" "}
+                                    </div>
+                                </div>
+                                <div className="text-xs">{project.description}</div>
+                            </li>
+                        ))}
+                    </ul>
+                </section>
+
+                <section className="space-y-1 text-sm">
+                    <Heading>SKILLS</Heading>
+                    {skills.map((skill) => (
+                        <div className="flex items-center space-x-1">
+                            <h3 className="font-medium">{skill.title}: </h3>
+                            <ul className="flex items-center text-xs text-gray-600">
+                                {skill.items.map((item, index) => (
+                                    <Fragment key={index}>
+                                        {index !== 0 && <Seperator2 />}
+                                        <li>{item.name}</li>
+                                    </Fragment>
                                 ))}
                             </ul>
                         </div>
                     ))}
-                </div>
-            </section>
+                </section>
 
-            {/* Education */}
-            <section className="mb-8">
-                <h2 className="mb-6 border-b border-gray-300 pb-2 text-2xl font-bold text-gray-900">Education</h2>
-                <div className="space-y-6">
+                <section className="space-y-3 text-sm">
+                    <Heading>Education</Heading>
                     {educations.map((edu, index) => (
-                        <div key={index} className="border-l-4 border-green-500 pl-6">
-                            <div className="mb-2 flex items-start justify-between">
-                                <div>
-                                    <h3 className="text-lg font-semibold text-gray-900">{edu.degree}</h3>
-                                    <p className="font-medium text-green-600">{edu.institution}</p>
-                                </div>
-                                <div className="text-right text-sm text-gray-600">
-                                    <p>{edu.period}</p>
-                                    <p>{edu.location}</p>
-                                </div>
-                            </div>
-                            <p className="leading-relaxed text-gray-700">{edu.description}</p>
+                        <div key={index} className="flex items-center space-x-2 text-xs">
+                            <div className="text-sm font-semibold">{edu.institution} | </div>
+                            <div>{edu.location} | </div>
+                            <div>{edu.degree} | </div>
+                            <div>{edu.period}</div>
                         </div>
                     ))}
-                </div>
-            </section>
+                </section>
 
-            {/* Skills */}
-            <section className="mb-8">
-                <h2 className="mb-6 border-b border-gray-300 pb-2 text-2xl font-bold text-gray-900">
-                    Technical Skills
-                </h2>
-                <div className="space-y-6">
-                    {skills.map((skillGroup, index) => (
-                        <div key={index}>
-                            <h3 className="mb-4 text-lg font-semibold text-gray-900">{skillGroup.title}</h3>
-                            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                                {skillGroup.items.map((skill, idx) => (
-                                    <div key={idx} className="rounded-lg bg-gray-50 p-4">
-                                        <div className="mb-2 flex items-center justify-between">
-                                            <p className="font-semibold text-gray-900">{skill.name}</p>
-                                            {skill.duration && (
-                                                <span className="rounded bg-blue-100 px-2 py-1 text-xs text-blue-800">
-                                                    {skill.duration}
-                                                </span>
-                                            )}
-                                        </div>
-                                        {skill.description && (
-                                            <p className="text-sm leading-relaxed text-gray-600">{skill.description}</p>
-                                        )}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            {/* Projects */}
-            <section className="mb-8">
-                <h2 className="mb-6 border-b border-gray-300 pb-2 text-2xl font-bold text-gray-900">Key Projects</h2>
-                <div className="grid gap-6 md:grid-cols-2">
-                    {projects
-                        .filter((project) => project.resume)
-                        .map((project, index) => (
-                            <div
-                                key={index}
-                                className="rounded-lg border border-gray-200 p-5 transition-shadow hover:shadow-lg"
-                            >
-                                <div className="mb-3 flex items-start justify-between">
-                                    <h3 className="text-lg font-semibold text-gray-900">{project.name}</h3>
-                                    <span className="rounded bg-gray-100 px-2 py-1 text-xs text-gray-700 capitalize">
-                                        {project.type === "oss" ? "Open Source" : project.type}
-                                    </span>
-                                </div>
-                                <p className="mb-4 text-sm leading-relaxed text-gray-700">{project.description}</p>
-                                <div className="mb-3 flex flex-wrap gap-2">
-                                    {project.technologies.map((tech, idx) => (
-                                        <span key={idx} className="rounded bg-blue-100 px-2 py-1 text-xs text-blue-800">
-                                            {tech}
-                                        </span>
-                                    ))}
-                                </div>
-                                <p className="text-xs text-gray-500">
-                                    {project.startDate} {project.endDate && `- ${project.endDate}`}
-                                </p>
-                            </div>
+                <section className="space-y-3">
+                    <Heading>Certification</Heading>
+                    <ul className="text-xs">
+                        {certifications.map((cert, index) => (
+                            <li key={index} className="mb-1">
+                                {cert.name} on {cert.date}
+                                {cert.link && (
+                                    <a target="_blank" href={cert.link} className="ml-1 text-blue-600 hover:underline">
+                                        [Link]
+                                    </a>
+                                )}
+                            </li>
                         ))}
-                </div>
-            </section>
-
-            {/* Certifications */}
-            <section>
-                <h2 className="mb-6 border-b border-gray-300 pb-2 text-2xl font-bold text-gray-900">Certifications</h2>
-                <div className="space-y-4">
-                    {certifications.map((cert, index) => (
-                        <div key={index} className="rounded-lg bg-gray-50 p-4">
-                            <h3 className="font-semibold text-gray-900">{cert.name}</h3>
-                            <p className="mt-1 text-sm text-gray-500">{cert.date}</p>
-                        </div>
-                    ))}
-                </div>
-            </section>
+                    </ul>
+                </section>
+            </div>
         </div>
     );
 };
