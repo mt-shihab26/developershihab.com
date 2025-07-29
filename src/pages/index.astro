@@ -7,7 +7,7 @@ import SiteLayout from "~/components/layouts/site-layout/index.astro";
 ---
 
 <SiteLayout title={`${name} - ${bio}`} description={description}>
-    <h1 class="mb-4 text-2xl font-extrabold text-black">Who the hell am I?</h1>
+    <h1 class="mb-4 text-2xl font-extrabold text-black dark:text-white">Who the hell am I?</h1>
 
     <div class="space-y-6 text-lg leading-normal">
         <p>
@@ -29,7 +29,7 @@ import SiteLayout from "~/components/layouts/site-layout/index.astro";
                     const Icon = l.icon;
                     return (
                         <a class="group -m-1 p-1" href={l.href} aria-label={l.label} target="_blank">
-                            <Icon className="h-6 w-6 fill-gray-500 transition group-hover:fill-black" />
+                            <Icon className="h-6 w-6 fill-gray-500 transition group-hover:fill-black dark:fill-gray-400 dark:group-hover:fill-white" />
                         </a>
                     );
                 })
