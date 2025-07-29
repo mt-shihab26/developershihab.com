@@ -11,9 +11,11 @@ const { title, description, keywords } = Astro.props as Props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
     <Head title={title} description={description} keywords={keywords} />
-    <body class="font-sans leading-tight text-gray-700 antialiased selection:bg-red-500 selection:text-white">
+    <body
+        class="bg-white font-sans leading-tight text-gray-700 antialiased selection:bg-red-600 selection:text-white dark:bg-black dark:text-gray-300"
+    >
         <slot />
     </body>
 </html>
