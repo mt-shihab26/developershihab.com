@@ -3,9 +3,9 @@ import "~/styles/global.css";
 
 import BaseLayout from "~/components/layouts/base-layout/index.astro";
 import Back from "~/components/elements/back.astro";
+import DownloadButton from "~/components/elements/download-button.astro";
 
-import { Resume as ResumeComponent } from "~/components/screens/resume/resume";
-import { DownloadButton } from "~/components/screens/resume/download-button";
+import { Resume as ResumeComponent } from "~/components/screens/resume";
 ---
 
 <BaseLayout title="shihab-mahamud-resume.pdf" description="">
@@ -14,7 +14,7 @@ import { DownloadButton } from "~/components/screens/resume/download-button";
             <Back />
             <DownloadButton />
         </div>
-        <div class="border border-blue-600">
+        <div class="rounded border border-blue-500">
             <ResumeComponent />
         </div>
     </div>
