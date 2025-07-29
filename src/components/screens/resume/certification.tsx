@@ -11,7 +11,7 @@ const Certification = () => {
                     <li key={index} className="mb-1">
                         {cert.name} on {cert.date}
                         {cert.link && (
-                            <a target="_blank" href={cert.link} className="text-blue-600 hover:underline ml-1">
+                            <a target="_blank" href={cert.link} className="ml-1 text-blue-600 hover:underline">
                                 [Link]
                             </a>
                         )}

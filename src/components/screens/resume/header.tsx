@@ -6,13 +6,13 @@ const Seperator = () => {
 
 const Header = ({ image }: { image?: boolean }) => {
     return (
-        <header className="space-y-1 w-full items-center text-sm">
+        <header className="w-full items-center space-y-1 text-sm">
             {image && (
                 <div className="flex flex-col items-center justify-center">
                     <img src="https://avatars.githubusercontent.com/u/67628903?v=4" className="h-40" />
                 </div>
             )}
-            <h1 className="text-4xl text-center font-bold">{meta.name}</h1>
+            <h1 className="text-center text-4xl font-bold">{meta.name}</h1>
             <div className="text-center">
                 <span>Dhaka, Bangladesh</span>
                 <Seperator />

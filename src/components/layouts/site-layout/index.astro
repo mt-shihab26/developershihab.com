@@ -15,7 +15,7 @@ const { title, description, keywords, class: className } = Astro.props as Props;
 
 <BaseLayout title={title} description={description} keywords={keywords}>
     <div class="px-6 py-8 md:px-16 lg:px-24 lg:py-16">
-        <Header client:load />
+        <Header />
         <main class={cn("mt-12 lg:pl-32 max-w-3xl", className)}>
             <slot />
         </main>

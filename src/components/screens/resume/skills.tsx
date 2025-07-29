@@ -12,7 +12,7 @@ const Items = ({ label, skills, className }: { label: string; skills: string[]; 
     return (
         <div className="flex items-center space-x-1">
             <h3 className="font-medium">{label}: </h3>
-            <ul className={cn("text-xs flex items-center text-gray-600", className)}>
+            <ul className={cn("flex items-center text-xs text-gray-600", className)}>
                 {skills.map((skill, index) => (
                     <Fragment key={index}>
                         {index !== 0 && <Seperator />}
@@ -26,7 +26,7 @@ const Items = ({ label, skills, className }: { label: string; skills: string[]; 
 
 const Skills = () => {
     return (
-        <section className="text-sm space-y-1">
+        <section className="space-y-1 text-sm">
             <Heading>SKILLS</Heading>
             <Items
                 label="Languages"

@@ -2,7 +2,7 @@
     "type": "module",
     "scripts": {
         "dev": "astro dev",
-        "build": "astro check && astro build",
+        "build": "bun --bun astro check && bun --bun astro build",
         "build:resume": "bun run ./src/lib/resume.tsx",
         "preview": "astro preview",
         "astro": "astro",

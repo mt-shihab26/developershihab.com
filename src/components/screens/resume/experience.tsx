@@ -4,7 +4,7 @@ import { Heading } from "./heading";
 
 const Experience = () => {
     return (
-        <section className="text-sm space-y-3">
+        <section className="space-y-3 text-sm">
             <Heading>Work Experience</Heading>
             {experiences.map((e, index) => (
                 <div key={index} className="space-y-2">
@@ -17,7 +17,7 @@ const Experience = () => {
                         </div>
                     </div>
                     <div className="text-xs">
-                        <ul className="list-disc ml-6">
+                        <ul className="ml-6 list-disc">
                             {e.highlights.map((r, i) => (
                                 <li key={i}>{r}</li>
                             ))}

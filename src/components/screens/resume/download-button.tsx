@@ -5,9 +5,9 @@ export const DownloadButton = () => {
         <a
             href="/shihab-mahamud-resume.pdf"
             download={true}
-            className="cursor-pointer flex h-10 text-black px-3 rounded-md items-center justify-center shadow-xs transition border border-zinc-700/50 bg-white"
+            className="flex h-10 cursor-pointer items-center justify-center rounded-md border border-zinc-700/50 bg-white px-3 text-black shadow-xs transition"
         >
-            <DownloadIcon className="h-5 w-5 mr-1 transition stroke-black" />
+            <DownloadIcon className="mr-1 h-5 w-5 stroke-black transition" />
             Download
         </a>
     );
