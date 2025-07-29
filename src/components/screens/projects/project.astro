@@ -1,0 +1,26 @@
+---
+import type { TProject } from "~/lib/projects";
+
+interface Props {
+    project: TProject;
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+---
+
+<div>
+    <div>
+        <a href={project.data.liveLink} class="text-lg font-bold text-black no-underline hover:underline">
+            {project.data.name}
+        </a>
+    </div>
+    <div class="prose mt-1 text-base leading-normal">
+        <Content />
+    </div>
+    <div class="mt-2 text-base leading-normal">
+        <a href={project.data.liveLink} target="_blank" class="text-sm no-underline hover:text-black hover:underline">
+            Visit the website &rarr;
+        </a>
+    </div>
+</div>

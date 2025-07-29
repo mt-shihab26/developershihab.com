@@ -1,0 +1,31 @@
+---
+import { name } from "~/lib/info";
+import { getClientProjects, getDemoProjects, getOSSProjects } from "~/lib/projects";
+
+import SiteLayout from "~/components/layouts/site-layout/index.astro";
+import Section from "~/components/screens/projects/section.astro";
+
+const clientProjects = await getClientProjects();
+const demoProjects = await getDemoProjects();
+const ossProjects = await getOSSProjects();
+---
+
+<SiteLayout title={`Projects - ${name}`} description="" class="max-w-2xl">
+    <Section
+        name="Client's Projects"
+        description="I've worked on several impactful client projects that solve real-world problems and reach thousands of users."
+        projects={clientProjects}
+    />
+
+    <Section
+        name="Demo Projects"
+        description="A collection of demo projects showcasing practical skills in full-stack development and open-source contributions."
+        projects={demoProjects}
+    />
+
+    <Section
+        name="Open Source Works"
+        description="Contributions to the open-source community through tools and libraries that support developers worldwide."
+        projects={ossProjects}
+    />
+</SiteLayout>

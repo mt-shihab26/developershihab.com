@@ -19,7 +19,7 @@ export const getDemoProjects = async (): Promise<TProject[]> => {
     return projects.filter((p) => p.data.type === "demo");
 };
 
-export const getOssProjects = async (): Promise<TProject[]> => {
+export const getOSSProjects = async (): Promise<TProject[]> => {
     const projects = await getProjects();
     return projects.filter((p) => p.data.type === "oss");
 };

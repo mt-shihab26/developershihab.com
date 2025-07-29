@@ -1,0 +1,25 @@
+---
+import type { TProject } from "~/lib/projects";
+
+import Project from "./project.astro";
+
+interface Props {
+    name: string;
+    description: string;
+    projects: TProject[];
+}
+
+const { name, description, projects } = Astro.props;
+---
+
+<section class="mt-12">
+    <h2 class="mb-4 text-2xl font-extrabold text-black">{name}</h2>
+
+    <p class="space-y-6 text-lg leading-normal">
+        {description}
+    </p>
+
+    <div class="mt-10 space-y-10">
+        {projects.map((project) => <Project project={project} />)}
+    </div>
+</section>
