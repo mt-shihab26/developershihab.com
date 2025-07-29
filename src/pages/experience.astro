@@ -9,28 +9,33 @@ import SiteLayout from "~/components/layouts/site-layout/index.astro";
     title={`Experience - ${name}`}
     description="I've worked with various companies, building software solutions and gaining valuable experience in full-stack development."
 >
-    <section class="mt-12 space-y-10">
-        <h2 class="mb-4 text-2xl font-extrabold text-black">Experience</h2>
+    <section class="space-y-10">
+        <h2 class="mb-4 text-2xl font-extrabold text-black">Work Experience</h2>
 
-        <p class="space-y-6 text-lg leading-normal">
+        <p class="text-lg leading-normal">
             I've worked with various companies, building software solutions and gaining valuable experience in
             full-stack development.
         </p>
 
-        <div class="mt-10 space-y-10">
+        <div class="mt-10 space-y-8">
             {
                 experiences.map((exp) => (
-                    <div class="space-y-3">
+                    <div class="space-y-2">
                         <h3 class="text-lg font-bold text-black">
                             {exp.role} at{" "}
-                            <a href={exp.link} class="underline underline-offset-2" target="_blank">
+                            <a
+                                href={exp.link}
+                                class="underline underline-offset-2"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 {exp.company}
                             </a>
                         </h3>
                         <p class="text-sm">
                             {exp.start} – {exp.end}
                         </p>
-                        <ul class="list-disc space-y-1 pl-1 text-sm">
+                        <ul class="list-disc space-y-1 pl-5 text-sm">
                             {exp.highlights.map((point) => (
                                 <li>{point}</li>
                             ))}
@@ -57,6 +62,18 @@ import SiteLayout from "~/components/layouts/site-layout/index.astro";
                         <p class="text-sm">{edu.institution}</p>
                         <p class="text-sm italic">{edu.period}</p>
                         {edu.description && <p class="mt-1 text-sm">{edu.description}</p>}
+                        {edu.link && (
+                            <div class="mt-2 text-base leading-normal">
+                                <a
+                                    href={edu.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-sm no-underline hover:text-black hover:underline"
+                                >
+                                    Visit the website &rarr;
+                                </a>
+                            </div>
+                        )}
                     </div>
                 ))
             }

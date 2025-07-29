@@ -4,15 +4,16 @@ import type { TProject } from "~/lib/projects";
 import Project from "./project.astro";
 
 interface Props {
+    class?: string;
     name: string;
     description: string;
     projects: TProject[];
 }
 
-const { name, description, projects } = Astro.props;
+const { class: className, name, description, projects } = Astro.props;
 ---
 
-<section class="mt-12">
+<section class={className}>
     <h2 class="mb-4 text-2xl font-extrabold text-black">{name}</h2>
 
     <p class="space-y-6 text-lg leading-normal">

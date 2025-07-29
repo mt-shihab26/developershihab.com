@@ -3,22 +3,21 @@ import { name } from "~/lib/info";
 import { certifications, skills } from "~/lib/skills";
 
 import SiteLayout from "~/components/layouts/site-layout/index.astro";
-import Heading2 from "~/components/elements/heading2.astro";
-import Subheading from "~/components/elements/subheading.astro";
 ---
 
 <SiteLayout
     title={`Skills - ${name}`}
     description="A collection of my technical proficiencies and professional certifications."
 >
-    <Heading2>Skills</Heading2>
+    <h2 class="mb-4 text-2xl font-extrabold text-black">Skills</h2>
 
-    <Subheading>
+    <p class="text-lg leading-normal">
         I’ve worked across a range of technologies and platforms. Here are the tools and areas I’m most comfortable with
-    </Subheading>
+    </p>
 
-    <section class="mb-20">
+    <section class="mt-16">
         <h2 class="mb-6 text-xl font-bold tracking-tight">Technical Skills</h2>
+
         <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {
                 skills.map((group) => (
@@ -35,8 +34,9 @@ import Subheading from "~/components/elements/subheading.astro";
         </ul>
     </section>
 
-    <section class="mb-16">
+    <section class="mt-16">
         <h2 class="mb-6 text-xl font-bold tracking-tight">Certifications</h2>
+
         <ul class="space-y-6">
             {
                 certifications.map((cert) => (

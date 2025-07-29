@@ -31,18 +31,19 @@ export const experiences = [
 
 export const educations = [
     {
-        institution: "Faridpur Polytechnic Institute",
-        description: "Focused on computer science foundamentals, programming, problem solving.",
-        location: "Faridpur, Bangladesh",
-        degree: "Diploma in Engineering, Computer Science",
-        period: "2020 - 2024"
-    },
-    {
         institution: "Bangladesh University of Business and Technology (BUBT)",
+        link: "https://bubt.edu.bd/",
         description:
-            "Pursuing a Bachelor's degree in Computer Science and Engineering to deepen knowledge in software development, data structures, and system design.",
+            "Pursuing a Bachelor's degree in Computer Science and Engineering to deepen knowledge in programming, software development, software engineering.",
         location: "Dhaka, Bangladesh",
         degree: "B.Sc in Computer Science and Engineering",
         period: "2025 – Present"
+    },
+    {
+        institution: "Faridpur Polytechnic Institute",
+        description: "Focused on computer science fundamentals, programming, problem solving.",
+        location: "Faridpur, Bangladesh",
+        degree: "Diploma in Engineering, Computer Science",
+        period: "2020 - 2024"
     }
 ];
