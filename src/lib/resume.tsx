@@ -1,7 +1,7 @@
 import { renderToString } from "react-dom/server";
 import { pdf } from "./pdf";
 
-import { Resume } from "~/components/screens/resume/resume";
+import { Resume } from "~/components/screens/resume";
 
 const flags = () => {
     return {
