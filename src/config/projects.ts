@@ -12,27 +12,6 @@ export type TProject = {
 
 export const projects: TProject[] = [
     {
-        type: "demo",
-        name: "Flow",
-        description:
-            "A powerful yet intuitive personal finance management platform that puts you in control of your money with Laravel & React",
-        technologies: ["Laravel", "React"],
-        startDate: "Apr 2025",
-        liveLink: "https://github.com/mt-shihab26/flow",
-        published: false,
-        resume: false
-    },
-    {
-        type: "oss",
-        name: "laravel/breeze",
-        description: "Remove tailwind config files on api stack.",
-        technologies: ["Laravel", "Breeze", "TailwindCSS"],
-        startDate: "May 2023",
-        liveLink: "https://github.com/laravel/breeze/pull/444",
-        published: true,
-        resume: false
-    },
-    {
         type: "client",
         name: "PaystubHero",
         description:
@@ -53,7 +32,7 @@ export const projects: TProject[] = [
         endDate: "Mar 3, 2025",
         liveLink: "https://quickdoctorsnote.com",
         published: true,
-        resume: true
+        resume: false
     },
     {
         type: "oss",
@@ -69,13 +48,13 @@ export const projects: TProject[] = [
     },
     {
         type: "oss",
-        name: "sr.nvim",
-        description: "Telescope-powered multi-file search & replace plugin for Neovim.",
-        technologies: ["Neovim", "Lua"],
-        startDate: "Apr 2025",
-        liveLink: "https://github.com/mt-shihab26/sr.nvim",
-        published: true,
-        resume: true
+        name: "laravel/breeze",
+        description: "Remove tailwind config files on api stack.",
+        technologies: ["Laravel", "Breeze", "TailwindCSS"],
+        startDate: "May 2023",
+        liveLink: "https://github.com/laravel/breeze/pull/444",
+        published: false,
+        resume: false
     },
     {
         type: "demo",
@@ -87,11 +66,11 @@ export const projects: TProject[] = [
         endDate: "July 6, 2024",
         liveLink: "https://github.com/p-nerd/student-performance-analytics",
         published: true,
-        resume: false
+        resume: true
     },
     {
         type: "demo",
-        name: "Swiss - Your Digital Swiss Army Knife",
+        name: "Swiss",
         description:
             "A versatile collection of web tools designed to simplify your digital life and help you with everyday tasks. Powerful, user-friendly, and privacy-focused — all in one place, all for free, with no sign-up required.",
         technologies: ["TypeScript", "Astro", "TailwindCSS"],
@@ -108,7 +87,28 @@ export const projects: TProject[] = [
         startDate: "Apr 28, 2024",
         endDate: "May 24, 2024",
         liveLink: "https://github.com/mt-shihab26/tic-tac-toe",
-        published: true,
-        resume: true
+        published: false,
+        resume: false
+    },
+    {
+        type: "demo",
+        name: "Flow",
+        description:
+            "A powerful yet intuitive personal finance management platform that puts you in control of your money with Laravel & React",
+        technologies: ["Laravel", "React"],
+        startDate: "Apr 2025",
+        liveLink: "https://github.com/mt-shihab26/flow",
+        published: false,
+        resume: false
+    },
+    {
+        type: "oss",
+        name: "sr.nvim",
+        description: "Telescope-powered multi-file search & replace plugin for Neovim.",
+        technologies: ["Neovim", "Lua"],
+        startDate: "Apr 2025",
+        liveLink: "https://github.com/mt-shihab26/sr.nvim",
+        published: false,
+        resume: false
     }
 ];
