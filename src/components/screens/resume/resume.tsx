@@ -161,28 +161,45 @@ export const Resume = ({ image }: { image?: boolean }) => {
                 </ul>
             </section>
 
-            {/* Education */}
             <section className="space-y-3">
                 <Heading>Education</Heading>
                 {educations.map((edu, index) => (
-                    <div key={index} className="text-sm text-gray-700">
-                        <div className="font-semibold">{edu.institution}</div>
+                    <div key={index} className="text-sm">
+                        <div className="text-black">
+                            <span className="font-semibold">{edu.institution}</span>
+                            {edu.link && (
+                                <a
+                                    href={edu.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="ml-1 text-xs text-blue-600 hover:underline"
+                                >
+                                    [Link]
+                                </a>
+                            )}
+                        </div>
                         <div className="text-xs">
-                            {edu.location} — {edu.degree} ({edu.period})
+                            {edu.location} — {edu.degree} <span className="italic">({edu.period})</span>
                         </div>
                     </div>
                 ))}
             </section>
 
-            {/* Certifications */}
             <section className="space-y-3">
                 <Heading>Certifications</Heading>
                 <ul className="ml-5 list-disc space-y-1 text-xs text-gray-700">
                     {certifications.map((cert, index) => (
                         <li key={index}>
-                            {cert.name} on {cert.date}
+                            <span>
+                                {cert.name} — <span className="italic">{cert.date}</span>
+                            </span>
                             {cert.link && (
-                                <a href={cert.link} className="ml-1 text-blue-600 hover:underline" target="_blank">
+                                <a
+                                    href={cert.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="ml-1 text-blue-600 hover:underline"
+                                >
                                     [Link]
                                 </a>
                             )}
