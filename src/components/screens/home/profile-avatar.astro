@@ -1,7 +1,9 @@
 ---
+import { name } from "@/lib/information";
+
 import { Picture } from "astro:assets";
-import ImgAvatar from "../../../public/louai-avatar.jpg";
-import { PROFILE_INFO } from "@/lib/constants/profile";
+
+import ImgAvatar from "../../../../public/avatar.jpg";
 
 interface Props {
     className?: string;
@@ -25,7 +27,7 @@ const formats = ["avif", "webp"];
     widths={[size, size * 2]}
     sizes={`(max-width: ${size}px) 100vw, ${size}px`}
     formats={formats}
-    alt={`${PROFILE_INFO.displayName}'s avatar`}
+    alt={`${name}'s avatar`}
     quality="mid"
     loading={priority ? "eager" : "lazy"}
     decoding="async"

@@ -1,7 +1,7 @@
 ---
 import { cn } from "@/lib/utils";
 
-export const NAV_LINKS = [
+const links = [
     {
         label: "Home",
         href: "/",
@@ -14,11 +14,14 @@ export const NAV_LINKS = [
         label: "Projects",
         href: "/projects",
     },
+    {
+        label: "Resume",
+        href: "/resume",
+    },
 ];
 
 const pathname = Astro.url.pathname;
 
-// Remove trailing slash from current pathname if exists
 const currentPath =
     pathname.endsWith("/") && pathname !== "/"
         ? pathname.slice(0, -1)
@@ -34,7 +37,7 @@ const isActive = (path: string) => {
 
 <div class="flex items-center justify-center gap-4">
     {
-        NAV_LINKS.map(link => (
+        links.map(link => (
             <a
                 href={link.href}
                 class={cn(
