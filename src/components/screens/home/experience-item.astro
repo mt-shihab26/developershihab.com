@@ -1,9 +1,10 @@
 ---
-import type { Experience } from "@/lib/types";
-import ExperiencePositionItem from "./position-item.astro";
+import type { TExperience } from "@/types/home";
+
+import PositionItem from "./position-item.astro";
 
 interface Props {
-    experience: Experience;
+    experience: TExperience;
 }
 
 const { experience } = Astro.props;
@@ -22,9 +23,9 @@ const { experience } = Astro.props;
         class="relative space-y-4 pl-1 before:absolute before:left-3 before:h-full before:w-px before:bg-border"
     >
         {
-            experience.positions.map((position, index) => {
-                return <ExperiencePositionItem position={position} />;
-            })
+            experience.positions.map(position => (
+                <PositionItem position={position} />
+            ))
         }
     </div>
 </div>

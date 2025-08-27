@@ -1,11 +1,11 @@
-export type ExperiencePosition = {
+export type TPosition = {
     title: string;
     year: string;
     description: string;
     skills: string[];
 };
 
-export type Experience = {
+export type TExperience = {
     company: string;
-    positions: ExperiencePosition[];
+    positions: TPosition[];
 };

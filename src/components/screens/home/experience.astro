@@ -1,6 +1,14 @@
-import type { Experience } from "../types";
+---
+import type { Experience } from "@/lib/types";
 
-export const EXPERIENCES: Experience[] = [
+import Box from "@/components/ui/box-index.astro";
+import BoxHeader from "@/components/ui/box-header.astro";
+import BoxTitle from "@/components/ui/box-title.astro";
+import BoxContent from "@/components/ui/box-content.astro";
+
+import ExperienceItem from "./experience-item.astro";
+
+export const experiences: Experience[] = [
     {
         company: "Activepieces",
         positions: [
@@ -158,3 +166,13 @@ export const EXPERIENCES: Experience[] = [
         ],
     },
 ];
+---
+
+<Box>
+    <BoxHeader>
+        <BoxTitle> Experience </BoxTitle>
+    </BoxHeader>
+    <BoxContent className="px-0">
+        {experiences.map(e => <ExperienceItem experience={e} />)}
+    </BoxContent>
+</Box>

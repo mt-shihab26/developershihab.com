@@ -1,12 +1,14 @@
 ---
-import { Code2, ChevronDown, ChevronUp } from "lucide-react";
-import type { ExperiencePosition } from "@/lib/types";
-import Badge from "@/components/ui/badge.astro";
+import type { TPosition } from "@/types/home";
+
 import { markdownToHtml } from "@/lib/markdown";
-import { buttonVariants } from "@/lib/utils";
+
+import { Code2, ChevronDown, ChevronUp } from "lucide-react";
+
+import Badge from "@/components/ui/badge.astro";
 
 interface Props {
-    position: ExperiencePosition;
+    position: TPosition;
 }
 
 const { position } = Astro.props;

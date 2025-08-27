@@ -5,9 +5,9 @@ import PageLayout from "@/layouts/page-layout.astro";
 
 import Pattern from "@/components/ui/pattern.astro";
 
-import Box from "@/components/box/index.astro";
-import BoxTitle from "@/components/box/title.astro";
-import BoxHeader from "@/components/box/header.astro";
+import Box from "@/components/ui/box-index.astro";
+import BoxTitle from "@/components/ui/box-title.astro";
+import BoxHeader from "@/components/ui/box-header.astro";
 
 export async function getStaticPaths() {
     const articels = await getCollection("blog");
