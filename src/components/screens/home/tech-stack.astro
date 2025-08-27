@@ -1,8 +1,4 @@
 ---
-import Box from "@/components/box/index.astro";
-import BoxHeader from "@/components/box/header.astro";
-import BoxTitle from "@/components/box/title.astro";
-import BoxContent from "@/components/box/content.astro";
 import {
     Astro as AstroIcon,
     C,
@@ -16,6 +12,18 @@ import {
     TailwindCSS,
     TypeScript,
 } from "developer-icons";
+
+import Box from "@/components/box/index.astro";
+import BoxHeader from "@/components/box/header.astro";
+import BoxTitle from "@/components/box/title.astro";
+import BoxContent from "@/components/box/content.astro";
+import { MySQL } from "developer-icons";
+import { Go } from "developer-icons";
+import { WordPress } from "developer-icons";
+import { Git } from "developer-icons";
+import { Linux } from "developer-icons";
+import { NeoVim } from "developer-icons";
+import { DigitalOcean } from "developer-icons";
 
 export const items = [
     {
@@ -32,6 +40,11 @@ export const items = [
         title: "JavaScript",
         href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
         icon: JavaScript,
+    },
+    {
+        title: "Go",
+        href: "https://go.dev",
+        icon: Go,
     },
     {
         title: "C/C++",
@@ -51,13 +64,8 @@ export const items = [
     {
         title: "Inertia.js",
         href: "https://inertiajs.com/",
-        icon: React,
     },
-    {
-        title: "Astro.js",
-        href: "https://astro.build/",
-        icon: AstroIcon,
-    },
+
     {
         title: "Tailwind CSS",
         href: "https://tailwindcss.com/",
@@ -69,9 +77,14 @@ export const items = [
         icon: ShadcnUI,
     },
     {
-        title: "Node.js",
-        href: "https://nodejs.org/",
-        icon: NodeJs,
+        title: "WordPress",
+        href: "https://wordpress.org",
+        icon: WordPress,
+    },
+    {
+        title: "MySQL",
+        href: "https://www.mysql.com",
+        icon: MySQL,
     },
     {
         title: "Redis",
@@ -79,14 +92,29 @@ export const items = [
         icon: Redis,
     },
     {
-        title: "Docker",
-        href: "https://www.docker.com/",
-        icon: TypeScript,
+        title: "Node.js",
+        href: "https://nodejs.org/",
+        icon: NodeJs,
     },
     {
         title: "Git",
         href: "https://git-scm.com/",
-        icon: TypeScript,
+        icon: Git,
+    },
+    {
+        title: "Linux",
+        href: "https://omarchy.org",
+        icon: Linux,
+    },
+    {
+        title: "Neovim",
+        href: "https://neovim.io",
+        icon: NeoVim,
+    },
+    {
+        title: "DigitalOcean",
+        href: "https://digitalocean.com",
+        icon: DigitalOcean,
     },
 ];
 ---
