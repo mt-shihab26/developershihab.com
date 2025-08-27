@@ -1,5 +1,5 @@
 ---
-import type { Experience } from "@/lib/types";
+import type { TExperience } from "@/types/home";
 
 import Box from "@/components/ui/box-index.astro";
 import BoxHeader from "@/components/ui/box-header.astro";
@@ -8,7 +8,7 @@ import BoxContent from "@/components/ui/box-content.astro";
 
 import ExperienceItem from "./experience-item.astro";
 
-export const experiences: Experience[] = [
+export const experiences: TExperience[] = [
     {
         company: "Activepieces",
         positions: [

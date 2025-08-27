@@ -1,4 +1,6 @@
 ---
+import "@/styles/global.css";
+
 import "@fontsource/geist-sans";
 import "@fontsource/geist-sans/500.css";
 import "@fontsource/geist-sans/600.css";
@@ -9,14 +11,19 @@ import "@fontsource/roboto-condensed/600.css";
 import "@fontsource/roboto-condensed/400.css";
 import "@fontsource/jetbrains-mono/400.css";
 
+import {
+    name,
+    role,
+    website,
+    desc,
+    ogImage as xOgImage,
+    pageType as xPageType,
+} from "@/lib/information";
+
 import { ClientRouter } from "astro:transitions";
 
 import Analytics from "@vercel/analytics/astro";
-
-import { SITE } from "@/lib/config";
-
-import "@/styles/global.css";
-import BackToTop from "@/components/back-to-top.astro";
+import BackToTop from "@/components/ui/back-to-top.astro";
 
 export interface Props {
     title?: string;
@@ -29,16 +36,16 @@ export interface Props {
 }
 
 const {
-    title = SITE.title,
-    author = SITE.author,
-    profile = SITE.profile,
-    description = SITE.desc,
-    ogImage = SITE.ogImage,
-    pageType = SITE.pageType,
+    title = `${name} - ${role}`,
+    author = name,
+    profile = website,
+    description = desc,
+    ogImage = xOgImage,
+    pageType = xPageType,
     canonicalURL = new URL(Astro.url.pathname, Astro.url),
 } = Astro.props;
 
-const socialImageURL = new URL(ogImage ?? SITE.ogImage, Astro.site).toString();
+const socialImageURL = new URL(ogImage, Astro.site).toString();
 
 const structuredData = {
     "@context": "https://schema.org",

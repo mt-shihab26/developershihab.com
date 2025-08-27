@@ -1,12 +1,12 @@
 ---
 import Pattern from "@/components/ui/pattern.astro";
-import PageLayout from "@/layouts/page-layout.astro";
+import PageLayout from "@/components/layouts/page-layout.astro";
 
 import Box from "@/components/ui/box-index.astro";
 import BoxHeader from "@/components/ui/box-header.astro";
 import BoxTitle from "@/components/ui/box-title.astro";
 import { getCollection } from "astro:content";
-import ProjectItem from "@/components/sections/projects/project-item.astro";
+import ProjectItem from "@/components/screens/projects/project-item.astro";
 
 const projects = await getCollection("projects");
 
