@@ -1,11 +1,12 @@
 {
     "type": "module",
     "scripts": {
-        "dev": "astro dev",
         "build": "astro build",
         "preview": "astro preview",
-        "astro": "astro",
-        "lint": "astro check"
+        "dev": "astro dev",
+        "lint": "astro check",
+        "format": "prettier --write ./",
+        "astro": "astro"
     },
     "dependencies": {
         "@astrojs/check": "^0.9.4",
@@ -47,6 +48,8 @@
         "typescript-eslint": "^8.28.0"
     },
     "trustedDependencies": [
-        "@tailwindcss/oxide"
+        "@tailwindcss/oxide",
+        "esbuild",
+        "sharp"
     ]
 }
