@@ -1,9 +1,6 @@
 ---
 import { capitalizeFirstLetter } from "@/lib/utils";
-import Layout from "./layout.astro";
 
-import Navbar from "@/components/navbar/index.astro";
-import Footer from "@/components/footer.astro";
 import LinkBtn from "@/components/ui/link-btn.astro";
 import Pattern from "@/components/ui/pattern.astro";
 
@@ -13,6 +10,10 @@ import BoxHeader from "@/components/box/header.astro";
 import BoxContent from "@/components/box/content.astro";
 
 import { ArrowLeft } from "lucide-react";
+
+import Layout from "@/components/layouts/site/layout.astro";
+import Header from "@/components/layouts/site/header.astro";
+import Footer from "@/components/layouts/site/footer.astro";
 
 interface Props {
     title: string;
@@ -24,7 +25,7 @@ const { title, description, backLink } = Astro.props;
 ---
 
 <Layout title={`${title}`}>
-    <Navbar />
+    <Header />
     <main class="mx-auto min-h-screen max-w-3xl" aria-label="Main content">
         <Pattern className="h-14">
             {

@@ -1,14 +1,14 @@
 {
-    "name": "louai-website",
     "type": "module",
-    "version": "0.0.1",
     "scripts": {
         "dev": "astro dev",
         "build": "astro build",
         "preview": "astro preview",
-        "astro": "astro"
+        "astro": "astro",
+        "link": "bun --bun astro check"
     },
     "dependencies": {
+        "@astrojs/check": "^0.9.4",
         "@astrojs/mdx": "^4.2.1",
         "@astrojs/react": "^4.2.1",
         "@fontsource/geist-sans": "^5.2.5",
@@ -43,7 +43,7 @@
         "tailwind-merge": "^3.0.2",
         "tailwindcss": "^4.0.16",
         "tailwindcss-animate": "^1.0.7",
-        "typescript": "^5.8.2",
+        "typescript": "^5.9.2",
         "typescript-eslint": "^8.28.0"
     },
     "trustedDependencies": [

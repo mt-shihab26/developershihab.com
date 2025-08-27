@@ -1,17 +1,20 @@
 ---
-import Layout from "@/layouts/layout.astro";
-import Navbar from "@/components/navbar/index.astro";
-import Footer from "@/components/footer.astro";
-import Pattern from "@/components/ui/pattern.astro";
 import Experience from "@/components/sections/experience/experience.astro";
+
+import Pattern from "@/components/ui/pattern.astro";
+
+import Layout from "@/components/layouts/site/layout.astro";
+import Footer from "@/components/layouts/site/footer.astro";
+import Header from "@/components/layouts/site/header.astro";
 
 import Profile from "@/components/screens/home/profile.astro";
 import About from "@/components/screens/home/about.astro";
-import TechStack from "@/components/screens/home/tech-stack.astro";
+import ProblemSolving from "@/components/screens/home/problem-solving.astro";
+import Development from "@/components/screens/home/development.astro";
 ---
 
 <Layout>
-    <Navbar />
+    <Header />
     <main
         aria-label="Main content"
         class="mx-auto min-h-[calc(100vh-120px)] max-w-3xl"
@@ -21,7 +24,9 @@ import TechStack from "@/components/screens/home/tech-stack.astro";
         <Pattern />
         <About />
         <Pattern />
-        <TechStack />
+        <ProblemSolving />
+        <Pattern />
+        <Development />
         <Pattern />
         <Experience />
         <Pattern />

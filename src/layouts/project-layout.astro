@@ -1,9 +1,6 @@
 ---
-import { buttonVariants, capitalizeFirstLetter } from "@/lib/utils";
-import Layout from "./layout.astro";
+import { capitalizeFirstLetter } from "@/lib/utils";
 import { ArrowLeft } from "lucide-react";
-import Navbar from "@/components/navbar/index.astro";
-import Footer from "@/components/footer.astro";
 import Github from "@/components/ui/icons/github.astro";
 
 import { ExternalLink } from "lucide-react";
@@ -17,6 +14,9 @@ import BoxContent from "@/components/box/content.astro";
 
 import LinkBtn from "@/components/ui/link-btn.astro";
 import Badge from "@/components/ui/badge.astro";
+import Layout from "@/components/layouts/site/layout.astro";
+import Header from "@/components/layouts/site/header.astro";
+import Footer from "@/components/layouts/site/footer.astro";
 
 interface Props {
     title: string;
@@ -32,7 +32,7 @@ const { title, technologies, description, preview, sourceCode, image } =
 ---
 
 <Layout title={`${title}`} ogImage={image} description={description}>
-    <Navbar />
+    <Header />
 
     <main class="mx-auto min-h-screen max-w-3xl" aria-label="Main content">
         <Pattern className="h-14">
@@ -104,6 +104,5 @@ const { title, technologies, description, preview, sourceCode, image } =
             </BoxContent>
         </Box>
     </main>
+    <Footer />
 </Layout>
-
-<Footer />

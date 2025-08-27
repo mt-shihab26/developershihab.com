@@ -1,0 +1,197 @@
+---
+import { JavaScript } from "developer-icons";
+import { Laravel } from "developer-icons";
+import { NodeJs } from "developer-icons";
+import { PHP } from "developer-icons";
+import { React } from "developer-icons";
+import { Redis } from "developer-icons";
+import { ShadcnUI } from "developer-icons";
+import { TailwindCSS } from "developer-icons";
+import { TypeScript } from "developer-icons";
+import { MySQL } from "developer-icons";
+import { Go } from "developer-icons";
+import { WordPress } from "developer-icons";
+import { Git } from "developer-icons";
+import { Linux } from "developer-icons";
+import { NeoVim } from "developer-icons";
+import { DigitalOcean } from "developer-icons";
+
+import Box from "@/components/box/index.astro";
+import BoxHeader from "@/components/box/header.astro";
+import BoxTitle from "@/components/box/title.astro";
+import BoxContent from "@/components/box/content.astro";
+
+export const items = [
+    {
+        title: "PHP",
+        href: "https://www.php.net",
+        icon: PHP,
+    },
+    {
+        title: "TypeScript",
+        href: "https://www.typescriptlang.org",
+        icon: TypeScript,
+    },
+    {
+        title: "JavaScript",
+        href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+        icon: JavaScript,
+    },
+    {
+        title: "Go",
+        href: "https://go.dev",
+        icon: Go,
+    },
+    {
+        title: "Laravel",
+        href: "https://laravel.com",
+        icon: Laravel,
+    },
+    {
+        title: "React",
+        href: "https://react.dev",
+        icon: React,
+    },
+    {
+        title: "Inertia.js",
+        href: "https://inertiajs.com/",
+    },
+    {
+        title: "Tailwind CSS",
+        href: "https://tailwindcss.com/",
+        icon: TailwindCSS,
+    },
+    {
+        title: "shadcn/ui",
+        href: "https://ui.shadcn.com/",
+        icon: ShadcnUI,
+    },
+    {
+        title: "WordPress",
+        href: "https://wordpress.org",
+        icon: WordPress,
+    },
+    {
+        title: "MySQL",
+        href: "https://www.mysql.com",
+        icon: MySQL,
+    },
+    {
+        title: "Redis",
+        href: "https://redis.io/",
+        icon: Redis,
+    },
+    {
+        title: "Node.js",
+        href: "https://nodejs.org/",
+        icon: NodeJs,
+    },
+    {
+        title: "Git",
+        href: "https://git-scm.com/",
+        icon: Git,
+    },
+    {
+        title: "Linux",
+        href: "https://www.kernel.org",
+        icon: Linux,
+    },
+    {
+        title: "Neovim",
+        href: "https://neovim.io",
+        icon: NeoVim,
+    },
+    {
+        title: "DigitalOcean",
+        href: "https://digitalocean.com",
+        icon: DigitalOcean,
+    },
+];
+---
+
+<Box>
+    <BoxHeader>
+        <BoxTitle>Development</BoxTitle>
+    </BoxHeader>
+    <BoxContent>
+        <div class="text-sm leading-7 font-medium">
+            I started learning <b>development</b> after 1.5 years of
+            <b>programming</b> and <b>problem-solving</b> experience. The learning
+            process was quite fast-paced. I began with
+            <a
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+                target="_blank"><b>JavaScript</b></a
+            >, then moved on to
+            <a href="https://nodejs.org/" target="_blank"><b>Node.js</b></a>,
+            and later learned
+            <a href="https://react.dev" target="_blank"><b>React</b></a>.
+            <br /><br />
+            After that, I had the opportunity to work on a project for a
+            <i>US-based client</i>. For that project, I learned
+            <a href="https://www.php.net" target="_blank"><b>PHP</b></a>
+            and
+            <a href="https://wordpress.org" target="_blank"><b>WordPress</b></a
+            >. I used <b>React</b> for the frontend and connected it with the WordPress
+            system through the <b>REST API</b>. I also integrated the React
+            frontend into WordPress using <b>shortcodes</b>.
+            <br /><br />
+            This experience sparked my interest in the <b>PHP ecosystem</b>,
+            which led me to learn <a href="https://laravel.com" target="_blank"
+                ><b>Laravel</b></a
+            >. Now, I primarily work with Laravel and often combine it with
+            <a href="https://inertiajs.com" target="_blank"><b>Inertia.js</b></a
+            >,
+            <a href="https://react.dev" target="_blank"><b>React</b></a>,
+            <a href="https://tailwindcss.com" target="_blank"
+                ><b>Tailwind CSS</b></a
+            >, and <a href="https://ui.shadcn.com/" target="_blank"
+                ><b>shadcn/ui</b></a
+            >.
+            <br /><br />
+            You can find the source code of all the <i>crash courses</i> and
+            <i>courses</i> I attended while learning full-stack web application development
+            here:
+            <a
+                href="https://github.com/mt-shihab26/crash_courses"
+                target="_blank"
+                class="underline underline-offset-2"
+                ><b><i>Crash Courses</i></b></a
+            >,
+            <a
+                href="https://github.com/mt-shihab26/courses"
+                target="_blank"
+                class="underline underline-offset-2"
+            >
+                <b><i>Courses</i></b></a
+            >.
+            <br /><br />
+            Here is a list of the <b>tech stack</b> I use regularly:
+            <br />
+        </div>
+        <div
+            class="grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-3"
+            style="content-visibility: auto; contain-intrinsic-size: auto 48px;"
+        >
+            {
+                items.map(item => (
+                    <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class:list={[
+                            "flex h-10 min-w-[120px] items-center gap-2 rounded-md border border-solid bg-blue-50/10 p-2",
+                            "transition-all duration-200 hover:bg-blue-50/20",
+                        ]}
+                    >
+                        {item.icon && (
+                            <span class="flex size-5 items-center justify-center">
+                                <item.icon className="size-5" />
+                            </span>
+                        )}
+                        <span class="truncate text-sm">{item.title}</span>
+                    </a>
+                ))
+            }
+        </div>
+    </BoxContent>
+</Box>
