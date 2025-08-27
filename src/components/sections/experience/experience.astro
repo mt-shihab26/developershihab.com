@@ -9,14 +9,14 @@ import ExperienceItem from "./experience-item.astro";
 ---
 
 <Box>
-  <BoxHeader>
-    <BoxTitle> Experience </BoxTitle>
-  </BoxHeader>
-  <BoxContent className="px-0">
-    {
-      EXPERIENCES.map(experience => {
-        return <ExperienceItem experience={experience} />;
-      })
-    }
-  </BoxContent>
+    <BoxHeader>
+        <BoxTitle> Experience </BoxTitle>
+    </BoxHeader>
+    <BoxContent className="px-0">
+        {
+            EXPERIENCES.map(experience => {
+                return <ExperienceItem experience={experience} />;
+            })
+        }
+    </BoxContent>
 </Box>

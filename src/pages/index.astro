@@ -9,23 +9,21 @@ import TechStack from "@/components/tech-stack.astro";
 import Experience from "@/components/sections/experience/experience.astro";
 ---
 
-<Layout title="Louai Boumediene">
-  <Navbar />
-
-  <main
-    aria-label="Main content"
-    class="mx-auto min-h-[calc(100vh-120px)] max-w-3xl"
-  >
-    <Pattern className="h-14" />
-    <Profile />
-    <Pattern />
-    <About />
-    <Pattern />
-    <TechStack />
-    <Pattern />
-    <Experience />
-    <Pattern />
-  </main>
-
-  <Footer />
+<Layout>
+    <Navbar />
+    <main
+        aria-label="Main content"
+        class="mx-auto min-h-[calc(100vh-120px)] max-w-3xl"
+    >
+        <Pattern className="h-14" />
+        <Profile />
+        <Pattern />
+        <About />
+        <Pattern />
+        <TechStack />
+        <Pattern />
+        <Experience />
+        <Pattern />
+    </main>
+    <Footer />
 </Layout>

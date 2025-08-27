@@ -6,15 +6,14 @@ series: backend-journey
 draft: false
 image: /og-images/articles/databse-design.jpg
 tags:
-  - backend
-  - learning
-  - webdev
-  - career
+    - backend
+    - learning
+    - webdev
+    - career
 description: An introduction to relational databases, their management systems, and key design principles for efficient data storage and organization.
 ---
 
 ![Cover Image](/og-images/articles/database-design.jpg)
-
 
 ## Introduction
 
@@ -286,9 +285,7 @@ CREATE TABLE shipments (
 
 Relationships are the cornerstone of relational databases, allowing you to connect and combine data from different tables. There are three main types of relationships:
 
-
 ![Relationships Image](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/qadj6qd495g7yovdcx2d.jpg)
-
 
 ## One-to-One Relationships
 
@@ -299,7 +296,6 @@ In a one-to-one relationship, each record in one table is associated with exactl
 ## One-to-Many Relationships
 
 In a one-to-many relationship, each record in one table (the "one" side) can be associated with multiple records in another table (the "many" side). For example, in a database for a school, one teacher can teach multiple classes, but each class is taught by only one teacher.
-
 
 ![One to Many Image](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/qe9iuj8n0n3b1cj24pdf.png)
 
@@ -419,7 +415,6 @@ In ER diagrams, cardinality is represented using specific notation, such as a si
 
 ![Cardinality Image](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/nmife5ost450cgntriyi.png)
 
-
 ## Modality
 
 Modality refers to whether the existence of an entity instance depends on its relationship with another entity. There are two types of modality:
@@ -429,7 +424,7 @@ Modality refers to whether the existence of an entity instance depends on its re
 
 In ER diagrams, modality is represented using specific notation, such as a single bar for partial modality and a double bar for total modality.
 
---- 
+---
 
 ## Introduction to Database Normalization
 
@@ -485,7 +480,7 @@ CREATE TABLE student_courses (
     student_id INT,
     course_id INT,
     course_name VARCHAR(100), -- Depends only on course_id, not the entire primary key
-    grade CHAR(2), 
+    grade CHAR(2),
     PRIMARY KEY (student_id, course_id)
 );
 
@@ -593,13 +588,11 @@ CREATE TABLE users (
 
 In this example, we create a `users` table with columns for `id` (integer), `name` (string of up to 50 characters), `age` (integer), and `is_active` (boolean, with a default value of `1` or true).
 
-
 ---
 
 ## Introduction to Joins
 
 Joins are like bridges that connect different tables in a database, allowing you to combine and retrieve related data from multiple sources. They are a fundamental concept in relational databases and are essential for querying and manipulating data efficiently.
-
 
 ![Joins Image](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/iks7pvzjikxzgqicjh2x.png)
 
@@ -839,6 +832,6 @@ Ref: users.id < posts.user_id // Relationship between users and posts
 
 ---
 
-## Conclusion 
+## Conclusion
 
 In wrapping up, relational database design forms the backbone of efficient data organization in modern applications. Understanding its principles empowers you to create robust and scalable databases. Next up, we'll delve into SQL syntax, unlocking the power to interact with databases effectively. Stay tuned for our exploration into the world of SQL!

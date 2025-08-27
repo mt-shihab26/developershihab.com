@@ -10,17 +10,17 @@ import BoxTitle from "@/components/box/title.astro";
 import BoxHeader from "@/components/box/header.astro";
 
 export async function getStaticPaths() {
-  const articels = await getCollection("blog");
-  return articels.map(article => ({
-    params: { category: article.data.category },
-  }));
+    const articels = await getCollection("blog");
+    return articels.map(article => ({
+        params: { category: article.data.category },
+    }));
 }
 
 const { category } = Astro.params;
 
 const articels = await getCollection("blog");
 const categoryArticles = articels.filter(
-  article => article.data.category === category
+    article => article.data.category === category
 );
 
 // Page properties
@@ -29,16 +29,16 @@ const description = `Exploring ${category} insights, lessons, and discoveries fr
 ---
 
 <PageLayout backLink="/articles" description={description} title={title}>
-  <Pattern />
+    <Pattern />
 
-  <Box>
-    <BoxHeader>
-      <BoxTitle>Articles</BoxTitle>
-    </BoxHeader>
-    <div
-      class="flex w-full flex-col items-start justify-start divide-y divide-border"
-    >
-      {categoryArticles.map(article => <ArticleItem article={article} />)}
-    </div>
-  </Box>
+    <Box>
+        <BoxHeader>
+            <BoxTitle>Articles</BoxTitle>
+        </BoxHeader>
+        <div
+            class="flex w-full flex-col items-start justify-start divide-y divide-border"
+        >
+            {categoryArticles.map(article => <ArticleItem article={article} />)}
+        </div>
+    </Box>
 </PageLayout>

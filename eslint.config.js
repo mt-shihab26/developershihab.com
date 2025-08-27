@@ -16,4 +16,3 @@ export default [
     { rules: { "no-console": "error" } },
     { ignores: ["dist/**", ".astro", "public/pagefind/**"] },
 ];
-

@@ -4,15 +4,15 @@ import ImgAvatar from "../../../public/louai-avatar.jpg";
 import { PROFILE_INFO } from "@/lib/constants/profile";
 
 interface Props {
-  className?: string;
-  size?: number;
-  priority?: boolean;
+    className?: string;
+    size?: number;
+    priority?: boolean;
 }
 
 const {
-  className,
-  size = 100, // Default size if not provided
-  priority = false,
+    className,
+    size = 100, // Default size if not provided
+    priority = false,
 } = Astro.props;
 
 // Determine image formats for fallback and webp
@@ -20,13 +20,13 @@ const formats = ["avif", "webp"];
 ---
 
 <Picture
-  class:list={[className]}
-  src={ImgAvatar}
-  widths={[size, size * 2]}
-  sizes={`(max-width: ${size}px) 100vw, ${size}px`}
-  formats={formats}
-  alt={`${PROFILE_INFO.displayName}'s avatar`}
-  quality="mid"
-  loading={priority ? "eager" : "lazy"}
-  decoding="async"
+    class:list={[className]}
+    src={ImgAvatar}
+    widths={[size, size * 2]}
+    sizes={`(max-width: ${size}px) 100vw, ${size}px`}
+    formats={formats}
+    alt={`${PROFILE_INFO.displayName}'s avatar`}
+    quality="mid"
+    loading={priority ? "eager" : "lazy"}
+    decoding="async"
 />

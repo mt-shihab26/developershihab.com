@@ -5,10 +5,10 @@ title: Webhook Service | How To Approach System Design Interview + Practical Exa
 draft: false
 image: /og-images/articles/webhook-service.png
 tags:
-  - programming
-  - systemdesign
-  - softwareengineering
-  - interview
+    - programming
+    - systemdesign
+    - softwareengineering
+    - interview
 description: A complete guide to mastering Java, from the basics to advanced concepts.
 ---
 
@@ -130,19 +130,17 @@ How this works:
 #### Security Concerns
 
 1. HMAC Signatures:
-
-   - External system and our service share secret key
-   - External system sends request with HMAC hash of payload
-   - Our service calculates same hash and compares
-   - If match, we know request is real
+    - External system and our service share secret key
+    - External system sends request with HMAC hash of payload
+    - Our service calculates same hash and compares
+    - If match, we know request is real
 
 2. IP Whitelisting:
-
-   - Only accept requests from known IP addresses
+    - Only accept requests from known IP addresses
 
 3. Rate Limiting:
-   - Limit requests from same client (like 50 per minute)
-   - Prevents attacks that send too many requests (Dos attacks)
+    - Limit requests from same client (like 50 per minute)
+    - Prevents attacks that send too many requests (Dos attacks)
 
 #### Handling Duplicate and Out-of-Order Requests
 
@@ -157,9 +155,9 @@ How this works:
 - Don't assume events arrive in correct order
 - Make processing logic handle any order
 - Example: if "invoice.paid" arrives before "invoice.created"
-  - Get latest data from source API
-  - Use timestamps to know which event is newer
-  - Skip processing outdated events
+    - Get latest data from source API
+    - Use timestamps to know which event is newer
+    - Skip processing outdated events
 
 By following these steps, we create webhook service that's reliable, secure, and handles real-world problems like failures, duplicates, and out-of-order events.
 

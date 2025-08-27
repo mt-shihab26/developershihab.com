@@ -6,10 +6,10 @@ draft: false
 series: backend-journey
 image: /og-images/articles/sql.jpg
 tags:
-  - backend
-  - learning
-  - sql
-  - database
+    - backend
+    - learning
+    - sql
+    - database
 description: A high-level introduction to SQL, exploring its syntax and core features for bringing database designs to life.
 ---
 
@@ -28,9 +28,7 @@ So... Let's dive right into it!
 
 ## What is SQL
 
-SQL, or Structured Query Language, is the facade language used to talk to all **RDMSs**, however for the most time as backend engineers (we're not database engineers) we don't use SQL directly, and we rather use Object Relational Mappers **ORMs** which provides a better more reliable interface on top of raw SQL to communicate with database in our preferred programming language, however we still need a basic knowledge of SQL for quick and simple  manipulation and interactions with the database.
-
-
+SQL, or Structured Query Language, is the facade language used to talk to all **RDMSs**, however for the most time as backend engineers (we're not database engineers) we don't use SQL directly, and we rather use Object Relational Mappers **ORMs** which provides a better more reliable interface on top of raw SQL to communicate with database in our preferred programming language, however we still need a basic knowledge of SQL for quick and simple manipulation and interactions with the database.
 
 ![What if i told you meme](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/fvpr0nujx4fed7e4xvh3.png)
 
@@ -245,7 +243,7 @@ END;
 DROP PROCEDURE IF EXISTS get_employee;
 ```
 
---- 
+---
 
 ## Backup and Recovery
 
@@ -293,14 +291,14 @@ For example, here are a few examples of vendor-specific SQL dialects and extensi
 - PostgreSQL includes extensions like arrays, JSON support, full-text search, and range data types.
 - Example: `SELECT column_name || 'suffix' FROM table_name;` (|| is a PostgreSQL-specific string concatenation operator)
 
-
 ![Differences between RDBMSs](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/z7m0q9jdx3opw29zja6j.png)
 
 So the most logical way to go about is:
+
 1. **The Basics**: Know the basics of Relational Dabase Design: Entitnes, keys, Relationships, …. .
 2. **SQL**: Learn the fundamentals SQL as a standalone lanugage.
 3. **Pick RDBMs**: Pick one RDBMS that sweets you the most, and simply use it adhearing to all its special syntax and conspets.
 
-## Conclusion 
+## Conclusion
 
 SQL is a vast field in itself, encompassing a multitude of concepts beyond what we've touched upon. Transactions, backups, and file management are just a few examples of the broader scope. However, for backend engineers like us, the fundamentals we've covered suffice as a foundational overview of SQL.

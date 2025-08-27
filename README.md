@@ -3,9 +3,11 @@
 ![Screenshot](./public/screenshot-dark.png)
 
 ## Overview
+
 This is a sleek, modern, and highly customizable portfolio template built using **Astro**. Designed with performance, accessibility, and SEO in mind, it offers a clean and minimalistic experience while providing all the essential features needed for a professional online presence.
 
 ## Features
+
 - 🌙 **Light & Dark Mode** – Seamlessly switch between themes.
 - 📱 **Mobile-Friendly** – Fully responsive design.
 - 📖 **Blog Section** – Supports **MDX** with automatic table of contents (TOC) and pagination.
@@ -15,6 +17,7 @@ This is a sleek, modern, and highly customizable portfolio template built using 
 - 🎨 **Sleek & Modern Design** – Crafted with a focus on simplicity and elegance.
 
 ## Tech Stack
+
 Built using the following technologies:
 
 - **Astro** – Blazing fast static site generation.
@@ -24,6 +27,7 @@ Built using the following technologies:
 - **Framer Motion** – Smooth animations and transitions.
 
 ## How to Use
+
 Customization is simple and straightforward:
 
 - All customizable data (name, links, content, etc.) is stored in `lib/constants/` dir.
@@ -32,6 +36,7 @@ Customization is simple and straightforward:
 - Theming follows **shadcn's** color palette and can be easily tweaked.
 
 ## Contribute & Support
+
 Love the project? Give it a ⭐ on GitHub! Contributions are always welcome—whether it's fixing a bug, adding a new feature, or even correcting a small typo.
 
 [👉 Check out the repo](https://github.com/Louai-Zokerburg/louai) and make your first pull request!

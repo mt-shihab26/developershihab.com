@@ -6,10 +6,10 @@ series: backend-journey
 draft: false
 image: /og-images/articles/java.jpg
 tags:
-  - backend
-  - learning
-  - webdev
-  - career
+    - backend
+    - learning
+    - webdev
+    - career
 description: A complete guide to mastering Java, from the basics to advanced concepts.
 ---
 
@@ -64,6 +64,7 @@ double height = 5.9;
 boolean isSunny = true;
 char grade = 'A';
 ```
+
 In this section, we've provided an overview of the sizes and ranges of various primitive data types in Java, including examples demonstrating their usage. Additionally, we introduced the `float` data type for representing floating-point numbers with approximate precision.
 
 #### Reference Data Types
@@ -92,15 +93,15 @@ import java.util.Scanner;
 public class InputExample {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
+
         System.out.print("Enter your age: ");
         int age = scanner.nextInt();
-        
+
         System.out.print("Enter your name: ");
         String name = scanner.next();
-        
+
         System.out.println("Hello, " + name + "! You are " + age + " years old.");
-        
+
         scanner.close(); // Don't forget to close the scanner to release resources.
     }
 }
@@ -253,23 +254,23 @@ import java.util.Scanner;
 public class Calculator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
+
         System.out.println("Welcome to the Simple Calculator!");
         System.out.println("Please enter the first number:");
         double num1 = scanner.nextDouble();
-        
+
         System.out.println("Please enter the second number:");
         double num2 = scanner.nextDouble();
-        
+
         System.out.println("Select operation:");
         System.out.println("1. Addition (+)");
         System.out.println("2. Subtraction (-)");
         System.out.println("3. Multiplication (*)");
         System.out.println("4. Division (/)");
-        
+
         int choice = scanner.nextInt();
         double result = 0;
-        
+
         switch (choice) {
             case 1:
                 result = num1 + num2;
@@ -292,9 +293,9 @@ public class Calculator {
                 System.out.println("Invalid choice!");
                 return;
         }
-        
+
         System.out.println("Result: " + result);
-        
+
         scanner.close();
     }
 }
@@ -324,7 +325,7 @@ class Car {
     String color;
     String make;
     String model;
-    
+
     void drive() {
         System.out.println("The car is driving.");
     }
@@ -341,12 +342,12 @@ Encapsulation is like putting your things in a box and only allowing certain peo
 ```java
 class BankAccount {
     private double balance;
-    
+
     // Getter method
     public double getBalance() {
         return balance;
     }
-    
+
     // Setter method
     public void setBalance(double amount) {
         balance = amount;
@@ -365,7 +366,7 @@ Constructors are like a special recipe used to create an object. They initialize
 ```java
 class Dog {
     String breed;
-    
+
     // Constructor
     public Dog(String dogBreed) {
         breed = dogBreed;
@@ -383,7 +384,7 @@ class MathOperations {
     public int add(int x, int y) {
         return x + y;
     }
-    
+
     public double add(double x, double y) {
         return x + y;
     }
@@ -415,7 +416,7 @@ Static members are like shared resources among all objects of a class. They belo
 ```java
 class Circle {
     static final double PI = 3.14;
-    
+
     static double calculateArea(double radius) {
         return PI * radius * radius;
     }
@@ -603,10 +604,10 @@ class FileAccess implements DataAccess {
 
 In this example, different classes can implement the `DataAccess` interface to provide different ways of saving data, such as to a database or a file.
 
-
 Interfaces serve as powerful tools in Java programming, providing a way to define contracts, enable polymorphic behavior, and promote loose coupling between components. They are essential for building modular, flexible, and maintainable software systems.
 
 ### Exercise
+
 using all what we learned in this section about OOP in java let's rebuild our calculator in object oriented style:
 
 ```java
@@ -685,9 +686,7 @@ public class CalculatorApp {
 }
 ```
 
-
 ## Advance Java Topics
-
 
 ### Exception Handling?
 
@@ -820,7 +819,7 @@ Imagine a treasure map with multiple clues leading to hidden riches. In Java, yo
 public class TreasureMap<X, Y> {
     private X clue1;
     private Y clue2;
-    
+
     // Constructor, getters, and setters
 }
 ```
@@ -901,6 +900,7 @@ List<String> additionalTreasures = new ArrayList<>();
 additionalTreasures.add("Magic Wand");
 backpack.addAll(additionalTreasures);
 ```
+
 ### Functional Programming:
 
 Imagine you're a wizard in a magical kingdom, wielding powerful spells to manipulate the forces of nature. Functional programming in Java is like mastering the ancient art of spellcasting, allowing you to perform powerful transformations on your data with ease.
