@@ -1,12 +1,11 @@
 import { markdownToHtml } from "@/lib/utils";
 
 import { educations } from "@/lib/educations";
-import { experiences } from "@/lib/experiences";
 
 import { projects } from "./projects";
 import { skills } from "./skills";
 
-import { Code2 } from "lucide-react";
+import { Experience } from "./experience";
 import { Header } from "./header";
 import { Heading } from "./heading";
 import { Summary } from "./summary";
@@ -16,47 +15,11 @@ export const Resume = ({ image }: { image?: boolean }) => {
         <div className="mx-auto w-full space-y-3 bg-white p-6 text-xs leading-5 text-gray-900 dark:bg-black dark:text-white">
             <Header image={image} />
             <Summary />
-
-            <section className="space-y-3">
-                <Heading>Experience</Heading>
-                {experiences.map((e, index) => (
-                    <div key={index} className="space-y-2">
-                        <div className="flex items-center space-x-2">
-                            <span className="size-1.5 rounded-full bg-gray-600 dark:bg-gray-400" />
-                            <a
-                                href={e.company.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-sm font-bold hover:underline"
-                            >
-                                {e.company.label}
-                            </a>
-                        </div>
-                        <div className="relative space-y-3 pl-1 before:absolute before:left-2.5 before:h-full before:w-px before:bg-gray-300 dark:before:bg-gray-600">
-                            {e.positions.map((position, positionIndex) => (
-                                <div key={positionIndex} className="space-y-2">
-                                    <div className="relative z-10 flex items-center space-x-2">
-                                        <Code2 className="size-3" />
-                                        <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
-                                            {position.title}
-                                        </h3>
-                                    </div>
-                                    <div className="pl-4 text-xs text-gray-700 dark:text-white">{position.year}</div>
-                                    <ul className="ml-8 list-disc space-y-0.5 text-xs text-gray-800 dark:text-white">
-                                        {position.description.map((desc, i) => (
-                                            <li key={i} dangerouslySetInnerHTML={{ __html: markdownToHtml(desc) }}></li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                ))}
-            </section>
+            <Experience />
 
             <section className="space-y-3">
                 <Heading>Projects</Heading>
-                <ul className="space-y-2">
+                <ul className="space-y-2 pl-1">
                     {projects
                         .filter(p => p.resume)
                         .map((project, index) => (
