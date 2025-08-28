@@ -1,13 +1,14 @@
 import type { ReactNode } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn, markdownToHtml } from "@/lib/utils";
 
-import { educations, experiences } from "./experiences";
-import { projects } from "./projects";
-import { certifications, skills } from "./skills";
-
+import { educations } from "@/lib/educations";
+import { experiences } from "@/lib/experiences";
 import { avatar } from "@/lib/files";
 import { bio, email, github, linkedin, location, name, phone, website } from "@/lib/information";
+
+import { projects } from "./projects";
+import { skills } from "./skills";
 
 import { Summery } from "@/lib/information2";
 import { GitHubDark, GitHubLight, LinkedIn } from "developer-icons";
@@ -98,37 +99,34 @@ export const Resume = ({ image }: { image?: boolean }) => {
             </section>
 
             <section className="space-y-2">
-                <Heading>Work Experience</Heading>
+                <Heading>Experience</Heading>
                 {experiences.map((e, index) => (
-                    <div key={index} className="space-y-1">
-                        <h3 className="text-sm">
-                            <span className="font-semibold text-gray-900 dark:text-white">{e.company}</span> —{" "}
-                            <span className="font-normal text-gray-700 italic dark:text-white">{e.role}</span>
-                            {e.link && (
-                                <a
-                                    href={e.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="ml-1 text-xs text-blue-600 hover:underline dark:text-blue-500"
-                                >
-                                    [Link]
-                                </a>
-                            )}
-                        </h3>
-                        <div className="text-xs text-gray-700 dark:text-white">
-                            {e.location} | {e.start} - {e.end}
-                        </div>
-                        <ul className="ml-5 list-disc space-y-1 text-xs text-gray-800 dark:text-white">
-                            {e.highlights.map((highlight, i) => (
-                                <li key={i}>{highlight}</li>
-                            ))}
-                        </ul>
+                    <div key={index} className="space-y-2">
+                        {e.positions.map((position, positionIndex) => (
+                            <div key={positionIndex} className="space-y-1">
+                                <h3 className="text-sm">
+                                    <span className="font-semibold text-gray-900 dark:text-white">
+                                        {e.company.label}
+                                    </span>{" "}
+                                    —{" "}
+                                    <span className="font-normal text-gray-700 italic dark:text-white">
+                                        {position.title}
+                                    </span>
+                                </h3>
+                                <div className="text-xs text-gray-700 dark:text-white">{position.year}</div>
+                                <ul className="ml-5 list-disc space-y-1 text-xs text-gray-800 dark:text-white">
+                                    {position.description.map((desc, i) => (
+                                        <li key={i} dangerouslySetInnerHTML={{ __html: markdownToHtml(desc) }}></li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
                     </div>
                 ))}
             </section>
 
             <section className="space-y-2">
-                <Heading>Key Projects</Heading>
+                <Heading>Projects</Heading>
                 <ul className="space-y-1">
                     {projects
                         .filter(p => p.resume)
@@ -177,49 +175,36 @@ export const Resume = ({ image }: { image?: boolean }) => {
             <section className="space-y-2">
                 <Heading>Education</Heading>
                 {educations.map((edu, index) => (
-                    <div key={index} className="text-xs text-gray-800 dark:text-white">
-                        <div className="text-gray-900 dark:text-white">
-                            <span className="font-semibold">{edu.institution}</span>
-                            {edu.link && (
-                                <a
-                                    href={edu.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="ml-1 text-xs text-blue-600 hover:underline dark:text-blue-500"
-                                >
-                                    [Link]
-                                </a>
-                            )}
-                        </div>
-                        <div className="text-xs">
-                            {edu.location} — {edu.degree} <span className="italic">{edu.period}</span>
-                        </div>
+                    <div key={index} className="space-y-2">
+                        {edu.positions.map((position, positionIndex) => (
+                            <div key={positionIndex} className="space-y-1">
+                                <div className="text-xs text-gray-800 dark:text-white">
+                                    <div className="text-gray-900 dark:text-white">
+                                        <span className="font-semibold">{edu.institution.label}</span>
+                                        {edu.institution.link && (
+                                            <a
+                                                href={edu.institution.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="ml-1 text-xs text-blue-600 hover:underline dark:text-blue-500"
+                                            >
+                                                [Link]
+                                            </a>
+                                        )}
+                                    </div>
+                                    <div className="text-xs">
+                                        {position.title} <span className="italic">({position.year})</span>
+                                    </div>
+                                </div>
+                                <ul className="ml-5 list-disc space-y-1 text-xs text-gray-800 dark:text-white">
+                                    {position.description.map((desc, i) => (
+                                        <li key={i} dangerouslySetInnerHTML={{ __html: markdownToHtml(desc) }}></li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
                     </div>
                 ))}
-            </section>
-
-            <section className="space-y-2">
-                <Heading>Certifications</Heading>
-                <ul className="ml-5 list-disc space-y-1 text-xs text-gray-800 dark:text-white">
-                    {certifications.map((cert, index) => (
-                        <li key={index}>
-                            <span>
-                                <span className="font-medium text-gray-900 dark:text-white">{cert.name}</span> —{" "}
-                                <span className="italic">{cert.date}</span>
-                            </span>
-                            {cert.link && (
-                                <a
-                                    href={cert.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="ml-1 text-blue-500 hover:underline dark:text-blue-500"
-                                >
-                                    [Link]
-                                </a>
-                            )}
-                        </li>
-                    ))}
-                </ul>
             </section>
         </div>
     );
