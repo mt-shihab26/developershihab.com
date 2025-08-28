@@ -1,0 +1,65 @@
+---
+import type { TExperience } from "@/types/home";
+
+import Box from "@/components/ui/box-index.astro";
+import BoxHeader from "@/components/ui/box-header.astro";
+import BoxTitle from "@/components/ui/box-title.astro";
+import BoxContent from "@/components/ui/box-content.astro";
+
+import EducationItem from "./education-item.astro";
+
+export const education: TExperience[] = [
+    {
+        company: "Finnext",
+        positions: [
+            {
+                title: "Full-stack Developer",
+                year: "May 2023 – present",
+                description: `
+- ♦ Build a **SaaS application** for Paystubhero.com that generates **3000+ financial documents monthly**
+- ♦ Built a **SaaS application** for QuickDoctorsNote.com.
+- ♦ Maintained application servers with ongoing bug fixes and new features.
+- ♦ Built **WordPress plugins** and maintained WordPress websites.
+
+            `,
+                skills: [
+                    "PHP",
+                    "TypeScript",
+                    "Laravel",
+                    "WordPress",
+                    "React",
+                    "Inertia.js",
+                    "TailwindCSS",
+                    "shadcn/ui",
+                    "MySQL",
+                    "Redis",
+                ],
+            },
+        ],
+    },
+    {
+        company: "Systech Digital LTD",
+        positions: [
+            {
+                title: "Software Engineer Intern",
+                year: "Jun 2024 – Sep 2024",
+                description: `
+- ♦ Developed a **Laravel E-commerce platform** with admin panel
+- ♦ Built custom web application using PHP following Laravel-inspired architecture
+- ♦ Collaborated with senior developers to implement **industry best practices**
+            `,
+                skills: ["PHP", "Laravel", "TailwindCSS", "MySQL"],
+            },
+        ],
+    },
+];
+---
+
+<Box>
+    <BoxHeader>
+        <BoxTitle> Education </BoxTitle>
+    </BoxHeader>
+    <BoxContent className="px-0">
+        {education.map(e => <EducationItem education={e} />)}
+    </BoxContent>
+</Box>

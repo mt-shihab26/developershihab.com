@@ -1,13 +1,13 @@
 ---
-import type { TExperience } from "@/types/home";
+import type { TEducation } from "@/types/home";
 
-import ExperiencePositionItem from "./experience-position-item.astro";
+import EducationPositionItem from "./education-position-item.astro";
 
 interface Props {
-    experience: TExperience;
+    education: TEducation;
 }
 
-const { experience } = Astro.props;
+const { education } = Astro.props;
 ---
 
 <div class="space-y-4 p-4 not-last:border-b">
@@ -15,7 +15,7 @@ const { experience } = Astro.props;
         <span class="size-2 rounded-full bg-foreground/60"></span>
 
         <h3 class="text-xl font-black">
-            {experience.company}
+            {education.company}
         </h3>
     </div>
 
@@ -23,8 +23,8 @@ const { experience } = Astro.props;
         class="relative space-y-4 pl-1 before:absolute before:left-3 before:h-full before:w-px before:bg-border"
     >
         {
-            experience.positions.map(position => (
-                <ExperiencePositionItem position={position} />
+            education.positions.map(position => (
+                <EducationPositionItem position={position} />
             ))
         }
     </div>
