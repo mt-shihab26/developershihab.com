@@ -11,6 +11,53 @@ interface Props {
 const { className } = Astro.props;
 ---
 
+<script>
+    function toggleMobileMenu() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburger = document.getElementById('hamburger-button');
+        
+        if (mobileMenu && hamburger) {
+            mobileMenu.classList.toggle('hidden');
+            hamburger.classList.toggle('open');
+        }
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const hamburgerButton = document.getElementById('hamburger-button');
+        if (hamburgerButton) {
+            hamburgerButton.addEventListener('click', toggleMobileMenu);
+        }
+        
+        // Close mobile menu when clicking on nav links
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    toggleMobileMenu();
+                }
+            });
+        }
+    });
+</script>
+
+<style>
+    .hamburger-line {
+        transform-origin: center;
+    }
+    
+    #hamburger-button.open .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(2px, 2px);
+    }
+    
+    #hamburger-button.open .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+    
+    #hamburger-button.open .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(2px, -2px);
+    }
+</style>
+
 <nav
     class:list={[
         "screen-line-after sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60",
@@ -25,8 +72,33 @@ const { className } = Astro.props;
         </a>
 
         <div class="flex items-center justify-center gap-4">
-            <NavLinks />
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex">
+                <NavLinks />
+            </div>
+            
+            <!-- Mobile Hamburger Button -->
+            <button 
+                id="hamburger-button"
+                class="md:hidden flex flex-col justify-center items-center w-6 h-6 space-y-1"
+                aria-label="Toggle mobile menu"
+            >
+                <span id="hamburger" class="hamburger-line w-full h-0.5 bg-foreground transition-all duration-300"></span>
+                <span class="hamburger-line w-full h-0.5 bg-foreground transition-all duration-300"></span>
+                <span class="hamburger-line w-full h-0.5 bg-foreground transition-all duration-300"></span>
+            </button>
+            
             <ModeToggle />
+        </div>
+    </div>
+    
+    <!-- Mobile Menu Overlay -->
+    <div 
+        id="mobile-menu" 
+        class="hidden md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur border-t border-border shadow-lg"
+    >
+        <div class="mx-auto max-w-3xl px-4 py-4">
+            <NavLinks />
         </div>
     </div>
 </nav>
