@@ -1,6 +1,4 @@
 ---
-import type { TEducation } from "@/types/home";
-
 import { GraduationCapIcon } from "lucide-react";
 import { SeeMore } from "./see-more";
 
@@ -9,7 +7,16 @@ import BoxHeader from "@/components/ui/box-header.astro";
 import BoxTitle from "@/components/ui/box-title.astro";
 import BoxContent from "@/components/ui/box-content.astro";
 
-export const education: TEducation[] = [
+type TEducation = {
+    institution: { label: string; link: string };
+    positions: {
+        title: string;
+        year: string;
+        description: string[];
+    }[];
+};
+
+const educations: TEducation[] = [
     {
         institution: {
             label: "Bangladesh University of Business and Technology (BUBT)",
@@ -36,7 +43,7 @@ export const education: TEducation[] = [
     </BoxHeader>
     <BoxContent className="px-0">
         {
-            education.map(e => (
+            educations.map((e, index) => (
                 <div class="space-y-4 p-4 not-last:border-b">
                     <div class="flex items-center space-x-4 px-2">
                         <span class="size-2 rounded-full bg-foreground/60" />
@@ -48,7 +55,7 @@ export const education: TEducation[] = [
                         </a>
                     </div>
                     <div class="relative space-y-4 pl-1 before:absolute before:left-3 before:h-full before:w-px before:bg-border">
-                        {e.positions.map((position, index) => (
+                        {e.positions.map(position => (
                             <div>
                                 <div class="block w-full text-left">
                                     <div class="relative z-1 mb-1 flex items-center space-x-3">
@@ -62,7 +69,7 @@ export const education: TEducation[] = [
                                     </span>
                                 </div>
                                 <SeeMore
-                                    open={index == 0}
+                                    open={index === 0}
                                     items={position.description}
                                     client:load
                                 />
