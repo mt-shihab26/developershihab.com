@@ -1,47 +1,23 @@
-import { cva } from "class-variance-authority";
-import { clsx, type ClassValue } from "clsx";
+import type { ClassValue } from "clsx";
+
+import { clsx } from "clsx";
 import { fromMarkdown } from "mdast-util-from-markdown";
 import { toString } from "mdast-util-to-string";
-import calculateReadingTime from "reading-time";
 import { twMerge } from "tailwind-merge";
 
-export function cn(...inputs: ClassValue[]) {
+import calculateReadingTime from "reading-time";
+
+import MarkdownIt from "markdown-it";
+
+const md = new MarkdownIt();
+
+export const cn = (...inputs: ClassValue[]) => {
     return twMerge(clsx(inputs));
-}
+};
 
-export function capitalizeFirstLetter(sentence: string): string {
+export const capitalizeFirstLetter = (sentence: string): string => {
     return `${sentence.charAt(0).toUpperCase()}${sentence.slice(1)}`;
-}
-
-export const buttonVariants = cva(
-    "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
-    {
-        variants: {
-            variant: {
-                default:
-                    "bg-primary text-primary-foreground hover:bg-primary/90",
-                destructive:
-                    "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-                outline:
-                    "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-                secondary:
-                    "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-                ghost: "hover:bg-accent hover:text-accent-foreground",
-                link: "text-primary underline-offset-4 hover:underline",
-            },
-            size: {
-                default: "h-10 px-4 py-2",
-                sm: "h-9 rounded-md px-3",
-                lg: "h-11 rounded-md px-8",
-                icon: "h-10 w-10",
-            },
-        },
-        defaultVariants: {
-            variant: "default",
-            size: "default",
-        },
-    }
-);
+};
 
 export const getReadingTime = (text: string): string | undefined => {
     if (!text || !text.length) return undefined;
@@ -54,4 +30,13 @@ export const getReadingTime = (text: string): string | undefined => {
     } catch (e) {
         return undefined;
     }
+};
+
+export const markdownToHtml = (
+    markdown: string,
+    className?: string
+): string => {
+    md.renderer.rules.paragraph_open = () => `<p class="${className}">`;
+
+    return md.render(markdown);
 };
