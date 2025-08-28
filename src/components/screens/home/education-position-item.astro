@@ -1,7 +1,7 @@
 ---
 import type { TEducationPosition } from "@/types/home";
 
-import { Code2 } from "lucide-react";
+import { GraduationCapIcon } from "lucide-react";
 import { SeeMore } from "./see-more";
 
 interface Props {
@@ -14,7 +14,7 @@ const { position } = Astro.props;
 <div>
     <div class="block w-full text-left">
         <div class="relative z-1 mb-1 flex items-center space-x-3">
-            <Code2 className="size-4 bg-background" />
+            <GraduationCapIcon className="size-4 bg-background" />
             <h3 class="text-base font-black underline-offset-4">
                 {position.title}
             </h3>
