@@ -36,7 +36,6 @@ const { title, description, backLink } = Astro.props;
                 )
             }
         </Pattern>
-
         <Box>
             <BoxHeader>
                 <BoxTitle className="text-2xl !font-black">{capitalizeFirstLetter(title)}</BoxTitle>
@@ -45,8 +44,8 @@ const { title, description, backLink } = Astro.props;
                 {description}
             </BoxContent>
         </Box>
-
         <slot />
+        <Pattern />
     </main>
     <SiteFooter />
 </SiteLayout>

@@ -33,7 +33,6 @@ const { page } = Astro.props;
     description="Exploring programming, frontend, backend, and full-stack developmen deep dives, series, and hands-on insights."
 >
     <Pattern />
-
     <Box>
         <BoxHeader>
             <BoxTitle>Series</BoxTitle>
@@ -44,9 +43,7 @@ const { page } = Astro.props;
             </div>
         </BoxContent>
     </Box>
-
     <Pattern />
-
     <Box>
         <BoxHeader>
             <BoxTitle>Categories</BoxTitle>
@@ -57,9 +54,7 @@ const { page } = Astro.props;
             </div>
         </BoxContent>
     </Box>
-
     <Pattern />
-
     <Box>
         <BoxHeader>
             <BoxTitle>Articles</BoxTitle>
@@ -67,11 +62,6 @@ const { page } = Astro.props;
         <div class="flex w-full flex-col items-start justify-start divide-y divide-border">
             {page.data.map(article => <ArticleItem article={article} />)}
         </div>
-
-        <div class="border-t py-2">
-            <Pagination page={page} />
-        </div>
+        <Pagination page={page} />
     </Box>
-
-    <Pattern />
 </PageLayout>

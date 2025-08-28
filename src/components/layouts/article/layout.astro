@@ -40,7 +40,6 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
 
 <SiteLayout title={`${title} - ${name}`} ogImage={image} description={description}>
     <SiteHeader className="top-1" />
-
     <main aria-label="Main content" class="min-h-screen">
         <div class="mx-auto max-w-3xl">
             <Pattern className="h-14">
@@ -48,22 +47,17 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
                     <ArrowLeft />
                 </LinkBtn>
             </Pattern>
-
             <Box>
                 <BoxHeader class="text-sm !font-medium text-muted-foreground">
                     {formattedDate} • {readTime}
                 </BoxHeader>
-
                 <Pattern className="screen-line-after" />
-
                 <BoxHeader>
                     <BoxTitle className="text-2xl !font-black md:text-3xl">{capitalizeFirstLetter(title)}</BoxTitle>
                 </BoxHeader>
-
                 <Pattern />
             </Box>
         </div>
-
         <div class="relative mx-auto flex max-w-3xl">
             <Box className="min-w-full">
                 <BoxContent className="pt-8">
@@ -72,11 +66,10 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
                     </article>
                 </BoxContent>
             </Box>
-
             <Toc headings={headings} />
         </div>
+        <Pattern />
     </main>
-
     <SiteFooter />
 </SiteLayout>
 
