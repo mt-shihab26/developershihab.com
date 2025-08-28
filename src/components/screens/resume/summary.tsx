@@ -2,7 +2,7 @@ import { Heading } from "./heading";
 
 export const Summary = () => {
     return (
-        <section className="space-y-2">
+        <section className="space-y-3">
             <Heading>Summary</Heading>
             <p className="leading-relaxed text-gray-800 dark:text-white">
                 Results-driven <strong>Software Engineer</strong> with <strong>4 years</strong> of comprehensive

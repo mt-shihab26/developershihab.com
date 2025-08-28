@@ -13,11 +13,11 @@ import { Summary } from "./summary";
 
 export const Resume = ({ image }: { image?: boolean }) => {
     return (
-        <div className="mx-auto w-full space-y-4 bg-white p-6 text-xs leading-5 text-gray-900 dark:bg-black dark:text-white">
+        <div className="mx-auto w-full space-y-3 bg-white p-6 text-xs leading-5 text-gray-900 dark:bg-black dark:text-white">
             <Header image={image} />
             <Summary />
 
-            <section className="space-y-2">
+            <section className="space-y-3">
                 <Heading>Experience</Heading>
                 {experiences.map((e, index) => (
                     <div key={index} className="space-y-2">
@@ -32,9 +32,9 @@ export const Resume = ({ image }: { image?: boolean }) => {
                                 {e.company.label}
                             </a>
                         </div>
-                        <div className="relative space-y-2 pl-1 before:absolute before:left-2.5 before:h-full before:w-px before:bg-gray-300 dark:before:bg-gray-600">
+                        <div className="relative space-y-3 pl-1 before:absolute before:left-2.5 before:h-full before:w-px before:bg-gray-300 dark:before:bg-gray-600">
                             {e.positions.map((position, positionIndex) => (
-                                <div key={positionIndex} className="space-y-1">
+                                <div key={positionIndex} className="space-y-2">
                                     <div className="relative z-10 flex items-center space-x-2">
                                         <Code2 className="size-3" />
                                         <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
@@ -42,7 +42,7 @@ export const Resume = ({ image }: { image?: boolean }) => {
                                         </h3>
                                     </div>
                                     <div className="pl-4 text-xs text-gray-700 dark:text-white">{position.year}</div>
-                                    <ul className="ml-8 list-disc space-y-1 text-xs text-gray-800 dark:text-white">
+                                    <ul className="ml-8 list-disc space-y-0.5 text-xs text-gray-800 dark:text-white">
                                         {position.description.map((desc, i) => (
                                             <li key={i} dangerouslySetInnerHTML={{ __html: markdownToHtml(desc) }}></li>
                                         ))}
@@ -54,13 +54,13 @@ export const Resume = ({ image }: { image?: boolean }) => {
                 ))}
             </section>
 
-            <section className="space-y-2">
+            <section className="space-y-3">
                 <Heading>Projects</Heading>
-                <ul className="space-y-1">
+                <ul className="space-y-2">
                     {projects
                         .filter(p => p.resume)
                         .map((project, index) => (
-                            <li key={index} className="space-y-1">
+                            <li key={index} className="space-y-0.5">
                                 <div className="flex items-center space-x-1">
                                     <span className="font-semibold text-gray-900 dark:text-white">{project.name}</span>
                                     <span className="text-xs text-gray-700 dark:text-white">
@@ -83,9 +83,9 @@ export const Resume = ({ image }: { image?: boolean }) => {
                 </ul>
             </section>
 
-            <section className="space-y-2">
+            <section className="space-y-3">
                 <Heading>Skills</Heading>
-                <ul className="space-y-1">
+                <ul className="space-y-1.5">
                     {skills.map((skill, i) => (
                         <li key={i} className="flex flex-wrap text-xs text-gray-800 dark:text-white">
                             <span className="pr-2 font-semibold text-gray-900 dark:text-white">{skill.title}:</span>
@@ -101,12 +101,12 @@ export const Resume = ({ image }: { image?: boolean }) => {
                 </ul>
             </section>
 
-            <section className="space-y-2">
+            <section className="space-y-3">
                 <Heading>Education</Heading>
                 {educations.map((edu, index) => (
                     <div key={index} className="space-y-2">
                         {edu.positions.map((position, positionIndex) => (
-                            <div key={positionIndex} className="space-y-1">
+                            <div key={positionIndex} className="space-y-2">
                                 <div className="text-xs text-gray-800 dark:text-white">
                                     <div className="text-gray-900 dark:text-white">
                                         <span className="font-semibold">{edu.institution.label}</span>
@@ -125,7 +125,7 @@ export const Resume = ({ image }: { image?: boolean }) => {
                                         {position.title} <span className="italic">({position.year})</span>
                                     </div>
                                 </div>
-                                <ul className="ml-5 list-disc space-y-1 text-xs text-gray-800 dark:text-white">
+                                <ul className="ml-5 list-disc space-y-0.5 text-xs text-gray-800 dark:text-white">
                                     {position.description.map((desc, i) => (
                                         <li key={i} dangerouslySetInnerHTML={{ __html: markdownToHtml(desc) }}></li>
                                     ))}
