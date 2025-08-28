@@ -6,10 +6,10 @@ export const Skills = () => {
     return (
         <section className="space-y-3">
             <Heading>Skills</Heading>
-            <div className="space-y-4">
+            <div className="space-y-3">
                 {skills.map((category, categoryIndex) => (
                     <div key={categoryIndex}>
-                        <h4 className="mb-2 font-semibold text-gray-900 dark:text-white">{category.label}</h4>
+                        <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">{category.label}</h4>
                         <div className="text-xs">
                             {category.items.map((skill, index) => (
                                 <span key={index}>

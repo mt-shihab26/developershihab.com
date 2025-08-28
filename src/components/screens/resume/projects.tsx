@@ -8,40 +8,33 @@ export const Projects = () => {
     return (
         <section className="space-y-3">
             <Heading>Projects</Heading>
-            {projects.map((project, index) => (
-                <div key={index} className="space-y-2">
-                    <div className="flex items-center space-x-2">
-                        <span className="size-1.5 rounded-full bg-gray-600 dark:bg-gray-400" />
-                        {project.preview || project.sourceCode ? (
-                            <a
-                                href={project.preview || project.sourceCode}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-sm font-semibold hover:underline"
-                            >
-                                {project.name}
-                            </a>
-                        ) : (
-                            <h3 className="text-sm font-semibold underline-offset-6">{project.name}</h3>
-                        )}
+            <div className="space-y-3">
+                {projects.map((project, index) => (
+                    <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700">
+                        <div className="mb-2 flex items-center space-x-3">
+                            <span className="h-2 w-2 rounded-full bg-gray-600" />
+                            {project.preview || project.sourceCode ? (
+                                <a
+                                    href={project.preview || project.sourceCode}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-sm font-bold text-gray-900 hover:underline dark:text-white"
+                                >
+                                    {project.name}
+                                </a>
+                            ) : (
+                                <h3 className="text-sm font-bold text-gray-900 dark:text-white">{project.name}</h3>
+                            )}
+                        </div>
                         {project.technologies.length > 0 && (
-                            <>
-                                (
-                                <div className="flex flex-wrap gap-1.5">
-                                    {project.technologies.map((technology, techIndex) => (
-                                        <span key={techIndex}>
-                                            {technology}
-                                            {techIndex < project.technologies.length - 1 && ', '}
-                                        </span>
-                                    ))}
-                                </div>
-                                )
-                            </>
+                            <div className="mb-1 pl-6 text-xs text-gray-600 dark:text-gray-400">
+                                ({project.technologies.join(', ')})
+                            </div>
                         )}
+                        <p className="pl-6 text-xs text-gray-800 dark:text-white">{project.description}</p>
                     </div>
-                    <p className="pl-4 text-xs">{project.description}</p>
-                </div>
-            ))}
+                ))}
+            </div>
         </section>
     );
 };
