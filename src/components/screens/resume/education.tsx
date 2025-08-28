@@ -1,6 +1,7 @@
 import { markdownToHtml } from "@/lib/utils";
 
 import { educations } from "@/lib/educations";
+import { GraduationCap } from "lucide-react";
 
 import { Heading } from "./heading";
 
@@ -9,34 +10,36 @@ export const Education = () => {
         <section className="space-y-3">
             <Heading>Education</Heading>
             {educations.map((edu, index) => (
-                <div key={index} className="space-y-2">
-                    {edu.positions.map((position, positionIndex) => (
-                        <div key={positionIndex} className="space-y-2">
-                            <div className="text-xs text-gray-800 dark:text-white">
-                                <div className="text-gray-900 dark:text-white">
-                                    <span className="font-semibold">{edu.institution.label}</span>
-                                    {edu.institution.link && (
-                                        <a
-                                            href={edu.institution.link}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="ml-1 text-xs text-blue-600 hover:underline dark:text-blue-500"
-                                        >
-                                            [Link]
-                                        </a>
-                                    )}
+                <div key={index} className="space-y-4 border-b border-gray-200 pb-4 last:border-b-0 dark:border-gray-700">
+                    <div className="flex items-center space-x-4">
+                        <span className="h-2 w-2 rounded-full bg-gray-600" />
+                        <a 
+                            href={edu.institution.link} 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm font-bold text-gray-900 hover:underline dark:text-white"
+                        >
+                            {edu.institution.label}
+                        </a>
+                    </div>
+                    <div className="relative space-y-4 pl-1 before:absolute before:left-3 before:h-full before:w-px before:bg-gray-300 dark:before:bg-gray-600">
+                        {edu.positions.map((position, positionIndex) => (
+                            <div key={positionIndex}>
+                                <div className="relative z-10 mb-1 flex items-center space-x-3">
+                                    <GraduationCap className="h-4 w-4 bg-white dark:bg-black" />
+                                    <h3 className="text-xs font-bold">{position.title}</h3>
                                 </div>
-                                <div className="text-xs">
-                                    {position.title} <span className="italic">({position.year})</span>
-                                </div>
+                                <span className="block pl-7 text-xs text-gray-600 dark:text-gray-400">
+                                    {position.year}
+                                </span>
+                                <ul className="ml-7 mt-2 list-disc space-y-0.5 text-xs text-gray-800 dark:text-white">
+                                    {position.description.map((desc, i) => (
+                                        <li key={i} dangerouslySetInnerHTML={{ __html: markdownToHtml(desc) }}></li>
+                                    ))}
+                                </ul>
                             </div>
-                            <ul className="ml-5 list-disc space-y-0.5 text-xs text-gray-800 dark:text-white">
-                                {position.description.map((desc, i) => (
-                                    <li key={i} dangerouslySetInnerHTML={{ __html: markdownToHtml(desc) }}></li>
-                                ))}
-                            </ul>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             ))}
         </section>
