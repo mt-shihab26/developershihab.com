@@ -1,9 +1,8 @@
 ---
 import { name } from "@/lib/information";
+import { avatar } from "@/lib/files";
 
 import { Picture } from "astro:assets";
-
-import ImgAvatar from "../../../../public/avatar.jpg";
 
 interface Props {
     className?: string;
@@ -23,7 +22,7 @@ const formats = ["avif", "webp"];
 
 <Picture
     class:list={[className]}
-    src={ImgAvatar}
+    src={avatar}
     widths={[size, size * 2]}
     sizes={`(max-width: ${size}px) 100vw, ${size}px`}
     formats={formats}

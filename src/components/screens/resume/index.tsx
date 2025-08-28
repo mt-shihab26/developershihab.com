@@ -3,19 +3,22 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 import { educations, experiences } from "./experiences";
-import { avatar, bio, links, location, name } from "./personal";
 import { projects } from "./projects";
 import { certifications, skills } from "./skills";
 
-import { Github, Globe, Linkedin } from "lucide-react";
+import { avatar } from "@/lib/files";
+import { bio, email, github, linkedin, location, name, phone, website } from "@/lib/information";
+
+import { GitHubDark, GitHubLight, LinkedIn } from "developer-icons";
+import { Globe } from "lucide-react";
 
 const Heading = ({ children }: { children: ReactNode }) => (
-    <h2 className="border-b pb-1 text-sm font-bold text-blue-600 dark:text-blue-500 uppercase">{children}</h2>
+    <h2 className="border-b pb-1 text-sm font-bold text-blue-600 uppercase dark:text-blue-500">{children}</h2>
 );
 
-export const Resume = ({ image }: { image?: boolean }) => {
+export const Resume = ({ image = true }: { image?: boolean }) => {
     return (
-        <div className="mx-auto w-full space-y-4 bg-white dark:bg-black p-6 text-xs leading-5 text-gray-900 dark:text-white">
+        <div className="mx-auto w-full space-y-4 bg-white p-6 text-xs leading-5 text-gray-900 dark:bg-black dark:text-white">
             <header
                 className={cn("flex gap-3", {
                     "flex-col items-center text-center": !image,
@@ -24,12 +27,12 @@ export const Resume = ({ image }: { image?: boolean }) => {
             >
                 {image && (
                     <div className="h-20 w-20 overflow-hidden rounded-full">
-                        <img src={avatar} alt="Profile" className="h-full w-full object-cover" />
+                        <img src={avatar.src} alt="Profile" className="h-full w-full object-cover" />
                     </div>
                 )}
 
                 <div className={cn("space-y-1", { "text-center": !image })}>
-                    <h1 className="text-xl font-bold text-gray-900 dark:text-white uppercase">{name}</h1>
+                    <h1 className="text-xl font-bold text-gray-900 uppercase dark:text-white">{name}</h1>
                     <div
                         className={cn("flex flex-wrap items-center gap-1 text-xs text-gray-700 dark:text-white", {
                             "justify-center": !image,
@@ -39,7 +42,7 @@ export const Resume = ({ image }: { image?: boolean }) => {
                         <span className="mx-1">•</span>
                         <span>{location}</span>
                         <span className="mx-1">•</span>
-                        <span>{links.phone}</span>
+                        <span>{phone}</span>
                     </div>
                     <div
                         className={cn("flex flex-wrap items-center gap-3 text-blue-600 dark:text-blue-500", {
@@ -47,39 +50,40 @@ export const Resume = ({ image }: { image?: boolean }) => {
                         })}
                     >
                         <a
-                            href={`mailto:${links.email}`}
+                            href={`mailto:${email}`}
                             className="text-xs hover:underline"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            {links.email}
+                            {email}
                         </a>
                         <a
-                            href={links.website}
+                            href={website}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-1 text-xs hover:text-blue-700 dark:hover:text-blue-400"
+                            className="flex items-center gap-1 text-xs hover:text-blue-700 hover:underline dark:hover:text-blue-400"
                         >
                             <Globe className="h-3 w-3" />
-                            <span>{links.website.replace(/^https?:\/\//, "")}</span>
+                            <span>{website.replace(/^https?:\/\//, "")}</span>
                         </a>
                         <a
-                            href={links.github}
+                            href={github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-1 text-xs hover:text-blue-700 dark:hover:text-blue-400"
+                            className="flex items-center gap-1 text-xs hover:text-blue-700 hover:underline dark:hover:text-blue-400"
                         >
-                            <Github className="h-3 w-3" />
-                            <span>{links.github.split("github.com/")[1]}</span>
+                            <GitHubDark className="h-3 w-3 dark:hidden" />
+                            <GitHubLight className="hidden h-3 w-3 dark:block" />
+                            <span>{github.split("github.com/")[1]}</span>
                         </a>
                         <a
-                            href={links.linkedin}
+                            href={linkedin}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-1 text-xs hover:text-blue-700 dark:hover:text-blue-400"
+                            className="flex items-center gap-1 text-xs hover:text-blue-700 hover:underline dark:hover:text-blue-400"
                         >
-                            <Linkedin className="h-3 w-3" />
-                            <span>{links.linkedin.split("linkedin.com/in/")[1]}</span>
+                            <LinkedIn className="h-3 w-3" />
+                            <span>{linkedin.split("linkedin.com/in/")[1]}</span>
                         </a>
                     </div>
                 </div>
@@ -102,13 +106,13 @@ export const Resume = ({ image }: { image?: boolean }) => {
                     <div key={index} className="space-y-1">
                         <h3 className="text-sm">
                             <span className="font-semibold text-gray-900 dark:text-white">{e.company}</span> —{" "}
-                            <span className="font-normal text-gray-700 dark:text-white italic">{e.role}</span>
+                            <span className="font-normal text-gray-700 italic dark:text-white">{e.role}</span>
                             {e.link && (
                                 <a
                                     href={e.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="ml-1 text-xs text-blue-600 dark:text-blue-500 hover:underline"
+                                    className="ml-1 text-xs text-blue-600 hover:underline dark:text-blue-500"
                                 >
                                     [Link]
                                 </a>
@@ -135,13 +139,15 @@ export const Resume = ({ image }: { image?: boolean }) => {
                             <li key={index} className="space-y-1">
                                 <div className="flex items-center space-x-1">
                                     <span className="font-semibold text-gray-900 dark:text-white">{project.name}</span>
-                                    <span className="text-xs text-gray-700 dark:text-white">({project.technologies.join(", ")})</span>
+                                    <span className="text-xs text-gray-700 dark:text-white">
+                                        ({project.technologies.join(", ")})
+                                    </span>
                                     {project.liveLink && (
                                         <a
                                             href={project.liveLink}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="ml-1 text-xs text-blue-600 dark:text-blue-500 hover:underline"
+                                            className="ml-1 text-xs text-blue-600 hover:underline dark:text-blue-500"
                                         >
                                             [Link]
                                         </a>
@@ -161,7 +167,8 @@ export const Resume = ({ image }: { image?: boolean }) => {
                             <span className="pr-2 font-semibold text-gray-900 dark:text-white">{skill.title}:</span>
                             {skill.items.map((item, index) => (
                                 <span key={index}>
-                                    {index !== 0 && ","} <span className="font-medium text-gray-900 dark:text-white">{item.name}</span>{" "}
+                                    {index !== 0 && ","}{" "}
+                                    <span className="font-medium text-gray-900 dark:text-white">{item.name}</span>{" "}
                                     {item.duration && <span className="font-normal">({item?.duration})</span>}
                                 </span>
                             ))}
@@ -181,7 +188,7 @@ export const Resume = ({ image }: { image?: boolean }) => {
                                     href={edu.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="ml-1 text-xs text-blue-600 dark:text-blue-500 hover:underline"
+                                    className="ml-1 text-xs text-blue-600 hover:underline dark:text-blue-500"
                                 >
                                     [Link]
                                 </a>
@@ -208,7 +215,7 @@ export const Resume = ({ image }: { image?: boolean }) => {
                                     href={cert.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="ml-1 text-blue-500 dark:text-blue-500 hover:underline"
+                                    className="ml-1 text-blue-500 hover:underline dark:text-blue-500"
                                 >
                                     [Link]
                                 </a>
