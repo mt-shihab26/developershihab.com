@@ -1,6 +1,5 @@
-import { markdownToHtml } from "@/lib/utils";
-
 import { experiences } from "@/lib/experiences";
+import { markdownToHtml } from "@/lib/utils";
 
 import { Code2 } from "lucide-react";
 import { Heading } from "./heading";

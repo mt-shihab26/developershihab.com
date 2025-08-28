@@ -1,8 +1,7 @@
+import { educations } from "@/lib/educations";
 import { markdownToHtml } from "@/lib/utils";
 
-import { educations } from "@/lib/educations";
 import { GraduationCap } from "lucide-react";
-
 import { Heading } from "./heading";
 
 export const Education = () => {
@@ -10,11 +9,14 @@ export const Education = () => {
         <section className="space-y-3">
             <Heading>Education</Heading>
             {educations.map((edu, index) => (
-                <div key={index} className="space-y-4 border-b border-gray-200 pb-4 last:border-b-0 dark:border-gray-700">
+                <div
+                    key={index}
+                    className="space-y-4 border-b border-gray-200 pb-4 last:border-b-0 dark:border-gray-700"
+                >
                     <div className="flex items-center space-x-4">
                         <span className="h-2 w-2 rounded-full bg-gray-600" />
-                        <a 
-                            href={edu.institution.link} 
+                        <a
+                            href={edu.institution.link}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-sm font-bold text-gray-900 hover:underline dark:text-white"
@@ -32,7 +34,7 @@ export const Education = () => {
                                 <span className="block pl-7 text-xs text-gray-600 dark:text-gray-400">
                                     {position.year}
                                 </span>
-                                <ul className="ml-7 mt-2 list-disc space-y-0.5 text-xs text-gray-800 dark:text-white">
+                                <ul className="mt-2 ml-7 list-disc space-y-0.5 text-xs text-gray-800 dark:text-white">
                                     {position.description.map((desc, i) => (
                                         <li key={i} dangerouslySetInnerHTML={{ __html: markdownToHtml(desc) }}></li>
                                     ))}
