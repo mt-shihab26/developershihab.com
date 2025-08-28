@@ -16,7 +16,7 @@ const Heading = ({ children }: { children: ReactNode }) => (
     <h2 className="border-b pb-1 text-sm font-bold text-blue-600 uppercase dark:text-blue-500">{children}</h2>
 );
 
-export const Resume = ({ image = true }: { image?: boolean }) => {
+export const Resume = ({ image }: { image?: boolean }) => {
     return (
         <div className="mx-auto w-full space-y-4 bg-white p-6 text-xs leading-5 text-gray-900 dark:bg-black dark:text-white">
             <header
