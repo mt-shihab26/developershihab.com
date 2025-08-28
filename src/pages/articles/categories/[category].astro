@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 
 import ArticleItem from "@/components/ui/article-item.astro";
+
 import Pattern from "@/components/ui/pattern.astro";
 import Box from "@/components/ui/box-index.astro";
 import BoxTitle from "@/components/ui/box-title.astro";
@@ -23,7 +24,7 @@ const categoryArticles = articels.filter(article => article.data.category === ca
 
 // Page properties
 const title = category;
-const description = `Exploring ${category} insights, lessons, and discoveries from my software engineering journey.`;
+const description = `Exploring ${category} insights, lessons, and discoveries from my programming journey.`;
 ---
 
 <PageLayout backLink="/articles" description={description} title={title}>

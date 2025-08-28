@@ -9,6 +9,6 @@ export const website = "https://developershihab.com";
 export const desc = "My digital space, projects, insights, and thoughts on software engineering.";
 export const ogImage = "/og-image.jpg";
 export const pageType = "website";
-export const postPerPage = 6;
+export const postPerPage = 10;
 
 export const title = `${name} - ${role}`;
