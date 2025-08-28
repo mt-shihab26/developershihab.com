@@ -29,7 +29,10 @@ export const Projects = () => {
                                 (
                                 <div className="flex flex-wrap gap-1.5">
                                     {project.technologies.map((technology, techIndex) => (
-                                        <span key={techIndex}>{technology}</span>
+                                        <span key={techIndex}>
+                                            {technology}
+                                            {techIndex < project.technologies.length - 1 && ', '}
+                                        </span>
                                     ))}
                                 </div>
                                 )
