@@ -10,12 +10,12 @@ import { certifications, skills } from "./skills";
 import { Github, Globe, Linkedin } from "lucide-react";
 
 const Heading = ({ children }: { children: ReactNode }) => (
-    <h2 className="border-b pb-1 text-sm font-bold text-blue-500 uppercase">{children}</h2>
+    <h2 className="border-b pb-1 text-sm font-bold text-blue-600 dark:text-blue-500 uppercase">{children}</h2>
 );
 
 export const Resume = ({ image }: { image?: boolean }) => {
     return (
-        <div className="mx-auto w-full space-y-4 bg-white p-6 text-xs leading-5 text-gray-900">
+        <div className="mx-auto w-full space-y-4 bg-white dark:bg-black p-6 text-xs leading-5 text-gray-900 dark:text-white">
             <header
                 className={cn("flex gap-3", {
                     "flex-col items-center text-center": !image,
@@ -29,9 +29,9 @@ export const Resume = ({ image }: { image?: boolean }) => {
                 )}
 
                 <div className={cn("space-y-1", { "text-center": !image })}>
-                    <h1 className="text-xl font-bold text-black uppercase">{name}</h1>
+                    <h1 className="text-xl font-bold text-gray-900 dark:text-white uppercase">{name}</h1>
                     <div
-                        className={cn("flex flex-wrap items-center gap-1 text-xs text-gray-900", {
+                        className={cn("flex flex-wrap items-center gap-1 text-xs text-gray-700 dark:text-white", {
                             "justify-center": !image,
                         })}
                     >
@@ -42,7 +42,7 @@ export const Resume = ({ image }: { image?: boolean }) => {
                         <span>{links.phone}</span>
                     </div>
                     <div
-                        className={cn("flex flex-wrap items-center gap-3 text-blue-500", {
+                        className={cn("flex flex-wrap items-center gap-3 text-blue-600 dark:text-blue-500", {
                             "justify-center": !image,
                         })}
                     >
@@ -58,7 +58,7 @@ export const Resume = ({ image }: { image?: boolean }) => {
                             href={links.website}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-1 text-xs hover:text-blue-600"
+                            className="flex items-center gap-1 text-xs hover:text-blue-700 dark:hover:text-blue-400"
                         >
                             <Globe className="h-3 w-3" />
                             <span>{links.website.replace(/^https?:\/\//, "")}</span>
@@ -67,7 +67,7 @@ export const Resume = ({ image }: { image?: boolean }) => {
                             href={links.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-1 text-xs hover:text-blue-600"
+                            className="flex items-center gap-1 text-xs hover:text-blue-700 dark:hover:text-blue-400"
                         >
                             <Github className="h-3 w-3" />
                             <span>{links.github.split("github.com/")[1]}</span>
@@ -76,7 +76,7 @@ export const Resume = ({ image }: { image?: boolean }) => {
                             href={links.linkedin}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-1 text-xs hover:text-blue-600"
+                            className="flex items-center gap-1 text-xs hover:text-blue-700 dark:hover:text-blue-400"
                         >
                             <Linkedin className="h-3 w-3" />
                             <span>{links.linkedin.split("linkedin.com/in/")[1]}</span>
@@ -87,7 +87,7 @@ export const Resume = ({ image }: { image?: boolean }) => {
 
             <section className="space-y-2">
                 <Heading>Summary</Heading>
-                <p className="leading-relaxed text-gray-900">
+                <p className="leading-relaxed text-gray-800 dark:text-white">
                     Full-stack developer with over 3 years of hands-on experience building scalable web applications
                     using React, Laravel, and WordPress. I have a solid foundation in data structures and algorithms,
                     having solved more than 1100 problems across various platforms. I am passionate about writing clean,
@@ -101,23 +101,23 @@ export const Resume = ({ image }: { image?: boolean }) => {
                 {experiences.map((e, index) => (
                     <div key={index} className="space-y-1">
                         <h3 className="text-sm">
-                            <span className="font-semibold text-black">{e.company}</span> —{" "}
-                            <span className="font-normal text-gray-900 italic">{e.role}</span>
+                            <span className="font-semibold text-gray-900 dark:text-white">{e.company}</span> —{" "}
+                            <span className="font-normal text-gray-700 dark:text-white italic">{e.role}</span>
                             {e.link && (
                                 <a
                                     href={e.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="ml-1 text-xs text-blue-500 hover:underline"
+                                    className="ml-1 text-xs text-blue-600 dark:text-blue-500 hover:underline"
                                 >
                                     [Link]
                                 </a>
                             )}
                         </h3>
-                        <div className="text-xs text-gray-900">
+                        <div className="text-xs text-gray-700 dark:text-white">
                             {e.location} | {e.start} - {e.end}
                         </div>
-                        <ul className="ml-5 list-disc space-y-1 text-xs text-gray-800">
+                        <ul className="ml-5 list-disc space-y-1 text-xs text-gray-800 dark:text-white">
                             {e.highlights.map((highlight, i) => (
                                 <li key={i}>{highlight}</li>
                             ))}
@@ -134,20 +134,20 @@ export const Resume = ({ image }: { image?: boolean }) => {
                         .map((project, index) => (
                             <li key={index} className="space-y-1">
                                 <div className="flex items-center space-x-1">
-                                    <span className="font-semibold text-black">{project.name}</span>
-                                    <span className="text-xs text-gray-900">({project.technologies.join(", ")})</span>
+                                    <span className="font-semibold text-gray-900 dark:text-white">{project.name}</span>
+                                    <span className="text-xs text-gray-700 dark:text-white">({project.technologies.join(", ")})</span>
                                     {project.liveLink && (
                                         <a
                                             href={project.liveLink}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="ml-1 text-xs text-blue-500 hover:underline"
+                                            className="ml-1 text-xs text-blue-600 dark:text-blue-500 hover:underline"
                                         >
                                             [Link]
                                         </a>
                                     )}
                                 </div>
-                                <p className="text-xs text-gray-800">{project.description}</p>
+                                <p className="text-xs text-gray-800 dark:text-white">{project.description}</p>
                             </li>
                         ))}
                 </ul>
@@ -157,11 +157,11 @@ export const Resume = ({ image }: { image?: boolean }) => {
                 <Heading>Skills</Heading>
                 <ul className="space-y-1">
                     {skills.map((skill, i) => (
-                        <li key={i} className="flex flex-wrap text-xs text-gray-900">
-                            <span className="pr-2 font-semibold text-black">{skill.title}:</span>
+                        <li key={i} className="flex flex-wrap text-xs text-gray-800 dark:text-white">
+                            <span className="pr-2 font-semibold text-gray-900 dark:text-white">{skill.title}:</span>
                             {skill.items.map((item, index) => (
                                 <span key={index}>
-                                    {index !== 0 && ","} <span className="font-medium text-black">{item.name}</span>{" "}
+                                    {index !== 0 && ","} <span className="font-medium text-gray-900 dark:text-white">{item.name}</span>{" "}
                                     {item.duration && <span className="font-normal">({item?.duration})</span>}
                                 </span>
                             ))}
@@ -173,15 +173,15 @@ export const Resume = ({ image }: { image?: boolean }) => {
             <section className="space-y-2">
                 <Heading>Education</Heading>
                 {educations.map((edu, index) => (
-                    <div key={index} className="text-xs text-gray-900">
-                        <div className="text-black">
+                    <div key={index} className="text-xs text-gray-800 dark:text-white">
+                        <div className="text-gray-900 dark:text-white">
                             <span className="font-semibold">{edu.institution}</span>
                             {edu.link && (
                                 <a
                                     href={edu.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="ml-1 text-xs text-blue-500 hover:underline"
+                                    className="ml-1 text-xs text-blue-600 dark:text-blue-500 hover:underline"
                                 >
                                     [Link]
                                 </a>
@@ -196,11 +196,11 @@ export const Resume = ({ image }: { image?: boolean }) => {
 
             <section className="space-y-2">
                 <Heading>Certifications</Heading>
-                <ul className="ml-5 list-disc space-y-1 text-xs text-gray-800">
+                <ul className="ml-5 list-disc space-y-1 text-xs text-gray-800 dark:text-white">
                     {certifications.map((cert, index) => (
                         <li key={index}>
                             <span>
-                                <span className="font-medium text-black">{cert.name}</span> —{" "}
+                                <span className="font-medium text-gray-900 dark:text-white">{cert.name}</span> —{" "}
                                 <span className="italic">{cert.date}</span>
                             </span>
                             {cert.link && (
@@ -208,7 +208,7 @@ export const Resume = ({ image }: { image?: boolean }) => {
                                     href={cert.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="ml-1 text-blue-500 hover:underline"
+                                    className="ml-1 text-blue-500 dark:text-blue-500 hover:underline"
                                 >
                                     [Link]
                                 </a>
