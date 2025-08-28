@@ -1,6 +1,8 @@
-import { projects } from "./projects";
+import { getProjects } from "@/lib/projects";
 
 import { Heading } from "./heading";
+
+const projects = getProjects();
 
 export const Projects = () => {
     return (
@@ -8,7 +10,7 @@ export const Projects = () => {
             <Heading>Projects</Heading>
             <ul className="space-y-2 pl-1">
                 {projects
-                    .filter(p => p.resume)
+                    .filter(p => true)
                     .map((project, index) => (
                         <li key={index} className="space-y-0.5">
                             <div className="flex items-center space-x-1">
