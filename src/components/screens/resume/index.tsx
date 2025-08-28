@@ -1,9 +1,9 @@
 import { markdownToHtml } from "@/lib/utils";
 
 import { educations } from "@/lib/educations";
+import { skills } from "@/lib/skills";
 
 import { Projects } from "./projects";
-import { skills } from "./skills";
 
 import { Experience } from "./experience";
 import { Header } from "./header";
@@ -20,20 +20,21 @@ export const Resume = ({ image }: { image?: boolean }) => {
 
             <section className="space-y-3">
                 <Heading>Skills</Heading>
-                <ul className="space-y-1.5">
-                    {skills.map((skill, i) => (
-                        <li key={i} className="flex flex-wrap text-xs text-gray-800 dark:text-white">
-                            <span className="pr-2 font-semibold text-gray-900 dark:text-white">{skill.title}:</span>
-                            {skill.items.map((item, index) => (
-                                <span key={index}>
-                                    {index !== 0 && ","}{" "}
-                                    <span className="font-medium text-gray-900 dark:text-white">{item.name}</span>{" "}
-                                    {item.duration && <span className="font-normal">({item?.duration})</span>}
-                                </span>
-                            ))}
-                        </li>
+                <div className="space-y-4">
+                    {skills.map((category, categoryIndex) => (
+                        <div key={categoryIndex}>
+                            <h4 className="font-semibold text-gray-900 dark:text-white mb-2">{category.label}</h4>
+                            <div className="flex flex-wrap gap-2">
+                                {category.items.map((skill, index) => (
+                                    <div key={index} className="flex items-center gap-1 bg-gray-100 dark:bg-gray-800 rounded px-2 py-1">
+                                        {skill.icon && <skill.icon className="w-3 h-3" />}
+                                        <span className="text-xs font-medium">{skill.title}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     ))}
-                </ul>
+                </div>
             </section>
 
             <section className="space-y-3">

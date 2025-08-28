@@ -55,92 +55,38 @@ import BoxContent from "@/components/ui/box-content.astro";
         </div>
 
         <div class="space-y-6">
-            <div>
-                <h3 class="mb-3 text-lg font-semibold">Languages</h3>
-                <div
-                    class="grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-3"
-                    style="content-visibility: auto; contain-intrinsic-size: auto 48px;"
-                >
-                    {
-                        skills.languages.map(item => (
-                            <a
-                                href={item.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class:list={[
-                                    "flex h-10 min-w-[120px] items-center gap-2 rounded-md border border-solid bg-blue-50/10 p-2",
-                                    "transition-all duration-200 hover:bg-blue-50/20",
-                                ]}
-                            >
-                                {item.icon && (
-                                    <span class="flex size-5 items-center justify-center">
-                                        <item.icon className="size-5" />
-                                    </span>
-                                )}
-                                <span class="truncate text-sm">{item.title}</span>
-                            </a>
-                        ))
-                    }
-                </div>
-            </div>
-
-            <div>
-                <h3 class="mb-3 text-lg font-semibold">Frameworks</h3>
-                <div
-                    class="grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-3"
-                    style="content-visibility: auto; contain-intrinsic-size: auto 48px;"
-                >
-                    {
-                        skills.frameworks.map(item => (
-                            <a
-                                href={item.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class:list={[
-                                    "flex h-10 min-w-[120px] items-center gap-2 rounded-md border border-solid bg-green-50/10 p-2",
-                                    "transition-all duration-200 hover:bg-green-50/20",
-                                ]}
-                            >
-                                {item.icon && (
-                                    <span class="flex size-5 items-center justify-center">
-                                        <item.icon className="size-5" />
-                                    </span>
-                                )}
-                                <span class="truncate text-sm">{item.title}</span>
-                            </a>
-                        ))
-                    }
-                </div>
-            </div>
-
-            <div>
-                <h3 class="mb-3 text-lg font-semibold">Others</h3>
-                <div
-                    class="grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-3"
-                    style="content-visibility: auto; contain-intrinsic-size: auto 48px;"
-                >
-                    {
-                        skills.others.map(item => (
-                            <a
-                                href={item.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class:list={[
-                                    "flex h-10 min-w-[120px] items-center gap-2 rounded-md border border-solid bg-purple-50/10 p-2",
-                                    "transition-all duration-200 hover:bg-purple-50/20",
-                                ]}
-                            >
-                                {item.icon && (
-                                    <span class="flex size-5 items-center justify-center">
-                                        <item.icon className="size-5" />
-                                    </span>
-                                )}
-                                <span class="truncate text-sm">{item.title}</span>
-                            </a>
-                        ))
-                    }
-                </div>
-            </div>
+            {
+                skills.map(category => (
+                    <div>
+                        <h3 class="mb-3 text-lg font-semibold">{category.label}</h3>
+                        <div
+                            class="grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-3"
+                            style="content-visibility: auto; contain-intrinsic-size: auto 48px;"
+                        >
+                            {
+                                category.items.map(item => (
+                                    <a
+                                        href={item.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class:list={[
+                                            "flex h-10 min-w-[120px] items-center gap-2 rounded-md border border-solid bg-blue-50/10 p-2",
+                                            "transition-all duration-200 hover:bg-blue-50/20",
+                                        ]}
+                                    >
+                                        {item.icon && (
+                                            <span class="flex size-5 items-center justify-center">
+                                                <item.icon className="size-5" />
+                                            </span>
+                                        )}
+                                        <span class="truncate text-sm">{item.title}</span>
+                                    </a>
+                                ))
+                            }
+                        </div>
+                    </div>
+                ))
+            }
         </div>
     </BoxContent>
 </Box>
