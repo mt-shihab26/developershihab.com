@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { getCoreProjects, getSideProjects } from "@/lib/projects";
 
 import Pattern from "@/components/ui/pattern.astro";
 import Box from "@/components/ui/box-index.astro";
@@ -12,8 +13,8 @@ import ProjectItem from "@/components/screens/projects/project-item.astro";
 
 const projects = await getCollection("projects");
 
-const coreProjects = projects.filter(project => project.data.type === "core");
-const sideProjects = projects.filter(project => project.data.type === "side");
+const coreProjects = getCoreProjects(projects);
+const sideProjects = getSideProjects(projects);
 ---
 
 <PageLayout

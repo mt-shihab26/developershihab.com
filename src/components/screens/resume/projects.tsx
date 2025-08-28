@@ -1,9 +1,9 @@
-import { getProjects } from "@/lib/projects";
+import { getProjectsRow } from "@/lib/projects";
 
 import { Heading } from "./heading";
 
 export const Projects = () => {
-    const projects = (getProjects() || []).filter(project => project.resume === true);
+    const projects = (getProjectsRow() || []).filter(project => project.resume === true);
 
     return (
         <section className="space-y-3">
@@ -22,9 +22,7 @@ export const Projects = () => {
                                 {project.name}
                             </a>
                         ) : (
-                            <h3 className="text-sm font-semibold underline-offset-6">
-                                {project.name}
-                            </h3>
+                            <h3 className="text-sm font-semibold underline-offset-6">{project.name}</h3>
                         )}
                         {project.technologies.length > 0 && (
                             <>
@@ -38,7 +36,7 @@ export const Projects = () => {
                             </>
                         )}
                     </div>
-                    <p className="text-xs pl-4">{project.description}</p>
+                    <p className="pl-4 text-xs">{project.description}</p>
                 </div>
             ))}
         </section>

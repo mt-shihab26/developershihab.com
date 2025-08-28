@@ -9,4 +9,5 @@ export type TProject = {
     slug: string;
     content: string;
     resume?: boolean;
+    priority?: number;
 };

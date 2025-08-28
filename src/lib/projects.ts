@@ -1,4 +1,5 @@
 import type { TProject } from "@/types/content";
+import type { CollectionEntry } from "astro:content";
 
 import { readFileSync, readdirSync } from "fs";
 import { join } from "path";
@@ -7,9 +8,8 @@ import matter from "gray-matter";
 
 /**
  * Extracts YAML frontmatter and content from MDX files in the projects directory
- * @returns Array of project data objects
  */
-export const getProjects = (): TProject[] => {
+export const getProjectsRow = (): TProject[] => {
     const projectsDirectory = join(process.cwd(), "src/data/projects");
 
     try {
@@ -40,13 +40,19 @@ export const getProjects = (): TProject[] => {
                 slug,
                 content: content.trim(),
                 resume: data.resume || false,
+                priority: data.priority || 999,
             };
 
             projects.push(project);
         }
 
-        // Sort projects by start date (newest first)
+        // Sort projects by priority (lowest number first), then by start date (newest first)
         return projects.sort((a, b) => {
+            // First sort by priority
+            if (a.priority !== b.priority) {
+                return (a.priority || 999) - (b.priority || 999);
+            }
+            // If priority is the same, sort by start date (newest first)
             const dateA = new Date(a.startDate);
             const dateB = new Date(b.startDate);
             return dateB.getTime() - dateA.getTime();
@@ -55,4 +61,37 @@ export const getProjects = (): TProject[] => {
         console.error("Error reading projects data:", error);
         return [];
     }
+};
+
+/**
+ * Sorts Astro collection projects by priority (lower numbers first), then by name
+ */
+export const sortProjectsByPriority = (projects: CollectionEntry<"projects">[]): CollectionEntry<"projects">[] => {
+    return projects.sort((a, b) => {
+        const priorityA = a.data.priority || 999;
+        const priorityB = b.data.priority || 999;
+
+        if (priorityA !== priorityB) {
+            return priorityA - priorityB;
+        }
+
+        // If same priority, sort alphabetically by name as fallback
+        return a.data.name.localeCompare(b.data.name);
+    });
+};
+
+/**
+ * Filters and sorts core projects from Astro collection
+ */
+export const getCoreProjects = (projects: CollectionEntry<"projects">[]): CollectionEntry<"projects">[] => {
+    const sortedProjects = sortProjectsByPriority(projects);
+    return sortedProjects.filter(project => project.data.type === "core");
+};
+
+/**
+ * Filters and sorts side projects from Astro collection
+ */
+export const getSideProjects = (projects: CollectionEntry<"projects">[]): CollectionEntry<"projects">[] => {
+    const sortedProjects = sortProjectsByPriority(projects);
+    return sortedProjects.filter(project => project.data.type === "side");
 };
