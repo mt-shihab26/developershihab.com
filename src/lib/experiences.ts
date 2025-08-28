@@ -19,7 +19,7 @@ export const experiences: TExperience[] = [
         },
         positions: [
             {
-                title: "Full-stack Developer",
+                title: "Software Engineer",
                 year: "May 2023 – Present",
                 description: [
                     "Developed a **SaaS application** for [PaystubHero](https://paystubhero.com) that generates **3,000+ financial documents monthly**",
