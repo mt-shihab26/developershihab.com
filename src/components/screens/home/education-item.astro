@@ -14,11 +14,12 @@ const { education } = Astro.props;
     <div class="flex items-center space-x-4 px-2">
         <span class="size-2 rounded-full bg-foreground/60"></span>
 
-        <h3 class="text-xl font-black">
-            {education.company}
-        </h3>
+        <a href={education.institution.link} target="_blank">
+            <h3 class="text-xl font-black">
+                {education.institution.label}
+            </h3>
+        </a>
     </div>
-
     <div
         class="relative space-y-4 pl-1 before:absolute before:left-3 before:h-full before:w-px before:bg-border"
     >

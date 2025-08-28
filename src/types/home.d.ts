@@ -13,11 +13,10 @@ export type TExperience = {
 export type TEducationPosition = {
     title: string;
     year: string;
-    description: string;
-    skills: string[];
+    description: string[];
 };
 
 export type TEducation = {
-    company: string;
+    institution: { label: string; link: string };
     positions: TEducationPosition[];
 };

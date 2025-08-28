@@ -33,24 +33,13 @@ const { position } = Astro.props;
         <div
             class="description-content max-h-0 overflow-hidden transition-all duration-300"
         >
-            <div
-                class=""
-                set:html={markdownToHtml(
-                    position.description,
-                    "ml-7 text-sm leading-7"
-                )}
-            />
-
-            {
-                Array.isArray(position.skills) &&
-                    position.skills.length > 0 && (
-                        <div class="mt-2 ml-7 flex max-w-full flex-wrap items-center justify-start gap-1.5 py-2">
-                            {position.skills.map(skill => {
-                                return <Badge>{skill}</Badge>;
-                            })}
-                        </div>
-                    )
-            }
+            <div class="ml-7 text-sm leading-7">
+                {
+                    position.description.map(d => (
+                        <div set:html={markdownToHtml(d)} />
+                    ))
+                }
+            </div>
         </div>
 
         <button
