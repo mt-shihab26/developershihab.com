@@ -1,13 +1,13 @@
 ---
 import { getCollection } from "astro:content";
+
 import ArticleItem from "@/components/ui/article-item.astro";
-import PageLayout from "@/components/layouts/page-layout.astro";
-
 import Pattern from "@/components/ui/pattern.astro";
-
 import Box from "@/components/ui/box-index.astro";
 import BoxTitle from "@/components/ui/box-title.astro";
 import BoxHeader from "@/components/ui/box-header.astro";
+
+import PageLayout from "@/components/layouts/page/layout.astro";
 
 export async function getStaticPaths() {
     const articels = await getCollection("blog");

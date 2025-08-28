@@ -1,19 +1,19 @@
 ---
+import type { GetStaticPaths } from "astro";
+
+import { getCollection } from "astro:content";
+import { postPerPage } from "@/lib/information";
+
 import ArticleItem from "@/components/ui/article-item.astro";
 import Pattern from "@/components/ui/pattern.astro";
 import Box from "@/components/ui/box-index.astro";
 import BoxTitle from "@/components/ui/box-title.astro";
 import BoxHeader from "@/components/ui/box-header.astro";
 import BoxContent from "@/components/ui/box-content.astro";
-
 import LinkTag from "@/components/ui/link-tag.astro";
-
-import { getCollection } from "astro:content";
-
-import type { GetStaticPaths } from "astro";
 import Pagination from "@/components/ui/pagination.astro";
-import PageLayout from "@/components/layouts/page-layout.astro";
-import { postPerPage } from "@/lib/information";
+
+import PageLayout from "@/components/layouts/page/layout.astro";
 
 const articles = await getCollection("blog");
 const categories = [...new Set(articles.map(article => article.data.category))];
