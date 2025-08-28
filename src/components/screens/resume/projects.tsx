@@ -17,7 +17,7 @@ export const Projects = () => {
                                 href={project.preview || project.sourceCode}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-sm font-semibold underline-offset-6 hover:underline"
+                                className="text-sm font-semibold hover:underline"
                             >
                                 {project.name}
                             </a>

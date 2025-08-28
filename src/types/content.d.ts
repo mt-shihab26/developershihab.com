@@ -10,4 +10,5 @@ export type TProject = {
     content: string;
     resume?: boolean;
     priority?: number;
+    draft?: boolean;
 };

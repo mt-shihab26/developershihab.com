@@ -29,6 +29,7 @@ const projects = defineCollection({
             type: z.union([z.literal("core"), z.literal("side")]),
             resume: z.boolean().optional(),
             priority: z.number().optional(),
+            draft: z.boolean().optional(),
         }),
 });
 

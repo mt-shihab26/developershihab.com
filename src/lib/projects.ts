@@ -41,9 +41,13 @@ export const getProjectsRow = (): TProject[] => {
                 content: content.trim(),
                 resume: data.resume || false,
                 priority: data.priority || 999,
+                draft: data.draft || false,
             };
 
-            projects.push(project);
+            // Only add non-draft projects
+            if (!project.draft) {
+                projects.push(project);
+            }
         }
 
         // Sort projects by priority (lowest number first), then by start date (newest first)
@@ -64,20 +68,22 @@ export const getProjectsRow = (): TProject[] => {
 };
 
 /**
- * Sorts Astro collection projects by priority (lower numbers first), then by name
+ * Filters out draft projects and sorts by priority (lower numbers first), then by name
  */
 export const sortProjectsByPriority = (projects: CollectionEntry<"projects">[]): CollectionEntry<"projects">[] => {
-    return projects.sort((a, b) => {
-        const priorityA = a.data.priority || 999;
-        const priorityB = b.data.priority || 999;
+    return projects
+        .filter(project => !project.data.draft)
+        .sort((a, b) => {
+            const priorityA = a.data.priority || 999;
+            const priorityB = b.data.priority || 999;
 
-        if (priorityA !== priorityB) {
-            return priorityA - priorityB;
-        }
+            if (priorityA !== priorityB) {
+                return priorityA - priorityB;
+            }
 
-        // If same priority, sort alphabetically by name as fallback
-        return a.data.name.localeCompare(b.data.name);
-    });
+            // If same priority, sort alphabetically by name as fallback
+            return a.data.name.localeCompare(b.data.name);
+        });
 };
 
 /**
