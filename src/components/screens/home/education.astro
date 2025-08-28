@@ -48,7 +48,7 @@ export const education: TEducation[] = [
                         </a>
                     </div>
                     <div class="relative space-y-4 pl-1 before:absolute before:left-3 before:h-full before:w-px before:bg-border">
-                        {e.positions.map(position => (
+                        {e.positions.map((position, index) => (
                             <div>
                                 <div class="block w-full text-left">
                                     <div class="relative z-1 mb-1 flex items-center space-x-3">
@@ -62,6 +62,7 @@ export const education: TEducation[] = [
                                     </span>
                                 </div>
                                 <SeeMore
+                                    open={index == 0}
                                     items={position.description}
                                     client:load
                                 />
