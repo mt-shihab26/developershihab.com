@@ -8,4 +8,5 @@ export type TProject = {
     startDate: string;
     slug: string;
     content: string;
+    resume?: boolean;
 };

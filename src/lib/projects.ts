@@ -39,6 +39,7 @@ export const getProjects = (): TProject[] => {
                 startDate: data.startDate || "",
                 slug,
                 content: content.trim(),
+                resume: data.resume || false,
             };
 
             projects.push(project);

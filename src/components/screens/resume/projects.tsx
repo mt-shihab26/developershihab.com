@@ -3,7 +3,7 @@ import { getProjects } from "@/lib/projects";
 import { Heading } from "./heading";
 
 export const Projects = () => {
-    const projects = getProjects() || [];
+    const projects = (getProjects() || []).filter(project => project.resume === true);
 
     return (
         <section className="space-y-3">
@@ -38,7 +38,7 @@ export const Projects = () => {
                             </>
                         )}
                     </div>
-                    <p className="text-xs">{project.description}</p>
+                    <p className="text-xs pl-4">{project.description}</p>
                 </div>
             ))}
         </section>
