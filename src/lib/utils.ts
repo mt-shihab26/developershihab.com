@@ -32,10 +32,7 @@ export const getReadingTime = (text: string): string | undefined => {
     }
 };
 
-export const markdownToHtml = (
-    markdown: string,
-    className?: string
-): string => {
+export const markdownToHtml = (markdown: string, className?: string): string => {
     md.renderer.rules.paragraph_open = () => `<p class="${className}">`;
 
     return md.render(markdown);

@@ -6,15 +6,7 @@ import MarkdownIt from "markdown-it";
 
 const md = new MarkdownIt();
 
-export const SeeMore = ({
-    open: x,
-    items,
-    skills,
-}: {
-    open: boolean;
-    items: string[];
-    skills?: string[] | null;
-}) => {
+export const SeeMore = ({ open: x, items, skills }: { open: boolean; items: string[]; skills?: string[] | null }) => {
     const [show, setShow] = useState<boolean>(x || false);
 
     return (
@@ -50,11 +42,7 @@ export const SeeMore = ({
                 className="mt-2 ml-7 flex cursor-pointer items-center gap-1 rounded-md border px-4 py-2 text-xs font-medium text-primary hover:underline focus:outline-none"
             >
                 <span className="">{show ? "Show less" : "Show more"}</span>
-                {show ? (
-                    <ChevronUp className="size-4" />
-                ) : (
-                    <ChevronDown className="size-4" />
-                )}
+                {show ? <ChevronUp className="size-4" /> : <ChevronDown className="size-4" />}
             </button>
         </div>
     );

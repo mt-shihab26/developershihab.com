@@ -5,13 +5,7 @@ import { cn } from "@/lib/utils";
 import { Moon, Sun } from "lucide-react";
 ---
 
-<button
-    id="theme-toggle"
-    class={cn(
-        buttonVariants({ size: "icon", variant: "ghost" }),
-        "cursor-pointer rounded-full"
-    )}
->
+<button id="theme-toggle" class={cn(buttonVariants({ size: "icon", variant: "ghost" }), "cursor-pointer rounded-full")}>
     <Sun
         id="sun-icon"
         className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"
@@ -25,15 +19,10 @@ import { Moon, Sun } from "lucide-react";
 <script is:inline>
     // Check for theme preference in localStorage or system preference
     const getThemePreference = () => {
-        if (
-            typeof localStorage !== "undefined" &&
-            localStorage.getItem("theme")
-        ) {
+        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
             return localStorage.getItem("theme");
         }
-        return window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light";
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     };
 
     // Set theme on document and in localStorage
@@ -55,8 +44,7 @@ import { Moon, Sun } from "lucide-react";
 
         // Toggle theme function
         const toggleMode = () => {
-            const isDarkMode =
-                document.documentElement.classList.contains("dark");
+            const isDarkMode = document.documentElement.classList.contains("dark");
             const newTheme = isDarkMode ? "light" : "dark";
             setThemeAppearance(newTheme);
         };

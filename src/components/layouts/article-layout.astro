@@ -42,11 +42,7 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
     <main aria-label="Main content" class="min-h-screen">
         <div class="mx-auto max-w-3xl">
             <Pattern className="h-14">
-                <LinkBtn
-                    ariaLabel="Back link"
-                    className="absolute bottom-0 left-2 z-1"
-                    href="/articles"
-                >
+                <LinkBtn ariaLabel="Back link" className="absolute bottom-0 left-2 z-1" href="/articles">
                     <ArrowLeft />
                 </LinkBtn>
             </Pattern>
@@ -59,9 +55,7 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
                 <Pattern className="screen-line-after" />
 
                 <BoxHeader>
-                    <BoxTitle className="text-2xl !font-black md:text-3xl"
-                        >{capitalizeFirstLetter(title)}</BoxTitle
-                    >
+                    <BoxTitle className="text-2xl !font-black md:text-3xl">{capitalizeFirstLetter(title)}</BoxTitle>
                 </BoxHeader>
 
                 <Pattern />
@@ -88,8 +82,7 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
     document.addEventListener("astro:page-load", () => {
         function createProgressBar() {
             const progressContainer = document.createElement("div");
-            progressContainer.className =
-                "fixed duration-75 top-0 z-10 h-1 w-full bg-background";
+            progressContainer.className = "fixed duration-75 top-0 z-10 h-1 w-full bg-background";
 
             const progressBar = document.createElement("div");
             progressBar.className = "h-1 w-0 bg-blue-500";
@@ -106,12 +99,8 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
          * */
         function updateScrollProgress() {
             document.addEventListener("scroll", () => {
-                const winScroll =
-                    document.body.scrollTop ||
-                    document.documentElement.scrollTop;
-                const height =
-                    document.documentElement.scrollHeight -
-                    document.documentElement.clientHeight;
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                 const scrolled = Math.ceil((winScroll / height) * 100);
 
                 if (document) {
@@ -150,10 +139,7 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
             });
         }
 
-        async function copyCode(
-            block: HTMLPreElement,
-            button: HTMLButtonElement
-        ) {
+        async function copyCode(block: HTMLPreElement, button: HTMLButtonElement) {
             let code = block.querySelector("code");
             let text = code?.innerText;
 

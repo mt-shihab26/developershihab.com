@@ -8,7 +8,10 @@ import BoxTitle from "@/components/ui/box-title.astro";
 import BoxContent from "@/components/ui/box-content.astro";
 
 type TExperience = {
-    company: string;
+    company: {
+        label: string;
+        link: string;
+    };
     positions: {
         title: string;
         year: string;
@@ -19,7 +22,10 @@ type TExperience = {
 
 const experiences: TExperience[] = [
     {
-        company: "Finnext",
+        company: {
+            label: "Finnext",
+            link: "https://finnext.co",
+        },
         positions: [
             {
                 title: "Full-stack Developer",
@@ -46,7 +52,10 @@ const experiences: TExperience[] = [
         ],
     },
     {
-        company: "Systech Digital LTD",
+        company: {
+            label: "Systech Digital LTD",
+            link: "https://systechdigital.com",
+        },
         positions: [
             {
                 title: "Software Engineer Intern",
@@ -73,19 +82,17 @@ const experiences: TExperience[] = [
                 <div class="space-y-4 p-4 not-last:border-b">
                     <div class="flex items-center space-x-4 px-2">
                         <span class="size-2 rounded-full bg-foreground/60" />
-
-                        <h3 class="text-xl font-black">{e.company}</h3>
+                        <a href={e.company.link} target="_blank">
+                            <h3 class="text-xl font-black">{e.company.label}</h3>
+                        </a>
                     </div>
-
                     <div class="relative space-y-4 pl-1 before:absolute before:left-3 before:h-full before:w-px before:bg-border">
                         {e.positions.map(position => (
                             <div>
                                 <div class="block w-full text-left">
                                     <div class="relative z-1 mb-1 flex items-center space-x-3">
                                         <Code2 className="size-4 bg-background" />
-                                        <h3 class="text-base font-black underline-offset-4">
-                                            {position.title}
-                                        </h3>
+                                        <h3 class="text-base font-black underline-offset-4">{position.title}</h3>
                                     </div>
                                     <span class="flex items-center gap-2 pl-7 font-mono text-sm text-foreground">
                                         {position.year}

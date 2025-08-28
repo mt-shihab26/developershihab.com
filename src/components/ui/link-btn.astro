@@ -10,14 +10,7 @@ export interface Props {
     variant?: "default" | "ghost" | "secondary";
 }
 
-const {
-    href,
-    ariaLabel,
-    target,
-    className,
-    disabled = false,
-    variant = "ghost",
-} = Astro.props;
+const { href, ariaLabel, target, className, disabled = false, variant = "ghost" } = Astro.props;
 ---
 
 {
@@ -36,11 +29,7 @@ const {
         <a
             {href}
             {target}
-            class:list={[
-                buttonVariants({ size: "sm", variant }),
-                "!rounded-full",
-                className,
-            ]}
+            class:list={[buttonVariants({ size: "sm", variant }), "!rounded-full", className]}
             aria-label={ariaLabel}
         >
             <slot />

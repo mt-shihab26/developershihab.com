@@ -49,9 +49,7 @@ const educations: TEducation[] = [
                         <span class="size-2 rounded-full bg-foreground/60" />
 
                         <a href={e.institution.link} target="_blank">
-                            <h3 class="text-xl font-black">
-                                {e.institution.label}
-                            </h3>
+                            <h3 class="text-xl font-black">{e.institution.label}</h3>
                         </a>
                     </div>
                     <div class="relative space-y-4 pl-1 before:absolute before:left-3 before:h-full before:w-px before:bg-border">
@@ -60,19 +58,13 @@ const educations: TEducation[] = [
                                 <div class="block w-full text-left">
                                     <div class="relative z-1 mb-1 flex items-center space-x-3">
                                         <GraduationCapIcon className="size-4 bg-background" />
-                                        <h3 class="text-base font-black underline-offset-4">
-                                            {position.title}
-                                        </h3>
+                                        <h3 class="text-base font-black underline-offset-4">{position.title}</h3>
                                     </div>
                                     <span class="flex items-center gap-2 pl-7 font-mono text-sm text-foreground">
                                         {position.year}
                                     </span>
                                 </div>
-                                <SeeMore
-                                    open={index === 0}
-                                    items={position.description}
-                                    client:load
-                                />
+                                <SeeMore open={index === 0} items={position.description} client:load />
                             </div>
                         ))}
                     </div>

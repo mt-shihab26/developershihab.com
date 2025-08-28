@@ -27,8 +27,7 @@ interface Props {
     description: string;
 }
 
-const { title, technologies, description, preview, sourceCode, image } =
-    Astro.props;
+const { title, technologies, description, preview, sourceCode, image } = Astro.props;
 ---
 
 <Layout title={`${title}`} ogImage={image} description={description}>
@@ -36,9 +35,7 @@ const { title, technologies, description, preview, sourceCode, image } =
 
     <main class="mx-auto min-h-screen max-w-3xl" aria-label="Main content">
         <Pattern className="h-14">
-            <div
-                class="z-1 mx-2 mt-auto flex w-full items-center justify-between"
-            >
+            <div class="z-1 mx-2 mt-auto flex w-full items-center justify-between">
                 <LinkBtn ariaLabel="Back btn" href="/projects">
                     <ArrowLeft />
                 </LinkBtn>
@@ -78,9 +75,7 @@ const { title, technologies, description, preview, sourceCode, image } =
 
         <Box>
             <BoxHeader>
-                <BoxTitle className="text-2xl !font-black md:text-3xl"
-                    >{capitalizeFirstLetter(title)}</BoxTitle
-                >
+                <BoxTitle className="text-2xl !font-black md:text-3xl">{capitalizeFirstLetter(title)}</BoxTitle>
             </BoxHeader>
 
             <BoxContent className="space-y-4">

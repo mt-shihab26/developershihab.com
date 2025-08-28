@@ -30,11 +30,7 @@ const { title, description, backLink } = Astro.props;
         <Pattern className="h-14">
             {
                 backLink && (
-                    <LinkBtn
-                        ariaLabel="Back link"
-                        className="absolute bottom-0 left-2 z-1"
-                        href={backLink}
-                    >
+                    <LinkBtn ariaLabel="Back link" className="absolute bottom-0 left-2 z-1" href={backLink}>
                         <ArrowLeft />
                     </LinkBtn>
                 )
@@ -43,9 +39,7 @@ const { title, description, backLink } = Astro.props;
 
         <Box>
             <BoxHeader>
-                <BoxTitle className="text-2xl !font-black"
-                    >{capitalizeFirstLetter(title)}</BoxTitle
-                >
+                <BoxTitle className="text-2xl !font-black">{capitalizeFirstLetter(title)}</BoxTitle>
             </BoxHeader>
             <BoxContent>
                 {description}

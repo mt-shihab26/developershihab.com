@@ -1,4 +1,6 @@
 ---
+import { name, role, website, desc, ogImage as xOgImage, pageType as xPageType } from "@/lib/information";
+
 import "@/styles/global.css";
 
 import "@fontsource/geist-sans";
@@ -10,15 +12,6 @@ import "@fontsource/geist-sans/900.css";
 import "@fontsource/roboto-condensed/600.css";
 import "@fontsource/roboto-condensed/400.css";
 import "@fontsource/jetbrains-mono/400.css";
-
-import {
-    name,
-    role,
-    website,
-    desc,
-    ogImage as xOgImage,
-    pageType as xPageType,
-} from "@/lib/information";
 
 import { ClientRouter } from "astro:transitions";
 
@@ -65,15 +58,10 @@ const structuredData = {
 <script>
     document.addEventListener("astro:after-swap", () => {
         const getThemePreference = () => {
-            if (
-                typeof localStorage !== "undefined" &&
-                localStorage.getItem("theme")
-            ) {
+            if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
                 return localStorage.getItem("theme");
             }
-            return window.matchMedia("(prefers-color-scheme: dark)").matches
-                ? "dark"
-                : "light";
+            return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
         };
 
         const isDark = getThemePreference() === "dark";
@@ -81,8 +69,7 @@ const structuredData = {
 
         if (typeof localStorage !== "undefined") {
             const observer = new MutationObserver(() => {
-                const isDark =
-                    document.documentElement.classList.contains("dark");
+                const isDark = document.documentElement.classList.contains("dark");
                 localStorage.setItem("theme", isDark ? "dark" : "light");
             });
             observer.observe(document.documentElement, {
@@ -125,11 +112,7 @@ const structuredData = {
         <ClientRouter />
 
         <!-- Google JSON-LD Structured data -->
-        <script
-            type="application/ld+json"
-            is:inline
-            set:html={JSON.stringify(structuredData)}
-        />
+        <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
 
         <meta name="theme-color" content="" />
     </head>

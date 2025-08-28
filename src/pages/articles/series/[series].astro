@@ -21,9 +21,7 @@ export async function getStaticPaths() {
 const { series } = Astro.params;
 
 const articels = await getCollection("blog");
-const seiriesArticles = articels.filter(
-    article => article.data.series === series
-);
+const seiriesArticles = articels.filter(article => article.data.series === series);
 
 // Page properties
 const title = series;
@@ -37,9 +35,7 @@ const description = `Deep dive into ${series} a curated series from my software 
         <BoxHeader>
             <BoxTitle>Articles</BoxTitle>
         </BoxHeader>
-        <div
-            class="flex w-full flex-col items-start justify-start divide-y divide-border"
-        >
+        <div class="flex w-full flex-col items-start justify-start divide-y divide-border">
             {seiriesArticles.map(article => <ArticleItem article={article} />)}
         </div>
     </Box>
