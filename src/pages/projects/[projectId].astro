@@ -1,7 +1,9 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
-import ProjectLayout from "@/components/layouts/project-layout.astro";
+
 import { render } from "astro:content";
+
+import ProjectLayout from "@/components/layouts/project/layout.astro";
 
 export interface Props {
     project: CollectionEntry<"projects">;

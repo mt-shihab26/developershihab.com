@@ -1,11 +1,13 @@
 ---
-import Pattern from "@/components/ui/pattern.astro";
-import PageLayout from "@/components/layouts/page-layout.astro";
+import { getCollection } from "astro:content";
 
+import Pattern from "@/components/ui/pattern.astro";
 import Box from "@/components/ui/box-index.astro";
 import BoxHeader from "@/components/ui/box-header.astro";
 import BoxTitle from "@/components/ui/box-title.astro";
-import { getCollection } from "astro:content";
+
+import PageLayout from "@/components/layouts/page/layout.astro";
+
 import ProjectItem from "@/components/screens/projects/project-item.astro";
 
 const projects = await getCollection("projects");
@@ -26,7 +28,6 @@ const sideProjects = projects.filter(project => project.data.type === "side");
 
         {coreProjects.map(item => <ProjectItem project={item} />)}
     </Box>
-
     {
         sideProjects.length > 0 && (
             <>
@@ -42,6 +43,5 @@ const sideProjects = projects.filter(project => project.data.type === "side");
             </>
         )
     }
-
     <Pattern />
 </PageLayout>
