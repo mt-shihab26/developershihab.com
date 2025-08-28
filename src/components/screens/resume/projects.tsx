@@ -28,7 +28,7 @@ export const Projects = () => {
                         </div>
                         {project.technologies.length > 0 && (
                             <div className="mb-1 pl-6 text-xs text-gray-600 dark:text-gray-400">
-                                ({project.technologies.join(', ')})
+                                ({project.technologies.join(", ")})
                             </div>
                         )}
                         <p className="pl-6 text-xs text-gray-800 dark:text-white">{project.description}</p>

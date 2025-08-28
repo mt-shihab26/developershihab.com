@@ -17,14 +17,6 @@ import { Moon, Sun } from "lucide-react";
     <span class="sr-only">Toggle theme</span>
 </button>
 <script is:inline>
-    // Check for theme preference in localStorage or system preference
-    const getThemePreference = () => {
-        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-            return localStorage.getItem("theme");
-        }
-        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    };
-
     // Set theme on document and in localStorage
     const setThemeAppearance = theme => {
         if (theme === "dark") {
@@ -34,10 +26,6 @@ import { Moon, Sun } from "lucide-react";
         }
         localStorage.setItem("theme", theme);
     };
-
-    // Apply the theme immediately to avoid flash
-    const theme = getThemePreference();
-    setThemeAppearance(theme);
 
     document.addEventListener("DOMContentLoaded", () => {
         const toggleButton = document.getElementById("theme-toggle");
