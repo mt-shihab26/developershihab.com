@@ -1,5 +1,6 @@
 ---
 import { capitalizeFirstLetter } from "@/lib/utils";
+import { name } from "@/lib/information";
 
 import { ArrowLeft } from "lucide-react";
 
@@ -23,7 +24,7 @@ interface Props {
 const { title, description, backLink } = Astro.props;
 ---
 
-<SiteLayout title={`${title}`}>
+<SiteLayout title={`${title} - ${name}`}>
     <SiteHeader />
     <main class="mx-auto min-h-screen max-w-3xl" aria-label="Main content">
         <Pattern className="h-14">

@@ -2,6 +2,7 @@
 import type { MarkdownHeading } from "astro";
 
 import { capitalizeFirstLetter } from "@/lib/utils";
+import { name } from "@/lib/information";
 
 import { ArrowLeft } from "lucide-react";
 
@@ -37,7 +38,7 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
     .replace(/\//g, ".");
 ---
 
-<SiteLayout title={`${title}`} ogImage={image} description={description}>
+<SiteLayout title={`${title} - ${name}`} ogImage={image} description={description}>
     <SiteHeader className="top-1" />
 
     <main aria-label="Main content" class="min-h-screen">
