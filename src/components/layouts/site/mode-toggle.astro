@@ -39,7 +39,7 @@ import { Moon, Sun } from "lucide-react";
     const theme = getThemePreference();
     setThemeAppearance(theme);
 
-    document.addEventListener("astro:page-load", () => {
+    document.addEventListener("DOMContentLoaded", () => {
         const toggleButton = document.getElementById("theme-toggle");
 
         // Toggle theme function
