@@ -14,6 +14,7 @@ import "@fontsource/roboto-condensed/400.css";
 import "@fontsource/jetbrains-mono/400.css";
 
 import Analytics from "@vercel/analytics/astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
 import BackToTop from "@/components/ui/back-to-top.astro";
 
 export interface Props {
@@ -91,6 +92,7 @@ const structuredData = {
         <slot />
         <BackToTop />
         <Analytics />
+        <SpeedInsights />
     </body>
 </html>
 
