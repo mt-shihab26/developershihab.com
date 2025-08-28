@@ -1,12 +1,13 @@
 ---
 import type { TEducation } from "@/types/home";
 
+import { GraduationCapIcon } from "lucide-react";
+import { SeeMore } from "./see-more";
+
 import Box from "@/components/ui/box-index.astro";
 import BoxHeader from "@/components/ui/box-header.astro";
 import BoxTitle from "@/components/ui/box-title.astro";
 import BoxContent from "@/components/ui/box-content.astro";
-
-import EducationItem from "./education-item.astro";
 
 export const education: TEducation[] = [
     {
@@ -34,6 +35,41 @@ export const education: TEducation[] = [
         <BoxTitle>Education</BoxTitle>
     </BoxHeader>
     <BoxContent className="px-0">
-        {education.map(e => <EducationItem education={e} />)}
+        {
+            education.map(e => (
+                <div class="space-y-4 p-4 not-last:border-b">
+                    <div class="flex items-center space-x-4 px-2">
+                        <span class="size-2 rounded-full bg-foreground/60" />
+
+                        <a href={e.institution.link} target="_blank">
+                            <h3 class="text-xl font-black">
+                                {e.institution.label}
+                            </h3>
+                        </a>
+                    </div>
+                    <div class="relative space-y-4 pl-1 before:absolute before:left-3 before:h-full before:w-px before:bg-border">
+                        {e.positions.map(position => (
+                            <div>
+                                <div class="block w-full text-left">
+                                    <div class="relative z-1 mb-1 flex items-center space-x-3">
+                                        <GraduationCapIcon className="size-4 bg-background" />
+                                        <h3 class="text-base font-black underline-offset-4">
+                                            {position.title}
+                                        </h3>
+                                    </div>
+                                    <span class="flex items-center gap-2 pl-7 font-mono text-sm text-foreground">
+                                        {position.year}
+                                    </span>
+                                </div>
+                                <SeeMore
+                                    items={position.description}
+                                    client:load
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            ))
+        }
     </BoxContent>
 </Box>

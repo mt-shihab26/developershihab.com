@@ -1,0 +1,35 @@
+{
+    "arrowParens": "avoid",
+    "semi": true,
+    "tabWidth": 4,
+    "printWidth": 80,
+    "singleQuote": false,
+    "jsxSingleQuote": false,
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "endOfLine": "lf",
+    "plugins": ["prettier-plugin-astro", "prettier-plugin-organize-imports", "prettier-plugin-tailwindcss"],
+    "tailwindStylesheet": "./src/styles/global.css",
+   "overrides": [
+        {
+            "files": "*.astro",
+            "options": {
+                "parser": "astro"
+            }
+        },
+        {
+            "files": "*.svg",
+            "options": {
+                "parser": "html",
+                "htmlWhitespaceSensitivity": "ignore"
+            }
+        },
+        {
+            "files": ["*.md"],
+            "options": {
+                "tabWidth": 4,
+                "proseWrap": "preserve"
+            }
+        }
+    ]
+}
