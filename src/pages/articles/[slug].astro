@@ -1,8 +1,10 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
-import ArticleLayout from "@/components/layouts/article-layout.astro";
+
 import { render } from "astro:content";
 import { getReadingTime } from "@/lib/utils";
+
+import ArticleLayout from "@/components/layouts/article/layout.astro";
 
 export interface Props {
     post: CollectionEntry<"blog">;

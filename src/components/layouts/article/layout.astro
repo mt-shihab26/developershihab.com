@@ -1,20 +1,21 @@
 ---
+import type { MarkdownHeading } from "astro";
+
 import { capitalizeFirstLetter } from "@/lib/utils";
+
 import { ArrowLeft } from "lucide-react";
-import Toc from "@/components/ui/toc.astro";
-import Layout from "@/components/layouts/site/layout.astro";
-import Header from "@/components/layouts/site/header.astro";
-import Footer from "@/components/layouts/site/footer.astro";
 
 import Pattern from "@/components/ui/pattern.astro";
-
+import Toc from "@/components/ui/toc.astro";
+import LinkBtn from "@/components/ui/link-btn.astro";
 import Box from "@/components/ui/box-index.astro";
 import BoxTitle from "@/components/ui/box-title.astro";
 import BoxHeader from "@/components/ui/box-header.astro";
 import BoxContent from "@/components/ui/box-content.astro";
 
-import type { MarkdownHeading } from "astro";
-import LinkBtn from "@/components/ui/link-btn.astro";
+import SiteLayout from "@/components/layouts/site/layout.astro";
+import SiteHeader from "@/components/layouts/site/header.astro";
+import SiteFooter from "@/components/layouts/site/footer.astro";
 
 interface Props {
     title: string;
@@ -36,8 +37,8 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
     .replace(/\//g, ".");
 ---
 
-<Layout title={`${title}`} ogImage={image} description={description}>
-    <Header className="top-1" />
+<SiteLayout title={`${title}`} ogImage={image} description={description}>
+    <SiteHeader className="top-1" />
 
     <main aria-label="Main content" class="min-h-screen">
         <div class="mx-auto max-w-3xl">
@@ -75,8 +76,8 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
         </div>
     </main>
 
-    <Footer />
-</Layout>
+    <SiteFooter />
+</SiteLayout>
 
 <script>
     document.addEventListener("astro:page-load", () => {
