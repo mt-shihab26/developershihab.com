@@ -1,11 +1,8 @@
 ---
 import type { TEducationPosition } from "@/types/home";
 
-import { markdownToHtml } from "@/lib/markdown";
-
-import { Code2, ChevronDown, ChevronUp } from "lucide-react";
-
-import Badge from "@/components/ui/badge.astro";
+import { Code2 } from "lucide-react";
+import { SeeMore } from "./see-more";
 
 interface Props {
     position: TEducationPosition;
@@ -28,83 +25,5 @@ const { position } = Astro.props;
             {position.year}
         </span>
     </div>
-
-    <div class="description-container my-4 overflow-hidden">
-        <div
-            class="description-content max-h-0 overflow-hidden transition-all duration-300"
-        >
-            <div class="ml-7 text-sm leading-7">
-                {
-                    position.description.map(d => (
-                        <div set:html={markdownToHtml(d)} />
-                    ))
-                }
-            </div>
-        </div>
-
-        <button
-            class="toggle-btn mt-2 ml-7 flex cursor-pointer items-center gap-1 rounded-md border px-4 py-2 text-xs font-medium text-primary hover:underline focus:outline-none"
-        >
-            <span class="toggle-text">Show more</span>
-            <ChevronDown className="toggle-icon-down size-4" />
-            <ChevronUp className="toggle-icon-up hidden size-4" />
-        </button>
-    </div>
+    <SeeMore items={position.description} client:load />
 </div>
-
-<style>
-    .description-content.expanded {
-        max-height: fit-content;
-    }
-
-    .description-container .toggle-icon-up.visible {
-        display: block;
-    }
-
-    .description-container .toggle-icon-down.hidden {
-        display: none;
-    }
-</style>
-
-<script>
-    document.addEventListener("astro:page-load", () => {
-        const toggleButtons = document.querySelectorAll(".toggle-btn");
-
-        toggleButtons.forEach((button, index) => {
-            const container = button.closest(".description-container");
-            if (!container) return;
-
-            const content = container.querySelector(".description-content");
-            const toggleText = button.querySelector(".toggle-text");
-            const iconDown = button.querySelector(".toggle-icon-down");
-            const iconUp = button.querySelector(".toggle-icon-up");
-
-            if (index === 0) {
-                if (content) content.classList.add("expanded");
-                if (toggleText) toggleText.textContent = "Show less";
-                if (iconDown) iconDown.classList.add("hidden");
-                if (iconUp) iconUp.classList.remove("hidden");
-
-                iconUp?.classList.add("visible");
-            }
-
-            button.addEventListener("click", () => {
-                if (content) {
-                    content.classList.toggle("expanded");
-
-                    if (content.classList.contains("expanded")) {
-                        if (toggleText) toggleText.textContent = "Show less";
-                        if (iconDown) iconDown.classList.add("hidden");
-                        if (iconUp) iconUp.classList.remove("hidden");
-                        iconUp?.classList.add("visible");
-                    } else {
-                        if (toggleText) toggleText.textContent = "Show more";
-                        if (iconDown) iconDown.classList.remove("hidden");
-                        if (iconUp) iconUp.classList.add("hidden");
-                        iconUp?.classList.remove("visible");
-                    }
-                }
-            });
-        });
-    });
-</script>
