@@ -9,6 +9,7 @@ import { certifications, skills } from "./skills";
 import { avatar } from "@/lib/files";
 import { bio, email, github, linkedin, location, name, phone, website } from "@/lib/information";
 
+import { Summery } from "@/lib/information2";
 import { GitHubDark, GitHubLight, LinkedIn } from "developer-icons";
 import { Globe } from "lucide-react";
 
@@ -92,11 +93,7 @@ export const Resume = ({ image }: { image?: boolean }) => {
             <section className="space-y-2">
                 <Heading>Summary</Heading>
                 <p className="leading-relaxed text-gray-800 dark:text-white">
-                    Full-stack developer with over 3 years of hands-on experience building scalable web applications
-                    using React, Laravel, and WordPress. I have a solid foundation in data structures and algorithms,
-                    having solved more than 1100 problems across various platforms. I am passionate about writing clean,
-                    efficient code and following modern development practices. Always eager to learn and adapt, I
-                    continuously explore new technologies to deliver meaningful and maintainable solutions.
+                    <Summery />
                 </p>
             </section>
 
