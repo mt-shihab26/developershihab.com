@@ -1,7 +1,9 @@
-export const R = ({ label, href }: { label: string; href: string }) => {
+import type { ReactNode } from "react";
+
+export const R = ({ children, href }: { children: ReactNode; href: string }) => {
     return (
         <a href={href} target="_blank" className="inline-flex items-center underline underline-offset-2">
-            {label}
+            {children}
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-3 w-3"
