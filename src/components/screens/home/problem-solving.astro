@@ -1,4 +1,7 @@
 ---
+import { ExternalLink } from "@/components/ui/external-link";
+import { RepositoryLink } from "@/components/ui/repository-link";
+
 import Box from "@/components/ui/box-index.astro";
 import BoxHeader from "@/components/ui/box-header.astro";
 import BoxTitle from "@/components/ui/box-title.astro";
@@ -11,32 +14,36 @@ import BoxContent from "@/components/ui/box-content.astro";
     </BoxHeader>
     <BoxContent>
         <div class="text-sm leading-7 font-medium">
-            I started programming after <b>10th grade</b> with <b>C</b>. Then I began solving problems on online judges
-            such as
-            <a href="https://codeforces.com/" target="_blank"><b>Codeforces</b></a>,
-            <a href="https://lightoj.com/" target="_blank"><b>LightOJ</b></a>,
-            <a href="https://leetcode.com" target="_blank"><b>LeetCode</b></a>,
-            <a href="https://www.hackerrank.com/" target="_blank"><b>HackerRank</b></a>
-            etc regularly. During that time, I solved over <b>1000+ unique problems</b> across various platforms. You can
-            find the source code for those problems here:
-            <a
-                href="https://github.com/mt-shihab26/problem_library"
-                target="_blank"
-                class="underline underline-offset-2"><b><i>Link</i></b></a
-            >.
-            <br /><br />
-            Along with <b>problem-solving</b>, I studied <b>data structures</b> and
-            <b>algorithms</b>, and applied that knowledge to solve problems. You can find my implementations of data
-            structures and algorithms here:
-            <a href="https://github.com/mt-shihab26/dsa_library" target="_blank" class="underline underline-offset-2"
-                ><b><i>Link</i></b></a
-            >.
-            <br /><br />
-            I also regularly read <i>programming-related books</i>. Here you can find the
-            <b>source code</b>, <b>practice exercises</b>, and <b>notes</b> from those books as markdown files:
-            <a href="https://github.com/mt-shihab26/books" target="_blank" class="underline underline-offset-2"
-                ><b><i>Link</i></b></a
-            >.
+            <p>
+                I started programming after <b>10th grade</b> with <b>C</b>. Then I began solving problems on online
+                judges such as
+                <ExternalLink label="Codeforces" href="https://codeforces.com/" />,
+                <a href="https://lightoj.com/" target="_blank"><b>LightOJ</b></a>,
+                <a href="https://leetcode.com" target="_blank"><b>LeetCode</b></a>,
+                <a href="https://www.hackerrank.com/" target="_blank"><b>HackerRank</b></a>
+                etc regularly. During that time, I solved over <b>1000+ unique problems</b> across various platforms. You
+                can find the source code for those problems solution on this link <RepositoryLink
+                    label="Problem Library"
+                    href="https://github.com/mt-shihab26/problem_library"
+                />.
+            </p>
+            <p>
+                Along with <b>problem-solving</b>, I studied <b>data structures</b> and
+                <b>algorithms</b>, and applied that knowledge to solve problems. You can find my implementations of data
+                structures and algorithms here:
+                <a
+                    href="https://github.com/mt-shihab26/dsa_library"
+                    target="_blank"
+                    class="underline underline-offset-2"><b><i>Link</i></b></a
+                >.
+            </p>
+            <p>
+                I also regularly read <i>programming-related books</i>. Here you can find the
+                <b>source code</b>, <b>practice exercises</b>, and <b>notes</b> from those books as markdown files:
+                <a href="https://github.com/mt-shihab26/books" target="_blank" class="underline underline-offset-2"
+                    ><b><i>Link</i></b></a
+                >.
+            </p>
         </div>
     </BoxContent>
 </Box>
