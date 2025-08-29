@@ -1,6 +1,6 @@
 export const RepositoryLink = ({ label, href }: { label: string; href: string }) => {
     return (
-        <a href={href} target="_blank" className="inline-flex items-center gap-1 underline underline-offset-2">
+        <a href={href} target="_blank" className="inline-flex items-center underline underline-offset-2">
             {label}
             <svg
                 xmlns="http://www.w3.org/2000/svg"
