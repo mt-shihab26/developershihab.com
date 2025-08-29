@@ -1,6 +1,6 @@
 ---
-import { ExternalLink } from "@/components/ui/external-link";
-import { RepositoryLink } from "@/components/ui/repository-link";
+import { E } from "@/components/ui/e";
+import { R } from "@/components/ui/r";
 
 import Box from "@/components/ui/box-index.astro";
 import BoxHeader from "@/components/ui/box-header.astro";
@@ -13,31 +13,30 @@ import BoxContent from "@/components/ui/box-content.astro";
         <BoxTitle>Programming / Problem Solving</BoxTitle>
     </BoxHeader>
     <BoxContent>
-        <div class="space-y-4 text-sm leading-7 font-medium">
-            <p>
-                I started programming after <b>10th grade</b> with <b>C</b>. Then I began solving problems on online
-                judges such as
-                <ExternalLink label="Codeforces" href="https://codeforces.com/" />,
-                <ExternalLink label="LightOJ" href="https://lightoj.com/" />,
-                <ExternalLink label="LeetCode" href="https://leetcode.com" />,
-                <ExternalLink label="HackerRank" href="https://www.hackerrank.com/" />
-                etc regularly. During that time, I solved over <b>1000+ unique problems</b> across various platforms. You
-                can find the source code for those problems solution on this link <RepositoryLink
-                    label="Problem Library"
-                    href="https://github.com/mt-shihab26/problem_library"
-                />
-            </p>
-            <p>
-                Along with <b>problem-solving</b>, I studied <b>data structures</b> and
-                <b>algorithms</b>, and applied that knowledge to solve problems. You can find my implementations of data
-                structures and algorithms here:
-                <RepositoryLink label="DSA Library" href="https://github.com/mt-shihab26/dsa_library" />
-            </p>
-            <p>
-                I also regularly read <i>programming-related books</i>. Here you can find the
-                <b>source code</b>, <b>practice exercises</b>, and <b>notes</b> from those books as markdown files:
-                <RepositoryLink label="Books Library" href="https://github.com/mt-shihab26/books" />.
-            </p>
+        <div class="text-sm leading-7 font-medium">
+            I started programming after <b>10th grade</b> with <b>C</b>. Then I began solving problems on online judges
+            such as
+            <E label="Codeforces" href="https://codeforces.com/" />,
+            <E label="LightOJ" href="https://lightoj.com/" />,
+            <E label="LeetCode" href="https://leetcode.com" />,
+            <E label="HackerRank" href="https://www.hackerrank.com/" />
+            etc regularly. During that time, I solved over <b>1000+ unique problems</b> across various platforms. You can
+            find the source code for those problems solution on this link
+            <br />
+            <R label="Problem Library" href="https://github.com/mt-shihab26/problem_library" />
+            <br />
+            <br />
+            Along with <b>problem-solving</b>, I studied <b>data structures</b> and
+            <b>algorithms</b>, and applied that knowledge to solve problems. You can find my implementations of data
+            structures and algorithms here:
+            <br />
+            <R label="DSA Library" href="https://github.com/mt-shihab26/dsa_library" />
+            <br />
+            <br />
+            I also regularly read <i>programming-related books</i>. Here you can find the
+            <b>source code</b>, <b>practice exercises</b>, and <b>notes</b> from those books as markdown files:
+            <br />
+            <R label="Books Library" href="https://github.com/mt-shihab26/books" />.
         </div>
     </BoxContent>
 </Box>
