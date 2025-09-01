@@ -1,3 +1,4 @@
+import { desc, title } from "@/lib/information";
 import { getCollection } from "astro:content";
 
 import rss from "@astrojs/rss";
@@ -27,11 +28,10 @@ export async function GET(context) {
     allItems.sort((a, b) => b.pubDate - a.pubDate);
 
     return rss({
-        title: "Shihab Mahamud - Blog & Projects",
-        description: "Latest articles and projects from Shihab Mahamud - Full Stack Developer",
+        title: title,
+        description: desc,
         site: context.site,
         items: allItems,
         customData: `<language>en-us</language>`,
     });
 }
-
