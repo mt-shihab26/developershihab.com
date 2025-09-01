@@ -1,6 +1,8 @@
 ---
 import { github, linkedin, twitter } from "@/lib/information";
 
+import { RssIcon } from "lucide-react";
+
 import LinkedinIcon from "@/components/icons/linkedin.astro";
 import XIcon from "@/components/icons/x.astro";
 import GithubIcon from "@/components/icons/github.astro";
@@ -20,6 +22,11 @@ const links = [
         name: "X",
         icon: XIcon,
         url: twitter,
+    },
+    {
+        name: "RSS",
+        icon: RssIcon,
+        url: "/rss.xml",
     },
 ];
 ---
