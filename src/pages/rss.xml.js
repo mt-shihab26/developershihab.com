@@ -7,7 +7,7 @@ export async function GET(context) {
     const blog = await getCollection("blog", entry => !entry.data.draft);
     const projects = await getCollection("projects", entry => !entry.data.draft);
 
-    const allItems = [
+    const items = [
         ...blog.map(post => ({
             title: post.data.title,
             pubDate: post.data.pubDatetime,
@@ -25,13 +25,14 @@ export async function GET(context) {
     ];
 
     // Sort by publication date (newest first)
-    allItems.sort((a, b) => b.pubDate - a.pubDate);
+    items.sort((a, b) => b.pubDate - a.pubDate);
 
     return rss({
-        title: title,
+        title,
         description: desc,
         site: context.site,
-        items: allItems,
-        customData: `<language>en-us</language>`,
+        trailingSlash: false,
+        items,
+        stylesheet: "/rss-styles.xsl",
     });
 }
