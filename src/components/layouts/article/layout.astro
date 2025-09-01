@@ -54,13 +54,12 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
                     <div>{formattedDate} • {readTime}</div>
                     {
                         devTo && (
-                            <a
-                                href={devToProfile + devTo}
-                                target="_blank"
-                                class="hover:underline hover:underline-offset-2"
-                            >
-                                dev.to
-                            </a>
+                            <div class="flex space-x-1">
+                                <span>also published at</span>
+                                <a href={devToProfile + devTo} target="_blank" class="underline underline-offset-2">
+                                    dev.to
+                                </a>
+                            </div>
                         )
                     }
                 </BoxHeader>
