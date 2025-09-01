@@ -3,6 +3,7 @@ import type { MarkdownHeading } from "astro";
 
 import { capitalizeFirstLetter } from "@/lib/utils";
 import { name } from "@/lib/information";
+import { devTo as devToProfile } from "@/lib/information";
 
 import { ArrowLeft } from "lucide-react";
 
@@ -25,9 +26,10 @@ interface Props {
     headings: MarkdownHeading[];
     image?: string;
     description: string;
+    devTo?: string;
 }
 
-const { title, readTime, description, date, headings, image } = Astro.props;
+const { title, readTime, description, date, headings, image, devTo } = Astro.props;
 
 const formattedDate = new Intl.DateTimeFormat("en-GB", {
     day: "2-digit",
@@ -48,8 +50,19 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
                 </LinkBtn>
             </Pattern>
             <Box>
-                <BoxHeader class="text-sm !font-medium text-muted-foreground">
-                    {formattedDate} • {readTime}
+                <BoxHeader class="flex items-center justify-between text-sm !font-medium text-muted-foreground">
+                    <div>{formattedDate} • {readTime}</div>
+                    {
+                        devTo && (
+                            <a
+                                href={devToProfile + devTo}
+                                target="_blank"
+                                class="hover:underline hover:underline-offset-2"
+                            >
+                                dev.to
+                            </a>
+                        )
+                    }
                 </BoxHeader>
                 <Pattern className="screen-line-after" />
                 <BoxHeader>

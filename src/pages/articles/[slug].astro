@@ -33,6 +33,7 @@ const rendered = await render(post);
     readTime={getReadingTime(post.body!) || "unknown"}
     image={post.data.image}
     description={post.data.description}
+    devTo={post.data.devTo}
 >
     <rendered.Content />
 </ArticleLayout>
