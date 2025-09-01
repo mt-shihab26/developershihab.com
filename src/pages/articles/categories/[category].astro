@@ -11,7 +11,7 @@ import BoxHeader from "@/components/ui/box-header.astro";
 import PageLayout from "@/components/layouts/page/layout.astro";
 
 export async function getStaticPaths() {
-    const articels = await getCollection("blog");
+    const articels = await getCollection("blog", ({ data }) => !data.draft);
     return articels.map(article => ({
         params: { category: article.data.category },
     }));
@@ -19,7 +19,7 @@ export async function getStaticPaths() {
 
 const { category } = Astro.params;
 
-const articels = await getCollection("blog");
+const articels = await getCollection("blog", ({ data }) => !data.draft);
 const categoryArticles = articels.filter(article => article.data.category === category);
 
 // Page properties

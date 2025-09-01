@@ -15,7 +15,7 @@ import Pagination from "@/components/ui/pagination.astro";
 
 import PageLayout from "@/components/layouts/page/layout.astro";
 
-const articles = await getCollection("blog");
+const articles = await getCollection("blog", ({ data }) => !data.draft);
 const categories = [...new Set(articles.map(article => article.data.category))];
 const series = [...new Set(articles.map(article => article.data.series).filter(series => series !== undefined))];
 
