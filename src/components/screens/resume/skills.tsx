@@ -9,13 +9,14 @@ export const Skills = () => {
             <div className="space-y-3">
                 {skills.map((category, categoryIndex) => (
                     <div key={categoryIndex}>
-                        <h4 className="mb-1 font-semibold text-gray-900 dark:text-white">{category.label}</h4>
+                        <h4 className="mb-1 font-semibold text-gray-900 underline underline-offset-2 dark:text-white">
+                            {category.label}
+                        </h4>
                         <div className="text-xs">
                             {category.items.map((skill, index) => (
-                                <span key={index}>
-                                    {index > 0 && ", "}
+                                <div key={index}>
                                     <span className="font-medium">{skill.title}</span>
-                                </span>
+                                </div>
                             ))}
                         </div>
                     </div>
