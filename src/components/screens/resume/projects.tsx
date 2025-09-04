@@ -28,7 +28,7 @@ export const Projects = () => {
                                                 href={project.preview}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="text-xs text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                                className="text-xs"
                                             >
                                                 {project.preview?.split("//")[1]}
                                             </a>
@@ -38,7 +38,7 @@ export const Projects = () => {
                                                 href={project.sourceCode}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="text-xs text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                                                className="text-xs"
                                             >
                                                 {project.sourceCode?.split("//")[1]}
                                             </a>
