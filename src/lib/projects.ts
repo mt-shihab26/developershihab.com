@@ -33,7 +33,7 @@ export const getProjectsRow = (): TProject[] => {
                 name: data.name || "",
                 type: data.type || "side",
                 preview: data.preview || undefined,
-                sourceCode: data.sourceCode || undefined,
+                source: data.source || undefined,
                 technologies: Array.isArray(data.technologies) ? data.technologies : [],
                 description: data.description || "",
                 startDate: data.startDate || "",

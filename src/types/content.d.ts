@@ -2,7 +2,7 @@ export type TProject = {
     name: string;
     type: "core" | "side";
     preview?: string;
-    sourceCode?: string;
+    source?: string;
     technologies: string[];
     description: string;
     startDate: string;

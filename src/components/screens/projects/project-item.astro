@@ -42,7 +42,7 @@ const { project } = Astro.props;
                 )
             }
             {
-                (project.data.preview || project.data.sourceCode) && (
+                (project.data.preview || project.data.source) && (
                     <div class="flex items-center gap-3">
                         {project.data.preview && (
                             <a
@@ -55,9 +55,9 @@ const { project } = Astro.props;
                                 Preview
                             </a>
                         )}
-                        {project.data.sourceCode && (
+                        {project.data.source && (
                             <a
-                                href={project.data.sourceCode}
+                                href={project.data.source}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="flex items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"

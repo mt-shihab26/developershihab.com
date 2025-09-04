@@ -20,13 +20,13 @@ import SiteFooter from "@/components/layouts/site/footer.astro";
 interface Props {
     title: string;
     technologies: string[];
-    sourceCode?: string;
+    source?: string;
     preview?: string;
     image?: string;
     description: string;
 }
 
-const { title, technologies, description, preview, sourceCode, image } = Astro.props;
+const { title, technologies, description, preview, source, image } = Astro.props;
 ---
 
 <SiteLayout title={`${title}`} ogImage={image} description={description}>
@@ -40,13 +40,13 @@ const { title, technologies, description, preview, sourceCode, image } = Astro.p
                 </LinkBtn>
                 <div>
                     {
-                        sourceCode && (
+                        source && (
                             <LinkBtn
                                 ariaLabel="Source code"
                                 target="_blank"
                                 className="text-xs"
                                 variant="default"
-                                href={sourceCode}
+                                href={source}
                             >
                                 Source
                                 <Github class="size-3" />

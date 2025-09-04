@@ -25,7 +25,7 @@ const projects = defineCollection({
             technologies: z.array(z.string()),
             description: z.string(),
             image: z.string().optional(),
-            sourceCode: z.string().optional(),
+            source: z.string().optional(),
             preview: z.string().optional(),
             type: z.union([z.literal("core"), z.literal("side")]),
             resume: z.boolean().optional(),

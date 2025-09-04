@@ -33,14 +33,14 @@ export const Projects = () => {
                                                 {project.preview?.split("//")[1]}
                                             </a>
                                         )}
-                                        {project.sourceCode && (
+                                        {project.source && (
                                             <a
-                                                href={project.sourceCode}
+                                                href={project.source}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="text-xs"
                                             >
-                                                {project.sourceCode?.split("//")[1]}
+                                                {project.source?.split("//")[1]}
                                             </a>
                                         )}
                                     </div>
