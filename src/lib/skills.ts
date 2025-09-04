@@ -1,4 +1,5 @@
 import {
+    C,
     DigitalOcean,
     Git,
     Go,
@@ -35,6 +36,11 @@ export const skills = [
                 title: "JavaScript",
                 href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
                 icon: JavaScript,
+            },
+            {
+                title: "C/C++",
+                href: "https://www.c-language.org",
+                icon: C,
             },
             {
                 title: "Go",
