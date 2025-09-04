@@ -23,26 +23,28 @@ export const Projects = () => {
                                 <div className="relative z-10 flex items-center justify-between">
                                     <div className="flex items-center space-x-3">
                                         <Code2 className="h-4 w-4 bg-white dark:bg-black" />
-                                        {project.preview && (
-                                            <a
-                                                href={project.preview}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="text-xs"
-                                            >
-                                                {project.preview?.split("//")[1]}
-                                            </a>
-                                        )}
-                                        {project.source && (
-                                            <a
-                                                href={project.source}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="text-xs"
-                                            >
-                                                {project.source?.split("//")[1]}
-                                            </a>
-                                        )}
+                                        <div className="flex flex-col">
+                                            {project.preview && (
+                                                <a
+                                                    href={project.preview}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="text-xs"
+                                                >
+                                                    {project.preview?.split("//")[1]}
+                                                </a>
+                                            )}
+                                            {project.source && (
+                                                <a
+                                                    href={project.source}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="text-xs"
+                                                >
+                                                    {project.source?.split("//")[1]}
+                                                </a>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
                                 {project.technologies.length > 0 && (
