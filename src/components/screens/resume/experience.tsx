@@ -1,7 +1,7 @@
 import { experiences } from "@/lib/experiences";
 import { markdownToHtml } from "@/lib/utils";
 
-import { Code2 } from "lucide-react";
+import { BriefcaseBusinessIcon } from "lucide-react";
 import { Heading } from "./heading";
 
 export const Experience = () => {
@@ -28,7 +28,7 @@ export const Experience = () => {
                         {e.positions.map((position, positionIndex) => (
                             <div key={positionIndex}>
                                 <div className="relative z-10 mb-1 flex items-center space-x-3">
-                                    <Code2 className="h-4 w-4 bg-white dark:bg-black" />
+                                    <BriefcaseBusinessIcon className="h-4 w-4 bg-white dark:bg-black" />
                                     <h3 className="text-xs font-bold">{position.title}</h3>
                                 </div>
                                 <span className="block pl-7 text-xs text-gray-600 dark:text-gray-400">
