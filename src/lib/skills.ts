@@ -1,8 +1,8 @@
+import { InertiaIcon } from "@/components/icons/inertia-icon";
 import {
     C,
     DigitalOcean,
     Git,
-    Go,
     JavaScript,
     Laravel,
     Linux,
@@ -15,6 +15,7 @@ import {
     ShadcnUI,
     TailwindCSS,
     TypeScript,
+    VueJs,
     WordPress,
 } from "developer-icons";
 
@@ -42,11 +43,11 @@ export const skills = [
                 href: "https://www.c-language.org",
                 icon: C,
             },
-            {
-                title: "Go",
-                href: "https://go.dev",
-                icon: Go,
-            },
+            // {
+            //     title: "Go",
+            //     href: "https://go.dev",
+            //     icon: Go,
+            // },
         ],
     },
     {
@@ -63,8 +64,19 @@ export const skills = [
                 icon: React,
             },
             {
+                title: "Vue.js",
+                href: "https://vuejs.org",
+                icon: VueJs,
+            },
+            {
+                title: "WordPress",
+                href: "https://wordpress.org",
+                icon: WordPress,
+            },
+            {
                 title: "Inertia.js",
                 href: "https://inertiajs.com/",
+                icon: InertiaIcon,
             },
             {
                 title: "Tailwind CSS",
@@ -76,11 +88,7 @@ export const skills = [
                 href: "https://ui.shadcn.com/",
                 icon: ShadcnUI,
             },
-            {
-                title: "WordPress",
-                href: "https://wordpress.org",
-                icon: WordPress,
-            },
+
             {
                 title: "Node.js",
                 href: "https://nodejs.org/",
