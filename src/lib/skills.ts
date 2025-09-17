@@ -69,14 +69,14 @@ export const skills = [
                 icon: VueJs,
             },
             {
-                title: "WordPress",
-                href: "https://wordpress.org",
-                icon: WordPress,
-            },
-            {
                 title: "Inertia.js",
                 href: "https://inertiajs.com/",
                 icon: InertiaIcon,
+            },
+            {
+                title: "WordPress",
+                href: "https://wordpress.org",
+                icon: WordPress,
             },
             {
                 title: "Tailwind CSS",
