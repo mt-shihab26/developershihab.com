@@ -1,47 +1,22 @@
 ---
 import { getCollection } from "astro:content";
-import { getCoreProjects, getSideProjects } from "@/lib/projects";
-
-import Pattern from "@/components/ui/pattern.astro";
-import Box from "@/components/ui/box-index.astro";
-import BoxHeader from "@/components/ui/box-header.astro";
-import BoxTitle from "@/components/ui/box-title.astro";
+import { getDemoProjects, getClientsProjects, getStartupProjects } from "@/lib/projects";
 
 import PageLayout from "@/components/layouts/page/layout.astro";
-
-import ProjectItem from "@/components/screens/projects/project-item.astro";
+import ProjectsList from "@/components/screens/projects/projects-list.astro";
 
 const projects = await getCollection("projects");
 
-const coreProjects = getCoreProjects(projects);
-const sideProjects = getSideProjects(projects);
+const startupProjects = getStartupProjects(projects);
+const clientsProjects = getClientsProjects(projects);
+const demoProjects = getDemoProjects(projects);
 ---
 
 <PageLayout
     title="My Projects"
     description="A collection of things I’ve built, full-stack apps, experiments, and side projects."
 >
-    <Pattern />
-    <Box>
-        <BoxHeader>
-            <BoxTitle> Built to Last </BoxTitle>
-        </BoxHeader>
-
-        {coreProjects.map(item => <ProjectItem project={item} />)}
-    </Box>
-    {
-        sideProjects.length > 0 && (
-            <>
-                <Pattern />
-                <Box>
-                    <BoxHeader>
-                        <BoxTitle>Side Hustles</BoxTitle>
-                    </BoxHeader>
-                    {sideProjects.map(item => (
-                        <ProjectItem project={item} />
-                    ))}
-                </Box>
-            </>
-        )
-    }
+    <ProjectsList title="Startup" projects={startupProjects} />
+    <ProjectsList title="Client's Projects" projects={clientsProjects} />
+    <ProjectsList title="Demo Projects" projects={demoProjects} />
 </PageLayout>

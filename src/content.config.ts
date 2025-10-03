@@ -27,7 +27,7 @@ const projects = defineCollection({
             image: z.string().optional(),
             source: z.string().optional(),
             preview: z.string().optional(),
-            type: z.union([z.literal("core"), z.literal("side")]),
+            type: z.union([z.literal("core"), z.literal("side"), z.literal("startup")]),
             resume: z.boolean().optional(),
             priority: z.number().optional(),
             draft: z.boolean().optional(),

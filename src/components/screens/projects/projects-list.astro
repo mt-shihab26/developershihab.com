@@ -1,0 +1,33 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import Pattern from "@/components/ui/pattern.astro";
+import Box from "@/components/ui/box-index.astro";
+import BoxHeader from "@/components/ui/box-header.astro";
+import BoxTitle from "@/components/ui/box-title.astro";
+
+import ProjectItem from "@/components/screens/projects/project-item.astro";
+
+interface Props {
+    title: string;
+    projects: CollectionEntry<"projects">[];
+}
+
+const { title, projects } = Astro.props as Props;
+---
+
+{
+    projects.length > 0 && (
+        <>
+            <Pattern />
+            <Box>
+                <BoxHeader>
+                    <BoxTitle>{title}</BoxTitle>
+                </BoxHeader>
+                {projects.map(item => (
+                    <ProjectItem project={item} />
+                ))}
+            </Box>
+        </>
+    )
+}

@@ -86,18 +86,17 @@ export const sortProjectsByPriority = (projects: CollectionEntry<"projects">[]):
         });
 };
 
-/**
- * Filters and sorts core projects from Astro collection
- */
-export const getCoreProjects = (projects: CollectionEntry<"projects">[]): CollectionEntry<"projects">[] => {
+export const getStartupProjects = (projects: CollectionEntry<"projects">[]): CollectionEntry<"projects">[] => {
+    const sortedProjects = sortProjectsByPriority(projects);
+    return sortedProjects.filter(project => project.data.type === "startup");
+};
+
+export const getClientsProjects = (projects: CollectionEntry<"projects">[]): CollectionEntry<"projects">[] => {
     const sortedProjects = sortProjectsByPriority(projects);
     return sortedProjects.filter(project => project.data.type === "core");
 };
 
-/**
- * Filters and sorts side projects from Astro collection
- */
-export const getSideProjects = (projects: CollectionEntry<"projects">[]): CollectionEntry<"projects">[] => {
+export const getDemoProjects = (projects: CollectionEntry<"projects">[]): CollectionEntry<"projects">[] => {
     const sortedProjects = sortProjectsByPriority(projects);
     return sortedProjects.filter(project => project.data.type === "side");
 };
