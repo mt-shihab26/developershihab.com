@@ -1,7 +1,14 @@
 ---
 import type { CollectionEntry } from "astro:content";
 
-import { ChevronRightIcon, FolderCodeIcon, ExternalLinkIcon, GithubIcon } from "lucide-react";
+import {
+    ChevronRightIcon,
+    FolderCodeIcon,
+    ExternalLinkIcon,
+    GithubIcon,
+    InstagramIcon,
+    FacebookIcon,
+} from "lucide-react";
 
 import MarkdownRenderer from "@/components/ui/markdown-renderer.astro";
 import Badge from "@/components/ui/badge.astro";
@@ -31,7 +38,7 @@ const { project } = Astro.props;
             <MarkdownRenderer className="text-xs leading-5 font-medium md:text-sm" content={project.data.description} />
         </a>
 
-        <div class="flex items-center justify-between">
+        <div class="flex items-start justify-between md:items-center">
             {
                 project.data.technologies.length > 0 && (
                     <div class="flex flex-wrap gap-1.5">
@@ -44,6 +51,28 @@ const { project } = Astro.props;
             {
                 (project.data.preview || project.data.source) && (
                     <div class="flex items-center gap-3">
+                        {project.data.facebook && (
+                            <a
+                                href={project.data.facebook}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="hidden items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground md:flex"
+                            >
+                                <FacebookIcon className="size-3" />
+                                Facebook
+                            </a>
+                        )}
+                        {project.data.instagram && (
+                            <a
+                                href={project.data.instagram}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="hidden items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground md:flex"
+                            >
+                                <InstagramIcon className="size-3" />
+                                Instagram
+                            </a>
+                        )}
                         {project.data.preview && (
                             <a
                                 href={project.data.preview}

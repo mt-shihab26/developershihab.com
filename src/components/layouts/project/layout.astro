@@ -1,7 +1,7 @@
 ---
 import { capitalizeFirstLetter } from "@/lib/utils";
 
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, FacebookIcon, InstagramIcon } from "lucide-react";
 import { ExternalLink } from "lucide-react";
 
 import Github from "@/components/icons/github.astro";
@@ -24,9 +24,11 @@ interface Props {
     preview?: string;
     image?: string;
     description: string;
+    facebook?: string;
+    instagram?: string;
 }
 
-const { title, technologies, description, preview, source, image } = Astro.props;
+const { title, technologies, description, preview, source, image, facebook, instagram } = Astro.props;
 ---
 
 <SiteLayout title={`${title}`} ogImage={image} description={description}>
@@ -40,16 +42,32 @@ const { title, technologies, description, preview, source, image } = Astro.props
                 </LinkBtn>
                 <div>
                     {
-                        source && (
+                        facebook && (
                             <LinkBtn
-                                ariaLabel="Source code"
+                                ariaLabel="Deployed App"
+                                variant="default"
                                 target="_blank"
                                 className="text-xs"
-                                variant="default"
-                                href={source}
+                                variant="secondary"
+                                href={facebook}
                             >
-                                Source
-                                <Github class="size-3" />
+                                Facebook
+                                <FacebookIcon className="size-3" />
+                            </LinkBtn>
+                        )
+                    }
+                    {
+                        instagram && (
+                            <LinkBtn
+                                ariaLabel="Deployed App"
+                                variant="default"
+                                target="_blank"
+                                className="text-xs"
+                                variant="secondary"
+                                href={instagram}
+                            >
+                                Instagram
+                                <InstagramIcon className="size-3" />
                             </LinkBtn>
                         )
                     }
@@ -65,6 +83,20 @@ const { title, technologies, description, preview, source, image } = Astro.props
                             >
                                 Preview
                                 <ExternalLink className="size-3" />
+                            </LinkBtn>
+                        )
+                    }
+                    {
+                        source && (
+                            <LinkBtn
+                                ariaLabel="Source code"
+                                target="_blank"
+                                className="text-xs"
+                                variant="default"
+                                href={source}
+                            >
+                                Source
+                                <Github class="size-3" />
                             </LinkBtn>
                         )
                     }
