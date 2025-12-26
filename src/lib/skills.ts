@@ -64,19 +64,9 @@ export const skills = [
                 icon: React,
             },
             {
-                title: "Vue.js",
-                href: "https://vuejs.org",
-                icon: VueJs,
-            },
-            {
                 title: "Inertia.js",
                 href: "https://inertiajs.com/",
                 icon: InertiaIcon,
-            },
-            {
-                title: "WordPress",
-                href: "https://wordpress.org",
-                icon: WordPress,
             },
             {
                 title: "Tailwind CSS",
@@ -88,7 +78,16 @@ export const skills = [
                 href: "https://ui.shadcn.com/",
                 icon: ShadcnUI,
             },
-
+            {
+                title: "WordPress",
+                href: "https://wordpress.org",
+                icon: WordPress,
+            },
+            {
+                title: "Vue.js",
+                href: "https://vuejs.org",
+                icon: VueJs,
+            },
             {
                 title: "Node.js",
                 href: "https://nodejs.org/",

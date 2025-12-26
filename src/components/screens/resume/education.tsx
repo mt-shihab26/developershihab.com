@@ -34,11 +34,13 @@ export const Education = () => {
                                 <span className="block pl-7 text-xs text-gray-600 dark:text-gray-400">
                                     {position.year}
                                 </span>
-                                <ul className="mt-1 ml-7 list-disc space-y-0.5 text-xs text-gray-800 dark:text-white">
-                                    {position.description.map((desc, i) => (
-                                        <li key={i} dangerouslySetInnerHTML={{ __html: markdownToHtml(desc) }}></li>
-                                    ))}
-                                </ul>
+                                {position.description && (
+                                    <ul className="mt-1 ml-7 list-disc space-y-0.5 text-xs text-gray-800 dark:text-white">
+                                        {position.description.map((desc, i) => (
+                                            <li key={i} dangerouslySetInnerHTML={{ __html: markdownToHtml(desc) }}></li>
+                                        ))}
+                                    </ul>
+                                )}
                             </div>
                         ))}
                     </div>

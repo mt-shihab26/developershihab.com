@@ -3,11 +3,27 @@ type TEducation = {
     positions: {
         title: string;
         year: string;
-        description: string[];
+        description?: string[];
     }[];
 };
 
 export const educations: TEducation[] = [
+    {
+        institution: {
+            label: "Faridpur Polytechnic Institute",
+            link: "https://polytechnic.faridpur.gov.bd",
+        },
+        positions: [
+            {
+                title: "Diploma in Engineering, Computer Science",
+                year: "August 2025 – Present",
+                description: [
+                    "Involved in **Competitive Programming contests** at the institution",
+                    "Actively participating in the **Competitive Programming Community**",
+                ],
+            },
+        ],
+    },
     {
         institution: {
             label: "Bangladesh University of Business and Technology (BUBT)",
@@ -16,12 +32,7 @@ export const educations: TEducation[] = [
         positions: [
             {
                 title: "B.Sc in Computer Science and Engineering",
-                year: "August 2025 – Present",
-                description: [
-                    "Pursuing a **Bachelor's degree in Computer Science and Engineering (CSE)**",
-                    "Involved in **Competitive Programming contests** at the institution",
-                    "Actively participating in the **Competitive Programming Community at BUBT**",
-                ],
+                year: "Dropout",
             },
         ],
     },
