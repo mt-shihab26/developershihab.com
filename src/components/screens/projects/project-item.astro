@@ -24,17 +24,18 @@ const { project } = Astro.props;
     <FolderCodeIcon className="mx-4.5 size-5 shrink-0 text-muted-foreground" />
 
     <div class="flex w-full flex-col gap-y-3 border-l p-4">
-        <a href={`/projects/${project.id}`} class="group flex w-full cursor-pointer flex-col gap-y-3">
+        <a
+            href={!project.data.noShow ? `/projects/${project.id}` : project.data.preview || project.data.source}
+            class="group flex w-full cursor-pointer flex-col gap-y-3"
+        >
             <div class="group flex w-full items-center justify-between text-left select-none">
                 <h3 class="cursor-pointer text-lg font-semibold underline-offset-6 group-hover:underline">
                     {project.data.name}
                 </h3>
-
                 <ChevronRightIcon
                     className="size-4 shrink-0 text-muted-foreground transition-transform duration-150 group-hover:translate-x-1"
                 />
             </div>
-
             <MarkdownRenderer className="text-xs leading-5 font-medium md:text-sm" content={project.data.description} />
         </a>
 

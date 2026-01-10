@@ -12,10 +12,12 @@ export interface Props {
 export async function getStaticPaths() {
     const projects = await getCollection("projects");
 
-    const project = projects.map(project => ({
-        params: { projectId: project.id },
-        props: { project },
-    }));
+    const project = projects
+        .filter(project => !project.data.noShow)
+        .map(project => ({
+            params: { projectId: project.id },
+            props: { project },
+        }));
 
     return project;
 }

@@ -33,6 +33,7 @@ const projects = defineCollection({
             resume: z.boolean().optional(),
             priority: z.number().optional(),
             draft: z.boolean().optional(),
+            noShow: z.boolean().optional().default(false),
         }),
 });
 
