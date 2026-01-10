@@ -25,7 +25,7 @@ const { project } = Astro.props;
 
     <div class="flex w-full flex-col gap-y-3 border-l p-4">
         <a
-            href={!project.data.noShow ? `/projects/${project.id}` : project.data.preview || project.data.source}
+            href={!project.data.noShow ? `/projects/${project.id}` : project.data.source || project.data.preview}
             class="group flex w-full cursor-pointer flex-col gap-y-3"
         >
             <div class="group flex w-full items-center justify-between text-left select-none">
