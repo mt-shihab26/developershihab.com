@@ -20,7 +20,6 @@ import BoxContent from "@/components/ui/box-content.astro";
                 <div class="space-y-4 p-4 not-last:border-b">
                     <div class="flex items-center space-x-4 px-2">
                         <span class="size-2 rounded-full bg-foreground/60" />
-
                         <a href={e.institution.link} target="_blank">
                             <h3 class="text-xl font-black">{e.institution.label}</h3>
                         </a>
@@ -37,7 +36,9 @@ import BoxContent from "@/components/ui/box-content.astro";
                                         {position.year}
                                     </span>
                                 </div>
-                                <SeeMore open={index === 0} items={position.description} client:load />
+                                {position.description && (
+                                    <SeeMore open={index === 0} items={position.description} client:load />
+                                )}
                             </div>
                         ))}
                     </div>

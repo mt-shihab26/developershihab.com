@@ -6,7 +6,15 @@ import MarkdownIt from "markdown-it";
 
 const md = new MarkdownIt();
 
-export const SeeMore = ({ open: x, items, skills }: { open: boolean; items: string[]; skills?: string[] | null }) => {
+export const SeeMore = ({
+    open: x,
+    items = [],
+    skills,
+}: {
+    open: boolean;
+    items: string[];
+    skills?: string[] | null;
+}) => {
     const [show, setShow] = useState<boolean>(x || false);
 
     return (
