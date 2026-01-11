@@ -27,6 +27,7 @@ const { project } = Astro.props;
         <a
             href={!project.data.noShow ? `/projects/${project.id}` : project.data.source || project.data.preview}
             class="group flex w-full cursor-pointer flex-col gap-y-3"
+            target={project.data.noShow ? "_blank" : undefined}
         >
             <div class="group flex w-full items-center justify-between text-left select-none">
                 <h3 class="cursor-pointer text-lg font-semibold underline-offset-6 group-hover:underline">
