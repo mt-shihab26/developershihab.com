@@ -1,7 +1,7 @@
 export const name = "Shihab Mahamud";
 export const bio = "Software Engineer";
 export const slogan = "Solving, Coding, Deploying...";
-export const role = "Programmer | Full-stack Developer | Software Engineer";
+export const role = "Web Artisan | Programmer | Software Engineer";
 export const location = "Dhaka, Bangladesh";
 export const desc = "My digital space, projects, insights, and thoughts on software engineering.";
 export const ogImage = "/og-image.jpg";
