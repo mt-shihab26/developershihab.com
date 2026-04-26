@@ -1,4 +1,5 @@
 import { InertiaIcon } from "@/components/icons/inertia-icon";
+import { PocketBaseIcon } from "@/components/icons/pocketbase-icon";
 
 import type { DeveloperIconProps } from "developer-icons/dist/icon";
 import type { ReactElement } from "react";
@@ -107,6 +108,7 @@ export const skills: { label: string; items: SkillItem[] }[] = [
             {
                 title: "PocketBase",
                 href: "https://pocketbase.io",
+                icon: PocketBaseIcon,
             },
             {
                 title: "Node.js",

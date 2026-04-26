@@ -3,8 +3,8 @@ import type { CollectionEntry } from "astro:content";
 
 export const PROJECT_CATEGORIES = {
     professional: "Professional Projects",
-    openSource: "Open Source",
     personal: "Personal Projects",
+    openSource: "Open Source Projects",
 } as const;
 
 import { readFileSync, readdirSync } from "fs";

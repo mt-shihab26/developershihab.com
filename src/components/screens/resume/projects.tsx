@@ -64,8 +64,8 @@ export const Projects = () => {
         <section className="space-y-3">
             <Heading>Projects</Heading>
             <ProjectGroup title={PROJECT_CATEGORIES.professional} projects={professional} />
-            <ProjectGroup title={PROJECT_CATEGORIES.personal} projects={openSource} />
-            <ProjectGroup title={PROJECT_CATEGORIES.openSource} projects={personal} />
+            <ProjectGroup title={PROJECT_CATEGORIES.personal} projects={personal} />
+            <ProjectGroup title={PROJECT_CATEGORIES.openSource} projects={openSource} />
         </section>
     );
 };
