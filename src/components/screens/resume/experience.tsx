@@ -10,13 +10,9 @@ export const Experience = () => {
             <Heading>Experience</Heading>
 
             {experiences.map((e, index) => (
-                <div
-                    key={index}
-                    className="border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700"
-                >
+                <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700">
                     <div className="flex items-center">
-                        <span className="h-2 w-2 rounded-full" />
-
+                        <span className="size-2 rounded-full text-gray-800" />
                         <a
                             href={e.company.link}
                             target="_blank"
