@@ -1,4 +1,5 @@
-import { InertiaIcon } from "@/components/icons/inertia-icon";
+import type { DeveloperIconProps } from "developer-icons/dist/icon";
+import type { ReactElement } from "react";
 import {
     C,
     DigitalOcean,
@@ -19,8 +20,17 @@ import {
     VueJs,
     WordPress,
 } from "developer-icons";
+import { InertiaIcon } from "@/components/icons/inertia-icon";
 
-export const skills = [
+type SkillItem = {
+    title: string;
+    href: string;
+    icon?: (props: DeveloperIconProps) => ReactElement;
+    resume_title?: string;
+    resume_disable?: boolean;
+};
+
+export const skills: { label: string; items: SkillItem[] }[] = [
     {
         label: "Languages",
         items: [
@@ -90,6 +100,10 @@ export const skills = [
                 title: "Vue.js",
                 href: "https://vuejs.org",
                 icon: VueJs,
+            },
+            {
+                title: "PocketBase",
+                href: "https://pocketbase.io",
             },
             {
                 title: "Node.js",
