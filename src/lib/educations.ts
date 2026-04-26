@@ -16,7 +16,7 @@ export const educations: TEducation[] = [
         positions: [
             {
                 title: "B.Sc in Computer Science and Engineering",
-                year: "May 2025 - Jan 2026",
+                year: "May 2025 – Jan 2026",
             },
         ],
     },
@@ -28,7 +28,7 @@ export const educations: TEducation[] = [
         positions: [
             {
                 title: "Diploma in Engineering, Computer Science",
-                year: "Dec 2021 - Aug 2025",
+                year: "Dec 2021 – Aug 2025",
                 description: [
                     "Involved in Competitive Programming contests at the institution",
                     "Actively participating in the Competitive Programming Community",
