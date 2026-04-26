@@ -1,5 +1,6 @@
 import { Projects } from "./projects";
 
+import { Contributions } from "./contributions";
 import { Education } from "./education";
 import { Experience } from "./experience";
 import { Header } from "./header";
@@ -15,6 +16,7 @@ export const Resume = ({ image }: { image?: boolean }) => {
                 <div className="flex-1 space-y-3">
                     <Experience />
                     <Projects />
+                    <Contributions />
                     <Education />
                 </div>
                 <div className="w-50 border-l border-gray-200 pl-6 dark:border-gray-700">
