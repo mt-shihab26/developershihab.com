@@ -4,6 +4,7 @@ import { PROJECT_CATEGORIES, getProjectsByCategory } from "@/lib/projects";
 
 import PageLayout from "@/components/layouts/page/layout.astro";
 import ProjectsList from "@/components/screens/projects/projects-list.astro";
+import Contributions from "@/components/screens/home/contributions.astro";
 
 const projects = await getCollection("projects");
 const { professional, openSource, personal } = getProjectsByCategory(projects);
@@ -16,4 +17,5 @@ const { professional, openSource, personal } = getProjectsByCategory(projects);
     <ProjectsList title={PROJECT_CATEGORIES.professional} projects={professional} />
     <ProjectsList title={PROJECT_CATEGORIES.personal} projects={personal} />
     <ProjectsList title={PROJECT_CATEGORIES.openSource} projects={openSource} />
+    <Contributions />
 </PageLayout>
