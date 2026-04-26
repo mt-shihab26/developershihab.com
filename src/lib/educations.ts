@@ -28,10 +28,10 @@ export const educations: TEducation[] = [
         positions: [
             {
                 title: "Diploma in Engineering, Computer Science",
-                year: "2021 - August 2025",
+                year: "Dec 2021 - August 2025",
                 description: [
-                    "Involved in **Competitive Programming contests** at the institution",
-                    "Actively participating in the **Competitive Programming Community**",
+                    "Involved in Competitive Programming contests at the institution",
+                    "Actively participating in the Competitive Programming Community",
                 ],
             },
         ],
