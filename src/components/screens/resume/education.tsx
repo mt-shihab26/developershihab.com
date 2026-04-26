@@ -9,7 +9,10 @@ export const Education = () => {
             <Heading>Education</Heading>
             <div className="space-y-3">
                 {educations.map((edu, index) => (
-                    <div key={index} className="space-y-1.5 border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700">
+                    <div
+                        key={index}
+                        className="space-y-1.5 border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700"
+                    >
                         <a
                             href={edu.institution.link}
                             target="_blank"
@@ -26,7 +29,7 @@ export const Education = () => {
                                     <span className="ml-1.5">· {formatDuration(position.year)}</span>
                                 </p>
                                 {position.description && (
-                                    <ul className="list-disc pl-3 space-y-0.5">
+                                    <ul className="list-disc space-y-0.5 pl-3">
                                         {position.description.map((desc, j) => (
                                             <li key={j} dangerouslySetInnerHTML={{ __html: markdownToHtml(desc) }} />
                                         ))}

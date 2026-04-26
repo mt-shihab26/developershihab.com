@@ -13,7 +13,7 @@ export const Contributions = () => {
                         key={repo}
                         className="space-y-1.5 border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700"
                     >
-                        <h3 className="font-bold">{repo}</h3>
+                        <h3 className="text-sm font-bold">{repo}</h3>
                         <a href={repoUrl} target="_blank" rel="noopener noreferrer" className="block underline">
                             {repoUrl.split("//")[1]}
                         </a>

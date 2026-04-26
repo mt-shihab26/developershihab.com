@@ -9,7 +9,7 @@ export const Skills = () => {
             <div className="space-y-3">
                 {skills.map((category, categoryIndex) => (
                     <div key={categoryIndex}>
-                        <h4 className="mb-1 border-b border-gray-200 pb-0.5 font-semibold tracking-wide uppercase dark:border-gray-700">
+                        <h4 className="mb-1 border-b border-gray-200 pb-0.5 text-sm font-semibold tracking-wide dark:border-gray-700">
                             {category.label}
                         </h4>
                         <div className="space-y-0.5">
