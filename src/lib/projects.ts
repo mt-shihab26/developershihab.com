@@ -1,6 +1,12 @@
 import type { TProject } from "@/types/content";
 import type { CollectionEntry } from "astro:content";
 
+export const PROJECT_CATEGORIES = {
+    professional: "Professional Projects",
+    openSource: "Open Source",
+    personal: "Personal Projects",
+} as const;
+
 import { readFileSync, readdirSync } from "fs";
 import { join } from "path";
 
@@ -99,4 +105,29 @@ export const getClientsProjects = (projects: CollectionEntry<"projects">[]): Col
 export const getDemoProjects = (projects: CollectionEntry<"projects">[]): CollectionEntry<"projects">[] => {
     const sortedProjects = sortProjectsByPriority(projects);
     return sortedProjects.filter(project => project.data.type === "side");
+};
+
+export const getOpenSourceProjects = (projects: CollectionEntry<"projects">[]): CollectionEntry<"projects">[] => {
+    const sortedProjects = sortProjectsByPriority(projects);
+    return sortedProjects.filter(project => project.data.type === "opensource");
+};
+
+export const getProjectsByCategory = (projects: CollectionEntry<"projects">[]) => {
+    const sorted = sortProjectsByPriority(projects);
+    return {
+        professional: sorted.filter(p => p.data.type === "core"),
+        openSource: sorted.filter(p => p.data.type === "opensource"),
+        personal: sorted.filter(p => p.data.type === "side"),
+    };
+};
+
+export const getResumeProjectsByCategory = () => {
+    const all = (getProjectsRow() || [])
+        .filter(p => p.resume === true)
+        .sort((a, b) => (a.priority ?? 999) - (b.priority ?? 999));
+    return {
+        professional: all.filter(p => p.type === "core"),
+        openSource: all.filter(p => p.type === "opensource"),
+        personal: all.filter(p => p.type === "side"),
+    };
 };

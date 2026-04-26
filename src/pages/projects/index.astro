@@ -1,22 +1,19 @@
 ---
 import { getCollection } from "astro:content";
-import { getDemoProjects, getClientsProjects, getStartupProjects } from "@/lib/projects";
+import { PROJECT_CATEGORIES, getProjectsByCategory } from "@/lib/projects";
 
 import PageLayout from "@/components/layouts/page/layout.astro";
 import ProjectsList from "@/components/screens/projects/projects-list.astro";
 
 const projects = await getCollection("projects");
-
-const startupProjects = getStartupProjects(projects);
-const clientsProjects = getClientsProjects(projects);
-const demoProjects = getDemoProjects(projects);
+const { professional, openSource, personal } = getProjectsByCategory(projects);
 ---
 
 <PageLayout
     title="My Projects"
     description="Explore my portfolio of innovative web applications, startup ventures, client solutions, and experimental projects showcasing modern development practices and cutting-edge technologies."
 >
-    <ProjectsList title="Startup" projects={startupProjects} />
-    <ProjectsList title="Client's Projects" projects={clientsProjects} />
-    <ProjectsList title="Demo Projects" projects={demoProjects} />
+    <ProjectsList title={PROJECT_CATEGORIES.professional} projects={professional} />
+    <ProjectsList title={PROJECT_CATEGORIES.personal} projects={personal} />
+    <ProjectsList title={PROJECT_CATEGORIES.openSource} projects={openSource} />
 </PageLayout>

@@ -1,6 +1,6 @@
 import type { TProject } from "@/types/content";
 
-import { getProjectsRow } from "@/lib/projects";
+import { PROJECT_CATEGORIES, getResumeProjectsByCategory } from "@/lib/projects";
 
 import { Code2 } from "lucide-react";
 import { Heading } from "./heading";
@@ -38,9 +38,7 @@ const ProjectCard = ({ project }: { project: TProject }) => (
                 </div>
             </div>
             {project.technologies.length > 0 && (
-                <div className="mb-1 pl-7 text-xs text-gray-900 dark:text-white">
-                    {project.technologies.join(", ")}
-                </div>
+                <div className="mb-1 pl-7 text-xs text-gray-900 dark:text-white">{project.technologies.join(", ")}</div>
             )}
             <p className="pl-7 text-xs text-gray-700 dark:text-gray-300">{project.description}</p>
         </div>
@@ -60,17 +58,14 @@ const ProjectGroup = ({ title, projects }: { title: string; projects: TProject[]
 };
 
 export const Projects = () => {
-    const allProjects = (getProjectsRow() || []).filter(p => p.resume === true);
-    const professionalProjects = allProjects.filter(p => p.type === "core");
-    const personalProjects = allProjects.filter(p => p.type === "side");
-    const openSourceProjects = allProjects.filter(p => p.type === "opensource");
+    const { professional, openSource, personal } = getResumeProjectsByCategory();
 
     return (
         <section className="space-y-3">
             <Heading>Projects</Heading>
-            <ProjectGroup title="Professional Projects" projects={professionalProjects} />
-            <ProjectGroup title="Personal Projects" projects={personalProjects} />
-            <ProjectGroup title="Open Source" projects={openSourceProjects} />
+            <ProjectGroup title={PROJECT_CATEGORIES.professional} projects={professional} />
+            <ProjectGroup title={PROJECT_CATEGORIES.personal} projects={openSource} />
+            <ProjectGroup title={PROJECT_CATEGORIES.openSource} projects={personal} />
         </section>
     );
 };
