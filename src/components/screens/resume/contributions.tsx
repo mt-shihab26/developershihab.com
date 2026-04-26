@@ -25,10 +25,10 @@ export const Contributions = () => {
                                 )
                             </div>
                         </div>
-                        <div className="relative pl-1 before:absolute before:left-3 before:h-full before:w-px before:bg-gray-200 dark:before:bg-gray-700">
+                        <div className="relative space-y-1 pl-1 before:absolute before:left-3 before:h-full before:w-px before:bg-gray-200 dark:before:bg-gray-700">
                             {prs.map(contribution => (
                                 <div key={contribution.pr} className="relative z-10">
-                                    <div className="flex space-x-3">
+                                    <div className="flex items-center space-x-3">
                                         <GitPullRequestIcon className="h-4 w-4 bg-white text-gray-400 dark:bg-black dark:text-gray-500" />
                                         <a
                                             href={contribution.prUrl}

@@ -20,7 +20,7 @@ const ProjectCard = ({ project }: { project: TProject }) => (
                             href={project.preview}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-xs underline"
+                            className="text-xs underline text-gray-900 dark:text-white"
                         >
                             {project.preview.split("//")[1]}
                         </a>
@@ -30,7 +30,7 @@ const ProjectCard = ({ project }: { project: TProject }) => (
                             href={project.source}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-xs underline"
+                            className="text-xs underline text-gray-900 dark:text-white"
                         >
                             {project.source.split("//")[1]}
                         </a>
