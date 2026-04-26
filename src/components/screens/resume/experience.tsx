@@ -1,21 +1,8 @@
 import { experiences } from "@/lib/experiences";
-import { markdownToHtml } from "@/lib/utils";
+import { formatDuration, markdownToHtml } from "@/lib/utils";
 
 import { BriefcaseBusinessIcon } from "lucide-react";
 import { Heading } from "./heading";
-
-const formatDuration = (yearString: string): string => {
-    const [startStr, endStr] = yearString.split(" – ");
-    const start = new Date(`${startStr} 1`);
-    const end = endStr === "Present" ? new Date() : new Date(`${endStr} 1`);
-    const totalMonths =
-        (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
-    const years = Math.floor(totalMonths / 12);
-    const months = totalMonths % 12;
-    if (years === 0) return `${months} mo`;
-    if (months === 0) return `${years} yr`;
-    return `${years} yr ${months} mo`;
-};
 
 export const Experience = () => {
     return (
