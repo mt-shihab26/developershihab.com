@@ -29,7 +29,7 @@ export const Experience = () => {
                             <div key={positionIndex}>
                                 <div className="relative z-10 mb-1 flex items-center space-x-3">
                                     <BriefcaseBusinessIcon className="h-4 w-4 bg-white dark:bg-black" />
-                                    <h3 className="text-xs font-bold">{position.title}</h3>
+                                    <h3 className="text-sm font-bold">{position.title}</h3>
                                 </div>
                                 <span className="block pl-7 text-xs text-gray-600 dark:text-gray-400">
                                     {position.year}
@@ -39,6 +39,18 @@ export const Experience = () => {
                                         <li key={i} dangerouslySetInnerHTML={{ __html: markdownToHtml(desc) }}></li>
                                     ))}
                                 </ul>
+                                {position.skills.length > 0 && (
+                                    <div className="mt-1.5 ml-7 flex flex-wrap gap-x-2 gap-y-0.5">
+                                        {position.skills.map((skill) => (
+                                            <span
+                                                key={skill}
+                                                className="text-[10px] text-gray-500 dark:text-gray-400"
+                                            >
+                                                {skill}
+                                            </span>
+                                        ))}
+                                    </div>
+                                )}
                             </div>
                         ))}
                     </div>
