@@ -4,6 +4,19 @@ import { markdownToHtml } from "@/lib/utils";
 import { BriefcaseBusinessIcon } from "lucide-react";
 import { Heading } from "./heading";
 
+const formatDuration = (yearString: string): string => {
+    const [startStr, endStr] = yearString.split(" – ");
+    const start = new Date(`${startStr} 1`);
+    const end = endStr === "Present" ? new Date() : new Date(`${endStr} 1`);
+    const totalMonths =
+        (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+    const years = Math.floor(totalMonths / 12);
+    const months = totalMonths % 12;
+    if (years === 0) return `${months} mo`;
+    if (months === 0) return `${years} yr`;
+    return `${years} yr ${months} mo`;
+};
+
 export const Experience = () => {
     return (
         <section className="space-y-3">
@@ -35,6 +48,9 @@ export const Experience = () => {
                                 </div>
                                 <span className="block pl-7 text-xs text-gray-900 dark:text-white">
                                     {position.year}
+                                    <span className="ml-1.5 text-gray-500 dark:text-gray-400">
+                                        · {formatDuration(position.year)}
+                                    </span>
                                 </span>
                                 <ul className="mt-1 ml-7 list-disc space-y-0.5 text-xs text-gray-700 dark:text-gray-300">
                                     {position.description.map((desc, i) => (
