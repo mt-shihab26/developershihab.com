@@ -58,12 +58,8 @@ export const Experience = () => {
                                     ))}
                                 </ul>
                                 {position.skills.length > 0 && (
-                                    <div className="mt-1.5 ml-7 flex flex-wrap gap-x-2 gap-y-0.5">
-                                        {position.skills.map(skill => (
-                                            <span key={skill} className="text-[10px] text-gray-900 dark:text-white">
-                                                {skill}
-                                            </span>
-                                        ))}
+                                    <div className="mt-1.5 ml-7 text-[10px] text-gray-900 dark:text-white">
+                                        {position.skills.join(", ")}
                                     </div>
                                 )}
                             </div>

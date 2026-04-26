@@ -38,7 +38,7 @@ const ProjectCard = ({ project }: { project: TProject }) => (
                 </div>
             </div>
             {project.technologies.length > 0 && (
-                <div className="mb-1 pl-7 text-xs text-gray-500 dark:text-gray-400">
+                <div className="mb-1 pl-7 text-xs text-gray-900 dark:text-white">
                     {project.technologies.join(", ")}
                 </div>
             )}
