@@ -15,13 +15,16 @@ export const Header = ({ image }: { image?: boolean }) => {
             })}
         >
             {image && (
-                <div className="h-20 w-20 overflow-hidden rounded-full">
+                <div className="size-20 overflow-hidden rounded-full">
                     <img src={avatar.src} alt="Profile" className="h-full w-full object-cover" />
                 </div>
             )}
-
-            <div className={cn("space-y-2", { "text-center": !image })}>
-                <h1 className="font-bold uppercase">{name}</h1>
+            <div
+                className={cn("space-y-1", {
+                    "text-center": !image,
+                })}
+            >
+                <h1 className="text-[18px] font-bold uppercase">{name}</h1>
                 <div
                     className={cn("flex flex-wrap items-center gap-1", {
                         "justify-center": !image,
@@ -38,12 +41,7 @@ export const Header = ({ image }: { image?: boolean }) => {
                         "justify-center": !image,
                     })}
                 >
-                    <a
-                        href={`mailto:${email}`}
-                        className="hover:underline"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    <a href={`mailto:${email}`} className="hover:underline" target="_blank" rel="noopener noreferrer">
                         {email}
                     </a>
                     <a
