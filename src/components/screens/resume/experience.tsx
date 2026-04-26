@@ -19,7 +19,7 @@ export const Experience = () => {
                             href={e.company.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-sm font-bold text-gray-900 hover:underline dark:text-white"
+                            className="text-sm font-bold text-gray-900 underline hover:underline dark:text-white"
                         >
                             {e.company.label}
                         </a>
