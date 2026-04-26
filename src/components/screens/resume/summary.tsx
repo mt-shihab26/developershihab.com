@@ -6,21 +6,23 @@ export const Summary = () => {
             <Heading>Summary</Heading>
             <div className="space-y-2 leading-relaxed text-gray-800 dark:text-white">
                 <p>
-                    Results-driven <strong>Software Engineer</strong> with <strong>4 years</strong> of experience in{" "}
-                    <strong>full-stack development</strong> and scalable software solutions. Skilled in architecting and
-                    maintaining high-performance applications that meet both technical and business goals.
+                    Results-driven Software Engineer with <strong>4 years of experience</strong> in{" "}
+                    <strong>full-stack development</strong> and building <strong>scalable software solutions</strong>.
+                    Skilled in architecting, developing, and maintaining high-performance applications that align with
+                    both technical and business objectives.
                 </p>
                 <p>
-                    Proficient in modern web technologies such as{" "}
-                    <strong>PHP, Laravel, JavaScript/TypeScript, React, TailwindCSS, and WordPress</strong>. Experienced
-                    in building <strong>end-to-end solutions</strong>, from conception to deployment on{" "}
-                    <strong>cloud servers</strong>, with a focus on rapid development and clean, maintainable code.
+                    Proficient in modern web technologies, including{" "}
+                    <strong>PHP, Laravel, JavaScript/TypeScript, React, Tailwind CSS, and WordPress</strong>.
+                    Experienced in delivering <strong>end-to-end solutions</strong>, from conception to{" "}
+                    <strong>cloud deployment</strong>, with a strong focus on rapid development and{" "}
+                    <strong>clean, maintainable code</strong>.
                 </p>
                 <p>
-                    Have strong background in <strong>problem-solving</strong> and <strong>analytical thinking</strong>,
-                    with <strong>1000+ problems</strong> solved on online judges. Experienced in collaborating with
-                    senior developers, applying <strong>industry best practices</strong>, and staying current with{" "}
-                    <strong>emerging technologies</strong> to deliver innovative solutions.
+                    Strong background in problem-solving and analytical thinking, with over{" "}
+                    <strong>1,000 problems solved</strong> on online coding platforms. Experienced in collaborating with
+                    senior developers, applying industry best practices, and staying up to date with emerging
+                    technologies to deliver innovative and efficient solutions.
                 </p>
             </div>
         </section>

@@ -1,8 +1,10 @@
+import { InertiaIcon } from "@/components/icons/inertia-icon";
+
 import type { DeveloperIconProps } from "developer-icons/dist/icon";
 import type { ReactElement } from "react";
+
 import {
     C,
-    DigitalOcean,
     Git,
     Go,
     JavaScript,
@@ -13,14 +15,12 @@ import {
     NodeJs,
     PHP,
     React,
-    Redis,
     ShadcnUI,
     TailwindCSS,
     TypeScript,
     VueJs,
     WordPress,
 } from "developer-icons";
-import { InertiaIcon } from "@/components/icons/inertia-icon";
 
 type SkillItem = {
     title: string;
@@ -115,15 +115,15 @@ export const skills: { label: string; items: SkillItem[] }[] = [
     {
         label: "Others",
         items: [
+            // {
+            //     title: "Redis",
+            //     href: "https://redis.io/",
+            //     icon: Redis,
+            // },
             {
-                title: "MySQL",
-                href: "https://www.mysql.com",
-                icon: MySQL,
-            },
-            {
-                title: "Redis",
-                href: "https://redis.io/",
-                icon: Redis,
+                title: "Linux",
+                href: "https://www.kernel.org",
+                icon: Linux,
             },
             {
                 title: "Git",
@@ -131,20 +131,20 @@ export const skills: { label: string; items: SkillItem[] }[] = [
                 icon: Git,
             },
             {
-                title: "Linux",
-                href: "https://www.kernel.org",
-                icon: Linux,
-            },
-            {
                 title: "Neovim",
                 href: "https://neovim.io",
                 icon: NeoVim,
             },
             {
-                title: "DigitalOcean",
-                href: "https://digitalocean.com",
-                icon: DigitalOcean,
+                title: "MySQL",
+                href: "https://www.mysql.com",
+                icon: MySQL,
             },
+            // {
+            //     title: "DigitalOcean",
+            //     href: "https://digitalocean.com",
+            //     icon: DigitalOcean,
+            // },
         ],
     },
 ];
