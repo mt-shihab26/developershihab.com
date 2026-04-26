@@ -4,7 +4,7 @@ import { avatar } from "@/lib/files";
 import { bio, email, github, linkedin, location, name, phone, website } from "@/lib/information";
 
 import { GitHubDark, GitHubLight, LinkedIn } from "developer-icons";
-import { Globe } from "lucide-react";
+import { Globe, Mail } from "lucide-react";
 
 export const Header = ({ image }: { image?: boolean }) => {
     return (
@@ -41,14 +41,15 @@ export const Header = ({ image }: { image?: boolean }) => {
                         "justify-center": !image,
                     })}
                 >
-                    <a href={`mailto:${email}`} className="hover:underline" target="_blank" rel="noopener noreferrer">
-                        {email}
+                    <a href={`mailto:${email}`} className="flex items-center gap-0.5 underline" target="_blank" rel="noopener noreferrer">
+                        <Mail className="h-3 w-3" />
+                        <span>{email}</span>
                     </a>
                     <a
                         href={website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-0.5 hover:underline"
+                        className="flex items-center gap-0.5 underline"
                     >
                         <Globe className="h-3 w-3" />
                         <span>{website.replace(/^https?:\/\//, "")}</span>
@@ -57,7 +58,7 @@ export const Header = ({ image }: { image?: boolean }) => {
                         href={github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-0.5 hover:underline"
+                        className="flex items-center gap-0.5 underline"
                     >
                         <GitHubDark className="h-3 w-3 dark:hidden" />
                         <GitHubLight className="hidden h-3 w-3 dark:block" />
@@ -67,7 +68,7 @@ export const Header = ({ image }: { image?: boolean }) => {
                         href={linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-0.5 hover:underline"
+                        className="flex items-center gap-0.5 underline"
                     >
                         <LinkedIn className="h-3 w-3" />
                         <span>{linkedin.split("linkedin.com/in/")[1]}</span>
