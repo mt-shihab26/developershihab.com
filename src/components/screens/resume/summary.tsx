@@ -12,14 +12,14 @@ export const Summary = () => {
                 </p>
                 <p>
                     Proficient in modern web technologies such as{" "}
-                    <strong>PHP, TypeScript, Laravel, React, TailwindCSS, and WordPress</strong>. Experienced in
-                    building <strong>end-to-end solutions</strong>, from conception to deployment on{" "}
+                    <strong>PHP, Laravel, JavaScript/TypeScript, React, TailwindCSS, and WordPress</strong>. Experienced
+                    in building <strong>end-to-end solutions</strong>, from conception to deployment on{" "}
                     <strong>cloud servers</strong>, with a focus on rapid development and clean, maintainable code.
                 </p>
                 <p>
-                    Strong background in <strong>problem-solving</strong> and <strong>analytical thinking</strong>, with{" "}
-                    <strong>1000+ problems</strong> solved on online judges. Experienced in collaborating with senior
-                    developers, applying <strong>industry best practices</strong>, and staying current with{" "}
+                    Have strong background in <strong>problem-solving</strong> and <strong>analytical thinking</strong>,
+                    with <strong>1000+ problems</strong> solved on online judges. Experienced in collaborating with
+                    senior developers, applying <strong>industry best practices</strong>, and staying current with{" "}
                     <strong>emerging technologies</strong> to deliver innovative solutions.
                 </p>
             </div>

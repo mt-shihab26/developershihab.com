@@ -3,6 +3,7 @@ import {
     C,
     DigitalOcean,
     Git,
+    Go,
     JavaScript,
     Laravel,
     Linux,
@@ -32,22 +33,24 @@ export const skills = [
                 title: "TypeScript",
                 href: "https://www.typescriptlang.org",
                 icon: TypeScript,
+                resume_title: "JavaScript/TypeScript",
             },
             {
                 title: "JavaScript",
                 href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
                 icon: JavaScript,
+                resume_disable: true,
+            },
+            {
+                title: "Go",
+                href: "https://go.dev",
+                icon: Go,
             },
             {
                 title: "C/C++",
                 href: "https://www.c-language.org",
                 icon: C,
             },
-            // {
-            //     title: "Go",
-            //     href: "https://go.dev",
-            //     icon: Go,
-            // },
         ],
     },
     {

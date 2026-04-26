@@ -13,9 +13,9 @@ export const Skills = () => {
                             {category.label}
                         </h4>
                         <div className="text-xs">
-                            {category.items.map((skill, index) => (
+                            {category.items.filter(skill => !skill.resume_disable).map((skill, index) => (
                                 <div key={index}>
-                                    <span className="font-medium">{skill.title}</span>
+                                    <span className="font-medium">{skill.resume_title ?? skill.title}</span>
                                 </div>
                             ))}
                         </div>

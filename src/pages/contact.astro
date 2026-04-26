@@ -1,0 +1,66 @@
+---
+import { email, twitter, linkedin, github } from "@/lib/information";
+
+import { Mail } from "lucide-react";
+
+import XIcon from "@/components/icons/x.astro";
+import GithubIcon from "@/components/icons/github.astro";
+import LinkedinIcon from "@/components/icons/linkedin.astro";
+
+import Box from "@/components/ui/box-index.astro";
+import BoxContent from "@/components/ui/box-content.astro";
+import BoxHeader from "@/components/ui/box-header.astro";
+import BoxTitle from "@/components/ui/box-title.astro";
+
+import PageLayout from "@/components/layouts/page/layout.astro";
+---
+
+<PageLayout
+    title="Contact"
+    description="Get in touch with me via email or connect on social media."
+>
+    <Box>
+        <BoxHeader>
+            <BoxTitle>Reach out</BoxTitle>
+        </BoxHeader>
+        <BoxContent className="space-y-4">
+            <a
+                href={`mailto:${email}`}
+                class="flex items-center gap-3 rounded-md transition-colors hover:text-primary"
+            >
+                <Mail className="size-4 shrink-0" />
+                <span>{email}</span>
+            </a>
+
+            <a
+                href={linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-3 rounded-md transition-colors hover:text-primary"
+            >
+                <LinkedinIcon className="size-4 shrink-0" />
+                <span>linkedin.com/in/mt-shihab26</span>
+            </a>
+
+            <a
+                href={twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-3 rounded-md transition-colors hover:text-primary"
+            >
+                <XIcon className="size-4 shrink-0" />
+                <span>x.com/mt_shihab26</span>
+            </a>
+
+            <a
+                href={github}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-3 rounded-md transition-colors hover:text-primary"
+            >
+                <GithubIcon className="size-4 shrink-0" />
+                <span>github.com/mt-shihab26</span>
+            </a>
+        </BoxContent>
+    </Box>
+</PageLayout>
