@@ -40,11 +40,6 @@ export const skills: { label: string; items: SkillItem[] }[] = [
         label: "Languages",
         items: [
             {
-                title: "PHP",
-                href: "https://www.php.net",
-                icon: PHP,
-            },
-            {
                 title: "TypeScript",
                 href: "https://www.typescriptlang.org",
                 icon: TypeScript,
@@ -55,6 +50,11 @@ export const skills: { label: string; items: SkillItem[] }[] = [
                 href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
                 icon: JavaScript,
                 resume_disable: true,
+            },
+            {
+                title: "PHP",
+                href: "https://www.php.net",
+                icon: PHP,
             },
             {
                 title: "Go",
@@ -72,20 +72,41 @@ export const skills: { label: string; items: SkillItem[] }[] = [
         label: "Frameworks",
         items: [
             {
+                title: "React",
+                href: "https://react.dev",
+                icon: React,
+            },
+            {
                 title: "Laravel",
                 href: "https://laravel.com",
                 icon: Laravel,
             },
             {
-                title: "React",
-                href: "https://react.dev",
-                icon: React,
+                title: "Node.js",
+                href: "https://nodejs.org/",
+                icon: NodeJs,
+            },
+            {
+                title: "PocketBase",
+                href: "https://pocketbase.io",
+                icon: PocketBaseIcon,
+            },
+            {
+                title: "WordPress",
+                href: "https://wordpress.org",
+                icon: WordPress,
             },
             {
                 title: "Inertia.js",
                 href: "https://inertiajs.com/",
                 icon: InertiaIcon,
             },
+            {
+                title: "Vue.js",
+                href: "https://vuejs.org",
+                icon: VueJs,
+            },
+
             {
                 title: "TailwindCSS",
                 href: "https://tailwindcss.com/",
@@ -95,26 +116,6 @@ export const skills: { label: string; items: SkillItem[] }[] = [
                 title: "shadcn/ui",
                 href: "https://ui.shadcn.com/",
                 icon: ShadcnUI,
-            },
-            {
-                title: "WordPress",
-                href: "https://wordpress.org",
-                icon: WordPress,
-            },
-            {
-                title: "Vue.js",
-                href: "https://vuejs.org",
-                icon: VueJs,
-            },
-            {
-                title: "PocketBase",
-                href: "https://pocketbase.io",
-                icon: PocketBaseIcon,
-            },
-            {
-                title: "Node.js",
-                href: "https://nodejs.org/",
-                icon: NodeJs,
             },
         ],
     },
@@ -126,6 +127,11 @@ export const skills: { label: string; items: SkillItem[] }[] = [
             //     href: "https://redis.io/",
             //     icon: Redis,
             // },
+            {
+                title: "MySQL",
+                href: "https://www.mysql.com",
+                icon: MySQL,
+            },
             {
                 title: "Linux",
                 href: "https://www.kernel.org",
@@ -142,19 +148,14 @@ export const skills: { label: string; items: SkillItem[] }[] = [
                 icon: NeoVim,
             },
             {
-                title: "MySQL",
-                href: "https://www.mysql.com",
-                icon: MySQL,
+                title: "Claude Code",
+                href: "https://claude.ai/code",
+                icon: ClaudeAI,
             },
             {
                 title: "DigitalOcean",
                 href: "https://digitalocean.com",
                 icon: DigitalOcean,
-            },
-            {
-                title: "Claude Code",
-                href: "https://claude.ai/code",
-                icon: ClaudeAI,
             },
             {
                 title: "OpenAI API",
