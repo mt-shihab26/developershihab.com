@@ -27,7 +27,7 @@ export const Experience = () => {
                         </a>
                     </div>
 
-                    <div className="relative space-y-2 pl-1 before:absolute before:left-3 before:h-full before:w-px before:bg-gray-200 dark:before:bg-gray-700">
+                    <div className="relative space-y-2 pl-1 before:absolute before:left-3 before:inset-y-2 before:w-px before:bg-gray-200 dark:before:bg-gray-700">
                         {e.positions.map((position, positionIndex) => (
                             <div key={positionIndex} className="space-y-1.5">
                                 <div className="relative z-10 flex items-center space-x-3">
