@@ -8,11 +8,11 @@ import { Summary } from "./summary";
 
 export const Resume = ({ image }: { image?: boolean }) => {
     return (
-        <div className="mx-auto w-full space-y-3 bg-white text-xs leading-5 text-gray-900 dark:bg-black dark:text-white">
+        <div className="mx-auto w-full space-y-3 bg-white text-xs text-gray-900 dark:bg-black dark:text-white">
             <Header image={image} />
             <Summary />
-            <div className="flex gap-6">
-                <div className="flex-1 space-y-3">
+            <div className="flex">
+                <div className="flex-1 space-y-3 pr-6">
                     <Experience />
                     <Projects />
                 </div>

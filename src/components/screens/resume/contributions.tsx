@@ -5,20 +5,22 @@ import { Heading } from "./heading";
 
 export const Contributions = () => {
     return (
-        <section className="space-y-3">
-            <Heading>Open Source Contributions</Heading>
-            <div className="space-y-3">
+        <section>
+            <Heading>Contributions</Heading>
+            <div>
                 {contributions.map(({ repo, repoUrl, prs }) => (
-                    <div
-                        key={repo}
-                        className="space-y-1.5 border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700"
-                    >
-                        <h3 className="text-sm font-bold">{repo}</h3>
-                        <a href={repoUrl} target="_blank" rel="noopener noreferrer" className="block underline">
+                    <div key={repo} className="border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700">
+                        <h3 className="font-bold">{repo}</h3>
+                        <a
+                            href={repoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block underline"
+                        >
                             {repoUrl.split("//")[1]}
                         </a>
-                        <div className="flex flex-wrap items-center gap-1">
-                            <GitPullRequestIcon className="h-3 w-3" />
+                        <div className="flex flex-wrap items-center">
+                            <GitPullRequestIcon className="h-3 w-3 text-gray-500 dark:text-gray-400" />
                             {prs.map(contribution => (
                                 <a
                                     key={contribution.pr}

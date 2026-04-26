@@ -9,7 +9,7 @@ import { Globe } from "lucide-react";
 export const Header = ({ image }: { image?: boolean }) => {
     return (
         <header
-            className={cn("flex gap-3", {
+            className={cn("flex", {
                 "flex-col items-center text-center": !image,
                 "items-center": image,
             })}
@@ -20,13 +20,13 @@ export const Header = ({ image }: { image?: boolean }) => {
                 </div>
             )}
             <div
-                className={cn("space-y-1", {
+                className={cn({
                     "text-center": !image,
                 })}
             >
                 <h1 className="text-[18px] font-bold uppercase">{name}</h1>
                 <div
-                    className={cn("flex flex-wrap items-center gap-1", {
+                    className={cn("flex flex-wrap items-center", {
                         "justify-center": !image,
                     })}
                 >
@@ -37,7 +37,7 @@ export const Header = ({ image }: { image?: boolean }) => {
                     <span>{phone}</span>
                 </div>
                 <div
-                    className={cn("flex flex-wrap items-center gap-3", {
+                    className={cn("flex flex-wrap items-center", {
                         "justify-center": !image,
                     })}
                 >
@@ -48,7 +48,7 @@ export const Header = ({ image }: { image?: boolean }) => {
                         href={website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1 hover:underline"
+                        className="flex items-center hover:underline"
                     >
                         <Globe className="h-3 w-3" />
                         <span>{website.replace(/^https?:\/\//, "")}</span>
@@ -57,7 +57,7 @@ export const Header = ({ image }: { image?: boolean }) => {
                         href={github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1 hover:underline"
+                        className="flex items-center hover:underline"
                     >
                         <GitHubDark className="h-3 w-3 dark:hidden" />
                         <GitHubLight className="hidden h-3 w-3 dark:block" />
@@ -67,7 +67,7 @@ export const Header = ({ image }: { image?: boolean }) => {
                         href={linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1 hover:underline"
+                        className="flex items-center hover:underline"
                     >
                         <LinkedIn className="h-3 w-3" />
                         <span>{linkedin.split("linkedin.com/in/")[1]}</span>
