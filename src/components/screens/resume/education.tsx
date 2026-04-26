@@ -14,21 +14,21 @@ export const Education = () => {
                             href={edu.institution.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block font-bold text-gray-900 underline dark:text-white"
+                            className="block font-bold underline"
                         >
                             {edu.institution.label}
                         </a>
                         {edu.positions.map((position, i) => (
                             <div key={i} className="space-y-0.5">
-                                <p className="text-gray-700 dark:text-gray-300">{position.title}</p>
-                                <p className="text-gray-500 dark:text-gray-400">
+                                <p>{position.title}</p>
+                                <p>
                                     {position.year}
-                                    <span className="ml-1.5 text-gray-500 dark:text-gray-400">· {formatDuration(position.year)}</span>
+                                    <span className="ml-1.5">· {formatDuration(position.year)}</span>
                                 </p>
                                 {position.description && (
                                     <ul className="list-disc pl-3 space-y-0.5">
                                         {position.description.map((desc, j) => (
-                                            <li key={j} className="text-gray-700 dark:text-gray-300" dangerouslySetInnerHTML={{ __html: markdownToHtml(desc) }} />
+                                            <li key={j} dangerouslySetInnerHTML={{ __html: markdownToHtml(desc) }} />
                                         ))}
                                     </ul>
                                 )}

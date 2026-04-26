@@ -9,25 +9,23 @@ export const Contributions = () => {
             <Heading>Contributions</Heading>
             <div className="space-y-3">
                 {contributions.map(({ repo, repoUrl, prs }) => (
-                    <div key={repo} className="space-y-1.5 border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700">
-                        <h3 className="font-bold text-gray-900 dark:text-white">{repo}</h3>
-                        <a
-                            href={repoUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block text-gray-700 underline dark:text-gray-300"
-                        >
+                    <div
+                        key={repo}
+                        className="space-y-1.5 border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700"
+                    >
+                        <h3 className="font-bold">{repo}</h3>
+                        <a href={repoUrl} target="_blank" rel="noopener noreferrer" className="block underline">
                             {repoUrl.split("//")[1]}
                         </a>
                         <div className="flex flex-wrap items-center gap-1">
-                            <GitPullRequestIcon className="h-3 w-3 text-gray-500 dark:text-gray-400" />
+                            <GitPullRequestIcon className="h-3 w-3" />
                             {prs.map(contribution => (
                                 <a
                                     key={contribution.pr}
                                     href={contribution.prUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-gray-700 underline dark:text-gray-300"
+                                    className="underline"
                                 >
                                     {contribution.pr}
                                 </a>
