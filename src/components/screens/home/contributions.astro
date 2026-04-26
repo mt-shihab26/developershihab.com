@@ -1,0 +1,55 @@
+---
+import { contributions } from "@/lib/contributions";
+
+import { GitPullRequestIcon } from "lucide-react";
+
+import Box from "@/components/ui/box-index.astro";
+import BoxHeader from "@/components/ui/box-header.astro";
+import BoxTitle from "@/components/ui/box-title.astro";
+import BoxContent from "@/components/ui/box-content.astro";
+---
+
+<Box>
+    <BoxHeader>
+        <BoxTitle>Open Source Contributions</BoxTitle>
+    </BoxHeader>
+    <BoxContent className="px-0">
+        {
+            contributions.map(({ repo, repoUrl, prs }) => (
+                <div class="space-y-4 p-4 not-last:border-b">
+                    <div class="flex items-center space-x-4 px-2">
+                        <span class="size-2 rounded-full bg-foreground/60" />
+                        <div class="flex items-center space-x-1">
+                            <h3 class="text-xl font-black">{repo}</h3>(
+                            <a
+                                href={repoUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-sm underline underline-offset-4"
+                            >
+                                {repoUrl.split("//")[1]}
+                            </a>
+                            )
+                        </div>
+                    </div>
+                    <div class="relative space-y-3 pl-1 before:absolute before:left-3 before:h-full before:w-px before:bg-border">
+                        {prs.map(contribution => (
+                            <div class="relative z-1 flex items-center space-x-3">
+                                <GitPullRequestIcon className="size-4 shrink-0 bg-background" />
+                                <a
+                                    href={contribution.prUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="font-mono text-sm font-bold underline underline-offset-4"
+                                >
+                                    {contribution.pr}
+                                </a>
+                                <span class="text-sm text-muted-foreground">— {contribution.description}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            ))
+        }
+    </BoxContent>
+</Box>
