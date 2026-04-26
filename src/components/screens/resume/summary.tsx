@@ -4,7 +4,7 @@ export const Summary = () => {
     return (
         <section className="space-y-3">
             <Heading>Summary</Heading>
-            <div className="space-y-2 leading-relaxed text-gray-800 dark:text-white">
+            <div className="space-y-2 leading-relaxed text-gray-700 dark:text-gray-300">
                 <p>
                     Results-driven Software Engineer with <strong>3+ years of experience</strong> in{" "}
                     <strong>full-stack development</strong> and building <strong>scalable software solutions</strong>.

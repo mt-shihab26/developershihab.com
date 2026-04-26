@@ -23,7 +23,7 @@ export const Header = ({ image }: { image?: boolean }) => {
             <div className={cn("space-y-2", { "text-center": !image })}>
                 <h1 className="text-xl font-bold text-gray-900 uppercase dark:text-white">{name}</h1>
                 <div
-                    className={cn("flex flex-wrap items-center gap-1 text-xs text-gray-700 dark:text-white", {
+                    className={cn("flex flex-wrap items-center gap-1 text-xs text-gray-700 dark:text-gray-300", {
                         "justify-center": !image,
                     })}
                 >

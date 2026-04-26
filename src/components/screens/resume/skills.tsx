@@ -12,7 +12,7 @@ export const Skills = () => {
                         <h4 className="mb-1 text-xs font-semibold tracking-wide text-gray-500 uppercase dark:text-gray-400">
                             {category.label}
                         </h4>
-                        <div className="text-xs">
+                        <div className="text-xs text-gray-700 dark:text-gray-300">
                             {category.items
                                 .filter(skill => !skill.resume_disable)
                                 .map((skill, index) => (
