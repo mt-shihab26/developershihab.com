@@ -6,7 +6,7 @@ import { Heading } from "./heading";
 export const Contributions = () => {
     return (
         <section>
-            <Heading>Contributions</Heading>
+            <Heading>Open Source Contributions</Heading>
             <div className="space-y-2">
                 {contributions.map(({ repo, repoUrl, prs }) => (
                     <div key={repo} className="border-b border-gray-200 pb-2 last:border-b-0 dark:border-gray-700">
