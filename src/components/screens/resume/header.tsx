@@ -20,24 +20,24 @@ export const Header = ({ image }: { image?: boolean }) => {
                 </div>
             )}
             <div
-                className={cn({
+                className={cn("space-y-1", {
                     "text-center": !image,
                 })}
             >
                 <h1 className="text-[18px] font-bold uppercase">{name}</h1>
                 <div
-                    className={cn("flex flex-wrap items-center", {
+                    className={cn("flex items-center gap-2", {
                         "justify-center": !image,
                     })}
                 >
-                    <span>{bio}</span>
-                    <span className="mx-1">•</span>
-                    <span>{location}</span>
-                    <span className="mx-1">•</span>
-                    <span>{phone}</span>
+                    <div>{bio}</div>
+                    <div>•</div>
+                    <div>{location}</div>
+                    <div>•</div>
+                    <div>{phone}</div>
                 </div>
                 <div
-                    className={cn("flex flex-wrap items-center", {
+                    className={cn("flex items-center gap-2", {
                         "justify-center": !image,
                     })}
                 >
@@ -48,7 +48,7 @@ export const Header = ({ image }: { image?: boolean }) => {
                         href={website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center hover:underline"
+                        className="flex items-center gap-0.5 hover:underline"
                     >
                         <Globe className="h-3 w-3" />
                         <span>{website.replace(/^https?:\/\//, "")}</span>
@@ -57,7 +57,7 @@ export const Header = ({ image }: { image?: boolean }) => {
                         href={github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center hover:underline"
+                        className="flex items-center gap-0.5 hover:underline"
                     >
                         <GitHubDark className="h-3 w-3 dark:hidden" />
                         <GitHubLight className="hidden h-3 w-3 dark:block" />
@@ -67,7 +67,7 @@ export const Header = ({ image }: { image?: boolean }) => {
                         href={linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center hover:underline"
+                        className="flex items-center gap-0.5 hover:underline"
                     >
                         <LinkedIn className="h-3 w-3" />
                         <span>{linkedin.split("linkedin.com/in/")[1]}</span>
