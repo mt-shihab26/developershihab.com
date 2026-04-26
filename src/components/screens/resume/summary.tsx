@@ -6,14 +6,14 @@ export const Summary = () => {
             <Heading>Summary</Heading>
             <div className="space-y-2 leading-relaxed text-gray-800 dark:text-white">
                 <p>
-                    Results-driven Software Engineer with <strong>4 years of experience</strong> in{" "}
+                    Results-driven Software Engineer with <strong>3+ years of experience</strong> in{" "}
                     <strong>full-stack development</strong> and building <strong>scalable software solutions</strong>.
                     Skilled in architecting, developing, and maintaining high-performance applications that align with
                     both technical and business objectives.
                 </p>
                 <p>
                     Proficient in modern web technologies, including{" "}
-                    <strong>PHP, Laravel, JavaScript/TypeScript, React, Tailwind CSS, and WordPress</strong>.
+                    <strong>PHP, Laravel, JavaScript/TypeScript, React, TailwindCSS, and WordPress</strong>.
                     Experienced in delivering <strong>end-to-end solutions</strong>, from conception to{" "}
                     <strong>cloud deployment</strong>, with a strong focus on rapid development and{" "}
                     <strong>clean, maintainable code</strong>.

@@ -86,7 +86,7 @@ export const skills: { label: string; items: SkillItem[] }[] = [
                 icon: InertiaIcon,
             },
             {
-                title: "Tailwind CSS",
+                title: "TailwindCSS",
                 href: "https://tailwindcss.com/",
                 icon: TailwindCSS,
             },
