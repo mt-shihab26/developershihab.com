@@ -7,6 +7,7 @@ import type { ReactElement } from "react";
 import {
     C,
     ClaudeAI,
+    DigitalOcean,
     Facebook,
     Git,
     Go,
@@ -145,11 +146,11 @@ export const skills: { label: string; items: SkillItem[] }[] = [
                 href: "https://www.mysql.com",
                 icon: MySQL,
             },
-            // {
-            //     title: "DigitalOcean",
-            //     href: "https://digitalocean.com",
-            //     icon: DigitalOcean,
-            // },
+            {
+                title: "DigitalOcean",
+                href: "https://digitalocean.com",
+                icon: DigitalOcean,
+            },
             {
                 title: "Claude Code",
                 href: "https://claude.ai/code",
