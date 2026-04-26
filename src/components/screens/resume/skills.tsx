@@ -9,9 +9,7 @@ export const Skills = () => {
             <div className="space-y-2">
                 {skills.map((category, categoryIndex) => (
                     <div key={categoryIndex}>
-                        <h4 className="mb-0.5 border-b border-gray-200 pb-0.5 font-semibold tracking-wide uppercase dark:border-gray-700">
-                            {category.label}
-                        </h4>
+                        <h4 className="mb-0.5 pb-0.5 font-bold underline">{category.label}</h4>
                         <div className="space-y-0.5">
                             {category.items
                                 .filter(skill => !skill.resume_disable)
