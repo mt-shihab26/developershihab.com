@@ -9,7 +9,7 @@ import { Globe, Mail } from "lucide-react";
 export const Header = ({ image }: { image?: boolean }) => {
     return (
         <header
-            className={cn("flex", {
+            className={cn("flex gap-3", {
                 "flex-col items-center text-center": !image,
                 "items-center": image,
             })}
