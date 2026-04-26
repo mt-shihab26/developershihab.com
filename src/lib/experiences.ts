@@ -24,6 +24,7 @@ export const experiences: TExperience[] = [
                 description: [
                     "Architected and delivered [paystubhero.com](https://paystubhero.com), a full-stack SaaS platform that generates 5,000+ financial documents monthly",
                     "Built [quickdoctorsnote.com](https://quickdoctorsnote.com), a SaaS application enabling users to generate professional medical documents on demand",
+                    "Developed [practicescope.com](https://practicescope.com), an AI-powered dental practice acquisition platform that benchmarks 30+ financial metrics and generates personalized acquisition reports",
                     "Owned end-to-end feature delivery — from database design and API development to React UI and cloud deployment",
                     "Developed and maintained custom WordPress plugins and client websites",
                 ],
@@ -36,6 +37,8 @@ export const experiences: TExperience[] = [
                     "Inertia.js",
                     "TailwindCSS",
                     "shadcn/ui",
+                    "Go",
+                    "PocketBase",
                 ],
             },
         ],
