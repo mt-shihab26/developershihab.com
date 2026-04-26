@@ -9,8 +9,8 @@ export const Contributions = () => {
             <Heading>Contributions</Heading>
             <div className="space-y-3">
                 {contributions.map(({ repo, repoUrl, prs }) => (
-                    <div key={repo} className="space-y-1 border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700">
-                        <h3 className="text-sm font-bold text-gray-900 dark:text-white">{repo}</h3>
+                    <div key={repo} className="space-y-1.5 border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700">
+                        <h3 className="text-xs font-bold text-gray-900 dark:text-white">{repo}</h3>
                         <a
                             href={repoUrl}
                             target="_blank"

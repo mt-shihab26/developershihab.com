@@ -6,7 +6,7 @@ import { Code2 } from "lucide-react";
 import { Heading } from "./heading";
 
 const ProjectCard = ({ project }: { project: TProject }) => (
-    <div className="border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700">
+    <div className="space-y-2 border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700">
         <div className="flex items-center space-x-3">
             <Code2 className="h-4 w-4 bg-white text-gray-500 dark:bg-black dark:text-gray-400" />
             <div className="flex items-center gap-1">
@@ -23,7 +23,7 @@ const ProjectCard = ({ project }: { project: TProject }) => (
                 )}
             </div>
         </div>
-        <div className="relative space-y-1 pl-1 before:absolute before:left-3 before:inset-y-2 before:w-px before:bg-gray-200 dark:before:bg-gray-700">
+        <div className="relative space-y-1.5 pl-1 before:absolute before:left-3 before:inset-y-2 before:w-px before:bg-gray-200 dark:before:bg-gray-700">
             <div className="flex flex-col pl-7">
                 {project.source && (
                     <a
