@@ -14,7 +14,7 @@ export const Education = () => {
                             href={edu.institution.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block font-bold underline"
+                            className="block font-bold underline decoration-gray-400"
                         >
                             {edu.institution.label}
                         </a>

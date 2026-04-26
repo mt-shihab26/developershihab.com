@@ -41,7 +41,7 @@ export const Header = ({ image }: { image?: boolean }) => {
                         "justify-center": !image,
                     })}
                 >
-                    <a href={`mailto:${email}`} className="flex items-center gap-0.5 underline" target="_blank" rel="noopener noreferrer">
+                    <a href={`mailto:${email}`} className="flex items-center gap-0.5 underline decoration-gray-400" target="_blank" rel="noopener noreferrer">
                         <Mail className="h-3 w-3" />
                         <span>{email}</span>
                     </a>
@@ -49,7 +49,7 @@ export const Header = ({ image }: { image?: boolean }) => {
                         href={website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-0.5 underline"
+                        className="flex items-center gap-0.5 underline decoration-gray-400"
                     >
                         <Globe className="h-3 w-3" />
                         <span>{website.replace(/^https?:\/\//, "")}</span>
@@ -58,7 +58,7 @@ export const Header = ({ image }: { image?: boolean }) => {
                         href={github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-0.5 underline"
+                        className="flex items-center gap-0.5 underline decoration-gray-400"
                     >
                         <GitHubDark className="h-3 w-3 dark:hidden" />
                         <GitHubLight className="hidden h-3 w-3 dark:block" />
@@ -68,7 +68,7 @@ export const Header = ({ image }: { image?: boolean }) => {
                         href={linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-0.5 underline"
+                        className="flex items-center gap-0.5 underline decoration-gray-400"
                     >
                         <LinkedIn className="h-3 w-3" />
                         <span>{linkedin.split("linkedin.com/in/")[1]}</span>

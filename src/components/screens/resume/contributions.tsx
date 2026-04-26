@@ -15,7 +15,7 @@ export const Contributions = () => {
                             href={repoUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block underline"
+                            className="block underline decoration-gray-400"
                         >
                             {repoUrl.split("//")[1]}
                         </a>
@@ -27,7 +27,7 @@ export const Contributions = () => {
                                     href={contribution.prUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="underline"
+                                    className="underline decoration-gray-400"
                                 >
                                     {contribution.pr}
                                 </a>

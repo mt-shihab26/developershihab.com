@@ -12,7 +12,7 @@ const ProjectCard = ({ project }: { project: TProject }) => (
             <div className="flex items-center gap-1">
                 <h3 className="font-bold">{project.name}</h3>
                 {project.preview && (
-                    <a href={project.preview} target="_blank" rel="noopener noreferrer" className="underline">
+                    <a href={project.preview} target="_blank" rel="noopener noreferrer" className="underline decoration-gray-400">
                         ({project.preview.split("//")[1]})
                     </a>
                 )}
@@ -20,7 +20,7 @@ const ProjectCard = ({ project }: { project: TProject }) => (
         </div>
         <div className="relative mt-1 space-y-0.5 pl-1 before:absolute before:inset-y-2 before:left-3 before:w-px before:bg-gray-200 dark:before:bg-gray-700">
             {project.source && (
-                <a href={project.source} target="_blank" rel="noopener noreferrer" className="block pl-7 underline">
+                <a href={project.source} target="_blank" rel="noopener noreferrer" className="block pl-7 underline decoration-gray-400">
                     {project.source.split("//")[1]}
                 </a>
             )}
