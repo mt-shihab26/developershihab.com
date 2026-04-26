@@ -9,15 +9,17 @@ export const Skills = () => {
             <div className="space-y-3">
                 {skills.map((category, categoryIndex) => (
                     <div key={categoryIndex}>
-                        <h4 className="mb-1 font-semibold text-gray-900 underline underline-offset-2 dark:text-white">
+                        <h4 className="mb-1 text-xs font-semibold tracking-wide text-gray-500 uppercase dark:text-gray-400">
                             {category.label}
                         </h4>
                         <div className="text-xs">
-                            {category.items.filter(skill => !skill.resume_disable).map((skill, index) => (
-                                <div key={index}>
-                                    <span className="font-medium">{skill.resume_title ?? skill.title}</span>
-                                </div>
-                            ))}
+                            {category.items
+                                .filter(skill => !skill.resume_disable)
+                                .map((skill, index) => (
+                                    <div key={index}>
+                                        <span className="font-medium">{skill.resume_title ?? skill.title}</span>
+                                    </div>
+                                ))}
                         </div>
                     </div>
                 ))}

@@ -23,7 +23,7 @@ export const Education = () => {
                                 <p className="text-xs text-gray-700 dark:text-gray-300">{position.title}</p>
                                 <p className="text-[10px] text-gray-500 dark:text-gray-400">
                                     {position.year}
-                                    <span className="ml-1.5 text-gray-400 dark:text-gray-500">· {formatDuration(position.year)}</span>
+                                    <span className="ml-1.5 text-gray-500 dark:text-gray-400">· {formatDuration(position.year)}</span>
                                 </p>
                                 {position.description && (
                                     <ul className="list-disc pl-3 space-y-0.5">
