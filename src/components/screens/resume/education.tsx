@@ -1,5 +1,5 @@
 import { educations } from "@/lib/educations";
-import { markdownToHtml } from "@/lib/utils";
+import { formatDuration, markdownToHtml } from "@/lib/utils";
 
 import { Heading } from "./heading";
 
@@ -21,7 +21,10 @@ export const Education = () => {
                         {edu.positions.map((position, i) => (
                             <div key={i} className="space-y-0.5">
                                 <p className="text-xs text-gray-700 dark:text-gray-300">{position.title}</p>
-                                <p className="text-[10px] text-gray-500 dark:text-gray-400">{position.year}</p>
+                                <p className="text-[10px] text-gray-500 dark:text-gray-400">
+                                    {position.year}
+                                    <span className="ml-1.5 text-gray-400 dark:text-gray-500">· {formatDuration(position.year)}</span>
+                                </p>
                                 {position.description && (
                                     <ul className="list-disc pl-3 space-y-0.5">
                                         {position.description.map((desc, j) => (
