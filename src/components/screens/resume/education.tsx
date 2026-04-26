@@ -7,9 +7,9 @@ export const Education = () => {
     return (
         <section>
             <Heading>Education</Heading>
-            <div>
+            <div className="space-y-2">
                 {educations.map((edu, index) => (
-                    <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700">
+                    <div key={index} className="border-b border-gray-200 pb-2 last:border-b-0 dark:border-gray-700">
                         <a
                             href={edu.institution.link}
                             target="_blank"
@@ -19,7 +19,7 @@ export const Education = () => {
                             {edu.institution.label}
                         </a>
                         {edu.positions.map((position, i) => (
-                            <div key={i}>
+                            <div key={i} className="mt-0.5">
                                 <p>{position.title}</p>
                                 <p>
                                     {position.year}

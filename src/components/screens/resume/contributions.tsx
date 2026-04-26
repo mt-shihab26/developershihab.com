@@ -7,9 +7,9 @@ export const Contributions = () => {
     return (
         <section>
             <Heading>Contributions</Heading>
-            <div>
+            <div className="space-y-2">
                 {contributions.map(({ repo, repoUrl, prs }) => (
-                    <div key={repo} className="border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700">
+                    <div key={repo} className="border-b border-gray-200 pb-2 last:border-b-0 dark:border-gray-700">
                         <h3 className="font-bold">{repo}</h3>
                         <a
                             href={repoUrl}
@@ -19,7 +19,7 @@ export const Contributions = () => {
                         >
                             {repoUrl.split("//")[1]}
                         </a>
-                        <div className="flex flex-wrap items-center">
+                        <div className="mt-1 flex flex-wrap items-center gap-1">
                             <GitPullRequestIcon className="h-3 w-3 text-gray-500 dark:text-gray-400" />
                             {prs.map(contribution => (
                                 <a
