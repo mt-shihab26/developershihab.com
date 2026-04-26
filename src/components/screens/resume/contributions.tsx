@@ -19,7 +19,7 @@ export const Contributions = () => {
                         >
                             {repoUrl.split("//")[1]}
                         </a>
-                        <div className="flex flex-wrap items-center gap-1 pt-0.5">
+                        <div className="flex flex-wrap items-center gap-1">
                             <GitPullRequestIcon className="h-3 w-3 text-gray-500 dark:text-gray-400" />
                             {prs.map(contribution => (
                                 <a

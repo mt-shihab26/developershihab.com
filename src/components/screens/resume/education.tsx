@@ -9,12 +9,12 @@ export const Education = () => {
             <Heading>Education</Heading>
             <div className="space-y-3">
                 {educations.map((edu, index) => (
-                    <div key={index} className="space-y-1 border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700">
+                    <div key={index} className="space-y-1.5 border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700">
                         <a
                             href={edu.institution.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block text-xs font-bold leading-snug text-gray-900 hover:underline dark:text-white"
+                            className="block text-xs font-bold text-gray-900 underline dark:text-white"
                         >
                             {edu.institution.label}
                         </a>
