@@ -5,6 +5,8 @@ import type { ReactElement } from "react";
 
 import {
     C,
+    ClaudeAI,
+    Facebook,
     Git,
     Go,
     JavaScript,
@@ -13,6 +15,7 @@ import {
     MySQL,
     NeoVim,
     NodeJs,
+    OpenAI,
     PHP,
     React,
     ShadcnUI,
@@ -145,6 +148,21 @@ export const skills: { label: string; items: SkillItem[] }[] = [
             //     href: "https://digitalocean.com",
             //     icon: DigitalOcean,
             // },
+            {
+                title: "Claude Code",
+                href: "https://claude.ai/code",
+                icon: ClaudeAI,
+            },
+            {
+                title: "OpenAI API",
+                href: "https://platform.openai.com",
+                icon: OpenAI,
+            },
+            {
+                title: "Facebook API",
+                href: "https://developers.facebook.com",
+                icon: Facebook,
+            },
         ],
     },
 ];
