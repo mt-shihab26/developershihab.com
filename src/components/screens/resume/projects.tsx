@@ -6,12 +6,12 @@ import { Code2 } from "lucide-react";
 import { Heading } from "./heading";
 
 const ProjectCard = ({ project }: { project: TProject }) => (
-    <div className="border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700">
+    <div className="space-y-3 border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700">
         <div className="flex items-center space-x-3">
             <span className="h-2 w-2 rounded-full bg-gray-400 dark:bg-gray-500" />
             <h3 className="text-sm font-bold text-gray-900 dark:text-white">{project.name}</h3>
         </div>
-        <div className="relative space-y-1 pl-1 before:absolute before:left-3 before:h-full before:w-px before:bg-gray-200 dark:before:bg-gray-700">
+        <div className="relative space-y-2 pl-1 before:absolute before:left-3 before:h-full before:w-px before:bg-gray-200 dark:before:bg-gray-700">
             <div className="relative z-10 flex items-center space-x-3">
                 <Code2 className="h-4 w-4 bg-white text-gray-400 dark:bg-black dark:text-gray-500" />
                 <div className="flex flex-col">
@@ -38,7 +38,7 @@ const ProjectCard = ({ project }: { project: TProject }) => (
                 </div>
             </div>
             {project.technologies.length > 0 && (
-                <div className="mb-1 pl-7 text-xs text-gray-900 dark:text-white">{project.technologies.join(", ")}</div>
+                <div className="pl-7 text-[10px] text-gray-900 dark:text-white">{project.technologies.join(", ")}</div>
             )}
             <p className="pl-7 text-xs text-gray-700 dark:text-gray-300">{project.description}</p>
         </div>

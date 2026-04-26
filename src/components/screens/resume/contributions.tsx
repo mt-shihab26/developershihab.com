@@ -9,7 +9,7 @@ export const Contributions = () => {
             <Heading>Open Source Contributions</Heading>
             <div className="space-y-3">
                 {contributions.map(({ repo, repoUrl, prs }) => (
-                    <div key={repo} className="border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700">
+                    <div key={repo} className="space-y-3 border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700">
                         <div className="flex items-center space-x-3">
                             <span className="h-2 w-2 rounded-full bg-gray-400 dark:bg-gray-500" />
                             <div className="flex items-center space-x-1">
@@ -34,11 +34,11 @@ export const Contributions = () => {
                                             href={contribution.prUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="text-[11px] text-gray-900 underline dark:text-white"
+                                            className="text-xs text-gray-900 underline dark:text-white"
                                         >
                                             {contribution.pr}
                                         </a>
-                                        <span className="text-[11px] text-gray-700 dark:text-gray-300">
+                                        <span className="text-xs text-gray-700 dark:text-gray-300">
                                             — {contribution.description}
                                         </span>
                                     </div>

@@ -19,7 +19,7 @@ export const Education = () => {
                             href={edu.institution.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-[13px] font-bold text-gray-900 hover:underline dark:text-white"
+                            className="text-sm font-bold text-gray-900 hover:underline dark:text-white"
                         >
                             {edu.institution.label}
                         </a>
