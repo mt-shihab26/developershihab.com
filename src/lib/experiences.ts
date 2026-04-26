@@ -53,9 +53,8 @@ export const experiences: TExperience[] = [
                 title: "Software Engineer Intern",
                 year: "Jun 2024 – Sep 2024",
                 description: [
-                    "Engineered a full-stack e-commerce platform with Laravel, including a complete admin panel for product and order management",
                     "Designed and built a custom web application using PHP following MVC architecture patterns",
-                    "Collaborated with senior engineers to apply industry best practices in code quality and project structure",
+                    "Engineered a full-stack e-commerce platform with Laravel, including a complete admin panel for product and order management",
                 ],
                 skills: ["PHP", "Laravel", "TailwindCSS", "MySQL"],
             },
