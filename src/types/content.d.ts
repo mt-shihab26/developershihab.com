@@ -1,6 +1,6 @@
 export type TProject = {
     name: string;
-    type: "core" | "side";
+    type: "core" | "side" | "opensource";
     preview?: string;
     source?: string;
     technologies: string[];
