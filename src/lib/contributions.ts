@@ -18,7 +18,7 @@ export const contributions: TContributionGroup[] = [
             {
                 pr: "#177",
                 prUrl: "https://github.com/laravel/ai/pull/177",
-                description: "Added make:agent-middleware artisan command for generating AI agent middleware",
+                description: "Added make:agent-middleware artisan command",
             },
             {
                 pr: "#234",

@@ -25,7 +25,7 @@ export const Contributions = () => {
                                 )
                             </div>
                         </div>
-                        <div className="relative space-y-1 pl-1 before:absolute before:left-3 before:h-full before:w-px before:bg-gray-200 dark:before:bg-gray-700">
+                        <div className="relative pl-1 before:absolute before:left-3 before:h-full before:w-px before:bg-gray-200 dark:before:bg-gray-700">
                             {prs.map(contribution => (
                                 <div key={contribution.pr} className="relative z-10">
                                     <div className="flex space-x-3">
