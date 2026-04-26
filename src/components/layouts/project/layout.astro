@@ -1,5 +1,6 @@
 ---
 import { capitalizeFirstLetter } from "@/lib/utils";
+import { name } from "@/lib/information";
 
 import { ArrowLeft, FacebookIcon, InstagramIcon } from "lucide-react";
 import { ExternalLink } from "lucide-react";
@@ -31,7 +32,7 @@ interface Props {
 const { title, technologies, description, preview, source, image, facebook, instagram } = Astro.props;
 ---
 
-<SiteLayout title={`${title}`} ogImage={image} description={description}>
+<SiteLayout title={`${title} - ${name}`} ogImage={image} description={description}>
     <SiteHeader />
 
     <main class="mx-auto min-h-screen max-w-3xl" aria-label="Main content">
