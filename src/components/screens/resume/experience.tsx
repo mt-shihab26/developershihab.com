@@ -46,7 +46,7 @@ export const Experience = () => {
                                     </span>
                                 </span>
 
-                                <ul className="ml-7 list-disc space-y-1 text-xs leading-relaxed text-gray-700 dark:text-gray-300">
+                                <ul className="ml-7 list-disc space-y-1 text-xs text-gray-700 dark:text-gray-300">
                                     {position.description.map((desc, i) => (
                                         <li
                                             key={i}
@@ -58,7 +58,7 @@ export const Experience = () => {
                                 </ul>
 
                                 {position.skills.length > 0 && (
-                                    <div className="ml-7 text-xs text-gray-600 dark:text-gray-300">
+                                    <div className="ml-7 text-[11px] text-gray-600 dark:text-gray-300">
                                         {position.skills.join(", ")}
                                     </div>
                                 )}
