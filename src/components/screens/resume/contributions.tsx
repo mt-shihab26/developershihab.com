@@ -10,12 +10,12 @@ export const Contributions = () => {
             <div className="space-y-3">
                 {contributions.map(({ repo, repoUrl, prs }) => (
                     <div key={repo} className="space-y-1.5 border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700">
-                        <h3 className="text-xs font-bold text-gray-900 dark:text-white">{repo}</h3>
+                        <h3 className="font-bold text-gray-900 dark:text-white">{repo}</h3>
                         <a
                             href={repoUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block text-xs text-gray-700 underline dark:text-gray-300"
+                            className="block text-gray-700 underline dark:text-gray-300"
                         >
                             {repoUrl.split("//")[1]}
                         </a>
@@ -27,7 +27,7 @@ export const Contributions = () => {
                                     href={contribution.prUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-xs text-gray-700 underline dark:text-gray-300"
+                                    className="text-gray-700 underline dark:text-gray-300"
                                 >
                                     {contribution.pr}
                                 </a>

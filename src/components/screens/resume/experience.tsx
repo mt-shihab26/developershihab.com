@@ -21,7 +21,7 @@ export const Experience = () => {
                             href={e.company.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-sm font-bold text-gray-900 underline dark:text-white"
+                            className="font-bold text-gray-900 underline dark:text-white"
                         >
                             {e.company.label}
                         </a>
@@ -33,12 +33,12 @@ export const Experience = () => {
                                 <div className="relative z-10 flex items-center space-x-3">
                                     <BriefcaseBusinessIcon className="h-4 w-4 bg-white text-gray-500 dark:bg-black dark:text-gray-400" />
 
-                                    <h3 className="text-xs font-semibold text-gray-900 dark:text-white">
+                                    <h3 className="font-semibold text-gray-900 dark:text-white">
                                         {position.title}
                                     </h3>
                                 </div>
 
-                                <span className="block pl-7 text-xs text-gray-700 dark:text-gray-300">
+                                <span className="block pl-7 text-gray-700 dark:text-gray-300">
                                     {position.year}
 
                                     <span className="text-gray-500 dark:text-gray-400">
@@ -46,7 +46,7 @@ export const Experience = () => {
                                     </span>
                                 </span>
 
-                                <ul className="ml-7 list-disc space-y-0.5 text-xs text-gray-700 dark:text-gray-300">
+                                <ul className="ml-7 list-disc space-y-0.5 text-gray-700 dark:text-gray-300">
                                     {position.description.map((desc, i) => (
                                         <li
                                             key={i}
@@ -58,7 +58,7 @@ export const Experience = () => {
                                 </ul>
 
                                 {position.skills.length > 0 && (
-                                    <div className="ml-7 text-[11px] text-gray-500 dark:text-gray-400">
+                                    <div className="ml-7 text-gray-500 dark:text-gray-400">
                                         {position.skills.join(", ")}
                                     </div>
                                 )}

@@ -10,13 +10,13 @@ const ProjectCard = ({ project }: { project: TProject }) => (
         <div className="flex items-center space-x-3">
             <Code2 className="h-4 w-4 bg-white text-gray-500 dark:bg-black dark:text-gray-400" />
             <div className="flex items-center gap-1">
-                <h3 className="text-xs font-bold text-gray-900 dark:text-white">{project.name}</h3>
+                <h3 className="font-bold text-gray-900 dark:text-white">{project.name}</h3>
                 {project.preview && (
                     <a
                         href={project.preview}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-xs text-gray-700 underline dark:text-gray-300"
+                        className="text-gray-700 underline dark:text-gray-300"
                     >
                         ({project.preview.split("//")[1]})
                     </a>
@@ -30,16 +30,16 @@ const ProjectCard = ({ project }: { project: TProject }) => (
                         href={project.source}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-xs text-gray-700 underline dark:text-gray-300"
+                        className="text-gray-700 underline dark:text-gray-300"
                     >
                         {project.source.split("//")[1]}
                     </a>
                 )}
             </div>
 
-            <p className="pl-7 text-xs text-gray-700 dark:text-gray-300">{project.description}</p>
+            <p className="pl-7 text-gray-700 dark:text-gray-300">{project.description}</p>
             {project.technologies.length > 0 && (
-                <div className="pl-7 text-[11px] text-gray-500 dark:text-gray-400">{project.technologies.join(" · ")}</div>
+                <div className="pl-7 text-gray-500 dark:text-gray-400">{project.technologies.join(" · ")}</div>
             )}
         </div>
     </div>
@@ -49,7 +49,7 @@ const ProjectGroup = ({ title, projects }: { title: string; projects: TProject[]
     if (projects.length === 0) return null;
     return (
         <div className="space-y-3">
-            <h3 className="text-xs font-semibold tracking-wide text-gray-500 uppercase dark:text-gray-400">{title}</h3>
+            <h3 className="font-semibold tracking-wide text-gray-500 uppercase dark:text-gray-400">{title}</h3>
             {projects.map((project, index) => (
                 <ProjectCard key={index} project={project} />
             ))}
