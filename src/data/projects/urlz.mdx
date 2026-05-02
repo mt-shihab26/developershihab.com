@@ -3,39 +3,9 @@ name: Urlz
 type: side
 source: https://github.com/mt-shihab26/urlz
 technologies: ["Go", "PocketBase", "React", "TypeScript", "TailwindCSS", "shadcn/ui"]
-description: A URL shortener with real-time click analytics — tracking country, browser, and referrer per link — with a clean dashboard for managing and monitoring all your links.
+description: A self-hosted URL shortener with a real-time analytics dashboard — tracks geography, browser, device, OS, language, and referrer for every click.
 resume: true
 startDate: Jun 1, 2025
 priority: 7
+noShow: true
 ---
-
-# Urlz
-
-## Overview
-
-Urlz is a production-grade URL shortener with a built-in analytics dashboard. Users create short links and get detailed insight into every click — where it came from, what device and browser was used, and which referrer drove the traffic. The backend is written in Go using PocketBase as the database and auth layer, with a React frontend.
-
-## Features
-
-**Link Shortening** – Generate short, shareable URLs with optional custom slugs
-
-**Click Analytics** – Real-time tracking of click count, country, browser, OS, and referrer per link
-
-**Analytics Dashboard** – Visual breakdown of link performance with charts and time-range filtering
-
-**User Authentication** – Secure sign-up and login via PocketBase auth
-
-**Link Management** – Enable, disable, or delete links; set expiry dates and redirect limits
-
-**API Access** – REST API endpoints for programmatic link creation and stats retrieval
-
-## Tech Stack
-
-- **Backend:** Go (HTTP handlers, redirect logic, analytics ingestion)
-- **Database & Auth:** PocketBase (embedded SQLite, built-in auth, REST + realtime)
-- **Frontend:** React + TypeScript
-- **Styling:** TailwindCSS + shadcn/ui
-
-## Source Code
-
-Browse the source at [github.com/mt-shihab26/urlz](https://github.com/mt-shihab26/urlz)
