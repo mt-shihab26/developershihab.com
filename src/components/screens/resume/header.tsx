@@ -41,7 +41,12 @@ export const Header = ({ image }: { image?: boolean }) => {
                         "justify-center": !image,
                     })}
                 >
-                    <a href={`mailto:${email}`} className="flex items-center gap-0.5 underline decoration-gray-400" target="_blank" rel="noopener noreferrer">
+                    <a
+                        href={`mailto:${email}`}
+                        className="flex items-center gap-0.5 underline decoration-gray-400"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         <Mail className="h-3 w-3" />
                         <span>{email}</span>
                     </a>

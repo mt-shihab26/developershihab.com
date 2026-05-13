@@ -1,7 +1,7 @@
 import { experiences } from "@/lib/experiences";
 import { formatDuration, markdownToHtml } from "@/lib/utils";
 
-import { BriefcaseBusinessIcon, Building2 } from "lucide-react";
+import { BriefcaseBusinessIcon } from "lucide-react";
 import { Heading } from "./heading";
 
 export const Experience = () => {
