@@ -1,5 +1,6 @@
 import { InertiaIcon } from "@/components/icons/inertia-icon";
 import { PocketBaseIcon } from "@/components/icons/pocketbase-icon";
+import { TanStackIcon } from "@/components/icons/tanstack-icon";
 
 import type { DeveloperIconProps } from "developer-icons/dist/icon";
 import type { ReactElement } from "react";
@@ -105,6 +106,11 @@ export const skills: { label: string; items: SkillItem[] }[] = [
                 title: "Vue.js",
                 href: "https://vuejs.org",
                 icon: VueJs,
+            },
+            {
+                title: "TanStack",
+                href: "https://tanstack.com",
+                icon: TanStackIcon,
             },
 
             {
