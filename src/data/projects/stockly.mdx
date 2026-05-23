@@ -1,0 +1,63 @@
+---
+name: Stockly
+type: side
+source: https://github.com/mt-shihab26/stockly
+technologies: ["PHP", "TypeScript", "Laravel", "React", "Inertia.js", "TailwindCSS", "shadcn/ui", "OpenAI"]
+description: An AI-powered multi-tenant inventory management SaaS that helps businesses track stock levels, manage suppliers and purchase orders, forecast demand, and receive smart reorder suggestions — all from a real-time analytics dashboard.
+resume: true
+startDate: May 23, 2025
+priority: 3
+---
+
+# **Stockly**
+
+## **Overview**
+
+Stockly is an AI-powered inventory management SaaS built with Laravel, React, and Inertia.js. It gives businesses complete visibility into their stock — tracking products across multiple warehouses, managing supplier relationships and purchase orders, and using AI to forecast demand and trigger smart reorder suggestions before stockouts happen.
+
+## **Features**
+
+**Product Management** – Manage products with SKUs, categories, variants, units of measure, and supplier mappings
+
+**Multi-Warehouse Support** – Track stock levels independently per warehouse location with transfer management between locations
+
+**Purchase Orders** – Create, send, and track purchase orders with suppliers from draft through to received, with PDF export
+
+**Stock Movements** – Log every stock-in, stock-out, adjustment, and transfer with a full auditable history
+
+**Supplier Management** – Maintain a supplier directory with contact details, lead times, and performance history
+
+**Low Stock Alerts** – Configurable thresholds per product that trigger real-time notifications when stock drops below the minimum
+
+**AI Demand Forecasting** – OpenAI analyses historical stock movement data to predict future demand and flag products at risk of stockout
+
+**Smart Reorder Suggestions** – AI generates purchase order suggestions with recommended quantities and timing based on sales velocity and supplier lead times
+
+**Natural Language Queries** – Ask questions like "Which products are running low this week?" and get instant AI-generated answers from your inventory data
+
+**Real-Time Dashboard** – Live overview of total stock value, low stock count, pending orders, and movement activity powered by Laravel Reverb
+
+**Analytics & Reports** – Stock valuation reports, movement history, supplier performance, and slow-moving inventory — all exportable to PDF and Excel
+
+**Role-Based Access** – Owner, Warehouse Manager, and Staff roles with fine-grained permissions per workspace
+
+**Bulk Import** – Import products and opening stock from Excel/CSV to get up and running fast
+
+## **Tech Stack**
+
+- **Backend:** Laravel (Queues, Horizon, Scheduling, Broadcasting, Events, Notifications, Policies)
+- **Frontend:** React + Inertia.js
+- **Styling:** TailwindCSS + shadcn/ui
+- **Real-Time:** Laravel Reverb
+- **AI:** OpenAI (demand forecasting, reorder suggestions, natural language queries)
+- **Database:** MySQL
+- **Queue Monitoring:** Laravel Horizon
+- **Permissions:** Spatie Laravel Permission
+- **Activity Log:** Spatie Laravel Activitylog
+- **File Storage:** Laravel Storage (S3-compatible)
+- **PDF:** Laravel DomPDF
+- **Excel:** Maatwebsite Laravel Excel
+
+## **Source Code**
+
+Browse the source at [github.com/mt-shihab26/stockly](https://github.com/mt-shihab26/stockly)
