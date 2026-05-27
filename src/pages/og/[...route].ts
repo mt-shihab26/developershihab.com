@@ -1,7 +1,7 @@
-import { getCollection } from "astro:content";
 import { OGImageRoute } from "astro-og-canvas";
+import { getCollection } from "astro:content";
 
-import { name, role, desc } from "@/lib/information";
+import { name, role } from "@/lib/information";
 
 const articles = await getCollection("blog", ({ data }) => !data.draft);
 const projects = await getCollection("projects", ({ data }) => !data.noShow);
@@ -12,11 +12,13 @@ const pages: Record<string, PageData> = {
     home: { title: name, description: role },
     articles: {
         title: "Articles",
-        description: "Exploring programming, frontend, backend, and full-stack development deep dives, series, and hands-on insights.",
+        description:
+            "Exploring programming, frontend, backend, and full-stack development deep dives, series, and hands-on insights.",
     },
     projects: {
         title: "My Projects",
-        description: "Explore my portfolio of innovative web applications, startup ventures, client solutions, and experimental projects.",
+        description:
+            "Explore my portfolio of innovative web applications, startup ventures, client solutions, and experimental projects.",
     },
     contact: {
         title: "Contact",
