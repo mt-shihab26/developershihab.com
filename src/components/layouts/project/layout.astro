@@ -23,16 +23,16 @@ interface Props {
     technologies: string[];
     source?: string;
     preview?: string;
-    image?: string;
+    ogImage?: string;
     description: string;
     facebook?: string;
     instagram?: string;
 }
 
-const { title, technologies, description, preview, source, image, facebook, instagram } = Astro.props;
+const { title, technologies, description, preview, source, ogImage, facebook, instagram } = Astro.props;
 ---
 
-<SiteLayout title={`${title} - ${name}`} ogImage={image} description={description}>
+<SiteLayout title={`${title} - ${name}`} ogImage={ogImage} description={description}>
     <SiteHeader />
 
     <main class="mx-auto min-h-screen max-w-3xl" aria-label="Main content">

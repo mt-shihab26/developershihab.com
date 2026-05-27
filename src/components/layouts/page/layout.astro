@@ -19,12 +19,13 @@ interface Props {
     title: string;
     description: string;
     backLink?: string;
+    ogImage?: string;
 }
 
-const { title, description, backLink } = Astro.props;
+const { title, description, backLink, ogImage } = Astro.props;
 ---
 
-<SiteLayout title={`${title} - ${name}`} description={description}>
+<SiteLayout title={`${title} - ${name}`} description={description} ogImage={ogImage}>
     <SiteHeader />
     <main class="mx-auto min-h-screen max-w-3xl" aria-label="Main content">
         <Pattern className="h-14">

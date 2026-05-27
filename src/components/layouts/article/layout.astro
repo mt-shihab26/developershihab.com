@@ -24,12 +24,12 @@ interface Props {
     readTime: string;
     date: Date;
     headings: MarkdownHeading[];
-    image?: string;
+    ogImage?: string;
     description: string;
     devTo?: string;
 }
 
-const { title, readTime, description, date, headings, image, devTo } = Astro.props;
+const { title, readTime, description, date, headings, ogImage, devTo } = Astro.props;
 
 const formattedDate = new Intl.DateTimeFormat("en-GB", {
     day: "2-digit",
@@ -40,7 +40,7 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
     .replace(/\//g, ".");
 ---
 
-<SiteLayout title={`${title} - ${name}`} ogImage={image} description={description}>
+<SiteLayout title={`${title} - ${name}`} ogImage={ogImage} description={description}>
     <SiteHeader className="top-1" />
     <main aria-label="Main content" class="min-h-screen">
         <div class="mx-auto max-w-3xl">

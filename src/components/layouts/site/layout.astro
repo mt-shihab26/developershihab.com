@@ -1,5 +1,5 @@
 ---
-import { name, role, website, desc, ogImage as xOgImage, pageType as xPageType } from "@/lib/information";
+import { name, role, website, desc, pageType as xPageType } from "@/lib/information";
 
 import "@/styles/global.css";
 
@@ -22,7 +22,7 @@ const {
     author = name,
     profile = website,
     description = desc,
-    ogImage = xOgImage,
+    ogImage = "/og/home.png",
     pageType = xPageType,
     canonicalURL = new URL(Astro.url.pathname, Astro.url),
 } = Astro.props;
@@ -67,9 +67,9 @@ const structuredData = {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={socialImageURL} />
-        <meta property="og:image:width" content="1920" />
-        <meta property="og:image:height" content="1080" />
-        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/png" />
         <meta property="og:url" content={canonicalURL} />
 
         <!-- X / Twitter -->

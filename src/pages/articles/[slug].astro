@@ -31,7 +31,7 @@ const rendered = await render(post);
     title={post.data.title}
     date={post.data.pubDatetime}
     readTime={getReadingTime(post.body!) || "unknown"}
-    image={post.data.image}
+    ogImage={`/og/articles/${post.id}.png`}
     description={post.data.description}
     devTo={post.data.devTo}
 >
