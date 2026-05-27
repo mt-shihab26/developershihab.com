@@ -1,0 +1,19 @@
+#!/bin/bash
+set -e
+
+branches=(
+  "dev"
+)
+
+current_branch=$(git symbolic-ref --short HEAD)
+
+git fetch origin
+
+for branch in "${branches[@]}"; do
+  echo "Rebasing $branch onto origin/main..."
+  git checkout "$branch"
+  git rebase origin/main
+done
+
+git checkout "$current_branch"
+echo "Done. Back on $current_branch."
