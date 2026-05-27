@@ -1,19 +1,26 @@
 #!/bin/bash
-set -e
 
-branches=(
-  "dev"
-)
+OG_BRANCH=$(git branch --show-current)
 
-current_branch=$(git symbolic-ref --short HEAD)
+echo "==========================================="
+echo "rebasing with main branch"
+echo "==========================================="
+echo ""
 
-git fetch origin
+echo "step 1: updating main branch..."
+git checkout main
+git pull
+echo ""
 
-for branch in "${branches[@]}"; do
-  echo "Rebasing $branch onto origin/main..."
-  git checkout "$branch"
-  git rebase origin/main
-done
+echo "step 2: rebasing dev with main..."
+git checkout dev
+git pull
+git rebase main
+git push --force-with-lease
+echo ""
 
-git checkout "$current_branch"
-echo "Done. Back on $current_branch."
+echo "==========================================="
+echo "rebased successfully!"
+echo "==========================================="
+
+git checkout "$OG_BRANCH"
