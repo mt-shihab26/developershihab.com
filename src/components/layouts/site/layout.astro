@@ -62,17 +62,22 @@ const structuredData = {
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content={pageType} />
+        <meta property="og:site_name" content={name} />
+        <meta property="og:locale" content="en_US" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={socialImageURL} />
+        <meta property="og:image:width" content="1920" />
+        <meta property="og:image:height" content="1080" />
+        <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:url" content={canonicalURL} />
 
         <!-- X / Twitter -->
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={canonicalURL} />
-        <meta property="twitter:title" content={title} />
-        <meta property="twitter:description" content={description} />
-        <meta property="twitter:image" content={socialImageURL} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={canonicalURL} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={socialImageURL} />
 
         <!-- Google JSON-LD Structured data -->
         <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
