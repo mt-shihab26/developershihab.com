@@ -11,7 +11,7 @@ export const R = ({ children, href }: { children: ReactNode; href: string }) => 
                 viewBox="0 0 24 24"
                 stroke="currentColor"
             >
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 3h7m0 0v7m0-7L10 14" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 3h7m0 0v7m0-7L10 14" />
             </svg>
         </a>
     );
