@@ -19,6 +19,22 @@ export const capitalizeFirstLetter = (sentence: string): string => {
     return `${sentence.charAt(0).toUpperCase()}${sentence.slice(1)}`;
 };
 
+export const formatDate = (date: Date): string =>
+    new Intl.DateTimeFormat("en-GB", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+    })
+        .format(date)
+        .replace(/\//g, ".");
+
+export const formatDateShort = (date: Date): string =>
+    new Intl.DateTimeFormat("en-GB", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+    }).format(date);
+
 export const getReadingTime = (text: string): string | undefined => {
     if (!text || !text.length) return undefined;
     try {

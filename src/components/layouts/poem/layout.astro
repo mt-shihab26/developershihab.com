@@ -1,5 +1,6 @@
 ---
 import { name } from "@/lib/information";
+import { formatDate } from "@/lib/utils";
 
 import { ArrowLeft } from "lucide-react";
 
@@ -24,13 +25,7 @@ interface Props {
 
 const { title, description, date, body, ogImage } = Astro.props;
 
-const formattedDate = new Intl.DateTimeFormat("en-GB", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-})
-    .format(date)
-    .replace(/\//g, ".");
+const formattedDate = formatDate(date);
 ---
 
 <SiteLayout title={`${title} - ${name}`} ogImage={ogImage} description={description}>
@@ -47,7 +42,7 @@ const formattedDate = new Intl.DateTimeFormat("en-GB", {
             </BoxHeader>
             <Pattern className="screen-line-after" />
             <BoxHeader>
-                <BoxTitle className="text-2xl !font-black md:text-3xl">{title}</BoxTitle>
+                <BoxTitle className="text-center text-2xl !font-black md:text-3xl">{title}</BoxTitle>
             </BoxHeader>
             <Pattern />
             <BoxContent className="py-10">

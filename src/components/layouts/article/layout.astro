@@ -1,7 +1,7 @@
 ---
 import type { MarkdownHeading } from "astro";
 
-import { capitalizeFirstLetter } from "@/lib/utils";
+import { capitalizeFirstLetter, formatDate } from "@/lib/utils";
 import { name } from "@/lib/information";
 import { devTo as devToProfile } from "@/lib/information";
 
@@ -31,13 +31,7 @@ interface Props {
 
 const { title, readTime, description, date, headings, ogImage, devTo } = Astro.props;
 
-const formattedDate = new Intl.DateTimeFormat("en-GB", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-})
-    .format(date)
-    .replace(/\//g, ".");
+const formattedDate = formatDate(date);
 ---
 
 <SiteLayout title={`${title} - ${name}`} ogImage={ogImage} description={description}>

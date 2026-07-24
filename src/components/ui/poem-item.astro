@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { ChevronRightIcon, Feather } from "lucide-react";
+import { formatDateShort } from "@/lib/utils";
 
 interface Props {
     poem: CollectionEntry<"poems">;
@@ -8,11 +9,7 @@ interface Props {
 
 const { poem } = Astro.props;
 
-const formattedDate = new Intl.DateTimeFormat("en-GB", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-}).format(poem.data.pubDatetime);
+const formattedDate = formatDateShort(poem.data.pubDatetime);
 ---
 
 <a href={`/poems/${poem.id}`} class="group flex w-full cursor-pointer items-center">
