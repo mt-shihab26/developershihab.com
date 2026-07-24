@@ -5,6 +5,18 @@ import { getCollection } from "astro:content";
 import { name } from "@/lib/information";
 import { formatDate, getLineCount } from "@/lib/utils";
 
+import { ArrowLeft } from "lucide-react";
+
+import Pattern from "@/components/ui/pattern.astro";
+import LinkBtn from "@/components/ui/link-btn.astro";
+import Box from "@/components/ui/box-index.astro";
+import BoxTitle from "@/components/ui/box-title.astro";
+import BoxHeader from "@/components/ui/box-header.astro";
+import BoxContent from "@/components/ui/box-content.astro";
+import SiteLayout from "@/components/layouts/site/layout.astro";
+import SiteHeader from "@/components/layouts/site/header.astro";
+import SiteFooter from "@/components/layouts/site/footer.astro";
+
 export interface Props {
     poem: CollectionEntry<"poems">;
 }
@@ -19,30 +31,10 @@ export const getStaticPaths = async () => {
 const { poem } = Astro.props;
 
 const title = poem.data.title;
-const date = poem.data.pubDatetime;
 const body = poem.body?.trim() ?? "";
-const ogImage = `/og/poems/${poem.id}.png`;
-const description = poem.data.description;
-
-import { ArrowLeft } from "lucide-react";
-
-import Pattern from "@/components/ui/pattern.astro";
-import LinkBtn from "@/components/ui/link-btn.astro";
-import Box from "@/components/ui/box-index.astro";
-import BoxTitle from "@/components/ui/box-title.astro";
-import BoxHeader from "@/components/ui/box-header.astro";
-import BoxContent from "@/components/ui/box-content.astro";
-
-import SiteLayout from "@/components/layouts/site/layout.astro";
-import SiteHeader from "@/components/layouts/site/header.astro";
-import SiteFooter from "@/components/layouts/site/footer.astro";
-
-const formattedDate = formatDate(date);
-
-const lineCount = getLineCount(body);
 ---
 
-<SiteLayout title={`${title} - ${name}`} ogImage={ogImage} description={description}>
+<SiteLayout title={`${title} - ${name}`} ogImage={`/og/poems/${poem.id}.png`} description={poem.data.description}>
     <SiteHeader className="top-1" />
     <main aria-label="Main content" class="mx-auto min-h-screen max-w-3xl">
         <Pattern className="h-14">
@@ -52,8 +44,8 @@ const lineCount = getLineCount(body);
         </Pattern>
         <Box>
             <BoxHeader class="flex items-center justify-between text-sm !font-medium text-muted-foreground">
-                <span>{formattedDate}</span>
-                <span>{lineCount} lines</span>
+                <span>{formatDate(poem.data.pubDatetime)}</span>
+                <span>{getLineCount(body)} lines</span>
             </BoxHeader>
             <Pattern className="screen-line-after" />
             <BoxHeader>
