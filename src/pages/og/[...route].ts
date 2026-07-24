@@ -5,6 +5,7 @@ import { name, role } from "@/lib/information";
 
 const articles = await getCollection("blog", ({ data }) => !data.draft);
 const projects = await getCollection("projects", ({ data }) => !data.noShow);
+const poems = await getCollection("poems", ({ data }) => !data.draft);
 
 type PageData = { title: string; description: string };
 
@@ -23,6 +24,11 @@ const pages: Record<string, PageData> = {
     contact: {
         title: "Contact",
         description: "Get in touch with me via email or connect on social media.",
+    },
+    poems: {
+        title: "Poems",
+        description:
+            "A collection of my Bengali poems — verses on love, longing, gratitude, and the quiet things of the heart.",
     },
 };
 
@@ -51,6 +57,13 @@ for (const project of projects) {
     pages[`projects/${project.id}`] = {
         title: project.data.name,
         description: project.data.description,
+    };
+}
+
+for (const poem of poems) {
+    pages[`poems/${poem.id}`] = {
+        title: poem.data.title,
+        description: poem.data.description,
     };
 }
 

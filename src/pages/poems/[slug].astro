@@ -1,0 +1,64 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import { getCollection } from "astro:content";
+import { name } from "@/lib/information";
+import { formatDate, getLineCount } from "@/lib/utils";
+
+import { ArrowLeft } from "lucide-react";
+
+import Pattern from "@/components/ui/pattern.astro";
+import LinkBtn from "@/components/ui/link-btn.astro";
+import Box from "@/components/ui/box-index.astro";
+import BoxTitle from "@/components/ui/box-title.astro";
+import BoxHeader from "@/components/ui/box-header.astro";
+import BoxContent from "@/components/ui/box-content.astro";
+import SiteLayout from "@/components/layouts/site/layout.astro";
+import SiteHeader from "@/components/layouts/site/header.astro";
+import SiteFooter from "@/components/layouts/site/footer.astro";
+
+export interface Props {
+    poem: CollectionEntry<"poems">;
+}
+
+export const getStaticPaths = async () => {
+    return (await getCollection("poems", ({ data }) => !data.draft)).map(poem => ({
+        params: { slug: poem.id },
+        props: { poem },
+    }));
+};
+
+const { poem } = Astro.props;
+
+const title = poem.data.title;
+const body = poem.body?.trim() ?? "";
+---
+
+<SiteLayout title={`${title} - ${name}`} ogImage={`/og/poems/${poem.id}.png`} description={poem.data.description}>
+    <SiteHeader className="top-1" />
+    <main aria-label="Main content" class="mx-auto min-h-screen max-w-3xl">
+        <Pattern className="h-14">
+            <LinkBtn ariaLabel="Back link" className="absolute bottom-0 left-2 z-1" href="/poems">
+                <ArrowLeft />
+            </LinkBtn>
+        </Pattern>
+        <Box>
+            <BoxHeader class="flex items-center justify-between text-sm !font-medium text-muted-foreground">
+                <span>{formatDate(poem.data.pubDatetime)}</span>
+                <span>{getLineCount(body)} lines</span>
+            </BoxHeader>
+            <Pattern className="screen-line-after" />
+            <BoxHeader>
+                <BoxTitle className="text-center text-2xl !font-black md:text-3xl">{title}</BoxTitle>
+            </BoxHeader>
+            <Pattern />
+            <BoxContent className="py-10">
+                <p class="text-center text-lg leading-loose font-medium whitespace-pre-line text-foreground md:text-xl">
+                    {body}
+                </p>
+            </BoxContent>
+        </Box>
+        <Pattern />
+    </main>
+    <SiteFooter />
+</SiteLayout>

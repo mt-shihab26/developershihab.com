@@ -1,0 +1,50 @@
+---
+import { getCollection } from "astro:content";
+import { formatDateShort, getLineCount } from "@/lib/utils";
+
+import { ChevronRightIcon, Feather } from "lucide-react";
+
+import Pattern from "@/components/ui/pattern.astro";
+import Box from "@/components/ui/box-index.astro";
+import BoxTitle from "@/components/ui/box-title.astro";
+import BoxHeader from "@/components/ui/box-header.astro";
+import PageLayout from "@/components/layouts/page/layout.astro";
+
+const poems = (await getCollection("poems", ({ data }) => !data.draft)).sort(
+    (a, b) => b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime()
+);
+---
+
+<PageLayout
+    title="Poems"
+    description="A collection of my Bengali poems — verses on love, longing, gratitude, and the quiet things of the heart."
+    ogImage="/og/poems.png"
+>
+    <Pattern />
+    <Box>
+        <BoxHeader>
+            <BoxTitle>Poems</BoxTitle>
+        </BoxHeader>
+        <div class="flex w-full flex-col items-start justify-start divide-y divide-border">
+            {
+                poems.map(poem => (
+                    <a href={`/poems/${poem.id}`} class="group flex w-full cursor-pointer items-center">
+                        <Feather className="mx-5 size-5 shrink-0 text-muted-foreground" />
+                        <div class="flex flex-1 flex-col items-start justify-center gap-3 border-l p-4">
+                            <div class="flex w-full items-center justify-between text-left select-none">
+                                <h3 class="text-lg font-semibold underline-offset-6 group-hover:underline">
+                                    {poem.data.title}
+                                </h3>
+                                <ChevronRightIcon className="size-4 shrink-0 text-sm text-muted-foreground transition-transform duration-150 group-hover:translate-x-1" />
+                            </div>
+                            <p class="text-sm text-muted-foreground">{poem.data.description}</p>
+                            <p class="text-xs text-foreground">
+                                {formatDateShort(poem.data.pubDatetime)} | {getLineCount(poem.body)} lines
+                            </p>
+                        </div>
+                    </a>
+                ))
+            }
+        </div>
+    </Box>
+</PageLayout>
