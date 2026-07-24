@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+
+import PoemItem from "@/components/ui/poem-item.astro";
+import Pattern from "@/components/ui/pattern.astro";
+import Box from "@/components/ui/box-index.astro";
+import BoxTitle from "@/components/ui/box-title.astro";
+import BoxHeader from "@/components/ui/box-header.astro";
+
+import PageLayout from "@/components/layouts/page/layout.astro";
+
+const poems = await getCollection("poems", ({ data }) => !data.draft);
+const sortedPoems = poems.sort((a, b) => b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime());
+---
+
+<PageLayout
+    title="Poems"
+    description="A collection of my Bengali poems — verses on love, longing, gratitude, and the quiet things of the heart."
+    ogImage="/og/poems.png"
+>
+    <Pattern />
+    <Box>
+        <BoxHeader>
+            <BoxTitle>Poems</BoxTitle>
+        </BoxHeader>
+        <div class="flex w-full flex-col items-start justify-start divide-y divide-border">
+            {sortedPoems.map(poem => <PoemItem poem={poem} />)}
+        </div>
+    </Box>
+</PageLayout>

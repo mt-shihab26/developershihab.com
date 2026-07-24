@@ -1,0 +1,35 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { ChevronRightIcon, Feather } from "lucide-react";
+
+interface Props {
+    poem: CollectionEntry<"poems">;
+}
+
+const { poem } = Astro.props;
+
+const formattedDate = new Intl.DateTimeFormat("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+}).format(poem.data.pubDatetime);
+---
+
+<a href={`/poems/${poem.id}`} class="group flex w-full cursor-pointer items-center">
+    <Feather className="mx-5 size-5 shrink-0 text-muted-foreground" />
+
+    <div class="flex flex-1 flex-col items-start justify-center gap-3 border-l p-4">
+        <div class="flex w-full items-center justify-between text-left select-none">
+            <h3 class="text-lg font-semibold underline-offset-6 group-hover:underline">
+                {poem.data.title}
+            </h3>
+
+            <ChevronRightIcon
+                className="size-4 shrink-0 text-sm text-muted-foreground transition-transform duration-150 group-hover:translate-x-1"
+            />
+        </div>
+
+        <p class="text-sm text-muted-foreground">{poem.data.description}</p>
+        <p class="text-xs text-foreground">{formattedDate}</p>
+    </div>
+</a>

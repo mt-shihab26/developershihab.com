@@ -1,0 +1,62 @@
+---
+import { name } from "@/lib/information";
+
+import { ArrowLeft } from "lucide-react";
+
+import Pattern from "@/components/ui/pattern.astro";
+import LinkBtn from "@/components/ui/link-btn.astro";
+import Box from "@/components/ui/box-index.astro";
+import BoxTitle from "@/components/ui/box-title.astro";
+import BoxHeader from "@/components/ui/box-header.astro";
+import BoxContent from "@/components/ui/box-content.astro";
+
+import SiteLayout from "@/components/layouts/site/layout.astro";
+import SiteHeader from "@/components/layouts/site/header.astro";
+import SiteFooter from "@/components/layouts/site/footer.astro";
+
+interface Props {
+    title: string;
+    date: Date;
+    body: string;
+    ogImage?: string;
+    description: string;
+}
+
+const { title, description, date, body, ogImage } = Astro.props;
+
+const formattedDate = new Intl.DateTimeFormat("en-GB", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+})
+    .format(date)
+    .replace(/\//g, ".");
+---
+
+<SiteLayout title={`${title} - ${name}`} ogImage={ogImage} description={description}>
+    <SiteHeader className="top-1" />
+    <main aria-label="Main content" class="mx-auto min-h-screen max-w-3xl">
+        <Pattern className="h-14">
+            <LinkBtn ariaLabel="Back link" className="absolute bottom-0 left-2 z-1" href="/poems">
+                <ArrowLeft />
+            </LinkBtn>
+        </Pattern>
+        <Box>
+            <BoxHeader class="text-sm !font-medium text-muted-foreground">
+                {formattedDate}
+            </BoxHeader>
+            <Pattern className="screen-line-after" />
+            <BoxHeader>
+                <BoxTitle className="text-2xl !font-black md:text-3xl">{title}</BoxTitle>
+            </BoxHeader>
+            <Pattern />
+            <BoxContent className="py-10">
+                <p class="text-center text-lg leading-loose font-medium whitespace-pre-line text-foreground md:text-xl">
+                    {body}
+                </p>
+            </BoxContent>
+        </Box>
+        <Pattern />
+    </main>
+    <SiteFooter />
+</SiteLayout>

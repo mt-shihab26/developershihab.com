@@ -1,0 +1,28 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+
+import PoemLayout from "@/components/layouts/poem/layout.astro";
+
+export interface Props {
+    poem: CollectionEntry<"poems">;
+}
+
+export async function getStaticPaths() {
+    const poems = await getCollection("poems", ({ data }) => !data.draft);
+
+    return poems.map(poem => ({
+        params: { slug: poem.id },
+        props: { poem },
+    }));
+}
+
+const { poem } = Astro.props;
+---
+
+<PoemLayout
+    title={poem.data.title}
+    date={poem.data.pubDatetime}
+    body={poem.body?.trim() ?? ""}
+    ogImage={`/og/poems/${poem.id}.png`}
+    description={poem.data.description}
+/>
