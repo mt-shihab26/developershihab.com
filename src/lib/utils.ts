@@ -35,6 +35,9 @@ export const formatDateShort = (date: Date): string =>
         year: "numeric",
     }).format(date);
 
+export const getLineCount = (text: string | undefined): number =>
+    (text ?? "").split("\n").filter(line => line.trim() !== "").length;
+
 export const getReadingTime = (text: string): string | undefined => {
     if (!text || !text.length) return undefined;
     try {

@@ -1,6 +1,6 @@
 ---
 import { name } from "@/lib/information";
-import { formatDate } from "@/lib/utils";
+import { formatDate, getLineCount } from "@/lib/utils";
 
 import { ArrowLeft } from "lucide-react";
 
@@ -26,6 +26,8 @@ interface Props {
 const { title, description, date, body, ogImage } = Astro.props;
 
 const formattedDate = formatDate(date);
+
+const lineCount = getLineCount(body);
 ---
 
 <SiteLayout title={`${title} - ${name}`} ogImage={ogImage} description={description}>
@@ -37,8 +39,9 @@ const formattedDate = formatDate(date);
             </LinkBtn>
         </Pattern>
         <Box>
-            <BoxHeader class="text-sm !font-medium text-muted-foreground">
-                {formattedDate}
+            <BoxHeader class="flex items-center justify-between text-sm !font-medium text-muted-foreground">
+                <span>{formattedDate}</span>
+                <span>{lineCount} lines</span>
             </BoxHeader>
             <Pattern className="screen-line-after" />
             <BoxHeader>
