@@ -1,7 +1,7 @@
-import { OGImageRoute } from "astro-og-canvas";
+import { name, role } from "@/lib/information";
 import { getCollection } from "astro:content";
 
-import { name, role } from "@/lib/information";
+import { OGImageRoute } from "astro-og-canvas";
 
 const articles = await getCollection("blog", ({ data }) => !data.draft);
 const projects = await getCollection("projects", ({ data }) => !data.noShow);
@@ -16,6 +16,11 @@ const pages: Record<string, PageData> = {
         description:
             "Exploring programming, frontend, backend, and full-stack development deep dives, series, and hands-on insights.",
     },
+    poems: {
+        title: "Poems",
+        description:
+            "A collection of my Bengali poems — verses on love, longing, gratitude, and the quiet things of the heart.",
+    },
     projects: {
         title: "My Projects",
         description:
@@ -24,11 +29,6 @@ const pages: Record<string, PageData> = {
     contact: {
         title: "Contact",
         description: "Get in touch with me via email or connect on social media.",
-    },
-    poems: {
-        title: "Poems",
-        description:
-            "A collection of my Bengali poems — verses on love, longing, gratitude, and the quiet things of the heart.",
     },
 };
 
@@ -99,10 +99,6 @@ export const { getStaticPaths, GET } = await OGImageRoute({
                 lineHeight: 1.4,
             },
         },
-        fonts: [
-            "./public/fonts/Inter-Regular.ttf",
-            "./public/fonts/Inter-Bold.ttf",
-            "./public/fonts/NotoSansBengali.ttf",
-        ],
+        fonts: ["./public/inter-regular.ttf", "./public/inter-bold.ttf", "./public/noto-sans-bengali.ttf"],
     }),
 });
