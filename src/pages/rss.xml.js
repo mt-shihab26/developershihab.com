@@ -12,15 +12,23 @@ export async function GET(context) {
         categories: [post.data.category, ...post.data.tags],
     }));
 
-    // const projects = (await getCollection("projects", entry => !entry.data.draft)).map(project => ({
-    //     title: project.data.name,
-    //     pubDate: new Date(),
-    //     description: project.data.description,
-    //     link: `/projects/${project.id}/`,
-    //     categories: ["project", ...project.data.technologies],
-    // }));
+    const projects = (await getCollection("projects", entry => !entry.data.draft)).map(project => ({
+        title: project.data.name,
+        pubDate: new Date(),
+        description: project.data.description,
+        link: `/projects/${project.id}/`,
+        categories: ["project", ...project.data.technologies],
+    }));
 
-    const items = [...blog /*...projects */];
+    const poems = (await getCollection("poems", entry => !entry.data.draft)).map(poem => ({
+        title: poem.data.title,
+        pubDate: poem.data.pubDatetime,
+        description: poem.data.description,
+        link: `/poems/${poem.id}/`,
+        categories: ["poem"],
+    }));
+
+    const items = [...blog, ...projects, ...poems];
 
     items.sort((a, b) => b.pubDate - a.pubDate);
 
