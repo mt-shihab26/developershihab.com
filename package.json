@@ -54,12 +54,14 @@
     },
     "devDependencies": {
         "@types/markdown-it": "^14.1.2",
-        "prettier-plugin-organize-imports": "^4.2.0"
+        "prettier-plugin-organize-imports": "^4.2.0",
+        "wrangler": "^4.114.0"
     },
     "trustedDependencies": [
         "@tailwindcss/oxide",
         "esbuild",
         "puppeteer",
-        "sharp"
+        "sharp",
+        "workerd"
     ]
 }
