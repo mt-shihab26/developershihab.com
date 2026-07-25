@@ -10,7 +10,7 @@
     "endOfLine": "lf",
     "plugins": ["prettier-plugin-astro", "prettier-plugin-organize-imports", "prettier-plugin-tailwindcss"],
     "tailwindStylesheet": "./src/styles/global.css",
-   "overrides": [
+    "overrides": [
         {
             "files": "*.astro",
             "options": {
