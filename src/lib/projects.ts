@@ -46,7 +46,7 @@ export const getProjectsRow = (): TProject[] => {
                 slug,
                 content: content.trim(),
                 resume: data.resume || false,
-                priority: data.priority || 999,
+                priority: data.priority || 0,
                 draft: data.draft || false,
             };
 
@@ -56,11 +56,11 @@ export const getProjectsRow = (): TProject[] => {
             }
         }
 
-        // Sort projects by priority (lowest number first), then by start date (newest first)
+        // Sort projects by priority (highest number first), then by start date (newest first)
         return projects.sort((a, b) => {
             // First sort by priority
             if (a.priority !== b.priority) {
-                return (a.priority || 999) - (b.priority || 999);
+                return (b.priority || 0) - (a.priority || 0);
             }
             // If priority is the same, sort by start date (newest first)
             const dateA = new Date(a.startDate);
@@ -74,17 +74,17 @@ export const getProjectsRow = (): TProject[] => {
 };
 
 /**
- * Filters out draft projects and sorts by priority (lower numbers first), then by name
+ * Filters out draft projects and sorts by priority (higher numbers first), then by name
  */
 export const sortProjectsByPriority = (projects: CollectionEntry<"projects">[]): CollectionEntry<"projects">[] => {
     return projects
         .filter(project => !project.data.draft)
         .sort((a, b) => {
-            const priorityA = a.data.priority || 999;
-            const priorityB = b.data.priority || 999;
+            const priorityA = a.data.priority || 0;
+            const priorityB = b.data.priority || 0;
 
             if (priorityA !== priorityB) {
-                return priorityA - priorityB;
+                return priorityB - priorityA;
             }
 
             // If same priority, sort alphabetically by name as fallback
@@ -124,7 +124,7 @@ export const getProjectsByCategory = (projects: CollectionEntry<"projects">[]) =
 export const getResumeProjectsByCategory = () => {
     const all = (getProjectsRow() || [])
         .filter(p => p.resume === true)
-        .sort((a, b) => (a.priority ?? 999) - (b.priority ?? 999));
+        .sort((a, b) => (b.priority ?? 0) - (a.priority ?? 0));
     return {
         professional: all.filter(p => p.type === "core"),
         openSource: all.filter(p => p.type === "opensource"),
