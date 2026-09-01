@@ -15,8 +15,8 @@ const { professional, openSource, personal } = getProjectsByCategory(projects);
     description="Explore my portfolio of innovative web applications, startup ventures, client solutions, and experimental projects showcasing modern development practices and cutting-edge technologies."
     ogImage="/og/projects.png"
 >
+    <Contributions />
     <ProjectsList title={PROJECT_CATEGORIES.professional} projects={professional} />
     <ProjectsList title={PROJECT_CATEGORIES.personal} projects={personal} />
     <ProjectsList title={PROJECT_CATEGORIES.openSource} projects={openSource} />
-    <Contributions />
 </PageLayout>
