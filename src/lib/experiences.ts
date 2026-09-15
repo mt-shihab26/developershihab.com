@@ -22,8 +22,7 @@ export const experiences: TExperience[] = [
                 title: "Software Engineer",
                 year: "May 2023 – Present",
                 description: [
-                    "Architected and delivered [paystubhero.com](https://paystubhero.com), a full-stack SaaS platform that generates 5,000+ financial documents monthly",
-                    "Built [quickdoctorsnote.com](https://quickdoctorsnote.com), a SaaS application enabling users to generate professional medical documents on demand",
+                    "Architected and delivered [paystubhero.com](https://paystubhero.com), a full-stack SaaS platform that generates 5,000+ financial documents monthly. Still maintaining the application from 2023.",
                     "Developed [practicescope.com](https://practicescope.com), an AI-powered dental practice acquisition platform that benchmarks 30+ financial metrics and generates personalized acquisition reports",
                     "Owned end-to-end feature delivery — from database design and API development to React UI and cloud deployment",
                     "Developed and maintained custom WordPress plugins and client websites",
@@ -55,6 +54,7 @@ export const experiences: TExperience[] = [
                 description: [
                     "Designed and built a custom web application using PHP following MVC architecture patterns",
                     "Engineered a full-stack e-commerce platform with Laravel, including a complete admin panel for product and order management",
+                    "Collaborated with the development team on Laravel projects and contributed to ongoing Laravel development",
                 ],
                 skills: ["PHP", "Laravel", "TailwindCSS", "MySQL"],
             },
