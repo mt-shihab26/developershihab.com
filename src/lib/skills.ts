@@ -58,14 +58,14 @@ export const skills: { label: string; items: SkillItem[] }[] = [
                 icon: PHP,
             },
             {
-                title: "Go",
-                href: "https://go.dev",
-                icon: Go,
-            },
-            {
                 title: "C/C++",
                 href: "https://www.c-language.org",
                 icon: C,
+            },
+            {
+                title: "Go",
+                href: "https://go.dev",
+                icon: Go,
             },
         ],
     },
