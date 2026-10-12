@@ -77,6 +77,9 @@ const countMonths = (startStr: string, endStr: string = "Present"): number => {
 
 export const yearsSince = (startStr: string): number => Math.floor(countMonths(startStr) / 12);
 
+export const yearsBetween = (startStr: string, endStr: string): number =>
+    Math.round((countMonths(startStr, endStr) - 1) / 6) / 2;
+
 export const formatDuration = (yearString: string): string => {
     const [startStr, endStr] = yearString.split(" – ");
     const totalMonths = countMonths(startStr, endStr);

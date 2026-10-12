@@ -8,7 +8,7 @@ export const Summary = () => {
             <Heading>Summary</Heading>
             <div className="space-y-1.5">
                 <div>
-                    Software Engineer with{" "}
+                    I am a <span className="font-semibold">Software Engineer</span> with{" "}
                     <span className="font-semibold">{getExperienceYears()}+ years of experience</span> in{" "}
                     <span className="font-semibold">full-stack web development</span>. Most of that time has gone into
                     building SaaS products from the first line of code and then keeping them running in production for

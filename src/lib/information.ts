@@ -17,3 +17,6 @@ export const github = "https://github.com/mt-shihab26";
 export const devTo = "https://dev.to/mt-shihab26";
 export const instagram = "https://instagram.com/mt.shihab26";
 export const facebook = "https://web.facebook.com/mt.shihab26";
+
+export const programmingStart = "Jul 2020";
+export const developmentStart = "Jan 2022";

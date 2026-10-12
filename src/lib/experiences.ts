@@ -13,6 +13,8 @@ type TExperience = {
     }[];
 };
 
+const finnextStart = "May 2023";
+
 export const experiences: TExperience[] = [
     {
         company: {
@@ -22,9 +24,9 @@ export const experiences: TExperience[] = [
         positions: [
             {
                 title: "Software Engineer (Contract)",
-                year: "May 2023 – Present",
+                year: `${finnextStart} – Present`,
                 description: [
-                    "Built [paystubhero.com](https://paystubhero.com) as the only developer, working with one designer. The platform generates 5,000+ financial documents a month, and I have maintained it since launch in 2023.",
+                    `Built [paystubhero.com](https://paystubhero.com) as the only developer, working with one designer. The platform generates 5,000+ financial documents a month, and I have maintained it since launch in ${finnextStart.split(" ")[1]}.`,
                     "Built [practicescope.com](https://practicescope.com), an AI-powered platform for dental practice acquisitions that benchmarks 30+ financial metrics and generates personalized acquisition reports.",
                     "Handled features from start to finish, from database design and API development to the React UI and cloud deployment.",
                     "Built and maintained custom WordPress plugins and client websites.",
