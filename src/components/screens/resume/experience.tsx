@@ -31,9 +31,9 @@ export const Experience = () => {
                                     <h3 className="font-semibold">{position.title}</h3>
                                 </div>
 
-                                <span className="block pl-7">
+                                <span className="block pt-0.5 pb-1 pl-7">
                                     {position.year}
-                                    <span>· {formatDuration(position.year)}</span>
+                                    <span className="ml-1.5">· {formatDuration(position.year)}</span>
                                 </span>
 
                                 <ul className="ml-7 list-disc">
@@ -47,7 +47,9 @@ export const Experience = () => {
                                     ))}
                                 </ul>
 
-                                {position.skills.length > 0 && <div className="ml-7">{position.skills.join(", ")}</div>}
+                                {position.skills.length > 0 && (
+                                    <div className="ml-7 pt-1">{position.skills.join(", ")}</div>
+                                )}
                             </div>
                         ))}
                     </div>

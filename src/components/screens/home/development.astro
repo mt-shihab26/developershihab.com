@@ -1,5 +1,7 @@
 ---
+import { developmentStart, programmingStart } from "@/lib/information";
 import { skills } from "@/lib/skills";
+import { yearsBetween } from "@/lib/utils";
 
 import { E } from "@/components/ui/e";
 import { R } from "@/components/ui/r";
@@ -16,7 +18,7 @@ import BoxContent from "@/components/ui/box-content.astro";
     </BoxHeader>
     <BoxContent>
         <div class="text-sm leading-7 font-medium">
-            I started learning <b>development</b> after 1.5 years of
+            I started learning <b>development</b> after {yearsBetween(programmingStart, developmentStart)} years of
             <b>programming</b> and <b>problem-solving</b> experience. The learning process was quite fast-paced. I began
             with
             <E href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</E>, then moved on to

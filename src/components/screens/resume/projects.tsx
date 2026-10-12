@@ -35,7 +35,7 @@ const ProjectCard = ({ project }: { project: TProject }) => (
                 </a>
             )}
             <p className="pl-7">{project.description}</p>
-            {project.technologies.length > 0 && <div className="pl-7">{project.technologies.join(" · ")}</div>}
+            {project.technologies.length > 0 && <div className="pt-1 pl-7">{project.technologies.join(" · ")}</div>}
         </div>
     </div>
 );
