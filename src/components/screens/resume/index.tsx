@@ -17,8 +17,8 @@ export const Resume = ({ image }: { image?: boolean }) => {
                     <Projects />
                 </div>
                 <div className="w-50 space-y-3 border-l border-gray-200 pl-6 dark:border-gray-700">
-                    <Skills />
                     <Contributions />
+                    <Skills />
                     <Education />
                 </div>
             </div>
