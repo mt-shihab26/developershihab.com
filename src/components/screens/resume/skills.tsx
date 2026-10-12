@@ -17,15 +17,15 @@ export const Skills = () => {
                                     <div key={index}>
                                         <span>{skill.resume_title ?? skill.title}</span>
                                         {(skill.level || skill.years !== undefined) && (
-                                            <span className="ml-1">
+                                            <span className="ml-1 text-[10px]">
                                                 (
                                                 {[
                                                     skill.level,
                                                     skill.years === undefined
                                                         ? undefined
                                                         : skill.years < 1
-                                                          ? "< 1 year"
-                                                          : `${skill.years} ${skill.years === 1 ? "year" : "years"}`,
+                                                          ? "< 1 yr"
+                                                          : `${skill.years} ${skill.years === 1 ? "yr" : "yrs"}`,
                                                 ]
                                                     .filter(Boolean)
                                                     .join(", ")}
