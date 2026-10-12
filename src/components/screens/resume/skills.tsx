@@ -16,6 +16,15 @@ export const Skills = () => {
                                 .map((skill, index) => (
                                     <div key={index}>
                                         <span>{skill.resume_title ?? skill.title}</span>
+                                        {skill.years !== undefined && (
+                                            <span className="ml-1">
+                                                (
+                                                {skill.years < 1
+                                                    ? "< 1 year"
+                                                    : `${skill.years} ${skill.years === 1 ? "year" : "years"}`}
+                                                )
+                                            </span>
+                                        )}
                                     </div>
                                 ))}
                         </div>
