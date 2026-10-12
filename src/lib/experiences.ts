@@ -19,7 +19,7 @@ export const experiences: TExperience[] = [
         },
         positions: [
             {
-                title: "Software Engineer",
+                title: "Software Engineer (Contract)",
                 year: "May 2023 – Present",
                 description: [
                     "Built [paystubhero.com](https://paystubhero.com) as the only developer, working with one designer. The platform generates 5,000+ financial documents a month, and I have maintained it since launch in 2023.",
@@ -31,7 +31,7 @@ export const experiences: TExperience[] = [
                     "PHP",
                     "Laravel",
                     "WordPress",
-                    "JavaScript/TypeScript",
+                    "JS/TS",
                     "React",
                     "Inertia.js",
                     "TailwindCSS",
@@ -49,12 +49,11 @@ export const experiences: TExperience[] = [
         },
         positions: [
             {
-                title: "Software Engineer Intern",
+                title: "Software Engineer Intern (Diploma Industrial Attachment)",
                 year: "Jun 2024 – Sep 2024",
                 description: [
                     "Designed and built a custom web application in PHP using the MVC pattern.",
                     "Built a full-stack e-commerce platform with Laravel, including an admin panel for managing products and orders.",
-                    "Worked with the development team on their ongoing Laravel projects.",
                 ],
                 skills: ["PHP", "Laravel", "TailwindCSS", "MySQL"],
             },

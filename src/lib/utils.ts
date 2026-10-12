@@ -73,7 +73,7 @@ export const formatDuration = (yearString: string): string => {
     const [startStr, endStr] = yearString.split(" – ");
     const start = new Date(`${startStr} 1`);
     const end = endStr === "Present" ? new Date() : new Date(`${endStr} 1`);
-    const totalMonths = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+    const totalMonths = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth()) + 1;
     const years = Math.floor(totalMonths / 12);
     const months = totalMonths % 12;
     if (years === 0) return `${months} mo`;

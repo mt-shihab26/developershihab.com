@@ -17,14 +17,22 @@ export const Summary = () => {
                         PHP, Laravel, JavaScript/TypeScript, React, TailwindCSS, and WordPress
                     </span>
                     . I usually handle a feature from start to finish, from the database schema and API to the UI and{" "}
-                    <span className="font-semibold">cloud deployment</span>, and I care about shipping quickly without
-                    leaving messy code behind.
+                    cloud deployment, and I care about shipping quickly without leaving messy code behind.
                 </div>
                 <div>
                     I got into programming through competitive problem-solving and have solved over{" "}
                     <span className="font-semibold">1,000 problems</span> on online judges such as Codeforces, LightOJ,
-                    and LeetCode. I have also contributed fixes and features to Laravel's open source repositories, and
-                    I like learning new tools by building small projects with them.
+                    and LeetCode (
+                    <a
+                        href="https://github.com/mt-shihab26/problem_library"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline decoration-gray-400"
+                    >
+                        github.com/mt-shihab26/problem_library
+                    </a>
+                    ). I have also contributed fixes and features to Laravel's open source repositories, and I like
+                    learning new tools by building small projects with them.
                 </div>
             </div>
         </section>

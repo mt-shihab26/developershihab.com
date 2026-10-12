@@ -19,18 +19,20 @@ export const Contributions = () => {
                         >
                             {repoUrl.split("//")[1]}
                         </a>
-                        <div className="mt-1 flex flex-wrap items-center gap-1">
-                            <GitPullRequestIcon className="h-3 w-3 text-gray-500 dark:text-gray-400" />
+                        <div className="mt-1 space-y-0.5">
                             {prs.map(contribution => (
-                                <a
-                                    key={contribution.pr}
-                                    href={contribution.prUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="underline decoration-gray-400"
-                                >
-                                    {contribution.pr}
-                                </a>
+                                <div key={contribution.pr}>
+                                    <GitPullRequestIcon className="mr-1 inline h-3 w-3 text-gray-500 dark:text-gray-400" />
+                                    <a
+                                        href={contribution.prUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="underline decoration-gray-400"
+                                    >
+                                        {contribution.pr}
+                                    </a>
+                                    <span className="ml-1 text-[10px]">{contribution.description}</span>
+                                </div>
                             ))}
                         </div>
                     </div>

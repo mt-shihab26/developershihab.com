@@ -132,20 +132,27 @@ export const skills: { label: string; items: SkillItem[] }[] = [
             {
                 title: "PocketBase",
                 href: "https://pocketbase.io",
-                level: "Intermediate",
+                level: "Basic",
                 icon: PocketBaseIcon,
+            },
+            {
+                title: "raylib",
+                href: "https://www.raylib.com",
+                level: "Basic",
             },
             {
                 title: "Vue.js",
                 href: "https://vuejs.org",
                 level: "Basic",
                 icon: VueJs,
+                resume_disable: true,
             },
             {
                 title: "TanStack",
                 href: "https://tanstack.com",
                 level: "Basic",
                 icon: TanStackIcon,
+                resume_disable: true,
             },
         ],
     },
@@ -182,16 +189,23 @@ export const skills: { label: string; items: SkillItem[] }[] = [
                 icon: NeoVim,
             },
             {
+                title: "Stripe",
+                href: "https://stripe.com",
+                level: "Basic",
+            },
+            {
                 title: "Claude Code",
                 href: "https://claude.ai/code",
                 level: "Basic",
                 icon: ClaudeAI,
+                resume_disable: true,
             },
             {
                 title: "DigitalOcean",
                 href: "https://digitalocean.com",
                 level: "Basic",
                 icon: DigitalOcean,
+                resume_disable: true,
             },
             {
                 title: "OpenAI API",

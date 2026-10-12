@@ -67,7 +67,7 @@ export const Header = ({ image }: { image?: boolean }) => {
                     >
                         <GitHubDark className="h-3 w-3 dark:hidden" />
                         <GitHubLight className="hidden h-3 w-3 dark:block" />
-                        <span>{github.split("github.com/")[1]}</span>
+                        <span>{github.replace(/^https?:\/\//, "")}</span>
                     </a>
                     <a
                         href={linkedin}
@@ -76,7 +76,7 @@ export const Header = ({ image }: { image?: boolean }) => {
                         className="flex items-center gap-0.5 underline decoration-gray-400"
                     >
                         <LinkedIn className="h-3 w-3" />
-                        <span>{linkedin.split("linkedin.com/in/")[1]}</span>
+                        <span>{linkedin.replace(/^https?:\/\//, "")}</span>
                     </a>
                 </div>
             </div>
