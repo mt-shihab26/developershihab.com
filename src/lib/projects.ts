@@ -2,9 +2,9 @@ import type { TProject } from "@/types/content";
 import type { CollectionEntry } from "astro:content";
 
 export const PROJECT_CATEGORIES = {
-    professional: "Professional Projects",
-    personal: "Personal Projects",
-    openSource: "Open Source Projects",
+    professional: "Production SaaS Products",
+    personal: "Side Projects",
+    openSource: "Open Source Tools & Plugins",
 } as const;
 
 import { readFileSync, readdirSync } from "fs";
