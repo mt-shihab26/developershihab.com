@@ -6,26 +6,25 @@ export const Summary = () => {
             <Heading>Summary</Heading>
             <div className="space-y-1.5">
                 <div>
-                    Results-driven Software Engineer with <span className="font-semibold">3+ years of experience</span>{" "}
-                    in <span className="font-semibold">full-stack development</span> and building{" "}
-                    <span className="font-semibold">scalable software solutions</span>. Skilled in architecting,
-                    developing, and maintaining high-performance applications that align with both technical and
-                    business objectives.
+                    Software Engineer with <span className="font-semibold">3+ years of experience</span> in{" "}
+                    <span className="font-semibold">full-stack web development</span>. Most of that time has gone into
+                    building SaaS products from the first line of code and then keeping them running in production for
+                    real, paying users.
                 </div>
                 <div>
-                    Proficient in modern web technologies, including{" "}
+                    I work mainly with{" "}
                     <span className="font-semibold">
                         PHP, Laravel, JavaScript/TypeScript, React, TailwindCSS, and WordPress
                     </span>
-                    . Experienced in delivering <span className="font-semibold">end-to-end solutions</span>, from
-                    conception to <span className="font-semibold">cloud deployment</span>, with a strong focus on rapid
-                    development and <span className="font-semibold">clean, maintainable code</span>.
+                    . I usually handle a feature from start to finish, from the database schema and API to the UI and{" "}
+                    <span className="font-semibold">cloud deployment</span>, and I care about shipping quickly without
+                    leaving messy code behind.
                 </div>
                 <div>
-                    Strong background in problem-solving and analytical thinking, with over{" "}
-                    <span className="font-semibold">1,000 problems solved</span> on online coding platforms. Experienced
-                    in collaborating with senior developers, applying industry best practices, and staying up to date
-                    with emerging technologies to deliver innovative and efficient solutions.
+                    I got into programming through competitive problem-solving and have solved over{" "}
+                    <span className="font-semibold">1,000 problems</span> on online judges such as Codeforces, LightOJ,
+                    and LeetCode. I have also contributed fixes and features to Laravel's open source repositories, and
+                    I like learning new tools by building small projects with them.
                 </div>
             </div>
         </section>
