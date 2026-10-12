@@ -69,11 +69,17 @@ export const formatInitials = (fullName: string) => {
     return `${firstInitial}${lastInitial}`.toUpperCase();
 };
 
-export const formatDuration = (yearString: string): string => {
-    const [startStr, endStr] = yearString.split(" – ");
+const countMonths = (startStr: string, endStr: string = "Present"): number => {
     const start = new Date(`${startStr} 1`);
     const end = endStr === "Present" ? new Date() : new Date(`${endStr} 1`);
-    const totalMonths = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth()) + 1;
+    return (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth()) + 1;
+};
+
+export const yearsSince = (startStr: string): number => Math.floor(countMonths(startStr) / 12);
+
+export const formatDuration = (yearString: string): string => {
+    const [startStr, endStr] = yearString.split(" – ");
+    const totalMonths = countMonths(startStr, endStr);
     const years = Math.floor(totalMonths / 12);
     const months = totalMonths % 12;
     if (years === 0) return `${months} mo`;

@@ -1,3 +1,5 @@
+import { getExperienceYears } from "@/lib/experiences";
+
 import { Heading } from "./heading";
 
 export const Summary = () => {
@@ -6,7 +8,8 @@ export const Summary = () => {
             <Heading>Summary</Heading>
             <div className="space-y-1.5">
                 <div>
-                    Software Engineer with <span className="font-semibold">3+ years of experience</span> in{" "}
+                    Software Engineer with{" "}
+                    <span className="font-semibold">{getExperienceYears()}+ years of experience</span> in{" "}
                     <span className="font-semibold">full-stack web development</span>. Most of that time has gone into
                     building SaaS products from the first line of code and then keeping them running in production for
                     real, paying users.

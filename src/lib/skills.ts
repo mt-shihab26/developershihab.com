@@ -31,7 +31,7 @@ import {
 type SkillItem = {
     title: string;
     href: string;
-    years?: number;
+    since?: string;
     level?: "Advanced" | "Intermediate" | "Basic";
     icon?: (props: DeveloperIconProps) => ReactElement;
     resume_title?: string;
@@ -45,7 +45,7 @@ export const skills: { label: string; items: SkillItem[] }[] = [
             {
                 title: "TypeScript",
                 href: "https://www.typescriptlang.org",
-                years: 4,
+                since: "Jun 2022",
                 level: "Advanced",
                 icon: TypeScript,
                 resume_title: "JS/TS",
@@ -53,7 +53,7 @@ export const skills: { label: string; items: SkillItem[] }[] = [
             {
                 title: "JavaScript",
                 href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-                years: 4,
+                since: "Jun 2022",
                 level: "Advanced",
                 icon: JavaScript,
                 resume_disable: true,
@@ -61,7 +61,7 @@ export const skills: { label: string; items: SkillItem[] }[] = [
             {
                 title: "PHP",
                 href: "https://www.php.net",
-                years: 3,
+                since: "May 2023",
                 level: "Advanced",
                 icon: PHP,
             },
@@ -85,35 +85,35 @@ export const skills: { label: string; items: SkillItem[] }[] = [
             {
                 title: "React",
                 href: "https://react.dev",
-                years: 3,
+                since: "May 2023",
                 level: "Advanced",
                 icon: React,
             },
             {
                 title: "Laravel",
                 href: "https://laravel.com",
-                years: 3,
+                since: "May 2023",
                 level: "Advanced",
                 icon: Laravel,
             },
             {
                 title: "Inertia.js",
                 href: "https://inertiajs.com/",
-                years: 3,
+                since: "May 2023",
                 level: "Advanced",
                 icon: InertiaIcon,
             },
             {
                 title: "TailwindCSS",
                 href: "https://tailwindcss.com/",
-                years: 3,
+                since: "May 2023",
                 level: "Advanced",
                 icon: TailwindCSS,
             },
             {
                 title: "shadcn/ui",
                 href: "https://ui.shadcn.com/",
-                years: 2,
+                since: "Jan 2024",
                 level: "Advanced",
                 icon: ShadcnUI,
             },
