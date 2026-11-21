@@ -2,8 +2,10 @@
 import type { CollectionEntry } from "astro:content";
 
 import { name } from "@/lib/information";
+import { getProject } from "@/lib/projects";
+import { formatDateShort } from "@/lib/utils";
 
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ExternalLink, FolderCodeIcon } from "lucide-react";
 
 import Github from "@/components/icons/github.astro";
 import Pattern from "@/components/ui/pattern.astro";
@@ -22,7 +24,11 @@ interface Props {
 }
 
 const { caseStudy } = Astro.props;
-const { title, summary, preview, source, logo, logoAlt } = caseStudy.data;
+const { title, summary, logo, logoAlt, pubDatetime, updatedDatetime } = caseStudy.data;
+
+// Links come from the linked project, when there is one, so they live in one place
+const project = getProject(caseStudy.data.project);
+const { preview, source } = project ?? {};
 ---
 
 <SiteLayout title={`${title} - ${name}`} description={summary} ogImage={`/og/case-studies/${caseStudy.id}.png`}>
@@ -35,6 +41,19 @@ const { title, summary, preview, source, logo, logoAlt } = caseStudy.data;
                     <ArrowLeft />
                 </LinkBtn>
                 <div>
+                    {
+                        project && (
+                            <LinkBtn
+                                ariaLabel="Project"
+                                className="text-xs"
+                                variant="secondary"
+                                href={`/projects#${project.slug}`}
+                            >
+                                Project
+                                <FolderCodeIcon className="size-3" />
+                            </LinkBtn>
+                        )
+                    }
                     {
                         preview && (
                             <LinkBtn ariaLabel="Live app" target="_blank" className="text-xs" variant="default" href={preview}>
@@ -76,6 +95,17 @@ const { title, summary, preview, source, logo, logoAlt } = caseStudy.data;
 
             <BoxContent>
                 <p>{summary}</p>
+                <p class="mt-3 text-xs text-muted-foreground">
+                    Published <time datetime={pubDatetime.toISOString()}>{formatDateShort(pubDatetime)}</time>
+                    {
+                        updatedDatetime && (
+                            <>
+                                {" · "}Updated{" "}
+                                <time datetime={updatedDatetime.toISOString()}>{formatDateShort(updatedDatetime)}</time>
+                            </>
+                        )
+                    }
+                </p>
             </BoxContent>
         </Box>
 

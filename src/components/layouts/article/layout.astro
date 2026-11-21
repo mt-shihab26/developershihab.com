@@ -23,15 +23,17 @@ interface Props {
     title: string;
     readTime: string;
     date: Date;
+    updatedDate?: Date;
     headings: MarkdownHeading[];
     ogImage?: string;
     description: string;
     devTo?: string;
 }
 
-const { title, readTime, description, date, headings, ogImage, devTo } = Astro.props;
+const { title, readTime, description, date, updatedDate, headings, ogImage, devTo } = Astro.props;
 
 const formattedDate = formatDate(date);
+const formattedUpdatedDate = updatedDate && formatDate(updatedDate);
 ---
 
 <SiteLayout title={`${title} - ${name}`} ogImage={ogImage} description={description}>
@@ -45,7 +47,18 @@ const formattedDate = formatDate(date);
             </Pattern>
             <Box>
                 <BoxHeader class="flex items-center justify-between text-sm !font-medium text-muted-foreground">
-                    <div>{formattedDate} • {readTime}</div>
+                    <div>
+                        Published <time datetime={date.toISOString()}>{formattedDate}</time>
+                        {
+                            formattedUpdatedDate && updatedDate && (
+                                <>
+                                    {" • "}Updated <time datetime={updatedDate.toISOString()}>{formattedUpdatedDate}</time>
+                                </>
+                            )
+                        }
+                        {" • "}
+                        {readTime}
+                    </div>
                     {
                         devTo && (
                             <div class="flex space-x-1">

@@ -25,7 +25,7 @@ const caseStudyHref = project.caseStudy;
 const href = caseStudyHref ?? project.source ?? project.preview;
 ---
 
-<div class="flex items-center not-last:border-b">
+<div id={project.slug} class="flex scroll-mt-16 items-center not-last:border-b">
     <FolderCodeIcon className="mx-4.5 size-5 shrink-0 text-muted-foreground" />
 
     <div class="flex w-full flex-col gap-y-3 border-l p-4">

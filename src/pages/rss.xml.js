@@ -1,4 +1,5 @@
 import { desc, title } from "@/lib/information";
+import { getProject } from "@/lib/projects";
 import { getCollection } from "astro:content";
 
 import rss from "@astrojs/rss";
@@ -17,7 +18,7 @@ export async function GET(context) {
         pubDate: caseStudy.data.pubDatetime,
         description: caseStudy.data.summary,
         link: `/case-studies/${caseStudy.id}/`,
-        categories: ["case study", ...caseStudy.data.technologies],
+        categories: ["case study", ...(getProject(caseStudy.data.project)?.technologies ?? [])],
     }));
 
     const poems = (await getCollection("poems", entry => !entry.data.draft)).map(poem => ({
