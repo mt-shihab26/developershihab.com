@@ -1,0 +1,82 @@
+---
+project: lucid-margins
+title: "Lucid Margins: Turning QuickBooks Data Into Clear Financial Answers"
+description: How I built a financial analysis SaaS that syncs QuickBooks Online or spreadsheet data, tracks 51 KPIs, builds live reports, and answers questions with an AI assistant that only quotes the company's own numbers.
+pubDatetime: 2026-11-21
+updatedDatetime: 2026-11-21
+draft: true
+---
+
+## The Problem
+
+Small and mid-sized businesses keep their books in QuickBooks, but the books alone don't explain why margins moved or whether the business is on target. Accountants and advisors who look after many client companies have the same problem many times over.
+
+Lucid Margins connects to the books a business already keeps and turns them into KPIs, dashboards, and reports, with an assistant that can explain why a number changed.
+
+## How It Works
+
+**Connect** – Link QuickBooks Online through OAuth (synced nightly) or upload an Excel/CSV file. Budgets can be imported too.
+
+**Track** – 51 built-in KPIs across profitability, working capital, liquidity and coverage, and returns and growth. Each KPI is marked on-track or off-track against its target.
+
+**Ask** – Margo answers questions about the numbers. It is read-only, scoped to one company at a time, and only quotes figures pulled from the company's own data.
+
+## My Role
+
+I built the application as a full-stack developer: the data sync, the KPI engine, the analysis views, reports, the AI assistant, and the multi-company organization model.
+
+## What I Built
+
+- **Two ways to bring in data.** Users connect QuickBooks Online through OAuth or upload an Excel/CSV file. Budgets can be imported too.
+- **51 built-in KPIs** across profitability, working capital, liquidity and coverage, and returns and growth, plus custom KPIs from a formula builder. Each one is marked on-track or off-track against its target, with 19 alert types.
+- **Nine analysis views:** Profitability, Cash Flow, Growth, Trend, Financials (P&L with an EBITDA layout, balance sheet, cash flow statement, common-size view), KPI Numbers, KPI Explorer, Goal Seek, and Alerts.
+- **Goal Seek**, which shows how much price, volume, cost of sales, or fixed or variable expenses would need to change to hit a target such as net margin.
+- **Live reports** with seven section types, eleven templates, saved custom templates, drafts and published versions, comments, present mode, and PDF and Excel export.
+- **Organizations** with many client companies under one login, Owner/Admin/Member roles, email invites, and data isolated per company.
+- **Security** with two-factor authentication and passkeys.
+
+## Key Technical Decisions
+
+### One provider service per data source
+
+QuickBooks and spreadsheet uploads arrive in very different shapes. Each source has its own provider service (`QuickbooksProviderService` and `ExcelProviderService`), and the sync and import work runs in queued jobs, so the KPIs, views, and reports above them don't need to know where the numbers came from. Every night a scheduled command queues a fresh sync for each connected company.
+
+### An AI assistant that can only answer from the data
+
+Margo, the finance assistant, is built with the Laravel AI SDK as an agent with a fixed set of read-only tools: find metrics, get metric values, get a breakdown, get a financial statement, get KPI health, and get company context. Instead of guessing, the model has to call these tools to fetch real figures. It is scoped to one company at a time and can't change any data.
+
+### Reports that stay live
+
+Reports are built from sections that read the current numbers rather than saved snapshots, so a published report stays current as the books change. The same report can be presented on screen or exported to PDF and Excel.
+
+### Tested from the start
+
+The codebase has 110 PHP test files and a set of Vitest tests for the frontend, with static checks from PHPStan (Larastan) and TypeScript.
+
+## Results
+
+- A full analysis product of about **103,000 lines** of TypeScript and PHP, built over **1,100+ commits**.
+- **51 KPIs**, **9 analysis views**, and an AI assistant grounded in each company's own data.
+- One login for advisors who manage many client companies, with each company's data kept separate.
+
+## Tech Stack
+
+- **Backend:** Laravel 13 (PHP 8.5), Laravel Fortify, Laravel AI, PhpSpreadsheet
+- **Frontend:** React 19 + TypeScript via Inertia.js
+- **Styling:** TailwindCSS + shadcn/ui
+- **Integrations:** QuickBooks Online (OAuth), Excel/CSV import
+- **Reports:** React PDF, Excel export
+
+## Codebase Size
+
+Counted with [cloc](https://github.com/AlDanial/cloc), excluding `vendor` and `node_modules`, main languages only:
+
+| Language   | Files | Blank  | Comment | Code    |
+| ---------- | ----- | ------ | ------- | ------- |
+| TypeScript | 610   | 6,381  | 2,403   | 62,744  |
+| PHP        | 414   | 8,499  | 9,505   | 39,964  |
+| **SUM**    | 1,024 | 14,880 | 11,908  | 102,708 |
+
+## Live Application
+
+Visit the live application at [lucidmargins.com](https://lucidmargins.com)

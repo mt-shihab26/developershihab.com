@@ -1,12 +1,6 @@
-import { skills } from "@/lib/skills";
-import { yearsSince } from "@/lib/utils";
+import { formatSkillDetail, skills } from "@/lib/skills";
 
 import { Heading } from "./heading";
-
-const formatYears = (years: number): string => {
-    if (years < 1) return "< 1 yr";
-    return `${years} ${years === 1 ? "yr" : "yrs"}`;
-};
 
 export const Skills = () => {
     return (
@@ -19,20 +13,16 @@ export const Skills = () => {
                         <div className="space-y-0.5">
                             {category.items
                                 .filter(skill => !skill.resume_disable)
-                                .map((skill, index) => (
-                                    <div key={index}>
-                                        <span>{skill.resume_title ?? skill.title}</span>
-                                        {(skill.level || skill.since) && (
-                                            <span className="ml-1 text-[10px]">
-                                                (
-                                                {[skill.level, skill.since && formatYears(yearsSince(skill.since))]
-                                                    .filter(Boolean)
-                                                    .join(", ")}
-                                                )
-                                            </span>
-                                        )}
-                                    </div>
-                                ))}
+                                .map((skill, index) => {
+                                    const detail = formatSkillDetail(skill);
+
+                                    return (
+                                        <div key={index}>
+                                            <span>{skill.resume_title ?? skill.title}</span>
+                                            {detail && <span className="ml-1 text-[10px]">({detail})</span>}
+                                        </div>
+                                    );
+                                })}
                         </div>
                     </div>
                 ))}

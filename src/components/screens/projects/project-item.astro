@@ -1,100 +1,84 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import type { TProject } from "@/types/content";
 
-import {
-    ChevronRightIcon,
-    FolderCodeIcon,
-    ExternalLinkIcon,
-    GithubIcon,
-    InstagramIcon,
-    FacebookIcon,
-} from "lucide-react";
+import { ChevronRightIcon, FolderCodeIcon, ExternalLinkIcon, GithubIcon, BookOpenTextIcon } from "lucide-react";
 
 import MarkdownRenderer from "@/components/ui/markdown-renderer.astro";
 import Badge from "@/components/ui/badge.astro";
 
 interface Props {
-    project: CollectionEntry<"projects">;
+    project: TProject;
 }
 
 const { project } = Astro.props;
+const caseStudyHref = project.caseStudy;
+
+// Projects have no page of their own: open the case study, or else the live app or source
+const href = caseStudyHref ?? project.source ?? project.preview;
 ---
 
-<div class="flex items-center not-last:border-b">
+<div id={project.slug} class="flex scroll-mt-16 items-center not-last:border-b">
     <FolderCodeIcon className="mx-4.5 size-5 shrink-0 text-muted-foreground" />
 
     <div class="flex w-full flex-col gap-y-3 border-l p-4">
         <a
-            href={!project.data.noShow ? `/projects/${project.id}` : project.data.source || project.data.preview}
+            href={href}
             class="group flex w-full cursor-pointer flex-col gap-y-3"
-            target={project.data.noShow ? "_blank" : undefined}
+            target={caseStudyHref ? undefined : "_blank"}
         >
             <div class="group flex w-full items-center justify-between text-left select-none">
                 <h3 class="cursor-pointer text-lg font-semibold underline-offset-6 group-hover:underline">
-                    {project.data.name}
+                    {project.name}
                 </h3>
                 <ChevronRightIcon
                     className="size-4 shrink-0 text-muted-foreground transition-transform duration-150 group-hover:translate-x-1"
                 />
             </div>
-            <MarkdownRenderer className="text-xs leading-5 font-medium md:text-sm" content={project.data.description} />
+            <MarkdownRenderer className="text-xs leading-5 font-medium md:text-sm" content={project.description} />
         </a>
 
         <div class="flex items-start justify-between md:items-center">
             {
-                project.data.technologies.length > 0 && (
+                project.technologies.length > 0 && (
                     <div class="flex flex-wrap gap-1.5">
-                        {project.data.technologies.map(technology => {
+                        {project.technologies.map(technology => {
                             return <Badge>{technology}</Badge>;
                         })}
                     </div>
                 )
             }
             {
-                (project.data.preview || project.data.source) && (
-                    <div class="flex items-center gap-3">
-                        {project.data.facebook && (
+                (project.preview || project.source || caseStudyHref) && (
+                    <div class="flex shrink-0 flex-col items-end gap-1.5">
+                        {caseStudyHref && (
                             <a
-                                href={project.data.facebook}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="hidden items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground md:flex"
+                                href={caseStudyHref}
+                                class="flex shrink-0 items-center gap-1.5 text-xs font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground"
                             >
-                                <FacebookIcon className="size-3" />
-                                Facebook
+                                Case Study
+                                <BookOpenTextIcon className="size-3 shrink-0" />
                             </a>
                         )}
-                        {project.data.instagram && (
+                        {project.preview && (
                             <a
-                                href={project.data.instagram}
+                                href={project.preview}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="hidden items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground md:flex"
+                                class="flex shrink-0 items-center gap-1.5 text-xs font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground"
                             >
-                                <InstagramIcon className="size-3" />
-                                Instagram
-                            </a>
-                        )}
-                        {project.data.preview && (
-                            <a
-                                href={project.data.preview}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="flex items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
-                            >
-                                <ExternalLinkIcon className="size-3" />
                                 Preview
+                                <ExternalLinkIcon className="size-3" />
                             </a>
                         )}
-                        {project.data.source && (
+                        {project.source && (
                             <a
-                                href={project.data.source}
+                                href={project.source}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="flex items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+                                class="flex shrink-0 items-center gap-1.5 text-xs font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground"
                             >
-                                <GithubIcon className="size-3" />
                                 Source
+                                <GithubIcon className="size-3" />
                             </a>
                         )}
                     </div>

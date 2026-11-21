@@ -1,4 +1,4 @@
-import { yearsSince } from "@/lib/utils";
+import { yearsSince } from "@/lib/dates";
 
 type TExperience = {
     company: {
@@ -7,7 +7,9 @@ type TExperience = {
     };
     positions: {
         title: string;
-        year: string;
+        startDate: string;
+        // Leave out while ongoing, shown as "Present"
+        endDate?: string;
         description: string[];
         skills: string[];
     }[];
@@ -24,12 +26,13 @@ export const experiences: TExperience[] = [
         positions: [
             {
                 title: "Software Engineer (Contract)",
-                year: `${finnextStart} – Present`,
+                startDate: finnextStart,
                 description: [
                     `Built [paystubhero.com](https://paystubhero.com) as the only developer, working with one designer. The platform generates 5,000+ financial documents a month, and I have maintained it since launch in ${finnextStart.split(" ")[1]}.`,
+                    "Built [lucidmargins.com](https://lucidmargins.com), a financial analysis platform that turns QuickBooks Online data into 51 KPIs, live reports, and an AI finance assistant.",
                     "Built [practicescope.com](https://practicescope.com), an AI-powered platform for dental practice acquisitions that benchmarks 30+ financial metrics and generates personalized acquisition reports.",
                     "Handled features from start to finish, from database design and API development to the React UI and cloud deployment.",
-                    "Built and maintained custom WordPress plugins and client websites.",
+                    "Built and maintained custom WordPress plugins and client websites, including Quick Redirect Manager, a URL redirect plugin used in production on paystubhero.com.",
                 ],
                 skills: [
                     "PHP",
@@ -41,7 +44,6 @@ export const experiences: TExperience[] = [
                     "TailwindCSS",
                     "shadcn/ui",
                     "Go",
-                    "PocketBase",
                 ],
             },
         ],
@@ -54,10 +56,12 @@ export const experiences: TExperience[] = [
         positions: [
             {
                 title: "Software Engineer Intern (Diploma Industrial Attachment)",
-                year: "Jun 2024 – Sep 2024",
+                startDate: "Jun 2024",
+                endDate: "Sep 2024",
                 description: [
+                    "Contributed to internal company projects as part of the development team.",
                     "Designed and built a custom web application in PHP using the MVC pattern.",
-                    "Built a full-stack e-commerce platform with Laravel, including an admin panel for managing products and orders.",
+                    "Built a Laravel e-commerce platform with an admin panel for products and orders.",
                 ],
                 skills: ["PHP", "Laravel", "TailwindCSS", "MySQL"],
             },
@@ -66,6 +70,6 @@ export const experiences: TExperience[] = [
 ];
 
 export const getExperienceYears = (): number => {
-    const starts = experiences.flatMap(e => e.positions.map(position => position.year.split(" – ")[0]));
+    const starts = experiences.flatMap(e => e.positions.map(position => position.startDate));
     return Math.max(...starts.map(yearsSince));
 };

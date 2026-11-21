@@ -1,4 +1,5 @@
 ---
+import { SEPARATOR } from "@/lib/constants";
 import { github, linkedin, twitter } from "@/lib/information";
 
 import { RssIcon } from "lucide-react";
@@ -39,7 +40,8 @@ const links = [
             Fork from <a
                 href="https://github.com/Louai-Zokerburg/louai"
                 class="font-medium text-primary underline underline-offset-4">Louai.b</a
-            > • source code available on <a
+            >
+            {SEPARATOR} source code available on <a
                 href="https://github.com/mt-shihab26/developershihab.com"
                 class="font-medium text-primary underline underline-offset-4">Github</a
             >

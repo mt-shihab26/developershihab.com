@@ -1,3 +1,4 @@
+import { SEPARATOR } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 import { avatar } from "@/lib/files";
@@ -31,9 +32,9 @@ export const Header = ({ image }: { image?: boolean }) => {
                     })}
                 >
                     <div>{bio}</div>
-                    <div>•</div>
+                    <div>{SEPARATOR}</div>
                     <div>{location}</div>
-                    <div>•</div>
+                    <div>{SEPARATOR}</div>
                     <div>{phone}</div>
                 </div>
                 <div

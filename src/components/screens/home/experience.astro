@@ -1,6 +1,7 @@
 ---
+import { SEPARATOR } from "@/lib/constants";
 import { experiences } from "@/lib/experiences";
-import { formatDuration } from "@/lib/utils";
+import { formatDuration, formatRange } from "@/lib/dates";
 
 import { SeeMore } from "./see-more";
 import { Code2 } from "lucide-react";
@@ -34,8 +35,10 @@ import BoxContent from "@/components/ui/box-content.astro";
                                         <h3 class="text-base font-black underline-offset-4">{position.title}</h3>
                                     </div>
                                     <span class="flex items-center gap-2 pl-7 font-mono text-sm text-foreground">
-                                        {position.year}
-                                        <span class="text-muted-foreground">· {formatDuration(position.year)}</span>
+                                        {formatRange(position.startDate, position.endDate)}
+                                        <span class="text-muted-foreground">
+                                            {SEPARATOR} {formatDuration(position.startDate, position.endDate)}
+                                        </span>
                                     </span>
                                 </div>
                                 <SeeMore

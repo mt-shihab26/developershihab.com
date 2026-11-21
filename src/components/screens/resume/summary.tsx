@@ -9,7 +9,7 @@ export const Summary = () => {
             <div className="space-y-1.5">
                 <div>
                     I am a <span className="font-semibold">Software Engineer</span> with{" "}
-                    <span className="font-semibold">{getExperienceYears()}+ years of experience</span> in{" "}
+                    <span className="font-semibold">{getExperienceYears()}+ years of professional experience</span> in{" "}
                     <span className="font-semibold">full-stack web development</span>. Most of that time has gone into
                     building SaaS products from the first line of code and then keeping them running in production for
                     real, paying users.
@@ -23,8 +23,8 @@ export const Summary = () => {
                     cloud deployment, and I care about shipping quickly without leaving messy code behind.
                 </div>
                 <div>
-                    I got into programming through competitive problem-solving and have solved over{" "}
-                    <span className="font-semibold">1,000 problems</span> on online judges such as Codeforces, LightOJ,
+                    I got into programming through competitive problem-solving and have solved{" "}
+                    <span className="font-semibold">1,000+ problems</span> on online judges such as Codeforces, LightOJ,
                     and LeetCode (
                     <a
                         href="https://github.com/mt-shihab26/problem_library"

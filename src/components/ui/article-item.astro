@@ -1,8 +1,9 @@
 ---
+import { SEPARATOR } from "@/lib/constants";
 import type { CollectionEntry } from "astro:content";
 import { ChevronRightIcon, NotebookPen } from "lucide-react";
-import getReadingTime from "reading-time";
-import { formatDateShort } from "@/lib/utils";
+import { formatDate } from "@/lib/dates";
+import { getReadingTime } from "@/lib/utils";
 
 interface Props {
     article: CollectionEntry<"blog">;
@@ -10,7 +11,7 @@ interface Props {
 
 const { article } = Astro.props;
 
-const formattedDate = formatDateShort(article.data.pubDatetime);
+const { pubDatetime, updatedDatetime } = article.data;
 ---
 
 <a href={`/articles/${article.id}`} class="group flex w-full cursor-pointer items-center">
@@ -31,7 +32,10 @@ const formattedDate = formatDateShort(article.data.pubDatetime);
             {article.data.tags.map(tag => <li class="text-xs font-semibold">#{tag}</li>)}
         </ul>
         <p class="text-xs text-foreground">
-            {formattedDate} | {getReadingTime(article.body!).text}
+            Published {formatDate(pubDatetime)}
+            {updatedDatetime && ` ${SEPARATOR} Updated ${formatDate(updatedDatetime)}`}
+            {SEPARATOR}
+            {getReadingTime(article.body!) || "unknown"}
         </p>
     </div>
 </a>

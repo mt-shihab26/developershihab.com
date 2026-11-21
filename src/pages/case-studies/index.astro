@@ -1,0 +1,25 @@
+---
+import { getCaseStudies } from "@/lib/case-studies";
+import { pages } from "@/lib/pages";
+
+import PageLayout from "@/components/layouts/page/layout.astro";
+import Pattern from "@/components/ui/pattern.astro";
+import Box from "@/components/ui/box-index.astro";
+import BoxContent from "@/components/ui/box-content.astro";
+import CaseStudyItem from "@/components/screens/case-studies/case-study-item.astro";
+
+const caseStudies = await getCaseStudies();
+---
+
+<PageLayout title={pages.caseStudies.title} description={pages.caseStudies.description} ogImage="/og/case-studies.png">
+    <Pattern />
+    <Box>
+        {
+            caseStudies.length > 0 ? (
+                caseStudies.map(caseStudy => <CaseStudyItem caseStudy={caseStudy} />)
+            ) : (
+                <BoxContent>No case studies published yet.</BoxContent>
+            )
+        }
+    </Box>
+</PageLayout>

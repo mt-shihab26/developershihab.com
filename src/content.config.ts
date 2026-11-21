@@ -6,6 +6,8 @@ const blog = defineCollection({
     schema: () =>
         z.object({
             pubDatetime: z.date(),
+            // Optional date of the last meaningful update, shown next to the publish date
+            updatedDatetime: z.date().optional(),
             series: z.string().optional(),
             title: z.string(),
             draft: z.boolean().optional(),
@@ -16,22 +18,26 @@ const blog = defineCollection({
         }),
 });
 
-const projects = defineCollection({
-    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/data/projects" }),
+// Live link, source, technologies, and priority come from the linked project, when there is one,
+// in src/lib/projects.ts, so they are not repeated here
+const caseStudies = defineCollection({
+    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/data/case-studies" }),
     schema: () =>
         z.object({
-            name: z.string(),
-            technologies: z.array(z.string()),
+            // Optional slug of the project this case study is about, from src/lib/projects.ts
+            project: z.string().optional(),
+            // Headline shown on the index card and the page title
+            title: z.string(),
+            // One or two sentences: the problem and the outcome
             description: z.string(),
-            source: z.string().optional(),
-            preview: z.string().optional(),
-            facebook: z.string().optional(),
-            instagram: z.string().optional(),
-            type: z.union([z.literal("core"), z.literal("side"), z.literal("startup"), z.literal("opensource")]),
-            resume: z.boolean().optional(),
-            priority: z.number().optional(),
+            // Optional logo path under public/, e.g. "/logos/paystubhero.svg"
+            logo: z.string().startsWith("/").optional(),
+            logoAlt: z.string().optional(),
+            // Publish date, used for ordering and the RSS feed
+            pubDatetime: z.date(),
+            // Optional date of the last meaningful update, shown next to the publish date
+            updatedDatetime: z.date().optional(),
             draft: z.boolean().optional(),
-            noShow: z.boolean().optional().default(false),
         }),
 });
 
@@ -46,4 +52,4 @@ const poems = defineCollection({
         }),
 });
 
-export const collections = { blog, projects, poems };
+export const collections = { blog, caseStudies, poems };

@@ -1,4 +1,5 @@
 import { desc, title } from "@/lib/information";
+import { getProject } from "@/lib/projects";
 import { getCollection } from "astro:content";
 
 import rss from "@astrojs/rss";
@@ -12,12 +13,12 @@ export async function GET(context) {
         categories: [post.data.category, ...post.data.tags],
     }));
 
-    const projects = (await getCollection("projects", entry => !entry.data.draft)).map(project => ({
-        title: project.data.name,
-        pubDate: new Date(),
-        description: project.data.description,
-        link: `/projects/${project.id}/`,
-        categories: ["project", ...project.data.technologies],
+    const caseStudies = (await getCollection("caseStudies", entry => !entry.data.draft)).map(caseStudy => ({
+        title: caseStudy.data.title,
+        pubDate: caseStudy.data.pubDatetime,
+        description: caseStudy.data.description,
+        link: `/case-studies/${caseStudy.id}/`,
+        categories: ["case study", ...(getProject(caseStudy.data.project)?.technologies ?? [])],
     }));
 
     const poems = (await getCollection("poems", entry => !entry.data.draft)).map(poem => ({
@@ -28,7 +29,7 @@ export async function GET(context) {
         categories: ["poem"],
     }));
 
-    const items = [...blog, ...projects, ...poems];
+    const items = [...blog, ...caseStudies, ...poems];
 
     items.sort((a, b) => b.pubDate - a.pubDate);
 

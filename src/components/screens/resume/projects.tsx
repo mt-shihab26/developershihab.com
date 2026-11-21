@@ -1,11 +1,13 @@
+import { SEPARATOR } from "@/lib/constants";
 import type { TProject } from "@/types/content";
 
+import { website } from "@/lib/information";
 import { PROJECT_CATEGORIES, getResumeProjectsByCategory } from "@/lib/projects";
 
 import { Code2 } from "lucide-react";
 import { Heading } from "./heading";
 
-const ProjectCard = ({ project }: { project: TProject }) => (
+const ProjectCard = ({ project, caseStudy }: { project: TProject; caseStudy?: string }) => (
     <div className="border-b border-gray-200 pb-3 last:border-b-0 dark:border-gray-700">
         <div className="flex items-center gap-1.5">
             <Code2 className="h-4 w-4 bg-white text-gray-500 dark:bg-black dark:text-gray-400" />
@@ -35,7 +37,22 @@ const ProjectCard = ({ project }: { project: TProject }) => (
                 </a>
             )}
             <p className="pl-7">{project.description}</p>
-            {project.technologies.length > 0 && <div className="pt-1 pl-7">{project.technologies.join(" · ")}</div>}
+            {project.technologies.length > 0 && (
+                <div className="pt-1 pl-7">{project.technologies.join(` ${SEPARATOR} `)}</div>
+            )}
+            {caseStudy && (
+                <p className="pt-1 pl-7">
+                    Case study:{" "}
+                    <a
+                        href={caseStudy}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline decoration-gray-400"
+                    >
+                        {caseStudy.split("//")[1]}
+                    </a>
+                </p>
+            )}
         </div>
     </div>
 );
@@ -46,7 +63,11 @@ const ProjectGroup = ({ title, projects }: { title: string; projects: TProject[]
         <div className="space-y-1">
             <h3 className="font-semibold tracking-wide uppercase">{title}</h3>
             {projects.map((project, index) => (
-                <ProjectCard key={index} project={project} />
+                <ProjectCard
+                    key={index}
+                    project={project}
+                    caseStudy={project.caseStudy && `${website}${project.caseStudy}`}
+                />
             ))}
         </div>
     );

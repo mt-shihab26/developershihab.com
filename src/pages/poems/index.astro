@@ -1,6 +1,9 @@
 ---
+import { SEPARATOR } from "@/lib/constants";
 import { getCollection } from "astro:content";
-import { formatDateShort, getLineCount } from "@/lib/utils";
+import { byNewest, formatDate } from "@/lib/dates";
+import { pages } from "@/lib/pages";
+import { getLineCount } from "@/lib/utils";
 
 import { ChevronRightIcon, Feather } from "lucide-react";
 
@@ -10,16 +13,10 @@ import BoxTitle from "@/components/ui/box-title.astro";
 import BoxHeader from "@/components/ui/box-header.astro";
 import PageLayout from "@/components/layouts/page/layout.astro";
 
-const poems = (await getCollection("poems", ({ data }) => !data.draft)).sort(
-    (a, b) => b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime()
-);
+const poems = (await getCollection("poems", ({ data }) => !data.draft)).sort(byNewest);
 ---
 
-<PageLayout
-    title="Poems"
-    description="A collection of my Bengali poems — verses on love, longing, gratitude, and the quiet things of the heart."
-    ogImage="/og/poems.png"
->
+<PageLayout title={pages.poems.title} description={pages.poems.description} ogImage="/og/poems.png">
     <Pattern />
     <Box>
         <BoxHeader>
@@ -39,7 +36,7 @@ const poems = (await getCollection("poems", ({ data }) => !data.draft)).sort(
                             </div>
                             <p class="text-sm text-muted-foreground">{poem.data.description}</p>
                             <p class="text-xs text-foreground">
-                                {formatDateShort(poem.data.pubDatetime)} | {getLineCount(poem.body)} lines
+                                {formatDate(poem.data.pubDatetime)} {SEPARATOR} {getLineCount(poem.body)} lines
                             </p>
                         </div>
                     </a>

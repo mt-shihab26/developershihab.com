@@ -1,35 +1,20 @@
-import { name, role } from "@/lib/information";
 import { getCollection } from "astro:content";
+
+import { categoryPage, seriesPage, pages as staticPages, type TPageMeta } from "@/lib/pages";
 
 import { OGImageRoute } from "astro-og-canvas";
 
 const articles = await getCollection("blog", ({ data }) => !data.draft);
-const projects = await getCollection("projects", ({ data }) => !data.noShow);
 const poems = await getCollection("poems", ({ data }) => !data.draft);
+const caseStudies = await getCollection("caseStudies", ({ data }) => !data.draft);
 
-type PageData = { title: string; description: string };
-
-const pages: Record<string, PageData> = {
-    home: { title: name, description: role },
-    articles: {
-        title: "Articles",
-        description:
-            "Exploring programming, frontend, backend, and full-stack development deep dives, series, and hands-on insights.",
-    },
-    poems: {
-        title: "Poems",
-        description:
-            "A collection of my Bengali poems — verses on love, longing, gratitude, and the quiet things of the heart.",
-    },
-    projects: {
-        title: "My Projects",
-        description:
-            "Explore my portfolio of innovative web applications, startup ventures, client solutions, and experimental projects.",
-    },
-    contact: {
-        title: "Contact",
-        description: "Get in touch with me via email or connect on social media.",
-    },
+const pages: Record<string, TPageMeta> = {
+    home: staticPages.home,
+    articles: staticPages.articles,
+    poems: staticPages.poems,
+    projects: staticPages.projects,
+    "case-studies": staticPages.caseStudies,
+    contact: staticPages.contact,
 };
 
 for (const article of articles) {
@@ -39,24 +24,18 @@ for (const article of articles) {
     };
 
     if (article.data.category) {
-        pages[`articles/categories/${article.data.category}`] = {
-            title: article.data.category,
-            description: `Exploring ${article.data.category} insights, lessons, and discoveries from my programming journey.`,
-        };
+        pages[`articles/categories/${article.data.category}`] = categoryPage(article.data.category);
     }
 
     if (article.data.series) {
-        pages[`articles/series/${article.data.series}`] = {
-            title: article.data.series,
-            description: `Deep dive into ${article.data.series} — a curated series from my programming journey.`,
-        };
+        pages[`articles/series/${article.data.series}`] = seriesPage(article.data.series);
     }
 }
 
-for (const project of projects) {
-    pages[`projects/${project.id}`] = {
-        title: project.data.name,
-        description: project.data.description,
+for (const caseStudy of caseStudies) {
+    pages[`case-studies/${caseStudy.id}`] = {
+        title: caseStudy.data.title,
+        description: caseStudy.data.description,
     };
 }
 
@@ -70,7 +49,7 @@ for (const poem of poems) {
 export const { getStaticPaths, GET } = await OGImageRoute({
     param: "route",
     pages,
-    getImageOptions: (_path, page: PageData) => ({
+    getImageOptions: (_path, page: TPageMeta) => ({
         title: page.title,
         description: page.description,
         bgGradient: [
