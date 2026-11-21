@@ -1,5 +1,5 @@
 import { glob } from "astro/loaders";
-import { defineCollection, reference, z } from "astro:content";
+import { defineCollection, z } from "astro:content";
 
 const blog = defineCollection({
     loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/data/blog" }),
@@ -16,25 +16,6 @@ const blog = defineCollection({
         }),
 });
 
-const projects = defineCollection({
-    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/data/projects" }),
-    schema: () =>
-        z.object({
-            name: z.string(),
-            technologies: z.array(z.string()),
-            description: z.string(),
-            source: z.string().optional(),
-            preview: z.string().optional(),
-            facebook: z.string().optional(),
-            instagram: z.string().optional(),
-            type: z.union([z.literal("core"), z.literal("side"), z.literal("startup"), z.literal("opensource")]),
-            resume: z.boolean().optional(),
-            priority: z.number().optional(),
-            draft: z.boolean().optional(),
-            noShow: z.boolean().optional().default(false),
-        }),
-});
-
 const caseStudies = defineCollection({
     loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/data/case-studies" }),
     schema: () =>
@@ -46,8 +27,6 @@ const caseStudies = defineCollection({
             // Optional logo path under public/, e.g. "/logos/paystubhero.svg"
             logo: z.string().startsWith("/").optional(),
             logoAlt: z.string().optional(),
-            // Optional link to the matching entry in the projects collection
-            project: reference("projects").optional(),
             client: z.string().optional(),
             industry: z.string().optional(),
             // What I did on the project, e.g. "Sole developer"
@@ -84,4 +63,4 @@ const poems = defineCollection({
         }),
 });
 
-export const collections = { blog, projects, caseStudies, poems };
+export const collections = { blog, caseStudies, poems };

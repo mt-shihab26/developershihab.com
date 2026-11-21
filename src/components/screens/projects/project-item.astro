@@ -1,5 +1,5 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import type { TProject } from "@/types/content";
 
 import {
     ChevronRightIcon,
@@ -13,17 +13,16 @@ import {
 
 import MarkdownRenderer from "@/components/ui/markdown-renderer.astro";
 import Badge from "@/components/ui/badge.astro";
-import { getCaseStudyHref } from "@/lib/case-studies";
 
 interface Props {
-    project: CollectionEntry<"projects">;
+    project: TProject;
 }
 
 const { project } = Astro.props;
-const caseStudyHref = await getCaseStudyHref(project.id);
+const caseStudyHref = project.caseStudy;
 
 // Projects have no page of their own: open the case study, or else the live app or source
-const href = caseStudyHref ?? project.data.source ?? project.data.preview;
+const href = caseStudyHref ?? project.source ?? project.preview;
 ---
 
 <div class="flex items-center not-last:border-b">
@@ -37,27 +36,27 @@ const href = caseStudyHref ?? project.data.source ?? project.data.preview;
         >
             <div class="group flex w-full items-center justify-between text-left select-none">
                 <h3 class="cursor-pointer text-lg font-semibold underline-offset-6 group-hover:underline">
-                    {project.data.name}
+                    {project.name}
                 </h3>
                 <ChevronRightIcon
                     className="size-4 shrink-0 text-muted-foreground transition-transform duration-150 group-hover:translate-x-1"
                 />
             </div>
-            <MarkdownRenderer className="text-xs leading-5 font-medium md:text-sm" content={project.data.description} />
+            <MarkdownRenderer className="text-xs leading-5 font-medium md:text-sm" content={project.description} />
         </a>
 
         <div class="flex items-start justify-between md:items-center">
             {
-                project.data.technologies.length > 0 && (
+                project.technologies.length > 0 && (
                     <div class="flex flex-wrap gap-1.5">
-                        {project.data.technologies.map(technology => {
+                        {project.technologies.map(technology => {
                             return <Badge>{technology}</Badge>;
                         })}
                     </div>
                 )
             }
             {
-                (project.data.preview || project.data.source || caseStudyHref) && (
+                (project.preview || project.source || caseStudyHref) && (
                     <div class="flex shrink-0 flex-col items-end gap-1.5">
                         {caseStudyHref && (
                             <a
@@ -68,9 +67,9 @@ const href = caseStudyHref ?? project.data.source ?? project.data.preview;
                                 <BookOpenTextIcon className="size-3 shrink-0" />
                             </a>
                         )}
-                        {project.data.facebook && (
+                        {project.facebook && (
                             <a
-                                href={project.data.facebook}
+                                href={project.facebook}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="hidden shrink-0 items-center gap-1.5 text-xs font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground md:flex"
@@ -79,9 +78,9 @@ const href = caseStudyHref ?? project.data.source ?? project.data.preview;
                                 <FacebookIcon className="size-3" />
                             </a>
                         )}
-                        {project.data.instagram && (
+                        {project.instagram && (
                             <a
-                                href={project.data.instagram}
+                                href={project.instagram}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="hidden shrink-0 items-center gap-1.5 text-xs font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground md:flex"
@@ -90,9 +89,9 @@ const href = caseStudyHref ?? project.data.source ?? project.data.preview;
                                 <InstagramIcon className="size-3" />
                             </a>
                         )}
-                        {project.data.preview && (
+                        {project.preview && (
                             <a
-                                href={project.data.preview}
+                                href={project.preview}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="flex shrink-0 items-center gap-1.5 text-xs font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground"
@@ -101,9 +100,9 @@ const href = caseStudyHref ?? project.data.source ?? project.data.preview;
                                 <ExternalLinkIcon className="size-3" />
                             </a>
                         )}
-                        {project.data.source && (
+                        {project.source && (
                             <a
-                                href={project.data.source}
+                                href={project.source}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="flex shrink-0 items-center gap-1.5 text-xs font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground"

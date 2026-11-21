@@ -1,5 +1,4 @@
 import type { TProject } from "@/types/content";
-import type { CollectionEntry } from "astro:content";
 
 export const PROJECT_CATEGORIES = {
     professional: "Production SaaS Products",
@@ -7,153 +6,159 @@ export const PROJECT_CATEGORIES = {
     openSource: "Open Source Tools & Plugins",
 } as const;
 
-import { readFileSync, readdirSync } from "fs";
-import { join } from "path";
+export const professionalProjects: TProject[] = [
+    {
+        slug: "paystubhero",
+        name: "PaystubHero",
+        preview: "https://paystubhero.com",
+        caseStudy: "/case-studies/paystubhero",
+        technologies: [
+            "Laravel",
+            "React",
+            "PHP",
+            "TypeScript",
+            "Inertia.js",
+            "TailwindCSS",
+            "shadcn/ui",
+            "Stripe",
+            "Headless Chrome",
+            "mPDF",
+        ],
+        description:
+            "A SaaS application that generates paystubs, W-2, W-9, 1099-NEC, 1099-MISC, Schedule C, offer letters, invoices, and other financial documents. Documents are rendered to PDF with headless Chrome and mPDF, and payments go through Stripe.",
+        startDate: "May 2023",
+        resume: true,
+        priority: 100,
+    },
+    {
+        slug: "lucid-margins",
+        name: "Lucid Margins",
+        preview: "https://lucidmargins.com",
+        technologies: ["Laravel", "React", "PHP", "TypeScript", "Inertia.js", "TailwindCSS", "shadcn/ui", "QuickBooks API"],
+        description:
+            "A financial analysis SaaS for small businesses and accountants. It syncs QuickBooks Online or Excel/CSV data, tracks 51 KPIs against targets, and builds live PDF and Excel reports. An AI assistant answers questions from the company's data.",
+        startDate: "Aug 15, 2026",
+        resume: true,
+        priority: 95,
+    },
+    {
+        slug: "practicescope",
+        name: "PracticeScope",
+        preview: "https://practicescope.com",
+        technologies: ["Go", "PocketBase", "React", "TypeScript", "TailwindCSS", "shadcn/ui", "Stripe"],
+        description:
+            "An AI-powered acquisition analysis SaaS for dentists buying a practice. AI extracts 50+ fields from a P&L or tax return, benchmarks 30+ metrics, and sells a personalized acquisition playbook through Stripe. Built with Go and PocketBase.",
+        startDate: "Jan 1, 2025",
+        resume: true,
+        priority: 90,
+    },
+];
 
-import matter from "gray-matter";
+export const personalProjects: TProject[] = [
+    {
+        slug: "pingr",
+        name: "Pingr",
+        source: "https://github.com/mt-shihab26/pingr",
+        preview: "https://pingr.developershihab.com",
+        technologies: ["Laravel", "React", "PHP", "TypeScript", "Inertia.js", "TailwindCSS", "shadcn/ui", "Stripe"],
+        description:
+            "An uptime monitoring app with public status pages. Queued jobs check sites on a schedule, a live dashboard updates over Reverb, and teams get alerts by email, Slack, or webhook, built with Laravel & React.",
+        startDate: "Oct 29, 2026",
+        resume: true,
+        priority: 110,
+    },
+    {
+        slug: "rawdo",
+        name: "Rawdo",
+        source: "https://github.com/mt-shihab26/rawdo",
+        preview: "https://rawdo.developershihab.com",
+        technologies: ["PHP", "TailwindCSS"],
+        description:
+            "A task management application built from scratch in plain PHP and structured like a small PHP framework, with its own routing, dependency-injection container, database/model layer, validation, and session-based authentication.",
+        startDate: "Aug 31, 2026",
+        resume: true,
+        priority: 100,
+    },
+    {
+        slug: "strokr",
+        name: "Strokr",
+        source: "https://github.com/mt-shihab26/strokr",
+        preview: "https://strokr.developershihab.com",
+        technologies: ["React", "TypeScript", "TanStack Start", "TailwindCSS", "GSAP", "Drizzle ORM"],
+        description:
+            "A keyboard-first typing speed trainer. It gives per-character feedback as you type, charts WPM and accuracy after each test, and keeps a history of past tests.",
+        startDate: "Oct 9, 2026",
+        resume: true,
+        priority: 70,
+    },
+];
 
-import { website } from "@/lib/information";
+export const openSourceProjects: TProject[] = [
+    {
+        slug: "orivo",
+        name: "Orivo",
+        source: "https://github.com/mt-shihab26/orivo",
+        technologies: ["Go", "raylib", "Todoist API"],
+        description:
+            "A desktop Pomodoro timer I built for myself and use every day, written in Go with raylib. It syncs todos with Todoist and logs daily work sessions back to each task.",
+        startDate: "Mar 26, 2026",
+        resume: true,
+        priority: 100,
+    },
+    {
+        slug: "quick-redirect-manager",
+        name: "Quick Redirect Manager",
+        source: "https://github.com/mt-shihab26/quick-redirect-manager",
+        technologies: ["PHP", "WordPress", "Plugin"],
+        description:
+            "A small WordPress plugin for managing URL redirects, used in production on paystubhero.com. It stores them in WordPress's native options table, so it needs no extra database tables.",
+        startDate: "Dec 28, 2024",
+        endDate: "Jan 25, 2025",
+        resume: true,
+        priority: 80,
+    },
+    {
+        slug: "swiss",
+        name: "Swiss",
+        source: "https://github.com/mt-shihab26/swiss",
+        preview: "https://swiss.developershihab.com",
+        technologies: ["TypeScript", "Astro", "TailwindCSS", "shadcn/ui"],
+        description:
+            "A versatile collection of web tools designed to simplify your digital life and help you with everyday tasks. Powerful, user-friendly, and privacy-focused — all in one place, all for free, with no sign-up required.",
+        startDate: "Apr 2025",
+        resume: true,
+        priority: 70,
+    },
+];
 
 /**
- * Extracts YAML frontmatter and content from MDX files in the projects directory
+ * Published projects, highest priority first, then newest start date first
  */
-export const getProjectsRow = (): TProject[] => {
-    const projectsDirectory = join(process.cwd(), "src/data/projects");
-
-    try {
-        const filenames = readdirSync(projectsDirectory);
-        const projects: TProject[] = [];
-
-        for (const filename of filenames) {
-            if (!filename.endsWith(".mdx")) continue;
-
-            const filePath = join(projectsDirectory, filename);
-            const fileContents = readFileSync(filePath, "utf8");
-
-            // Parse frontmatter and content
-            const { data, content } = matter(fileContents);
-
-            // Extract slug from filename (remove .mdx extension)
-            const slug = filename.replace(/\.mdx$/, "");
-
-            // Validate required fields
-            const project: TProject = {
-                name: data.name || "",
-                type: data.type || "side",
-                preview: data.preview || undefined,
-                source: data.source || undefined,
-                technologies: Array.isArray(data.technologies) ? data.technologies : [],
-                description: data.description || "",
-                startDate: data.startDate || "",
-                slug,
-                content: content.trim(),
-                resume: data.resume || false,
-                priority: data.priority || 0,
-                draft: data.draft || false,
-            };
-
-            // Only add non-draft projects
-            if (!project.draft) {
-                projects.push(project);
-            }
-        }
-
-        // Sort projects by priority (highest number first), then by start date (newest first)
-        return projects.sort((a, b) => {
-            // First sort by priority
-            if (a.priority !== b.priority) {
-                return (b.priority || 0) - (a.priority || 0);
-            }
-            // If priority is the same, sort by start date (newest first)
-            const dateA = new Date(a.startDate);
-            const dateB = new Date(b.startDate);
-            return dateB.getTime() - dateA.getTime();
-        });
-    } catch (error) {
-        console.error("Error reading projects data:", error);
-        return [];
-    }
-};
-
-/**
- * Filters out draft projects and sorts by priority (higher numbers first), then by name
- */
-export const sortProjectsByPriority = (projects: CollectionEntry<"projects">[]): CollectionEntry<"projects">[] => {
-    return projects
-        .filter(project => !project.data.draft)
+const publish = (list: TProject[]): TProject[] =>
+    list
+        .filter(project => !project.draft)
         .sort((a, b) => {
-            const priorityA = a.data.priority || 0;
-            const priorityB = b.data.priority || 0;
+            const priorityA = a.priority ?? 0;
+            const priorityB = b.priority ?? 0;
 
-            if (priorityA !== priorityB) {
-                return priorityB - priorityA;
-            }
+            if (priorityA !== priorityB) return priorityB - priorityA;
 
-            // If same priority, sort alphabetically by name as fallback
-            return a.data.name.localeCompare(b.data.name);
+            return new Date(b.startDate).getTime() - new Date(a.startDate).getTime();
         });
-};
 
-export const getStartupProjects = (projects: CollectionEntry<"projects">[]): CollectionEntry<"projects">[] => {
-    const sortedProjects = sortProjectsByPriority(projects);
-    return sortedProjects.filter(project => project.data.type === "startup");
-};
-
-export const getClientsProjects = (projects: CollectionEntry<"projects">[]): CollectionEntry<"projects">[] => {
-    const sortedProjects = sortProjectsByPriority(projects);
-    return sortedProjects.filter(project => project.data.type === "core");
-};
-
-export const getDemoProjects = (projects: CollectionEntry<"projects">[]): CollectionEntry<"projects">[] => {
-    const sortedProjects = sortProjectsByPriority(projects);
-    return sortedProjects.filter(project => project.data.type === "side");
-};
-
-export const getOpenSourceProjects = (projects: CollectionEntry<"projects">[]): CollectionEntry<"projects">[] => {
-    const sortedProjects = sortProjectsByPriority(projects);
-    return sortedProjects.filter(project => project.data.type === "opensource");
-};
-
-export const getProjectsByCategory = (projects: CollectionEntry<"projects">[]) => {
-    const sorted = sortProjectsByPriority(projects);
-    return {
-        professional: sorted.filter(p => p.data.type === "core"),
-        openSource: sorted.filter(p => p.data.type === "opensource"),
-        personal: sorted.filter(p => p.data.type === "side"),
-    };
-};
+export const getProjectsByCategory = () => ({
+    professional: publish(professionalProjects),
+    personal: publish(personalProjects),
+    openSource: publish(openSourceProjects),
+});
 
 export const getResumeProjectsByCategory = () => {
-    const all = (getProjectsRow() || [])
-        .filter(p => p.resume === true)
-        .sort((a, b) => (b.priority ?? 0) - (a.priority ?? 0));
+    const onResume = (list: TProject[]) => publish(list).filter(project => project.resume);
+
     return {
-        professional: all.filter(p => p.type === "core"),
-        openSource: all.filter(p => p.type === "opensource"),
-        personal: all.filter(p => p.type === "side"),
+        professional: onResume(professionalProjects),
+        personal: onResume(personalProjects),
+        openSource: onResume(openSourceProjects),
     };
 };
 
-/**
- * Absolute case study URLs keyed by project slug, read straight from the case study files
- * so it can run in synchronous components such as the resume
- */
-export const getCaseStudyUrlsByProject = (): Record<string, string> => {
-    const directory = join(process.cwd(), "src/data/case-studies");
-    const urls: Record<string, string> = {};
-
-    try {
-        for (const filename of readdirSync(directory)) {
-            if (!/\.mdx?$/.test(filename)) continue;
-
-            const { data } = matter(readFileSync(join(directory, filename), "utf8"));
-            if (data.draft || !data.project) continue;
-
-            urls[data.project] = `${website}/case-studies/${filename.replace(/\.mdx?$/, "")}`;
-        }
-    } catch (error) {
-        console.error("Error reading case studies data:", error);
-    }
-
-    return urls;
-};

@@ -15,13 +15,3 @@ export const getCaseStudies = async (): Promise<CollectionEntry<"caseStudies">[]
         return b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime();
     });
 };
-
-/**
- * URL of the published case study linked to a project, if there is one
- */
-export const getCaseStudyHref = async (projectId: string): Promise<string | undefined> => {
-    const caseStudies = await getCaseStudies();
-    const caseStudy = caseStudies.find(c => c.data.project?.id === projectId);
-
-    return caseStudy ? `/case-studies/${caseStudy.id}` : undefined;
-};

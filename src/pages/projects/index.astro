@@ -1,12 +1,10 @@
 ---
-import { getCollection } from "astro:content";
 import { PROJECT_CATEGORIES, getProjectsByCategory } from "@/lib/projects";
 
 import PageLayout from "@/components/layouts/page/layout.astro";
 import ProjectsList from "@/components/screens/projects/projects-list.astro";
 
-const projects = await getCollection("projects");
-const { professional, openSource, personal } = getProjectsByCategory(projects);
+const { professional, openSource, personal } = getProjectsByCategory();
 ---
 
 <PageLayout
