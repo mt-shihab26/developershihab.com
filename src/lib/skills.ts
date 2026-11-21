@@ -1,5 +1,6 @@
 import { InertiaIcon } from "@/components/icons/inertia-icon";
 import { TanStackIcon } from "@/components/icons/tanstack-icon";
+import { StripeIcon } from "@/components/icons/stripe-icon";
 
 import type { DeveloperIconProps } from "developer-icons/dist/icon";
 import type { ReactElement } from "react";
@@ -185,6 +186,7 @@ export const skills: { label: string; items: SkillItem[] }[] = [
                 title: "Stripe",
                 href: "https://stripe.com",
                 level: "Basic",
+                icon: StripeIcon,
             },
             {
                 title: "Claude Code",
