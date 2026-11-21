@@ -12,6 +12,8 @@ import { join } from "path";
 
 import matter from "gray-matter";
 
+import { website } from "@/lib/information";
+
 /**
  * Extracts YAML frontmatter and content from MDX files in the projects directory
  */
@@ -130,4 +132,28 @@ export const getResumeProjectsByCategory = () => {
         openSource: all.filter(p => p.type === "opensource"),
         personal: all.filter(p => p.type === "side"),
     };
+};
+
+/**
+ * Absolute case study URLs keyed by project slug, read straight from the case study files
+ * so it can run in synchronous components such as the resume
+ */
+export const getCaseStudyUrlsByProject = (): Record<string, string> => {
+    const directory = join(process.cwd(), "src/data/case-studies");
+    const urls: Record<string, string> = {};
+
+    try {
+        for (const filename of readdirSync(directory)) {
+            if (!/\.mdx?$/.test(filename)) continue;
+
+            const { data } = matter(readFileSync(join(directory, filename), "utf8"));
+            if (data.draft || !data.project) continue;
+
+            urls[data.project] = `${website}/case-studies/${filename.replace(/\.mdx?$/, "")}`;
+        }
+    } catch (error) {
+        console.error("Error reading case studies data:", error);
+    }
+
+    return urls;
 };

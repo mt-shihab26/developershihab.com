@@ -28,6 +28,14 @@ A dentist buying a practice usually gets a P&L, a tax return, and a seller's sum
 
 PracticeScope does that first pass for them: upload the documents, see how the practice compares, and get a playbook to negotiate with.
 
+## How It Works
+
+**Upload or Enter Data** – Drop in a P&L, tax return, or practice summary. AI extracts and fills 50+ fields automatically.
+
+**Instant Diagnostics** – 30+ metrics across production, overhead, collections, hygiene, and patient flow, each benchmarked, rated, and paired with a dollar-amount upside.
+
+**AI Acquisition Report** – A $7 playbook with negotiation talking points, risk flags, growth strategies, and valuation modeling.
+
 ## My Role
 
 I built the application as a full-stack developer: the Go backend on PocketBase, the AI document parsing and report generation, Stripe payments, the React frontend, and the admin dashboard.
@@ -73,3 +81,18 @@ Uploaded PDFs are read in the browser with pdf.js before the text is sent for AI
 - **AI:** OpenAI and Anthropic behind one driver interface, streamed with the Vercel AI SDK
 - **PDF:** pdf.js for reading uploads, jsPDF for export
 - **Payments:** Stripe
+
+## Codebase Size
+
+Counted with [cloc](https://github.com/AlDanial/cloc), main languages only:
+
+| Language   | Files | Blank | Comment | Code   |
+| ---------- | ----- | ----- | ------- | ------ |
+| TypeScript | 199   | 1,321 | 186     | 13,127 |
+| Go         | 28    | 258   | 15      | 3,194  |
+| CSS        | 1     | 70    | 9       | 284    |
+| **SUM**    | 228   | 1,649 | 210     | 16,605 |
+
+## Live Application
+
+Visit the live application at [practicescope.com](https://practicescope.com)

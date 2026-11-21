@@ -21,6 +21,9 @@ interface Props {
 
 const { project } = Astro.props;
 const caseStudyHref = await getCaseStudyHref(project.id);
+
+// Projects have no page of their own: open the case study, or else the live app or source
+const href = caseStudyHref ?? project.data.source ?? project.data.preview;
 ---
 
 <div class="flex items-center not-last:border-b">
@@ -28,9 +31,9 @@ const caseStudyHref = await getCaseStudyHref(project.id);
 
     <div class="flex w-full flex-col gap-y-3 border-l p-4">
         <a
-            href={!project.data.noShow ? `/projects/${project.id}` : project.data.source || project.data.preview}
+            href={href}
             class="group flex w-full cursor-pointer flex-col gap-y-3"
-            target={project.data.noShow ? "_blank" : undefined}
+            target={caseStudyHref ? undefined : "_blank"}
         >
             <div class="group flex w-full items-center justify-between text-left select-none">
                 <h3 class="cursor-pointer text-lg font-semibold underline-offset-6 group-hover:underline">

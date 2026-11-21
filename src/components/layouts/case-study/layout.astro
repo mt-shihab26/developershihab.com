@@ -1,10 +1,9 @@
 ---
 import type { CollectionEntry } from "astro:content";
 
-import { getEntry } from "astro:content";
 import { name } from "@/lib/information";
 
-import { ArrowLeft, ExternalLink, FolderCodeIcon } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 
 import Github from "@/components/icons/github.astro";
 import Pattern from "@/components/ui/pattern.astro";
@@ -24,11 +23,6 @@ interface Props {
 
 const { caseStudy } = Astro.props;
 const { title, summary, preview, source, logo, logoAlt } = caseStudy.data;
-
-// Only link to the project page when that project has one
-const project = caseStudy.data.project ? await getEntry(caseStudy.data.project) : undefined;
-const projectHref = project && !project.data.noShow && !project.data.draft ? `/projects/${project.id}` : undefined;
-
 ---
 
 <SiteLayout title={`${title} - ${name}`} description={summary} ogImage={`/og/case-studies/${caseStudy.id}.png`}>
@@ -41,14 +35,6 @@ const projectHref = project && !project.data.noShow && !project.data.draft ? `/p
                     <ArrowLeft />
                 </LinkBtn>
                 <div>
-                    {
-                        projectHref && (
-                            <LinkBtn ariaLabel="Project page" className="text-xs" variant="secondary" href={projectHref}>
-                                Project
-                                <FolderCodeIcon className="size-3" />
-                            </LinkBtn>
-                        )
-                    }
                     {
                         preview && (
                             <LinkBtn ariaLabel="Live app" target="_blank" className="text-xs" variant="default" href={preview}>

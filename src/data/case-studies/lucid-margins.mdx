@@ -7,7 +7,7 @@ industry: Financial analysis
 role: Full-stack developer
 timeline: Aug 2026 – Present
 pubDatetime: 2026-11-21
-technologies: ["Laravel", "React", "TypeScript", "Inertia.js", "TailwindCSS", "QuickBooks API", "Laravel AI"]
+technologies: ["Laravel", "React", "TypeScript", "Inertia.js", "TailwindCSS", "QuickBooks API"]
 metrics:
     - label: built-in KPIs
       value: "51"
@@ -27,6 +27,14 @@ draft: true
 Small and mid-sized businesses keep their books in QuickBooks, but the books alone don't explain why margins moved or whether the business is on target. Accountants and advisors who look after many client companies have the same problem many times over.
 
 Lucid Margins connects to the books a business already keeps and turns them into KPIs, dashboards, and reports, with an assistant that can explain why a number changed.
+
+## How It Works
+
+**Connect** – Link QuickBooks Online through OAuth (synced nightly) or upload an Excel/CSV file. Budgets can be imported too.
+
+**Track** – 51 built-in KPIs across profitability, working capital, liquidity and coverage, and returns and growth. Each KPI is marked on-track or off-track against its target.
+
+**Ask** – Margo answers questions about the numbers. It is read-only, scoped to one company at a time, and only quotes figures pulled from the company's own data.
 
 ## My Role
 
@@ -73,3 +81,17 @@ The codebase has 110 PHP test files and a set of Vitest tests for the frontend, 
 - **Styling:** TailwindCSS + shadcn/ui
 - **Integrations:** QuickBooks Online (OAuth), Excel/CSV import
 - **Reports:** React PDF, Excel export
+
+## Codebase Size
+
+Counted with [cloc](https://github.com/AlDanial/cloc), excluding `vendor` and `node_modules`, main languages only:
+
+| Language     | Files | Blank  | Comment | Code    |
+| ------------ | ----- | ------ | ------- | ------- |
+| TypeScript   | 610   | 6,381  | 2,403   | 62,744  |
+| PHP          | 414   | 8,499  | 9,505   | 39,964  |
+| **SUM**      | 1,024 | 14,880 | 11,908  | 102,708 |
+
+## Live Application
+
+Visit the live application at [lucidmargins.com](https://lucidmargins.com)

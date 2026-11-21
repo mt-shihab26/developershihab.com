@@ -4,7 +4,6 @@ import { getCollection } from "astro:content";
 import { OGImageRoute } from "astro-og-canvas";
 
 const articles = await getCollection("blog", ({ data }) => !data.draft);
-const projects = await getCollection("projects", ({ data }) => !data.noShow);
 const poems = await getCollection("poems", ({ data }) => !data.draft);
 const caseStudies = await getCollection("caseStudies", ({ data }) => !data.draft);
 
@@ -57,13 +56,6 @@ for (const article of articles) {
             description: `Deep dive into ${article.data.series} — a curated series from my programming journey.`,
         };
     }
-}
-
-for (const project of projects) {
-    pages[`projects/${project.id}`] = {
-        title: project.data.name,
-        description: project.data.description,
-    };
 }
 
 for (const caseStudy of caseStudies) {
