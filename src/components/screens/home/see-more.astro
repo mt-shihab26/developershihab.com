@@ -1,0 +1,48 @@
+---
+import { markdownToHtml } from "@/lib/utils";
+
+import { ChevronDown, ChevronUp } from "lucide-react";
+
+interface Props {
+    open?: boolean;
+    items?: string[];
+    skills?: string[];
+}
+
+const { open = false, items = [], skills = [] } = Astro.props;
+
+// Show more / Show less without JavaScript: a hidden checkbox toggles the details below it.
+// A unique id ties the checkbox to its label.
+const id = `see-more-${Math.random().toString(36).slice(2, 10)}`;
+---
+
+<div class="my-4 overflow-hidden">
+    <input type="checkbox" id={id} class="peer sr-only" checked={open} />
+
+    <div class="hidden peer-checked:block">
+        <div class="ml-7 text-sm leading-7">
+            {items.map(item => <div set:html={markdownToHtml(`- ♦ ${item}`)} />)}
+        </div>
+        {
+            skills.length > 0 && (
+                <div class="mt-2 ml-7 flex max-w-full flex-wrap items-center justify-start gap-1.5 py-2">
+                    {skills.map(skill => (
+                        <span class="inline-flex items-center rounded-md border !border-solid px-2 py-0.5 text-xs">
+                            {skill}
+                        </span>
+                    ))}
+                </div>
+            )
+        }
+    </div>
+
+    <label
+        for={id}
+        class="group mt-2 ml-7 flex w-fit cursor-pointer items-center gap-1 rounded-md border px-4 py-2 text-xs font-medium text-primary select-none peer-focus-visible:ring-2 peer-focus-visible:ring-ring hover:underline"
+    >
+        <span class="[.peer:checked~label_&]:hidden">Show more</span>
+        <span class="hidden [.peer:checked~label_&]:inline">Show less</span>
+        <ChevronDown className="size-4 [.peer:checked~label_&]:hidden" />
+        <ChevronUp className="hidden size-4 [.peer:checked~label_&]:block" />
+    </label>
+</div>

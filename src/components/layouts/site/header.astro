@@ -68,35 +68,25 @@ const { className } = Astro.props;
     </div>
 </nav>
 
-<script>
-    function toggleMobileMenu() {
-        const mobileMenu = document.getElementById("mobile-menu");
+<script is:inline>
+    // Open and close the mobile menu
+    (() => {
+        const button = document.getElementById("hamburger-button");
+        const menu = document.getElementById("mobile-menu");
         const menuIcon = document.getElementById("menu-icon");
         const closeIcon = document.getElementById("close-icon");
 
-        if (mobileMenu && menuIcon && closeIcon) {
-            mobileMenu.classList.toggle("hidden");
-
-            // Toggle between menu and close icons
+        const toggle = () => {
+            menu.classList.toggle("hidden");
             menuIcon.classList.toggle("hidden");
             closeIcon.classList.toggle("hidden");
-        }
-    }
+        };
 
-    document.addEventListener("DOMContentLoaded", () => {
-        const hamburgerButton = document.getElementById("hamburger-button");
-        if (hamburgerButton) {
-            hamburgerButton.addEventListener("click", toggleMobileMenu);
-        }
+        button.addEventListener("click", toggle);
 
-        // Close mobile menu when clicking on nav links
-        const mobileMenu = document.getElementById("mobile-menu");
-        if (mobileMenu) {
-            mobileMenu.addEventListener("click", (e: any) => {
-                if (e.target.tagName === "A") {
-                    toggleMobileMenu();
-                }
-            });
-        }
-    });
+        // Close the menu after a link in it is chosen
+        menu.addEventListener("click", event => {
+            if (event.target.closest("a")) toggle();
+        });
+    })();
 </script>
