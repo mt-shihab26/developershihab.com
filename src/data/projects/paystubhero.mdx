@@ -10,26 +10,73 @@ draft: false
 startDate: May 2023
 ---
 
-# **PaystubHero**
+# PaystubHero
 
-## **Overview**
+## Overview
 
-PaystubHero is a comprehensive SaaS application designed to simplify financial document generation for businesses and individuals. The platform enables users to create professional Paystubs, W-2 Forms, 1099 MISC, 1099 NEC, and other essential financial documents with ease.
+PaystubHero is a SaaS document generator for business owners, freelancers, independent contractors, and employees paid in cash. Users fill in a short form, pick a template, and download a ready-to-use PDF for proof of income, loan and rental applications, tax filing, or payroll records. The site reports more than 839,000 customers served.
 
-## **Features**
+## How It Works
 
-**Multiple Document Types** – Generate Paystubs, W-2, 1099 forms  
-**User Profile Management** – Complete user account system  
-**Admin Dashboard** – Comprehensive administrative controls  
-**Professional Templates** – Clean, compliant document designs  
-**Secure Processing** – Safe handling of financial data
+**Choose a Template** – Pick one of 10 paystub designs, or choose another document type.
 
-## **Tech Stack**
+**Enter Details** – Add company, employee, work schedule, and salary details. Taxes, deductions, and year-to-date totals are calculated automatically.
 
-- **Backend:** Laravel
-- **Frontend:** React
-- **Styling:** TailwindCSS
+**Download** – Pay through a secure checkout, then download the PDF instantly or get it by email. Past documents stay in the user's profile for re-download.
 
-## **Live Application**
+## Documents
+
+- **Paystubs** – US and Canadian generators with 10 templates
+- **Tax Forms** – W-2, W-9, 1099-NEC, 1099-MISC, Schedule C, and 1040
+- **Business Documents** – Offer letters and invoices
+
+## Features
+
+**Accurate Calculations** – Federal and state taxes, deductions, and YTD totals computed per pay period
+
+**PDF Rendering** – Documents rendered with mPDF and headless Chrome, with multi-document PDF merging
+
+**Stripe Payments** – Pay-per-document checkout (from $8.99 per paystub) through Laravel Cashier, with coupon codes
+
+**User Accounts** – Saved documents, order history, and passwordless magic-link login
+
+**Admin Dashboard** – Orders, customers, coupons, marketing ads, blocked IPs, and customer feedback
+
+**Marketing Integrations** – Google Ads, Facebook Pixel and Conversions API, Google Tag Manager, and an auto-generated sitemap
+
+**Background Jobs** – Redis queues managed with Laravel Horizon, Mailgun email delivery, S3 file storage, and scheduled backups
+
+## Tech Stack
+
+- **Backend:** Laravel 13 (PHP 8.4), Laravel Cashier, Horizon, Sanctum
+- **Frontend:** React + TypeScript via Inertia.js
+- **Styling:** TailwindCSS + shadcn/ui (Radix UI), GSAP animations
+- **PDF:** mPDF, headless Chrome, PDF merge
+- **Infrastructure:** Redis, AWS S3, Mailgun, Laravel Nightwatch
+- **Payments:** Stripe
+
+## Codebase Size
+
+Counted with [cloc](https://github.com/AlDanial/cloc), excluding `vendor` and `node_modules`:
+
+| Language           | Files | Blank  | Comment | Code    |
+| ------------------ | ----- | ------ | ------- | ------- |
+| TypeScript         | 989   | 7,297  | 2,089   | 111,918 |
+| Blade              | 233   | 802    | 230     | 53,248  |
+| PHP                | 338   | 7,225  | 6,604   | 33,214  |
+| Markdown           | 59    | 1,985  | 19      | 4,808   |
+| CSS                | 5     | 164    | 134     | 3,260   |
+| JSON               | 9     | 0      | 0       | 367     |
+| YAML               | 2     | 21     | 0       | 69      |
+| Bourne Again Shell | 1     | 17     | 3       | 61      |
+| Bourne Shell       | 3     | 18     | 0       | 60      |
+| XML                | 1     | 0      | 0       | 37      |
+| JavaScript         | 1     | 4      | 1       | 32      |
+| INI                | 1     | 4      | 0       | 14      |
+| TOML               | 2     | 0      | 0       | 7       |
+| Text               | 1     | 0      | 0       | 3       |
+| **SUM**            | 1,645 | 17,537 | 9,080   | 207,098 |
+
+## Live Application
 
 Visit the live application at [paystubhero.com](https://paystubhero.com)
