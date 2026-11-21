@@ -3,7 +3,7 @@ import { SEPARATOR } from "@/lib/constants";
 import { experiences } from "@/lib/experiences";
 import { formatDuration, formatRange } from "@/lib/dates";
 
-import { SeeMore } from "./see-more";
+import SeeMore from "./see-more.astro";
 import { Code2 } from "lucide-react";
 
 import Box from "@/components/ui/box-index.astro";
@@ -41,12 +41,7 @@ import BoxContent from "@/components/ui/box-content.astro";
                                         </span>
                                     </span>
                                 </div>
-                                <SeeMore
-                                    open={index === 0}
-                                    items={position.description}
-                                    skills={position.skills}
-                                    client:load
-                                />
+                                <SeeMore open={index === 0} items={position.description} skills={position.skills} />
                             </div>
                         ))}
                     </div>

@@ -5,61 +5,27 @@ import { cn } from "@/lib/utils";
 import { ChevronUp } from "lucide-react";
 ---
 
-<script>
-    document.addEventListener("astro:page-load", () => {
-        function handleScroll() {
-            const button = document.querySelector("#back-to-top");
-            if (!button) return;
-            if (window.scrollY < window.innerHeight) {
-                button.classList.add("scale-0");
-            } else {
-                button.classList.remove("scale-0");
-            }
-        }
-
-        function backToTop() {
-            const button = document.querySelector("#back-to-top");
-            if (!button) return;
-
-            button.addEventListener("click", () => {
-                document.body.scrollTop = 0; // For Safari
-                document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
-            });
-
-            // Check scroll position on page load and scroll events
-            handleScroll();
-            window.addEventListener("scroll", handleScroll);
-        }
-
-        // Initialize the back to top functionality
-        backToTop();
-    });
-
-    /* Go to page start after page swap */
-    document.addEventListener("astro:after-swap", () => {
-        window.scrollTo({ left: 0, top: 0, behavior: "instant" });
-
-        // Need to wait a moment for the button to be available in the DOM after swap
-        setTimeout(() => {
-            const button = document.querySelector("#back-to-top");
-            if (!button) return;
-
-            if (window.scrollY < window.innerHeight) {
-                button.classList.add("scale-0");
-            } else {
-                button.classList.remove("scale-0");
-            }
-        }, 10);
-    });
-</script>
 <button
     id="back-to-top"
-    aria-label="back-to-top-button"
-    title="Back to Top Button"
+    aria-label="Back to top"
+    title="Back to top"
     class={cn(
         buttonVariants({ size: "icon" }),
-        "fixed right-4 bottom-[4rem] scale-0 z-50 cursor-pointer duration-150 transition-transform rounded-full lg:left-[calc(100vw/2+400px)]"
+        "fixed right-4 bottom-[4rem] z-50 scale-0 cursor-pointer rounded-full transition-transform duration-150 lg:left-[calc(100vw/2+400px)]"
     )}
 >
     <ChevronUp />
 </button>
+
+<script is:inline>
+    // Show the button once the page is scrolled past one screen
+    (() => {
+        const button = document.getElementById("back-to-top");
+
+        const update = () => button.classList.toggle("scale-0", window.scrollY < window.innerHeight);
+
+        button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+        window.addEventListener("scroll", update, { passive: true });
+        update();
+    })();
+</script>

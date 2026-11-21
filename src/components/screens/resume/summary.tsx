@@ -11,8 +11,8 @@ export const Summary = () => {
                     I am a <span className="font-semibold">Software Engineer</span> with{" "}
                     <span className="font-semibold">{getExperienceYears()}+ years of professional experience</span> in{" "}
                     <span className="font-semibold">full-stack web development</span>. Most of that time has gone into
-                    building SaaS products from the first line of code and then keeping them running in production for
-                    real, paying users.
+                    building web applications from the first line of code and then keeping them running in production
+                    for real, paying users.
                 </div>
                 <div>
                     I work mainly with{" "}
@@ -20,7 +20,8 @@ export const Summary = () => {
                         PHP, Laravel, JavaScript/TypeScript, React, TailwindCSS, and WordPress
                     </span>
                     . I usually handle a feature from start to finish, from the database schema and API to the UI and{" "}
-                    cloud deployment, and I care about shipping quickly without leaving messy code behind.
+                    cloud deployment, and I care about shipping quickly without leaving messy code behind. I can build
+                    web applications with AI coding agents like Claude Code, Codex, etc.
                 </div>
                 <div>
                     I got into programming through competitive problem-solving and have solved{" "}

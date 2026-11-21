@@ -93,80 +93,49 @@ const formattedUpdatedDate = updatedDate && formatDate(updatedDate);
         <Pattern />
     </main>
     <SiteFooter />
-</SiteLayout>
 
-<script>
-    document.addEventListener("astro:page-load", () => {
-        function createProgressBar() {
-            const progressContainer = document.createElement("div");
-            progressContainer.className = "fixed duration-75 top-0 z-10 h-1 w-full bg-background";
+    <script is:inline>
+        (() => {
+            // Reading progress bar along the top of the page
+            const track = document.createElement("div");
+            track.className = "fixed top-0 z-10 h-1 w-full bg-background duration-75";
+            const bar = document.createElement("div");
+            bar.className = "h-1 w-0 bg-blue-500";
+            track.appendChild(bar);
+            document.body.appendChild(track);
 
-            const progressBar = document.createElement("div");
-            progressBar.className = "h-1 w-0 bg-blue-500";
-            progressBar.id = "myBar";
+            const updateProgress = () => {
+                const scrollable = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+                bar.style.width = `${Math.ceil(progress)}%`;
+            };
+            window.addEventListener("scroll", updateProgress, { passive: true });
+            updateProgress();
 
-            progressContainer.appendChild(progressBar);
+            // Copy button on every code block
+            const label = "Copy";
+            for (const block of document.querySelectorAll("article pre")) {
+                const wrapper = document.createElement("div");
+                wrapper.style.position = "relative";
+                block.parentNode.insertBefore(wrapper, block);
+                wrapper.appendChild(block);
 
-            document.body.appendChild(progressContainer);
-        }
-        createProgressBar();
+                const button = document.createElement("button");
+                button.type = "button";
+                button.className = "copy-code";
+                button.textContent = label;
+                block.appendChild(button);
 
-        /**
-         * Update the progress bar when user scrolls
-         * */
-        function updateScrollProgress() {
-            document.addEventListener("scroll", () => {
-                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = Math.ceil((winScroll / height) * 100);
-
-                if (document) {
-                    const myBar = document.getElementById("myBar");
-                    if (myBar) {
-                        myBar.style.width = scrolled + "%";
+                button.addEventListener("click", async () => {
+                    try {
+                        await navigator.clipboard.writeText(block.querySelector("code")?.innerText ?? "");
+                    } catch {
+                        return;
                     }
-                }
-            });
-        }
-        updateScrollProgress();
-
-        /**
-         * Add copy button to code snippets in markdown
-         */
-        let copyButtonLabel = "Copy";
-        let codeBlocks = Array.from(document.querySelectorAll("pre"));
-
-        if (!codeBlocks || codeBlocks.length === 0) return;
-
-        for (let codeBlock of codeBlocks) {
-            let wrapper = document.createElement("div");
-            wrapper.style.position = "relative";
-
-            let copyButton = document.createElement("button");
-            copyButton.className = "copy-code";
-            copyButton.innerHTML = copyButtonLabel;
-
-            codeBlock.appendChild(copyButton);
-            // wrap codebock with relative parent element
-            codeBlock.parentNode?.insertBefore(wrapper, codeBlock);
-            wrapper.appendChild(codeBlock);
-
-            copyButton.addEventListener("click", async () => {
-                await copyCode(codeBlock, copyButton);
-            });
-        }
-
-        async function copyCode(block: HTMLPreElement, button: HTMLButtonElement) {
-            let code = block.querySelector("code");
-            let text = code?.innerText;
-
-            await navigator.clipboard.writeText(text || "");
-
-            button.innerText = "Copied!";
-
-            setTimeout(() => {
-                button.innerText = copyButtonLabel;
-            }, 1000);
-        }
-    });
-</script>
+                    button.textContent = "Copied!";
+                    setTimeout(() => (button.textContent = label), 1000);
+                });
+            }
+        })();
+    </script>
+</SiteLayout>

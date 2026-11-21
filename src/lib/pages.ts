@@ -1,4 +1,4 @@
-import { name, role } from "@/lib/information";
+import { headline, name } from "@/lib/information";
 
 export type TPageMeta = { title: string; description: string };
 
@@ -7,7 +7,7 @@ export type TPageMeta = { title: string; description: string };
  * from here, so the text can't drift apart.
  */
 export const pages = {
-    home: { title: name, description: role },
+    home: { title: name, description: headline },
     articles: {
         title: "Articles",
         description:
@@ -34,6 +34,10 @@ export const pages = {
     resume: {
         title: "Resume",
         description: `${name}'s resume: experience, projects, open source contributions, skills, and education.`,
+    },
+    notFound: {
+        title: "Page not found",
+        description: "This page doesn't exist, or it moved. Here are a few places to go instead.",
     },
 } satisfies Record<string, TPageMeta>;
 

@@ -1,0 +1,53 @@
+---
+interface Props {
+    sections: { id: string; label: string }[];
+}
+
+const { sections } = Astro.props;
+---
+
+<!-- Side navigation for a page's sections, centred vertically to the left of the content on wide screens -->
+<nav
+    aria-label="Sections"
+    class="fixed top-1/2 right-[calc(50%+24rem+2rem)] z-40 hidden -translate-y-1/2 flex-col items-end gap-y-3 xl:flex"
+>
+    {
+        sections.map(section => (
+            <a
+                href={`#${section.id}`}
+                data-section-nav={section.id}
+                class="text-right text-sm text-foreground/60 transition-colors duration-150 hover:text-foreground data-[active=true]:font-semibold data-[active=true]:text-foreground"
+            >
+                {section.label}
+            </a>
+        ))
+    }
+</nav>
+
+<script is:inline>
+    // Highlight the section that is currently in view
+    (() => {
+        const links = [...document.querySelectorAll("[data-section-nav]")];
+        const sections = links.map(link => document.getElementById(link.dataset.sectionNav)).filter(Boolean);
+        if (sections.length === 0) return;
+
+        const setActive = id => {
+            for (const link of links) link.dataset.active = String(link.dataset.sectionNav === id);
+        };
+
+        // The active section is the last one whose top has scrolled up to just below the header,
+        // or the last section once the page is scrolled to the bottom
+        const update = () => {
+            const atBottom =
+                Math.ceil(window.scrollY + window.innerHeight) >= document.documentElement.scrollHeight - 2;
+            if (atBottom) return setActive(sections[sections.length - 1].id);
+
+            const current = sections.filter(section => section.getBoundingClientRect().top <= 120).at(-1);
+            setActive(current?.id ?? "");
+        };
+
+        window.addEventListener("scroll", update, { passive: true });
+        window.addEventListener("resize", update);
+        update();
+    })();
+</script>

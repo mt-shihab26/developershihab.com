@@ -135,7 +135,7 @@ export const openSourceProjects: TProject[] = [
         preview: "https://swiss.developershihab.com",
         technologies: ["TypeScript", "Astro", "TailwindCSS", "shadcn/ui"],
         description:
-            "A collection of free browser-based tools: a QR code generator, password generator, image cropper, unit converter, text case converter, and BMI calculator. No sign-up required.",
+            "Free browser-based tools like a QR code generator, password generator, and unit converter. No sign-up required.",
         startDate: "Apr 2025",
         resume: true,
         priority: 70,

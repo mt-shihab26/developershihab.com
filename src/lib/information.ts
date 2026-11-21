@@ -1,12 +1,13 @@
 export const name = "Shihab Mahamud";
 export const bio = "Software Engineer";
 export const slogan = "Solving, Coding, Deploying...";
-export const role = "Web Artisan | Full-stack Developer | Software Engineer";
+// One-line headline shown under my name and as the home page description
+export const headline = "I build & run web applications with Laravel & React.";
 export const location = "Dhaka, Bangladesh";
 export const desc = "My digital space, projects, insights, and thoughts on software engineering.";
 export const pageType = "website";
 export const postPerPage = 10;
-export const title = `${name} - ${role}`;
+export const title = `${name} - ${bio}`;
 
 export const phone = "+880 1758-776344";
 export const email = "mt.shihab26@gmail.com";

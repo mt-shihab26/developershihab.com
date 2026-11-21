@@ -4,7 +4,7 @@ import { educations } from "@/lib/educations";
 import { formatDuration, formatRange } from "@/lib/dates";
 
 import { GraduationCapIcon } from "lucide-react";
-import { SeeMore } from "./see-more";
+import SeeMore from "./see-more.astro";
 
 import Box from "@/components/ui/box-index.astro";
 import BoxHeader from "@/components/ui/box-header.astro";
@@ -41,9 +41,7 @@ import BoxContent from "@/components/ui/box-content.astro";
                                         </span>
                                     </span>
                                 </div>
-                                {position.description && (
-                                    <SeeMore open={index === 0} items={position.description} client:load />
-                                )}
+                                {position.description && <SeeMore open={index === 0} items={position.description} />}
                             </div>
                         ))}
                     </div>

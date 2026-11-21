@@ -61,10 +61,7 @@ import BoxContent from "@/components/ui/box-content.astro";
                 skills.map(category => (
                     <div>
                         <h3 class="mb-3 text-lg font-semibold">{category.label}</h3>
-                        <div
-                            class="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-3"
-                            style="content-visibility: auto; contain-intrinsic-size: auto 56px;"
-                        >
+                        <div class="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-3">
                             {category.items.map(item => {
                                 const detail = formatSkillDetail(item, ` ${SEPARATOR} `);
 
