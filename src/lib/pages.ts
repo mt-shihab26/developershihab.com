@@ -1,4 +1,4 @@
-import { name, role } from "@/lib/information";
+import { headline, name } from "@/lib/information";
 
 export type TPageMeta = { title: string; description: string };
 
@@ -7,7 +7,7 @@ export type TPageMeta = { title: string; description: string };
  * from here, so the text can't drift apart.
  */
 export const pages = {
-    home: { title: name, description: role },
+    home: { title: name, description: headline },
     articles: {
         title: "Articles",
         description:

@@ -1,5 +1,5 @@
 ---
-import { name, role, website, desc, pageType as xPageType } from "@/lib/information";
+import { name, website, desc, pageType as xPageType, title as defaultTitle } from "@/lib/information";
 
 import "@/styles/global.css";
 
@@ -16,7 +16,7 @@ export interface Props {
 }
 
 const {
-    title = `${name} - ${role}`,
+    title = defaultTitle,
     author = name,
     profile = website,
     description = desc,
