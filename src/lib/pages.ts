@@ -35,6 +35,10 @@ export const pages = {
         title: "Resume",
         description: `${name}'s resume: experience, projects, open source contributions, skills, and education.`,
     },
+    notFound: {
+        title: "Page not found",
+        description: "This page doesn't exist, or it moved. Here are a few places to go instead.",
+    },
 } satisfies Record<string, TPageMeta>;
 
 export const categoryPage = (category: string): TPageMeta => ({

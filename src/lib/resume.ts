@@ -12,6 +12,7 @@ console.log(`Dev server running on port ${port}`);
 
 console.log("Launching browser...");
 const browser = await puppeteer.launch();
+let exitCode = 0;
 try {
     const page = await browser.newPage();
     console.log(`Navigating to http://localhost:${port}/render...`);
@@ -24,9 +25,13 @@ try {
         margin: { top: "0.5in", right: "0.5in", bottom: "0.5in", left: "0.5in" },
     });
     console.log("PDF saved to public/shihab-mahamud-resume.pdf");
+} catch (error) {
+    // Fail loudly so a broken build doesn't leave an old PDF looking current
+    console.error("Failed to generate the resume PDF:", error);
+    exitCode = 1;
 } finally {
     console.log("Closing browser and stopping server...");
     await browser.close();
     await server.stop();
-    process.exit(0);
+    process.exit(exitCode);
 }
