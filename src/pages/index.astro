@@ -12,6 +12,17 @@ import Development from "@/components/screens/home/development.astro";
 import Experience from "@/components/screens/home/experience.astro";
 import Contributions from "@/components/screens/home/contributions.astro";
 import Education from "@/components/screens/home/education.astro";
+import SectionNav from "@/components/ui/section-nav.astro";
+
+// The home sections, in page order. The side navigation and the section anchors both use this list.
+const sections = [
+    { id: "about", label: "About" },
+    { id: "computer-programming", label: "Computer Programming" },
+    { id: "software-development", label: "Software Development" },
+    { id: "experience", label: "Experience" },
+    { id: "open-source-contributions", label: "Open Source Contributions" },
+    { id: "education", label: "Education" },
+];
 ---
 
 <Layout ogImage="/og/home.png">
@@ -20,18 +31,19 @@ import Education from "@/components/screens/home/education.astro";
         <Pattern className="h-14" />
         <Profile />
         <Pattern />
-        <About />
+        <div id="about" class="scroll-mt-12"><About /></div>
         <Pattern />
-        <ProblemSolving />
+        <div id="computer-programming" class="scroll-mt-12"><ProblemSolving /></div>
         <Pattern />
-        <Development />
+        <div id="software-development" class="scroll-mt-12"><Development /></div>
         <Pattern />
-        <Experience />
+        <div id="experience" class="scroll-mt-12"><Experience /></div>
         <Pattern />
-        <Contributions />
+        <div id="open-source-contributions" class="scroll-mt-12"><Contributions /></div>
         <Pattern />
-        <Education />
+        <div id="education" class="scroll-mt-12"><Education /></div>
         <Pattern className="h-14" />
     </main>
+    <SectionNav sections={sections} />
     <Footer />
 </Layout>

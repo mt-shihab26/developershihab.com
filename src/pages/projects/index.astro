@@ -4,12 +4,25 @@ import { pages } from "@/lib/pages";
 
 import PageLayout from "@/components/layouts/page/layout.astro";
 import ProjectsList from "@/components/screens/projects/projects-list.astro";
+import SectionNav from "@/components/ui/section-nav.astro";
 
 const { professional, openSource, personal } = getProjectsByCategory();
+
+// The project categories, in page order. The side navigation and the section anchors both use this list.
+const sections = [
+    { id: "production-saas-products", label: PROJECT_CATEGORIES.professional, projects: professional },
+    { id: "side-projects", label: PROJECT_CATEGORIES.personal, projects: personal },
+    { id: "open-source-tools-and-plugins", label: PROJECT_CATEGORIES.openSource, projects: openSource },
+].filter(section => section.projects.length > 0);
 ---
 
 <PageLayout title={pages.projects.title} description={pages.projects.description} ogImage="/og/projects.png">
-    <ProjectsList title={PROJECT_CATEGORIES.professional} projects={professional} />
-    <ProjectsList title={PROJECT_CATEGORIES.personal} projects={personal} />
-    <ProjectsList title={PROJECT_CATEGORIES.openSource} projects={openSource} />
+    {
+        sections.map(section => (
+            <div id={section.id} class="scroll-mt-12">
+                <ProjectsList title={section.label} projects={section.projects} />
+            </div>
+        ))
+    }
+    <SectionNav sections={sections} />
 </PageLayout>
