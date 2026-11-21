@@ -1,0 +1,63 @@
+---
+name: Lucid Margins
+type: core
+preview: https://lucidmargins.com
+technologies: ["Laravel", "React", "PHP", "TypeScript", "Inertia.js", "TailwindCSS", "shadcn/ui", "QuickBooks API", "Laravel AI"]
+description: A financial analysis SaaS for small businesses and accountants. It syncs QuickBooks Online data over OAuth or imports Excel/CSV files, then tracks 51 KPIs against targets with alerts, Goal Seek, and live reports exported to PDF and Excel. An AI assistant answers questions using only the company's own figures.
+resume: true
+draft: false
+startDate: Aug 15, 2026
+priority: 95
+---
+
+# Lucid Margins
+
+## Overview
+
+Lucid Margins is a financial analysis web app for small and mid-sized businesses, and for accountants and advisors who manage many client companies. Users connect QuickBooks Online or upload a spreadsheet, track 51 KPIs against their targets, and ask Margo, the built-in finance assistant, why a number moved.
+
+## How It Works
+
+**Connect** – Link QuickBooks Online through OAuth (synced nightly) or upload an Excel/CSV file. Budgets can be imported too.
+
+**Track** – 51 built-in KPIs across profitability, working capital, liquidity and coverage, and returns and growth. Each KPI is marked on-track or off-track against its target.
+
+**Ask** – Margo answers questions about the numbers. It is read-only, scoped to one company at a time, and only quotes figures pulled from the company's own data.
+
+## Features
+
+**51 KPIs + Custom KPIs** – Built-in metrics plus a formula builder for custom KPIs, with 19 alert types
+
+**Nine Analysis Views** – Profitability, Cash Flow, Growth, Trend, Financials (P&L with EBITDA layout, balance sheet, cash flow statement, common-size view), KPI Numbers, KPI Explorer, Goal Seek, and Alerts
+
+**Goal Seek** – Shows how much price, volume, cost of sales, fixed or variable expenses must change to hit a target such as net margin
+
+**Margo AI Assistant** – A read-only finance chat assistant grounded in the company's data
+
+**Live Reports** – Seven section types, eleven templates, saved custom templates, drafts and published versions, comments, present mode, PDF download, and Excel export
+
+**Organizations** – Many client companies under one login, Owner/Admin/Member roles, email invites, and isolated data per company
+
+**Security** – Two-factor authentication, passkeys, and strong password rules
+
+## Tech Stack
+
+- **Backend:** Laravel 13 (PHP 8.5), Laravel Fortify, Laravel AI, PhpSpreadsheet
+- **Frontend:** React 19 + TypeScript via Inertia.js
+- **Styling:** TailwindCSS + shadcn/ui
+- **Integrations:** QuickBooks Online (OAuth), Excel/CSV import
+- **Reports:** React PDF, Excel export
+
+## Codebase Size
+
+Counted with [cloc](https://github.com/AlDanial/cloc), excluding `vendor` and `node_modules`, TypeScript and PHP only:
+
+| Language     | Files | Blank  | Comment | Code    |
+| ------------ | ----- | ------ | ------- | ------- |
+| TypeScript   | 610   | 6,381  | 2,403   | 62,744  |
+| PHP          | 414   | 8,499  | 9,505   | 39,964  |
+| **SUM**      | 1,024 | 14,880 | 11,908  | 102,708 |
+
+## Live Application
+
+Visit the live application at [lucidmargins.com](https://lucidmargins.com)
