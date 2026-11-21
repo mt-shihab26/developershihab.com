@@ -188,9 +188,8 @@ export const skills: { label: string; items: SkillItem[] }[] = [
             {
                 title: "Claude Code",
                 href: "https://claude.ai/code",
-                level: "Basic",
+                level: "Advanced",
                 icon: ClaudeAI,
-                resume_disable: true,
             },
             {
                 title: "DigitalOcean",
