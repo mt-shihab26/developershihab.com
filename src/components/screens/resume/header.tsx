@@ -27,7 +27,7 @@ export const Header = ({ image }: { image?: boolean }) => {
             >
                 <h1 className="text-[18px] font-bold uppercase">{name}</h1>
                 <div
-                    className={cn("flex items-center gap-2", {
+                    className={cn("flex flex-wrap items-center gap-x-2 gap-y-0.5", {
                         "justify-center": !image,
                     })}
                 >
@@ -38,7 +38,7 @@ export const Header = ({ image }: { image?: boolean }) => {
                     <div>{phone}</div>
                 </div>
                 <div
-                    className={cn("flex items-center gap-2", {
+                    className={cn("flex flex-wrap items-center gap-x-2 gap-y-0.5", {
                         "justify-center": !image,
                     })}
                 >

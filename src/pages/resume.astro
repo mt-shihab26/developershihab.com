@@ -13,14 +13,14 @@ import { Resume as ResumeComponent } from "@/components/screens/resume";
 
 <SiteLayout title={`${pages.resume.title} - ${name}`} description={pages.resume.description}>
     <div class="mx-auto max-w-[8.3in] space-y-4 pt-4 pb-12">
-        <div class="flex justify-between px-8">
+        <div class="flex justify-between px-4 sm:px-8">
             <Back />
             <div class="space-x-2">
                 <DownloadButton />
                 <ModeToggle />
             </div>
         </div>
-        <div class="overflow-hidden border bg-white p-[.5in] text-gray-900 dark:bg-black dark:text-white">
+        <div class="overflow-hidden border bg-white p-4 text-gray-900 sm:p-[.5in] dark:bg-black dark:text-white">
             <ResumeComponent />
         </div>
     </div>
