@@ -2,8 +2,8 @@
 name: PracticeScope
 type: core
 preview: https://practicescope.com
-technologies: ["React", "PocketBase", "Go", "TypeScript", "TailwindCSS", "shadcn/ui", "Stripe"]
-description: An AI-powered SaaS platform for dentists who are evaluating a practice to buy. Users upload a P&L or tax return, AI extracts the figures, and the app sells a personalized acquisition report through Stripe.
+technologies: ["Go", "PocketBase", "React", "TypeScript", "TailwindCSS", "shadcn/ui", "Stripe"]
+description: An AI-powered acquisition analysis SaaS for dentists buying a practice. AI extracts 50+ fields from a P&L or tax return, benchmarks 30+ metrics, and sells a personalized acquisition playbook through Stripe. Built with Go and PocketBase.
 resume: true
 draft: false
 startDate: Jan 1, 2025
@@ -14,41 +14,51 @@ priority: 90
 
 ## Overview
 
-PracticeScope is an AI-powered SaaS platform built for dentists evaluating practice acquisitions. Users upload financial documents or enter practice data manually, instantly see 30+ benchmarked diagnostic metrics, and generate a personalized $7 AI acquisition playbook — so they never overpay for a practice.
+PracticeScope is an AI-powered acquisition analysis tool for dentists buying a practice. Users upload a P&L, tax return, or practice summary, get 30+ benchmarked diagnostic metrics instantly, and can buy a personalized AI acquisition playbook for $7, so they never overpay for a practice.
 
 ## How It Works
 
-**Upload or Enter Data** – Drop in a P&L, tax return, or practice summary. AI extracts and populates 50+ fields automatically — no manual data entry.
+**Upload or Enter Data** – Drop in a P&L, tax return, or practice summary. AI extracts and fills 50+ fields automatically.
 
-**Instant Diagnostics** – See 30+ metrics covering production, overhead, collections, hygiene, and patient flow — all benchmarked against industry standards with dollar-amount upside attached.
+**Instant Diagnostics** – 30+ metrics across production, overhead, collections, hygiene, and patient flow, each benchmarked, rated, and paired with a dollar-amount upside.
 
-**AI Acquisition Report** – Generate a personalized playbook with negotiation talking points, risk flags, growth strategies, and valuation modeling for $7 per report.
+**AI Acquisition Report** – A $7 playbook with negotiation talking points, risk flags, growth strategies, and valuation modeling.
 
 ## Features
 
-**30+ Diagnostic Metrics** – Comprehensive analysis benchmarked against industry standards across production, overhead, collections, hygiene, and patient flow
+**30+ Diagnostic Metrics** – Benchmarked against industry standards, with the upside found in each area
 
-**AI-Powered Playbook** – Personalized acquisition report with actionable insights, negotiation talking points, and dollar-amount upside per metric
+**AI Document Parsing** – PDFs are read in the browser and AI extracts 50+ fields from P&Ls, tax returns, and practice summaries
 
-**Risk Assessment** – Identifies red flags and hidden opportunities before signing; rates every metric so buyers know exactly what they're buying
+**AI Acquisition Playbook** – Streaming AI report with negotiation points, risk assessment, and growth strategies
 
-**Valuation & Loan Modeling** – Model purchase price, loan scenarios, and projected cash flow to understand true cost of ownership
+**Valuation & Loan Modeling** – Purchase price, loan scenarios, and projected cash flow
 
-**Document Upload & Parsing** – AI extracts and populates 50+ fields from P&Ls, tax returns, and practice summaries automatically
+**Exportable PDF Reports** – Reports for lenders, partners, and advisors
 
-**Exportable PDF Reports** – Professional, investor-ready acquisition reports shareable with lenders, partners, and advisors
+**Stripe Payments** – Free to explore, pay only for AI reports, no subscription
 
-**Stripe Payments** – Pay-per-report pricing at $7 — free to explore, no subscription required
-
-**Admin Dashboard** – Full platform visibility into users, analyses, and revenue
+**Analysis History & Admin Dashboard** – Saved analyses for users, and full visibility into users, analyses, and revenue for admins
 
 ## Tech Stack
 
 - **Backend:** Go + PocketBase (API, auth, file storage, admin)
-- **Frontend:** React + TypeScript
-- **Styling:** TailwindCSS + shadcn/ui
+- **Frontend:** React 19 + TypeScript, React Router, TanStack Query
+- **Styling:** TailwindCSS + shadcn/ui (Radix UI)
+- **AI:** OpenAI and Anthropic APIs behind one provider interface, streamed with the Vercel AI SDK
+- **PDF:** pdf.js for reading uploads, jsPDF for report export
 - **Payments:** Stripe
-- **AI:** OpenAI API (document parsing, report generation)
+
+## Codebase Size
+
+Counted with [cloc](https://github.com/AlDanial/cloc), excluding `vendor` and `node_modules`:
+
+| Language   | Files | Blank | Comment | Code   |
+| ---------- | ----- | ----- | ------- | ------ |
+| TypeScript | 199   | 1,321 | 186     | 13,127 |
+| Go         | 28    | 258   | 15      | 3,194  |
+| CSS        | 1     | 70    | 9       | 284    |
+| **SUM**    | 228   | 1,649 | 210     | 16,605 |
 
 ## Live Application
 
