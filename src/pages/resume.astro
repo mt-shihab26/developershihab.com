@@ -1,4 +1,7 @@
 ---
+import { name } from "@/lib/information";
+import { pages } from "@/lib/pages";
+
 import Back from "@/components/ui/back.astro";
 import DownloadButton from "@/components/ui/download-button.astro";
 
@@ -8,7 +11,7 @@ import ModeToggle from "@/components/layouts/site/mode-toggle.astro";
 import { Resume as ResumeComponent } from "@/components/screens/resume";
 ---
 
-<SiteLayout title="shihab-mahamud-resume.pdf" description="">
+<SiteLayout title={`${pages.resume.title} - ${name}`} description={pages.resume.description}>
     <div class="mx-auto max-w-[8.3in] space-y-4 pt-4 pb-12">
         <div class="flex justify-between px-8">
             <Back />

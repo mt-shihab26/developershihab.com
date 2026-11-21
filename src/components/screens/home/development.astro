@@ -1,4 +1,5 @@
 ---
+import { SEPARATOR } from "@/lib/constants";
 import { developmentStart, programmingStart } from "@/lib/information";
 import { formatSkillDetail, skills } from "@/lib/skills";
 import { yearsBetween } from "@/lib/dates";
@@ -65,7 +66,7 @@ import BoxContent from "@/components/ui/box-content.astro";
                             style="content-visibility: auto; contain-intrinsic-size: auto 56px;"
                         >
                             {category.items.map(item => {
-                                const detail = formatSkillDetail(item, " · ");
+                                const detail = formatSkillDetail(item, ` ${SEPARATOR} `);
 
                                 return (
                                     <a

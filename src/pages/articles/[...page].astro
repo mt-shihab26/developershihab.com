@@ -3,6 +3,8 @@ import type { GetStaticPaths } from "astro";
 
 import { getCollection } from "astro:content";
 import { postPerPage } from "@/lib/information";
+import { byNewest } from "@/lib/dates";
+import { pages } from "@/lib/pages";
 
 import ArticleItem from "@/components/ui/article-item.astro";
 import Pattern from "@/components/ui/pattern.astro";
@@ -21,7 +23,7 @@ const series = [...new Set(articles.map(article => article.data.series).filter(s
 
 export const getStaticPaths = (async ({ paginate }) => {
     const articles = await getCollection("blog", ({ data }) => !data.draft);
-    const sortedArticles = articles.sort((a, b) => b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime());
+    const sortedArticles = articles.sort(byNewest);
     return paginate(sortedArticles, { pageSize: postPerPage });
 }) satisfies GetStaticPaths;
 
@@ -29,8 +31,8 @@ const { page } = Astro.props;
 ---
 
 <PageLayout
-    title="Articles"
-    description="Exploring programming, frontend, backend, and full-stack development deep dives, series, and hands-on insights."
+    title={pages.articles.title}
+    description={pages.articles.description}
     ogImage="/og/articles.png"
 >
     <Pattern />

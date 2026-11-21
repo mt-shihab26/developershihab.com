@@ -1,4 +1,5 @@
 ---
+import { SEPARATOR } from "@/lib/constants";
 import type { CollectionEntry } from "astro:content";
 
 import { name } from "@/lib/information";
@@ -24,14 +25,14 @@ interface Props {
 }
 
 const { caseStudy } = Astro.props;
-const { title, summary, logo, logoAlt, pubDatetime, updatedDatetime } = caseStudy.data;
+const { title, description, logo, logoAlt, pubDatetime, updatedDatetime } = caseStudy.data;
 
 // Links come from the linked project, when there is one, so they live in one place
 const project = getProject(caseStudy.data.project);
 const { preview, source } = project ?? {};
 ---
 
-<SiteLayout title={`${title} - ${name}`} description={summary} ogImage={`/og/case-studies/${caseStudy.id}.png`}>
+<SiteLayout title={`${title} - ${name}`} description={description} ogImage={`/og/case-studies/${caseStudy.id}.png`}>
     <SiteHeader />
 
     <main class="mx-auto min-h-screen max-w-3xl" aria-label="Main content">
@@ -94,13 +95,13 @@ const { preview, source } = project ?? {};
             </BoxHeader>
 
             <BoxContent>
-                <p>{summary}</p>
+                <p>{description}</p>
                 <p class="mt-3 text-xs text-muted-foreground">
                     Published <time datetime={pubDatetime.toISOString()}>{formatDate(pubDatetime)}</time>
                     {
                         updatedDatetime && (
                             <>
-                                {" · "}Updated{" "}
+                                {` ${SEPARATOR} `}Updated{" "}
                                 <time datetime={updatedDatetime.toISOString()}>{formatDate(updatedDatetime)}</time>
                             </>
                         )

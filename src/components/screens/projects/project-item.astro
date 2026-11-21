@@ -6,8 +6,6 @@ import {
     FolderCodeIcon,
     ExternalLinkIcon,
     GithubIcon,
-    InstagramIcon,
-    FacebookIcon,
     BookOpenTextIcon,
 } from "lucide-react";
 
@@ -65,28 +63,6 @@ const href = caseStudyHref ?? project.source ?? project.preview;
                             >
                                 Case Study
                                 <BookOpenTextIcon className="size-3 shrink-0" />
-                            </a>
-                        )}
-                        {project.facebook && (
-                            <a
-                                href={project.facebook}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="hidden shrink-0 items-center gap-1.5 text-xs font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground md:flex"
-                            >
-                                Facebook
-                                <FacebookIcon className="size-3" />
-                            </a>
-                        )}
-                        {project.instagram && (
-                            <a
-                                href={project.instagram}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="hidden shrink-0 items-center gap-1.5 text-xs font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground md:flex"
-                            >
-                                Instagram
-                                <InstagramIcon className="size-3" />
                             </a>
                         )}
                         {project.preview && (

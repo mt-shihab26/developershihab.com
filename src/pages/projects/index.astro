@@ -1,5 +1,6 @@
 ---
 import { PROJECT_CATEGORIES, getProjectsByCategory } from "@/lib/projects";
+import { pages } from "@/lib/pages";
 
 import PageLayout from "@/components/layouts/page/layout.astro";
 import ProjectsList from "@/components/screens/projects/projects-list.astro";
@@ -8,8 +9,8 @@ const { professional, openSource, personal } = getProjectsByCategory();
 ---
 
 <PageLayout
-    title="My Projects"
-    description="Explore my portfolio of innovative web applications, startup ventures, client solutions, and experimental projects showcasing modern development practices and cutting-edge technologies."
+    title={pages.projects.title}
+    description={pages.projects.description}
     ogImage="/og/projects.png"
 >
     <ProjectsList title={PROJECT_CATEGORIES.professional} projects={professional} />

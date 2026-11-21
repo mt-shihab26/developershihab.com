@@ -1,8 +1,9 @@
 ---
+import { SEPARATOR } from "@/lib/constants";
 import type { CollectionEntry } from "astro:content";
 import { ChevronRightIcon, NotebookPen } from "lucide-react";
-import getReadingTime from "reading-time";
 import { formatDate } from "@/lib/dates";
+import { getReadingTime } from "@/lib/utils";
 
 interface Props {
     article: CollectionEntry<"blog">;
@@ -32,7 +33,7 @@ const { pubDatetime, updatedDatetime } = article.data;
         </ul>
         <p class="text-xs text-foreground">
             Published {formatDate(pubDatetime)}
-            {updatedDatetime && ` | Updated ${formatDate(updatedDatetime)}`} | {getReadingTime(article.body!).text}
+            {updatedDatetime && ` ${SEPARATOR} Updated ${formatDate(updatedDatetime)}`} {SEPARATOR} {getReadingTime(article.body!) || "unknown"}
         </p>
     </div>
 </a>

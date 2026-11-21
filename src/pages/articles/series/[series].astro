@@ -1,6 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 
+import { byNewest } from "@/lib/dates";
+import { seriesPage } from "@/lib/pages";
+
 import ArticleItem from "@/components/ui/article-item.astro";
 import Pattern from "@/components/ui/pattern.astro";
 import Box from "@/components/ui/box-index.astro";
@@ -21,12 +24,11 @@ export async function getStaticPaths() {
 
 const { series } = Astro.params;
 
-const articels = await getCollection("blog", ({ data }) => !data.draft);
-const seiriesArticles = articels.filter(article => article.data.series === series);
+const articles = await getCollection("blog", ({ data }) => !data.draft);
+const seriesArticles = articles.filter(article => article.data.series === series).sort(byNewest);
 
 // Page properties
-const title = series;
-const description = `Deep dive into ${series} a curated series from my programming journey.`;
+const { title, description } = seriesPage(series);
 ---
 
 <PageLayout backLink="/articles" description={description} title={title} ogImage={`/og/articles/series/${series}.png`}>
@@ -37,7 +39,7 @@ const description = `Deep dive into ${series} a curated series from my programmi
             <BoxTitle>Articles</BoxTitle>
         </BoxHeader>
         <div class="flex w-full flex-col items-start justify-start divide-y divide-border">
-            {seiriesArticles.map(article => <ArticleItem article={article} />)}
+            {seriesArticles.map(article => <ArticleItem article={article} />)}
         </div>
     </Box>
 </PageLayout>

@@ -7,7 +7,9 @@ type TExperience = {
     };
     positions: {
         title: string;
-        year: string;
+        startDate: string;
+        // Leave out while ongoing, shown as "Present"
+        endDate?: string;
         description: string[];
         skills: string[];
     }[];
@@ -24,7 +26,7 @@ export const experiences: TExperience[] = [
         positions: [
             {
                 title: "Software Engineer (Contract)",
-                year: `${finnextStart} – Present`,
+                startDate: finnextStart,
                 description: [
                     `Built [paystubhero.com](https://paystubhero.com) as the only developer, working with one designer. The platform generates 5,000+ financial documents a month, and I have maintained it since launch in ${finnextStart.split(" ")[1]}.`,
                     "Built [lucidmargins.com](https://lucidmargins.com), a financial analysis platform that turns QuickBooks Online data into 51 KPIs, live reports, and an AI finance assistant.",
@@ -55,7 +57,8 @@ export const experiences: TExperience[] = [
         positions: [
             {
                 title: "Software Engineer Intern (Diploma Industrial Attachment)",
-                year: "Jun 2024 – Sep 2024",
+                startDate: "Jun 2024",
+                endDate: "Sep 2024",
                 description: [
                     "Contributed to internal company projects as part of the development team.",
                     "Designed and built a custom web application in PHP using the MVC pattern.",
@@ -68,6 +71,6 @@ export const experiences: TExperience[] = [
 ];
 
 export const getExperienceYears = (): number => {
-    const starts = experiences.flatMap(e => e.positions.map(position => position.year.split(" – ")[0]));
+    const starts = experiences.flatMap(e => e.positions.map(position => position.startDate));
     return Math.max(...starts.map(yearsSince));
 };

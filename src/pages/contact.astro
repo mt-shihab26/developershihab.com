@@ -1,5 +1,6 @@
 ---
 import { email, twitter, linkedin, github } from "@/lib/information";
+import { pages } from "@/lib/pages";
 
 import { Mail } from "lucide-react";
 
@@ -16,8 +17,8 @@ import PageLayout from "@/components/layouts/page/layout.astro";
 ---
 
 <PageLayout
-    title="Contact"
-    description="Get in touch with me via email or connect on social media."
+    title={pages.contact.title}
+    description={pages.contact.description}
     ogImage="/og/contact.png"
 >
     <Box>

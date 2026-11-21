@@ -16,7 +16,7 @@ export async function GET(context) {
     const caseStudies = (await getCollection("caseStudies", entry => !entry.data.draft)).map(caseStudy => ({
         title: caseStudy.data.title,
         pubDate: caseStudy.data.pubDatetime,
-        description: caseStudy.data.summary,
+        description: caseStudy.data.description,
         link: `/case-studies/${caseStudy.id}/`,
         categories: ["case study", ...(getProject(caseStudy.data.project)?.technologies ?? [])],
     }));

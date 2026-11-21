@@ -1,4 +1,5 @@
 ---
+import { SEPARATOR } from "@/lib/constants";
 import type { MarkdownHeading } from "astro";
 
 import { capitalizeFirstLetter } from "@/lib/utils";
@@ -53,11 +54,11 @@ const formattedUpdatedDate = updatedDate && formatDate(updatedDate);
                         {
                             formattedUpdatedDate && updatedDate && (
                                 <>
-                                    {" • "}Updated <time datetime={updatedDate.toISOString()}>{formattedUpdatedDate}</time>
+                                    {` ${SEPARATOR} `}Updated <time datetime={updatedDate.toISOString()}>{formattedUpdatedDate}</time>
                                 </>
                             )
                         }
-                        {" • "}
+                        {` ${SEPARATOR} `}
                         {readTime}
                     </div>
                     {

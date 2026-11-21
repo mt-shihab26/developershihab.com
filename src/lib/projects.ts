@@ -39,7 +39,7 @@ export const professionalProjects: TProject[] = [
         technologies: ["Laravel", "React", "PHP", "TypeScript", "Inertia.js", "TailwindCSS", "shadcn/ui", "QuickBooks API"],
         description:
             "A financial analysis SaaS for small businesses and accountants. It syncs QuickBooks Online or Excel/CSV data, tracks 51 KPIs against targets, and builds live PDF and Excel reports. An AI assistant answers questions from the company's data.",
-        startDate: "Aug 15, 2026",
+        startDate: "Aug 2026",
         resume: true,
         priority: 95,
     },
@@ -50,7 +50,7 @@ export const professionalProjects: TProject[] = [
         technologies: ["Go", "PocketBase", "React", "TypeScript", "TailwindCSS", "shadcn/ui", "Stripe"],
         description:
             "An AI-powered acquisition analysis SaaS for dentists buying a practice. AI extracts 50+ fields from a P&L or tax return, benchmarks 30+ metrics, and sells a personalized acquisition playbook through Stripe. Built with Go and PocketBase.",
-        startDate: "Jan 1, 2025",
+        startDate: "Jan 2025",
         resume: true,
         priority: 90,
     },
@@ -65,7 +65,7 @@ export const personalProjects: TProject[] = [
         technologies: ["Laravel", "React", "PHP", "TypeScript", "Inertia.js", "TailwindCSS", "shadcn/ui", "Stripe"],
         description:
             "An uptime monitoring app with public status pages. Queued jobs check sites on a schedule, a live dashboard updates over Reverb, and teams get alerts by email, Slack, or webhook, built with Laravel & React.",
-        startDate: "Oct 29, 2026",
+        startDate: "Oct 2026",
         resume: true,
         priority: 110,
     },
@@ -77,7 +77,7 @@ export const personalProjects: TProject[] = [
         technologies: ["PHP", "TailwindCSS"],
         description:
             "A task management application built from scratch in plain PHP and structured like a small PHP framework, with its own routing, dependency-injection container, database/model layer, validation, and session-based authentication.",
-        startDate: "Aug 31, 2026",
+        startDate: "Aug 2026",
         resume: true,
         priority: 100,
     },
@@ -89,7 +89,7 @@ export const personalProjects: TProject[] = [
         technologies: ["React", "TypeScript", "TanStack Start", "TailwindCSS", "GSAP", "Drizzle ORM"],
         description:
             "A keyboard-first typing speed trainer. It gives per-character feedback as you type, charts WPM and accuracy after each test, and keeps a history of past tests.",
-        startDate: "Oct 9, 2026",
+        startDate: "Oct 2026",
         resume: true,
         priority: 70,
     },
@@ -103,7 +103,7 @@ export const openSourceProjects: TProject[] = [
         technologies: ["Go", "raylib", "Todoist API"],
         description:
             "A desktop Pomodoro timer I built for myself and use every day, written in Go with raylib. It syncs todos with Todoist and logs daily work sessions back to each task.",
-        startDate: "Mar 26, 2026",
+        startDate: "Mar 2026",
         resume: true,
         priority: 100,
     },
@@ -114,8 +114,8 @@ export const openSourceProjects: TProject[] = [
         technologies: ["PHP", "WordPress", "Plugin"],
         description:
             "A small WordPress plugin for managing URL redirects, used in production on paystubhero.com. It stores them in WordPress's native options table, so it needs no extra database tables.",
-        startDate: "Dec 28, 2024",
-        endDate: "Jan 25, 2025",
+        startDate: "Dec 2024",
+        endDate: "Jan 2025",
         resume: true,
         priority: 80,
     },

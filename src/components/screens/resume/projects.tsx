@@ -1,3 +1,4 @@
+import { SEPARATOR } from "@/lib/constants";
 import type { TProject } from "@/types/content";
 
 import { website } from "@/lib/information";
@@ -36,7 +37,7 @@ const ProjectCard = ({ project, caseStudy }: { project: TProject; caseStudy?: st
                 </a>
             )}
             <p className="pl-7">{project.description}</p>
-            {project.technologies.length > 0 && <div className="pt-1 pl-7">{project.technologies.join(" · ")}</div>}
+            {project.technologies.length > 0 && <div className="pt-1 pl-7">{project.technologies.join(` ${SEPARATOR} `)}</div>}
             {caseStudy && (
                 <p className="pt-1 pl-7">
                     Case study:{" "}

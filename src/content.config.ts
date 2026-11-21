@@ -29,7 +29,7 @@ const caseStudies = defineCollection({
             // Headline shown on the index card and the page title
             title: z.string(),
             // One or two sentences: the problem and the outcome
-            summary: z.string(),
+            description: z.string(),
             // Optional logo path under public/, e.g. "/logos/paystubhero.svg"
             logo: z.string().startsWith("/").optional(),
             logoAlt: z.string().optional(),

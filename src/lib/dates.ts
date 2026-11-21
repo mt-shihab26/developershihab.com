@@ -7,17 +7,17 @@ dayjs.extend(utc);
 
 export const PRESENT = "Present";
 
-// Hand-written dates in lib data, e.g. "May 2023" or "Aug 15, 2026"
-const INPUT_FORMATS = ["MMM YYYY", "MMM D, YYYY"];
+// Hand-written dates in lib data are always month and year, e.g. "May 2023"
+const INPUT_FORMAT = "MMM YYYY";
 
 /**
- * Parses a hand-written date such as "May 2023" or "Aug 15, 2026". "Present" means today.
+ * Parses a hand-written date such as "May 2023". "Present" means today.
  */
 export const parseDate = (value: string): Dayjs => {
     if (value === PRESENT) return dayjs();
 
-    const date = dayjs(value, INPUT_FORMATS, true);
-    if (!date.isValid()) throw new Error(`Unrecognised date "${value}", use "MMM YYYY" or "MMM D, YYYY"`);
+    const date = dayjs(value, INPUT_FORMAT, true);
+    if (!date.isValid()) throw new Error(`Unrecognised date "${value}", use "MMM YYYY", e.g. "May 2023"`);
 
     return date;
 };
@@ -42,10 +42,14 @@ export const yearsSince = (start: string): number => Math.floor(countMonths(star
 export const yearsBetween = (start: string, end: string): number => Math.round((countMonths(start, end) - 1) / 6) / 2;
 
 /**
- * "May 2023 – Present" becomes "3 yr 7 mo"
+ * "May 2023" to "Present" becomes "May 2023 – Present"
  */
-export const formatDuration = (range: string): string => {
-    const [start, end] = range.split(" – ");
+export const formatRange = (start: string, end: string = PRESENT): string => `${start} – ${end}`;
+
+/**
+ * "May 2023" to "Present" becomes "3 yr 7 mo"
+ */
+export const formatDuration = (start: string, end: string = PRESENT): string => {
     const totalMonths = countMonths(start, end);
     const years = Math.floor(totalMonths / 12);
     const months = totalMonths % 12;
@@ -67,3 +71,9 @@ export const formatYears = (years: number): string => {
  * Newest first, for sorting by hand-written dates
  */
 export const compareDatesDesc = (a: string, b: string): number => parseDate(b).valueOf() - parseDate(a).valueOf();
+
+/**
+ * Newest first, for sorting content entries by their publish date
+ */
+export const byNewest = (a: { data: { pubDatetime: Date } }, b: { data: { pubDatetime: Date } }): number =>
+    b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime();

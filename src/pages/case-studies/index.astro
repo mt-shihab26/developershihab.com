@@ -1,5 +1,6 @@
 ---
 import { getCaseStudies } from "@/lib/case-studies";
+import { pages } from "@/lib/pages";
 
 import PageLayout from "@/components/layouts/page/layout.astro";
 import Pattern from "@/components/ui/pattern.astro";
@@ -11,8 +12,8 @@ const caseStudies = await getCaseStudies();
 ---
 
 <PageLayout
-    title="Case Studies"
-    description="How I designed, built, and run production SaaS products: the problem, the decisions behind the architecture, and what came out of it."
+    title={pages.caseStudies.title}
+    description={pages.caseStudies.description}
     ogImage="/og/case-studies.png"
 >
     <Pattern />
