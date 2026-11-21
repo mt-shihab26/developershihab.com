@@ -4,6 +4,7 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import { render } from "astro:content";
 
 import ProjectLayout from "@/components/layouts/project/layout.astro";
+import { getCaseStudyHref } from "@/lib/case-studies";
 
 export interface Props {
     project: CollectionEntry<"projects">;
@@ -25,6 +26,7 @@ export async function getStaticPaths() {
 const { project } = Astro.props;
 
 const rendered = await render(project);
+const caseStudyHref = await getCaseStudyHref(project.id);
 ---
 
 <ProjectLayout
@@ -36,6 +38,7 @@ const rendered = await render(project);
     description={project.data.description}
     facebook={project.data.facebook}
     instagram={project.data.instagram}
+    caseStudy={caseStudyHref}
 >
     <rendered.Content />
 </ProjectLayout>

@@ -2,7 +2,7 @@
 import { capitalizeFirstLetter } from "@/lib/utils";
 import { name } from "@/lib/information";
 
-import { ArrowLeft, FacebookIcon, InstagramIcon } from "lucide-react";
+import { ArrowLeft, BookOpenTextIcon, FacebookIcon, InstagramIcon } from "lucide-react";
 import { ExternalLink } from "lucide-react";
 
 import Github from "@/components/icons/github.astro";
@@ -27,9 +27,10 @@ interface Props {
     description: string;
     facebook?: string;
     instagram?: string;
+    caseStudy?: string;
 }
 
-const { title, technologies, description, preview, source, ogImage, facebook, instagram } = Astro.props;
+const { title, technologies, description, preview, source, ogImage, facebook, instagram, caseStudy } = Astro.props;
 ---
 
 <SiteLayout title={`${title} - ${name}`} ogImage={ogImage} description={description}>
@@ -42,6 +43,14 @@ const { title, technologies, description, preview, source, ogImage, facebook, in
                     <ArrowLeft />
                 </LinkBtn>
                 <div>
+                    {
+                        caseStudy && (
+                            <LinkBtn ariaLabel="Case study" className="text-xs" variant="secondary" href={caseStudy}>
+                                Case Study
+                                <BookOpenTextIcon className="size-3" />
+                            </LinkBtn>
+                        )
+                    }
                     {
                         facebook && (
                             <LinkBtn

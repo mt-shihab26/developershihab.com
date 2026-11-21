@@ -6,6 +6,7 @@ import { OGImageRoute } from "astro-og-canvas";
 const articles = await getCollection("blog", ({ data }) => !data.draft);
 const projects = await getCollection("projects", ({ data }) => !data.noShow);
 const poems = await getCollection("poems", ({ data }) => !data.draft);
+const caseStudies = await getCollection("caseStudies", ({ data }) => !data.draft);
 
 type PageData = { title: string; description: string };
 
@@ -25,6 +26,11 @@ const pages: Record<string, PageData> = {
         title: "My Projects",
         description:
             "Explore my portfolio of innovative web applications, startup ventures, client solutions, and experimental projects.",
+    },
+    "case-studies": {
+        title: "Case Studies",
+        description:
+            "How I designed, built, and run production SaaS products: the problem, the decisions behind the architecture, and the results.",
     },
     contact: {
         title: "Contact",
@@ -57,6 +63,13 @@ for (const project of projects) {
     pages[`projects/${project.id}`] = {
         title: project.data.name,
         description: project.data.description,
+    };
+}
+
+for (const caseStudy of caseStudies) {
+    pages[`case-studies/${caseStudy.id}`] = {
+        title: caseStudy.data.title,
+        description: caseStudy.data.summary,
     };
 }
 

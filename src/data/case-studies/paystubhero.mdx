@@ -1,0 +1,71 @@
+---
+title: "PaystubHero: A Document SaaS Built and Run by One Developer"
+summary: How I built and keep running a SaaS that generates paystubs, tax forms, and business documents as PDFs, as the only developer working with one designer, from launch in 2023 to today.
+logo: /logos/paystubhero.svg
+logoAlt: PaystubHero logo
+project: paystubhero
+client: Finnext
+industry: Payroll & tax documents
+role: Sole developer
+timeline: May 2023 – Present
+pubDatetime: 2026-11-21
+technologies: ["Laravel", "React", "TypeScript", "Inertia.js", "TailwindCSS", "Stripe", "Headless Chrome", "mPDF", "Redis"]
+metrics:
+    - label: documents generated a month
+      value: "5,000+"
+    - label: document types
+      value: "10+"
+    - label: lines of code
+      value: "201K"
+    - label: commits
+      value: "4,500+"
+preview: https://paystubhero.com
+priority: 100
+---
+
+## The Problem
+
+Freelancers, contractors, small business owners, and people paid in cash often need a paystub or tax form to prove income for a rental, a loan, or a benefits claim. Payroll software is built for companies with employees, not for someone who needs one correct document today.
+
+PaystubHero turns that into a short form: pick a template, fill in the details, pay, and download a PDF.
+
+## My Role
+
+I am the only developer on PaystubHero, working with one designer. I built the product from the first line of code, launched it in 2023, and have maintained it since. That covers the database and backend, the React frontend, payments, PDF rendering, marketing integrations, deployment, and day-to-day production support.
+
+## What I Built
+
+- **Document generators** for US and Canadian paystubs (10 templates), W-2, W-9, 1099-NEC, 1099-MISC, Schedule C, 1040, offer letters, and invoices.
+- **Automatic calculations** for taxes, deductions, and year-to-date totals per pay period, so users don't do the math.
+- **Checkout and fulfillment** with Stripe through Laravel Cashier, including coupon codes.
+- **User accounts** with saved documents, order history, and passwordless magic-link login.
+- **An admin dashboard** for orders, customers, coupons, marketing ads, blocked IPs, and customer feedback.
+- **Marketing integrations** for Google Ads, Facebook, TikTok Ads, and Klaviyo, plus Google Tag Manager and an auto-generated sitemap.
+
+## Key Technical Decisions
+
+### Keeping one Chromium process warm for PDF rendering
+
+Every order ends in a PDF, and launching a new headless Chrome for each one is slow. A small `ChromiumManager` service starts Chromium once with `keepAlive`, saves its socket address, and lets later requests reconnect to the same browser. If the connection is lost, it logs a warning and starts a fresh process. mPDF handles the templates that suit it better, and multi-document orders are merged into one file.
+
+### Fulfilling each order exactly once
+
+The Stripe webhook and the thank-you page can both try to complete the same order at the same moment. The `OrderFulfillmentService` first verifies the Stripe payment, then claims the order with a single atomic database update, so only one caller wins. The winner sends the documents by email, and if that fails the claim is released so a later visit or webhook retry can finish the job. An order can't be fulfilled twice, and a failed attempt is retried safely.
+
+### Moving slow work off the request
+
+Email delivery through Mailgun, marketing syncs, and other slow work run on Redis queues managed with Laravel Horizon. Files are stored on S3, backups run on a schedule, and Laravel Nightwatch monitors production.
+
+## Results
+
+- The platform generates **5,000+ financial documents a month**.
+- It has been in production since **2023**, maintained by one developer.
+- The codebase has grown to about **201,000 lines** of TypeScript, Blade, PHP, and CSS across **4,500+ commits**.
+
+## Tech Stack
+
+- **Backend:** Laravel 13 (PHP 8.4), Laravel Cashier, Horizon, Sanctum
+- **Frontend:** React + TypeScript via Inertia.js, TailwindCSS, shadcn/ui
+- **PDF:** Headless Chrome (chrome-php), mPDF, PDF merging
+- **Infrastructure:** Redis, AWS S3, Mailgun, Laravel Nightwatch
+- **Payments:** Stripe

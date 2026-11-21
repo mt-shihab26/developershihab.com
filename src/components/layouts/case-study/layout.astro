@@ -1,0 +1,108 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import { getEntry } from "astro:content";
+import { name } from "@/lib/information";
+
+import { ArrowLeft, ExternalLink, FolderCodeIcon } from "lucide-react";
+
+import Github from "@/components/icons/github.astro";
+import Pattern from "@/components/ui/pattern.astro";
+import Box from "@/components/ui/box-index.astro";
+import BoxTitle from "@/components/ui/box-title.astro";
+import BoxHeader from "@/components/ui/box-header.astro";
+import BoxContent from "@/components/ui/box-content.astro";
+import LinkBtn from "@/components/ui/link-btn.astro";
+
+import SiteLayout from "@/components/layouts/site/layout.astro";
+import SiteHeader from "@/components/layouts/site/header.astro";
+import SiteFooter from "@/components/layouts/site/footer.astro";
+
+interface Props {
+    caseStudy: CollectionEntry<"caseStudies">;
+}
+
+const { caseStudy } = Astro.props;
+const { title, summary, preview, source, logo, logoAlt } = caseStudy.data;
+
+// Only link to the project page when that project has one
+const project = caseStudy.data.project ? await getEntry(caseStudy.data.project) : undefined;
+const projectHref = project && !project.data.noShow && !project.data.draft ? `/projects/${project.id}` : undefined;
+
+---
+
+<SiteLayout title={`${title} - ${name}`} description={summary} ogImage={`/og/case-studies/${caseStudy.id}.png`}>
+    <SiteHeader />
+
+    <main class="mx-auto min-h-screen max-w-3xl" aria-label="Main content">
+        <Pattern className="h-14">
+            <div class="z-1 mx-2 mt-auto flex w-full items-center justify-between">
+                <LinkBtn ariaLabel="Back to case studies" href="/case-studies">
+                    <ArrowLeft />
+                </LinkBtn>
+                <div>
+                    {
+                        projectHref && (
+                            <LinkBtn ariaLabel="Project page" className="text-xs" variant="secondary" href={projectHref}>
+                                Project
+                                <FolderCodeIcon className="size-3" />
+                            </LinkBtn>
+                        )
+                    }
+                    {
+                        preview && (
+                            <LinkBtn ariaLabel="Live app" target="_blank" className="text-xs" variant="default" href={preview}>
+                                Preview
+                                <ExternalLink className="size-3" />
+                            </LinkBtn>
+                        )
+                    }
+                    {
+                        source && (
+                            <LinkBtn ariaLabel="Source code" target="_blank" className="text-xs" variant="default" href={source}>
+                                Source
+                                <Github class="size-3" />
+                            </LinkBtn>
+                        )
+                    }
+                </div>
+            </div>
+        </Pattern>
+
+        <Box>
+            <BoxHeader>
+                <div class="flex items-center gap-4">
+                    {
+                        logo && (
+                            <img
+                                src={logo}
+                                alt={logoAlt ?? `${title} logo`}
+                                class="size-14 shrink-0 rounded-lg border p-2.5 object-contain md:size-16"
+                            />
+                        )
+                    }
+                    <div>
+                        <p class="text-xs font-semibold tracking-wide text-muted-foreground uppercase">Case Study</p>
+                        <BoxTitle className="text-2xl !font-black md:text-3xl">{title}</BoxTitle>
+                    </div>
+                </div>
+            </BoxHeader>
+
+            <BoxContent>
+                <p>{summary}</p>
+            </BoxContent>
+        </Box>
+
+        <Pattern />
+
+        <Box className="min-w-full">
+            <BoxContent className="pt-8">
+                <article class="prose min-w-full">
+                    <slot />
+                </article>
+            </BoxContent>
+        </Box>
+        <Pattern />
+    </main>
+    <SiteFooter />
+</SiteLayout>

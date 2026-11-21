@@ -1,0 +1,75 @@
+---
+title: "PracticeScope: AI Due Diligence for Dentists Buying a Practice"
+summary: How I built an AI-powered tool that reads a dental practice's financial documents, benchmarks 30+ metrics, and sells a $7 acquisition playbook, on a small Go and PocketBase backend.
+project: practicescope
+client: Finnext
+industry: Dental practice acquisitions
+role: Full-stack developer
+timeline: Jan 2025 – Present
+pubDatetime: 2026-11-21
+technologies: ["Go", "PocketBase", "React", "TypeScript", "TailwindCSS", "Stripe"]
+metrics:
+    - label: benchmarked metrics
+      value: "30+"
+    - label: fields extracted by AI
+      value: "50+"
+    - label: per AI report
+      value: "$7"
+    - label: lines of code
+      value: "16.6K"
+preview: https://practicescope.com
+priority: 90
+draft: true
+---
+
+## The Problem
+
+A dentist buying a practice usually gets a P&L, a tax return, and a seller's summary, and has to work out from those whether the asking price is fair. Reading the numbers, comparing them with industry benchmarks, and spotting risks takes time and experience most buyers don't have.
+
+PracticeScope does that first pass for them: upload the documents, see how the practice compares, and get a playbook to negotiate with.
+
+## My Role
+
+I built the application as a full-stack developer: the Go backend on PocketBase, the AI document parsing and report generation, Stripe payments, the React frontend, and the admin dashboard.
+
+## What I Built
+
+- **Document upload and parsing.** Users upload a P&L, tax return, or practice summary, and AI extracts 50+ fields into the analysis form. Data can also be entered by hand.
+- **Instant diagnostics.** 30+ metrics across production, overhead, collections, hygiene, and patient flow, each benchmarked, rated, and paired with a dollar-amount upside.
+- **A $7 AI acquisition playbook** with negotiation talking points, risk flags, growth strategies, and valuation and loan modeling, streamed to the page as it is written.
+- **Pay-per-report payments** with Stripe payment intents, webhooks, and coupon codes. Exploring is free and there is no subscription.
+- **PDF export** of the report for lenders, partners, and advisors.
+- **Analysis history** for users and an **admin dashboard** with user and revenue stats.
+
+## Key Technical Decisions
+
+### PocketBase as the foundation
+
+PocketBase gives auth, a database, file storage, and an admin UI in one Go binary. The product-specific parts are custom handlers on top of it: analyzing a practice, parsing a file, creating a payment intent, handling payment success and Stripe webhooks, validating coupons, and the admin endpoints. This kept the backend to about 3,200 lines of Go.
+
+### Not tied to one AI provider
+
+All AI calls go through a small `Driver` interface with two methods: one streams a chat response to the browser, and one returns structured JSON for document parsing. OpenAI and Anthropic each implement it, and an `AI_PROVIDER` environment variable picks which one runs. Switching models is a config change, not a rewrite.
+
+### Prompts as templates
+
+The system prompt, the user prompt, and the parsing prompt live in Go template files rather than inside the code, so the report's wording and structure can be changed without touching the handlers.
+
+### Reading PDFs in the browser
+
+Uploaded PDFs are read in the browser with pdf.js before the text is sent for AI parsing, and the finished report is exported with jsPDF.
+
+## Results
+
+- A focused product of about **16,600 lines** of TypeScript and Go, built over **700+ commits**.
+- Buyers get **30+ benchmarked metrics** for free and pay **$7** only when they want the AI report.
+- The AI layer can run on **either OpenAI or Anthropic** with a single setting.
+
+## Tech Stack
+
+- **Backend:** Go + PocketBase (API, auth, file storage, admin)
+- **Frontend:** React 19 + TypeScript, React Router, TanStack Query
+- **Styling:** TailwindCSS + shadcn/ui
+- **AI:** OpenAI and Anthropic behind one driver interface, streamed with the Vercel AI SDK
+- **PDF:** pdf.js for reading uploads, jsPDF for export
+- **Payments:** Stripe

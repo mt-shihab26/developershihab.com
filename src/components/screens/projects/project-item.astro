@@ -8,16 +8,19 @@ import {
     GithubIcon,
     InstagramIcon,
     FacebookIcon,
+    BookOpenTextIcon,
 } from "lucide-react";
 
 import MarkdownRenderer from "@/components/ui/markdown-renderer.astro";
 import Badge from "@/components/ui/badge.astro";
+import { getCaseStudyHref } from "@/lib/case-studies";
 
 interface Props {
     project: CollectionEntry<"projects">;
 }
 
 const { project } = Astro.props;
+const caseStudyHref = await getCaseStudyHref(project.id);
 ---
 
 <div class="flex items-center not-last:border-b">
@@ -51,17 +54,26 @@ const { project } = Astro.props;
                 )
             }
             {
-                (project.data.preview || project.data.source) && (
-                    <div class="flex items-center gap-3">
+                (project.data.preview || project.data.source || caseStudyHref) && (
+                    <div class="flex shrink-0 flex-col items-end gap-1.5">
+                        {caseStudyHref && (
+                            <a
+                                href={caseStudyHref}
+                                class="flex shrink-0 items-center gap-1.5 text-xs font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground"
+                            >
+                                Case Study
+                                <BookOpenTextIcon className="size-3 shrink-0" />
+                            </a>
+                        )}
                         {project.data.facebook && (
                             <a
                                 href={project.data.facebook}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="hidden items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground md:flex"
+                                class="hidden shrink-0 items-center gap-1.5 text-xs font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground md:flex"
                             >
-                                <FacebookIcon className="size-3" />
                                 Facebook
+                                <FacebookIcon className="size-3" />
                             </a>
                         )}
                         {project.data.instagram && (
@@ -69,10 +81,10 @@ const { project } = Astro.props;
                                 href={project.data.instagram}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="hidden items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground md:flex"
+                                class="hidden shrink-0 items-center gap-1.5 text-xs font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground md:flex"
                             >
-                                <InstagramIcon className="size-3" />
                                 Instagram
+                                <InstagramIcon className="size-3" />
                             </a>
                         )}
                         {project.data.preview && (
@@ -80,10 +92,10 @@ const { project } = Astro.props;
                                 href={project.data.preview}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="flex items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+                                class="flex shrink-0 items-center gap-1.5 text-xs font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground"
                             >
-                                <ExternalLinkIcon className="size-3" />
                                 Preview
+                                <ExternalLinkIcon className="size-3" />
                             </a>
                         )}
                         {project.data.source && (
@@ -91,10 +103,10 @@ const { project } = Astro.props;
                                 href={project.data.source}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="flex items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+                                class="flex shrink-0 items-center gap-1.5 text-xs font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground"
                             >
-                                <GithubIcon className="size-3" />
                                 Source
+                                <GithubIcon className="size-3" />
                             </a>
                         )}
                     </div>
