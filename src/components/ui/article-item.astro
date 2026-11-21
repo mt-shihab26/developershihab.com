@@ -10,7 +10,7 @@ interface Props {
 
 const { article } = Astro.props;
 
-const formattedDate = formatDate(article.data.pubDatetime);
+const { pubDatetime, updatedDatetime } = article.data;
 ---
 
 <a href={`/articles/${article.id}`} class="group flex w-full cursor-pointer items-center">
@@ -31,7 +31,8 @@ const formattedDate = formatDate(article.data.pubDatetime);
             {article.data.tags.map(tag => <li class="text-xs font-semibold">#{tag}</li>)}
         </ul>
         <p class="text-xs text-foreground">
-            {formattedDate} | {getReadingTime(article.body!).text}
+            Published {formatDate(pubDatetime)}
+            {updatedDatetime && ` | Updated ${formatDate(updatedDatetime)}`} | {getReadingTime(article.body!).text}
         </p>
     </div>
 </a>
