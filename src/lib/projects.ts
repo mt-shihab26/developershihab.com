@@ -36,7 +36,16 @@ export const professionalProjects: TProject[] = [
         slug: "lucid-margins",
         name: "Lucid Margins",
         preview: "https://lucidmargins.com",
-        technologies: ["Laravel", "React", "PHP", "TypeScript", "Inertia.js", "TailwindCSS", "shadcn/ui", "QuickBooks API"],
+        technologies: [
+            "Laravel",
+            "React",
+            "PHP",
+            "TypeScript",
+            "Inertia.js",
+            "TailwindCSS",
+            "shadcn/ui",
+            "QuickBooks API",
+        ],
         description:
             "A financial analysis SaaS for small businesses and accountants. It syncs QuickBooks Online or Excel/CSV data, tracks 51 KPIs against targets, and builds live PDF and Excel reports. An AI assistant answers questions from the company's data.",
         startDate: "Aug 2026",
@@ -64,7 +73,7 @@ export const personalProjects: TProject[] = [
         preview: "https://pingr.developershihab.com",
         technologies: ["Laravel", "React", "PHP", "TypeScript", "Inertia.js", "TailwindCSS", "shadcn/ui", "Stripe"],
         description:
-            "An uptime monitoring app with public status pages. Queued jobs check sites on a schedule, a live dashboard updates over Reverb, and teams get alerts by email, Slack, or webhook, built with Laravel & React.",
+            "An uptime monitoring app with public status pages. Queued jobs check sites on a schedule, a live dashboard updates over Reverb, and teams get alerts by email, Slack, or webhook, built with Laravel and React.",
         startDate: "Oct 2026",
         resume: true,
         priority: 110,
@@ -126,7 +135,7 @@ export const openSourceProjects: TProject[] = [
         preview: "https://swiss.developershihab.com",
         technologies: ["TypeScript", "Astro", "TailwindCSS", "shadcn/ui"],
         description:
-            "A versatile collection of web tools designed to simplify your digital life and help you with everyday tasks. Powerful, user-friendly, and privacy-focused — all in one place, all for free, with no sign-up required.",
+            "A collection of free browser-based tools: a QR code generator, password generator, image cropper, unit converter, text case converter, and BMI calculator. No sign-up required.",
         startDate: "Apr 2025",
         resume: true,
         priority: 70,
@@ -168,4 +177,3 @@ export const getResumeProjectsByCategory = () => {
         openSource: onResume(openSourceProjects),
     };
 };
-

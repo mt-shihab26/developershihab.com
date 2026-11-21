@@ -39,7 +39,7 @@ export const educations: TEducation[] = [
                 endDate: "Aug 2025",
                 description: [
                     "Learned programming in C, then moved on to data structures, algorithms, and web development",
-                    "Competed in contests and solved 1000+ problems on Codeforces, LightOJ, LeetCode",
+                    "Competed in contests and solved 1,000+ problems on Codeforces, LightOJ, LeetCode",
                     "Active member of the competitive programming community, practicing and learning with other students",
                 ],
             },

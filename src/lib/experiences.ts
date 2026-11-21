@@ -44,7 +44,6 @@ export const experiences: TExperience[] = [
                     "TailwindCSS",
                     "shadcn/ui",
                     "Go",
-                    "PocketBase",
                 ],
             },
         ],

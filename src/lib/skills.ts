@@ -1,7 +1,8 @@
 import { InertiaIcon } from "@/components/icons/inertia-icon";
-import { TanStackIcon } from "@/components/icons/tanstack-icon";
 import { StripeIcon } from "@/components/icons/stripe-icon";
+import { TanStackIcon } from "@/components/icons/tanstack-icon";
 import { formatYears, yearsSince } from "@/lib/dates";
+import { developmentStart } from "@/lib/information";
 
 import type { DeveloperIconProps } from "developer-icons/dist/icon";
 import type { ReactElement } from "react";
@@ -46,7 +47,7 @@ export const skills: { label: string; items: SkillItem[] }[] = [
             {
                 title: "TypeScript",
                 href: "https://www.typescriptlang.org",
-                since: "Jun 2022",
+                since: developmentStart,
                 level: "Advanced",
                 icon: TypeScript,
                 resume_title: "JS/TS",
@@ -54,7 +55,7 @@ export const skills: { label: string; items: SkillItem[] }[] = [
             {
                 title: "JavaScript",
                 href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-                since: "Jun 2022",
+                since: developmentStart,
                 level: "Advanced",
                 icon: JavaScript,
                 resume_disable: true,
@@ -75,7 +76,7 @@ export const skills: { label: string; items: SkillItem[] }[] = [
             {
                 title: "Go",
                 href: "https://go.dev",
-                level: "Basic",
+                level: "Intermediate",
                 icon: Go,
             },
         ],
@@ -131,11 +132,6 @@ export const skills: { label: string; items: SkillItem[] }[] = [
                 icon: NodeJs,
             },
             {
-                title: "raylib",
-                href: "https://www.raylib.com",
-                level: "Basic",
-            },
-            {
                 title: "Vue.js",
                 href: "https://vuejs.org",
                 level: "Basic",
@@ -186,7 +182,7 @@ export const skills: { label: string; items: SkillItem[] }[] = [
             {
                 title: "Stripe",
                 href: "https://stripe.com",
-                level: "Basic",
+                level: "Intermediate",
                 icon: StripeIcon,
             },
             {
@@ -206,7 +202,7 @@ export const skills: { label: string; items: SkillItem[] }[] = [
             {
                 title: "OpenAI API",
                 href: "https://platform.openai.com",
-                level: "Basic",
+                level: "Intermediate",
                 icon: OpenAI,
             },
             {
