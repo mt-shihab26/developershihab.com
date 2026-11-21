@@ -54,7 +54,8 @@ const formattedUpdatedDate = updatedDate && formatDate(updatedDate);
                         {
                             formattedUpdatedDate && updatedDate && (
                                 <>
-                                    {` ${SEPARATOR} `}Updated <time datetime={updatedDate.toISOString()}>{formattedUpdatedDate}</time>
+                                    {` ${SEPARATOR} `}Updated{" "}
+                                    <time datetime={updatedDate.toISOString()}>{formattedUpdatedDate}</time>
                                 </>
                             )
                         }

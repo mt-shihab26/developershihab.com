@@ -1,6 +1,6 @@
 import { SEPARATOR } from "@/lib/constants";
-import { educations } from "@/lib/educations";
 import { formatDuration, formatRange } from "@/lib/dates";
+import { educations } from "@/lib/educations";
 import { markdownToHtml } from "@/lib/utils";
 
 import { Heading } from "./heading";
@@ -25,7 +25,9 @@ export const Education = () => {
                                 <p>{position.title}</p>
                                 <p>
                                     {formatRange(position.startDate, position.endDate)}
-                                    <span className="ml-1.5">{SEPARATOR} {formatDuration(position.startDate, position.endDate)}</span>
+                                    <span className="ml-1.5">
+                                        {SEPARATOR} {formatDuration(position.startDate, position.endDate)}
+                                    </span>
                                 </p>
                                 {position.description && (
                                     <ul className="list-disc pl-3">

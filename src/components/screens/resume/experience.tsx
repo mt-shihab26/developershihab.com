@@ -1,6 +1,6 @@
 import { SEPARATOR } from "@/lib/constants";
-import { experiences } from "@/lib/experiences";
 import { formatDuration, formatRange } from "@/lib/dates";
+import { experiences } from "@/lib/experiences";
 import { markdownToHtml } from "@/lib/utils";
 
 import { BriefcaseBusinessIcon } from "lucide-react";
@@ -35,7 +35,9 @@ export const Experience = () => {
 
                                 <span className="block pt-0.5 pb-1 pl-7">
                                     {formatRange(position.startDate, position.endDate)}
-                                    <span className="ml-1.5">{SEPARATOR} {formatDuration(position.startDate, position.endDate)}</span>
+                                    <span className="ml-1.5">
+                                        {SEPARATOR} {formatDuration(position.startDate, position.endDate)}
+                                    </span>
                                 </span>
 
                                 <ul className="ml-7 list-disc">

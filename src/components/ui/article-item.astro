@@ -33,7 +33,9 @@ const { pubDatetime, updatedDatetime } = article.data;
         </ul>
         <p class="text-xs text-foreground">
             Published {formatDate(pubDatetime)}
-            {updatedDatetime && ` ${SEPARATOR} Updated ${formatDate(updatedDatetime)}`} {SEPARATOR} {getReadingTime(article.body!) || "unknown"}
+            {updatedDatetime && ` ${SEPARATOR} Updated ${formatDate(updatedDatetime)}`}
+            {SEPARATOR}
+            {getReadingTime(article.body!) || "unknown"}
         </p>
     </div>
 </a>

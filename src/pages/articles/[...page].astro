@@ -30,11 +30,7 @@ export const getStaticPaths = (async ({ paginate }) => {
 const { page } = Astro.props;
 ---
 
-<PageLayout
-    title={pages.articles.title}
-    description={pages.articles.description}
-    ogImage="/og/articles.png"
->
+<PageLayout title={pages.articles.title} description={pages.articles.description} ogImage="/og/articles.png">
     <Pattern />
     <Box>
         <BoxHeader>

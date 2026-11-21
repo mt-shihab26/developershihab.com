@@ -36,7 +36,9 @@ import BoxContent from "@/components/ui/box-content.astro";
                                     </div>
                                     <span class="flex items-center gap-2 pl-7 font-mono text-sm text-foreground">
                                         {formatRange(position.startDate, position.endDate)}
-                                        <span class="text-muted-foreground">{SEPARATOR} {formatDuration(position.startDate, position.endDate)}</span>
+                                        <span class="text-muted-foreground">
+                                            {SEPARATOR} {formatDuration(position.startDate, position.endDate)}
+                                        </span>
                                     </span>
                                 </div>
                                 <SeeMore

@@ -11,11 +11,7 @@ import CaseStudyItem from "@/components/screens/case-studies/case-study-item.ast
 const caseStudies = await getCaseStudies();
 ---
 
-<PageLayout
-    title={pages.caseStudies.title}
-    description={pages.caseStudies.description}
-    ogImage="/og/case-studies.png"
->
+<PageLayout title={pages.caseStudies.title} description={pages.caseStudies.description} ogImage="/og/case-studies.png">
     <Pattern />
     <Box>
         {

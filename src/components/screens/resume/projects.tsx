@@ -37,11 +37,18 @@ const ProjectCard = ({ project, caseStudy }: { project: TProject; caseStudy?: st
                 </a>
             )}
             <p className="pl-7">{project.description}</p>
-            {project.technologies.length > 0 && <div className="pt-1 pl-7">{project.technologies.join(` ${SEPARATOR} `)}</div>}
+            {project.technologies.length > 0 && (
+                <div className="pt-1 pl-7">{project.technologies.join(` ${SEPARATOR} `)}</div>
+            )}
             {caseStudy && (
                 <p className="pt-1 pl-7">
                     Case study:{" "}
-                    <a href={caseStudy} target="_blank" rel="noopener noreferrer" className="underline decoration-gray-400">
+                    <a
+                        href={caseStudy}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline decoration-gray-400"
+                    >
                         {caseStudy.split("//")[1]}
                     </a>
                 </p>

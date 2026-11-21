@@ -3,7 +3,6 @@ import type { CollectionEntry } from "astro:content";
 
 import { BookOpenTextIcon, ChevronRightIcon } from "lucide-react";
 
-
 interface Props {
     caseStudy: CollectionEntry<"caseStudies">;
 }
@@ -15,7 +14,12 @@ const { title, description, logo, logoAlt } = caseStudy.data;
 <a href={`/case-studies/${caseStudy.id}`} class="group flex w-full cursor-pointer items-center not-last:border-b">
     {
         logo ? (
-            <img src={logo} alt={logoAlt ?? `${title} logo`} class="mx-3 size-9 shrink-0 object-contain" loading="lazy" />
+            <img
+                src={logo}
+                alt={logoAlt ?? `${title} logo`}
+                class="mx-3 size-9 shrink-0 object-contain"
+                loading="lazy"
+            />
         ) : (
             <BookOpenTextIcon className="mx-4.5 size-5 shrink-0 text-muted-foreground" />
         )

@@ -1,6 +1,6 @@
 import { getCollection } from "astro:content";
 
-import { categoryPage, pages as staticPages, seriesPage, type TPageMeta } from "@/lib/pages";
+import { categoryPage, seriesPage, pages as staticPages, type TPageMeta } from "@/lib/pages";
 
 import { OGImageRoute } from "astro-og-canvas";
 

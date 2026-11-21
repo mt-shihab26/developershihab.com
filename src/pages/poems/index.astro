@@ -16,11 +16,7 @@ import PageLayout from "@/components/layouts/page/layout.astro";
 const poems = (await getCollection("poems", ({ data }) => !data.draft)).sort(byNewest);
 ---
 
-<PageLayout
-    title={pages.poems.title}
-    description={pages.poems.description}
-    ogImage="/og/poems.png"
->
+<PageLayout title={pages.poems.title} description={pages.poems.description} ogImage="/og/poems.png">
     <Pattern />
     <Box>
         <BoxHeader>
