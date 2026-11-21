@@ -3,7 +3,7 @@ import type { CollectionEntry } from "astro:content";
 
 import { name } from "@/lib/information";
 import { getProject } from "@/lib/projects";
-import { formatDateShort } from "@/lib/utils";
+import { formatDate } from "@/lib/dates";
 
 import { ArrowLeft, ExternalLink, FolderCodeIcon } from "lucide-react";
 
@@ -96,12 +96,12 @@ const { preview, source } = project ?? {};
             <BoxContent>
                 <p>{summary}</p>
                 <p class="mt-3 text-xs text-muted-foreground">
-                    Published <time datetime={pubDatetime.toISOString()}>{formatDateShort(pubDatetime)}</time>
+                    Published <time datetime={pubDatetime.toISOString()}>{formatDate(pubDatetime)}</time>
                     {
                         updatedDatetime && (
                             <>
                                 {" · "}Updated{" "}
-                                <time datetime={updatedDatetime.toISOString()}>{formatDateShort(updatedDatetime)}</time>
+                                <time datetime={updatedDatetime.toISOString()}>{formatDate(updatedDatetime)}</time>
                             </>
                         )
                     }

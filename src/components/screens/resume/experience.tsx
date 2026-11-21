@@ -1,5 +1,6 @@
 import { experiences } from "@/lib/experiences";
-import { formatDuration, markdownToHtml } from "@/lib/utils";
+import { formatDuration } from "@/lib/dates";
+import { markdownToHtml } from "@/lib/utils";
 
 import { BriefcaseBusinessIcon } from "lucide-react";
 import { Heading } from "./heading";

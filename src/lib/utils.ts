@@ -19,22 +19,6 @@ export const capitalizeFirstLetter = (sentence: string): string => {
     return `${sentence.charAt(0).toUpperCase()}${sentence.slice(1)}`;
 };
 
-export const formatDate = (date: Date): string =>
-    new Intl.DateTimeFormat("en-GB", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-    })
-        .format(date)
-        .replace(/\//g, ".");
-
-export const formatDateShort = (date: Date): string =>
-    new Intl.DateTimeFormat("en-GB", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric",
-    }).format(date);
-
 export const getLineCount = (text: string | undefined): number =>
     (text ?? "").split("\n").filter(line => line.trim() !== "").length;
 
@@ -67,25 +51,4 @@ export const formatInitials = (fullName: string) => {
     const lastInitial = names[names.length - 1].charAt(0);
 
     return `${firstInitial}${lastInitial}`.toUpperCase();
-};
-
-const countMonths = (startStr: string, endStr: string = "Present"): number => {
-    const start = new Date(`${startStr} 1`);
-    const end = endStr === "Present" ? new Date() : new Date(`${endStr} 1`);
-    return (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth()) + 1;
-};
-
-export const yearsSince = (startStr: string): number => Math.floor(countMonths(startStr) / 12);
-
-export const yearsBetween = (startStr: string, endStr: string): number =>
-    Math.round((countMonths(startStr, endStr) - 1) / 6) / 2;
-
-export const formatDuration = (yearString: string): string => {
-    const [startStr, endStr] = yearString.split(" – ");
-    const totalMonths = countMonths(startStr, endStr);
-    const years = Math.floor(totalMonths / 12);
-    const months = totalMonths % 12;
-    if (years === 0) return `${months} mo`;
-    if (months === 0) return `${years} yr`;
-    return `${years} yr ${months} mo`;
 };

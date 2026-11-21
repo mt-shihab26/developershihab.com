@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import { formatDateShort, getLineCount } from "@/lib/utils";
+import { formatDate } from "@/lib/dates";
+import { getLineCount } from "@/lib/utils";
 
 import { ChevronRightIcon, Feather } from "lucide-react";
 
@@ -39,7 +40,7 @@ const poems = (await getCollection("poems", ({ data }) => !data.draft)).sort(
                             </div>
                             <p class="text-sm text-muted-foreground">{poem.data.description}</p>
                             <p class="text-xs text-foreground">
-                                {formatDateShort(poem.data.pubDatetime)} | {getLineCount(poem.body)} lines
+                                {formatDate(poem.data.pubDatetime)} | {getLineCount(poem.body)} lines
                             </p>
                         </div>
                     </a>

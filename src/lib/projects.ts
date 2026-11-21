@@ -1,5 +1,7 @@
 import type { TProject } from "@/types/content";
 
+import { compareDatesDesc } from "@/lib/dates";
+
 export const PROJECT_CATEGORIES = {
     professional: "Production SaaS Products",
     personal: "Side Projects",
@@ -148,7 +150,7 @@ const publish = (list: TProject[]): TProject[] =>
 
             if (priorityA !== priorityB) return priorityB - priorityA;
 
-            return new Date(b.startDate).getTime() - new Date(a.startDate).getTime();
+            return compareDatesDesc(a.startDate, b.startDate);
         });
 
 export const getProjectsByCategory = () => ({

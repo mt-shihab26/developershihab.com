@@ -1,4 +1,4 @@
-import { yearsSince } from "@/lib/utils";
+import { yearsSince } from "@/lib/dates";
 
 type TExperience = {
     company: {

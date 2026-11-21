@@ -1,7 +1,7 @@
 import { InertiaIcon } from "@/components/icons/inertia-icon";
 import { TanStackIcon } from "@/components/icons/tanstack-icon";
 import { StripeIcon } from "@/components/icons/stripe-icon";
-import { yearsSince } from "@/lib/utils";
+import { formatYears, yearsSince } from "@/lib/dates";
 
 import type { DeveloperIconProps } from "developer-icons/dist/icon";
 import type { ReactElement } from "react";
@@ -218,11 +218,6 @@ export const skills: { label: string; items: SkillItem[] }[] = [
         ],
     },
 ];
-
-const formatYears = (years: number): string => {
-    if (years < 1) return "< 1 yr";
-    return `${years} ${years === 1 ? "yr" : "yrs"}`;
-};
 
 /**
  * "Advanced, 4 yrs" style detail for a skill, or an empty string when it has neither

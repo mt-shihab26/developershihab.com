@@ -1,5 +1,6 @@
 import { educations } from "@/lib/educations";
-import { formatDuration, markdownToHtml } from "@/lib/utils";
+import { formatDuration } from "@/lib/dates";
+import { markdownToHtml } from "@/lib/utils";
 
 import { Heading } from "./heading";
 
