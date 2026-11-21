@@ -1,5 +1,4 @@
 import { InertiaIcon } from "@/components/icons/inertia-icon";
-import { PocketBaseIcon } from "@/components/icons/pocketbase-icon";
 import { TanStackIcon } from "@/components/icons/tanstack-icon";
 
 import type { DeveloperIconProps } from "developer-icons/dist/icon";
@@ -128,12 +127,6 @@ export const skills: { label: string; items: SkillItem[] }[] = [
                 href: "https://nodejs.org/",
                 level: "Intermediate",
                 icon: NodeJs,
-            },
-            {
-                title: "PocketBase",
-                href: "https://pocketbase.io",
-                level: "Basic",
-                icon: PocketBaseIcon,
             },
             {
                 title: "raylib",
