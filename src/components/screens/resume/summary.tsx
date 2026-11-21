@@ -11,8 +11,8 @@ export const Summary = () => {
                     I am a <span className="font-semibold">Software Engineer</span> with{" "}
                     <span className="font-semibold">{getExperienceYears()}+ years of professional experience</span> in{" "}
                     <span className="font-semibold">full-stack web development</span>. Most of that time has gone into
-                    building SaaS products from the first line of code and then keeping them running in production for
-                    real, paying users.
+                    building web applications from the first line of code and then keeping them running in production
+                    for real, paying users.
                 </div>
                 <div>
                     I work mainly with{" "}

@@ -2,7 +2,7 @@ export const name = "Shihab Mahamud";
 export const bio = "Software Engineer";
 export const slogan = "Solving, Coding, Deploying...";
 // One-line headline shown under my name and as the home page description
-export const headline = "I build and run SaaS products with Laravel and React.";
+export const headline = "I build & run web applications with Laravel & React.";
 export const location = "Dhaka, Bangladesh";
 export const desc = "My digital space, projects, insights, and thoughts on software engineering.";
 export const pageType = "website";
