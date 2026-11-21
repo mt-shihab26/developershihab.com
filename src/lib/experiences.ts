@@ -27,6 +27,7 @@ export const experiences: TExperience[] = [
                 year: `${finnextStart} – Present`,
                 description: [
                     `Built [paystubhero.com](https://paystubhero.com) as the only developer, working with one designer. The platform generates 5,000+ financial documents a month, and I have maintained it since launch in ${finnextStart.split(" ")[1]}.`,
+                    "Built [lucidmargins.com](https://lucidmargins.com), a financial analysis platform that turns QuickBooks Online data into 51 KPIs, live reports, and an AI finance assistant.",
                     "Built [practicescope.com](https://practicescope.com), an AI-powered platform for dental practice acquisitions that benchmarks 30+ financial metrics and generates personalized acquisition reports.",
                     "Handled features from start to finish, from database design and API development to the React UI and cloud deployment.",
                     "Built and maintained custom WordPress plugins and client websites.",
@@ -56,6 +57,7 @@ export const experiences: TExperience[] = [
                 title: "Software Engineer Intern (Diploma Industrial Attachment)",
                 year: "Jun 2024 – Sep 2024",
                 description: [
+                    "Contributed to internal company projects as part of the development team.",
                     "Designed and built a custom web application in PHP using the MVC pattern.",
                     "Built a full-stack e-commerce platform with Laravel, including an admin panel for managing products and orders.",
                 ],
