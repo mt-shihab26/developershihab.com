@@ -1,5 +1,4 @@
-import { SEPARATOR } from "@/lib/constants";
-import { cn } from "@/lib/utils";
+import { SEPARATOR, cn } from "@/lib/utils";
 
 import { avatar } from "@/lib/files";
 import { bio, email, github, linkedin, location, name, phone, website } from "@/lib/information";

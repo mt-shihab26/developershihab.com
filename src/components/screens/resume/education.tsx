@@ -1,7 +1,6 @@
-import { SEPARATOR } from "@/lib/constants";
 import { formatDuration, formatRange } from "@/lib/dates";
 import { educations } from "@/lib/educations";
-import { markdownToHtml } from "@/lib/utils";
+import { SEPARATOR, markdownToHtml } from "@/lib/utils";
 
 import { Heading } from "./heading";
 

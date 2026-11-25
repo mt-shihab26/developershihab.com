@@ -1,7 +1,6 @@
-import { SEPARATOR } from "@/lib/constants";
 import { formatDuration, formatRange } from "@/lib/dates";
 import { experiences } from "@/lib/experiences";
-import { markdownToHtml } from "@/lib/utils";
+import { SEPARATOR, markdownToHtml } from "@/lib/utils";
 
 import { BriefcaseBusinessIcon } from "lucide-react";
 import { Heading } from "./heading";

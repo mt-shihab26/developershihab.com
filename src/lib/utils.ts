@@ -9,6 +9,9 @@ import calculateReadingTime from "reading-time";
 
 import MarkdownIt from "markdown-it";
 
+// Separator between inline details, e.g. "4 Sep 2024 • 6 min read"
+export const SEPARATOR = "•";
+
 const md = new MarkdownIt();
 
 export const cn = (...inputs: ClassValue[]) => {
@@ -22,16 +25,16 @@ export const capitalizeFirstLetter = (sentence: string): string => {
 export const getLineCount = (text: string | undefined): number =>
     (text ?? "").split("\n").filter(line => line.trim() !== "").length;
 
-export const getReadingTime = (text: string): string | undefined => {
-    if (!text || !text.length) return undefined;
+export const getReadingTime = (text: string | undefined): string => {
+    if (!text) return "unknown";
     try {
         const { minutes } = calculateReadingTime(toString(fromMarkdown(text)));
         if (minutes && minutes > 0) {
             return `${Math.ceil(minutes)} min read`;
         }
-        return undefined;
+        return "unknown";
     } catch (e) {
-        return undefined;
+        return "unknown";
     }
 };
 

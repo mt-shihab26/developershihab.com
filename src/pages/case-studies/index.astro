@@ -1,5 +1,5 @@
 ---
-import { getCaseStudies } from "@/lib/case-studies";
+import { getCaseStudies } from "@/lib/content";
 import { pages } from "@/lib/pages";
 
 import PageLayout from "@/components/layouts/page/layout.astro";
@@ -16,7 +16,11 @@ const caseStudies = await getCaseStudies();
     <Box>
         {
             caseStudies.length > 0 ? (
-                caseStudies.map(caseStudy => <CaseStudyItem caseStudy={caseStudy} />)
+                <div class="flex w-full flex-col divide-y divide-border">
+                    {caseStudies.map(caseStudy => (
+                        <CaseStudyItem caseStudy={caseStudy} />
+                    ))}
+                </div>
             ) : (
                 <BoxContent>No case studies published yet.</BoxContent>
             )

@@ -1,40 +1,28 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
+import { type CollectionEntry, render } from "astro:content";
 
-import { render } from "astro:content";
-import { getReadingTime } from "@/lib/utils";
+import { getArticles } from "@/lib/content";
 
 import ArticleLayout from "@/components/layouts/article/layout.astro";
 
 export interface Props {
-    post: CollectionEntry<"articles">;
+    article: CollectionEntry<"articles">;
 }
 
 export async function getStaticPaths() {
-    const posts = await getCollection("articles", ({ data }) => !data.draft);
+    const articles = await getArticles();
 
-    const postResult = posts.map(post => ({
-        params: { slug: post.id },
-        props: { post },
+    return articles.map(article => ({
+        params: { slug: article.id },
+        props: { article },
     }));
-
-    return postResult;
 }
 
-const { post } = Astro.props;
+const { article } = Astro.props;
 
-const rendered = await render(post);
+const { Content, headings } = await render(article);
 ---
 
-<ArticleLayout
-    headings={rendered.headings}
-    title={post.data.title}
-    date={post.data.pubDatetime}
-    updatedDate={post.data.updatedDatetime}
-    readTime={getReadingTime(post.body!) || "unknown"}
-    ogImage={`/og/articles/${post.id}.png`}
-    description={post.data.description}
-    devTo={post.data.devTo}
->
-    <rendered.Content />
+<ArticleLayout article={article} headings={headings}>
+    <Content />
 </ArticleLayout>

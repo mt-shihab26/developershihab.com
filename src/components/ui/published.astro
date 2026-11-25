@@ -1,0 +1,21 @@
+---
+import { SEPARATOR } from "@/lib/utils";
+import { formatDate } from "@/lib/dates";
+
+interface Props {
+    pubDatetime: Date;
+    updatedDatetime?: Date;
+}
+
+const { pubDatetime, updatedDatetime } = Astro.props;
+---
+
+Published <time datetime={pubDatetime.toISOString()}>{formatDate(pubDatetime)}</time>
+{
+    updatedDatetime && (
+        <>
+            {` ${SEPARATOR} `}Updated{" "}
+            <time datetime={updatedDatetime.toISOString()}>{formatDate(updatedDatetime)}</time>
+        </>
+    )
+}

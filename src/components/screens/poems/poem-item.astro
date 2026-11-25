@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { formatDate } from "@/lib/dates";
+import { SEPARATOR, getLineCount } from "@/lib/utils";
+
+import { Feather } from "lucide-react";
+
+import ListItem from "@/components/ui/list-item.astro";
+
+interface Props {
+    poem: CollectionEntry<"poems">;
+}
+
+const { poem } = Astro.props;
+---
+
+<ListItem href={`/poems/${poem.id}`} title={poem.data.title}>
+    <Feather slot="icon" className="mx-5 size-5 shrink-0 text-muted-foreground" />
+    <p class="text-sm text-muted-foreground">{poem.data.description}</p>
+    <p class="text-xs text-foreground">
+        {formatDate(poem.data.pubDatetime)}
+        {SEPARATOR}
+        {getLineCount(poem.body)} lines
+    </p>
+</ListItem>

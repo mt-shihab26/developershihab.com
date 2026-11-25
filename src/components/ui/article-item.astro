@@ -1,41 +1,26 @@
 ---
-import { SEPARATOR } from "@/lib/constants";
 import type { CollectionEntry } from "astro:content";
-import { ChevronRightIcon, NotebookPen } from "lucide-react";
-import { formatDate } from "@/lib/dates";
-import { getReadingTime } from "@/lib/utils";
+import { NotebookPen } from "lucide-react";
+import { SEPARATOR, getReadingTime } from "@/lib/utils";
+
+import ListItem from "@/components/ui/list-item.astro";
+import Published from "@/components/ui/published.astro";
 
 interface Props {
     article: CollectionEntry<"articles">;
 }
 
 const { article } = Astro.props;
-
-const { pubDatetime, updatedDatetime } = article.data;
 ---
 
-<a href={`/articles/${article.id}`} class="group flex w-full cursor-pointer items-center">
-    <NotebookPen className="mx-5 size-5 shrink-0 text-muted-foreground" />
-
-    <div class="flex flex-1 flex-col items-start justify-center gap-3 border-l p-4">
-        <div class="flex w-full items-center justify-between text-left select-none">
-            <h3 class="text-lg font-semibold underline-offset-6 group-hover:underline">
-                {article.data.title}
-            </h3>
-
-            <ChevronRightIcon
-                className="size-4 shrink-0 text-sm text-muted-foreground transition-transform duration-150 group-hover:translate-x-1"
-            />
-        </div>
-
-        <ul class="flex flex-wrap items-center justify-start gap-x-4">
-            {article.data.tags.map(tag => <li class="text-xs font-semibold">#{tag}</li>)}
-        </ul>
-        <p class="text-xs text-foreground">
-            Published {formatDate(pubDatetime)}
-            {updatedDatetime && ` ${SEPARATOR} Updated ${formatDate(updatedDatetime)}`}
-            {SEPARATOR}
-            {getReadingTime(article.body!) || "unknown"}
-        </p>
-    </div>
-</a>
+<ListItem href={`/articles/${article.id}`} title={article.data.title}>
+    <NotebookPen slot="icon" className="mx-5 size-5 shrink-0 text-muted-foreground" />
+    <ul class="flex flex-wrap items-center justify-start gap-x-4">
+        {article.data.tags.map(tag => <li class="text-xs font-semibold">#{tag}</li>)}
+    </ul>
+    <p class="text-xs text-foreground">
+        <Published pubDatetime={article.data.pubDatetime} updatedDatetime={article.data.updatedDatetime} />
+        {` ${SEPARATOR} `}
+        {getReadingTime(article.body!)}
+    </p>
+</ListItem>

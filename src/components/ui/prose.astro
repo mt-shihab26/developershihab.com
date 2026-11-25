@@ -1,0 +1,28 @@
+---
+import type { MarkdownHeading } from "astro";
+
+import Toc from "@/components/ui/toc.astro";
+import Box from "@/components/ui/box-index.astro";
+import BoxContent from "@/components/ui/box-content.astro";
+
+interface Props {
+    headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+---
+
+<div class="relative flex">
+    <Box className="min-w-full">
+        <BoxContent className="pt-8">
+            <article class="prose min-w-full">
+                <slot />
+            </article>
+        </BoxContent>
+    </Box>
+    <Toc headings={headings} />
+</div>
+
+<script>
+    import "@/scripts/copy-code";
+</script>

@@ -1,4 +1,4 @@
-import { SEPARATOR } from "@/lib/constants";
+import { SEPARATOR } from "@/lib/utils";
 import type { TProject } from "@/types/content";
 
 import { website } from "@/lib/information";

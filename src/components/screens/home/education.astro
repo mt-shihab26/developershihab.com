@@ -1,52 +1,11 @@
 ---
-import { SEPARATOR } from "@/lib/constants";
 import { educations } from "@/lib/educations";
-import { formatDuration, formatRange } from "@/lib/dates";
 
 import { GraduationCapIcon } from "lucide-react";
-import SeeMore from "./see-more.astro";
 
-import Box from "@/components/ui/box-index.astro";
-import BoxHeader from "@/components/ui/box-header.astro";
-import BoxTitle from "@/components/ui/box-title.astro";
-import BoxContent from "@/components/ui/box-content.astro";
+import Timeline from "./timeline.astro";
+
+const groups = educations.map(({ institution, positions }) => ({ ...institution, positions }));
 ---
 
-<Box>
-    <BoxHeader>
-        <BoxTitle>Education</BoxTitle>
-    </BoxHeader>
-    <BoxContent className="px-0">
-        {
-            educations.map((e, index) => (
-                <div class="space-y-4 p-4 not-last:border-b">
-                    <div class="flex items-center space-x-4 px-2">
-                        <span class="size-2 rounded-full bg-foreground/60" />
-                        <a href={e.institution.link} target="_blank">
-                            <h3 class="text-xl font-black">{e.institution.label}</h3>
-                        </a>
-                    </div>
-                    <div class="relative space-y-4 pl-1 before:absolute before:left-3 before:h-full before:w-px before:bg-border">
-                        {e.positions.map(position => (
-                            <div>
-                                <div class="block w-full text-left">
-                                    <div class="relative z-1 mb-1 flex items-center space-x-3">
-                                        <GraduationCapIcon className="size-4 bg-background" />
-                                        <h3 class="text-base font-black underline-offset-4">{position.title}</h3>
-                                    </div>
-                                    <span class="flex items-center gap-2 pl-7 font-mono text-sm text-foreground">
-                                        {formatRange(position.startDate, position.endDate)}
-                                        <span class="text-muted-foreground">
-                                            {SEPARATOR} {formatDuration(position.startDate, position.endDate)}
-                                        </span>
-                                    </span>
-                                </div>
-                                {position.description && <SeeMore open={index === 0} items={position.description} />}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            ))
-        }
-    </BoxContent>
-</Box>
+<Timeline title="Education" icon={GraduationCapIcon} groups={groups} />

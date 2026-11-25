@@ -71,9 +71,3 @@ export const formatYears = (years: number): string => {
  * Newest first, for sorting by hand-written dates
  */
 export const compareDatesDesc = (a: string, b: string): number => parseDate(b).valueOf() - parseDate(a).valueOf();
-
-/**
- * Newest first, for sorting content entries by their publish date
- */
-export const byNewest = (a: { data: { pubDatetime: Date } }, b: { data: { pubDatetime: Date } }): number =>
-    b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime();
