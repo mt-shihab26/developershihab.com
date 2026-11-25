@@ -1,4 +1,4 @@
-import { compareDatesDesc } from "@/lib/dates";
+import { compareMonthYearDesc } from "@/lib/dates";
 
 export type TProject = {
     slug: string;
@@ -169,7 +169,7 @@ const publish = (list: TProject[]): TProject[] =>
 
             if (priorityA !== priorityB) return priorityB - priorityA;
 
-            return compareDatesDesc(a.startDate, b.startDate);
+            return compareMonthYearDesc(a.startDate, b.startDate);
         });
 
 export const getProjectsByCategory = () => ({

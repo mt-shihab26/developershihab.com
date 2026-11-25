@@ -1,4 +1,4 @@
-import { yearsSince } from "@/lib/dates";
+import { countYearsSince } from "@/lib/dates";
 
 type TExperience = {
     company: {
@@ -70,5 +70,5 @@ export const experiences: TExperience[] = [
 
 export const getExperienceYears = (): number => {
     const starts = experiences.flatMap(e => e.positions.map(position => position.startDate));
-    return Math.max(...starts.map(yearsSince));
+    return Math.max(...starts.map(countYearsSince));
 };

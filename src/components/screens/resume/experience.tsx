@@ -1,4 +1,4 @@
-import { formatDuration, formatRange } from "@/lib/dates";
+import { formatDurationBetween, formatDateRange } from "@/lib/dates";
 import { experiences } from "@/lib/experiences";
 import { SEPARATOR, markdownToHtml } from "@/lib/utils";
 
@@ -33,9 +33,9 @@ export const Experience = () => {
                                 </div>
 
                                 <span className="block pt-0.5 pb-1 pl-7">
-                                    {formatRange(position.startDate, position.endDate)}
+                                    {formatDateRange(position.startDate, position.endDate)}
                                     <span className="ml-1.5">
-                                        {SEPARATOR} {formatDuration(position.startDate, position.endDate)}
+                                        {SEPARATOR} {formatDurationBetween(position.startDate, position.endDate)}
                                     </span>
                                 </span>
 

@@ -1,7 +1,7 @@
 import { InertiaIcon } from "@/components/icons/inertia-icon";
 import { StripeIcon } from "@/components/icons/stripe-icon";
 import { TanStackIcon } from "@/components/icons/tanstack-icon";
-import { formatYears, yearsSince } from "@/lib/dates";
+import { formatYearCount, countYearsSince } from "@/lib/dates";
 import { developmentStart } from "@/lib/information";
 
 import type { DeveloperIconProps } from "developer-icons/dist/icon";
@@ -210,4 +210,4 @@ export const skills: { label: string; items: SkillItem[] }[] = [
 ];
 
 export const formatSkillDetail = (skill: SkillItem, separator = ", "): string =>
-    [skill.level, skill.since && formatYears(yearsSince(skill.since))].filter(Boolean).join(separator);
+    [skill.level, skill.since && formatYearCount(countYearsSince(skill.since))].filter(Boolean).join(separator);

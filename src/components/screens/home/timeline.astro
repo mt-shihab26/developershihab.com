@@ -1,5 +1,5 @@
 ---
-import { formatDuration, formatRange } from "@/lib/dates";
+import { formatDurationBetween, formatDateRange } from "@/lib/dates";
 import { SEPARATOR } from "@/lib/utils";
 
 import SeeMore from "./see-more.astro";
@@ -50,9 +50,9 @@ const { title, icon: Icon, groups } = Astro.props;
                                     <h3 class="text-base font-black underline-offset-4">{position.title}</h3>
                                 </div>
                                 <span class="flex items-center gap-2 pl-7 font-mono text-sm text-foreground">
-                                    {formatRange(position.startDate, position.endDate)}
+                                    {formatDateRange(position.startDate, position.endDate)}
                                     <span class="text-muted-foreground">
-                                        {SEPARATOR} {formatDuration(position.startDate, position.endDate)}
+                                        {SEPARATOR} {formatDurationBetween(position.startDate, position.endDate)}
                                     </span>
                                 </span>
                             </div>

@@ -2,7 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 
 import { getPoems } from "@/lib/content";
-import { formatDate } from "@/lib/dates";
+import { formatDayMonthYear } from "@/lib/dates";
 import { getLineCount } from "@/lib/utils";
 
 import BoxContent from "@/components/ui/box-content.astro";
@@ -33,7 +33,7 @@ const body = poem.body?.trim() ?? "";
 <BaseLayout title={title} description={poem.data.description} ogImage={`/og/poems/${poem.id}.png`} backLink="/poems">
     <Box>
         <BoxHeader class="flex items-center justify-between text-sm !font-medium text-muted-foreground">
-            <span>{formatDate(poem.data.published_at)}</span>
+            <span>{formatDayMonthYear(poem.data.published_at)}</span>
             <span>{getLineCount(body)} lines</span>
         </BoxHeader>
         <Pattern className="screen-line-after" />
