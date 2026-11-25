@@ -2,7 +2,7 @@
 import { developmentStart, programmingStart } from "@/content/information";
 import { formatSkillDetail, skills } from "@/content/skills";
 import { dateCountYearsBetween } from "@/lib/dates";
-import { SEPARATOR } from "@/lib/utils";
+import { separator } from "@/lib/utils";
 
 import { E } from "@/components/ui/e";
 import { R } from "@/components/ui/r";
@@ -64,7 +64,7 @@ import BoxTitle from "@/components/ui/box-title.astro";
                     <h3 class="mb-3 text-lg font-semibold">{category.label}</h3>
                     <div class="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-3">
                         {category.items.map(item => {
-                            const detail = formatSkillDetail(item, ` ${SEPARATOR} `);
+                            const detail = formatSkillDetail(item, ` ${separator} `);
 
                             return (
                                 <a

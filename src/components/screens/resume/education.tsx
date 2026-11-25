@@ -1,6 +1,6 @@
 import { educations } from "@/content/educations";
 import { dateFormatDuration, dateFormatRange } from "@/lib/dates";
-import { SEPARATOR, markdownToHtml } from "@/lib/utils";
+import { separator, markdownToHtml } from "@/lib/utils";
 
 import { Heading } from "./heading";
 
@@ -25,7 +25,7 @@ export const Education = () => {
                                 <p>
                                     {dateFormatRange(position.startDate, position.endDate)}
                                     <span className="ml-1.5">
-                                        {SEPARATOR} {dateFormatDuration(position.startDate, position.endDate)}
+                                        {separator} {dateFormatDuration(position.startDate, position.endDate)}
                                     </span>
                                 </p>
                                 {position.description && (

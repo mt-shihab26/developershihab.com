@@ -1,4 +1,4 @@
-import { SEPARATOR, cn } from "@/lib/utils";
+import { separator, cn } from "@/lib/utils";
 
 import avatar from "@/assets/avatar.jpg";
 import { bio, email, github, linkedin, location, name, phone, website } from "@/content/information";
@@ -31,9 +31,9 @@ export const Header = ({ image }: { image?: boolean }) => {
                     })}
                 >
                     <div>{bio}</div>
-                    <div>{SEPARATOR}</div>
+                    <div>{separator}</div>
                     <div>{location}</div>
-                    <div>{SEPARATOR}</div>
+                    <div>{separator}</div>
                     <div>{phone}</div>
                 </div>
                 <div

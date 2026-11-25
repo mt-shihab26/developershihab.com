@@ -1,4 +1,4 @@
-import { SEPARATOR } from "@/lib/utils";
+import { separator } from "@/lib/utils";
 import type { TProject } from "@/types/content";
 
 import { website } from "@/content/information";
@@ -38,7 +38,7 @@ const ProjectCard = ({ project, caseStudy }: { project: TProject; caseStudy?: st
             )}
             <p className="pl-7">{project.description}</p>
             {project.technologies.length > 0 && (
-                <div className="pt-1 pl-7">{project.technologies.join(` ${SEPARATOR} `)}</div>
+                <div className="pt-1 pl-7">{project.technologies.join(` ${separator} `)}</div>
             )}
             {caseStudy && (
                 <p className="pt-1 pl-7">

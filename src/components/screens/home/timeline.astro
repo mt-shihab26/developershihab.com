@@ -1,6 +1,6 @@
 ---
 import { dateFormatDuration, dateFormatRange } from "@/lib/dates";
-import { SEPARATOR } from "@/lib/utils";
+import { separator } from "@/lib/utils";
 
 import SeeMore from "./see-more.astro";
 
@@ -52,7 +52,7 @@ const { title, icon: Icon, groups } = Astro.props;
                                 <span class="flex items-center gap-2 pl-7 font-mono text-sm text-foreground">
                                     {dateFormatRange(position.startDate, position.endDate)}
                                     <span class="text-muted-foreground">
-                                        {SEPARATOR} {dateFormatDuration(position.startDate, position.endDate)}
+                                        {separator} {dateFormatDuration(position.startDate, position.endDate)}
                                     </span>
                                 </span>
                             </div>

@@ -1,6 +1,6 @@
 import { experiences } from "@/content/experiences";
 import { dateFormatDuration, dateFormatRange } from "@/lib/dates";
-import { SEPARATOR, markdownToHtml } from "@/lib/utils";
+import { separator, markdownToHtml } from "@/lib/utils";
 
 import { BriefcaseBusinessIcon } from "lucide-react";
 import { Heading } from "./heading";
@@ -35,7 +35,7 @@ export const Experience = () => {
                                 <span className="block pt-0.5 pb-1 pl-7">
                                     {dateFormatRange(position.startDate, position.endDate)}
                                     <span className="ml-1.5">
-                                        {SEPARATOR} {dateFormatDuration(position.startDate, position.endDate)}
+                                        {separator} {dateFormatDuration(position.startDate, position.endDate)}
                                     </span>
                                 </span>
 

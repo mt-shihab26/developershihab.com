@@ -2,7 +2,7 @@ import MarkdownIt from "markdown-it";
 
 export { cn } from "cn";
 
-export const SEPARATOR = "•";
+export const separator = "•";
 
 const md = new MarkdownIt();
 

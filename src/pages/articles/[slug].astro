@@ -5,7 +5,7 @@ import { render } from "astro:content";
 import { devTo as devToProfile } from "@/content/information";
 import { getArticles } from "@/lib/content";
 import { formatCapitalized, formatReadingTime } from "@/lib/formats";
-import { SEPARATOR } from "@/lib/utils";
+import { separator } from "@/lib/utils";
 
 import BoxHeader from "@/components/ui/box-header.astro";
 import Box from "@/components/ui/box-index.astro";
@@ -40,7 +40,7 @@ const { Content, headings } = await render(article);
         <BoxHeader class="flex items-center justify-between text-sm !font-medium text-muted-foreground">
             <div>
                 <Published pubDatetime={published_at} updatedDatetime={updated_at} />
-                {` ${SEPARATOR} `}
+                {` ${separator} `}
                 {formatReadingTime(article.body)}
             </div>
             {dev_to && (
