@@ -1,6 +1,5 @@
 ---
 import { getArticles, getSeries } from "@/lib/content";
-import { seriesPage } from "@/lib/pages";
 
 import ArticleList from "@/components/ui/article-list.astro";
 
@@ -14,7 +13,14 @@ const { series } = Astro.params;
 
 const articles = (await getArticles()).filter(article => article.data.series === series);
 
-const { title, description } = seriesPage(series);
+export const getMeta = (series: string) => {
+    return {
+        title: series,
+        description: `Deep dive into ${series} — a curated series from my programming journey.`,
+    };
+};
+
+const { title, description } = getMeta(series);
 ---
 
 <PageLayout backLink="/articles" description={description} title={title} ogImage={`/og/articles/series/${series}.png`}>

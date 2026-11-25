@@ -1,6 +1,5 @@
 ---
 import { getArticles } from "@/lib/content";
-import { pages } from "@/lib/pages";
 
 import { ChevronRightIcon } from "lucide-react";
 
@@ -19,9 +18,13 @@ const links = [
     { label: "Articles", description: "Everything I have written", href: "/articles" },
     { label: "Home", description: "Start from the beginning", href: "/" },
 ];
+export const meta = {
+    title: "Page not found",
+    description: "This page doesn't exist, or it moved. Here are a few places to go instead.",
+};
 ---
 
-<PageLayout title={pages.notFound.title} description={pages.notFound.description}>
+<PageLayout title={meta.title} description={meta.description}>
     {latestArticles.length > 0 && <ArticleList title="Latest article" articles={latestArticles} />}
 
     <Pattern />

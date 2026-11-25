@@ -1,6 +1,5 @@
 ---
 import { getCaseStudies } from "@/lib/content";
-import { pages } from "@/lib/pages";
 
 import PageLayout from "@/components/layouts/page-layout/index.astro";
 import CaseStudyItem from "@/components/screens/case-studies/case-study-item.astro";
@@ -9,9 +8,14 @@ import Box from "@/components/ui/box-index.astro";
 import Pattern from "@/components/ui/pattern.astro";
 
 const caseStudies = await getCaseStudies();
+export const meta = {
+    title: "Case Studies",
+    description:
+        "How I designed, built, and run production SaaS products: the problem, the decisions behind the architecture, and the results.",
+};
 ---
 
-<PageLayout title={pages.caseStudies.title} description={pages.caseStudies.description} ogImage="/og/case-studies.png">
+<PageLayout title={meta.title} description={meta.description} ogImage="/og/case-studies.png">
     <Pattern />
     <Box>
         {caseStudies.length > 0 ? (

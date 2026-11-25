@@ -3,7 +3,6 @@ import type { GetStaticPaths } from "astro";
 
 import { postPerPage } from "@/content/information";
 import { getArticles, getCategories, getSeries } from "@/lib/content";
-import { pages } from "@/lib/pages";
 
 import ArticleList from "@/components/ui/article-list.astro";
 import BoxContent from "@/components/ui/box-content.astro";
@@ -28,9 +27,14 @@ const groups = [
     { title: "Series", path: "series", tags: getSeries(articles) },
     { title: "Categories", path: "categories", tags: getCategories(articles) },
 ];
+export const meta = {
+    title: "Articles",
+    description:
+        "Exploring programming, frontend, backend, and full-stack development deep dives, series, and hands-on insights.",
+};
 ---
 
-<PageLayout title={pages.articles.title} description={pages.articles.description} ogImage="/og/articles.png">
+<PageLayout title={meta.title} description={meta.description} ogImage="/og/articles.png">
     {groups.map(group => (
         <>
             <Pattern />

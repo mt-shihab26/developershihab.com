@@ -1,6 +1,5 @@
 ---
 import { name } from "@/content/information";
-import { pages } from "@/lib/pages";
 
 import Back from "@/components/ui/back.astro";
 import DownloadButton from "@/components/ui/download-button.astro";
@@ -9,9 +8,13 @@ import SiteLayout from "@/components/layouts/site-layout/index.astro";
 import ModeToggle from "@/components/layouts/site-layout/mode-toggle.astro";
 
 import { Resume as ResumeComponent } from "@/components/screens/resume";
+export const meta = {
+    title: "Resume",
+    description: `${name}'s resume: experience, projects, open source contributions, skills, and education.`,
+};
 ---
 
-<SiteLayout title={`${pages.resume.title} - ${name}`} description={pages.resume.description}>
+<SiteLayout title={`${meta.title} - ${name}`} description={meta.description}>
     <div class="mx-auto max-w-[8.3in] space-y-4 px-4 pt-4 pb-12 sm:px-0">
         <div class="flex justify-between sm:px-8">
             <Back />

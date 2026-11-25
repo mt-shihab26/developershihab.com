@@ -1,6 +1,5 @@
 ---
 import { getArticles, getCategories } from "@/lib/content";
-import { categoryPage } from "@/lib/pages";
 
 import ArticleList from "@/components/ui/article-list.astro";
 
@@ -14,7 +13,14 @@ const { category } = Astro.params;
 
 const articles = (await getArticles()).filter(article => article.data.category === category);
 
-const { title, description } = categoryPage(category);
+export const getMeta = (category: string) => {
+    return {
+        title: category,
+        description: `Exploring ${category} insights, lessons, and discoveries from my programming journey.`,
+    };
+};
+
+const { title, description } = getMeta(category);
 ---
 
 <PageLayout

@@ -1,17 +1,26 @@
 import { getArticles, getCaseStudies, getPoems } from "@/lib/content";
-import { categoryPage, seriesPage, pages as staticPages, type TPageMeta } from "@/lib/pages";
 
 import { OGImageRoute } from "astro-og-canvas";
 
-const pages: Record<string, TPageMeta> = {
-    home: staticPages.home,
-    articles: staticPages.articles,
-    poems: staticPages.poems,
-    projects: staticPages.projects,
-    "case-studies": staticPages.caseStudies,
-    contact: staticPages.contact,
-};
+import { meta as articles } from "@/pages/articles/[...page].astro";
+import { getMeta as getCategoryMeta } from "@/pages/articles/categories/[category].astro";
+import { getMeta as getSeriesMeta } from "@/pages/articles/series/[series].astro";
+import { meta as caseStudies } from "@/pages/case-studies/index.astro";
+import { meta as contact } from "@/pages/contact.astro";
+import { meta as home } from "@/pages/index.astro";
+import { meta as poems } from "@/pages/poems/index.astro";
+import { meta as projects } from "@/pages/projects/index.astro";
 
+type TPageMeta = { title: string; description: string };
+
+const pages: Record<string, TPageMeta> = {
+    home,
+    articles,
+    poems,
+    projects,
+    "case-studies": caseStudies,
+    contact,
+};
 const entries = {
     articles: await getArticles(),
     "case-studies": await getCaseStudies(),
@@ -25,10 +34,10 @@ for (const [path, list] of Object.entries(entries)) {
 }
 
 for (const article of entries.articles) {
-    pages[`articles/categories/${article.data.category}`] = categoryPage(article.data.category);
+    pages[`articles/categories/${article.data.category}`] = getCategoryMeta(article.data.category);
 
     if (article.data.series) {
-        pages[`articles/series/${article.data.series}`] = seriesPage(article.data.series);
+        pages[`articles/series/${article.data.series}`] = getSeriesMeta(article.data.series);
     }
 }
 

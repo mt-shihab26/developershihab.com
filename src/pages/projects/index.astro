@@ -1,7 +1,6 @@
 ---
 import { PROJECT_CATEGORIES } from "@/lib/projects";
 
-import { pages } from "@/lib/pages";
 import { getProjectsByCategory } from "@/lib/projects";
 
 import PageLayout from "@/components/layouts/page-layout/index.astro";
@@ -15,9 +14,13 @@ const sections = [
     { id: "side-projects", label: PROJECT_CATEGORIES.personal, projects: personal },
     { id: "open-source-tools-and-plugins", label: PROJECT_CATEGORIES.openSource, projects: openSource },
 ].filter(section => section.projects.length > 0);
+export const meta = {
+    title: "My Projects",
+    description: "Production SaaS products, side projects, and open source tools I have built.",
+};
 ---
 
-<PageLayout title={pages.projects.title} description={pages.projects.description} ogImage="/og/projects.png">
+<PageLayout title={meta.title} description={meta.description} ogImage="/og/projects.png">
     {sections.map(section => (
         <div id={section.id} class="scroll-mt-12">
             <ProjectsList title={section.label} projects={section.projects} />

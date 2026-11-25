@@ -1,4 +1,6 @@
 ---
+import { headline, name } from "@/content/information";
+
 import Pattern from "@/components/ui/pattern.astro";
 
 import Footer from "@/components/layouts/site-layout/footer.astro";
@@ -22,6 +24,7 @@ const sections = [
     { id: "open-source-contributions", label: "Open Source Contributions" },
     { id: "education", label: "Education" },
 ];
+export const meta = { title: name, description: headline };
 ---
 
 <Layout ogImage="/og/home.png">

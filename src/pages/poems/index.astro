@@ -1,6 +1,5 @@
 ---
 import { getPoems } from "@/lib/content";
-import { pages } from "@/lib/pages";
 
 import PageLayout from "@/components/layouts/page-layout/index.astro";
 import PoemItem from "@/components/screens/poems/poem-item.astro";
@@ -10,9 +9,14 @@ import BoxTitle from "@/components/ui/box-title.astro";
 import Pattern from "@/components/ui/pattern.astro";
 
 const poems = await getPoems();
+export const meta = {
+    title: "Poems",
+    description:
+        "A collection of my Bengali poems — verses on love, longing, gratitude, and the quiet things of the heart.",
+};
 ---
 
-<PageLayout title={pages.poems.title} description={pages.poems.description} ogImage="/og/poems.png">
+<PageLayout title={meta.title} description={meta.description} ogImage="/og/poems.png">
     <Pattern />
     <Box>
         <BoxHeader>
