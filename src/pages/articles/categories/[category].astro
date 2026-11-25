@@ -4,7 +4,7 @@ import { categoryPage } from "@/lib/pages";
 
 import ArticleList from "@/components/ui/article-list.astro";
 
-import PageLayout from "@/components/layouts/page/layout.astro";
+import PageLayout from "@/components/layouts/page-layout/index.astro";
 
 export async function getStaticPaths() {
     return getCategories(await getArticles()).map(category => ({ params: { category } }));
