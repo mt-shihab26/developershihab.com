@@ -3,7 +3,7 @@ import { z } from "astro/zod";
 import { defineCollection } from "astro:content";
 
 const articles = defineCollection({
-    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/data/articles" }),
+    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/articles" }),
     schema: () =>
         z.object({
             published_at: z.date(),
@@ -19,7 +19,7 @@ const articles = defineCollection({
 });
 
 const case_studies = defineCollection({
-    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/data/case-studies" }),
+    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/case-studies" }),
     schema: () =>
         z.object({
             project: z.string().optional(),
@@ -34,7 +34,7 @@ const case_studies = defineCollection({
 });
 
 const poems = defineCollection({
-    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/data/poems" }),
+    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/poems" }),
     schema: () =>
         z.object({
             published_at: z.date(),
