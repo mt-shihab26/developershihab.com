@@ -24,12 +24,12 @@ export const collections = {
     }),
     case_studies: defineCollection({
         loader: loader("case-studies"),
-        schema: () =>
+        schema: ({ image }) =>
             z.object({
                 project: z.string().optional(),
                 title: z.string(),
                 description: z.string(),
-                logo: z.string().startsWith("/").optional(),
+                logo: image().optional(),
                 logo_alt: z.string().optional(),
                 published_at: z.date(),
                 updated_at: z.date().optional(),

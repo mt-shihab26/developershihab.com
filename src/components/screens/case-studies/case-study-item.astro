@@ -17,7 +17,7 @@ const { title, description, logo, logo_alt } = caseStudy.data;
     {logo ? (
         <img
             slot="icon"
-            src={logo}
+            src={logo.src}
             alt={logo_alt ?? `${title} logo`}
             class="mx-3 size-9 shrink-0 object-contain"
             loading="lazy"
