@@ -1,11 +1,3 @@
-import type { TSkill } from "@/types/content";
-
-import { InertiaIcon } from "@/components/icons/inertia-icon";
-import { StripeIcon } from "@/components/icons/stripe-icon";
-import { TanStackIcon } from "@/components/icons/tanstack-icon";
-import { developmentStart } from "@/content/information";
-import { formatYearCount, countYearsSince } from "@/lib/dates";
-
 import {
     C,
     ClaudeAI,
@@ -28,6 +20,15 @@ import {
     VueJs,
     WordPress,
 } from "developer-icons";
+
+import type { TSkill } from "@/types/content";
+
+import { developmentStart } from "@/content/information";
+import { formatYearCount, countYearsSince } from "@/lib/dates";
+
+import { InertiaIcon } from "@/components/icons/inertia-icon";
+import { StripeIcon } from "@/components/icons/stripe-icon";
+import { TanStackIcon } from "@/components/icons/tanstack-icon";
 
 export const skills: { label: string; items: TSkill[] }[] = [
     {
@@ -198,5 +199,8 @@ export const skills: { label: string; items: TSkill[] }[] = [
     },
 ];
 
-export const formatSkillDetail = (skill: TSkill, separator = ", "): string =>
-    [skill.level, skill.since && formatYearCount(countYearsSince(skill.since))].filter(Boolean).join(separator);
+export const formatSkillDetail = (skill: TSkill, separator = ", "): string => {
+    const details = [skill.level, skill.since && formatYearCount(countYearsSince(skill.since))];
+
+    return details.filter(Boolean).join(separator);
+};

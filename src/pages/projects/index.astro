@@ -1,7 +1,7 @@
 ---
-import { PROJECT_CATEGORIES } from "@/lib/projects";
+import { projectCategories } from "@/content/projects";
 
-import { getProjectsByCategory } from "@/lib/projects";
+import { getProjectsByCategory } from "@/content/projects";
 
 import PageLayout from "@/components/layouts/page-layout/index.astro";
 import ProjectsList from "@/components/screens/projects/projects-list.astro";
@@ -10,9 +10,9 @@ import SectionNav from "@/components/ui/section-nav.astro";
 const { professional, openSource, personal } = getProjectsByCategory();
 
 const sections = [
-    { id: "production-saas-products", label: PROJECT_CATEGORIES.professional, projects: professional },
-    { id: "side-projects", label: PROJECT_CATEGORIES.personal, projects: personal },
-    { id: "open-source-tools-and-plugins", label: PROJECT_CATEGORIES.openSource, projects: openSource },
+    { id: "production-saas-products", label: projectCategories.professional, projects: professional },
+    { id: "side-projects", label: projectCategories.personal, projects: personal },
+    { id: "open-source-tools-and-plugins", label: projectCategories.openSource, projects: openSource },
 ].filter(section => section.projects.length > 0);
 export const meta = {
     title: "My Projects",

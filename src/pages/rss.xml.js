@@ -1,6 +1,6 @@
 import { desc, title } from "@/content/information";
+import { getProject } from "@/content/projects";
 import { getArticles, getCaseStudies, getPoems } from "@/lib/content";
-import { getProject } from "@/lib/projects";
 
 import rss from "@astrojs/rss";
 

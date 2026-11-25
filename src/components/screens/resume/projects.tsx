@@ -2,7 +2,7 @@ import { SEPARATOR } from "@/lib/utils";
 import type { TProject } from "@/types/content";
 
 import { website } from "@/content/information";
-import { PROJECT_CATEGORIES, getResumeProjectsByCategory } from "@/lib/projects";
+import { projectCategories, getResumeProjectsByCategory } from "@/content/projects";
 
 import { Code2 } from "lucide-react";
 import { Heading } from "./heading";
@@ -79,9 +79,9 @@ export const Projects = () => {
     return (
         <section className="space-y-2">
             <Heading>Projects</Heading>
-            <ProjectGroup title={PROJECT_CATEGORIES.professional} projects={professional} />
-            <ProjectGroup title={PROJECT_CATEGORIES.personal} projects={personal} />
-            <ProjectGroup title={PROJECT_CATEGORIES.openSource} projects={openSource} />
+            <ProjectGroup title={projectCategories.professional} projects={professional} />
+            <ProjectGroup title={projectCategories.personal} projects={personal} />
+            <ProjectGroup title={projectCategories.openSource} projects={openSource} />
         </section>
     );
 };

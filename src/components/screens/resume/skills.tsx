@@ -1,4 +1,4 @@
-import { formatSkillDetail, skills } from "@/lib/skills";
+import { formatSkillDetail, skills } from "@/content/skills";
 
 import { Heading } from "./heading";
 

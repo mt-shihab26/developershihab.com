@@ -1,7 +1,7 @@
 import type { CollectionEntry } from "astro:content";
 
 import { getCollection } from "astro:content";
-import { getProject } from "@/lib/projects";
+import { getProject } from "@/content/projects";
 
 export const getArticles = async (): Promise<CollectionEntry<"articles">[]> => {
     const articles = await getCollection("articles", ({ data }) => {

@@ -2,7 +2,7 @@ import type { TProject } from "@/types/content";
 
 import { compareMonthYearDesc } from "@/lib/dates";
 
-export const PROJECT_CATEGORIES = {
+export const projectCategories = {
     professional: "Production SaaS Products",
     personal: "Side Projects",
     openSource: "Open Source Tools & Plugins",
