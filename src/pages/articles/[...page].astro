@@ -6,13 +6,13 @@ import { postPerPage } from "@/lib/information";
 import { pages } from "@/lib/pages";
 
 import ArticleList from "@/components/ui/article-list.astro";
-import Pattern from "@/components/ui/pattern.astro";
+import BoxContent from "@/components/ui/box-content.astro";
+import BoxHeader from "@/components/ui/box-header.astro";
 import Box from "@/components/ui/box-index.astro";
 import BoxTitle from "@/components/ui/box-title.astro";
-import BoxHeader from "@/components/ui/box-header.astro";
-import BoxContent from "@/components/ui/box-content.astro";
 import LinkTag from "@/components/ui/link-tag.astro";
 import Pagination from "@/components/ui/pagination.astro";
+import Pattern from "@/components/ui/pattern.astro";
 
 import PageLayout from "@/components/layouts/page/layout.astro";
 
@@ -31,25 +31,23 @@ const groups = [
 ---
 
 <PageLayout title={pages.articles.title} description={pages.articles.description} ogImage="/og/articles.png">
-    {
-        groups.map(group => (
-            <>
-                <Pattern />
-                <Box>
-                    <BoxHeader>
-                        <BoxTitle>{group.title}</BoxTitle>
-                    </BoxHeader>
-                    <BoxContent>
-                        <div class="flex flex-wrap items-center justify-start gap-x-4 gap-y-3">
-                            {group.tags.map(tag => (
-                                <LinkTag href={`articles/${group.path}/${tag}`} tag={tag} />
-                            ))}
-                        </div>
-                    </BoxContent>
-                </Box>
-            </>
-        ))
-    }
+    {groups.map(group => (
+        <>
+            <Pattern />
+            <Box>
+                <BoxHeader>
+                    <BoxTitle>{group.title}</BoxTitle>
+                </BoxHeader>
+                <BoxContent>
+                    <div class="flex flex-wrap items-center justify-start gap-x-4 gap-y-3">
+                        {group.tags.map(tag => (
+                            <LinkTag href={`articles/${group.path}/${tag}`} tag={tag} />
+                        ))}
+                    </div>
+                </BoxContent>
+            </Box>
+        </>
+    ))}
     <ArticleList articles={page.data}>
         <Pagination page={page} />
     </ArticleList>

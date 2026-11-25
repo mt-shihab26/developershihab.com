@@ -3,8 +3,8 @@ import type { TProject } from "@/types/content";
 
 import { ChevronRightIcon, FolderCodeIcon, ExternalLinkIcon, GithubIcon, BookOpenTextIcon } from "lucide-react";
 
-import MarkdownRenderer from "@/components/ui/markdown-renderer.astro";
 import Badge from "@/components/ui/badge.astro";
+import MarkdownRenderer from "@/components/ui/markdown-renderer.astro";
 
 interface Props {
     project: TProject;
@@ -30,60 +30,54 @@ const href = caseStudyHref ?? project.source ?? project.preview;
                 <h3 class="cursor-pointer text-lg font-semibold underline-offset-6 group-hover:underline">
                     {project.name}
                 </h3>
-                <ChevronRightIcon
-                    className="size-4 shrink-0 text-muted-foreground transition-transform duration-150 group-hover:translate-x-1"
-                />
+                <ChevronRightIcon className="size-4 shrink-0 text-muted-foreground transition-transform duration-150 group-hover:translate-x-1" />
             </div>
             <MarkdownRenderer className="text-xs leading-5 font-medium md:text-sm" content={project.description} />
         </a>
 
         <div class="flex items-start justify-between md:items-center">
-            {
-                project.technologies.length > 0 && (
-                    <div class="flex flex-wrap gap-1.5">
-                        {project.technologies.map(technology => {
-                            return <Badge>{technology}</Badge>;
-                        })}
-                    </div>
-                )
-            }
-            {
-                (project.preview || project.source || caseStudyHref) && (
-                    <div class="flex shrink-0 flex-col items-end gap-1.5">
-                        {caseStudyHref && (
-                            <a
-                                href={caseStudyHref}
-                                class="flex shrink-0 items-center gap-1.5 text-xs font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground"
-                            >
-                                Case Study
-                                <BookOpenTextIcon className="size-3 shrink-0" />
-                            </a>
-                        )}
-                        {project.preview && (
-                            <a
-                                href={project.preview}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="flex shrink-0 items-center gap-1.5 text-xs font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground"
-                            >
-                                Preview
-                                <ExternalLinkIcon className="size-3" />
-                            </a>
-                        )}
-                        {project.source && (
-                            <a
-                                href={project.source}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="flex shrink-0 items-center gap-1.5 text-xs font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground"
-                            >
-                                Source
-                                <GithubIcon className="size-3" />
-                            </a>
-                        )}
-                    </div>
-                )
-            }
+            {project.technologies.length > 0 && (
+                <div class="flex flex-wrap gap-1.5">
+                    {project.technologies.map(technology => {
+                        return <Badge>{technology}</Badge>;
+                    })}
+                </div>
+            )}
+            {(project.preview || project.source || caseStudyHref) && (
+                <div class="flex shrink-0 flex-col items-end gap-1.5">
+                    {caseStudyHref && (
+                        <a
+                            href={caseStudyHref}
+                            class="flex shrink-0 items-center gap-1.5 text-xs font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground"
+                        >
+                            Case Study
+                            <BookOpenTextIcon className="size-3 shrink-0" />
+                        </a>
+                    )}
+                    {project.preview && (
+                        <a
+                            href={project.preview}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex shrink-0 items-center gap-1.5 text-xs font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground"
+                        >
+                            Preview
+                            <ExternalLinkIcon className="size-3" />
+                        </a>
+                    )}
+                    {project.source && (
+                        <a
+                            href={project.source}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex shrink-0 items-center gap-1.5 text-xs font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground"
+                        >
+                            Source
+                            <GithubIcon className="size-3" />
+                        </a>
+                    )}
+                </div>
+            )}
         </div>
     </div>
 </div>

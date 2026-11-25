@@ -7,14 +7,14 @@ import { getProject } from "@/lib/projects";
 import { ExternalLink, FolderCodeIcon } from "lucide-react";
 
 import Github from "@/components/icons/github.astro";
+import BoxContent from "@/components/ui/box-content.astro";
+import BoxHeader from "@/components/ui/box-header.astro";
+import Box from "@/components/ui/box-index.astro";
+import BoxTitle from "@/components/ui/box-title.astro";
+import LinkBtn from "@/components/ui/link-btn.astro";
 import Pattern from "@/components/ui/pattern.astro";
 import Prose from "@/components/ui/prose.astro";
 import Published from "@/components/ui/published.astro";
-import Box from "@/components/ui/box-index.astro";
-import BoxTitle from "@/components/ui/box-title.astro";
-import BoxHeader from "@/components/ui/box-header.astro";
-import BoxContent from "@/components/ui/box-content.astro";
-import LinkBtn from "@/components/ui/link-btn.astro";
 
 import BaseLayout from "@/components/layouts/base/layout.astro";
 
@@ -38,44 +38,36 @@ const { preview, source } = project ?? {};
     backLabel="Back to case studies"
 >
     <Fragment slot="actions">
-        {
-            project && (
-                <LinkBtn ariaLabel="Project" className="text-xs" variant="secondary" href={`/projects#${project.slug}`}>
-                    Project
-                    <FolderCodeIcon className="size-3" />
-                </LinkBtn>
-            )
-        }
-        {
-            preview && (
-                <LinkBtn ariaLabel="Live app" target="_blank" className="text-xs" variant="default" href={preview}>
-                    Preview
-                    <ExternalLink className="size-3" />
-                </LinkBtn>
-            )
-        }
-        {
-            source && (
-                <LinkBtn ariaLabel="Source code" target="_blank" className="text-xs" variant="default" href={source}>
-                    Source
-                    <Github class="size-3" />
-                </LinkBtn>
-            )
-        }
+        {project && (
+            <LinkBtn ariaLabel="Project" className="text-xs" variant="secondary" href={`/projects#${project.slug}`}>
+                Project
+                <FolderCodeIcon className="size-3" />
+            </LinkBtn>
+        )}
+        {preview && (
+            <LinkBtn ariaLabel="Live app" target="_blank" className="text-xs" variant="default" href={preview}>
+                Preview
+                <ExternalLink className="size-3" />
+            </LinkBtn>
+        )}
+        {source && (
+            <LinkBtn ariaLabel="Source code" target="_blank" className="text-xs" variant="default" href={source}>
+                Source
+                <Github class="size-3" />
+            </LinkBtn>
+        )}
     </Fragment>
 
     <Box>
         <BoxHeader>
             <div class="flex items-center gap-4">
-                {
-                    logo && (
-                        <img
-                            src={logo}
-                            alt={logoAlt ?? `${title} logo`}
-                            class="size-14 shrink-0 rounded-lg border object-contain p-2.5 md:size-16"
-                        />
-                    )
-                }
+                {logo && (
+                    <img
+                        src={logo}
+                        alt={logoAlt ?? `${title} logo`}
+                        class="size-14 shrink-0 rounded-lg border object-contain p-2.5 md:size-16"
+                    />
+                )}
                 <div>
                     <p class="text-xs font-semibold tracking-wide text-muted-foreground uppercase">Case Study</p>
                     <BoxTitle className="text-2xl !font-black md:text-3xl">{title}</BoxTitle>

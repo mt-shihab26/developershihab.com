@@ -11,17 +11,15 @@ const { sections } = Astro.props;
     aria-label="Sections"
     class="fixed top-1/2 right-[calc(50%+24rem+2rem)] z-40 hidden -translate-y-1/2 flex-col items-end gap-y-3 xl:flex"
 >
-    {
-        sections.map(section => (
-            <a
-                href={`#${section.id}`}
-                data-spy={section.id}
-                class="text-right text-sm text-foreground/60 transition-colors duration-150 hover:text-foreground data-[active=true]:font-semibold data-[active=true]:text-foreground"
-            >
-                {section.label}
-            </a>
-        ))
-    }
+    {sections.map(section => (
+        <a
+            href={`#${section.id}`}
+            data-spy={section.id}
+            class="text-right text-sm text-foreground/60 transition-colors duration-150 hover:text-foreground data-[active=true]:font-semibold data-[active=true]:text-foreground"
+        >
+            {section.label}
+        </a>
+    ))}
 </nav>
 
 <script>

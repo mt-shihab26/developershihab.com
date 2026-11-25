@@ -1,6 +1,6 @@
-import { dev } from "astro";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { dev } from "astro";
 import puppeteer from "puppeteer";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "../..");

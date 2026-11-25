@@ -1,10 +1,10 @@
 ---
 import { capitalizeFirstLetter } from "@/lib/utils";
 
+import BoxContent from "@/components/ui/box-content.astro";
+import BoxHeader from "@/components/ui/box-header.astro";
 import Box from "@/components/ui/box-index.astro";
 import BoxTitle from "@/components/ui/box-title.astro";
-import BoxHeader from "@/components/ui/box-header.astro";
-import BoxContent from "@/components/ui/box-content.astro";
 
 import BaseLayout from "@/components/layouts/base/layout.astro";
 
@@ -23,9 +23,7 @@ const { title, description, backLink, ogImage } = Astro.props;
         <BoxHeader>
             <BoxTitle className="text-2xl !font-black">{capitalizeFirstLetter(title)}</BoxTitle>
         </BoxHeader>
-        <BoxContent>
-            {description}
-        </BoxContent>
+        <BoxContent>{description}</BoxContent>
     </Box>
     <slot />
 </BaseLayout>

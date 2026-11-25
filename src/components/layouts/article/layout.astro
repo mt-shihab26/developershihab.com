@@ -2,15 +2,15 @@
 import type { MarkdownHeading } from "astro";
 import type { CollectionEntry } from "astro:content";
 
-import { SEPARATOR, capitalizeFirstLetter, getReadingTime } from "@/lib/utils";
 import { devTo as devToProfile } from "@/lib/information";
+import { SEPARATOR, capitalizeFirstLetter, getReadingTime } from "@/lib/utils";
 
+import BoxHeader from "@/components/ui/box-header.astro";
+import Box from "@/components/ui/box-index.astro";
+import BoxTitle from "@/components/ui/box-title.astro";
 import Pattern from "@/components/ui/pattern.astro";
 import Prose from "@/components/ui/prose.astro";
 import Published from "@/components/ui/published.astro";
-import Box from "@/components/ui/box-index.astro";
-import BoxTitle from "@/components/ui/box-title.astro";
-import BoxHeader from "@/components/ui/box-header.astro";
 
 import BaseLayout from "@/components/layouts/base/layout.astro";
 
@@ -31,16 +31,14 @@ const { title, description, pubDatetime, updatedDatetime, devTo } = article.data
                 {` ${SEPARATOR} `}
                 {getReadingTime(article.body)}
             </div>
-            {
-                devTo && (
-                    <div class="flex space-x-1">
-                        <span>also published at</span>
-                        <a href={devToProfile + devTo} target="_blank" class="underline underline-offset-2">
-                            dev.to
-                        </a>
-                    </div>
-                )
-            }
+            {devTo && (
+                <div class="flex space-x-1">
+                    <span>also published at</span>
+                    <a href={devToProfile + devTo} target="_blank" class="underline underline-offset-2">
+                        dev.to
+                    </a>
+                </div>
+            )}
         </BoxHeader>
         <Pattern className="screen-line-after" />
         <BoxHeader>

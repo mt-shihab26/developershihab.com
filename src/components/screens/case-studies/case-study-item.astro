@@ -14,18 +14,16 @@ const { title, description, logo, logoAlt } = caseStudy.data;
 ---
 
 <ListItem href={`/case-studies/${caseStudy.id}`} title={title}>
-    {
-        logo ? (
-            <img
-                slot="icon"
-                src={logo}
-                alt={logoAlt ?? `${title} logo`}
-                class="mx-3 size-9 shrink-0 object-contain"
-                loading="lazy"
-            />
-        ) : (
-            <BookOpenTextIcon slot="icon" className="mx-4.5 size-5 shrink-0 text-muted-foreground" />
-        )
-    }
+    {logo ? (
+        <img
+            slot="icon"
+            src={logo}
+            alt={logoAlt ?? `${title} logo`}
+            class="mx-3 size-9 shrink-0 object-contain"
+            loading="lazy"
+        />
+    ) : (
+        <BookOpenTextIcon slot="icon" className="mx-4.5 size-5 shrink-0 text-muted-foreground" />
+    )}
     <p class="text-xs leading-5 font-medium md:text-sm">{description}</p>
 </ListItem>

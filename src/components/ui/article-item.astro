@@ -16,7 +16,9 @@ const { article } = Astro.props;
 <ListItem href={`/articles/${article.id}`} title={article.data.title}>
     <NotebookPen slot="icon" className="mx-5 size-5 shrink-0 text-muted-foreground" />
     <ul class="flex flex-wrap items-center justify-start gap-x-4">
-        {article.data.tags.map(tag => <li class="text-xs font-semibold">#{tag}</li>)}
+        {article.data.tags.map(tag => (
+            <li class="text-xs font-semibold">#{tag}</li>
+        ))}
     </ul>
     <p class="text-xs text-foreground">
         <Published pubDatetime={article.data.pubDatetime} updatedDatetime={article.data.updatedDatetime} />

@@ -21,19 +21,19 @@ const id = `see-more-${Math.random().toString(36).slice(2, 10)}`;
 
     <div class="hidden peer-checked:block">
         <div class="ml-7 text-sm leading-7">
-            {items.map(item => <div set:html={markdownToHtml(`- ♦ ${item}`)} />)}
+            {items.map(item => (
+                <div set:html={markdownToHtml(`- ♦ ${item}`)} />
+            ))}
         </div>
-        {
-            skills.length > 0 && (
-                <div class="mt-2 ml-7 flex max-w-full flex-wrap items-center justify-start gap-1.5 py-2">
-                    {skills.map(skill => (
-                        <span class="inline-flex items-center rounded-md border !border-solid px-2 py-0.5 text-xs">
-                            {skill}
-                        </span>
-                    ))}
-                </div>
-            )
-        }
+        {skills.length > 0 && (
+            <div class="mt-2 ml-7 flex max-w-full flex-wrap items-center justify-start gap-1.5 py-2">
+                {skills.map(skill => (
+                    <span class="inline-flex items-center rounded-md border !border-solid px-2 py-0.5 text-xs">
+                        {skill}
+                    </span>
+                ))}
+            </div>
+        )}
     </div>
 
     <label

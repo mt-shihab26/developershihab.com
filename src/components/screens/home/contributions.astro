@@ -3,10 +3,10 @@ import { contributions } from "@/lib/contributions";
 
 import { GitPullRequestIcon } from "lucide-react";
 
-import Box from "@/components/ui/box-index.astro";
-import BoxHeader from "@/components/ui/box-header.astro";
-import BoxTitle from "@/components/ui/box-title.astro";
 import BoxContent from "@/components/ui/box-content.astro";
+import BoxHeader from "@/components/ui/box-header.astro";
+import Box from "@/components/ui/box-index.astro";
+import BoxTitle from "@/components/ui/box-title.astro";
 ---
 
 <Box>
@@ -14,45 +14,43 @@ import BoxContent from "@/components/ui/box-content.astro";
         <BoxTitle>Open Source Contributions</BoxTitle>
     </BoxHeader>
     <BoxContent className="px-0 py-0">
-        {
-            contributions.map(({ repo, repoUrl, prs }) => (
-                <div class="space-y-4 p-4 not-last:border-b">
-                    <div class="flex items-start space-x-4 px-2">
-                        <span class="mt-3 size-2 shrink-0 rounded-full bg-foreground/60" />
-                        <div class="flex min-w-0 flex-wrap items-baseline gap-x-1">
-                            <h3 class="text-xl font-black">{repo}</h3>
-                            <span class="text-sm">
-                                (
-                                <a
-                                    href={repoUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="underline underline-offset-4"
-                                >
-                                    {repoUrl.split("//")[1]}
-                                </a>
-                                )
-                            </span>
-                        </div>
-                    </div>
-                    <div class="relative space-y-3 pl-1 before:absolute before:left-3 before:h-full before:w-px before:bg-border">
-                        {prs.map(contribution => (
-                            <div class="relative z-1 flex items-center space-x-3">
-                                <GitPullRequestIcon className="size-4 shrink-0 bg-background" />
-                                <a
-                                    href={contribution.prUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="font-mono text-sm font-bold underline underline-offset-4"
-                                >
-                                    {contribution.pr}
-                                </a>
-                                <span class="text-sm text-muted-foreground">— {contribution.description}</span>
-                            </div>
-                        ))}
+        {contributions.map(({ repo, repoUrl, prs }) => (
+            <div class="space-y-4 p-4 not-last:border-b">
+                <div class="flex items-start space-x-4 px-2">
+                    <span class="mt-3 size-2 shrink-0 rounded-full bg-foreground/60" />
+                    <div class="flex min-w-0 flex-wrap items-baseline gap-x-1">
+                        <h3 class="text-xl font-black">{repo}</h3>
+                        <span class="text-sm">
+                            (
+                            <a
+                                href={repoUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="underline underline-offset-4"
+                            >
+                                {repoUrl.split("//")[1]}
+                            </a>
+                            )
+                        </span>
                     </div>
                 </div>
-            ))
-        }
+                <div class="relative space-y-3 pl-1 before:absolute before:left-3 before:h-full before:w-px before:bg-border">
+                    {prs.map(contribution => (
+                        <div class="relative z-1 flex items-center space-x-3">
+                            <GitPullRequestIcon className="size-4 shrink-0 bg-background" />
+                            <a
+                                href={contribution.prUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="font-mono text-sm font-bold underline underline-offset-4"
+                            >
+                                {contribution.pr}
+                            </a>
+                            <span class="text-sm text-muted-foreground">— {contribution.description}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        ))}
     </BoxContent>
 </Box>

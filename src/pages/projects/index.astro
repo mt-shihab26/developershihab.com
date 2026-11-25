@@ -1,6 +1,6 @@
 ---
-import { PROJECT_CATEGORIES, getProjectsByCategory } from "@/lib/projects";
 import { pages } from "@/lib/pages";
+import { PROJECT_CATEGORIES, getProjectsByCategory } from "@/lib/projects";
 
 import PageLayout from "@/components/layouts/page/layout.astro";
 import ProjectsList from "@/components/screens/projects/projects-list.astro";
@@ -17,12 +17,10 @@ const sections = [
 ---
 
 <PageLayout title={pages.projects.title} description={pages.projects.description} ogImage="/og/projects.png">
-    {
-        sections.map(section => (
-            <div id={section.id} class="scroll-mt-12">
-                <ProjectsList title={section.label} projects={section.projects} />
-            </div>
-        ))
-    }
+    {sections.map(section => (
+        <div id={section.id} class="scroll-mt-12">
+            <ProjectsList title={section.label} projects={section.projects} />
+        </div>
+    ))}
     <SectionNav sections={sections} />
 </PageLayout>

@@ -4,12 +4,12 @@ import { pages } from "@/lib/pages";
 
 import { ChevronRightIcon } from "lucide-react";
 
-import Pattern from "@/components/ui/pattern.astro";
-import Box from "@/components/ui/box-index.astro";
-import BoxHeader from "@/components/ui/box-header.astro";
-import BoxTitle from "@/components/ui/box-title.astro";
-import ArticleList from "@/components/ui/article-list.astro";
 import PageLayout from "@/components/layouts/page/layout.astro";
+import ArticleList from "@/components/ui/article-list.astro";
+import BoxHeader from "@/components/ui/box-header.astro";
+import Box from "@/components/ui/box-index.astro";
+import BoxTitle from "@/components/ui/box-title.astro";
+import Pattern from "@/components/ui/pattern.astro";
 
 const latestArticles = (await getArticles()).slice(0, 1);
 
@@ -29,16 +29,14 @@ const links = [
         <BoxHeader>
             <BoxTitle>Or try one of these</BoxTitle>
         </BoxHeader>
-        {
-            links.map(link => (
-                <a href={link.href} class="group flex w-full items-center justify-between border-t px-4 py-3">
-                    <span>
-                        <span class="font-semibold underline-offset-4 group-hover:underline">{link.label}</span>
-                        <span class="block text-xs text-muted-foreground">{link.description}</span>
-                    </span>
-                    <ChevronRightIcon className="size-4 shrink-0 text-muted-foreground transition-transform duration-150 group-hover:translate-x-1" />
-                </a>
-            ))
-        }
+        {links.map(link => (
+            <a href={link.href} class="group flex w-full items-center justify-between border-t px-4 py-3">
+                <span>
+                    <span class="font-semibold underline-offset-4 group-hover:underline">{link.label}</span>
+                    <span class="block text-xs text-muted-foreground">{link.description}</span>
+                </span>
+                <ChevronRightIcon className="size-4 shrink-0 text-muted-foreground transition-transform duration-150 group-hover:translate-x-1" />
+            </a>
+        ))}
     </Box>
 </PageLayout>
