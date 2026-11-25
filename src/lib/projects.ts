@@ -1,6 +1,19 @@
-import type { TProject } from "@/types/content";
-
 import { compareDatesDesc } from "@/lib/dates";
+
+export type TProject = {
+    slug: string;
+    name: string;
+    description: string;
+    technologies: string[];
+    preview?: string;
+    source?: string;
+    startDate: string;
+    endDate?: string;
+    caseStudy?: string;
+    resume?: boolean;
+    priority?: number;
+    draft?: boolean;
+};
 
 export const PROJECT_CATEGORIES = {
     professional: "Production SaaS Products",
