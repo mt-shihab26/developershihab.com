@@ -1,8 +1,8 @@
-import { separator } from "@/lib/utils";
 import type { TProject } from "@/types/content";
 
 import { website } from "@/content/information";
 import { project_categories, getResumeProjectsByCategory } from "@/content/projects";
+import { separator } from "@/lib/utils";
 
 import { Code2 } from "lucide-react";
 import { Heading } from "./heading";

@@ -57,7 +57,7 @@ export type TSkill = {
     href: string;
     since?: string;
     level?: "Advanced" | "Intermediate" | "Basic";
-    icon?: (props: DeveloperIconProps) => ReactElement;
+    icon?: ((props: DeveloperIconProps) => ReactElement) | ((props: { className?: string }) => unknown);
     resume_title?: string;
     resume_disable?: boolean;
 };
