@@ -18,16 +18,25 @@ export const parseDate = (value: string): Dayjs => {
     return date;
 };
 
-export const formatDate = (date: Date): string => dayjs.utc(date).format("D MMM YYYY");
+export const formatDate = (date: Date): string => {
+    return dayjs.utc(date).format("D MMM YYYY");
+};
 
-const countMonths = (start: string, end: string = PRESENT): number =>
-    parseDate(end).startOf("month").diff(parseDate(start).startOf("month"), "month") + 1;
+const countMonths = (start: string, end: string = PRESENT): number => {
+    return parseDate(end).startOf("month").diff(parseDate(start).startOf("month"), "month") + 1;
+};
 
-export const yearsSince = (start: string): number => Math.floor(countMonths(start) / 12);
+export const yearsSince = (start: string): number => {
+    return Math.floor(countMonths(start) / 12);
+};
 
-export const yearsBetween = (start: string, end: string): number => Math.round((countMonths(start, end) - 1) / 6) / 2;
+export const yearsBetween = (start: string, end: string): number => {
+    return Math.round((countMonths(start, end) - 1) / 6) / 2;
+};
 
-export const formatRange = (start: string, end: string = PRESENT): string => `${start} – ${end}`;
+export const formatRange = (start: string, end: string = PRESENT): string => {
+    return `${start} – ${end}`;
+};
 
 export const formatDuration = (start: string, end: string = PRESENT): string => {
     const totalMonths = countMonths(start, end);
@@ -44,4 +53,6 @@ export const formatYears = (years: number): string => {
     return `${years} ${years === 1 ? "yr" : "yrs"}`;
 };
 
-export const compareDatesDesc = (a: string, b: string): number => parseDate(b).valueOf() - parseDate(a).valueOf();
+export const compareDatesDesc = (a: string, b: string): number => {
+    return parseDate(b).valueOf() - parseDate(a).valueOf();
+};

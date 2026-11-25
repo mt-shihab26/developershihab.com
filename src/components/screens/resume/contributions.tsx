@@ -1,4 +1,4 @@
-import { contributions } from "@/lib/contributions";
+import { contributions } from "@/content/contributions";
 
 import { GitPullRequestIcon } from "lucide-react";
 import { Heading } from "./heading";

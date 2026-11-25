@@ -3,18 +3,30 @@ import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 import { getProject } from "@/lib/projects";
 
-export const getArticles = async (): Promise<CollectionEntry<"articles">[]> =>
-    (await getCollection("articles", ({ data }) => !data.draft)).sort(
-        (a, b) => b.data.published_at.getTime() - a.data.published_at.getTime()
-    );
+export const getArticles = async (): Promise<CollectionEntry<"articles">[]> => {
+    const articles = await getCollection("articles", ({ data }) => {
+        return !data.draft;
+    });
 
-export const getPoems = async (): Promise<CollectionEntry<"poems">[]> =>
-    (await getCollection("poems", ({ data }) => !data.draft)).sort(
-        (a, b) => b.data.published_at.getTime() - a.data.published_at.getTime()
-    );
+    return articles.sort((a, b) => {
+        return b.data.published_at.getTime() - a.data.published_at.getTime();
+    });
+};
+
+export const getPoems = async (): Promise<CollectionEntry<"poems">[]> => {
+    const poems = await getCollection("poems", ({ data }) => {
+        return !data.draft;
+    });
+
+    return poems.sort((a, b) => {
+        return b.data.published_at.getTime() - a.data.published_at.getTime();
+    });
+};
 
 export const getCaseStudies = async (): Promise<CollectionEntry<"case_studies">[]> => {
-    const caseStudies = await getCollection("case_studies", ({ data }) => !data.draft);
+    const caseStudies = await getCollection("case_studies", ({ data }) => {
+        return !data.draft;
+    });
 
     return caseStudies.sort((a, b) => {
         const priorityA = getProject(a.data.project)?.priority ?? 0;
@@ -24,10 +36,18 @@ export const getCaseStudies = async (): Promise<CollectionEntry<"case_studies">[
     });
 };
 
-export const getCategories = (articles: CollectionEntry<"articles">[]): string[] => [
-    ...new Set(articles.map(article => article.data.category)),
-];
+export const getCategories = (articles: CollectionEntry<"articles">[]): string[] => {
+    const categories = articles.map(article => {
+        return article.data.category;
+    });
 
-export const getSeries = (articles: CollectionEntry<"articles">[]): string[] => [
-    ...new Set(articles.flatMap(article => (article.data.series ? [article.data.series] : []))),
-];
+    return [...new Set(categories)];
+};
+
+export const getSeries = (articles: CollectionEntry<"articles">[]): string[] => {
+    const series = articles.flatMap(article => {
+        return article.data.series ? [article.data.series] : [];
+    });
+
+    return [...new Set(series)];
+};
