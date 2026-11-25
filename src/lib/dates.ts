@@ -1,8 +1,10 @@
 import dayjs, { type Dayjs } from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
+import duration from "dayjs/plugin/duration";
 import utc from "dayjs/plugin/utc";
 
 dayjs.extend(customParseFormat);
+dayjs.extend(duration);
 dayjs.extend(utc);
 
 export const PRESENT = "Present";
@@ -26,7 +28,7 @@ const countMonthsBetween = (start: string, end: string = PRESENT): number => {
 };
 
 export const countYearsSince = (start: string): number => {
-    return Math.floor(countMonthsBetween(start) / 12);
+    return dayjs.duration(countMonthsBetween(start), "months").years();
 };
 
 export const countYearsBetween = (start: string, end: string): number => {
@@ -38,9 +40,9 @@ export const formatDateRange = (start: string, end: string = PRESENT): string =>
 };
 
 export const formatDurationBetween = (start: string, end: string = PRESENT): string => {
-    const totalMonths = countMonthsBetween(start, end);
-    const years = Math.floor(totalMonths / 12);
-    const months = totalMonths % 12;
+    const span = dayjs.duration(countMonthsBetween(start, end), "months");
+    const years = span.years();
+    const months = span.months();
 
     if (years === 0) return `${months} mo`;
     if (months === 0) return `${years} yr`;
@@ -53,5 +55,5 @@ export const formatYearCount = (years: number): string => {
 };
 
 export const compareMonthYearDesc = (a: string, b: string): number => {
-    return parseMonthYear(b).valueOf() - parseMonthYear(a).valueOf();
+    return parseMonthYear(b).diff(parseMonthYear(a));
 };
