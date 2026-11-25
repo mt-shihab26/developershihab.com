@@ -1,7 +1,9 @@
 ---
 import type { TProject } from "@/types/content";
 
-import { ChevronRightIcon, FolderCodeIcon, ExternalLinkIcon, GithubIcon, BookOpenTextIcon } from "lucide-react";
+import { ChevronRightIcon, FolderCodeIcon, ExternalLinkIcon, BookOpenTextIcon } from "lucide-react";
+
+import GithubIcon from "@/components/icons/github-icon.astro";
 
 import Badge from "@/components/ui/badge.astro";
 import MarkdownRenderer from "@/components/ui/markdown-renderer.astro";
@@ -72,7 +74,7 @@ const href = caseStudyHref ?? project.source ?? project.preview;
                             class="flex shrink-0 items-center gap-1.5 text-xs font-medium whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground"
                         >
                             Source
-                            <GithubIcon className="size-3" />
+                            <GithubIcon class="size-3" />
                         </a>
                     )}
                 </div>
