@@ -4,7 +4,7 @@ import { categoryPage, seriesPage, pages as staticPages, type TPageMeta } from "
 
 import { OGImageRoute } from "astro-og-canvas";
 
-const articles = await getCollection("blog", ({ data }) => !data.draft);
+const articles = await getCollection("articles", ({ data }) => !data.draft);
 const poems = await getCollection("poems", ({ data }) => !data.draft);
 const caseStudies = await getCollection("caseStudies", ({ data }) => !data.draft);
 

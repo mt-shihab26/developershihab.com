@@ -13,7 +13,7 @@ import BoxTitle from "@/components/ui/box-title.astro";
 import ArticleItem from "@/components/ui/article-item.astro";
 import PageLayout from "@/components/layouts/page/layout.astro";
 
-const [latestArticle] = (await getCollection("blog", ({ data }) => !data.draft)).sort(byNewest);
+const [latestArticle] = (await getCollection("articles", ({ data }) => !data.draft)).sort(byNewest);
 
 const links = [
     { label: "Case Studies", description: "How I built and run my SaaS products", href: "/case-studies" },

@@ -5,7 +5,7 @@ import { getCollection } from "astro:content";
 import rss from "@astrojs/rss";
 
 export async function GET(context) {
-    const blog = (await getCollection("blog", entry => !entry.data.draft)).map(post => ({
+    const articles = (await getCollection("articles", entry => !entry.data.draft)).map(post => ({
         title: post.data.title,
         pubDate: post.data.pubDatetime,
         description: post.data.description,
@@ -29,7 +29,7 @@ export async function GET(context) {
         categories: ["poem"],
     }));
 
-    const items = [...blog, ...caseStudies, ...poems];
+    const items = [...articles, ...caseStudies, ...poems];
 
     items.sort((a, b) => b.pubDate - a.pubDate);
 

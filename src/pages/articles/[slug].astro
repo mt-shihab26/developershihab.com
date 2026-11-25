@@ -7,11 +7,11 @@ import { getReadingTime } from "@/lib/utils";
 import ArticleLayout from "@/components/layouts/article/layout.astro";
 
 export interface Props {
-    post: CollectionEntry<"blog">;
+    post: CollectionEntry<"articles">;
 }
 
 export async function getStaticPaths() {
-    const posts = await getCollection("blog", ({ data }) => !data.draft);
+    const posts = await getCollection("articles", ({ data }) => !data.draft);
 
     const postResult = posts.map(post => ({
         params: { slug: post.id },
