@@ -1,6 +1,8 @@
 ---
+import { PROJECT_CATEGORIES } from "@/lib/projects";
+
 import { pages } from "@/lib/pages";
-import { PROJECT_CATEGORIES, getProjectsByCategory } from "@/lib/projects";
+import { getProjectsByCategory } from "@/lib/projects";
 
 import PageLayout from "@/components/layouts/page/layout.astro";
 import ProjectsList from "@/components/screens/projects/projects-list.astro";
@@ -8,7 +10,6 @@ import SectionNav from "@/components/ui/section-nav.astro";
 
 const { professional, openSource, personal } = getProjectsByCategory();
 
-// The project categories, in page order. The side navigation and the section anchors both use this list.
 const sections = [
     { id: "production-saas-products", label: PROJECT_CATEGORIES.professional, projects: professional },
     { id: "side-projects", label: PROJECT_CATEGORIES.personal, projects: personal },

@@ -160,9 +160,6 @@ const allProjects = [...professionalProjects, ...personalProjects, ...openSource
 export const getProject = (slug?: string): TProject | undefined =>
     slug ? allProjects.find(project => project.slug === slug) : undefined;
 
-/**
- * Published projects, highest priority first, then newest start date first
- */
 const publish = (list: TProject[]): TProject[] =>
     list
         .filter(project => !project.draft)

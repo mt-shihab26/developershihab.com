@@ -33,7 +33,6 @@
         @apply size-4;
     }
 
-    /* Scrollbars: wide enough to grab and dark enough to see in both themes */
     ::-webkit-scrollbar {
         width: 10px;
         height: 10px;
@@ -55,7 +54,6 @@
         background-clip: padding-box;
     }
 
-    /* Firefox only: Chrome ignores the ::-webkit-scrollbar width above when these are set */
     @supports not selector(::-webkit-scrollbar) {
         * {
             scrollbar-width: auto;

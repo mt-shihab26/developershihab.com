@@ -11,8 +11,6 @@ interface Props {
 
 const { open = false, items = [], skills = [] } = Astro.props;
 
-// Show more / Show less without JavaScript: a hidden checkbox toggles the details below it.
-// A unique id ties the checkbox to its label.
 const id = `see-more-${Math.random().toString(36).slice(2, 10)}`;
 ---
 

@@ -54,7 +54,6 @@ const structuredData = {
         <link rel="canonical" href={canonicalURL} />
         <meta name="generator" content={Astro.generator} />
 
-        <!-- General Meta Tags -->
         <title>{title}</title>
         <meta name="title" content={title} />
         <meta name="description" content={description} />
@@ -62,7 +61,6 @@ const structuredData = {
         <link rel="sitemap" href="/sitemap-index.xml" />
         <link rel="alternate" type="application/rss+xml" title={title} href={new URL("rss.xml", Astro.site)} />
 
-        <!-- Open Graph / Facebook -->
         <meta property="og:type" content={pageType} />
         <meta property="og:site_name" content={name} />
         <meta property="og:locale" content="en_US" />
@@ -74,16 +72,13 @@ const structuredData = {
         <meta property="og:image:type" content="image/png" />
         <meta property="og:url" content={canonicalURL} />
 
-        <!-- X / Twitter -->
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content={canonicalURL} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={socialImageURL} />
 
-        <!-- Google JSON-LD Structured data -->
         <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
-        <!-- Theme script to prevent flash -->
         <script is:inline>
             (function () {
                 const getThemePreference = () => {

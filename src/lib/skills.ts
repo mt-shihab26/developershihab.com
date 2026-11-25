@@ -150,11 +150,6 @@ export const skills: { label: string; items: SkillItem[] }[] = [
     {
         label: "Others",
         items: [
-            // {
-            //     title: "Redis",
-            //     href: "https://redis.io/",
-            //     icon: Redis,
-            // },
             {
                 title: "MySQL",
                 href: "https://www.mysql.com",
@@ -214,8 +209,5 @@ export const skills: { label: string; items: SkillItem[] }[] = [
     },
 ];
 
-/**
- * "Advanced, 4 yrs" style detail for a skill, or an empty string when it has neither
- */
 export const formatSkillDetail = (skill: SkillItem, separator = ", "): string =>
     [skill.level, skill.since && formatYears(yearsSince(skill.since))].filter(Boolean).join(separator);

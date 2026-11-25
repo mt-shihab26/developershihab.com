@@ -21,10 +21,6 @@ import { Resume as ResumeComponent } from "@/components/screens/resume";
             </div>
         </div>
 
-        <!--
-            The resume is always laid out at full A4 width, like the PDF. On narrow screens it is
-            scaled down to fit, like a print preview, instead of reflowing into a different layout.
-        -->
         <div id="resume-frame" class="relative w-full overflow-hidden">
             <div
                 id="resume-page"
@@ -39,7 +35,6 @@ import { Resume as ResumeComponent } from "@/components/screens/resume";
                 const frame = document.getElementById("resume-frame");
                 const page = document.getElementById("resume-page");
 
-                // Fit the A4 page to the available width and give the frame the scaled height
                 const fit = () => {
                     const scale = Math.min(1, frame.clientWidth / page.offsetWidth);
                     page.style.transform = scale < 1 ? `scale(${scale})` : "";

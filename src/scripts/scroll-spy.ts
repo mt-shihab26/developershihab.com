@@ -1,4 +1,5 @@
 const links = [...document.querySelectorAll<HTMLElement>("[data-spy]")];
+
 const targets = links
     .map(link => document.getElementById(link.dataset.spy ?? ""))
     .filter((target): target is HTMLElement => target !== null);

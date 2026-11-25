@@ -1,7 +1,7 @@
 import puppeteer from "puppeteer";
 
 export const pdf = async (html: string, path: string) => {
-    const browser = await puppeteer.launch({ channel: "chrome" }); // the installed Google Chrome, see .puppeteerrc.json
+    const browser = await puppeteer.launch({ channel: "chrome" });
     try {
         const page = await browser.newPage();
         await page.setContent(html);

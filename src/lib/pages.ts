@@ -2,10 +2,6 @@ import { headline, name } from "@/lib/information";
 
 export type TPageMeta = { title: string; description: string };
 
-/**
- * Titles and descriptions for the top-level pages. The pages and their OG images both read
- * from here, so the text can't drift apart.
- */
 export const pages = {
     home: { title: name, description: headline },
     articles: {

@@ -17,7 +17,6 @@ import { Moon, Sun } from "lucide-react";
     <span class="sr-only">Toggle theme</span>
 </button>
 <script is:inline>
-    // Set theme on document and in localStorage
     const setThemeAppearance = theme => {
         if (theme === "dark") {
             document.documentElement.classList.add("dark");
@@ -30,14 +29,12 @@ import { Moon, Sun } from "lucide-react";
     document.addEventListener("DOMContentLoaded", () => {
         const toggleButton = document.getElementById("theme-toggle");
 
-        // Toggle theme function
         const toggleMode = () => {
             const isDarkMode = document.documentElement.classList.contains("dark");
             const newTheme = isDarkMode ? "light" : "dark";
             setThemeAppearance(newTheme);
         };
 
-        // Add click event listener
         toggleButton?.addEventListener("click", toggleMode);
     });
 </script>

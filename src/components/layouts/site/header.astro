@@ -77,7 +77,6 @@ const { className } = Astro.props;
 </nav>
 
 <script is:inline>
-    // Open and close the mobile menu
     (() => {
         const button = document.getElementById("hamburger-button");
         const menu = document.getElementById("mobile-menu");
@@ -92,7 +91,6 @@ const { className } = Astro.props;
 
         button.addEventListener("click", toggle);
 
-        // Close the menu after a link in it is chosen
         menu.addEventListener("click", event => {
             if (event.target.closest("a")) toggle();
         });

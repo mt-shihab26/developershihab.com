@@ -13,9 +13,6 @@ export const getPoems = async (): Promise<CollectionEntry<"poems">[]> =>
         (a, b) => b.data.published_at.getTime() - a.data.published_at.getTime()
     );
 
-/**
- * Published case studies, ordered like their projects: highest priority first, then newest first
- */
 export const getCaseStudies = async (): Promise<CollectionEntry<"case_studies">[]> => {
     const caseStudies = await getCollection("case_studies", ({ data }) => !data.draft);
 

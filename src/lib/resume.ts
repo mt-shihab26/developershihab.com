@@ -11,7 +11,7 @@ const { port } = server.address;
 console.log(`Dev server running on port ${port}`);
 
 console.log("Launching browser...");
-const browser = await puppeteer.launch({ channel: "chrome" }); // the installed Google Chrome, see .puppeteerrc.json
+const browser = await puppeteer.launch({ channel: "chrome" });
 let exitCode = 0;
 try {
     const page = await browser.newPage();
@@ -26,7 +26,6 @@ try {
     });
     console.log("PDF saved to public/shihab-mahamud-resume.pdf");
 } catch (error) {
-    // Fail loudly so a broken build doesn't leave an old PDF looking current
     console.error("Failed to generate the resume PDF:", error);
     exitCode = 1;
 } finally {

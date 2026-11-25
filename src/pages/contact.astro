@@ -45,7 +45,6 @@ import PageLayout from "@/components/layouts/page/layout.astro";
                 </button>
                 <span data-copy-status class="sr-only" aria-live="polite"></span>
                 <script is:inline>
-                    // Inline so the button works as soon as it is on screen, without waiting for a bundled script
                     (() => {
                         const button = document.querySelector("[data-copy-email]");
                         const status = document.querySelector("[data-copy-status]");

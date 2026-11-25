@@ -8,7 +8,6 @@ type TExperience = {
     positions: {
         title: string;
         startDate: string;
-        // Leave out while ongoing, shown as "Present"
         endDate?: string;
         description: string[];
         skills: string[];
