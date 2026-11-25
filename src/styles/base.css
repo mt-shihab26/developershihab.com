@@ -1,0 +1,25 @@
+* {
+    @apply border-dashed border-border;
+}
+
+html {
+    @apply scroll-smooth;
+    font-family: Geist Sans;
+}
+
+body {
+    @apply overscroll-none bg-background text-foreground;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+    font-family: Roboto Condensed;
+}
+
+pre {
+    font-family: JetBrains Mono;
+    border: 0;
+}

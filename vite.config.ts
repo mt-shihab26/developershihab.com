@@ -51,7 +51,7 @@ export default defineConfig({
             newlinesBetween: false,
         },
         sortTailwindcss: {
-            stylesheet: "./src/styles/global.css",
+            stylesheet: "./src/styles/main.css",
         },
         overrides: [
             {

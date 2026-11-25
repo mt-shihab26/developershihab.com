@@ -1,0 +1,7 @@
+.copy-code {
+    @apply absolute top-2 right-2 cursor-pointer rounded-md border border-transparent p-2 text-xs font-bold duration-150 hover:bg-primary hover:text-primary-foreground;
+}
+
+.copy-code svg {
+    @apply size-4;
+}

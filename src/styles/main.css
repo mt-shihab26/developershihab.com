@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@plugin '@tailwindcss/typography';
+
+@import "./fonts.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@import "./mdx.css";
+@import "./theme.css";
+@import "./base.css";
+@import "./scrollbar.css";
+@import "./utilities.css";
+@import "./copy-code.css";
