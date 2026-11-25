@@ -2,6 +2,12 @@
     "extends": "astro/tsconfigs/strict",
     "include": [".astro/types.d.ts", "**/*"],
     "exclude": ["dist"],
+    "contentMappers": [
+        {
+            "package": "@astrojs/ts-content-mapper",
+            "extensions": [".astro"]
+        }
+    ],
     "compilerOptions": {
         "strictNullChecks": true,
         "allowJs": true,
@@ -10,7 +16,5 @@
         "paths": {
             "@/*": ["./src/*"]
         }
-    },
-    // TypeScript 7 type-checks .astro files through this mapper, which replaces `astro check`
-    "contentMappers": [{ "package": "@astrojs/ts-content-mapper", "extensions": [".astro"] }]
+    }
 }

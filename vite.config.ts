@@ -19,12 +19,16 @@ export default defineConfig({
             "no-console": "error",
         },
         overrides: [
-            // The resume script is a CLI that reports progress on the console
-            { files: ["src/lib/resume.ts"], rules: { "no-console": "off" } },
+            {
+                files: ["src/lib/resume.ts"],
+                rules: { "no-console": "off" },
+            },
         ],
-        ignorePatterns: ["dist/**", ".astro", "public/pagefind/**"],
-        // Off because Vite+ can't read the .astro content mappers in tsconfig.json;
-        // `tsc --runExternalCode` in the lint script does the type check instead
+        ignorePatterns: [
+            "dist/**",
+            ".astro",
+            "public/pagefind/**", //
+        ],
         options: {
             typeAware: false,
             typeCheck: false,
@@ -41,11 +45,14 @@ export default defineConfig({
         bracketSpacing: true,
         endOfLine: "lf",
         sortPackageJson: false,
-        sortImports: { partitionByNewline: true, newlinesBetween: false },
+        astro: {},
+        sortImports: {
+            partitionByNewline: true,
+            newlinesBetween: false,
+        },
         sortTailwindcss: {
             stylesheet: "./src/styles/global.css",
         },
-        astro: {},
         overrides: [
             {
                 files: ["*.svg"],
@@ -70,6 +77,13 @@ export default defineConfig({
                 language: "html",
             },
         ],
-        ignorePatterns: [".astro", ".claude", ".wrangler", "dist", "node_modules", "bun.lock"],
+        ignorePatterns: [
+            ".astro",
+            ".claude",
+            ".wrangler",
+            "dist",
+            "node_modules",
+            "bun.lock", //
+        ],
     },
 });
