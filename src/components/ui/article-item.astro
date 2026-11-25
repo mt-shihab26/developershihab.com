@@ -1,7 +1,8 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { NotebookPen } from "lucide-react";
-import { SEPARATOR, getReadingTime } from "@/lib/utils";
+import { formatReadingTime } from "@/lib/formats";
+import { SEPARATOR } from "@/lib/utils";
 
 import ListItem from "@/components/ui/list-item.astro";
 import Published from "@/components/ui/published.astro";
@@ -23,6 +24,6 @@ const { article } = Astro.props;
     <p class="text-xs text-foreground">
         <Published pubDatetime={article.data.published_at} updatedDatetime={article.data.updated_at} />
         {` ${SEPARATOR} `}
-        {getReadingTime(article.body!)}
+        {formatReadingTime(article.body!)}
     </p>
 </ListItem>

@@ -1,5 +1,5 @@
 ---
-import { capitalizeFirstLetter } from "@/lib/utils";
+import { formatCapitalized } from "@/lib/formats";
 
 import BoxContent from "@/components/ui/box-content.astro";
 import BoxHeader from "@/components/ui/box-header.astro";
@@ -21,7 +21,7 @@ const { title, description, backLink, ogImage } = Astro.props;
 <BaseLayout title={title} description={description} ogImage={ogImage} backLink={backLink}>
     <Box>
         <BoxHeader>
-            <BoxTitle className="text-2xl !font-black">{capitalizeFirstLetter(title)}</BoxTitle>
+            <BoxTitle className="text-2xl !font-black">{formatCapitalized(title)}</BoxTitle>
         </BoxHeader>
         <BoxContent>{description}</BoxContent>
     </Box>

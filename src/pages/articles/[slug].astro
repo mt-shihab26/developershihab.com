@@ -4,7 +4,8 @@ import type { CollectionEntry } from "astro:content";
 import { render } from "astro:content";
 import { devTo as devToProfile } from "@/content/information";
 import { getArticles } from "@/lib/content";
-import { SEPARATOR, capitalizeFirstLetter, getReadingTime } from "@/lib/utils";
+import { formatCapitalized, formatReadingTime } from "@/lib/formats";
+import { SEPARATOR } from "@/lib/utils";
 
 import BoxHeader from "@/components/ui/box-header.astro";
 import Box from "@/components/ui/box-index.astro";
@@ -40,7 +41,7 @@ const { Content, headings } = await render(article);
             <div>
                 <Published pubDatetime={published_at} updatedDatetime={updated_at} />
                 {` ${SEPARATOR} `}
-                {getReadingTime(article.body)}
+                {formatReadingTime(article.body)}
             </div>
             {dev_to && (
                 <div class="flex space-x-1">
@@ -53,7 +54,7 @@ const { Content, headings } = await render(article);
         </BoxHeader>
         <Pattern className="screen-line-after" />
         <BoxHeader>
-            <BoxTitle className="text-2xl !font-black md:text-3xl">{capitalizeFirstLetter(title)}</BoxTitle>
+            <BoxTitle className="text-2xl !font-black md:text-3xl">{formatCapitalized(title)}</BoxTitle>
         </BoxHeader>
         <Pattern />
     </Box>
