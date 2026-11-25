@@ -1,5 +1,5 @@
 import { educations } from "@/content/educations";
-import { formatDurationBetween, formatDateRange } from "@/lib/dates";
+import { dateFormatDuration, dateFormatRange } from "@/lib/dates";
 import { SEPARATOR, markdownToHtml } from "@/lib/utils";
 
 import { Heading } from "./heading";
@@ -23,9 +23,9 @@ export const Education = () => {
                             <div key={i} className="mt-0.5">
                                 <p>{position.title}</p>
                                 <p>
-                                    {formatDateRange(position.startDate, position.endDate)}
+                                    {dateFormatRange(position.startDate, position.endDate)}
                                     <span className="ml-1.5">
-                                        {SEPARATOR} {formatDurationBetween(position.startDate, position.endDate)}
+                                        {SEPARATOR} {dateFormatDuration(position.startDate, position.endDate)}
                                     </span>
                                 </p>
                                 {position.description && (

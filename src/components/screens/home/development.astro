@@ -1,7 +1,7 @@
 ---
 import { developmentStart, programmingStart } from "@/content/information";
 import { formatSkillDetail, skills } from "@/content/skills";
-import { countYearsBetween } from "@/lib/dates";
+import { dateCountYearsBetween } from "@/lib/dates";
 import { SEPARATOR } from "@/lib/utils";
 
 import { E } from "@/components/ui/e";
@@ -19,7 +19,8 @@ import BoxTitle from "@/components/ui/box-title.astro";
     </BoxHeader>
     <BoxContent>
         <div class="text-sm leading-7 font-medium">
-            I started learning <b>development</b> after {countYearsBetween(programmingStart, developmentStart)} years of
+            I started learning <b>development</b> after {dateCountYearsBetween(programmingStart, developmentStart)}{" "}
+            years of
             <b>programming</b> and <b>problem-solving</b> experience. The learning process was quite fast-paced. I began
             with
             <E href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</E>, then moved on to

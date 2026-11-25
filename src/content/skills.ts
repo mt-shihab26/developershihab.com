@@ -24,7 +24,7 @@ import {
 import type { TSkill } from "@/types/content";
 
 import { developmentStart } from "@/content/information";
-import { formatYearCount, countYearsSince } from "@/lib/dates";
+import { dateFormatYearCount, dateCountYearsSince } from "@/lib/dates";
 
 import { InertiaIcon } from "@/components/icons/inertia-icon";
 import { StripeIcon } from "@/components/icons/stripe-icon";
@@ -200,7 +200,7 @@ export const skills: { label: string; items: TSkill[] }[] = [
 ];
 
 export const formatSkillDetail = (skill: TSkill, separator = ", "): string => {
-    const details = [skill.level, skill.since && formatYearCount(countYearsSince(skill.since))];
+    const details = [skill.level, skill.since && dateFormatYearCount(dateCountYearsSince(skill.since))];
 
     return details.filter(Boolean).join(separator);
 };

@@ -1,6 +1,6 @@
 import type { TExperience } from "@/types/content";
 
-import { countYearsSince } from "@/lib/dates";
+import { dateCountYearsSince } from "@/lib/dates";
 
 const finnextStart = "May 2023";
 
@@ -58,5 +58,5 @@ export const experiences: TExperience[] = [
 
 export const getExperienceYears = (): number => {
     const starts = experiences.flatMap(e => e.positions.map(position => position.startDate));
-    return Math.max(...starts.map(countYearsSince));
+    return Math.max(...starts.map(dateCountYearsSince));
 };

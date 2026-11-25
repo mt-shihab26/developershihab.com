@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { formatDayMonthYear } from "@/lib/dates";
+import { dateFormatDayMonthYear } from "@/lib/dates";
 import { SEPARATOR, getLineCount } from "@/lib/utils";
 
 import { Feather } from "lucide-react";
@@ -18,7 +18,7 @@ const { poem } = Astro.props;
     <Feather slot="icon" className="mx-5 size-5 shrink-0 text-muted-foreground" />
     <p class="text-sm text-muted-foreground">{poem.data.description}</p>
     <p class="text-xs text-foreground">
-        {formatDayMonthYear(poem.data.published_at)}
+        {dateFormatDayMonthYear(poem.data.published_at)}
         {SEPARATOR}
         {getLineCount(poem.body)} lines
     </p>

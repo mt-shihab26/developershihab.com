@@ -1,5 +1,5 @@
 ---
-import { formatDayMonthYear } from "@/lib/dates";
+import { dateFormatDayMonthYear } from "@/lib/dates";
 import { SEPARATOR } from "@/lib/utils";
 
 interface Props {
@@ -10,10 +10,10 @@ interface Props {
 const { pubDatetime, updatedDatetime } = Astro.props;
 ---
 
-Published <time datetime={pubDatetime.toISOString()}>{formatDayMonthYear(pubDatetime)}</time>
+Published <time datetime={pubDatetime.toISOString()}>{dateFormatDayMonthYear(pubDatetime)}</time>
 {updatedDatetime && (
     <>
         {` ${SEPARATOR} `}Updated{" "}
-        <time datetime={updatedDatetime.toISOString()}>{formatDayMonthYear(updatedDatetime)}</time>
+        <time datetime={updatedDatetime.toISOString()}>{dateFormatDayMonthYear(updatedDatetime)}</time>
     </>
 )}
