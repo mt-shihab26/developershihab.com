@@ -1,6 +1,7 @@
 ---
 import { SEPARATOR } from "@/lib/constants";
 import type { CollectionEntry } from "astro:content";
+import type { MarkdownHeading } from "astro";
 
 import { name } from "@/lib/information";
 import { getProject } from "@/lib/projects";
@@ -10,6 +11,7 @@ import { ArrowLeft, ExternalLink, FolderCodeIcon } from "lucide-react";
 
 import Github from "@/components/icons/github.astro";
 import Pattern from "@/components/ui/pattern.astro";
+import Toc from "@/components/ui/toc.astro";
 import Box from "@/components/ui/box-index.astro";
 import BoxTitle from "@/components/ui/box-title.astro";
 import BoxHeader from "@/components/ui/box-header.astro";
@@ -22,9 +24,10 @@ import SiteFooter from "@/components/layouts/site/footer.astro";
 
 interface Props {
     caseStudy: CollectionEntry<"caseStudies">;
+    headings: MarkdownHeading[];
 }
 
-const { caseStudy } = Astro.props;
+const { caseStudy, headings } = Astro.props;
 const { title, description, logo, logoAlt, pubDatetime, updatedDatetime } = caseStudy.data;
 
 // Links come from the linked project, when there is one, so they live in one place
@@ -124,13 +127,16 @@ const { preview, source } = project ?? {};
 
         <Pattern />
 
-        <Box className="min-w-full">
-            <BoxContent className="pt-8">
-                <article class="prose min-w-full">
-                    <slot />
-                </article>
-            </BoxContent>
-        </Box>
+        <div class="relative flex">
+            <Box className="min-w-full">
+                <BoxContent className="pt-8">
+                    <article class="prose min-w-full">
+                        <slot />
+                    </article>
+                </BoxContent>
+            </Box>
+            <Toc headings={headings} />
+        </div>
         <Pattern />
     </main>
     <SiteFooter />

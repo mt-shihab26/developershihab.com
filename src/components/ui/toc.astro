@@ -16,8 +16,9 @@ const { headings } = Astro.props;
             .map(({ slug, text }) => (
                 <a
                     href={`#${slug}`}
+                    data-toc={slug}
                     class:list={[
-                        "text-sm font-normal text-foreground/70 no-underline duration-75 hover:text-foreground",
+                        "text-sm font-normal text-foreground/70 no-underline transition-colors duration-150 hover:text-foreground data-[active=true]:font-semibold data-[active=true]:text-foreground",
                     ]}
                 >
                     • {text}
@@ -25,3 +26,31 @@ const { headings } = Astro.props;
             ))
     }
 </div>
+
+<script is:inline>
+    // Highlight the heading whose section is currently in view
+    (() => {
+        const links = [...document.querySelectorAll("[data-toc]")];
+        const headings = links.map(link => document.getElementById(link.dataset.toc)).filter(Boolean);
+        if (headings.length === 0) return;
+
+        const setActive = id => {
+            for (const link of links) link.dataset.active = String(link.dataset.toc === id);
+        };
+
+        // The active heading is the last one that has scrolled up to just below the header,
+        // or the last heading once the page is scrolled to the bottom
+        const update = () => {
+            const atBottom =
+                Math.ceil(window.scrollY + window.innerHeight) >= document.documentElement.scrollHeight - 2;
+            if (atBottom) return setActive(headings[headings.length - 1].id);
+
+            const current = headings.filter(heading => heading.getBoundingClientRect().top <= 120).at(-1);
+            setActive(current?.id ?? "");
+        };
+
+        window.addEventListener("scroll", update, { passive: true });
+        window.addEventListener("resize", update);
+        update();
+    })();
+</script>
