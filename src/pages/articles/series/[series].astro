@@ -1,45 +1,28 @@
 ---
-import { getCollection } from "astro:content";
+import { getArticles, getSeries } from "@/lib/content";
 
-import { byNewest } from "@/lib/dates";
-import { seriesPage } from "@/lib/pages";
+import ArticleList from "@/components/ui/article-list.astro";
 
-import ArticleItem from "@/components/ui/article-item.astro";
-import Pattern from "@/components/ui/pattern.astro";
-import Box from "@/components/ui/box-index.astro";
-import BoxTitle from "@/components/ui/box-title.astro";
-import BoxHeader from "@/components/ui/box-header.astro";
-
-import PageLayout from "@/components/layouts/page/layout.astro";
+import PageLayout from "@/components/layouts/page-layout/index.astro";
 
 export async function getStaticPaths() {
-    const articles = await getCollection("blog", ({ data }) => !data.draft);
-
-    return articles
-        .map(article => ({
-            params: { series: article.data.series || "" },
-        }))
-        .filter(({ params }) => params.series !== "");
+    return getSeries(await getArticles()).map(series => ({ params: { series } }));
 }
 
 const { series } = Astro.params;
 
-const articles = await getCollection("blog", ({ data }) => !data.draft);
-const seriesArticles = articles.filter(article => article.data.series === series).sort(byNewest);
+const articles = (await getArticles()).filter(article => article.data.series === series);
 
-// Page properties
-const { title, description } = seriesPage(series);
+export const getMeta = (series: string) => {
+    return {
+        title: series,
+        description: `Deep dive into ${series} — a curated series from my programming journey.`,
+    };
+};
+
+const { title, description } = getMeta(series);
 ---
 
 <PageLayout backLink="/articles" description={description} title={title} ogImage={`/og/articles/series/${series}.png`}>
-    <Pattern />
-
-    <Box>
-        <BoxHeader>
-            <BoxTitle>Articles</BoxTitle>
-        </BoxHeader>
-        <div class="flex w-full flex-col items-start justify-start divide-y divide-border">
-            {seriesArticles.map(article => <ArticleItem article={article} />)}
-        </div>
-    </Box>
+    <ArticleList articles={articles} />
 </PageLayout>

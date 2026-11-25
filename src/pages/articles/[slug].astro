@@ -1,40 +1,64 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
 import { render } from "astro:content";
-import { getReadingTime } from "@/lib/utils";
+import { dev_to as devToProfile } from "@/content/information";
+import { getArticles } from "@/lib/content";
+import { formatCapitalized, formatReadingTime } from "@/lib/formats";
+import { separator } from "@/lib/utils";
 
-import ArticleLayout from "@/components/layouts/article/layout.astro";
+import BoxHeader from "@/components/ui/box-header.astro";
+import Box from "@/components/ui/box-index.astro";
+import BoxTitle from "@/components/ui/box-title.astro";
+import Pattern from "@/components/ui/pattern.astro";
+import Prose from "@/components/ui/prose.astro";
+import Published from "@/components/ui/published.astro";
+
+import BaseLayout from "@/components/layouts/base-layout/index.astro";
 
 export interface Props {
-    post: CollectionEntry<"blog">;
+    article: CollectionEntry<"articles">;
 }
 
 export async function getStaticPaths() {
-    const posts = await getCollection("blog", ({ data }) => !data.draft);
+    const articles = await getArticles();
 
-    const postResult = posts.map(post => ({
-        params: { slug: post.id },
-        props: { post },
+    return articles.map(article => ({
+        params: { slug: article.id },
+        props: { article },
     }));
-
-    return postResult;
 }
 
-const { post } = Astro.props;
+const { article } = Astro.props;
+const { title, description, published_at, updated_at, dev_to } = article.data;
 
-const rendered = await render(post);
+const { Content, headings } = await render(article);
 ---
 
-<ArticleLayout
-    headings={rendered.headings}
-    title={post.data.title}
-    date={post.data.pubDatetime}
-    updatedDate={post.data.updatedDatetime}
-    readTime={getReadingTime(post.body!) || "unknown"}
-    ogImage={`/og/articles/${post.id}.png`}
-    description={post.data.description}
-    devTo={post.data.devTo}
->
-    <rendered.Content />
-</ArticleLayout>
+<BaseLayout title={title} description={description} ogImage={`/og/articles/${article.id}.png`} backLink="/articles">
+    <Box>
+        <BoxHeader class="flex items-center justify-between text-sm !font-medium text-muted-foreground">
+            <div>
+                <Published pubDatetime={published_at} updatedDatetime={updated_at} />
+                {` ${separator} `}
+                {formatReadingTime(article.body)}
+            </div>
+            {dev_to && (
+                <div class="flex space-x-1">
+                    <span>also published at</span>
+                    <a href={devToProfile + dev_to} target="_blank" class="underline underline-offset-2">
+                        dev.to
+                    </a>
+                </div>
+            )}
+        </BoxHeader>
+        <Pattern className="screen-line-after" />
+        <BoxHeader>
+            <BoxTitle className="text-2xl !font-black md:text-3xl">{formatCapitalized(title)}</BoxTitle>
+        </BoxHeader>
+        <Pattern />
+    </Box>
+    <Prose headings={headings}>
+        <Content />
+    </Prose>
+</BaseLayout>

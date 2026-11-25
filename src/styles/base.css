@@ -1,0 +1,63 @@
+@layer base {
+    * {
+        @apply border-dashed border-border;
+    }
+
+    html {
+        @apply scroll-smooth;
+        font-family: Geist Sans;
+    }
+
+    body {
+        @apply overscroll-none bg-background text-foreground;
+        font-synthesis-weight: none;
+        text-rendering: optimizeLegibility;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-family: Roboto Condensed;
+    }
+
+    pre {
+        font-family: JetBrains Mono;
+        border: 0;
+    }
+
+    .copy-code {
+        @apply absolute top-2 right-2 cursor-pointer rounded-md border border-transparent p-2 text-xs font-bold duration-150 hover:bg-primary hover:text-primary-foreground;
+    }
+
+    .copy-code svg {
+        @apply size-4;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: hsl(var(--muted-foreground) / 0.5);
+        border-radius: 9999px;
+        border: 2px solid transparent;
+        background-clip: padding-box;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: hsl(var(--muted-foreground) / 0.8);
+        background-clip: padding-box;
+    }
+
+    @supports not selector(::-webkit-scrollbar) {
+        * {
+            scrollbar-width: auto;
+            scrollbar-color: hsl(var(--muted-foreground) / 0.6) transparent;
+        }
+    }
+}

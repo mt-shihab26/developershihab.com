@@ -1,79 +1,59 @@
 import dayjs, { type Dayjs } from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
+import duration from "dayjs/plugin/duration";
 import utc from "dayjs/plugin/utc";
 
 dayjs.extend(customParseFormat);
+dayjs.extend(duration);
 dayjs.extend(utc);
 
 export const PRESENT = "Present";
 
-// Hand-written dates in lib data are always month and year, e.g. "May 2023"
-const INPUT_FORMAT = "MMM YYYY";
-
-/**
- * Parses a hand-written date such as "May 2023". "Present" means today.
- */
-export const parseDate = (value: string): Dayjs => {
+export const dateParseMonthYear = (value: string): Dayjs => {
     if (value === PRESENT) return dayjs();
-
+    const INPUT_FORMAT = "MMM YYYY";
     const date = dayjs(value, INPUT_FORMAT, true);
-    if (!date.isValid()) throw new Error(`Unrecognised date "${value}", use "MMM YYYY", e.g. "May 2023"`);
-
+    if (!date.isValid()) {
+        throw new Error(`Unrecognised date "${value}", use "MMM YYYY", e.g. "May 2023"`);
+    }
     return date;
 };
 
-/**
- * The one date format used across the site, e.g. "21 Nov 2026".
- * Content dates are stored as UTC midnight, so formatting in UTC keeps the day from shifting.
- */
-export const formatDate = (date: Date): string => dayjs.utc(date).format("D MMM YYYY");
+export const dateFormatDayMonthYear = (date: Date): string => {
+    return dayjs.utc(date).format("D MMM YYYY");
+};
 
-/**
- * Calendar months from start to end, counting both, e.g. May 2025 – Nov 2026 is 19
- */
-const countMonths = (start: string, end: string = PRESENT): number =>
-    parseDate(end).startOf("month").diff(parseDate(start).startOf("month"), "month") + 1;
+const dateCountMonthsBetween = (start: string, end: string = PRESENT): number => {
+    return dateParseMonthYear(end).startOf("month").diff(dateParseMonthYear(start).startOf("month"), "month") + 1;
+};
 
-export const yearsSince = (start: string): number => Math.floor(countMonths(start) / 12);
+export const dateCountYearsSince = (start: string): number => {
+    return dayjs.duration(dateCountMonthsBetween(start), "months").years();
+};
 
-/**
- * Years between two dates, rounded to the nearest half year
- */
-export const yearsBetween = (start: string, end: string): number => Math.round((countMonths(start, end) - 1) / 6) / 2;
+export const dateCountYearsBetween = (start: string, end: string): number => {
+    return Math.round((dateCountMonthsBetween(start, end) - 1) / 6) / 2;
+};
 
-/**
- * "May 2023" to "Present" becomes "May 2023 – Present"
- */
-export const formatRange = (start: string, end: string = PRESENT): string => `${start} – ${end}`;
+export const dateFormatRange = (start: string, end: string = PRESENT): string => {
+    return `${start} – ${end}`;
+};
 
-/**
- * "May 2023" to "Present" becomes "3 yr 7 mo"
- */
-export const formatDuration = (start: string, end: string = PRESENT): string => {
-    const totalMonths = countMonths(start, end);
-    const years = Math.floor(totalMonths / 12);
-    const months = totalMonths % 12;
+export const dateFormatDuration = (start: string, end: string = PRESENT): string => {
+    const span = dayjs.duration(dateCountMonthsBetween(start, end), "months");
+    const years = span.years();
+    const months = span.months();
 
     if (years === 0) return `${months} mo`;
     if (months === 0) return `${years} yr`;
     return `${years} yr ${months} mo`;
 };
 
-/**
- * Short years label for skills, e.g. "< 1 yr", "1 yr", "4 yrs"
- */
-export const formatYears = (years: number): string => {
+export const dateFormatYearCount = (years: number): string => {
     if (years < 1) return "< 1 yr";
     return `${years} ${years === 1 ? "yr" : "yrs"}`;
 };
 
-/**
- * Newest first, for sorting by hand-written dates
- */
-export const compareDatesDesc = (a: string, b: string): number => parseDate(b).valueOf() - parseDate(a).valueOf();
-
-/**
- * Newest first, for sorting content entries by their publish date
- */
-export const byNewest = (a: { data: { pubDatetime: Date } }, b: { data: { pubDatetime: Date } }): number =>
-    b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime();
+export const dateCompareDesc = (a: string, b: string): number => {
+    return dateParseMonthYear(b).diff(dateParseMonthYear(a));
+};

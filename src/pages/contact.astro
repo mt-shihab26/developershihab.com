@@ -1,22 +1,25 @@
 ---
-import { email, twitter, linkedin, github } from "@/lib/information";
-import { pages } from "@/lib/pages";
+import { email, twitter, linkedin, github } from "@/content/information";
 
 import { Check, Copy, Mail } from "lucide-react";
 
-import XIcon from "@/components/icons/x.astro";
-import GithubIcon from "@/components/icons/github.astro";
-import LinkedinIcon from "@/components/icons/linkedin.astro";
+import GithubIcon from "@/components/icons/github-icon.astro";
+import LinkedinIcon from "@/components/icons/linkedin-icon.astro";
+import XIcon from "@/components/icons/x-icon.astro";
 
-import Box from "@/components/ui/box-index.astro";
 import BoxContent from "@/components/ui/box-content.astro";
 import BoxHeader from "@/components/ui/box-header.astro";
+import Box from "@/components/ui/box-index.astro";
 import BoxTitle from "@/components/ui/box-title.astro";
 
-import PageLayout from "@/components/layouts/page/layout.astro";
+import PageLayout from "@/components/layouts/page-layout/index.astro";
+export const meta = {
+    title: "Contact",
+    description: "Get in touch with me via email or connect on social media.",
+};
 ---
 
-<PageLayout title={pages.contact.title} description={pages.contact.description} ogImage="/og/contact.png">
+<PageLayout title={meta.title} description={meta.description} ogImage="/og/contact.png">
     <Box>
         <BoxHeader>
             <BoxTitle>Reach out</BoxTitle>
@@ -45,7 +48,6 @@ import PageLayout from "@/components/layouts/page/layout.astro";
                 </button>
                 <span data-copy-status class="sr-only" aria-live="polite"></span>
                 <script is:inline>
-                    // Inline so the button works as soon as it is on screen, without waiting for a bundled script
                     (() => {
                         const button = document.querySelector("[data-copy-email]");
                         const status = document.querySelector("[data-copy-status]");

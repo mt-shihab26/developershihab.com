@@ -1,12 +1,26 @@
 ---
-import { type CollectionEntry, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
-import { getCaseStudies } from "@/lib/case-studies";
+import { render } from "astro:content";
+import { getProject } from "@/content/projects";
+import { getCaseStudies } from "@/lib/content";
 
-import CaseStudyLayout from "@/components/layouts/case-study/layout.astro";
+import { ExternalLink, FolderCodeIcon } from "lucide-react";
+
+import Github from "@/components/icons/github-icon.astro";
+import BoxContent from "@/components/ui/box-content.astro";
+import BoxHeader from "@/components/ui/box-header.astro";
+import Box from "@/components/ui/box-index.astro";
+import BoxTitle from "@/components/ui/box-title.astro";
+import LinkBtn from "@/components/ui/link-btn.astro";
+import Pattern from "@/components/ui/pattern.astro";
+import Prose from "@/components/ui/prose.astro";
+import Published from "@/components/ui/published.astro";
+
+import BaseLayout from "@/components/layouts/base-layout/index.astro";
 
 export interface Props {
-    caseStudy: CollectionEntry<"caseStudies">;
+    caseStudy: CollectionEntry<"case_studies">;
 }
 
 export async function getStaticPaths() {
@@ -19,10 +33,70 @@ export async function getStaticPaths() {
 }
 
 const { caseStudy } = Astro.props;
+const { title, description, logo, logo_alt, published_at, updated_at } = caseStudy.data;
 
-const { Content } = await render(caseStudy);
+const project = getProject(caseStudy.data.project);
+const { preview, source } = project ?? {};
+
+const { Content, headings } = await render(caseStudy);
 ---
 
-<CaseStudyLayout caseStudy={caseStudy}>
-    <Content />
-</CaseStudyLayout>
+<BaseLayout
+    title={title}
+    description={description}
+    ogImage={`/og/case-studies/${caseStudy.id}.png`}
+    backLink="/case-studies"
+    backLabel="Back to case studies"
+>
+    <Fragment slot="actions">
+        {project && (
+            <LinkBtn ariaLabel="Project" className="text-xs" variant="secondary" href={`/projects#${project.slug}`}>
+                Project
+                <FolderCodeIcon className="size-3" />
+            </LinkBtn>
+        )}
+        {preview && (
+            <LinkBtn ariaLabel="Live app" target="_blank" className="text-xs" variant="default" href={preview}>
+                Preview
+                <ExternalLink className="size-3" />
+            </LinkBtn>
+        )}
+        {source && (
+            <LinkBtn ariaLabel="Source code" target="_blank" className="text-xs" variant="default" href={source}>
+                Source
+                <Github class="size-3" />
+            </LinkBtn>
+        )}
+    </Fragment>
+
+    <Box>
+        <BoxHeader>
+            <div class="flex items-center gap-4">
+                {logo && (
+                    <img
+                        src={logo.src}
+                        alt={logo_alt ?? `${title} logo`}
+                        class="size-14 shrink-0 rounded-lg border object-contain p-2.5 md:size-16"
+                    />
+                )}
+                <div>
+                    <p class="text-xs font-semibold tracking-wide text-muted-foreground uppercase">Case Study</p>
+                    <BoxTitle className="text-2xl !font-black md:text-3xl">{title}</BoxTitle>
+                </div>
+            </div>
+        </BoxHeader>
+
+        <BoxContent>
+            <p>{description}</p>
+            <p class="mt-3 text-xs text-muted-foreground">
+                <Published pubDatetime={published_at} updatedDatetime={updated_at} />
+            </p>
+        </BoxContent>
+    </Box>
+
+    <Pattern />
+
+    <Prose headings={headings}>
+        <Content />
+    </Prose>
+</BaseLayout>

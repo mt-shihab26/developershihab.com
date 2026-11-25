@@ -1,7 +1,0 @@
-.astro
-.claude
-.wrangler
-dist
-node_modules
-bun.lock
-

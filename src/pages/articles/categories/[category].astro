@@ -1,32 +1,26 @@
 ---
-import { getCollection } from "astro:content";
+import { getArticles, getCategories } from "@/lib/content";
 
-import { byNewest } from "@/lib/dates";
-import { categoryPage } from "@/lib/pages";
+import ArticleList from "@/components/ui/article-list.astro";
 
-import ArticleItem from "@/components/ui/article-item.astro";
-
-import Pattern from "@/components/ui/pattern.astro";
-import Box from "@/components/ui/box-index.astro";
-import BoxTitle from "@/components/ui/box-title.astro";
-import BoxHeader from "@/components/ui/box-header.astro";
-
-import PageLayout from "@/components/layouts/page/layout.astro";
+import PageLayout from "@/components/layouts/page-layout/index.astro";
 
 export async function getStaticPaths() {
-    const articles = await getCollection("blog", ({ data }) => !data.draft);
-    return articles.map(article => ({
-        params: { category: article.data.category },
-    }));
+    return getCategories(await getArticles()).map(category => ({ params: { category } }));
 }
 
 const { category } = Astro.params;
 
-const articles = await getCollection("blog", ({ data }) => !data.draft);
-const categoryArticles = articles.filter(article => article.data.category === category).sort(byNewest);
+const articles = (await getArticles()).filter(article => article.data.category === category);
 
-// Page properties
-const { title, description } = categoryPage(category);
+export const getMeta = (category: string) => {
+    return {
+        title: category,
+        description: `Exploring ${category} insights, lessons, and discoveries from my programming journey.`,
+    };
+};
+
+const { title, description } = getMeta(category);
 ---
 
 <PageLayout
@@ -35,14 +29,5 @@ const { title, description } = categoryPage(category);
     title={title}
     ogImage={`/og/articles/categories/${category}.png`}
 >
-    <Pattern />
-
-    <Box>
-        <BoxHeader>
-            <BoxTitle>Articles</BoxTitle>
-        </BoxHeader>
-        <div class="flex w-full flex-col items-start justify-start divide-y divide-border">
-            {categoryArticles.map(article => <ArticleItem article={article} />)}
-        </div>
-    </Box>
+    <ArticleList articles={articles} />
 </PageLayout>

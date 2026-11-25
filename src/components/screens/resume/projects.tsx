@@ -1,8 +1,8 @@
-import { SEPARATOR } from "@/lib/constants";
+import { separator } from "@/lib/utils";
 import type { TProject } from "@/types/content";
 
-import { website } from "@/lib/information";
-import { PROJECT_CATEGORIES, getResumeProjectsByCategory } from "@/lib/projects";
+import { website } from "@/content/information";
+import { project_categories, getResumeProjectsByCategory } from "@/content/projects";
 
 import { Code2 } from "lucide-react";
 import { Heading } from "./heading";
@@ -38,7 +38,7 @@ const ProjectCard = ({ project, caseStudy }: { project: TProject; caseStudy?: st
             )}
             <p className="pl-7">{project.description}</p>
             {project.technologies.length > 0 && (
-                <div className="pt-1 pl-7">{project.technologies.join(` ${SEPARATOR} `)}</div>
+                <div className="pt-1 pl-7">{project.technologies.join(` ${separator} `)}</div>
             )}
             {caseStudy && (
                 <p className="pt-1 pl-7">
@@ -66,7 +66,7 @@ const ProjectGroup = ({ title, projects }: { title: string; projects: TProject[]
                 <ProjectCard
                     key={index}
                     project={project}
-                    caseStudy={project.caseStudy && `${website}${project.caseStudy}`}
+                    caseStudy={project.case_study && `${website}${project.case_study}`}
                 />
             ))}
         </div>
@@ -74,14 +74,14 @@ const ProjectGroup = ({ title, projects }: { title: string; projects: TProject[]
 };
 
 export const Projects = () => {
-    const { professional, openSource, personal } = getResumeProjectsByCategory();
+    const { professional, open_source, personal } = getResumeProjectsByCategory();
 
     return (
         <section className="space-y-2">
             <Heading>Projects</Heading>
-            <ProjectGroup title={PROJECT_CATEGORIES.professional} projects={professional} />
-            <ProjectGroup title={PROJECT_CATEGORIES.personal} projects={personal} />
-            <ProjectGroup title={PROJECT_CATEGORIES.openSource} projects={openSource} />
+            <ProjectGroup title={project_categories.professional} projects={professional} />
+            <ProjectGroup title={project_categories.personal} projects={personal} />
+            <ProjectGroup title={project_categories.open_source} projects={open_source} />
         </section>
     );
 };

@@ -1,34 +1,29 @@
 ---
-import { name, headline, slogan, linkedin, github } from "@/lib/information";
+import { name, headline, slogan, linkedin, github } from "@/content/information";
 
 import { Briefcase } from "lucide-react";
 
-import VerifiedIcon from "@/components/icons/verified.astro";
-// Re-enable with the "Follow me on X" line below: import XIcon from "@/components/icons/x.astro";
-import GithubIcon from "@/components/icons/github.astro";
-import LinkedinIcon from "@/components/icons/linkedin.astro";
+import GithubIcon from "@/components/icons/github-icon.astro";
+import LinkedinIcon from "@/components/icons/linkedin-icon.astro";
+import VerifiedIcon from "@/components/icons/verified-icon.astro";
 
-import Box from "@/components/ui/box-index.astro";
 import BoxContent from "@/components/ui/box-content.astro";
+import Box from "@/components/ui/box-index.astro";
 
-import ProfileAvatar from "./profile-avatar.astro";
 import ProfileAlert from "./profile-alert.astro";
+import ProfileAvatar from "./profile-avatar.astro";
 ---
 
 <div class="screen-line-after relative flex items-center p-4 md:border-x">
     <div class="shrink-0">
         <div class="relative z-1 mx-0.5 my-1">
-            <ProfileAvatar
-                className="size-20 rounded-full ring-1 ring-border ring-offset-2 ring-offset-background sm:size-28"
-            />
+            <ProfileAvatar className="size-20 rounded-full ring-1 ring-border ring-offset-2 ring-offset-background sm:size-28" />
         </div>
     </div>
 
     <div class="flex flex-1 flex-col">
         <div class="flex grow items-end pb-1 pl-4">
-            <div class="line-clamp-1 font-mono text-xs text-muted-foreground">
-                {slogan}
-            </div>
+            <div class="line-clamp-1 font-mono text-xs text-muted-foreground">{slogan}</div>
         </div>
 
         <div class="">
@@ -38,9 +33,7 @@ import ProfileAlert from "./profile-alert.astro";
             </h1>
 
             <div class="py-1 pl-4">
-                <p class="text-sm !font-normal">
-                    {headline}
-                </p>
+                <p class="text-sm !font-normal">{headline}</p>
             </div>
         </div>
     </div>
@@ -51,36 +44,37 @@ import ProfileAlert from "./profile-alert.astro";
 <Box>
     <BoxContent className="space-y-3">
         <span class="flex items-center justify-start gap-2">
-            <Briefcase className="size-4" />
-            I build software at
-            <a href="https://finnext.co" target="_blank" class="underline underline-offset-4"> Finnext </a>
+            <Briefcase className="size-4" />I build software at
+            <a href="https://finnext.co" target="_blank" class="underline underline-offset-4">
+                {" "}
+                Finnext{" "}
+            </a>
         </span>
         <span class="flex items-center justify-start gap-2">
             <Briefcase className="size-4" />
             Take a look at my
-            <a href="/resume" class="underline underline-offset-4"> Resume </a>
+            <a href="/resume" class="underline underline-offset-4">
+                {" "}
+                Resume{" "}
+            </a>
         </span>
-
-        {
-            /* Disabled for now: "Follow me on X". To re-enable, also import XIcon and twitter above.
-        <span class="flex items-center justify-start gap-2">
-            <XIcon className="size-4" />
-            Follow me on
-            <a href={twitter} target="_blank" class="underline underline-offset-4"> X </a>
-        </span>
-        */
-        }
 
         <span class="flex items-center justify-start gap-2">
             <LinkedinIcon className="size-4" />
             Let's connect on
-            <a href={linkedin} class="underline underline-offset-4" target="_blank"> LinkedIn </a>
+            <a href={linkedin} class="underline underline-offset-4" target="_blank">
+                {" "}
+                LinkedIn{" "}
+            </a>
         </span>
 
         <span class="flex items-center justify-start gap-2">
             <GithubIcon className="size-4" />
             Check out my code on
-            <a href={github} class="underline underline-offset-4" target="_blank"> GitHub </a>
+            <a href={github} class="underline underline-offset-4" target="_blank">
+                {" "}
+                GitHub{" "}
+            </a>
         </span>
     </BoxContent>
 </Box>

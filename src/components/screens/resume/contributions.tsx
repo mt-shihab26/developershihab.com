@@ -1,4 +1,4 @@
-import { contributions } from "@/lib/contributions";
+import { contributions } from "@/content/contributions";
 
 import { GitPullRequestIcon } from "lucide-react";
 import { Heading } from "./heading";
@@ -8,23 +8,23 @@ export const Contributions = () => {
         <section>
             <Heading>Open Source Contributions</Heading>
             <div className="space-y-2">
-                {contributions.map(({ repo, repoUrl, prs }) => (
+                {contributions.map(({ repo, repo_url, prs }) => (
                     <div key={repo} className="border-b border-gray-200 pb-2 last:border-b-0 dark:border-gray-700">
                         <h3 className="font-bold">{repo}</h3>
                         <a
-                            href={repoUrl}
+                            href={repo_url}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="block underline decoration-gray-400"
                         >
-                            {repoUrl.split("//")[1]}
+                            {repo_url.split("//")[1]}
                         </a>
                         <div className="mt-1 space-y-0.5">
                             {prs.map(contribution => (
                                 <div key={contribution.pr}>
                                     <GitPullRequestIcon className="mr-1 inline h-3 w-3 text-gray-500 dark:text-gray-400" />
                                     <a
-                                        href={contribution.prUrl}
+                                        href={contribution.pr_url}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="underline decoration-gray-400"

@@ -1,38 +1,29 @@
 ---
 import type { CollectionEntry } from "astro:content";
 
-import { BookOpenTextIcon, ChevronRightIcon } from "lucide-react";
+import { BookOpenTextIcon } from "lucide-react";
+
+import ListItem from "@/components/ui/list-item.astro";
 
 interface Props {
-    caseStudy: CollectionEntry<"caseStudies">;
+    caseStudy: CollectionEntry<"case_studies">;
 }
 
 const { caseStudy } = Astro.props;
-const { title, description, logo, logoAlt } = caseStudy.data;
+const { title, description, logo, logo_alt } = caseStudy.data;
 ---
 
-<a href={`/case-studies/${caseStudy.id}`} class="group flex w-full cursor-pointer items-center not-last:border-b">
-    {
-        logo ? (
-            <img
-                src={logo}
-                alt={logoAlt ?? `${title} logo`}
-                class="mx-3 size-9 shrink-0 object-contain"
-                loading="lazy"
-            />
-        ) : (
-            <BookOpenTextIcon className="mx-4.5 size-5 shrink-0 text-muted-foreground" />
-        )
-    }
-
-    <div class="flex w-full flex-col gap-y-3 border-l p-4">
-        <div class="flex w-full items-center justify-between text-left select-none">
-            <h3 class="text-lg font-semibold underline-offset-6 group-hover:underline">{title}</h3>
-            <ChevronRightIcon
-                className="size-4 shrink-0 text-muted-foreground transition-transform duration-150 group-hover:translate-x-1"
-            />
-        </div>
-
-        <p class="text-xs leading-5 font-medium md:text-sm">{description}</p>
-    </div>
-</a>
+<ListItem href={`/case-studies/${caseStudy.id}`} title={title}>
+    {logo ? (
+        <img
+            slot="icon"
+            src={logo.src}
+            alt={logo_alt ?? `${title} logo`}
+            class="mx-3 size-9 shrink-0 object-contain"
+            loading="lazy"
+        />
+    ) : (
+        <BookOpenTextIcon slot="icon" className="mx-4.5 size-5 shrink-0 text-muted-foreground" />
+    )}
+    <p class="text-xs leading-5 font-medium md:text-sm">{description}</p>
+</ListItem>

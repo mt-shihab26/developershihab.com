@@ -1,66 +1,58 @@
 ---
 import type { GetStaticPaths } from "astro";
 
-import { getCollection } from "astro:content";
-import { postPerPage } from "@/lib/information";
-import { byNewest } from "@/lib/dates";
-import { pages } from "@/lib/pages";
+import { post_per_page } from "@/content/information";
+import { getArticles, getCategories, getSeries } from "@/lib/content";
 
-import ArticleItem from "@/components/ui/article-item.astro";
-import Pattern from "@/components/ui/pattern.astro";
+import ArticleList from "@/components/ui/article-list.astro";
+import BoxContent from "@/components/ui/box-content.astro";
+import BoxHeader from "@/components/ui/box-header.astro";
 import Box from "@/components/ui/box-index.astro";
 import BoxTitle from "@/components/ui/box-title.astro";
-import BoxHeader from "@/components/ui/box-header.astro";
-import BoxContent from "@/components/ui/box-content.astro";
 import LinkTag from "@/components/ui/link-tag.astro";
 import Pagination from "@/components/ui/pagination.astro";
+import Pattern from "@/components/ui/pattern.astro";
 
-import PageLayout from "@/components/layouts/page/layout.astro";
-
-const articles = await getCollection("blog", ({ data }) => !data.draft);
-const categories = [...new Set(articles.map(article => article.data.category))];
-const series = [...new Set(articles.map(article => article.data.series).filter(series => series !== undefined))];
+import PageLayout from "@/components/layouts/page-layout/index.astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
-    const articles = await getCollection("blog", ({ data }) => !data.draft);
-    const sortedArticles = articles.sort(byNewest);
-    return paginate(sortedArticles, { pageSize: postPerPage });
+    return paginate(await getArticles(), { pageSize: post_per_page });
 }) satisfies GetStaticPaths;
 
 const { page } = Astro.props;
+
+const articles = await getArticles();
+
+const groups = [
+    { title: "Series", path: "series", tags: getSeries(articles) },
+    { title: "Categories", path: "categories", tags: getCategories(articles) },
+];
+export const meta = {
+    title: "Articles",
+    description:
+        "Exploring programming, frontend, backend, and full-stack development deep dives, series, and hands-on insights.",
+};
 ---
 
-<PageLayout title={pages.articles.title} description={pages.articles.description} ogImage="/og/articles.png">
-    <Pattern />
-    <Box>
-        <BoxHeader>
-            <BoxTitle>Series</BoxTitle>
-        </BoxHeader>
-        <BoxContent>
-            <div class="flex flex-wrap items-center justify-start gap-x-4 gap-y-3">
-                {series.map(seriesItem => <LinkTag href={`articles/series/${seriesItem}`} tag={seriesItem} />)}
-            </div>
-        </BoxContent>
-    </Box>
-    <Pattern />
-    <Box>
-        <BoxHeader>
-            <BoxTitle>Categories</BoxTitle>
-        </BoxHeader>
-        <BoxContent>
-            <div class="flex flex-wrap items-center justify-start gap-x-4 gap-y-3">
-                {categories.map(category => <LinkTag href={`articles/categories/${category}`} tag={category} />)}
-            </div>
-        </BoxContent>
-    </Box>
-    <Pattern />
-    <Box>
-        <BoxHeader>
-            <BoxTitle>Articles</BoxTitle>
-        </BoxHeader>
-        <div class="flex w-full flex-col items-start justify-start divide-y divide-border">
-            {page.data.map(article => <ArticleItem article={article} />)}
-        </div>
+<PageLayout title={meta.title} description={meta.description} ogImage="/og/articles.png">
+    {groups.map(group => (
+        <>
+            <Pattern />
+            <Box>
+                <BoxHeader>
+                    <BoxTitle>{group.title}</BoxTitle>
+                </BoxHeader>
+                <BoxContent>
+                    <div class="flex flex-wrap items-center justify-start gap-x-4 gap-y-3">
+                        {group.tags.map(tag => (
+                            <LinkTag href={`articles/${group.path}/${tag}`} tag={tag} />
+                        ))}
+                    </div>
+                </BoxContent>
+            </Box>
+        </>
+    ))}
+    <ArticleList articles={page.data}>
         <Pagination page={page} />
-    </Box>
+    </ArticleList>
 </PageLayout>

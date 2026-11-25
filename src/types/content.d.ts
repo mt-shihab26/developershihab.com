@@ -1,18 +1,63 @@
+import type { DeveloperIconProps } from "developer-icons/dist/icon";
+import type { ReactElement } from "react";
+
+export type TExperience = {
+    company: {
+        label: string;
+        link: string;
+    };
+    positions: {
+        title: string;
+        start_date: string;
+        end_date?: string;
+        description: string[];
+        skills: string[];
+    }[];
+};
+
+export type TEducation = {
+    institution: { label: string; link: string };
+    positions: {
+        title: string;
+        start_date: string;
+        end_date?: string;
+        description?: string[];
+    }[];
+};
+
+export type TPullRequest = {
+    pr: string;
+    pr_url: string;
+    description: string;
+};
+
+export type TContributionGroup = {
+    repo: string;
+    repo_url: string;
+    prs: TPullRequest[];
+};
+
 export type TProject = {
-    // Unique id, also used by case studies to link to this project
     slug: string;
     name: string;
     description: string;
     technologies: string[];
     preview?: string;
     source?: string;
-    startDate: string;
-    endDate?: string;
-    // Case study page path, e.g. "/case-studies/paystubhero"
-    caseStudy?: string;
-    // Show on the resume
+    start_date: string;
+    end_date?: string;
+    case_study?: string;
     resume?: boolean;
-    // Higher numbers are listed first
     priority?: number;
     draft?: boolean;
+};
+
+export type TSkill = {
+    title: string;
+    href: string;
+    since?: string;
+    level?: "Advanced" | "Intermediate" | "Basic";
+    icon?: (props: DeveloperIconProps) => ReactElement;
+    resume_title?: string;
+    resume_disable?: boolean;
 };

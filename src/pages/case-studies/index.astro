@@ -1,25 +1,31 @@
 ---
-import { getCaseStudies } from "@/lib/case-studies";
-import { pages } from "@/lib/pages";
+import { getCaseStudies } from "@/lib/content";
 
-import PageLayout from "@/components/layouts/page/layout.astro";
-import Pattern from "@/components/ui/pattern.astro";
-import Box from "@/components/ui/box-index.astro";
-import BoxContent from "@/components/ui/box-content.astro";
+import PageLayout from "@/components/layouts/page-layout/index.astro";
 import CaseStudyItem from "@/components/screens/case-studies/case-study-item.astro";
+import BoxContent from "@/components/ui/box-content.astro";
+import Box from "@/components/ui/box-index.astro";
+import Pattern from "@/components/ui/pattern.astro";
 
 const caseStudies = await getCaseStudies();
+export const meta = {
+    title: "Case Studies",
+    description:
+        "How I designed, built, and run production SaaS products: the problem, the decisions behind the architecture, and the results.",
+};
 ---
 
-<PageLayout title={pages.caseStudies.title} description={pages.caseStudies.description} ogImage="/og/case-studies.png">
+<PageLayout title={meta.title} description={meta.description} ogImage="/og/case-studies.png">
     <Pattern />
     <Box>
-        {
-            caseStudies.length > 0 ? (
-                caseStudies.map(caseStudy => <CaseStudyItem caseStudy={caseStudy} />)
-            ) : (
-                <BoxContent>No case studies published yet.</BoxContent>
-            )
-        }
+        {caseStudies.length > 0 ? (
+            <div class="flex w-full flex-col divide-y divide-border">
+                {caseStudies.map(caseStudy => (
+                    <CaseStudyItem caseStudy={caseStudy} />
+                ))}
+            </div>
+        ) : (
+            <BoxContent>No case studies published yet.</BoxContent>
+        )}
     </Box>
 </PageLayout>

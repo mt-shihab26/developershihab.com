@@ -1,28 +1,30 @@
 ---
-import { PROJECT_CATEGORIES, getProjectsByCategory } from "@/lib/projects";
-import { pages } from "@/lib/pages";
+import { project_categories } from "@/content/projects";
 
-import PageLayout from "@/components/layouts/page/layout.astro";
+import { getProjectsByCategory } from "@/content/projects";
+
+import PageLayout from "@/components/layouts/page-layout/index.astro";
 import ProjectsList from "@/components/screens/projects/projects-list.astro";
 import SectionNav from "@/components/ui/section-nav.astro";
 
-const { professional, openSource, personal } = getProjectsByCategory();
+const { professional, open_source, personal } = getProjectsByCategory();
 
-// The project categories, in page order. The side navigation and the section anchors both use this list.
 const sections = [
-    { id: "production-saas-products", label: PROJECT_CATEGORIES.professional, projects: professional },
-    { id: "side-projects", label: PROJECT_CATEGORIES.personal, projects: personal },
-    { id: "open-source-tools-and-plugins", label: PROJECT_CATEGORIES.openSource, projects: openSource },
+    { id: "production-saas-products", label: project_categories.professional, projects: professional },
+    { id: "side-projects", label: project_categories.personal, projects: personal },
+    { id: "open-source-tools-and-plugins", label: project_categories.open_source, projects: open_source },
 ].filter(section => section.projects.length > 0);
+export const meta = {
+    title: "My Projects",
+    description: "Production SaaS products, side projects, and open source tools I have built.",
+};
 ---
 
-<PageLayout title={pages.projects.title} description={pages.projects.description} ogImage="/og/projects.png">
-    {
-        sections.map(section => (
-            <div id={section.id} class="scroll-mt-12">
-                <ProjectsList title={section.label} projects={section.projects} />
-            </div>
-        ))
-    }
+<PageLayout title={meta.title} description={meta.description} ogImage="/og/projects.png">
+    {sections.map(section => (
+        <div id={section.id} class="scroll-mt-12">
+            <ProjectsList title={section.label} projects={section.projects} />
+        </div>
+    ))}
     <SectionNav sections={sections} />
 </PageLayout>

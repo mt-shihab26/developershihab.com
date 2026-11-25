@@ -1,55 +1,49 @@
 import { glob } from "astro/loaders";
-import { defineCollection, z } from "astro:content";
+import { z } from "astro/zod";
+import { defineCollection } from "astro:content";
 
-const blog = defineCollection({
-    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/data/blog" }),
-    schema: () =>
-        z.object({
-            pubDatetime: z.date(),
-            // Optional date of the last meaningful update, shown next to the publish date
-            updatedDatetime: z.date().optional(),
-            series: z.string().optional(),
-            title: z.string(),
-            draft: z.boolean().optional(),
-            tags: z.array(z.string()).default(["others"]),
-            category: z.string(),
-            description: z.string(),
-            devTo: z.string().optional(),
-        }),
-});
+const loader = (collection: string) => {
+    return glob({ pattern: "**/*.{md,mdx}", base: `./src/content/${collection}` });
+};
 
-// Live link, source, technologies, and priority come from the linked project, when there is one,
-// in src/lib/projects.ts, so they are not repeated here
-const caseStudies = defineCollection({
-    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/data/case-studies" }),
-    schema: () =>
-        z.object({
-            // Optional slug of the project this case study is about, from src/lib/projects.ts
-            project: z.string().optional(),
-            // Headline shown on the index card and the page title
-            title: z.string(),
-            // One or two sentences: the problem and the outcome
-            description: z.string(),
-            // Optional logo path under public/, e.g. "/logos/paystubhero.svg"
-            logo: z.string().startsWith("/").optional(),
-            logoAlt: z.string().optional(),
-            // Publish date, used for ordering and the RSS feed
-            pubDatetime: z.date(),
-            // Optional date of the last meaningful update, shown next to the publish date
-            updatedDatetime: z.date().optional(),
-            draft: z.boolean().optional(),
-        }),
-});
-
-const poems = defineCollection({
-    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/data/poems" }),
-    schema: () =>
-        z.object({
-            pubDatetime: z.date(),
-            title: z.string(),
-            draft: z.boolean().optional(),
-            description: z.string(),
-        }),
-});
-
-export const collections = { blog, caseStudies, poems };
+export const collections = {
+    articles: defineCollection({
+        loader: loader("articles"),
+        schema: () =>
+            z.object({
+                published_at: z.date(),
+                updated_at: z.date().optional(),
+                series: z.string().optional(),
+                title: z.string(),
+                draft: z.boolean().optional(),
+                tags: z.array(z.string()).default(["others"]),
+                category: z.string(),
+                description: z.string(),
+                dev_to: z.string().optional(),
+            }),
+    }),
+    case_studies: defineCollection({
+        loader: loader("case-studies"),
+        schema: ({ image }) =>
+            z.object({
+                project: z.string().optional(),
+                title: z.string(),
+                description: z.string(),
+                logo: image().optional(),
+                logo_alt: z.string().optional(),
+                published_at: z.date(),
+                updated_at: z.date().optional(),
+                draft: z.boolean().optional(),
+            }),
+    }),
+    poems: defineCollection({
+        loader: loader("poems"),
+        schema: () =>
+            z.object({
+                published_at: z.date(),
+                title: z.string(),
+                draft: z.boolean().optional(),
+                description: z.string(),
+            }),
+    }),
+};

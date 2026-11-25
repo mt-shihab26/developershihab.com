@@ -1,8 +1,7 @@
-import { SEPARATOR } from "@/lib/constants";
-import { cn } from "@/lib/utils";
+import { separator, cn } from "@/lib/utils";
 
-import { avatar } from "@/lib/files";
-import { bio, email, github, linkedin, location, name, phone, website } from "@/lib/information";
+import avatar from "@/assets/images/avatar.png";
+import { bio, email, github, linkedin, location, name, phone, website } from "@/content/information";
 
 import { GitHubDark, GitHubLight, LinkedIn } from "developer-icons";
 import { Globe, Mail } from "lucide-react";
@@ -32,9 +31,9 @@ export const Header = ({ image }: { image?: boolean }) => {
                     })}
                 >
                     <div>{bio}</div>
-                    <div>{SEPARATOR}</div>
+                    <div>{separator}</div>
                     <div>{location}</div>
-                    <div>{SEPARATOR}</div>
+                    <div>{separator}</div>
                     <div>{phone}</div>
                 </div>
                 <div

@@ -8,6 +8,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
     site: "https://developershihab.com",
     output: "static",
+    compressHTML: true,
     integrations: [react(), mdx(), sitemap()],
     vite: { plugins: [tailwindcss()] },
 });

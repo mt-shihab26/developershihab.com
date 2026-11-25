@@ -1,10 +1,10 @@
 ---
 import type { TProject } from "@/types/content";
 
-import Pattern from "@/components/ui/pattern.astro";
-import Box from "@/components/ui/box-index.astro";
 import BoxHeader from "@/components/ui/box-header.astro";
+import Box from "@/components/ui/box-index.astro";
 import BoxTitle from "@/components/ui/box-title.astro";
+import Pattern from "@/components/ui/pattern.astro";
 
 import ProjectItem from "@/components/screens/projects/project-item.astro";
 
@@ -16,18 +16,16 @@ interface Props {
 const { title, projects } = Astro.props as Props;
 ---
 
-{
-    projects.length > 0 && (
-        <>
-            <Pattern />
-            <Box>
-                <BoxHeader>
-                    <BoxTitle>{title}</BoxTitle>
-                </BoxHeader>
-                {projects.map(item => (
-                    <ProjectItem project={item} />
-                ))}
-            </Box>
-        </>
-    )
-}
+{projects.length > 0 && (
+    <>
+        <Pattern />
+        <Box>
+            <BoxHeader>
+                <BoxTitle>{title}</BoxTitle>
+            </BoxHeader>
+            {projects.map(item => (
+                <ProjectItem project={item} />
+            ))}
+        </Box>
+    </>
+)}

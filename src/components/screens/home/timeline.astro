@@ -1,0 +1,68 @@
+---
+import { dateFormatDuration, dateFormatRange } from "@/lib/dates";
+import { separator } from "@/lib/utils";
+
+import SeeMore from "./see-more.astro";
+
+import BoxContent from "@/components/ui/box-content.astro";
+import BoxHeader from "@/components/ui/box-header.astro";
+import Box from "@/components/ui/box-index.astro";
+import BoxTitle from "@/components/ui/box-title.astro";
+
+interface Props {
+    title: string;
+    icon: any;
+    groups: {
+        label: string;
+        link: string;
+        positions: {
+            title: string;
+            start_date: string;
+            end_date?: string;
+            description?: string[];
+            skills?: string[];
+        }[];
+    }[];
+}
+
+const { title, icon: Icon, groups } = Astro.props;
+---
+
+<Box>
+    <BoxHeader>
+        <BoxTitle>{title}</BoxTitle>
+    </BoxHeader>
+    <BoxContent className="px-0">
+        {groups.map((group, index) => (
+            <div class="space-y-4 p-4 not-last:border-b">
+                <div class="flex items-center space-x-4 px-2">
+                    <span class="size-2 rounded-full bg-foreground/60" />
+                    <a href={group.link} target="_blank">
+                        <h3 class="text-xl font-black">{group.label}</h3>
+                    </a>
+                </div>
+                <div class="relative space-y-4 pl-1 before:absolute before:left-3 before:h-full before:w-px before:bg-border">
+                    {group.positions.map(position => (
+                        <div>
+                            <div class="block w-full text-left">
+                                <div class="relative z-1 mb-1 flex items-center space-x-3">
+                                    <Icon className="size-4 bg-background" />
+                                    <h3 class="text-base font-black underline-offset-4">{position.title}</h3>
+                                </div>
+                                <span class="flex items-center gap-2 pl-7 font-mono text-sm text-foreground">
+                                    {dateFormatRange(position.start_date, position.end_date)}
+                                    <span class="text-muted-foreground">
+                                        {separator} {dateFormatDuration(position.start_date, position.end_date)}
+                                    </span>
+                                </span>
+                            </div>
+                            {position.description && (
+                                <SeeMore open={index === 0} items={position.description} skills={position.skills} />
+                            )}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        ))}
+    </BoxContent>
+</Box>

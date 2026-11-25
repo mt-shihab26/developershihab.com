@@ -1,4 +1,4 @@
-import { getExperienceYears } from "@/lib/experiences";
+import { getExperienceYears } from "@/content/experiences";
 
 import { Heading } from "./heading";
 

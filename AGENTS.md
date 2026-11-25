@@ -5,3 +5,4 @@
 - If `dev` is behind `main`, fast-forward it to `main` before committing.
 - Commit or push only when asked.
 - Never use Python to edit or generate files. Use Bash (sed, heredocs) or the Edit/Write tools.
+- Do not add comments to code or config files unless explicitly asked.

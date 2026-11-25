@@ -1,0 +1,90 @@
+---
+project: paystubhero
+title: "PaystubHero: A Document SaaS Built and Run by One Developer"
+description: How I built and keep running a SaaS that generates paystubs, tax forms, and business documents as PDFs, as the only developer working with one designer, from launch in 2023 to today.
+logo: ../../assets/logos/paystubhero.svg
+logo_alt: PaystubHero logo
+published_at: 2026-11-21
+updated_at: 2026-11-21
+---
+
+## The Problem
+
+Freelancers, contractors, small business owners, and people paid in cash often need a paystub or tax form to prove income for a rental, a loan, or a benefits claim. Payroll software is built for companies with employees, not for someone who needs one correct document today.
+
+PaystubHero is a SaaS document generator built for them. Users fill in a short form, pick a template, and download a ready-to-use PDF for proof of income, loan and rental applications, tax filing, or payroll records.
+
+## How It Works
+
+**Choose a Template** – Pick one of 10 paystub designs, or choose another document type.
+
+**Enter Details** – Add company, employee, work schedule, and salary details. Taxes, deductions, and year-to-date totals are calculated automatically.
+
+**Download** – Pay through a secure checkout, then download the PDF instantly or get it by email. Past documents stay in the user's profile for re-download.
+
+## My Role
+
+I am the only developer on PaystubHero, working with one designer. I built the product from the first line of code, launched it in 2023, and have maintained it since. That covers the database and backend, the React frontend, payments, PDF rendering, marketing integrations, deployment, and day-to-day production support.
+
+## What I Built
+
+### Documents
+
+- **Paystubs** – US and Canadian generators with 10 templates
+- **Tax Forms** – W-2, W-9, 1099-NEC, 1099-MISC, Schedule C, and 1040
+- **Business Documents** – Offer letters and invoices
+
+### Features
+
+- **Accurate calculations** – Federal and state taxes, deductions, and YTD totals computed per pay period, so users don't do the math.
+- **PDF rendering** – Documents rendered with headless Chrome and mPDF, with multi-document PDF merging.
+- **Stripe payments** – Pay-per-document checkout (from $8.99 per paystub) through Laravel Cashier, with coupon codes.
+- **User accounts** – Saved documents, order history, and passwordless magic-link login.
+- **Admin dashboard** – Orders, customers, coupons, marketing ads, blocked IPs, and customer feedback.
+- **Marketing integrations** – Google Ads, Facebook Pixel and Conversions API, TikTok Ads, Klaviyo, Google Tag Manager, and an auto-generated sitemap.
+- **Background jobs** – Redis queues managed with Laravel Horizon, Mailgun email delivery, S3 file storage, and scheduled backups.
+
+## Key Technical Decisions
+
+### Keeping one Chromium process warm for PDF rendering
+
+Every order ends in a PDF, and launching a new headless Chrome for each one is slow. A small `ChromiumManager` service starts Chromium once with `keepAlive`, saves its socket address, and lets later requests reconnect to the same browser. If the connection is lost, it logs a warning and starts a fresh process. mPDF handles the templates that suit it better, and multi-document orders are merged into one file.
+
+### Fulfilling each order exactly once
+
+The Stripe webhook and the thank-you page can both try to complete the same order at the same moment. The `OrderFulfillmentService` first verifies the Stripe payment, then claims the order with a single atomic database update, so only one caller wins. The winner sends the documents by email, and if that fails the claim is released so a later visit or webhook retry can finish the job. An order can't be fulfilled twice, and a failed attempt is retried safely.
+
+### Moving slow work off the request
+
+Email delivery through Mailgun, marketing syncs, and other slow work run on Redis queues managed with Laravel Horizon. Files are stored on S3, backups run on a schedule, and Laravel Nightwatch monitors production.
+
+## Results
+
+- The platform generates **5,000+ financial documents a month**.
+- It has been in production since **2023**, maintained by one developer.
+- The codebase has grown to about **201,000 lines** of TypeScript, Blade, PHP, and CSS across **4,500+ commits**.
+
+## Tech Stack
+
+- **Backend:** Laravel 13 (PHP 8.4), Laravel Cashier, Horizon, Sanctum
+- **Frontend:** React + TypeScript via Inertia.js
+- **Styling:** TailwindCSS + shadcn/ui (Radix UI), GSAP animations
+- **PDF:** Headless Chrome (chrome-php), mPDF, PDF merging
+- **Infrastructure:** Redis, AWS S3, Mailgun, Laravel Nightwatch
+- **Payments:** Stripe
+
+## Codebase Size
+
+Counted with [cloc](https://github.com/AlDanial/cloc), excluding all `vendor` folders and `node_modules`, main languages only:
+
+| Language   | Files | Blank  | Comment | Code    |
+| ---------- | ----- | ------ | ------- | ------- |
+| TypeScript | 989   | 7,297  | 2,089   | 111,918 |
+| Blade      | 217   | 782    | 213     | 52,950  |
+| PHP        | 338   | 7,225  | 6,604   | 33,214  |
+| CSS        | 4     | 115    | 122     | 3,030   |
+| **SUM**    | 1,548 | 15,419 | 9,028   | 201,112 |
+
+## Live Application
+
+Visit the live application at [paystubhero.com](https://paystubhero.com)

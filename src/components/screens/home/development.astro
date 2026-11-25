@@ -1,16 +1,16 @@
 ---
-import { SEPARATOR } from "@/lib/constants";
-import { developmentStart, programmingStart } from "@/lib/information";
-import { formatSkillDetail, skills } from "@/lib/skills";
-import { yearsBetween } from "@/lib/dates";
+import { development_start, programming_start } from "@/content/information";
+import { formatSkillDetail, skills } from "@/content/skills";
+import { dateCountYearsBetween } from "@/lib/dates";
+import { separator } from "@/lib/utils";
 
 import { E } from "@/components/ui/e";
 import { R } from "@/components/ui/r";
 
-import Box from "@/components/ui/box-index.astro";
-import BoxHeader from "@/components/ui/box-header.astro";
-import BoxTitle from "@/components/ui/box-title.astro";
 import BoxContent from "@/components/ui/box-content.astro";
+import BoxHeader from "@/components/ui/box-header.astro";
+import Box from "@/components/ui/box-index.astro";
+import BoxTitle from "@/components/ui/box-title.astro";
 ---
 
 <Box>
@@ -19,80 +19,80 @@ import BoxContent from "@/components/ui/box-content.astro";
     </BoxHeader>
     <BoxContent>
         <div class="text-sm leading-7 font-medium">
-            I started learning <b>development</b> after {yearsBetween(programmingStart, developmentStart)} years of
+            I started learning <b>development</b> after {dateCountYearsBetween(programming_start, development_start)}{" "}
+            years of
             <b>programming</b> and <b>problem-solving</b> experience. The learning process was quite fast-paced. I began
             with
             <E href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</E>, then moved on to
             <E href="https://nodejs.org/">Node.js</E>, and later learned
             <E href="https://react.dev">React</E>.
-            <br /><br />
-            After that, I had the opportunity to work on a project for a
-            <i>US-based client</i>. For that project, I learned
+            <br />
+            <br />
+            After that, I had the opportunity to work on a project for a<i>US-based client</i>. For that project, I
+            learned
             <E href="https://www.php.net">PHP</E>
             and
-            <E href="https://wordpress.org">WordPress</E>. I used <b>React</b> for the frontend and connected it with the
-            WordPress system through the <b>REST API</b>. I also integrated the React frontend into WordPress using <b
-                >shortcodes</b
-            >.
-            <br /><br />
-            This experience sparked my interest in the <b>PHP ecosystem</b>, which led me to learn <E
-                href="https://laravel.com">Laravel</E
-            >. Now, I primarily work with Laravel and often combine it with
-            <E href="https://inertiajs.com">Inertia.js</E>,
-            <E href="https://react.dev">React</E>,
+            <E href="https://wordpress.org">WordPress</E>. I used <b>React</b> for the frontend and connected it with
+            the WordPress system through the <b>REST API</b>. I also integrated the React frontend into WordPress using{" "}
+            <b>shortcodes</b>.
+            <br />
+            <br />
+            This experience sparked my interest in the <b>PHP ecosystem</b>, which led me to learn{" "}
+            <E href="https://laravel.com">Laravel</E>. Now, I primarily work with Laravel and often combine it with
+            <E href="https://inertiajs.com">Inertia.js</E>,<E href="https://react.dev">React</E>,
             <E href="https://tailwindcss.com">TailwindCSS</E>, and <E href="https://ui.shadcn.com/">shadcn/ui</E>.
-            <br /><br />
-            You can find the code from the <i>courses</i> and <i>research</i> I did while learning full-stack web application
-            development at these links:
+            <br />
+            <br />
+            You can find the code from the <i>courses</i> and <i>research</i> I did while learning full-stack web
+            application development at these links:
             <div class="inline-flex flex-wrap gap-2 pl-1">
                 <R href="https://github.com/mt-shihab26/courses">Courses</R>
                 <R href="https://github.com/mt-shihab26/crash_courses">Crash Courses</R>
                 <R href="https://github.com/mt-shihab26/imaginative_research">Imaginative Research</R>
                 <R href="https://github.com/mt-shihab26/game_programming">Game Programming</R>
             </div>
-            <br /><br />
+            <br />
+            <br />
             Here is a list of the <b>tech stack</b> I use regularly:
             <br />
             <br />
         </div>
 
         <div class="space-y-6">
-            {
-                skills.map(category => (
-                    <div>
-                        <h3 class="mb-3 text-lg font-semibold">{category.label}</h3>
-                        <div class="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-3">
-                            {category.items.map(item => {
-                                const detail = formatSkillDetail(item, ` ${SEPARATOR} `);
+            {skills.map(category => (
+                <div>
+                    <h3 class="mb-3 text-lg font-semibold">{category.label}</h3>
+                    <div class="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-3">
+                        {category.items.map(item => {
+                            const detail = formatSkillDetail(item, ` ${separator} `);
 
-                                return (
-                                    <a
-                                        href={item.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        class:list={[
-                                            "flex min-h-12 min-w-[140px] items-center gap-2 rounded-md border border-solid bg-blue-50/10 p-2",
-                                            "transition-all duration-200 hover:bg-blue-50/20",
-                                        ]}
-                                    >
-                                        {item.icon && (
-                                            <span class="flex size-5 shrink-0 items-center justify-center">
-                                                <item.icon className="size-5" />
-                                            </span>
-                                        )}
-                                        <span class="flex min-w-0 flex-col">
-                                            <span class="truncate text-sm">{item.title}</span>
-                                            {detail && (
-                                                <span class="truncate text-[11px] text-muted-foreground">{detail}</span>
-                                            )}
+                            return (
+                                <a
+                                    href={item.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class:list={[
+                                        "flex min-h-12 min-w-[140px] items-center gap-2 rounded-md border border-solid bg-blue-50/10 p-2",
+                                        "transition-all duration-200 hover:bg-blue-50/20",
+                                    ]}
+                                >
+                                    {item.icon && (
+                                        <span class="flex size-5 shrink-0 items-center justify-center">
+                                            <item.icon className="size-5" />
                                         </span>
-                                    </a>
-                                );
-                            })}
-                        </div>
+                                    )}
+                                    <span class="flex min-w-0 flex-col">
+                                        <span class="truncate text-sm">{item.title}</span>
+                                        {detail && (
+                                            <span class="truncate text-[11px] text-muted-foreground">{detail}</span>
+                                        )}
+                                    </span>
+                                </a>
+                            );
+                        })}
                     </div>
-                ))
-            }
+                </div>
+            ))}
         </div>
     </BoxContent>
 </Box>

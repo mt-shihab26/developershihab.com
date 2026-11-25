@@ -1,20 +1,21 @@
 ---
+import { headline, name } from "@/content/information";
+
 import Pattern from "@/components/ui/pattern.astro";
 
-import Layout from "@/components/layouts/site/layout.astro";
-import Footer from "@/components/layouts/site/footer.astro";
-import Header from "@/components/layouts/site/header.astro";
+import Footer from "@/components/layouts/site-layout/footer.astro";
+import Header from "@/components/layouts/site-layout/header.astro";
+import Layout from "@/components/layouts/site-layout/index.astro";
 
-import Profile from "@/components/screens/home/profile.astro";
 import About from "@/components/screens/home/about.astro";
-import ProblemSolving from "@/components/screens/home/problem-solving.astro";
-import Development from "@/components/screens/home/development.astro";
-import Experience from "@/components/screens/home/experience.astro";
 import Contributions from "@/components/screens/home/contributions.astro";
+import Development from "@/components/screens/home/development.astro";
 import Education from "@/components/screens/home/education.astro";
+import Experience from "@/components/screens/home/experience.astro";
+import ProblemSolving from "@/components/screens/home/problem-solving.astro";
+import Profile from "@/components/screens/home/profile.astro";
 import SectionNav from "@/components/ui/section-nav.astro";
 
-// The home sections, in page order. The side navigation and the section anchors both use this list.
 const sections = [
     { id: "about", label: "About" },
     { id: "computer-programming", label: "Computer Programming" },
@@ -23,6 +24,7 @@ const sections = [
     { id: "open-source-contributions", label: "Open Source Contributions" },
     { id: "education", label: "Education" },
 ];
+export const meta = { title: name, description: headline };
 ---
 
 <Layout ogImage="/og/home.png">
@@ -31,17 +33,29 @@ const sections = [
         <Pattern className="h-14" />
         <Profile />
         <Pattern />
-        <div id="about" class="scroll-mt-12"><About /></div>
+        <div id="about" class="scroll-mt-12">
+            <About />
+        </div>
         <Pattern />
-        <div id="computer-programming" class="scroll-mt-12"><ProblemSolving /></div>
+        <div id="computer-programming" class="scroll-mt-12">
+            <ProblemSolving />
+        </div>
         <Pattern />
-        <div id="software-development" class="scroll-mt-12"><Development /></div>
+        <div id="software-development" class="scroll-mt-12">
+            <Development />
+        </div>
         <Pattern />
-        <div id="experience" class="scroll-mt-12"><Experience /></div>
+        <div id="experience" class="scroll-mt-12">
+            <Experience />
+        </div>
         <Pattern />
-        <div id="open-source-contributions" class="scroll-mt-12"><Contributions /></div>
+        <div id="open-source-contributions" class="scroll-mt-12">
+            <Contributions />
+        </div>
         <Pattern />
-        <div id="education" class="scroll-mt-12"><Education /></div>
+        <div id="education" class="scroll-mt-12">
+            <Education />
+        </div>
         <Pattern className="h-14" />
     </main>
     <SectionNav sections={sections} />
