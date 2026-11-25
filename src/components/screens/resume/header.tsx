@@ -1,7 +1,7 @@
 import { SEPARATOR, cn } from "@/lib/utils";
 
+import avatar from "@/assets/avatar.jpg";
 import { bio, email, github, linkedin, location, name, phone, website } from "@/content/information";
-import { avatar } from "@/lib/files";
 
 import { GitHubDark, GitHubLight, LinkedIn } from "developer-icons";
 import { Globe, Mail } from "lucide-react";
