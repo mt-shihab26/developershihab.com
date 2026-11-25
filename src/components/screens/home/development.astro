@@ -1,8 +1,6 @@
 ---
 import { development_start, programming_start } from "@/content/information";
-import { formatSkillDetail, skills } from "@/content/skills";
 import { dateCountYearsBetween } from "@/lib/dates";
-import { separator } from "@/lib/utils";
 
 import { E } from "@/components/ui/e";
 import { R } from "@/components/ui/r";
@@ -51,48 +49,6 @@ import BoxTitle from "@/components/ui/box-title.astro";
                 <R href="https://github.com/mt-shihab26/imaginative_research">Imaginative Research</R>
                 <R href="https://github.com/mt-shihab26/game_programming">Game Programming</R>
             </div>
-            <br />
-            <br />
-            Here is a list of the <b>tech stack</b> I use regularly:
-            <br />
-            <br />
-        </div>
-
-        <div class="space-y-6">
-            {skills.map(category => (
-                <div>
-                    <h3 class="mb-3 text-lg font-semibold">{category.label}</h3>
-                    <div class="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-3">
-                        {category.items.map(item => {
-                            const detail = formatSkillDetail(item, ` ${separator} `);
-
-                            return (
-                                <a
-                                    href={item.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class:list={[
-                                        "flex min-h-12 min-w-[140px] items-center gap-2 rounded-md border border-solid bg-blue-50/10 p-2",
-                                        "transition-all duration-200 hover:bg-blue-50/20",
-                                    ]}
-                                >
-                                    {item.icon && (
-                                        <span class="flex size-5 shrink-0 items-center justify-center">
-                                            <item.icon className="size-5" />
-                                        </span>
-                                    )}
-                                    <span class="flex min-w-0 flex-col">
-                                        <span class="truncate text-sm">{item.title}</span>
-                                        {detail && (
-                                            <span class="truncate text-[11px] text-muted-foreground">{detail}</span>
-                                        )}
-                                    </span>
-                                </a>
-                            );
-                        })}
-                    </div>
-                </div>
-            ))}
         </div>
     </BoxContent>
 </Box>
