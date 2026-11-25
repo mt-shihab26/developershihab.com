@@ -3,8 +3,17 @@ import type { CollectionEntry } from "astro:content";
 
 import { render } from "astro:content";
 import { getArticles } from "@/lib/content";
+import { devTo as devToProfile } from "@/lib/information";
+import { SEPARATOR, capitalizeFirstLetter, getReadingTime } from "@/lib/utils";
 
-import ArticleLayout from "@/components/layouts/article/layout.astro";
+import BoxHeader from "@/components/ui/box-header.astro";
+import Box from "@/components/ui/box-index.astro";
+import BoxTitle from "@/components/ui/box-title.astro";
+import Pattern from "@/components/ui/pattern.astro";
+import Prose from "@/components/ui/prose.astro";
+import Published from "@/components/ui/published.astro";
+
+import BaseLayout from "@/components/layouts/base/layout.astro";
 
 export interface Props {
     article: CollectionEntry<"articles">;
@@ -20,10 +29,35 @@ export async function getStaticPaths() {
 }
 
 const { article } = Astro.props;
+const { title, description, published_at, updated_at, dev_to } = article.data;
 
 const { Content, headings } = await render(article);
 ---
 
-<ArticleLayout article={article} headings={headings}>
-    <Content />
-</ArticleLayout>
+<BaseLayout title={title} description={description} ogImage={`/og/articles/${article.id}.png`} backLink="/articles">
+    <Box>
+        <BoxHeader class="flex items-center justify-between text-sm !font-medium text-muted-foreground">
+            <div>
+                <Published pubDatetime={published_at} updatedDatetime={updated_at} />
+                {` ${SEPARATOR} `}
+                {getReadingTime(article.body)}
+            </div>
+            {dev_to && (
+                <div class="flex space-x-1">
+                    <span>also published at</span>
+                    <a href={devToProfile + dev_to} target="_blank" class="underline underline-offset-2">
+                        dev.to
+                    </a>
+                </div>
+            )}
+        </BoxHeader>
+        <Pattern className="screen-line-after" />
+        <BoxHeader>
+            <BoxTitle className="text-2xl !font-black md:text-3xl">{capitalizeFirstLetter(title)}</BoxTitle>
+        </BoxHeader>
+        <Pattern />
+    </Box>
+    <Prose headings={headings}>
+        <Content />
+    </Prose>
+</BaseLayout>
