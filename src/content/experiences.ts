@@ -1,8 +1,7 @@
 import type { TExperience } from "@/types/content";
 
+import { finnextStart } from "@/content/information";
 import { dateCountYearsSince } from "@/lib/dates";
-
-const finnextStart = "May 2023";
 
 export const experiences: TExperience[] = [
     {
