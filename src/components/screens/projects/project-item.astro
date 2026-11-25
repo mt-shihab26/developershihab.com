@@ -18,7 +18,10 @@ const caseStudyHref = project.case_study;
 const href = caseStudyHref ?? project.source ?? project.preview;
 ---
 
-<div id={project.slug} class="flex scroll-mt-16 items-center not-last:border-b">
+<div
+    id={project.slug}
+    class="flex scroll-mt-16 items-center transition-colors duration-150 not-last:border-b hover:bg-brand/5"
+>
     <FolderCodeIcon className="mx-4.5 size-5 shrink-0 text-muted-foreground" />
 
     <div class="flex w-full flex-col gap-y-3 border-l p-4">
@@ -28,10 +31,10 @@ const href = caseStudyHref ?? project.source ?? project.preview;
             target={caseStudyHref ? undefined : "_blank"}
         >
             <div class="group flex w-full items-center justify-between text-left select-none">
-                <h3 class="cursor-pointer text-lg font-semibold underline-offset-6 group-hover:underline">
+                <h3 class="cursor-pointer text-lg font-semibold underline-offset-6 transition-colors duration-150 group-hover:text-brand group-hover:underline">
                     {project.name}
                 </h3>
-                <ChevronRightIcon className="size-4 shrink-0 text-muted-foreground transition-transform duration-150 group-hover:translate-x-1" />
+                <ChevronRightIcon className="size-4 shrink-0 text-muted-foreground transition duration-150 group-hover:translate-x-1 group-hover:text-brand" />
             </div>
             <MarkdownRenderer className="text-xs leading-5 font-medium md:text-sm" content={project.description} />
         </a>

@@ -1,4 +1,8 @@
 @layer base {
+    :focus-visible {
+        @apply rounded-sm outline-2 outline-offset-2 outline-brand outline-solid;
+    }
+
     * {
         @apply border-dashed border-border;
     }
