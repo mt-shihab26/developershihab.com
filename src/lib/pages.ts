@@ -1,4 +1,4 @@
-import { headline, name } from "@/lib/information";
+import { headline, name } from "@/content/information";
 
 export type TPageMeta = { title: string; description: string };
 

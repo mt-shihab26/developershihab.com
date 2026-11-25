@@ -2,8 +2,8 @@
 import type { CollectionEntry } from "astro:content";
 
 import { render } from "astro:content";
+import { devTo as devToProfile } from "@/content/information";
 import { getArticles } from "@/lib/content";
-import { devTo as devToProfile } from "@/lib/information";
 import { SEPARATOR, capitalizeFirstLetter, getReadingTime } from "@/lib/utils";
 
 import BoxHeader from "@/components/ui/box-header.astro";

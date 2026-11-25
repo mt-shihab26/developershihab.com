@@ -1,5 +1,5 @@
+import { educations } from "@/content/educations";
 import { formatDurationBetween, formatDateRange } from "@/lib/dates";
-import { educations } from "@/lib/educations";
 import { SEPARATOR, markdownToHtml } from "@/lib/utils";
 
 import { Heading } from "./heading";

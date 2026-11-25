@@ -1,12 +1,4 @@
-type TEducation = {
-    institution: { label: string; link: string };
-    positions: {
-        title: string;
-        startDate: string;
-        endDate?: string;
-        description?: string[];
-    }[];
-};
+import type { TEducation } from "@/types/content";
 
 export const educations: TEducation[] = [
     {

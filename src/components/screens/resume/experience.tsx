@@ -1,5 +1,5 @@
+import { experiences } from "@/content/experiences";
 import { formatDurationBetween, formatDateRange } from "@/lib/dates";
-import { experiences } from "@/lib/experiences";
 import { SEPARATOR, markdownToHtml } from "@/lib/utils";
 
 import { BriefcaseBusinessIcon } from "lucide-react";

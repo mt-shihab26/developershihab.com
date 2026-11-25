@@ -1,7 +1,7 @@
-import type { TProject } from "@/lib/projects";
 import { SEPARATOR } from "@/lib/utils";
+import type { TProject } from "@/types/content";
 
-import { website } from "@/lib/information";
+import { website } from "@/content/information";
 import { PROJECT_CATEGORIES, getResumeProjectsByCategory } from "@/lib/projects";
 
 import { Code2 } from "lucide-react";

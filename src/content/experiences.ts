@@ -1,18 +1,6 @@
-import { countYearsSince } from "@/lib/dates";
+import type { TExperience } from "@/types/content";
 
-type TExperience = {
-    company: {
-        label: string;
-        link: string;
-    };
-    positions: {
-        title: string;
-        startDate: string;
-        endDate?: string;
-        description: string[];
-        skills: string[];
-    }[];
-};
+import { countYearsSince } from "@/lib/dates";
 
 const finnextStart = "May 2023";
 

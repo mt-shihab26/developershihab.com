@@ -1,11 +1,10 @@
+import type { TSkill } from "@/types/content";
+
 import { InertiaIcon } from "@/components/icons/inertia-icon";
 import { StripeIcon } from "@/components/icons/stripe-icon";
 import { TanStackIcon } from "@/components/icons/tanstack-icon";
+import { developmentStart } from "@/content/information";
 import { formatYearCount, countYearsSince } from "@/lib/dates";
-import { developmentStart } from "@/lib/information";
-
-import type { DeveloperIconProps } from "developer-icons/dist/icon";
-import type { ReactElement } from "react";
 
 import {
     C,
@@ -30,17 +29,7 @@ import {
     WordPress,
 } from "developer-icons";
 
-type SkillItem = {
-    title: string;
-    href: string;
-    since?: string;
-    level?: "Advanced" | "Intermediate" | "Basic";
-    icon?: (props: DeveloperIconProps) => ReactElement;
-    resume_title?: string;
-    resume_disable?: boolean;
-};
-
-export const skills: { label: string; items: SkillItem[] }[] = [
+export const skills: { label: string; items: TSkill[] }[] = [
     {
         label: "Languages",
         items: [
@@ -209,5 +198,5 @@ export const skills: { label: string; items: SkillItem[] }[] = [
     },
 ];
 
-export const formatSkillDetail = (skill: SkillItem, separator = ", "): string =>
+export const formatSkillDetail = (skill: TSkill, separator = ", "): string =>
     [skill.level, skill.since && formatYearCount(countYearsSince(skill.since))].filter(Boolean).join(separator);

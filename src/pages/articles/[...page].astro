@@ -1,8 +1,8 @@
 ---
 import type { GetStaticPaths } from "astro";
 
+import { postPerPage } from "@/content/information";
 import { getArticles, getCategories, getSeries } from "@/lib/content";
-import { postPerPage } from "@/lib/information";
 import { pages } from "@/lib/pages";
 
 import ArticleList from "@/components/ui/article-list.astro";

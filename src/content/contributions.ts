@@ -1,14 +1,4 @@
-type TPullRequest = {
-    pr: string;
-    prUrl: string;
-    description: string;
-};
-
-export type TContributionGroup = {
-    repo: string;
-    repoUrl: string;
-    prs: TPullRequest[];
-};
+import type { TContributionGroup } from "@/types/content";
 
 export const contributions: TContributionGroup[] = [
     {
