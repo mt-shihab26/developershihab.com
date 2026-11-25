@@ -13,7 +13,7 @@ import LinkTag from "@/components/ui/link-tag.astro";
 import Pagination from "@/components/ui/pagination.astro";
 import Pattern from "@/components/ui/pattern.astro";
 
-import PageLayout from "@/components/layouts/page-layout/index.astro";
+import PageLayout from "@/components/layouts/page-layout.astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
     return paginate(await getArticles(), { pageSize: post_per_page });

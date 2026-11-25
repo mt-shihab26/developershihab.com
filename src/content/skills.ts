@@ -26,9 +26,9 @@ import type { TSkill } from "@/types/content";
 import { development_start } from "@/content/information";
 import { dateFormatYearCount, dateCountYearsSince } from "@/lib/dates";
 
-import { InertiaIcon } from "@/components/icons/inertia-icon";
-import { StripeIcon } from "@/components/icons/stripe-icon";
-import { TanStackIcon } from "@/components/icons/tanstack-icon";
+import InertiaIcon from "@/components/icons/inertia-icon.astro";
+import StripeIcon from "@/components/icons/stripe-icon.astro";
+import TanStackIcon from "@/components/icons/tanstack-icon.astro";
 
 export const skills: { label: string; items: TSkill[] }[] = [
     {

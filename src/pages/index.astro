@@ -3,9 +3,9 @@ import { headline, name } from "@/content/information";
 
 import Pattern from "@/components/ui/pattern.astro";
 
-import Footer from "@/components/layouts/site-layout/footer.astro";
-import Header from "@/components/layouts/site-layout/header.astro";
-import Layout from "@/components/layouts/site-layout/index.astro";
+import Footer from "@/components/layouts/footer.astro";
+import Header from "@/components/layouts/header.astro";
+import Layout from "@/components/layouts/site-layout.astro";
 
 import About from "@/components/screens/home/about.astro";
 import Contributions from "@/components/screens/home/contributions.astro";
@@ -14,12 +14,14 @@ import Education from "@/components/screens/home/education.astro";
 import Experience from "@/components/screens/home/experience.astro";
 import ProblemSolving from "@/components/screens/home/problem-solving.astro";
 import Profile from "@/components/screens/home/profile.astro";
+import Skills from "@/components/screens/home/skills.astro";
 import SectionNav from "@/components/ui/section-nav.astro";
 
 const sections = [
     { id: "about", label: "About" },
     { id: "computer-programming", label: "Computer Programming" },
     { id: "software-development", label: "Software Development" },
+    { id: "skills", label: "Skills" },
     { id: "experience", label: "Experience" },
     { id: "open-source-contributions", label: "Open Source Contributions" },
     { id: "education", label: "Education" },
@@ -43,6 +45,10 @@ export const meta = { title: name, description: headline };
         <Pattern />
         <div id="software-development" class="scroll-mt-12">
             <Development />
+        </div>
+        <Pattern />
+        <div id="skills" class="scroll-mt-12">
+            <Skills />
         </div>
         <Pattern />
         <div id="experience" class="scroll-mt-12">
