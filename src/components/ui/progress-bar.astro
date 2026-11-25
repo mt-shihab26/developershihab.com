@@ -1,0 +1,22 @@
+<!-- Reading progress bar along the top of the page -->
+<div aria-hidden="true" class="fixed top-0 z-50 h-1 w-full bg-background print:hidden">
+    <div id="progress-bar" class="h-1 w-0 bg-blue-500 duration-75"></div>
+</div>
+
+<script is:inline>
+    (() => {
+        const bar = document.getElementById("progress-bar");
+        if (!bar) return;
+
+        const update = () => {
+            const scrollable = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+            bar.style.width = `${Math.ceil(progress)}%`;
+        };
+
+        window.addEventListener("scroll", update, { passive: true });
+        window.addEventListener("resize", update);
+        window.addEventListener("load", update);
+        update();
+    })();
+</script>

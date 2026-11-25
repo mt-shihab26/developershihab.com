@@ -39,7 +39,7 @@ const formattedUpdatedDate = updatedDate && formatDate(updatedDate);
 ---
 
 <SiteLayout title={`${title} - ${name}`} ogImage={ogImage} description={description}>
-    <SiteHeader className="top-1" />
+    <SiteHeader />
     <main aria-label="Main content" class="min-h-screen">
         <div class="mx-auto max-w-3xl">
             <Pattern className="h-14">
@@ -96,22 +96,6 @@ const formattedUpdatedDate = updatedDate && formatDate(updatedDate);
 
     <script is:inline>
         (() => {
-            // Reading progress bar along the top of the page
-            const track = document.createElement("div");
-            track.className = "fixed top-0 z-10 h-1 w-full bg-background duration-75";
-            const bar = document.createElement("div");
-            bar.className = "h-1 w-0 bg-blue-500";
-            track.appendChild(bar);
-            document.body.appendChild(track);
-
-            const updateProgress = () => {
-                const scrollable = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
-                bar.style.width = `${Math.ceil(progress)}%`;
-            };
-            window.addEventListener("scroll", updateProgress, { passive: true });
-            updateProgress();
-
             // Copy button on every code block
             const label = "Copy";
             for (const block of document.querySelectorAll("article pre")) {

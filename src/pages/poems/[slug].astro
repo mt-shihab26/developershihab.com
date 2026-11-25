@@ -36,7 +36,7 @@ const body = poem.body?.trim() ?? "";
 ---
 
 <SiteLayout title={`${title} - ${name}`} ogImage={`/og/poems/${poem.id}.png`} description={poem.data.description}>
-    <SiteHeader className="top-1" />
+    <SiteHeader />
     <main aria-label="Main content" class="mx-auto min-h-screen max-w-3xl">
         <Pattern className="h-14">
             <LinkBtn ariaLabel="Back link" className="absolute bottom-0 left-2 z-1" href="/poems">
