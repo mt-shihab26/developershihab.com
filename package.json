@@ -5,7 +5,7 @@
         "build:resume": "bun run ./src/lib/resume.ts",
         "preview": "astro preview",
         "dev": "astro dev",
-        "lint": "vp check && astro sync && tsc --noEmit --runExternalCode",
+        "lint": "astro sync && tsc --noEmit --runExternalCode && vp check --no-fmt",
         "format": "vp fmt",
         "astro": "astro"
     },

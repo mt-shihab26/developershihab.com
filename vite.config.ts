@@ -55,6 +55,12 @@ export default defineConfig({
         },
         overrides: [
             {
+                files: ["*.yml", "*.yaml"],
+                options: {
+                    tabWidth: 2,
+                },
+            },
+            {
                 files: ["*.svg"],
                 options: {
                     htmlWhitespaceSensitivity: "ignore",
