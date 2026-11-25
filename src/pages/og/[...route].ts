@@ -33,7 +33,6 @@ for (const article of entries.articles) {
 }
 
 export const { getStaticPaths, GET } = await OGImageRoute({
-    param: "route",
     pages,
     getImageOptions: (_path, page: TPageMeta) => ({
         title: page.title,
