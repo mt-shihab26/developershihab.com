@@ -1,0 +1,10 @@
+---
+interface Props {
+    href: string;
+}
+
+const { href } = Astro.props;
+const content = await Astro.slots.render("default");
+---
+
+<a href={href} target="_blank" class="font-bold hover:underline hover:underline-offset-2" set:html={content} />
