@@ -11,7 +11,7 @@ const { port } = server.address;
 console.log(`Dev server running on port ${port}`);
 
 console.log("Launching browser...");
-const browser = await puppeteer.launch();
+const browser = await puppeteer.launch({ channel: "chrome" }); // the installed Google Chrome, see .puppeteerrc.json
 let exitCode = 0;
 try {
     const page = await browser.newPage();
