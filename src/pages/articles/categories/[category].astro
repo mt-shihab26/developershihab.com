@@ -3,7 +3,7 @@ import { getArticles, getCategories } from "@/lib/content";
 
 import ArticleList from "@/components/ui/article-list.astro";
 
-import PageLayout from "@/components/layouts/page-layout/index.astro";
+import PageLayout from "@/components/layouts/page-layout.astro";
 
 export async function getStaticPaths() {
     return getCategories(await getArticles()).map(category => ({ params: { category } }));
