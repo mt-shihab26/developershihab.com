@@ -21,7 +21,7 @@ const { article } = Astro.props;
         ))}
     </ul>
     <p class="text-xs text-foreground">
-        <Published pubDatetime={article.data.pubDatetime} updatedDatetime={article.data.updatedDatetime} />
+        <Published pubDatetime={article.data.published_at} updatedDatetime={article.data.updated_at} />
         {` ${SEPARATOR} `}
         {getReadingTime(article.body!)}
     </p>

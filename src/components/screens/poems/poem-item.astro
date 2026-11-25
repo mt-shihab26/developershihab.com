@@ -18,7 +18,7 @@ const { poem } = Astro.props;
     <Feather slot="icon" className="mx-5 size-5 shrink-0 text-muted-foreground" />
     <p class="text-sm text-muted-foreground">{poem.data.description}</p>
     <p class="text-xs text-foreground">
-        {formatDate(poem.data.pubDatetime)}
+        {formatDate(poem.data.published_at)}
         {SEPARATOR}
         {getLineCount(poem.body)} lines
     </p>

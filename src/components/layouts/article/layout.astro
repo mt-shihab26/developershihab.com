@@ -20,21 +20,21 @@ interface Props {
 }
 
 const { article, headings } = Astro.props;
-const { title, description, pubDatetime, updatedDatetime, devTo } = article.data;
+const { title, description, published_at, updated_at, dev_to } = article.data;
 ---
 
 <BaseLayout title={title} description={description} ogImage={`/og/articles/${article.id}.png`} backLink="/articles">
     <Box>
         <BoxHeader class="flex items-center justify-between text-sm !font-medium text-muted-foreground">
             <div>
-                <Published pubDatetime={pubDatetime} updatedDatetime={updatedDatetime} />
+                <Published pubDatetime={published_at} updatedDatetime={updated_at} />
                 {` ${SEPARATOR} `}
                 {getReadingTime(article.body)}
             </div>
-            {devTo && (
+            {dev_to && (
                 <div class="flex space-x-1">
                     <span>also published at</span>
-                    <a href={devToProfile + devTo} target="_blank" class="underline underline-offset-2">
+                    <a href={devToProfile + dev_to} target="_blank" class="underline underline-offset-2">
                         dev.to
                     </a>
                 </div>

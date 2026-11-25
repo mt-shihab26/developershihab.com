@@ -33,7 +33,7 @@ const body = poem.body?.trim() ?? "";
 <BaseLayout title={title} description={poem.data.description} ogImage={`/og/poems/${poem.id}.png`} backLink="/poems">
     <Box>
         <BoxHeader class="flex items-center justify-between text-sm !font-medium text-muted-foreground">
-            <span>{formatDate(poem.data.pubDatetime)}</span>
+            <span>{formatDate(poem.data.published_at)}</span>
             <span>{getLineCount(body)} lines</span>
         </BoxHeader>
         <Pattern className="screen-line-after" />

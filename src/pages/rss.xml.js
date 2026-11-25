@@ -6,7 +6,7 @@ import rss from "@astrojs/rss";
 
 const toItem = (path, entry, categories) => ({
     title: entry.data.title,
-    pubDate: entry.data.pubDatetime,
+    pubDate: entry.data.published_at,
     description: entry.data.description,
     link: `/${path}/${entry.id}/`,
     categories,
