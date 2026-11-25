@@ -7,9 +7,10 @@
         "allowJs": true,
         "jsx": "react-jsx",
         "jsxImportSource": "react",
-        "baseUrl": ".",
         "paths": {
             "@/*": ["./src/*"]
         }
-    }
+    },
+    // TypeScript 7 type-checks .astro files through this mapper, which replaces `astro check`
+    "contentMappers": [{ "package": "@astrojs/ts-content-mapper", "extensions": [".astro"] }]
 }
