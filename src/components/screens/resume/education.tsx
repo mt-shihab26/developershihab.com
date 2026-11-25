@@ -23,9 +23,9 @@ export const Education = () => {
                             <div key={i} className="mt-0.5">
                                 <p>{position.title}</p>
                                 <p>
-                                    {dateFormatRange(position.startDate, position.endDate)}
+                                    {dateFormatRange(position.start_date, position.end_date)}
                                     <span className="ml-1.5">
-                                        {separator} {dateFormatDuration(position.startDate, position.endDate)}
+                                        {separator} {dateFormatDuration(position.start_date, position.end_date)}
                                     </span>
                                 </p>
                                 {position.description && (

@@ -23,7 +23,7 @@ import {
 
 import type { TSkill } from "@/types/content";
 
-import { developmentStart } from "@/content/information";
+import { development_start } from "@/content/information";
 import { dateFormatYearCount, dateCountYearsSince } from "@/lib/dates";
 
 import { InertiaIcon } from "@/components/icons/inertia-icon";
@@ -37,7 +37,7 @@ export const skills: { label: string; items: TSkill[] }[] = [
             {
                 title: "TypeScript",
                 href: "https://www.typescriptlang.org",
-                since: developmentStart,
+                since: development_start,
                 level: "Advanced",
                 icon: TypeScript,
                 resume_title: "JS/TS",
@@ -45,7 +45,7 @@ export const skills: { label: string; items: TSkill[] }[] = [
             {
                 title: "JavaScript",
                 href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-                since: developmentStart,
+                since: development_start,
                 level: "Advanced",
                 icon: JavaScript,
                 resume_disable: true,

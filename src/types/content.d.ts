@@ -8,8 +8,8 @@ export type TExperience = {
     };
     positions: {
         title: string;
-        startDate: string;
-        endDate?: string;
+        start_date: string;
+        end_date?: string;
         description: string[];
         skills: string[];
     }[];
@@ -19,21 +19,21 @@ export type TEducation = {
     institution: { label: string; link: string };
     positions: {
         title: string;
-        startDate: string;
-        endDate?: string;
+        start_date: string;
+        end_date?: string;
         description?: string[];
     }[];
 };
 
 export type TPullRequest = {
     pr: string;
-    prUrl: string;
+    pr_url: string;
     description: string;
 };
 
 export type TContributionGroup = {
     repo: string;
-    repoUrl: string;
+    repo_url: string;
     prs: TPullRequest[];
 };
 
@@ -44,9 +44,9 @@ export type TProject = {
     technologies: string[];
     preview?: string;
     source?: string;
-    startDate: string;
-    endDate?: string;
-    caseStudy?: string;
+    start_date: string;
+    end_date?: string;
+    case_study?: string;
     resume?: boolean;
     priority?: number;
     draft?: boolean;

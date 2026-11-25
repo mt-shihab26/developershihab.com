@@ -2,7 +2,7 @@ import { separator } from "@/lib/utils";
 import type { TProject } from "@/types/content";
 
 import { website } from "@/content/information";
-import { projectCategories, getResumeProjectsByCategory } from "@/content/projects";
+import { project_categories, getResumeProjectsByCategory } from "@/content/projects";
 
 import { Code2 } from "lucide-react";
 import { Heading } from "./heading";
@@ -66,7 +66,7 @@ const ProjectGroup = ({ title, projects }: { title: string; projects: TProject[]
                 <ProjectCard
                     key={index}
                     project={project}
-                    caseStudy={project.caseStudy && `${website}${project.caseStudy}`}
+                    caseStudy={project.case_study && `${website}${project.case_study}`}
                 />
             ))}
         </div>
@@ -74,14 +74,14 @@ const ProjectGroup = ({ title, projects }: { title: string; projects: TProject[]
 };
 
 export const Projects = () => {
-    const { professional, openSource, personal } = getResumeProjectsByCategory();
+    const { professional, open_source, personal } = getResumeProjectsByCategory();
 
     return (
         <section className="space-y-2">
             <Heading>Projects</Heading>
-            <ProjectGroup title={projectCategories.professional} projects={professional} />
-            <ProjectGroup title={projectCategories.personal} projects={personal} />
-            <ProjectGroup title={projectCategories.openSource} projects={openSource} />
+            <ProjectGroup title={project_categories.professional} projects={professional} />
+            <ProjectGroup title={project_categories.personal} projects={personal} />
+            <ProjectGroup title={project_categories.open_source} projects={open_source} />
         </section>
     );
 };

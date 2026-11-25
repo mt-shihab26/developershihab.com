@@ -33,9 +33,9 @@ export const Experience = () => {
                                 </div>
 
                                 <span className="block pt-0.5 pb-1 pl-7">
-                                    {dateFormatRange(position.startDate, position.endDate)}
+                                    {dateFormatRange(position.start_date, position.end_date)}
                                     <span className="ml-1.5">
-                                        {separator} {dateFormatDuration(position.startDate, position.endDate)}
+                                        {separator} {dateFormatDuration(position.start_date, position.end_date)}
                                     </span>
                                 </span>
 

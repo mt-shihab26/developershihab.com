@@ -17,8 +17,8 @@ interface Props {
         link: string;
         positions: {
             title: string;
-            startDate: string;
-            endDate?: string;
+            start_date: string;
+            end_date?: string;
             description?: string[];
             skills?: string[];
         }[];
@@ -50,9 +50,9 @@ const { title, icon: Icon, groups } = Astro.props;
                                     <h3 class="text-base font-black underline-offset-4">{position.title}</h3>
                                 </div>
                                 <span class="flex items-center gap-2 pl-7 font-mono text-sm text-foreground">
-                                    {dateFormatRange(position.startDate, position.endDate)}
+                                    {dateFormatRange(position.start_date, position.end_date)}
                                     <span class="text-muted-foreground">
-                                        {separator} {dateFormatDuration(position.startDate, position.endDate)}
+                                        {separator} {dateFormatDuration(position.start_date, position.end_date)}
                                     </span>
                                 </span>
                             </div>

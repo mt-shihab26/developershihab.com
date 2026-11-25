@@ -1,5 +1,5 @@
 ---
-import { name, website, desc, pageType as xPageType, title as defaultTitle } from "@/content/information";
+import { name, website, desc, page_type as xPageType, title as defaultTitle } from "@/content/information";
 
 import "@/styles/main.css";
 
@@ -12,7 +12,7 @@ export interface Props {
     profile?: string;
     description?: string;
     ogImage?: string;
-    pageType?: string;
+    page_type?: string;
     canonicalURL?: string;
 }
 
@@ -22,7 +22,7 @@ const {
     profile = website,
     description = desc,
     ogImage = "/og/home.png",
-    pageType = xPageType,
+    page_type = xPageType,
     canonicalURL = new URL(Astro.url.pathname, Astro.url),
 } = Astro.props;
 
@@ -61,7 +61,7 @@ const structuredData = {
         <link rel="sitemap" href="/sitemap-index.xml" />
         <link rel="alternate" type="application/rss+xml" title={title} href={new URL("rss.xml", Astro.site)} />
 
-        <meta property="og:type" content={pageType} />
+        <meta property="og:type" content={page_type} />
         <meta property="og:site_name" content={name} />
         <meta property="og:locale" content="en_US" />
         <meta property="og:title" content={title} />

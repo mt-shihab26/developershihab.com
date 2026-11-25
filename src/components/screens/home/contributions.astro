@@ -14,7 +14,7 @@ import BoxTitle from "@/components/ui/box-title.astro";
         <BoxTitle>Open Source Contributions</BoxTitle>
     </BoxHeader>
     <BoxContent className="px-0 py-0">
-        {contributions.map(({ repo, repoUrl, prs }) => (
+        {contributions.map(({ repo, repo_url, prs }) => (
             <div class="space-y-4 p-4 not-last:border-b">
                 <div class="flex items-start space-x-4 px-2">
                     <span class="mt-3 size-2 shrink-0 rounded-full bg-foreground/60" />
@@ -23,12 +23,12 @@ import BoxTitle from "@/components/ui/box-title.astro";
                         <span class="text-sm">
                             (
                             <a
-                                href={repoUrl}
+                                href={repo_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="underline underline-offset-4"
                             >
-                                {repoUrl.split("//")[1]}
+                                {repo_url.split("//")[1]}
                             </a>
                             )
                         </span>
@@ -39,7 +39,7 @@ import BoxTitle from "@/components/ui/box-title.astro";
                         <div class="relative z-1 flex items-center space-x-3">
                             <GitPullRequestIcon className="size-4 shrink-0 bg-background" />
                             <a
-                                href={contribution.prUrl}
+                                href={contribution.pr_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="font-mono text-sm font-bold underline underline-offset-4"
