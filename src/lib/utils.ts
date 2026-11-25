@@ -1,22 +1,16 @@
-import type { ClassValue } from "clsx";
-
-import { clsx } from "clsx";
 import { fromMarkdown } from "mdast-util-from-markdown";
 import { toString } from "mdast-util-to-string";
-import { twMerge } from "tailwind-merge";
 
 import calculateReadingTime from "reading-time";
 
 import MarkdownIt from "markdown-it";
 
+export { cn } from "cn";
+
 // Separator between inline details, e.g. "4 Sep 2024 • 6 min read"
 export const SEPARATOR = "•";
 
 const md = new MarkdownIt();
-
-export const cn = (...inputs: ClassValue[]) => {
-    return twMerge(clsx(inputs));
-};
 
 export const capitalizeFirstLetter = (sentence: string): string => {
     return `${sentence.charAt(0).toUpperCase()}${sentence.slice(1)}`;
